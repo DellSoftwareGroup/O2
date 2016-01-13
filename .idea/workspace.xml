@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15937b49-1a60-4fa3-b417-8ebc20085dd9" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\common\head_tag.html" afterPath="$PROJECT_DIR$/SingleQueue/components/widgets/head_tag.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\common\ribbon-nav.html" afterPath="$PROJECT_DIR$/SingleQueue/components/widgets/ribbon-nav.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\common\top-nav.html" afterPath="$PROJECT_DIR$/SingleQueue/components/widgets/top-nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="15937b49-1a60-4fa3-b417-8ebc20085dd9" name="Default" comment="" />
     <ignored path="dsg-o2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,13 +24,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add-request.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add-request.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SingleQueue/components/add_request/add-request.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1679473" vertical-offset="0" max-vertical-offset="911">
+            <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
               <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="files_tree_widget.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/common/files_tree_widget.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="followers_table.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/common/followers_table.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request_info_form.jpg" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/add-request/request_info_form.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -187,8 +203,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13219616" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22121535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.012260128" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15245202" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40324324" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33513513" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -237,12 +253,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/mocks/add-new-request/single-queue-add-new-request-no-request-details-v2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SingleQueue/components/add_request/add-request.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1679473" vertical-offset="0" max-vertical-offset="911">
+        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/common/files_tree_widget.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/common/followers_table.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/add-request/request_info_form.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
