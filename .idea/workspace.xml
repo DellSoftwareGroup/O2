@@ -2,31 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15937b49-1a60-4fa3-b417-8ebc20085dd9" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\add_request\add-request.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\common\head_tag.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\common\ribbon-nav.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\common\top-nav.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\static\css\custom-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\static\js\custom-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\add_request\partials\_main-container.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\add_request\partials\_widget-a.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\add_request\partials\_widget-b.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\app.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\new _request\new_request.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_requests\view_request.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\index.html" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\add_request\add-request.css" afterPath="$PROJECT_DIR$/SingleQueue/components/add_request/add-request.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\add_request\add-request.js" afterPath="$PROJECT_DIR$/SingleQueue/components/add_request/add-request.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\new_request\new-request.css" afterPath="$PROJECT_DIR$/SingleQueue/components/new_request/new-request.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\new_request\new-request.html" afterPath="$PROJECT_DIR$/SingleQueue/components/new_request/new-request.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\new_request\new-request.js" afterPath="$PROJECT_DIR$/SingleQueue/components/new_request/new-request.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\view_requests\view-requests.css" afterPath="$PROJECT_DIR$/SingleQueue/components/view_requests/view-requests.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\view_requests\view-requests.html" afterPath="$PROJECT_DIR$/SingleQueue/components/view_requests/view-requests.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\view_requests\view-requests.js" afterPath="$PROJECT_DIR$/SingleQueue/components/view_requests/view-requests.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\view_tasks\view_tasks.css" afterPath="$PROJECT_DIR$/SingleQueue/components/view_tasks/view_tasks.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\view_tasks\view_tasks.html" afterPath="$PROJECT_DIR$/SingleQueue/components/view_tasks/view_tasks.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue2\components\view_tasks\view_tasks.js" afterPath="$PROJECT_DIR$/SingleQueue/components/view_tasks/view_tasks.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SingleQueue/components/add_request/add-request.html" afterPath="$PROJECT_DIR$/SingleQueue/components/add_request/add-request.html" />
+      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\common\head_tag.html" afterPath="$PROJECT_DIR$/SingleQueue/components/widgets/head_tag.html" />
+      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\common\ribbon-nav.html" afterPath="$PROJECT_DIR$/SingleQueue/components/widgets/ribbon-nav.html" />
+      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\common\top-nav.html" afterPath="$PROJECT_DIR$/SingleQueue/components/widgets/top-nav.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dsg-o2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,7 +40,7 @@
         </entry>
       </file>
       <file leaf-file-name="head_tag.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/components/common/head_tag.html">
+        <entry file="file://$PROJECT_DIR$/SingleQueue/components/widgets/head_tag.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3162">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -250,7 +229,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SingleQueue/components/common/head_tag.html">
+    <entry file="file://$PROJECT_DIR$/SingleQueue/components/widgets/head_tag.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3162">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
