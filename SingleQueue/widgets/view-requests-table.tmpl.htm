@@ -1,1 +1,15 @@
-<p>table goes here!</p>
+<div class="grid-wrapper">
+	<p>table goes here!</p>
+	<div id="grid"></div>
+
+	<script>
+		$(function(){
+			$('#grid').kendoGrid({
+				columns: [{title: "First Name"},
+					{title: "Last Name"},
+					{title: "Phone"},
+					{title: "Something else"}
+				]});
+		});
+	</script>
+</div>
