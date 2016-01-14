@@ -1669,3 +1669,8 @@ tbody tr:first-child .tooltip:hover:after {
 
 .rq-top-ribbon > ul > li .sub-nav-wrapper {
   top: 54px; }
+
+.grid-wrapper {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 15px; }

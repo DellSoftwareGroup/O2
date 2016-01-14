@@ -4,11 +4,30 @@
 
 	<script>
 		$(function(){
+			var request = [{
+				"id": "27139",
+				"Title": "Active Administrator for DNS Management",
+				"Type": ""
+			}]
+
 			$('#grid').kendoGrid({
-				columns: [{title: "First Name"},
-					{title: "Last Name"},
-					{title: "Phone"},
-					{title: "Something else"}
+				columns: [{title: "ID"},
+					{title: "Title"},
+					{title: "Type"},
+					{title: "Project"},
+					{title: "Agile Team"},
+					{title: "Status"},
+					{title: "Start Date"},
+					{title: "End Date"},
+					{title: "Requester"},
+					{title: "Portfolio"},
+					{title: "Sprint"},
+					{title: "Priority"},
+					{title: "Group"},
+					{title: "Active"},
+					{title: "Complete"},
+					{title: "Start Date"},
+					{title: "End Date"}
 				]});
 		});
 	</script>
