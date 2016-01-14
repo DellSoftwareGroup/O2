@@ -1674,3 +1674,11 @@ tbody tr:first-child .tooltip:hover:after {
   margin-top: 30px;
   border-top: 1px solid #ccc;
   padding-top: 15px; }
+
+.table-headings > li {
+  display: inline-block;
+  line-height: 24px;
+  padding-left: 10px; }
+
+.table-headings > li:last-child {
+  margin-left: 970px; }

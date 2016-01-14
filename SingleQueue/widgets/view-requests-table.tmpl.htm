@@ -1,34 +1,54 @@
 <div class="grid-wrapper">
-	<p>table goes here!</p>
-	<div id="grid"></div>
+	<div>
+		<ul class="table-headings">
+			<li>Request Info</li>
+			<li>Current Group Summary</li>
+		</ul>
+	</div>
+	<div id="results-data-list" class="results-data">
+	 <div id="GridRequest"></div>
+  </div>
 
 	<script>
 		$(function(){
-			var request = [{
-				"id": "27139",
-				"Title": "Active Administrator for DNS Management",
-				"Type": ""
-			}]
 
-			$('#grid').kendoGrid({
-				columns: [{title: "ID"},
-					{title: "Title"},
-					{title: "Type"},
-					{title: "Project"},
-					{title: "Agile Team"},
-					{title: "Status"},
-					{title: "Start Date"},
-					{title: "End Date"},
-					{title: "Requester"},
-					{title: "Portfolio"},
-					{title: "Sprint"},
-					{title: "Priority"},
-					{title: "Group"},
-					{title: "Active"},
-					{title: "Complete"},
-					{title: "Start Date"},
-					{title: "End Date"}
-				]});
+			$('#GridRequest').kendoGrid({
+				columns: [{title: "ID", field: "id"},
+					{title: "Title", field: "title",
+					 template: "<a href=''>#= title #</a>"},
+					{title: "Type", field: "type"},
+					{title: "Project", field: "project",
+						template: "<a href=''>#= project #</a>"},
+					{title: "Agile Team", field: "agileTeam"},
+					{title: "Status", field: "status"},
+					{title: "Request Start Date", field: "requestStartDate"},
+					{title: "End Date", field: "requestEndDate"},
+					{title: "Requester", field: "requester"},
+					{title: "Portfolio", field: "portfolio"},
+					{title: "Sprint", field: "sprint"},
+					{title: "Priority", field: "priority"},
+					{title: "Group", field: "group"},
+					{title: "Active", field: "active"},
+					{title: "Complete", field: "complete"},
+					{title: "Start Date", field: "startDate"},
+					{title: "End Date", field: "endDate"}],
+				dataSource: {
+					transport: {
+						read: {
+							url:"../../static/data/request.json"
+						}
+					},
+					schema: {
+						data: "data",
+						total: "count"
+					},
+					pageSize: 10
+				},
+				maxHeight: 500,
+				scrollable: false, // for our our layout we need to have this setting!
+				pageable: true,
+				sortable: true
+			});
 		});
 	</script>
 </div>
