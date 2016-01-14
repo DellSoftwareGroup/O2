@@ -178,19 +178,25 @@
 	<!-- */ End of Kendo and IS JS and Styles -->
 
 	<!-- Global ui styles and js -->
-	<link rel="stylesheet" href="../../static/css/partials/_web-queue.scss"/>
+	<link rel="stylesheet" href="../../static/css/partials/_web-queue.css"/>
 	<script src="../../static/js/custom-ui.js"></script>
 
 	<!-- template only styles and js -->
-	<link rel="stylesheet" href="../../static/css/partials/_view-requests.scss"/>
-	<script src="view-requests.js.js"></script>
+	<link rel="stylesheet" href="../static/css/partials/_view-requests.css"/>
+	<script src="view-requests.js"></script>
 
 
 </head>
 <body>
 <div id="body-content">
 	<div class="wrapper">
-		Content goes here
+>
+
+		<script>
+			//Load the template definition from an external file
+			templateLoader.loadExtTemplate("../../widgets/top-nav.tmpl.htm");
+			templateLoader.loadExtTemplate("../../widgets/ribbon-nav.tmpl.htm");
+		</script>
 	</div>
 </div>
 </body>
