@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15937b49-1a60-4fa3-b417-8ebc20085dd9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SingleQueue/static/css/partials/_web-queue.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SingleQueue/pages/new_request/new-request.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SingleQueue/pages/view_requests/view-requests.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SingleQueue/static/css/partials/view_tasks.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SingleQueue/pages/view_tasks/view_tasks.html" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\new_request\new-request.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_requests\view-requests.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_tasks\view_tasks.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\static\css\custom-ui.css" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\assets\widgets\views\IS_First\no-date-calendar-table.jpg" afterPath="$PROJECT_DIR$/SingleQueue/assets/widgets/views/no-date-calendar-table.jpg" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\add_request\add-request.css" afterPath="$PROJECT_DIR$/SingleQueue/pages/add_request/add-request.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\add_request\add-request.html" afterPath="$PROJECT_DIR$/SingleQueue/pages/add_request/add-request.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\add_request\add-request.js" afterPath="$PROJECT_DIR$/SingleQueue/pages/add_request/add-request.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\new_request\new-request.css" afterPath="$PROJECT_DIR$/SingleQueue/pages/new_request/new-request.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\new_request\new-request.js" afterPath="$PROJECT_DIR$/SingleQueue/pages/new_request/new-request.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_requests\view-requests.css" afterPath="$PROJECT_DIR$/SingleQueue/pages/view_requests/view-requests.css" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_requests\view-requests.js" afterPath="$PROJECT_DIR$/SingleQueue/pages/view_requests/view-requests.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_tasks\view_tasks.css" afterPath="$PROJECT_DIR$/SingleQueue/static/css/custom-ui.scss" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\view_tasks\view_tasks.js" afterPath="$PROJECT_DIR$/SingleQueue/pages/view_tasks/view_tasks.js" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\widgets\head_tag.html" afterPath="$PROJECT_DIR$/SingleQueue/widgets/head_tag.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\widgets\ribbon-nav.html" afterPath="$PROJECT_DIR$/SingleQueue/widgets/ribbon-nav.html" />
-      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\components\widgets\top-nav.html" afterPath="$PROJECT_DIR$/SingleQueue/widgets/top-nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SingleQueue/static/js/custom-ui.js" afterPath="$PROJECT_DIR$/SingleQueue/static/js/custom-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\pages\add_request\add-request.css" afterPath="$PROJECT_DIR$/SingleQueue/static/css/partials/_add-request.scss" />
+      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\pages\new_request\new-request.css" afterPath="$PROJECT_DIR$/SingleQueue/static/css/partials/_new-request.scss" />
+      <change type="MOVED" beforePath="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\pages\view_requests\view-requests.css" afterPath="$PROJECT_DIR$/SingleQueue/static/css/partials/_view-requests.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SingleQueue/pages/view_requests/view-requests.html" afterPath="$PROJECT_DIR$/SingleQueue/pages/view_requests/view-requests.html" />
     </list>
     <ignored path="dsg-o2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,20 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="request_info_form.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/edit-requests/request_info_form.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request_summary.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/edit-requests/request_summary.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_web-queue.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SingleQueue/static/css/partials/_web-queue.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,55 +39,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom-ui.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="custom-ui.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SingleQueue/static/css/custom-ui.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="937">
               <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request_info_form.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/add-request/request_info_form.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="no-date-calendar-table.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/no-date-calendar-table.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views_calendar_widget.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/IS_First/views_calendar_widget.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views_charts.jpg" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/IS_First/views_charts.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="files_tree_widget.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/common/files_tree_widget.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="followers_table.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/common/followers_table.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -148,10 +72,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1953" />
-    <option name="y" value="97" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,9 +161,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\static\css\partials" />
       <recent name="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue" />
       <recent name="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\assets\widgets\views" />
-      <recent name="C:\Users\jleon\Documents\GitHub\dsg-o2\SingleQueue\static\css\partials" />
     </key>
   </component>
   <component name="RunManager">
@@ -288,16 +212,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1953" y="97" width="1616" height="876" extended-state="0" />
-    <editor active="false" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5751351" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.014781491" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31362468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.012260128" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29637527" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40324324" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33513513" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -519,6 +443,46 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/views_ribbon.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/views_views_widget.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/views_top_area.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/mocks/views/view-task-list-view.fw.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/IS_First/views_charts.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/IS_First/views_calendar_widget.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/no-date-calendar-table.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/add-request/request_info_form.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SingleQueue/static/css/partials/_web-queue.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11713">
@@ -533,26 +497,6 @@
           <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/add-request/request_info_form.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/no-date-calendar-table.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/IS_First/views_calendar_widget.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SingleQueue/assets/widgets/views/IS_First/views_charts.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
   </component>
