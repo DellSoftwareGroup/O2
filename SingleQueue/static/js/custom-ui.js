@@ -10,7 +10,7 @@ var templateLoader = (function($,host){
 						if(target === undefined || target === ''){
 							$(".wrapper").append(result);
 						}else {
-							$(target).html(result);
+							$(target).append(result);
 						}
 
 					})
