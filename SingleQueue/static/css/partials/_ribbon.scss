@@ -21,7 +21,7 @@
     color: #3399CC;
     text-decoration: none;
   }
-  .search {
+  #search {
     margin-right: 7px;
   }
 }
@@ -113,7 +113,7 @@
 
 /*nav end*/
 
-/*ribbon start*/
+/*ribbob start*/
 
 .rq-top-ribbon {
   float: left;
@@ -149,11 +149,11 @@
   }
 }
 
-.rq-filters-item ul > li {
+#rq-filters-item ul > li {
   padding: 0;
 }
 
-.rq-filters {
+#rq-filters {
   padding: 7px 10px;
 }
 
@@ -272,7 +272,7 @@
   }
 }
 
-.rq-filters {
+#rq-filters {
   width: 37px;
   padding-bottom: 0;
   height: 33px;
@@ -285,22 +285,24 @@
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
-.rq-filters-item > span:last-child {
-  width: 54% !important;
+#rq-filters-item > span:last-child {
+  width: 66%;
+  display: block;
+  padding-top: 23px;
 }
 
-.rq-filters {
+#rq-filters {
   &:hover > span:last-child {
     display: none;
   }
-  .search {
+  #search {
     background-color: #007CB8;
     color: #fff;
     border: none;
     padding: 7px 0;
     width: 107px;
   }
-  .reset {
+  #reset {
     background-color: #007CB8;
     color: #fff;
     border: none;
@@ -313,7 +315,7 @@
       cursor: pointer;
     }
   }
-  .search:hover {
+  #search:hover {
     background-color: #00447B;
     cursor: pointer;
   }
@@ -346,7 +348,7 @@
   position: relative;
   z-index: 0;
   padding-right: 21px;
-  width: 285px;
+  width: 268px;
 }
 
 .wide-blue-button {
@@ -357,6 +359,7 @@
   a {
     padding: 0 10px;
     display: block;
+    color: #fff;
     float: left;
     span {
       &:first-child {
@@ -408,11 +411,11 @@
   > {
     div {
       padding-top: 20px;
-      width: 311px;
+      width: 294px;
     }
     span:last-child {
       padding-top: 8px;
-      width: 12%;
+      width: 17%;
     }
   }
 }
@@ -528,13 +531,13 @@
   background-position: -470px -40px;
 }
 
-.filters-icon {
+#filters-icon {
   background-position: -552px -3px;
   width: 47%;
   margin-top: 2px;
 }
 
-.active-item-bg .filters-icon, .activate-bg .filters-icon, .rq-filters a:hover .filters-icon, .add-bg .filters-icon {
+.active-item-bg #filters-icon, .activate-bg #filters-icon, #rq-filters a:hover #filters-icon, .add-bg #filters-icon {
   background-position: -552px -40px;
 }
 
@@ -556,3 +559,4 @@
   height: 15px;
   margin: -27px 4px 0 0;
 }
+

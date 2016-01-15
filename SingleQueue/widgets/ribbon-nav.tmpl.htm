@@ -1,3 +1,68 @@
+<div class="nav">
+  <ul>
+
+
+    <li><a href="/mk/RequestQueues/" class="active">Requests</a></li>
+    <li><a href="/mk/RequestQueues/Projects" class="">Projects</a></li>
+
+    <li class="has-subnav">
+      <a href="http://o2.prod.quest.corp/v2/Listing/Campaigns">Campaigns</a>
+      <div class="sub-nav-col-wrapper">
+        <div class="sub-nav-col">
+          <ul>
+            <li><a target="_blank" href="https://www.share.software.dell.com/sites/Marketing/CampaignMarketing/_layouts/15/start.aspx#/Lists/Demand%20Center/Summary.aspx#InplviewHashd4f5fb8c-a53a-4a88-ba3c-b6c84b029b5a=ShowInGrid%3DTrue">Marketing Demand Center</a></li>
+            <li><a target="_blank" href="http://o2/v2/Listing/Campaigns/">Manage Parent Campaign</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+
+    <li class="has-subnav">
+      <a href="/ecommerce/">Quick Links</a>
+      <div class="sub-nav-col-wrapper">
+        <div class="sub-nav-col">
+          <ul>
+            <li><a target="_blank" href="https://www.share.software.dell.com/sites/Marketing/AgileMarketing/_layouts/15/start.aspx#/">Agile Marketing SharePoint</a></li>
+            <li><a target="_blank" href="https://workorder.cbre.com/CRSDell/">Corporate&nbsp;Services&nbsp;Request</a></li>
+            <li><a target="_blank" href="https://srms.dell.com/arsys/forms/svmgtprdapp.us.dell.com/SRS%3AServiceRequestConsole/enduser/?cacheid=26dac9fd&amp;wait=0">Dell.com&nbsp;IT&nbsp;Support&nbsp;(Workplace)</a></li>
+            <li><a target="_blank" href="\\prod.quest.corp\software">Employee&nbsp;Desktop&nbsp;Software</a></li>
+            <li><a target="_blank" href="https://dsg.service-now.com/com.glideapp.servicecatalog_cat_item_view.do?sysparm_id=63547474b58c1940fa0627cb8cab7d7c&amp;sysparm_cancelable=true">DSG&nbsp;AD&nbsp;Account&nbsp;Request</a></li>
+            <li><a target="_blank" href="http://software.dell.com/hidden/dsg64.exe">DSG&nbsp;Quick&nbsp;Connect</a></li>
+            <li><a target="_blank" href="https://dsg.service-now.com/">Help&nbsp;Desk</a></li>
+            <li><a target="_blank" href="https://access-new.dell.com/go/ausmaximine10.us.dell.com~8881/">Maxamine&nbsp;Report&nbsp;Request&nbsp;(Workplace)</a></li>
+            <li><a target="_blank" href="http://iq.prod.quest.corp/mis/purchaseRequest/purchaseForm.asp">Purchase&nbsp;Request</a></li>
+            <li><a target="_blank" href="https://alvicaw01.prod.quest.corp/certsrv/certrqma.asp">QAP&nbsp;Certificate&nbsp;Request</a></li>
+            <li><a target="_blank" href="http://webteamtfs:8080/tfs/web/Index.aspx?puri=vstfs%3A%2F%2F%2FClassification%2FTeamProject%2F8b7962b9-6d39-4c33-a570-beb174c3f8f4">TFS&nbsp;Bugs&nbsp;&amp;&nbsp;User&nbsp;Stories</a></li>
+            <li><a target="_blank" href="https://team.prod.quest.corp/sites/Mkt-Internet/default.aspx">TFS&nbsp;Release&nbsp;Calendar</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li class="has-subnav">
+      <a href="http://webmarketing.prod.quest.corp">Old Queues</a>
+      <div class="sub-nav-col-wrapper">
+        <div class="sub-nav-col">
+          <ul>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/advertising/">Advertising</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/analytics/">Analytics</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/creativeservices/">Design &amp; Multimedia</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/email/">Email</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/ecommerce/">eCommerce</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/marcom/">Marcom/Promotions</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/mops/">Marketing Ops</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/search/">Search Marketing</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/socialmedia/">SoMe</a></li>
+            <li><a target="_blank" href="http://webmarketing.prod.quest.corp/webrequests/">Web</a></li>
+          </ul>
+        </div>
+      </div></li>
+    <li class="right">
+      <a target="_blank" href="https://www.share.software.dell.com/sites/Marketing/Digital/online/_layouts/15/start.aspx#/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FMarketing%2FDigital%2Fonline%2FShared%20Documents%2FTraining&amp;FolderCTID=0x012000FAD55545DDB51E43B3C1D026D4BBB366&amp;View=%7BDA1AE278%2D2867%2D4B62%2D9467%2DECA6B46A3B02%7D">
+        <span id="question-mark-icon"></span>Help &amp; Training
+      </a>
+    </li>
+  </ul>
+</div>
 <div class="rq-top-ribbon">
   <ul>
     <li>
@@ -145,7 +210,81 @@
                 <div id="filter-title">
                   <span>Filters</span>
                 </div>
-                @Html.DropDownList("request-status-dd", Model.RequestStatus)
+                <select id="request-status-dd" name="request-status-dd"><option value="">--All Request Status--</option>
+                  <option value="-">-</option>
+                  <option value="10th Draft">10th Draft</option>
+                  <option value="1st Draft">1st Draft</option>
+                  <option value="2nd Draft">2nd Draft</option>
+                  <option value="3rd Draft">3rd Draft</option>
+                  <option value="4th Draft">4th Draft</option>
+                  <option value="5th Draft">5th Draft</option>
+                  <option value="6th Draft">6th Draft</option>
+                  <option value="7th Draft">7th Draft</option>
+                  <option value="8th Draft">8th Draft</option>
+                  <option value="9th Draft">9th Draft</option>
+                  <option value="Ads are Live">Ads are Live</option>
+                  <option value="Ads Trafficked out to Vendors">Ads Trafficked out to Vendors</option>
+                  <option value="Approval">Approval</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Approved Media Plan">Approved Media Plan</option>
+                  <option value="Assigned">Assigned</option>
+                  <option value="Assigned to Designer">Assigned to Designer</option>
+                  <option value="Awaiting asset">Awaiting asset</option>
+                  <option value="Awaiting CM Approval">Awaiting CM Approval</option>
+                  <option value="Awaiting Response on Quote/Ad Options">Awaiting Response on Quote/Ad Options</option>
+                  <option value="Awaiting tie in to program">Awaiting tie in to program</option>
+                  <option value="Building Media Plan">Building Media Plan</option>
+                  <option value="Canceled">Canceled</option>
+                  <option value="Complete">Complete</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Declined (requires additional information)">Declined (requires additional information)</option>
+                  <option value="Failed">Failed</option>
+                  <option value="Final Draft">Final Draft</option>
+                  <option value="Gathering Requirements">Gathering Requirements</option>
+                  <option value="Ideation">Ideation</option>
+                  <option value="Implementation">Implementation</option>
+                  <option value="In E-Card Generator">In E-Card Generator</option>
+                  <option value="In layout">In layout</option>
+                  <option value="In Production">In Production</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="In Web Production">In Web Production</option>
+                  <option value="Materials Trafficked">Materials Trafficked</option>
+                  <option value="Media Plan Being Revised">Media Plan Being Revised</option>
+                  <option value="Media Plan Ready for Review">Media Plan Ready for Review</option>
+                  <option value="More Info Needed">More Info Needed</option>
+                  <option value="More info. needed">More info. needed</option>
+                  <option value="Not Started">Not Started</option>
+                  <option value="On Hold">On Hold</option>
+                  <option value="Open Marcom Request">Open Marcom Request</option>
+                  <option value="Postponed">Postponed</option>
+                  <option value="Ready on staging">Ready on staging</option>
+                  <option value="Ready to Blast">Ready to Blast</option>
+                  <option value="Ready to Post Live">Ready to Post Live</option>
+                  <option value="Ready to Review">Ready to Review</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="Requirements being reviewed">Requirements being reviewed</option>
+                  <option value="Research Ad Ideas">Research Ad Ideas</option>
+                  <option value="Revisions in Progress">Revisions in Progress</option>
+                  <option value="Running">Running</option>
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Sent out for Print Proof">Sent out for Print Proof</option>
+                  <option value="Transfered">Transfered</option>
+                  <option value="Transferred - Internal">Transferred - Internal</option>
+                  <option value="Transferred - IS CRM">Transferred - IS CRM</option>
+                  <option value="Transferred - IS OBIEE">Transferred - IS OBIEE</option>
+                  <option value="Transferred - IS Web">Transferred - IS Web</option>
+                  <option value="Waiting for Ad Specifications">Waiting for Ad Specifications</option>
+                  <option value="Waiting for approval">Waiting for approval</option>
+                  <option value="Waiting for content">Waiting for content</option>
+                  <option value="Waiting for Dell Migration">Waiting for Dell Migration</option>
+                  <option value="Waiting for dev">Waiting for dev</option>
+                  <option value="Waiting for feedback">Waiting for feedback</option>
+                  <option value="Waiting for info">Waiting for info</option>
+                  <option value="Waiting for Legal Approval (case studies only)">Waiting for Legal Approval (case studies only)</option>
+                  <option value="Waiting for requirements">Waiting for requirements</option>
+                  <option value="Waiting for Schematics">Waiting for Schematics</option>
+                  <option value="Waiting for Source files">Waiting for Source files</option>
+                </select>
                 <div id="filter-request-id">
                   <input type="text" value="" placeholder="Request Id" id="request-id-text" class="rq-ribbon-filter-text" maxlength="10">
                 </div>
