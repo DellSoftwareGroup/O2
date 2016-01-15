@@ -157,4 +157,12 @@
   padding: 0;
 }
 
-/*tabs end*/
+/*tabs end*/}
+.table-headings > li {
+  display: inline-block;
+  line-height: 24px;
+  padding-left: 10px;
+}
+.table-headings > li:last-child {
+  margin-left: 970px;
+}
