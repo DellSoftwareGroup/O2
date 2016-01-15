@@ -2,4 +2,159 @@
   margin-top: 30px;
   border-top: 1px solid #ccc;
   padding-top: 15px;
+  float:left;
 }
+
+/*top header start*/
+
+#top-head {
+  position: relative;
+  float: left;
+  width: 100%;
+  #search-container {
+    margin-top:15px;
+    #search-query-container {
+      display: block;
+      float: right;
+      #search-query {
+        width: 234px;
+        height: 30px;
+        border: none;
+        border-top-color: #bbb;
+        border-width: 1px;
+        border-bottom-color: #e6e6e6;
+        border-left-color: #e6e6e6;
+        border-right-color: #e6e6e6;
+        border-style: solid;
+        border-radius: 2px;
+      }
+      > input {
+        padding-left: 4px;
+      }
+    }
+  }
+}
+
+#rq-ribbon-search-btn {
+  background-position: 0 -127px;
+  cursor: pointer;
+  clear: both;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  float: right;
+  top: -17px;
+  right: 5px;
+}
+
+/*.button-wrapper {
+  width: auto;
+  height: auto;
+  background: none;
+  background-color: #007CB8;
+  &:hover {
+    background-color: #00447B;
+  }
+}*/
+
+.wide-blue-button:hover {
+  background-color: #00447B;
+}
+
+/*.button-wrapper > a {
+  color: #fff;
+  padding: 9px 21px;
+  display: block;
+  &:hover {
+    text-decoration: none;
+  }
+}*/
+
+/*top header end*/
+
+/*tabs start*/
+
+#tabs {
+  padding-top: 0;
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-top: 13px;
+  height: 48px;
+  margin-bottom: 4px;
+  display: none;
+  > ul {
+    top: 0;
+    background-image: none;
+    background-color: transparent;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #e4e4e4;
+    border-left: 1px solid #e4e4e4;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+    float: left;
+    margin-bottom: 0;
+    > li {
+      border-top: 1px solid #e4e4e4;
+      border-right: 1px solid #e4e4e4;
+      border-left: none;
+      border-bottom: none;
+      border-radius: 0;
+      margin: 0;
+      /*background: url("images/tab-bg.png") repeat-x 0 0;*/
+      height: 46px;
+      background: #ffffff;
+      /* Old browsers */
+      background: #ffffff;
+      /* Old browsers */
+      background: #ffffff;
+      /* Old browsers */
+      /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+      background: -moz-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eeeeee));
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      /* IE10+ */
+      background: linear-gradient(to bottom, #ffffff 1%, #eeeeee 100%);
+      /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );
+      /* IE6-8 */
+      > a {
+        display: block;
+        padding: 17px 25px;
+      }
+      &.ui-tabs-active {
+        border: none;
+        border-right: 1px solid #e4e4e4;
+        border-top: 1px solid #e4e4e4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+        background-color: #fff;
+        a {
+          border-top: 4px solid #0085c3;
+          padding: 13px 25px 19px 25px !important;
+        }
+      }
+      > a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.ui-widget-header {
+  border-left: 1px solid #e4e4e4;
+}
+
+.ui-tabs {
+  padding: 0;
+}
+
+/*tabs end*/

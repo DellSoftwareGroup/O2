@@ -1,1 +1,25 @@
-<h2>Test</h2>
+<div id="top-head">
+  <div id="search-container" onkeypress="onSearchKeyPress(event);">
+    <div>
+      <div id="search-query-container">
+        <input type="text" id="search-query" name="query" placeholder="Search" />
+        <a href="#" onclick="doSearch();" id="top-search-btn"></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="logo-container">
+    <img src="http://stage-o2.prod.quest.corp/images/portal/images/logo.png" alt="" />
+    <a href="http://stage-o2.prod.quest.corp/mk/RequestQueues/Requests/" id="sub-logo-link" target="_parent" onclick="return CheckParentDataChanges();">
+      <img src="http://stage-o2.prod.quest.corp/images/portal/images/sublogo-marketing-request-queue.png" alt="" id="sub-logo" /></a>
+  </div>
+</div>
+<div id="tabs">
+  <ul>
+    <li><a href="#marketing-request-queues">Marketing Requests</a></li>
+    <li><a href="#oasis2">Content Management</a></li>
+  </ul>
+  <div id="marketing-request-queues"></div>
+  <div id="oasis2"></div>
+
+</div>
