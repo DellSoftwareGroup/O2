@@ -1,5 +1,4 @@
 /*nav start*/
-
 .nav {
   position: relative;
   width: 100%;
@@ -14,28 +13,12 @@
       text-decoration: none;
     }
   }
-}
-
-.sub-nav {
-  #filter-title > a {
-    color: #3399CC;
-    text-decoration: none;
-  }
-  #search {
-    margin-right: 7px;
-  }
-}
-
-.nav {
   li {
     &:first-child {
       margin-left: 12px;
     }
     margin-left: 32px;
     padding: 7px;
-  }
-  ul .right {
-    float: right;
   }
   #question-mark-icon {
     background: url('http://stage-o2/mk/Static/Content/Img/request-queue-sprite.png') no-repeat 0 -1px;
@@ -45,6 +28,9 @@
     margin-right: 4px;
   }
   ul {
+    .right {
+      float: right;
+    }
     .right:hover #question-mark-icon {
       background-position: 0 -18px;
     }
@@ -65,6 +51,64 @@
         }
       }
     }
+    > li {
+      &:hover {
+        .sub-nav-col li a {
+          display: block;
+        }
+        .sub-nav-col-wrapper {
+          width: 190px;
+          height: 0;
+          margin-left: -8px;
+          position: absolute;
+          overflow: hidden;
+          min-width: 134px;
+          min-height: 273px;
+        }
+      }
+      &:nth-child(4):hover .sub-nav-col-wrapper {
+        min-width: 247px;
+        min-height: 346px;
+      }
+    }
+  }
+}
+
+.sub-nav {
+  #filter-title > a {
+    color: #3399CC;
+    text-decoration: none;
+  }
+  #search {
+    margin-right: 7px;
+  }
+  #filter-title {
+    margin-bottom: 10px;
+    display: block;
+    float: left;
+    width: 100%;
+    > {
+      span {
+        float: left;
+        font-weight: bold;
+      }
+      a {
+        float: right;
+        text-decoration: none;
+      }
+    }
+  }
+  > div {
+    display: block;
+    float: left;
+  }
+  .rq-btn-icon {
+    cursor: pointer;
+    clear: both;
+    float: right;
+    position: relative;
+    z-index: 99999;
+    /*fix for ie9*/
   }
 }
 
@@ -90,27 +134,6 @@
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
-.nav ul > li {
-  &:hover {
-    .sub-nav-col li a {
-      display: block;
-    }
-    .sub-nav-col-wrapper {
-      width: 190px;
-      height: 0;
-      margin-left: -8px;
-      position: absolute;
-      overflow: hidden;
-      min-width: 134px;
-      min-height: 273px;
-    }
-  }
-  &:nth-child(4):hover .sub-nav-col-wrapper {
-    min-width: 247px;
-    min-height: 346px;
-  }
-}
-
 /*nav end*/
 
 /*ribbob start*/
@@ -125,9 +148,106 @@
   > ul > li {
     display: inline;
     float: left;
-    > ul > li {
-      display: inline;
+    padding: 15px 20px 0 20px;
+    border-right: 1px solid #ccc;
+    height: 82px;
+    &#sprints-section span{
+      width: 35%;
+    }
+    > span:last-child {
+      padding-top: 10px;
+      display: block;
+      width: 28%;
+      margin: 0px auto;
+      font-size: 13px;
+      color: #737373;
+      clear: both;
+    }
+    > ul{
       float: left;
+      clear: both;
+      .grey-bg {
+        background-color: #eee;
+        border-radius: 3px;
+      }
+      > li {
+        select{
+          color: #444;
+          width: 102px;
+        }
+        a {
+          padding-top: 2px;
+          display: block;
+          color: #444;
+          &:hover{
+            text-decoration: none;
+            color: #3399CC;
+          }
+        }
+        display: inline;
+        float: left;
+        margin-right: 35px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &.icon-inline{
+          padding:0;
+          .rq-btn-icon{
+            margin-right: 15px;
+            float: left;
+          }
+          select,span:last-child{
+            float:right;
+          }
+        }
+      }
+    }
+    &:last-child {
+      > span:last-child {
+        width: 60%;
+      }
+      border-right: none;
+    }
+    .sub-nav-wrapper {
+      width: 250px;
+      height: 0;
+      overflow: hidden;
+      margin-left: -11px;
+      position: absolute;
+      top: 87px;
+    }
+    .sub-nav {
+      background-color: #eee;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding: 15px 10px 10px 10px;
+      width: 226px;
+      display: none;
+      position: relative;
+      z-index: 1;
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+      select, .rq-ribbon-filter-text {
+        display: block;
+        box-sizing: content-box;
+        margin-bottom: 7px;
+        border: 1px solid #ccc;
+      }
+      select {
+        &:last-child {
+          margin-bottom: 0;
+        }
+        width: 224px;
+        height: 23px;
+        clear: both;
+        background-color: #fff;
+      }
+      .rq-ribbon-filter-text {
+        width: 201px;
+        height: 21px;
+        padding-left: 4px;
+        padding-right: 19px;
+      }
     }
   }
 }
@@ -136,36 +256,12 @@
   padding: 0 12px;
 }
 
-.rq-top-ribbon > ul > li {
-  padding: 0 13px;
-  border-right: 1px solid #ccc;
-  height: 82px;
-  > ul > li {
-    padding: 7px 10px;
-    margin-right: 7px;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
 #rq-filters-item ul > li {
   padding: 0;
 }
 
 #rq-filters {
   padding: 7px 10px;
-}
-
-.rq-top-ribbon > ul > li > ul {
-  .grey-bg {
-    background-color: #eee;
-    border-radius: 3px;
-  }
-  > li select {
-    color: #444;
-    width: 102px;
-  }
 }
 
 #teams select, #sprints select, #opt-my-work select, #projectdates select {
@@ -182,12 +278,6 @@
   }
 }
 
-.rq-top-ribbon > ul > li > ul > li a {
-  padding-top: 2px;
-  display: block;
-  color: #444;
-}
-
 .active-item-bg {
   background-color: #eee;
   border-radius: 3px;
@@ -197,79 +287,14 @@
   color: #444;
 }
 
-.rq-top-ribbon > ul > li > ul > li a:hover {
-  text-decoration: none;
-  color: #3399CC;
-}
-
 .disable-hover a span:last-child {
   text-decoration: none;
   color: #444;
 }
 
-.rq-top-ribbon > ul > li > span:last-child {
-  padding-top: 10px;
-  display: block;
-  width: 25%;
-  margin: 0px auto;
-  font-size: 13px;
-  color: #737373;
-  clear: both;
-}
-
 #span-projectdate-caption {
   width: 100%;
   text-align: center;
-}
-
-.rq-top-ribbon > ul > li {
-  &:last-child {
-    > span:last-child {
-      width: 60%;
-    }
-    border-right: none;
-  }
-  .sub-nav-wrapper {
-    width: 250px;
-    height: 0;
-    overflow: hidden;
-    margin-left: -11px;
-    position: absolute;
-    top: 87px;
-  }
-  .sub-nav {
-    background-color: #eee;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding: 15px 10px 10px 10px;
-    width: 226px;
-    display: none;
-    position: relative;
-    z-index: 1;
-    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-    select, .rq-ribbon-filter-text {
-      display: block;
-      box-sizing: content-box;
-      margin-bottom: 7px;
-      border: 1px solid #ccc;
-    }
-    select {
-      &:last-child {
-        margin-bottom: 0;
-      }
-      width: 224px;
-      height: 23px;
-      clear: both;
-      background-color: #fff;
-    }
-    .rq-ribbon-filter-text {
-      width: 201px;
-      height: 21px;
-      padding-left: 4px;
-      padding-right: 19px;
-    }
-  }
 }
 
 #rq-filters {
@@ -321,29 +346,6 @@
   }
 }
 
-.sub-nav {
-  #filter-title {
-    margin-bottom: 10px;
-    display: block;
-    float: left;
-    width: 100%;
-    > {
-      span {
-        float: left;
-        font-weight: bold;
-      }
-      a {
-        float: right;
-        text-decoration: none;
-      }
-    }
-  }
-  > div {
-    display: block;
-    float: left;
-  }
-}
-
 #rq-ribbon-search-text {
   position: relative;
   z-index: 0;
@@ -385,25 +387,12 @@
 }
 
 /*icons start*/
-
-.sub-nav .rq-btn-icon {
-  cursor: pointer;
-  clear: both;
-  float: right;
-  position: relative;
-  z-index: 99999;
-  /*fix for ie9*/
-}
-
 .rq-btn-icon {
   background-image: url('http://stage-o2/mk/Static/Content/Img/request-queue-sprite.png');
   background-repeat: no-repeat;
   border: medium none;
   background-color: transparent;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4px;
   height: 22px;
 }
 
@@ -433,8 +422,8 @@
 }
 
 #my-work-icon {
-  background-position: 0 -40px;
-  width: 30%;
+  background-position: 4px -40px;
+  width:25px;
 }
 
 .active-item-bg {
@@ -442,17 +431,17 @@
     background-color: #eee;
   }
   #my-work-icon {
-    background-position: 0 -2px;
+    background-position: 4px -2px;
   }
 }
 
 #opt-my-work:hover #my-work-icon {
-  background-position: 0 -2px;
+  background-position: 4px -2px;
 }
 
 #dp-Team-icon {
   background-position: -66px -38px;
-  width: 31%;
+  width: 25px;
 }
 
 #teams:hover #dp-Team-icon, .active-item-bg #dp-Team-icon {
@@ -462,6 +451,7 @@
 #jan-fy-icon {
   background-position: -163px -38px;
   width: 30%;
+  margin:0 auto;
 }
 
 #proj-fy-icon {
@@ -478,26 +468,26 @@
 }
 
 #backlog-icon {
-  background-position: -257px -5px;
-  width: 30%;
+  background-position: -253px -5px;
+  width: 24px;
 }
 
 .active-item-bg #backlog-icon, #backlog:hover #backlog-icon {
-  background-position: -258px -40px;
+  background-position: -254px -40px;
 }
 
 #started-icon {
-  background-position: -718px -4px;
-  width: 61%;
+  background-position: -722px -4px;
+  width: 20px;
 }
 
 .active-item-bg #started-icon, #started:hover #started-icon {
-  background-position: -718px -39px;
+  background-position: -722px -39px;
 }
 
 #idea-icon {
   background-position: -312px -2px;
-  width: 51%;
+  width: 20px;
 }
 
 .active-item-bg #idea-icon, #idea:hover #idea-icon {
@@ -506,7 +496,7 @@
 
 #council-icon {
   background-position: -357px -3px;
-  width: 39%;
+  width: 20px;
 }
 
 .active-item-bg #council-icon, #council:hover #council-icon {
@@ -515,7 +505,7 @@
 
 #done-icon {
   background-position: -410px -2px;
-  width: 61%;
+  width: 20px;
 }
 
 .active-item-bg #done-icon, #done:hover #done-icon {
@@ -523,18 +513,18 @@
 }
 
 #cancelled-icon {
-  background-position: -468px -2px;
-  width: 30%;
+  background-position: -466px -2px;
+  width: 20px;
 }
 
 .active-item-bg #cancelled-icon, #cancelled:hover #cancelled-icon {
-  background-position: -470px -40px;
+  background-position: -468px -40px;
 }
 
 #filters-icon {
   background-position: -552px -3px;
   width: 47%;
-  margin-top: 2px;
+  margin: 2px auto 0 auto;
 }
 
 .active-item-bg #filters-icon, .activate-bg #filters-icon, #rq-filters a:hover #filters-icon, .add-bg #filters-icon {
@@ -558,5 +548,9 @@
   width: 16px;
   height: 15px;
   margin: -27px 4px 0 0;
+}
+
+.mb-20{
+ margin-bottom: 20px;
 }
 

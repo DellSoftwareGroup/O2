@@ -3,7 +3,7 @@
 
 
     <li><a href="/mk/RequestQueues/" class="active">Requests</a></li>
-    <li><a href="/mk/RequestQueues/Projects" class="">Projects</a></li>
+    <li><a href="/mk/RequestQueues/Projects">Projects</a></li>
 
     <li class="has-subnav">
       <a href="http://o2.prod.quest.corp/v2/Listing/Campaigns">Campaigns</a>
@@ -16,7 +16,7 @@
         </div>
       </div>
     </li>
-
+    <li><a href="/mk/RequestQueues/Projects">Reporting</a></li>
     <li class="has-subnav">
       <a href="/ecommerce/">Quick Links</a>
       <div class="sub-nav-col-wrapper">
@@ -74,9 +74,9 @@
       </div>
       <span>New</span>
     </li>
-    <li>
-      <ul id="views">
-        <li id="opt-my-work">
+    <li id="views">
+      <ul class="mb-20">
+        <li id="opt-my-work" class="icon-inline">
           <span id="my-work-icon" class="rq-btn-icon"></span>
           <select id="dp-mywork-dd" name="dp-mywork-dd"><option value="0">My Work</option>
             <option value="1">Owner</option>
@@ -84,7 +84,9 @@
             <option value="3">Notified</option>
           </select>
         </li>
-        <li id="teams">
+      </ul>
+      <ul>
+        <li id="teams" class="icon-inline">
           <span id="dp-Team-icon" class="rq-btn-icon"></span>
           <select id="dp-team-dd" name="dp-team-dd"><option value="">All Teams</option>
             <option value="1153">Endpoints</option>
@@ -155,39 +157,41 @@
       <span id="span-projectdate-caption">Due&nbsp;Date</span>
     </li>-->
 
-    <li>
-      <ul id="agile-phase">
-        <li id="li-idea" data-value="1">
+    <li id="agile-phase">
+      <ul class="mb-20">
+        <li id="li-idea" data-value="1" class="icon-inline">
           <a href="#" id="idea">
             <span id="idea-icon" class="rq-btn-icon"></span>
             <span>Idea</span>
           </a>
         </li>
-        <li id="li-backlog" data-value="2">
+        <li id="li-backlog" data-value="2" class="icon-inline">
           <a href="#" id="backlog">
             <span id="backlog-icon" class="rq-btn-icon"></span>
             <span>Backlog</span>
           </a>
         </li>
-        <li id="li-started" data-value="1096">
+        <li id="li-started" data-value="1096" class="icon-inline">
           <a href="#" id="started">
             <span id="started-icon" class="rq-btn-icon"></span>
             <span>Started</span>
           </a>
         </li>
-        <li id="li-done" data-value="6">
+      </ul>
+      <ul>
+        <li id="li-done" data-value="6" class="icon-inline">
           <a href="#" id="done">
             <span id="done-icon" class="rq-btn-icon"></span>
             <span>Done</span>
           </a>
         </li>
-        <li id="li-council" data-value="3">
+        <li id="li-council" data-value="3" class="icon-inline">
           <a href="#" id="council">
             <span id="council-icon" class="rq-btn-icon"></span>
             <span>Council</span>
           </a>
         </li>
-        <li id="li-cancelled" data-value="8">
+        <li id="li-cancelled" data-value="8" class="icon-inline">
           <a href="#" id="cancelled">
             <span id="cancelled-icon" class="rq-btn-icon"></span>
             <span>Cancelled</span>
