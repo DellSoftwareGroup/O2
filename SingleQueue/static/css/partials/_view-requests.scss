@@ -1,0 +1,113 @@
+.request-listing{
+
+  .id-col{
+    width: 30px;
+  }
+  .title-col{
+    width: 110px;
+  }
+  .type-col{
+    width: 80px;
+  }
+  .project-col{
+    width: 120px;
+  }
+  .agileTeam-col{
+    width: 70px;
+  }
+  .status-col{
+    width: 64px;
+  }
+  .requestStartDate-col{
+    width: 64px;
+  }
+  .requestEndDate-col{
+       width: 100px;
+     }
+  .requester-col{
+    width: 76px;
+  }
+  .portfolio-col{
+    width: 65px;
+  }
+  .sprint-col{
+    width: 54px;
+  }
+  .priority-col{
+    width: 54px;
+  }
+  .group-col{
+    width: 46px;
+  }
+  .active-col{
+    width: 22px;
+  }
+  .complete-col{
+    width: 22px;
+  }
+  .startDate-col{
+    width: 80px;
+  }
+  .endDate-col{
+    width: 112px;
+  }
+  .k-grid td, {
+    border-left: 1px solid #ddd;
+  }
+  .cgs-start { /* cgs stands for "Current Group Summary" */
+    border-left: 1px solid #444 !important;
+  }
+
+  td a,  td a:visited, td a:link {
+    color: #74c1dd;
+  }
+
+}
+
+#results-data-list {
+  th.cgs-th a{
+    color: #933e9c !important;
+    font-weight: bold !important;
+  }
+
+  /* warning labels */
+  td span {
+    display: inline-block;
+    padding: 0 4px !important;
+    margin-left: 5px;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 3px;
+  }
+  span.urgent{
+    background-color: #cc4321;
+  }
+  span.new{
+    background-color: #6da209;
+  }
+  span.legacy{
+    background-color: #444;
+  }
+  span.past-due {
+    background: url(http://o2.prod.quest.corp/mk/Static/Content/Img/icon-warning-red.png) no-repeat right center;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-left: 0;
+  }
+}
+
+.table-headings {
+  > li {
+    display: inline-block;
+    line-height: 24px;
+    padding-left: 10px;
+  }
+
+  > li:last-child {
+    float: right;
+    margin-right: 190px;
+    color: #933e9c;
+    font-weight: bold;
+  }
+}
