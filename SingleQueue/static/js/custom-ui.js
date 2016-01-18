@@ -34,30 +34,22 @@ var templateLoader = (function($,host){
 */
 var singleQueueTables = (function($){
 
-  var requestListings = {
-
-		styles: function () {
-
-			// DOM manipulations
-
-			// Adds Class to first Current Group Summary Group (cgs)
-			$('.group-col').parent('td').addClass('cgs-start');
-
-
-			//Add Class to CGS table headings
+	// common functions for all tables
+	var commonStyles = (function() {
+		function summarySecStyles(numCol){
 			$('th').each(function () {
-				if ($(this).data("index") > 11) {
-					$(this).addClass('cgs-th');
+				if ($(this).data("index") > numCol) {
+					$(this).addClass('summary-th');
 				}
 			})
+		};
+		function summaryBorder(colClass){
+			$(colClass).parent('td').addClass('summary-start');
+		}
 
-			// ---- */ End of DOM manipulations
+		// TODO: temp function should be removed by Eder (Styles to match mocks)
+		function tempStyles(){
 
-			// Temp Scripts
-			/* TODO: Eder to remove this temp scripts
-			 * as this script was created only
-			 * to show case warning styles
-			 */
 			// urgent, new and legacy labels
 			var taggedCol = $('.title-col'),
 					label = ['<span class="urgent">Urgent</span>',
@@ -75,22 +67,37 @@ var singleQueueTables = (function($){
 				var temp = $(element)[0];
 				$(temp).append('<span class="past-due"></span>');
 			});
+		}
 
-			// ---- */ End of Temp scripts
+		return {
+			summarySecStyles: summarySecStyles,
+			summaryBorder: summaryBorder,
+			tempStyles: tempStyles
+		}
+	}());
 
+  var requestListings = {
+		styles: function(){
+			var summaryIndx = 11,  summaryStartCol =".group-col";
+			commonStyles.summarySecStyles(summaryIndx);
+			commonStyles.summaryBorder(summaryStartCol);
+			commonStyles.tempStyles()
 		}
 	};
 
-	var taskListings = {
-
-		styles: function() {
-			console.log('taskListings');
+	var taskListings =  {
+		styles: function(){
+			var summaryIndx =9,  summaryStartCol =".sprint-col";
+			commonStyles.summarySecStyles(summaryIndx);
+			commonStyles.summaryBorder(summaryStartCol);
+			commonStyles.tempStyles()
 		}
-	}
+	};
 
 	return {
 		requestListings: requestListings,
-		taskListings: taskListings
+		taskListings: taskListings,
+		commonStyles: commonStyles
 	}
 
 }(jQuery));
