@@ -32,55 +32,72 @@ var templateLoader = (function($,host){
 *  by .kendoGrid object (see dataSource)
 *  Table manipulations for UI styles
 */
-var requestTableListing = (function($){
-  var init = {};
+var singleQueueTables = (function($){
 
-	init.styles = function() {
+	// common functions for all tables
+	var commonStyles = (function() {
+		function summarySecStyles(numCol){
+			$('th').each(function () {
+				if ($(this).data("index") > numCol) {
+					$(this).addClass('summary-th');
+				}
+			})
+		};
+		function summaryBorder(colClass){
+			$(colClass).parent('td').addClass('summary-start');
+		}
 
-		// DOM manipulations
+		// TODO: temp function should be removed by Eder (Styles to match mocks)
+		function tempStyles(){
 
-				// Adds Class to first Current Group Summary Group (cgs)
-				$('.group-col').parent('td').addClass('cgs-start');
+			// urgent, new and legacy labels
+			var taggedCol = $('.title-col'),
+					label = ['<span class="urgent">Urgent</span>',
+						'<span class="new">New</span>',
+						'<span class="legacy">Legacy</span>',
+						'<span class="legacy">Legacy</span>'];
 
+			for (var i = 0; i < taggedCol.length; i++) {
+				$(taggedCol[i]).find('a').append(label[i]);
+			}
 
-				//Add Class to CGS table headings
-				$('th').each(function(){
-					if($(this).data("index") > 11){
-						$(this).addClass('cgs-th');
-					}
-				})
+			// late warning label
+			var lateCol = ['.endDate-col', '.requestEndDate-col'];
+			lateCol.forEach(function (element) {
+				var temp = $(element)[0];
+				$(temp).append('<span class="past-due"></span>');
+			});
+		}
 
-		// ---- */ End of DOM manipulations
+		return {
+			summarySecStyles: summarySecStyles,
+			summaryBorder: summaryBorder,
+			tempStyles: tempStyles
+		}
+	}());
 
-		// Temp Scripts
-				/* TODO: Eder to remove this temp scripts
-				* as this script was created only
-				* to show case warning styles
-				*/
-					// urgent, new and legacy labels
-						var taggedCol = $('.title-col'),
-								label = ['<span class="urgent">Urgent</span>',
-												'<span class="new">New</span>',
-												'<span class="legacy">Legacy</span>',
-												'<span class="legacy">Legacy</span>'];
+  var requestListings = {
+		styles: function(){
+			var summaryIndx = 11,  summaryStartCol =".group-col";
+			commonStyles.summarySecStyles(summaryIndx);
+			commonStyles.summaryBorder(summaryStartCol);
+			commonStyles.tempStyles()
+		}
+	};
 
-						for (var i = 0; i < taggedCol.length; i++){
-							$(taggedCol[i]).find('a').append(label[i]);
-						}
-
-					// late warning label
-					var lateCol = ['.endDate-col', '.requestEndDate-col'];
-					lateCol.forEach(function(element){
-						 var temp = $(element)[0];
-						 $(temp).append('<span class="past-due"></span>');
-					});
-
-		// ---- */ End of Temp scripts
-
+	var taskListings =  {
+		styles: function(){
+			var summaryIndx =9,  summaryStartCol =".sprint-col";
+			commonStyles.summarySecStyles(summaryIndx);
+			commonStyles.summaryBorder(summaryStartCol);
+			commonStyles.tempStyles()
+		}
 	};
 
 	return {
-		init: init
+		requestListings: requestListings,
+		taskListings: taskListings,
+		commonStyles: commonStyles
 	}
 
 }(jQuery));

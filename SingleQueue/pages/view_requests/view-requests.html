@@ -188,13 +188,16 @@
 <body>
 <div id="body-content">
 	<div id="top" class="wrapper"></div>
-	<div id="content" class="wrapper"></div>
+	<div id="content" class="wrapper">
+		<div class="data-heading"></div>
+	</div>
 
 
 	<script>
 		//Load the template definition from an external file
-		templateLoader.loadExtTemplate("../../widgets/top-nav.tmpl.htm", "#top");
+		templateLoader.loadExtTemplate("../../widgets/top-area.tmpl.htm", "#top");
 		templateLoader.loadExtTemplate("../../widgets/ribbon-nav.tmpl.htm", "#top");
+		templateLoader.loadExtTemplate("../../widgets/view-view-widget.tmpl.htm", ".data-heading");
 		templateLoader.loadExtTemplate("../../widgets/views/view-requests-table.tmpl.htm", '#content');
 	</script>
 

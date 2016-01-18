@@ -1,5 +1,4 @@
 .request-listing{
-
   .id-col{
     width: 30px;
   }
@@ -51,21 +50,64 @@
   .endDate-col{
     width: 112px;
   }
-  .k-grid td, {
-    border-left: 1px solid #ddd;
-  }
-  .cgs-start { /* cgs stands for "Current Group Summary" */
-    border-left: 1px solid #444 !important;
-  }
+}
 
-  td a,  td a:visited, td a:link {
-    color: #74c1dd;
+.tasks-listing {
+  .id-col{
+    width: 30px;
   }
-
+  .title-col{
+    width: 110px;
+  }
+  .type-col{
+    width: 55px;
+  }
+  .project-col{
+    width: 127px;
+  }
+  .agileTeam-col{
+    width: 70px;
+  }
+  .status-col{
+    width: 60px;
+  }
+  .requestStartDate-col{
+    width: 64px;
+  }
+  .requestEndDate-col{
+    width: 92px;
+  }
+  .requester-col{
+    width: 65px;
+  }
+  .portfolio-col{
+    width: 65px;
+  }
+  .sprint-col{
+    width: 54px;
+  }
+  .owner-col {
+    width: 55px;
+  }
+  .taskTitle-col {
+    width: 58px;
+  }
+  .taskStatus-col{
+    width: 60px;
+  }
+  .dept-col {
+    width:38px;
+  }
+  .startDate-col {
+    width: 74px;
+  }
+  .endDate-col{
+    width: 100px;
+  }
 }
 
 #results-data-list {
-  th.cgs-th a{
+  th.summary-th a{
     color: #933e9c !important;
     font-weight: bold !important;
   }
@@ -95,6 +137,15 @@
     vertical-align: middle;
     margin-left: 0;
   }
+  td a,  td a:visited, td a:link {
+    color: #74c1dd;
+  }
+  .k-grid td, {
+    border-left: 1px solid #ddd;
+  }
+  .k-grid td:first-child{
+    border-left: none;
+  }
 }
 
 .table-headings {
@@ -110,4 +161,10 @@
     color: #933e9c;
     font-weight: bold;
   }
+}
+.table-headings > li.task-info-heading {
+  margin-right: 508px;
+}
+.summary-start { /* "Summary sections" */
+  border-left: 1px solid #444 !important;
 }
