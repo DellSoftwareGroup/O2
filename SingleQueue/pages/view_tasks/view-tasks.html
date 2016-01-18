@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
-	<title>Add Request</title>
+	<title>Add Task</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<!-- Kendo and IS JS and Styles -->
 	<script type="text/javascript">
@@ -187,13 +187,16 @@
 <body>
 <div id="body-content">
 	<div id="top" class="wrapper"></div>
-	<div id="content" class="wrapper"></div>
+	<div id="content" class="wrapper">
+		<div class="data-heading"></div>
+	</div>
 
 
 	<script>
 		//Load the template definition from an external file
 		templateLoader.loadExtTemplate("../../widgets/top-area.tmpl.htm", "#top");
 		templateLoader.loadExtTemplate("../../widgets/ribbon-nav.tmpl.htm", "#top");
+		templateLoader.loadExtTemplate("../../widgets/view-view-widget.tmpl.htm", ".data-heading");
 		templateLoader.loadExtTemplate("../../widgets/views/view-tasks-table.tmpl.htm", '#content');
 	</script>
 	<script src="../../static/js/dsg-bootstrap/bootstrap-3.3.4.min.js"></script>

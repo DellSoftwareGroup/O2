@@ -32,55 +32,65 @@ var templateLoader = (function($,host){
 *  by .kendoGrid object (see dataSource)
 *  Table manipulations for UI styles
 */
-var requestTableListing = (function($){
-  var init = {};
+var singleQueueTables = (function($){
 
-	init.styles = function() {
+  var requestListings = {
 
-		// DOM manipulations
+		styles: function () {
 
-				// Adds Class to first Current Group Summary Group (cgs)
-				$('.group-col').parent('td').addClass('cgs-start');
+			// DOM manipulations
+
+			// Adds Class to first Current Group Summary Group (cgs)
+			$('.group-col').parent('td').addClass('cgs-start');
 
 
-				//Add Class to CGS table headings
-				$('th').each(function(){
-					if($(this).data("index") > 11){
-						$(this).addClass('cgs-th');
-					}
-				})
+			//Add Class to CGS table headings
+			$('th').each(function () {
+				if ($(this).data("index") > 11) {
+					$(this).addClass('cgs-th');
+				}
+			})
 
-		// ---- */ End of DOM manipulations
+			// ---- */ End of DOM manipulations
 
-		// Temp Scripts
-				/* TODO: Eder to remove this temp scripts
-				* as this script was created only
-				* to show case warning styles
-				*/
-					// urgent, new and legacy labels
-						var taggedCol = $('.title-col'),
-								label = ['<span class="urgent">Urgent</span>',
-												'<span class="new">New</span>',
-												'<span class="legacy">Legacy</span>',
-												'<span class="legacy">Legacy</span>'];
+			// Temp Scripts
+			/* TODO: Eder to remove this temp scripts
+			 * as this script was created only
+			 * to show case warning styles
+			 */
+			// urgent, new and legacy labels
+			var taggedCol = $('.title-col'),
+					label = ['<span class="urgent">Urgent</span>',
+						'<span class="new">New</span>',
+						'<span class="legacy">Legacy</span>',
+						'<span class="legacy">Legacy</span>'];
 
-						for (var i = 0; i < taggedCol.length; i++){
-							$(taggedCol[i]).find('a').append(label[i]);
-						}
+			for (var i = 0; i < taggedCol.length; i++) {
+				$(taggedCol[i]).find('a').append(label[i]);
+			}
 
-					// late warning label
-					var lateCol = ['.endDate-col', '.requestEndDate-col'];
-					lateCol.forEach(function(element){
-						 var temp = $(element)[0];
-						 $(temp).append('<span class="past-due"></span>');
-					});
+			// late warning label
+			var lateCol = ['.endDate-col', '.requestEndDate-col'];
+			lateCol.forEach(function (element) {
+				var temp = $(element)[0];
+				$(temp).append('<span class="past-due"></span>');
+			});
 
-		// ---- */ End of Temp scripts
+			// ---- */ End of Temp scripts
 
+		}
 	};
 
+	var taskListings = {
+
+		styles: function() {
+			console.log('taskListings');
+		}
+	}
+
 	return {
-		init: init
+		requestListings: requestListings,
+		taskListings: taskListings
 	}
 
 }(jQuery));

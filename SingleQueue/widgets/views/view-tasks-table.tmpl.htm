@@ -1,3 +1,4 @@
+
 <div class="grid-wrapper">
 	<div>
 		<ul class="table-headings">
@@ -6,8 +7,8 @@
 		</ul>
 	</div>
 	<div id="results-data-list" class="results-data request-listing">
-	 <div id="GridRequest"></div>
-  </div>
+		<div id="GridRequest"></div>
+	</div>
 
 	<script>
 		$(function(){
@@ -15,7 +16,7 @@
 				columns: [{title: "ID", field: "id",
 					template: "<div class='id-col'>#= id #</div>"},
 					{title: "Title", field: "title",
-					 template: "<div class='title-col'><a href=''>#= title #</a></div>"},
+						template: "<div class='title-col'><a href=''>#= title #</a></div>"},
 					{title: "Type", field: "type",
 						template: "<div class='type-col'>#= type #</div>"},
 					{title: "Project", field: "project",
@@ -52,7 +53,7 @@
 							url:"../../widgets/views/data/request.json",
 							complete: function(data, status){
 								if(status === "success"){
-									singleQueueTables.requestListings.styles();
+									singleQueueTables.taskListings.styles();
 								}
 							}
 						}
