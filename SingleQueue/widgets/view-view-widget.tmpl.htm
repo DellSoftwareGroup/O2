@@ -2,8 +2,7 @@
     <ul id="navlist">
         <li id="active"><a href="#" id="current">Item one</a></li>
         <li id="views-list" data-view="list" class="views-select active"></li>
-        <li id="views-calendar" data-view="calendar" class="views-select"></li>
-        <li style="display:none;" id="views-charts" data-view="charts" class="views-select"></li>
+        <li><a href="#">Item three</a></li>
         <li   class="active-item-bg">
             <a id="started" href="#">
                 <span class="rq-btn-icon" id="started-icon"></span>
@@ -18,8 +17,6 @@
 {
 padding-left: 0;
 margin-left: 0;
-background-color: #036;
-color: White;
 float: left;
 width: 100%;
 font-family: arial, helvetica, sans-serif;
@@ -31,15 +28,14 @@ font-family: arial, helvetica, sans-serif;
 {
 padding: 0.2em 1em;
 background-color: #036;
-color: White;
 text-decoration: none;
 float: left;
 border-right: 1px solid #fff;
 }
 
-#navcontainer ul li a:hover
-{
-background-color: #369;
-color: #fff;
-}
+
+#navcontainer #views-list {
+    background: rgba(0, 0, 0, 0) url("../assets/images/request-queue-views-01.png") no-repeat scroll 0 0;
+    height: 31px;
+    width: 65px; }
 </style>
