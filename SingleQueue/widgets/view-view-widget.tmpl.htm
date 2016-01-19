@@ -1,10 +1,26 @@
 
-    <div id="page-header"><div unselectable="on" class="k-widget k-multiselect k-header" style="" title=""><li unselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" unselectable="on" role="listbox"></ul> <input style="width: 40px" class="k-input " aria-busy="false" value="Tasks"></li><select multiple="multiple" id="CalendarItemsFilter" data-role="multiselect" style="display: none;" aria-disabled="false" aria-readonly="false"><option value="releases">Product Release GA</option><option value="requests">Requests</option></select><span style="font-family: Trebuchet MS,Arial,Helvetica,sans-serif; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;"></span></div></div>
+    <div id="page-header">
+        <div style="display:inline-block; position:relative;">
+            <span class="arrow firefox"></span>
+            <div unselectable="on" class="k-widget k-multiselect k-header" style="" title="">
+                <li unselectable="on" class="k-multiselect-wrap k-floatwrap">
+                    <ul class="k-reset" unselectable="on" role="listbox">
+
+                    </ul>
+                    <input style="width: 40px" class="k-input " aria-busy="false" value="Tasks"></li>
+            </div>
+        </div>
+    </div>
     <div id="views-selector">
         <ul>
             <li id="views-list" data-view="list" class="views-select active"></li>
             <li id="views-calendar" data-view="calendar" class="views-select"></li>
-            <li style="display:none;" id="views-charts" data-view="charts" class="views-select"></li>
+            <li id="li-idea" data-value="1" class="icon-inline __web-inspector-hide-shortcut__">
+                <a href="#" id="idea" style="display: block;">
+                    <span id="idea-icon" class="rq-btn-icon"></span>
+                    <span style="float: right;">Idea</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -108,25 +124,24 @@
 #views-selector #views-charts.active {
     background-position: 0px -62px;
 }
-.k-header, .k-treemap-title, .k-grid-header .k-header > .k-link {
+
+.k-multiselect.k-header {
+    width: 288px !important;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid #ccc !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
+    background-color: #fff;
     color: #2e2e2e;
 }
-.k-header, .k-grid-header, .k-toolbar, .k-dropdown-wrap, .k-picker-wrap, .k-numeric-wrap, .k-grouping-header, .k-textbox, .k-button, .k-progressbar, .k-draghandle, .k-autocomplete, .k-state-highlight, .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item, .km-pane-wrapper > .km-pane > .km-view > .km-content {
-    background-color: #e3e3e3;
-    background-image: none, linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0px, rgba(255, 255, 255, 0) 100%);
-    background-position: 50% 50%;
-}
-.k-multiselect.k-header {
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc !important;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 288px !important;
-}
-.k-multiselect.k-header:hover {
-    background-color: #fff;
-    background-image: none;
+
+.k-widget, .k-widget * {
+    -moz-background-clip: border-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
 }
 
 </style>
