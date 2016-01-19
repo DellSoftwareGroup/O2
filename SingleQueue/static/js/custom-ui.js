@@ -34,6 +34,7 @@ var templateLoader = (function($,host){
 */
 var singleQueueTables = (function($){
 
+
 	// common functions for all tables
 	var commonStyles = (function() {
 		function summarySecStyles(numCol){
@@ -45,7 +46,7 @@ var singleQueueTables = (function($){
 		};
 		function summaryBorder(colClass){
 			$(colClass).parent('td').addClass('summary-start');
-		}
+		};
 
 		// TODO: temp function should be removed by Eder (Styles to match mocks)
 		function tempStyles(){
@@ -67,12 +68,44 @@ var singleQueueTables = (function($){
 				var temp = $(element)[0];
 				$(temp).append('<span class="past-due"></span>');
 			});
+		};
+
+		// pagination
+		function GridRequest_DataBound(){
+			var pager = $("#BottomPager").kendoPager({
+				dataSource: $("#GridRequest").data("kendoGrid").dataSource,
+				pageSize: 10,
+				autoBind: true,
+				selectTemplate: '<li class="active"><a class="data-pager-link" data-page="#=text#">#=text#</a></li>',
+				linkTemplate: '<li><a class="data-pager-link" href="\\#" data-#=ns#page="#=text#">#=text#</a></li>',
+				messages: {
+					display: '<li class="">{0} - {1} of {2}</li>'
+				}
+			}).data("kendoPager");
+			console.log(pager.totalPages());
+			$(".k-i-seek-w").parent().hide();
+			$(".k-i-seek-e").parent().hide();
+
+			$('#BottomPager>ul').prepend("<li></li>");
+			$('#BottomPager .k-i-arrow-w').parent().addClass("prev").detach().appendTo('#BottomPager>ul li:first').find("span").remove();
+			$('#BottomPager>ul').append("<li></li>");
+			$('#BottomPager .k-i-arrow-e').parent().addClass("next").detach().appendTo('#BottomPager>ul li:last').find("span").remove();
+			$('#BottomPager>ul').prepend("<li></li>");
+			$('#BottomPager .k-pager-info').detach().appendTo('#BottomPager>ul li:first');
+
+			$(".data-pager-link").click(function (e) {
+				return CheckDataChanges();
+			});
+			$(".k-pager-nav").click(function (e) {
+				return CheckDataChanges();
+			});
 		}
 
 		return {
 			summarySecStyles: summarySecStyles,
 			summaryBorder: summaryBorder,
-			tempStyles: tempStyles
+			tempStyles: tempStyles,
+			GridRequest_DataBound: GridRequest_DataBound
 		}
 	}());
 
@@ -82,6 +115,8 @@ var singleQueueTables = (function($){
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
 			commonStyles.tempStyles()
+			commonStyles.GridRequest_DataBound()
+
 		}
 	};
 
@@ -90,7 +125,8 @@ var singleQueueTables = (function($){
 			var summaryIndx =9,  summaryStartCol =".sprint-col";
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles()
+			commonStyles.tempStyles();
+			GridRequest_DataBound()
 		}
 	};
 
@@ -101,4 +137,6 @@ var singleQueueTables = (function($){
 	}
 
 }(jQuery));
+
+
 
