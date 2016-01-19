@@ -15,40 +15,47 @@
 	<script>
 		$(function(){
 			$('#GridRequest').kendoGrid({
-				columns: [{title: "ID", field: "id",
-					template: "<div class='id-col'>#= id #</div>"},
-					{title: "Title", field: "title",
-					 template: "<div class='title-col'><a href=''>#= title #</a></div>"},
-					{title: "Type", field: "type",
-						template: "<div class='type-col'>#= type #</div>"},
-					{title: "Project", field: "project",
-						template: "<div class='project-col'><a href=''>#= project #</a></div>"},
-					{title: "Agile Team", field: "agileTeam",
-						template: "<div class='agileTeam-col'>#= agileTeam #</div>"},
-					{title: "Status", field: "status",
-						template: "<div class='status-col'>#= status #</div>"},
-					{title: "Start Date", field: "requestStartDate",
-						template: "<div class='requestStartDate-col'>#= requestStartDate #</div>"},
-					{title: "End Date", field: "requestEndDate",
-						template: "<div class='requestEndDate-col'>#= requestEndDate #</div>"},
-					{title: "Requester", field: "requester",
-						template: "<div class='requester-col'>#= requester #</div>"},
-					{title: "Portfolio", field: "portfolio",
-						template: "<div class='portfolio-col'>#= portfolio #</div>"},
-					{title: "Sprint", field: "sprint",
-						template: "<div class='sprint-col'>#= sprint #</div>"},
-					{title: "Priority", field: "priority",
-						template: "<div class='priority-col'>#= priority #</div>"},
-					{title: "Group", field: "group",
-						template: "<div class='group-col'>#= group #</div>"},
-					{title: "Active", field: "active",
-						template: "<div class='active-col'>#= active #</div>"},
-					{title: "Complete", field: "complete",
-						template: "<div class='complete-col'>#= complete #</div>"},
-					{title: "Start Date", field: "startDate",
-						template: "<div class='startDate-col'>#= startDate #</div>"},
-					{title: "End Date", field: "endDate",
-						template: "<div class='endDate-col'>#= endDate #</div>"}],
+        columns: [{
+          title: "Request Information",
+          columns: [{title: "ID", field: "id",
+            template: "<div class='id-col'>#= id #</div>"},
+            {title: "Title", field: "title",
+              template: "<div class='title-col'><a href=''>#= title #</a></div>"},
+            {title: "Type", field: "type",
+              template: "<div class='type-col'>#= type #</div>"},
+            {title: "Project", field: "project",
+              template: "<div class='project-col'><a href=''>#= project #</a></div>"},
+            {title: "Agile Team", field: "agileTeam",
+              template: "<div class='agileTeam-col'>#= agileTeam #</div>"},
+            {title: "Status", field: "status",
+              template: "<div class='status-col'>#= status #</div>"},
+            {title: "Start Date", field: "requestStartDate",
+              template: "<div class='requestStartDate-col'>#= requestStartDate #</div>"},
+            {title: "End Date", field: "requestEndDate",
+              template: "<div class='requestEndDate-col'>#= requestEndDate #</div>"},
+            {title: "Requester", field: "requester",
+              template: "<div class='requester-col'>#= requester #</div>"},
+            {title: "Portfolio", field: "portfolio",
+              template: "<div class='portfolio-col'>#= portfolio #</div>"},
+            {title: "Sprint", field: "sprint",
+              template: "<div class='sprint-col'>#= sprint #</div>"},
+            {title: "Priority", field: "priority",
+              template: "<div class='priority-col'>#= priority #</div>"},
+            ]
+        }],
+        columns: [{
+          title: "Current Group Summary",
+          columns: [{	title: "Group", field: "group",
+            template: "<div class='group-col'>#= group #</div>"},
+            {title: "Active", field: "active",
+              template: "<div class='active-col'>#= active #</div>"},
+            {title: "Complete", field: "complete",
+              template: "<div class='complete-col'>#= complete #</div>"},
+            {title: "Start Date", field: "startDate",
+              template: "<div class='startDate-col'>#= startDate #</div>"},
+            {title: "End Date", field: "endDate",
+              template: "<div class='endDate-col'>#= endDate #</div>"}],
+        }],
 				dataSource: {
 					transport: {
 						read: {
@@ -60,12 +67,17 @@
 							}
 						}
 					},
+          pageSize: 10,
+          page: 1,
+          total: 0,
 					schema: {
-						data: "data"
+						data: "data",
+            total: "Total"
 					}
 				},
 				scrollable: false, // for our our layout we need to have this setting!
-				sortable: true
+				sortable: {"allowUnsort": false},
+        pageable: true
 			});
 
 		});

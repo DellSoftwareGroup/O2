@@ -1065,17 +1065,19 @@ tbody tr:first-child .tooltip:hover:after {
 .request-listing .type-col {
   width: 80px; }
 .request-listing .project-col {
-  width: 120px; }
+  width: 100px; }
 .request-listing .agileTeam-col {
   width: 70px; }
 .request-listing .status-col {
   width: 64px; }
 .request-listing .requestStartDate-col {
   width: 64px; }
+.request-listing .requestStartDate-col {
+  width: 64px; }
 .request-listing .requestEndDate-col {
   width: 100px; }
 .request-listing .requester-col {
-  width: 76px; }
+  width: 40px; }
 .request-listing .portfolio-col {
   width: 65px; }
 .request-listing .sprint-col {
@@ -1764,24 +1766,3 @@ tbody tr:first-child .tooltip:hover:after {
 
 .mb-20 {
   margin-bottom: 20px; }
-/*widget icons start*/
-#views-selector {
-  display: inline-block;
-  float: left;
-  height: 31px;
-  margin-left: 30px;
-  width: 600px; }
-
-#views-selector ul {
-  position: relative; }
-
-#views-selector #views-list {
-  background: rgba(0, 0, 0, 0) url("../../assets/images/request-queue-views-01.png") no-repeat scroll 0 0;
-  height: 31px;
-  width: 65px; }
-
-#views-selector ul li {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-}

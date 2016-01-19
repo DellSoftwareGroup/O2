@@ -82,7 +82,7 @@ var singleQueueTables = (function($){
 					display: '<li class="">{0} - {1} of {2}</li>'
 				}
 			}).data("kendoPager");
-			console.log(pager.totalPages());
+			console.log(pager.dataSource.data.length);
 			$(".k-i-seek-w").parent().hide();
 			$(".k-i-seek-e").parent().hide();
 
@@ -94,10 +94,12 @@ var singleQueueTables = (function($){
 			$('#BottomPager .k-pager-info').detach().appendTo('#BottomPager>ul li:first');
 
 			$(".data-pager-link").click(function (e) {
-				return CheckDataChanges();
+				//return CheckDataChanges();
+        console.log("pager-link");
 			});
 			$(".k-pager-nav").click(function (e) {
-				return CheckDataChanges();
+				//return CheckDataChanges();
+        console.log("pager-nav");
 			});
 		}
 
@@ -114,9 +116,8 @@ var singleQueueTables = (function($){
 			var summaryIndx = 11,  summaryStartCol =".group-col";
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles()
-			commonStyles.GridRequest_DataBound()
-
+			commonStyles.tempStyles();
+      //commonStyles.GridRequest_DataBound();
 		}
 	};
 
