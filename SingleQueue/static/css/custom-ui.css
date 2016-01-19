@@ -1771,11 +1771,12 @@ tbody tr:first-child .tooltip:hover:after {
   height: 31px;
   margin-left: 30px;
   width: 600px; }
+
 #views-selector ul {
   position: relative; }
 
 #views-selector #views-list {
-  background: rgba(0, 0, 0, 0) url("../assest/images/request-queue-views-01.png") no-repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) url("../../assets/images/request-queue-views-01.png") no-repeat scroll 0 0;
   height: 31px;
   width: 65px; }
 
