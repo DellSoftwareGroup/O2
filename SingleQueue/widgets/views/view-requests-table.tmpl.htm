@@ -7,6 +7,9 @@
 	</div>
 	<div id="results-data-list" class="results-data request-listing">
 	 <div id="GridRequest"></div>
+		<div class="data-footer">
+			<div id="BottomPager"></div>
+		</div>
   </div>
 
 	<script>
@@ -24,9 +27,9 @@
 						template: "<div class='agileTeam-col'>#= agileTeam #</div>"},
 					{title: "Status", field: "status",
 						template: "<div class='status-col'>#= status #</div>"},
-					{title: "Start Date (R)", field: "requestStartDate",
+					{title: "Start Date", field: "requestStartDate",
 						template: "<div class='requestStartDate-col'>#= requestStartDate #</div>"},
-					{title: "End Date (R)", field: "requestEndDate",
+					{title: "End Date", field: "requestEndDate",
 						template: "<div class='requestEndDate-col'>#= requestEndDate #</div>"},
 					{title: "Requester", field: "requester",
 						template: "<div class='requester-col'>#= requester #</div>"},
@@ -58,16 +61,13 @@
 						}
 					},
 					schema: {
-						data: "data",
-						total: "count"
-					},
-					pageSize: 10
+						data: "data"
+					}
 				},
-				maxHeight: 500,
 				scrollable: false, // for our our layout we need to have this setting!
-				pageable: true,
 				sortable: true
 			});
+
 		});
 	</script>
 </div>
