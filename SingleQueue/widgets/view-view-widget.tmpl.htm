@@ -1,5 +1,5 @@
 
-    <div id="page-header"><h3 id="h3-page-header">My Requests</h3></div>
+    <div id="page-header"><div unselectable="on" class="k-widget k-multiselect k-header" style="" title=""><li unselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" unselectable="on" role="listbox"></ul> <input style="width: 40px" class="k-input " aria-busy="false" value="Tasks"></li><select multiple="multiple" id="CalendarItemsFilter" data-role="multiselect" style="display: none;" aria-disabled="false" aria-readonly="false"><option value="releases">Product Release GA</option><option value="requests">Requests</option></select><span style="font-family: Trebuchet MS,Arial,Helvetica,sans-serif; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;"></span></div></div>
     <div id="views-selector">
         <ul>
             <li id="views-list" data-view="list" class="views-select active"></li>
@@ -81,7 +81,7 @@
 }
 
 #views-selector #views-calendar {
-    background:url("../../assets/images/request-queue-views-02.png") 0px 0px no-repeat;
+    background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
     width:97px;
     height:31px;
 
@@ -96,7 +96,7 @@
 }
 
 #views-selector #views-charts {
-    background:url("../../assets/images/request-queue-views-02.png") 0px 0px no-repeat;
+    background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
     width:79px;
     height:31px;
 }
@@ -108,129 +108,25 @@
 #views-selector #views-charts.active {
     background-position: 0px -62px;
 }
-
-/* Calendar view */
-#results-data-calendar .fc-day-grid-event .fc-content {
-    white-space:normal !important;
-    overflow: hidden !important;
+.k-header, .k-treemap-title, .k-grid-header .k-header > .k-link {
+    color: #2e2e2e;
 }
-
-#results-data-calendar table td, #results-data-calendar table tr{
-    background-color:transparent !important;
+.k-header, .k-grid-header, .k-toolbar, .k-dropdown-wrap, .k-picker-wrap, .k-numeric-wrap, .k-grouping-header, .k-textbox, .k-button, .k-progressbar, .k-draghandle, .k-autocomplete, .k-state-highlight, .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item, .km-pane-wrapper > .km-pane > .km-view > .km-content {
+    background-color: #e3e3e3;
+    background-image: none, linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0px, rgba(255, 255, 255, 0) 100%);
+    background-position: 50% 50%;
 }
-
-#results-data-calendar .fc-event-container a, #results-data-calendar .fc-event-container a:hover, #results-data-calendar .fc-event-container a:visited{
-    font-size:10px !important;
-    color:#FFFFFF !important;
-    max-width:none !important;
+.k-multiselect.k-header {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 288px !important;
 }
-
-#results-data-calendar h2 {
-    font-size:16px;
-    font-weight:bold;
+.k-multiselect.k-header:hover {
+    background-color: #fff;
+    background-image: none;
 }
-
-#results-data-calendar .fc-day-number {
-    font-size:14px;
-    font-weight:bold;
-}
-
-#results-data-calendar .fc-day-grid-event .fc-content {
-    color:#000000;
-    background-color:#ebebeb !important;
-    border:1px solid #ebebeb !important;
-    width:95%;
-}
-
-#results-data-calendar .fc-day-grid-event .fc-content.calendar-release {
-    background-color:#C1D82F !important;
-    border:1px solid #C1D82F !important;
-}
-
-#results-data-calendar .fc-request-title, #results-data-calendar .fc-project-title {
-    font-size:12px;
-    font-weight:bold;
-}
-
-#results-data-calendar .fc-request-owner {
-    font-size:12px;
-}
-
-#results-data-calendar .fc-event {
-    background-color:#ebebeb !important;
-    border:1px solid #ebebeb !important;
-}
-
-#results-data-calendar .fc-event.calendar-release {
-    background-color:#C1D82F !important;
-    border:1px solid #C1D82F !important;
-    cursor:pointer;
-}
-
-#results-data-fullcalendar-filter .k-button.calendar-release {
-    background-color:#C1D82F !important;
-}
-
-#results-data-calendar .fc-day-header {
-    padding: 3px 0px 3px 0px !important;
-}
-
-#results-data-calendar .fc-more, #results-data-calendar .fc-more:visited {
-    font-size:12px !important;
-    color: #007cb5 !important;
-}
-#results-data-calendar .fc-widget-content .fc-event-container {
-    max-height:600px !important;
-    overflow-y:auto !important;
-}
-#results-data-calendar a.fc-edit-project,#results-data-calendar a.fc-edit-project:hover, #results-data-calendar a.fc-edit-project:visited  {
-    font-size:12px;
-    font-weight:bold;
-    color:#000000 !important;
-    text-decoration:none;
-}
-#results-data-calendaritems {
-    width:50%;
-    margin: 20px 0px 20px 0px;
-}
-#results-data-calendaritems-manage {
-    margin: 20px 0px 20px 0px;
-}
-
-.results-data-chart-wrapper {
-    display:inline-block;
-    margin-right:100px;
-    width:600px;
-    height:500px;
-}
-.results-data-chart-wrapper  .k-chart{
-    width:600px;
-    height:500px;
-}
-
-.custom-date-required {
-    display:none;
-    color:red;
-}
-
-.custom-date-required td {
-    color:red;
-}
-
-#results-data-fullcalendar-filter {
-    margin: 10px 0px 10px 0px;
-}
-
-.vert-align-top {
-    vertical-align: top;
-}
-
-#results-data-fullcalendar-filter label {
-    width: 149px;
-    text-align: right;
-    margin: 0;
-    padding: 4px 10px 0 0;
-}
-
 
 </style>
