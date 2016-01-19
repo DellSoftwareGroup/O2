@@ -1,41 +1,236 @@
-<div id="navcontainer">
-    <ul id="navlist">
-        <li id="active"><a href="#" id="current">Item one</a></li>
-        <li id="views-list" data-view="list" class="views-select active"></li>
-        <li><a href="#">Item three</a></li>
-        <li   class="active-item-bg">
-            <a id="started" href="#">
-                <span class="rq-btn-icon" id="started-icon"></span>
-                <span>Chart view</span>
-            </a>
-        </li>
-    </ul>
-</div>
+
+    <div id="page-header"><h3 id="h3-page-header">My Requests</h3></div>
+    <div id="views-selector">
+        <ul>
+            <li id="views-list" data-view="list" class="views-select active"></li>
+            <li id="views-calendar" data-view="calendar" class="views-select"></li>
+            <li style="display:none;" id="views-charts" data-view="charts" class="views-select"></li>
+        </ul>
+    </div>
+
+
 
 <style>
-#navcontainer ul
-{
-padding-left: 0;
-margin-left: 0;
-float: left;
-width: 100%;
-font-family: arial, helvetica, sans-serif;
+
+
+#views-selector {
+    margin-left:30px;
+    float:left;
+    display:inline-block;
+    height:31px;
+    width:600px;
+
+}
+#views-selector ul {
+    position:relative;
+}
+#views-selector ul li {
+    display:inline-block;
+    position:relative;
+    cursor:pointer;
 }
 
-#navcontainer ul li { display: inline; }
+#views-selector ul li ul {
+    position:absolute;
+    top:31px;
+    right:0px;
+    z-index:999;
+    border:1px solid #7f9db9;
+    width:110px;
+    display:none;
+}
 
-#navcontainer ul li a
-{
-padding: 0.2em 1em;
-background-color: #036;
-text-decoration: none;
-float: left;
-border-right: 1px solid #fff;
+#views-selector ul li ul li {
+    display:block;
+    background-color:#eeeeee;
+    font-size:13px;
+    border-collapse:collapse;
+    padding:2px;
+    cursor:default;
+}
+
+#views-selector ul li ul li:hover {
+    background-color:#1e90ff;
+    color:#FFFFFF;
+}
+
+#views-selector #views-list {
+    background:url("../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
+    width:65px;
+    height:31px;
+}
+#views-selector #views-list:hover {
+    background-position: 0px -31px;
+}
+
+#views-selector #views-list.active {
+    background-position: 0px -62px;
+}
+
+#views-selector #views-list-edit {
+    background:url("../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
+    width:78px;
+    height:31px;
+}
+#views-selector #views-list-edit:hover {
+    background-position: 0px -31px;
+}
+
+#views-selector #views-list-edit.active {
+    background-position: 0px -62px;
+}
+
+#views-selector #views-calendar {
+    background:url("../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
+    width:97px;
+    height:31px;
+
+}
+
+#views-selector #views-calendar:hover {
+    background-position: 0px -31px;
+}
+
+#views-selector #views-calendar.active {
+    background-position:0px -62px;
+}
+
+#views-selector #views-charts {
+    background:url("../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
+    width:79px;
+    height:31px;
+}
+
+#views-selector #views-charts:hover {
+    background-position: 0px -31px;
+}
+
+#views-selector #views-charts.active {
+    background-position: 0px -62px;
+}
+
+/* Calendar view */
+#results-data-calendar .fc-day-grid-event .fc-content {
+    white-space:normal !important;
+    overflow: hidden !important;
+}
+
+#results-data-calendar table td, #results-data-calendar table tr{
+    background-color:transparent !important;
+}
+
+#results-data-calendar .fc-event-container a, #results-data-calendar .fc-event-container a:hover, #results-data-calendar .fc-event-container a:visited{
+    font-size:10px !important;
+    color:#FFFFFF !important;
+    max-width:none !important;
+}
+
+#results-data-calendar h2 {
+    font-size:16px;
+    font-weight:bold;
+}
+
+#results-data-calendar .fc-day-number {
+    font-size:14px;
+    font-weight:bold;
+}
+
+#results-data-calendar .fc-day-grid-event .fc-content {
+    color:#000000;
+    background-color:#ebebeb !important;
+    border:1px solid #ebebeb !important;
+    width:95%;
+}
+
+#results-data-calendar .fc-day-grid-event .fc-content.calendar-release {
+    background-color:#C1D82F !important;
+    border:1px solid #C1D82F !important;
+}
+
+#results-data-calendar .fc-request-title, #results-data-calendar .fc-project-title {
+    font-size:12px;
+    font-weight:bold;
+}
+
+#results-data-calendar .fc-request-owner {
+    font-size:12px;
+}
+
+#results-data-calendar .fc-event {
+    background-color:#ebebeb !important;
+    border:1px solid #ebebeb !important;
+}
+
+#results-data-calendar .fc-event.calendar-release {
+    background-color:#C1D82F !important;
+    border:1px solid #C1D82F !important;
+    cursor:pointer;
+}
+
+#results-data-fullcalendar-filter .k-button.calendar-release {
+    background-color:#C1D82F !important;
+}
+
+#results-data-calendar .fc-day-header {
+    padding: 3px 0px 3px 0px !important;
+}
+
+#results-data-calendar .fc-more, #results-data-calendar .fc-more:visited {
+    font-size:12px !important;
+    color: #007cb5 !important;
+}
+#results-data-calendar .fc-widget-content .fc-event-container {
+    max-height:600px !important;
+    overflow-y:auto !important;
+}
+#results-data-calendar a.fc-edit-project,#results-data-calendar a.fc-edit-project:hover, #results-data-calendar a.fc-edit-project:visited  {
+    font-size:12px;
+    font-weight:bold;
+    color:#000000 !important;
+    text-decoration:none;
+}
+#results-data-calendaritems {
+    width:50%;
+    margin: 20px 0px 20px 0px;
+}
+#results-data-calendaritems-manage {
+    margin: 20px 0px 20px 0px;
+}
+
+.results-data-chart-wrapper {
+    display:inline-block;
+    margin-right:100px;
+    width:600px;
+    height:500px;
+}
+.results-data-chart-wrapper  .k-chart{
+    width:600px;
+    height:500px;
+}
+
+.custom-date-required {
+    display:none;
+    color:red;
+}
+
+.custom-date-required td {
+    color:red;
+}
+
+#results-data-fullcalendar-filter {
+    margin: 10px 0px 10px 0px;
+}
+
+.vert-align-top {
+    vertical-align: top;
+}
+
+#results-data-fullcalendar-filter label {
+    width: 149px;
+    text-align: right;
+    margin: 0;
+    padding: 4px 10px 0 0;
 }
 
 
-#navcontainer #views-list {
-    background: rgba(0, 0, 0, 0) url("../assets/images/request-queue-views-01.png") no-repeat scroll 0 0;
-    height: 31px;
-    width: 65px; }
 </style>
