@@ -1,147 +1,140 @@
 
-    <div id="page-header">
-        <div style="display:inline-block; position:relative;">
+<div id="views-selector">
+    <ul>
+        <li unselectable="on" class="k-multiselect-wrap k-floatwrap k-widget k-multiselect k-header">
             <span class="arrow firefox"></span>
-            <div unselectable="on" class="k-widget k-multiselect k-header" style="" title="">
-                <li unselectable="on" class="k-multiselect-wrap k-floatwrap">
-                    <ul class="k-reset" unselectable="on" role="listbox">
+            <ul class="k-reset" unselectable="on" role="listbox">
+            </ul>
+            <input class="k-input " aria-busy="false" value="Tasks">
+        </li>
+        <li id="li-idea" data-value="1" class="icon-inline __web-inspector-hide-shortcut__">
+            <a href="#" id="idea" style="display: block;">
+                <span id="idea-icon" class="rq-btn-icon" style="float: left;"></span>
+                <span style="float: right;">Chart View</span>
+            </a>
+        </li>
+        <li id="views-list" data-view="list" class="views-select active"></li>
+        <li id="views-calendar" data-view="calendar" class="views-select"></li>
 
-                    </ul>
-                    <input style="width: 40px" class="k-input " aria-busy="false" value="Tasks"></li>
-            </div>
-        </div>
-    </div>
-    <div id="views-selector">
-        <ul>
-            <li id="views-list" data-view="list" class="views-select active"></li>
-            <li id="views-calendar" data-view="calendar" class="views-select"></li>
-            <li id="li-idea" data-value="1" class="icon-inline __web-inspector-hide-shortcut__">
-                <a href="#" id="idea" style="display: block;">
-                    <span id="idea-icon" class="rq-btn-icon"></span>
-                    <span style="float: right;">Idea</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
+    </ul>
+</div>
 
 
 <style>
+    #views-selector {
+        margin-left:30px;
+        float:left;
+        display:inline-block;
+        height:31px;
+        width:600px;
 
+    }
+    #views-selector ul {
+        position:relative;
+    }
+    #views-selector ul li {
+        display:inline-block;
+        position:relative;
+        cursor:pointer;
+        margin-right: 10px;
+    }
 
-#views-selector {
-    margin-left:30px;
-    float:left;
-    display:inline-block;
-    height:31px;
-    width:600px;
+    #views-selector ul li ul {
+        position:absolute;
+        top:31px;
+        right:0px;
+        z-index:999;
+        border:1px solid #7f9db9;
+        width:110px;
+        display:none;
+    }
 
-}
-#views-selector ul {
-    position:relative;
-}
-#views-selector ul li {
-    display:inline-block;
-    position:relative;
-    cursor:pointer;
-}
+    #views-selector ul li ul li {
+        display:block;
+        background-color:#eeeeee;
+        font-size:13px;
+        border-collapse:collapse;
+        padding:2px;
+        cursor:default;
+    }
 
-#views-selector ul li ul {
-    position:absolute;
-    top:31px;
-    right:0px;
-    z-index:999;
-    border:1px solid #7f9db9;
-    width:110px;
-    display:none;
-}
+    #views-selector ul li ul li:hover {
+        background-color:#1e90ff;
+        color:#FFFFFF;
+    }
 
-#views-selector ul li ul li {
-    display:block;
-    background-color:#eeeeee;
-    font-size:13px;
-    border-collapse:collapse;
-    padding:2px;
-    cursor:default;
-}
+    #views-selector #views-list {
+        background:url("../../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
+        width:65px;
+        height:31px;
+    }
+    #views-selector #views-list:hover {
+        background-position: 0px -31px;
+    }
 
-#views-selector ul li ul li:hover {
-    background-color:#1e90ff;
-    color:#FFFFFF;
-}
+    #views-selector #views-list.active {
+        background-position: 0px -62px;
+    }
 
-#views-selector #views-list {
-    background:url("../../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
-    width:65px;
-    height:31px;
-}
-#views-selector #views-list:hover {
-    background-position: 0px -31px;
-}
+    #views-selector #views-list-edit {
+        background:url("../../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
+        width:78px;
+        height:31px;
+    }
+    #views-selector #views-list-edit:hover {
+        background-position: 0px -31px;
+    }
 
-#views-selector #views-list.active {
-    background-position: 0px -62px;
-}
+    #views-selector #views-list-edit.active {
+        background-position: 0px -62px;
+    }
 
-#views-selector #views-list-edit {
-    background:url("../../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
-    width:78px;
-    height:31px;
-}
-#views-selector #views-list-edit:hover {
-    background-position: 0px -31px;
-}
+    #views-selector #views-calendar {
+        background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
+        width:97px;
+        height:31px;
 
-#views-selector #views-list-edit.active {
-    background-position: 0px -62px;
-}
+    }
 
-#views-selector #views-calendar {
-    background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
-    width:97px;
-    height:31px;
+    #views-selector #views-calendar:hover {
+        background-position: 0px -31px;
+    }
 
-}
+    #views-selector #views-calendar.active {
+        background-position:0px -62px;
+    }
 
-#views-selector #views-calendar:hover {
-    background-position: 0px -31px;
-}
+    #views-selector #views-charts {
+        background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
+        width:79px;
+        height:31px;
+    }
 
-#views-selector #views-calendar.active {
-    background-position:0px -62px;
-}
+    #views-selector #views-charts:hover {
+        background-position: 0px -31px;
+    }
 
-#views-selector #views-charts {
-    background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
-    width:79px;
-    height:31px;
-}
+    #views-selector #views-charts.active {
+        background-position: 0px -62px;
+    }
 
-#views-selector #views-charts:hover {
-    background-position: 0px -31px;
-}
+    .k-multiselect.k-header {
+        width: 100px !important;
+        background-image: none;
+        background-color: #fff;
+        border: 1px solid #ccc !important;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+    .k-input, .k-textbox > input, .k-multiselect-wrap {
+        background-color: #fff;
+        color: #2e2e2e;
+    }
 
-#views-selector #views-charts.active {
-    background-position: 0px -62px;
-}
-
-.k-multiselect.k-header {
-    width: 288px !important;
-    background-image: none;
-    background-color: #fff;
-    border: 1px solid #ccc !important;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-.k-input, input.k-textbox, textarea.k-textbox, input.k-textbox:hover, textarea.k-textbox:hover, .k-textbox > input, .k-multiselect-wrap {
-    background-color: #fff;
-    color: #2e2e2e;
-}
-
-.k-widget, .k-widget * {
-    -moz-background-clip: border-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-}
+    .k-widget, .k-widget * {
+        -moz-background-clip: border-box;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+    }
 
 </style>
