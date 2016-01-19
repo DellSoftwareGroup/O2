@@ -1,10 +1,15 @@
 <div id="navcontainer">
     <ul id="navlist">
         <li id="active"><a href="#" id="current">Item one</a></li>
-        <li><a href="#">Item two</a></li>
-        <li><a href="#">Item three</a></li>
-        <li><a href="#">Item four</a></li>
-        <li><a href="#">Item five</a></li>
+        <li id="views-list" data-view="list" class="views-select active"></li>
+        <li id="views-calendar" data-view="calendar" class="views-select"></li>
+        <li style="display:none;" id="views-charts" data-view="charts" class="views-select"></li>
+        <li   class="active-item-bg">
+            <a id="started" href="#">
+                <span class="rq-btn-icon" id="started-icon"></span>
+                <span>Chart view</span>
+            </a>
+        </li>
     </ul>
 </div>
 
