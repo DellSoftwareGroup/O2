@@ -1,89 +1,89 @@
-.request-listing{
-  .id-col{
-    width: 30px;
-  }
-  .title-col{
-    width: 110px;
-  }
-  .type-col{
-    width: 80px;
-  }
-  .project-col{
-    width: 120px;
-  }
-  .agileTeam-col{
-    width: 70px;
-  }
-  .status-col{
-    width: 64px;
-  }
-  .requestStartDate-col{
-    width: 64px;
-  }
-  .requestEndDate-col{
-       width: 100px;
-     }
-  .requester-col{
-    width: 76px;
-  }
-  .portfolio-col{
-    width: 65px;
-  }
-  .sprint-col{
-    width: 54px;
-  }
-  .priority-col{
-    width: 54px;
-  }
-  .group-col{
-    width: 46px;
-  }
-  .active-col{
-    width: 22px;
-  }
-  .complete-col{
-    width: 22px;
-  }
-  .startDate-col{
-    width: 80px;
-  }
-  .endDate-col{
-    width: 112px;
-  }
-}
+.request-listing {
+   .id-col {
+     width: 30px;
+   }
+   .title-col {
+     width: 110px;
+   }
+   .type-col {
+     width: 80px;
+   }
+   .project-col {
+     width: 120px;
+   }
+   .agileTeam-col {
+     width: 70px;
+   }
+   .status-col {
+     width: 64px;
+   }
+   .requestStartDate-col {
+     width: 64px;
+   }
+   .requestEndDate-col {
+     width: 100px;
+   }
+   .requester-col {
+     width: 76px;
+   }
+   .portfolio-col {
+     width: 65px;
+   }
+   .sprint-col {
+     width: 54px;
+   }
+   .priority-col {
+     width: 54px;
+   }
+   .group-col {
+     width: 46px;
+   }
+   .active-col {
+     width: 22px;
+   }
+   .complete-col {
+     width: 22px;
+   }
+   .startDate-col {
+     width: 80px;
+   }
+   .endDate-col {
+     width: 112px;
+   }
+ }
 
 .tasks-listing {
-  .id-col{
+  .id-col {
     width: 30px;
   }
-  .title-col{
+  .title-col {
     width: 110px;
   }
-  .type-col{
+  .type-col {
     width: 55px;
   }
-  .project-col{
+  .project-col {
     width: 127px;
   }
-  .agileTeam-col{
+  .agileTeam-col {
     width: 70px;
   }
-  .status-col{
+  .status-col {
     width: 60px;
   }
-  .requestStartDate-col{
+  .requestStartDate-col {
     width: 64px;
   }
-  .requestEndDate-col{
+  .requestEndDate-col {
     width: 92px;
   }
-  .requester-col{
+  .requester-col {
     width: 65px;
   }
-  .portfolio-col{
+  .portfolio-col {
     width: 65px;
   }
-  .sprint-col{
+  .sprint-col {
     width: 54px;
   }
   .owner-col {
@@ -92,22 +92,22 @@
   .taskTitle-col {
     width: 58px;
   }
-  .taskStatus-col{
+  .taskStatus-col {
     width: 60px;
   }
   .dept-col {
-    width:38px;
+    width: 38px;
   }
   .startDate-col {
     width: 74px;
   }
-  .endDate-col{
+  .endDate-col {
     width: 100px;
   }
 }
 
 #results-data-list {
-  th.summary-th a{
+  th.summary-th a {
     color: #933e9c !important;
     font-weight: bold !important;
   }
@@ -121,13 +121,13 @@
     font-size: 10px;
     border-radius: 3px;
   }
-  span.urgent{
+  span.urgent {
     background-color: #cc4321;
   }
-  span.new{
+  span.new {
     background-color: #6da209;
   }
-  span.legacy{
+  span.legacy {
     background-color: #444;
   }
   span.past-due {
@@ -137,13 +137,13 @@
     vertical-align: middle;
     margin-left: 0;
   }
-  td a,  td a:visited, td a:link {
+  td a, td a:visited, td a:link {
     color: #74c1dd;
   }
   .k-grid td, {
     border-left: 1px solid #ddd;
   }
-  .k-grid td:first-child{
+  .k-grid td:first-child {
     border-left: none;
   }
 }
@@ -162,9 +162,12 @@
     font-weight: bold;
   }
 }
+
 .table-headings > li.task-info-heading {
   margin-right: 508px;
 }
-.summary-start { /* "Summary sections" */
+
+.summary-start {
+  /* "Summary sections" */
   border-left: 1px solid #444 !important;
 }
