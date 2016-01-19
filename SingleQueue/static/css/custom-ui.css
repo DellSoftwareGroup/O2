@@ -1065,17 +1065,19 @@ tbody tr:first-child .tooltip:hover:after {
 .request-listing .type-col {
   width: 80px; }
 .request-listing .project-col {
-  width: 120px; }
+  width: 100px; }
 .request-listing .agileTeam-col {
   width: 70px; }
 .request-listing .status-col {
   width: 64px; }
 .request-listing .requestStartDate-col {
   width: 64px; }
+.request-listing .requestStartDate-col {
+  width: 64px; }
 .request-listing .requestEndDate-col {
   width: 100px; }
 .request-listing .requester-col {
-  width: 76px; }
+  width: 40px; }
 .request-listing .portfolio-col {
   width: 65px; }
 .request-listing .sprint-col {
@@ -1429,6 +1431,8 @@ tbody tr:first-child .tooltip:hover:after {
           border: none; }
           .rq-top-ribbon > ul > li > ul > li select:hover {
             cursor: pointer; }
+          .rq-top-ribbon > ul > li > ul > li select:focus {
+            outline: 0; }
         .rq-top-ribbon > ul > li > ul > li a {
           padding-top: 2px;
           display: block;

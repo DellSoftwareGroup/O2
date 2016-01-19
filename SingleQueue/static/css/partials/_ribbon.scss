@@ -168,6 +168,9 @@
           &:hover {
             cursor: pointer;
           }
+          &:focus{
+            outline: 0;
+          }
         }
         a {
           padding-top: 2px;
