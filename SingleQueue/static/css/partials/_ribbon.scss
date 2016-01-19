@@ -21,7 +21,7 @@
     padding: 7px;
   }
   #question-mark-icon {
-    background: url('http://stage-o2/mk/Static/Content/Img/request-queue-sprite.png') no-repeat 0 -1px;
+    background: url('../../assets/images/single-queue-sprite.png') no-repeat 0 -1px;
     width: 10px;
     height: 14px;
     display: inline-block;
@@ -151,7 +151,7 @@
     padding: 15px 20px 0 20px;
     border-right: 1px solid #ccc;
     height: 82px;
-    &#sprints-section span{
+    &#sprints-section span {
       width: 35%;
     }
     > span:last-child {
@@ -163,7 +163,7 @@
       color: #737373;
       clear: both;
     }
-    > ul{
+    > ul {
       float: left;
       clear: both;
       .grey-bg {
@@ -171,15 +171,14 @@
         border-radius: 3px;
       }
       > li {
-        select{
+        select {
           color: #444;
-          width: 102px;
         }
         a {
           padding-top: 2px;
           display: block;
           color: #444;
-          &:hover{
+          &:hover {
             text-decoration: none;
             color: #3399CC;
           }
@@ -190,14 +189,11 @@
         &:last-child {
           margin-right: 0;
         }
-        &.icon-inline{
-          padding:0;
-          .rq-btn-icon{
-            margin-right: 15px;
+        &.icon-inline {
+          padding: 0;
+          .rq-btn-icon {
+            margin-right: 10px;
             float: left;
-          }
-          select,span:last-child{
-            float:right;
           }
         }
       }
@@ -248,6 +244,16 @@
         padding-left: 4px;
         padding-right: 19px;
       }
+    }
+    &#filters-section > ul > li {
+      min-width: 126px;
+      > a > select {
+        border: none;
+        width: 105px;
+      }
+    }
+    &#views select {
+      width: 86px;
     }
   }
 }
@@ -388,10 +394,7 @@
 
 /*icons start*/
 .rq-btn-icon {
-  background-image: url('http://stage-o2/mk/Static/Content/Img/request-queue-sprite.png');
-  background-repeat: no-repeat;
-  border: medium none;
-  background-color: transparent;
+  background: url('../../assets/images/single-queue-sprite.png') no-repeat 0 0;
   display: block;
   height: 22px;
 }
@@ -421,16 +424,16 @@
   right: 5px;
 }
 
-#my-work-icon {
+#my-work-icon,#requester-icon {
   background-position: 4px -40px;
-  width:25px;
+  width: 25px;
 }
 
 .active-item-bg {
   select {
     background-color: #eee;
   }
-  #my-work-icon {
+  #my-work-icon, #requester-icon {
     background-position: 4px -2px;
   }
 }
@@ -451,7 +454,7 @@
 #jan-fy-icon {
   background-position: -163px -38px;
   width: 30%;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 #proj-fy-icon {
@@ -550,7 +553,61 @@
   margin: -27px 4px 0 0;
 }
 
-.mb-20{
- margin-bottom: 20px;
+#department-icon {
+  background-position: -853px 3px;
+  width: 11px;
+  height: 15px;
+}
+
+#department-icon:hover, .active-item-bg #department-icon {
+  background-position: -853px -39px;
+}
+
+#request-type-icon {
+  background-position: -257px -80px;
+  width: 13px;
+  height: 15px;
+}
+
+#request-type-icon:hover, .active-item-bg #request-type-icon {
+  background-position: -257px -118px;
+}
+
+#task-type-icon {
+  background-position: -320px -118px;
+  width: 17px;
+  height: 15px;
+}
+
+#task-type-icon:hover {
+  background-position: -320px -80px;
+}
+
+.active-item-bg #task-type-icon {
+  background-position: -385px -80px;
+}
+
+#portfolio-icon {
+  background-position: -166px -85px;
+  width: 13px;
+  height: 12px;
+}
+
+#portfolio-icon:hover, .active-item-bg #portfolio-icon {
+  background-position: -166px -121px;
+}
+
+#task-status-icon {
+  background-position: -444px -80px;
+  width: 13px;
+  height: 15px;
+}
+
+#task-status-icon:hover, .active-item-bg #task-status-icon {
+  background-position: -444px -118px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
 

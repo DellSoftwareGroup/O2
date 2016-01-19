@@ -2,7 +2,8 @@
 .wrapper {
   width: 1540px;
   margin: 0 auto;
-  height: auto; }
+  height: auto;
+  clear: both; }
 
 #body-content {
   height: 100%; }
@@ -1311,7 +1312,7 @@ tbody tr:first-child .tooltip:hover:after {
     .nav li:first-child {
       margin-left: 12px; }
   .nav #question-mark-icon {
-    background: url("http://stage-o2/mk/Static/Content/Img/request-queue-sprite.png") no-repeat 0 -1px;
+    background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 -1px;
     width: 10px;
     height: 14px;
     display: inline-block;
@@ -1428,8 +1429,7 @@ tbody tr:first-child .tooltip:hover:after {
         float: left;
         margin-right: 35px; }
         .rq-top-ribbon > ul > li > ul > li select {
-          color: #444;
-          width: 102px; }
+          color: #444; }
         .rq-top-ribbon > ul > li > ul > li a {
           padding-top: 2px;
           display: block;
@@ -1442,10 +1442,8 @@ tbody tr:first-child .tooltip:hover:after {
         .rq-top-ribbon > ul > li > ul > li.icon-inline {
           padding: 0; }
           .rq-top-ribbon > ul > li > ul > li.icon-inline .rq-btn-icon {
-            margin-right: 15px;
+            margin-right: 10px;
             float: left; }
-          .rq-top-ribbon > ul > li > ul > li.icon-inline select, .rq-top-ribbon > ul > li > ul > li.icon-inline span:last-child {
-            float: right; }
     .rq-top-ribbon > ul > li:last-child {
       border-right: none; }
       .rq-top-ribbon > ul > li:last-child > span:last-child {
@@ -1485,6 +1483,13 @@ tbody tr:first-child .tooltip:hover:after {
         height: 21px;
         padding-left: 4px;
         padding-right: 19px; }
+    .rq-top-ribbon > ul > li#filters-section > ul > li {
+      min-width: 126px; }
+      .rq-top-ribbon > ul > li#filters-section > ul > li > a > select {
+        border: none;
+        width: 105px; }
+    .rq-top-ribbon > ul > li#views select {
+      width: 86px; }
 
 #add-project {
   padding: 0 12px; }
@@ -1592,10 +1597,7 @@ tbody tr:first-child .tooltip:hover:after {
 
 /*icons start*/
 .rq-btn-icon {
-  background-image: url("http://stage-o2/mk/Static/Content/Img/request-queue-sprite.png");
-  background-repeat: no-repeat;
-  border: medium none;
-  background-color: transparent;
+  background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 0;
   display: block;
   height: 22px; }
 
@@ -1617,13 +1619,13 @@ tbody tr:first-child .tooltip:hover:after {
   top: -17px;
   right: 5px; }
 
-#my-work-icon {
+#my-work-icon, #requester-icon {
   background-position: 4px -40px;
   width: 25px; }
 
 .active-item-bg select {
   background-color: #eee; }
-.active-item-bg #my-work-icon {
+.active-item-bg #my-work-icon, .active-item-bg #requester-icon {
   background-position: 4px -2px; }
 
 #opt-my-work:hover #my-work-icon {
@@ -1716,6 +1718,49 @@ tbody tr:first-child .tooltip:hover:after {
   width: 16px;
   height: 15px;
   margin: -27px 4px 0 0; }
+
+#department-icon {
+  background-position: -853px 3px;
+  width: 11px;
+  height: 15px; }
+
+#department-icon:hover, .active-item-bg #department-icon {
+  background-position: -853px -39px; }
+
+#request-type-icon {
+  background-position: -257px -80px;
+  width: 13px;
+  height: 15px; }
+
+#request-type-icon:hover, .active-item-bg #request-type-icon {
+  background-position: -257px -118px; }
+
+#task-type-icon {
+  background-position: -320px -118px;
+  width: 17px;
+  height: 15px; }
+
+#task-type-icon:hover {
+  background-position: -320px -80px; }
+
+.active-item-bg #task-type-icon {
+  background-position: -385px -80px; }
+
+#portfolio-icon {
+  background-position: -166px -85px;
+  width: 13px;
+  height: 12px; }
+
+#portfolio-icon:hover, .active-item-bg #portfolio-icon {
+  background-position: -166px -121px; }
+
+#task-status-icon {
+  background-position: -444px -80px;
+  width: 13px;
+  height: 15px; }
+
+#task-status-icon:hover, .active-item-bg #task-status-icon {
+  background-position: -444px -118px; }
 
 .mb-20 {
   margin-bottom: 20px; }

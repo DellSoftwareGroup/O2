@@ -156,7 +156,6 @@
       </ul>
       <span id="span-projectdate-caption">Due&nbsp;Date</span>
     </li>-->
-
     <li id="agile-phase">
       <ul class="mb-20">
         <li id="li-idea" data-value="1" class="icon-inline">
@@ -200,6 +199,89 @@
       </ul>
       <span>Agile Status</span>
     </li>
+    <li id="filters-section">
+      <ul class="mb-20">
+        <li id="li-department" data-value="1" class="icon-inline">
+          <a href="#" id="department">
+            <span id="department-icon" class="rq-btn-icon"></span>
+            <select class="department-dd" name="department-dd"><option value="">Departments</option>
+              <option value="57">ADVT</option>
+              <option value="58">ANLT</option>
+              <option value="59">DM</option>
+              <option value="61">ECOM</option>
+              <option value="60">ECRD</option>
+              <option value="62">EVT</option>
+              <option value="63">MRCM</option>
+              <option value="64">OPS</option>
+              <option value="66">SOME</option>
+              <option value="65">SRCH</option>
+              <option value="67">WEB</option>
+            </select>
+          </a>
+        </li>
+        <li id="li-request-type" data-value="2" class="icon-inline">
+          <a href="#" id="request-type">
+            <span id="request-type-icon" class="rq-btn-icon"></span>
+            <select class="request-type-dd" name="requet-type-dd"><option value="">Request Type</option>
+              <option value="1">Advertising</option>
+              <option value="2">Digital & Multimedia</option>
+              <option value="3">eCard</option>
+            </select>
+          </a>
+        </li>
+        <li id="li-task-type" data-value="1096" class="icon-inline">
+          <a href="#" id="task-type">
+            <span id="task-type-icon" class="rq-btn-icon"></span>
+            <select class="task-type-dd" name="requet-type-dd"><option value="">Task Type</option>
+              <option value="1">Advertising</option>
+              <option value="2">Digital & Multimedia</option>
+              <option value="3">eCard</option>
+            </select>
+          </a>
+        </li>
+        <li id="li-requester" data-value="1096" class="icon-inline">
+          <a href="#" id="requester">
+            <span id="requester-icon" class="rq-btn-icon"></span>
+            <select class="requester-dd" name="requester-dd">
+              <option value="">Requester</option>
+              <option value="1">Advertising</option>
+              <option value="2">Digital & Multimedia</option>
+              <option value="3">eCard</option>
+            </select>
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li id="li-portfolio" data-value="6" class="icon-inline">
+          <a href="#" id="portfolio">
+            <span id="portfolio-icon" class="rq-btn-icon"></span>
+            <select class="portfolio-dd" name="portfolio-dd-dd"><option value="">Portfolio</option>
+              <option value="1">Advertising</option>
+              <option value="2">Digital & Multimedia</option>
+              <option value="3">eCard</option>
+            </select>
+          </a>
+        </li>
+        <li id="li-task-status" data-value="3" class="icon-inline">
+          <a href="#" id="task-status">
+            <span id="task-status-icon" class="rq-btn-icon"></span>
+            <select class="task-status-dd" name="task-status-dd"><option value="">Task Status</option>
+              <option value="1">Advertising</option>
+              <option value="2">Digital & Multimedia</option>
+              <option value="3">eCard</option>
+            </select>
+          </a>
+        </li>
+        <li id="li-cancelled" data-value="8" class="icon-inline">
+          <a href="#" id="cancelled">
+            <span id="cancelled-icon" class="rq-btn-icon"></span>
+            <span>Cancelled</span>
+          </a>
+        </li>
+      </ul>
+      <span>Agile Status</span>
+    </li>
+
     <li id="rq-filters-item">
       <ul id="filters">
         <li>
@@ -318,7 +400,7 @@
                   <input type="button" id="project-btn" class="rq-btn-icon" />
                 </div>
 
-                <select id="department-dd" name="department-dd"><option value="">--All Departments--</option>
+                <select class="department-dd" name="department-dd"><option value="">--All Departments--</option>
                   <option value="57">ADVT</option>
                   <option value="58">ANLT</option>
                   <option value="59">DM</option>
@@ -382,13 +464,13 @@
       </ul>
       <span>Filters</span>
     </li>
-    <li id="rq-ribbon-search-item">
+    <!--<li id="rq-ribbon-search-item">
       <div>
         <input type="text" id="rq-ribbon-search-text">
         <input type="button" id="rq-ribbon-search-btn" class="rq-btn-icon">
       </div>
       <span>Search</span>
-    </li>
+    </li>-->
     <li id="excel">
       <ul>
         <li class="deactive">
