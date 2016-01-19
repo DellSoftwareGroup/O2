@@ -1719,3 +1719,9 @@ tbody tr:first-child .tooltip:hover:after {
 
 .mb-20 {
   margin-bottom: 20px; }
+/*widget icons start*/
+#views-selector #views-list {
+  background: rgba(0, 0, 0, 0) url("../Content/Img/request-queue-views-01.png") no-repeat scroll 0 0;
+  height: 31px;
+  width: 65px;
+}
