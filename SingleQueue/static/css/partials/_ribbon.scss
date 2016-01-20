@@ -19,13 +19,13 @@
     }
     margin-left: 32px;
     padding: 7px;
-  }
-  #question-mark-icon {
-    background: url('../../assets/images/single-queue-sprite.png') no-repeat 0 -1px;
-    width: 10px;
-    height: 14px;
-    display: inline-block;
-    margin-right: 4px;
+    &.nav-active {
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 7px;
+      height: 16px;
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+    }
   }
   ul {
     .right {
@@ -37,6 +37,17 @@
     li {
       .sub-nav-col {
         display: none;
+        background: none repeat scroll 0 0 #eee;
+        float: left;
+        margin: 0 auto;
+        padding: 10px 7px;
+        position: absolute;
+        text-align: left;
+        z-index: 1000;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
       }
       ul li {
         display: block;
@@ -66,7 +77,7 @@
           min-height: 273px;
         }
       }
-      &:nth-child(4):hover .sub-nav-col-wrapper {
+      &:nth-child(5):hover .sub-nav-col-wrapper {
         min-width: 247px;
         min-height: 346px;
       }
@@ -74,85 +85,61 @@
   }
 }
 
-.sub-nav {
-  #filter-title > a {
-    color: #3399CC;
-    text-decoration: none;
-  }
-  #search {
-    margin-right: 7px;
-  }
-  #filter-title {
-    margin-bottom: 10px;
-    display: block;
-    float: left;
-    width: 100%;
-    > {
-      span {
-        float: left;
-        font-weight: bold;
-      }
-      a {
-        float: right;
-        text-decoration: none;
-      }
-    }
-  }
-  > div {
-    display: block;
-    float: left;
-  }
-  .rq-btn-icon {
-    cursor: pointer;
-    clear: both;
-    float: right;
-    position: relative;
-    z-index: 99999;
-    /*fix for ie9*/
-  }
-}
-
-.nav-active {
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 7px;
-  height: 16px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-}
-
-.sub-nav-col {
-  background: none repeat scroll 0 0 #eee;
-  float: left;
-  margin: 0 auto;
-  padding: 10px 7px;
-  position: absolute;
-  text-align: left;
-  z-index: 1000;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-}
-
 /*nav end*/
 
-/*ribbob start*/
-
+/*ribbon start*/
 .rq-top-ribbon {
   float: left;
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   > ul > li {
     display: inline;
     float: left;
     padding: 15px 20px 0 20px;
     border-right: 1px solid #ccc;
+    &.active-item-bg {
+      background-color: #eee;
+      border-radius: 3px;
+    }
+    .wide-blue-button {
+      background-color: #007CB8;
+      height: 55px;
+      border-radius: 3px;
+      vertical-align: middle;
+      a {
+        padding: 0 10px;
+        display: block;
+        color: #fff;
+        float: left;
+        span {
+          &:first-child {
+            font-size: 38px;
+            display: block;
+            float: left;
+            line-height: 8px;
+            line-height: 55px;
+            font-size: 2.5em;
+          }
+          &:last-child {
+            display: block;
+            float: left;
+            margin-left: 6px;
+            line-height: 55px;
+            font-size: 1.2em;
+          }
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
     > ul {
       float: left;
       clear: both;
+      position: relative;
       .grey-bg {
         background-color: #eee;
         border-radius: 3px;
@@ -168,7 +155,7 @@
           &:hover {
             cursor: pointer;
           }
-          &:focus{
+          &:focus {
             outline: 0;
           }
         }
@@ -243,8 +230,9 @@
         }
         #filters-icon {
           background-position: -548px -3px;
-          width: 26px;
           float: left;
+          width: 30px;
+          height: 33px;
         }
         #excel-icon {
           background-position: -653px 0;
@@ -272,8 +260,7 @@
         }
         #owner-icon {
           background-position: -507px -80px;
-          width: 15px;
-          height: 15px;
+          width: 16px;
         }
         &:hover, .active-item-bg {
           #my-work-icon, #requester-icon {
@@ -325,6 +312,113 @@
             background-position: -507px -118px;
           }
         }
+        &#rq-filters-item {
+          > div {
+            #rq-filters {
+              &:hover > span:last-child {
+                display: none;
+              }
+              a:hover, .activate-bg, &.add-bg {
+                #filters-icon {
+                  background-position: -548px -40px;
+                }
+              }
+              &.add-bg {
+                background-color: #eee;
+                border-radius: 5px;
+                height: 33px;
+                width: 24px;
+                box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+                padding: 7px 10px 0 10px;
+                margin-left: -10px;
+              }
+              #more-filters{
+                position: absolute;
+                right:18px;
+              }
+            }
+            > div {
+              padding: 0;
+            }
+          }
+          > span:last-child {
+            width: 66%;
+            display: block;
+            padding-top: 23px;
+          }
+          #request-type-btn, #campaign-btn, #project-btn {
+            background-position: -17px -127px;
+            width: 14px;
+            height: 13px;
+            margin: -26px 4px 0 0;
+          }
+          #requester-btn, #owner-btn {
+            background-position: -35px -127px;
+            width: 16px;
+            height: 15px;
+            margin: -27px 4px 0 0;
+          }
+          .sub-nav {
+            #filter-title > a {
+              color: #3399CC;
+              text-decoration: none;
+            }
+            #search {
+              background-color: #007CB8;
+              color: #fff;
+              border: none;
+              padding: 7px 0;
+              margin-right: 7px;
+              width: 107px;
+              &:hover {
+                background-color: #00447B;
+                cursor: pointer;
+              }
+            }
+            #reset {
+              background-color: #007CB8;
+              color: #fff;
+              border: none;
+              padding: 7px 0;
+              width: 107px;
+              color: #007db8;
+              background-color: #eeeeee;
+              border: 1px solid #cccccc;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+            #filter-title {
+              margin-bottom: 10px;
+              display: block;
+              float: left;
+              width: 100%;
+              > {
+                span {
+                  float: left;
+                  font-weight: bold;
+                }
+                a {
+                  float: right;
+                  text-decoration: none;
+                }
+              }
+            }
+            > div {
+              display: block;
+              float: left;
+            }
+            .rq-btn-icon {
+              border: none;
+              cursor: pointer;
+              clear: both;
+              float: right;
+              position: relative;
+              z-index: 99999;
+              /*fix for ie9*/
+            }
+          }
+        }
       }
     }
     &#sprints-section span {
@@ -360,7 +454,7 @@
       overflow: hidden;
       margin-left: -11px;
       position: absolute;
-      top: 87px;
+      top: 30px;
     }
     .sub-nav {
       background-color: #eee;
@@ -412,106 +506,24 @@
     }
   }
 }
-.activate-bg #filters-icon, #rq-filters a:hover #filters-icon, .add-bg #filters-icon {
-  background-position: -548px -40px;
-}
-#rq-filters-item {
-  ul > li {
-    padding: 0;
-    #rq-filters {
-      padding: 7px 10px 0 10px;
-      width: 37px;
-      height: 33px;
-      &:hover > span:last-child {
-        display: none;
-      }
-      #search {
-        background-color: #007CB8;
-        color: #fff;
-        border: none;
-        padding: 7px 0;
-        width: 107px;
-      }
-      #reset {
-        background-color: #007CB8;
-        color: #fff;
-        border: none;
-        padding: 7px 0;
-        width: 107px;
-        color: #007db8;
-        background-color: #eeeeee;
-        border: 1px solid #cccccc;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      #search:hover {
-        background-color: #00447B;
-        cursor: pointer;
-      }
-    }
-  }
-  > span:last-child {
-    width: 66%;
-    display: block;
-    padding-top: 23px;
-  }
-}
 
-#add-project {
-  padding: 0 12px;
-}
+/*ribbon end*/
 
-.active-item-bg {
-  background-color: #eee;
-  border-radius: 3px;
-}
-
-.active-item-color {
-  color: #444;
-}
-
-.disable-hover a span:last-child {
-  text-decoration: none;
-  color: #444;
-}
-
-.add-bg {
-  background-color: #eee;
-  border-radius: 5px;
-  height: 33px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-}
-
-.wide-blue-button {
-  background-color: #007CB8;
-  height: 55px;
-  border-radius: 3px;
-  vertical-align: middle;
-  a {
-    padding: 0 10px;
-    display: block;
-    color: #fff;
+.selected-filters {
+  float: left;
+  li {
+    display: inline-block;
     float: left;
-    span {
-      &:first-child {
-        font-size: 38px;
-        display: block;
-        float: left;
-        line-height: 8px;
-        line-height: 55px;
-        font-size: 2.5em;
-      }
-      &:last-child {
-        display: block;
-        float: left;
-        margin-left: 6px;
-        line-height: 55px;
-        font-size: 1.2em;
-      }
+    &:first-child {
+      margin-left: 20px;
     }
-    &:hover {
-      text-decoration: none;
+    &:nth-child(2) {
+      margin-left: 10px;
+    }
+    a {
+      margin-right: 10px;
+      color: #3399cc;
+      text-decoration: underline;
     }
   }
 }
