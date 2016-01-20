@@ -82,7 +82,7 @@ var singleQueueTables = (function($){
 					display: '<li class="">{0} - {1} of {2}</li>'
 				}
 			}).data("kendoPager");
-			console.log(pager.dataSource.data.length);
+
 			$(".k-i-seek-w").parent().hide();
 			$(".k-i-seek-e").parent().hide();
 
@@ -127,7 +127,7 @@ var singleQueueTables = (function($){
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
 			commonStyles.tempStyles();
-			GridRequest_DataBound()
+      commonStyles.GridRequest_DataBound()
 		}
 	};
 

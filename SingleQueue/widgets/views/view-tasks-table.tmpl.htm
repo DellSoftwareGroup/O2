@@ -57,9 +57,15 @@
 								}
 							}
 						}
-					}
+					},
+          pageSize: 10,
+          page: 1,
+          total: 0,
+          schema: {
+            data: "data",
+            total: "Total"
+          }
 				},
-				maxHeight: 500,
 				scrollable: false, // for our our layout we need to have this setting!
 				pageable: true,
 				sortable: true
