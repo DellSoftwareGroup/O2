@@ -7,15 +7,24 @@
             </ul>
             <input class="k-input " aria-busy="false" value="Tasks">
         </li>
-        <li id="li-idea" data-value="1" class="icon-inline __web-inspector-hide-shortcut__">
-            <a href="#" id="idea" style="display: block;">
-                <span id="idea-icon" class="rq-btn-icon" style="float: left;"></span>
-                <span style="float: right;">Chart View</span>
+        <li>
+            <a href="#" >
+                <span id="list-icon" class="rq-btn-icon"></span>
+                <span style="float: right; padding-top: 5px;">List View</span>
             </a>
         </li>
-        <li id="views-list" data-view="list" class="views-select active"></li>
-        <li id="views-calendar" data-view="calendar" class="views-select"></li>
-
+        <li >
+            <a href="#"  >
+                <span id="calendar-icon" class="rq-btn-icon"></span>
+                <span style="float: right; padding-top: 5px;">Calendar View</span>
+            </a>
+        </li>
+        <li >
+            <a href="#"  >
+                <span id="chart-icon" class="rq-btn-icon"></span>
+                <span style="float: right; padding-top: 5px;">Chart View</span>
+            </a>
+        </li>
     </ul>
 </div>
 
@@ -33,89 +42,62 @@
         position:relative;
     }
     #views-selector ul li {
+         display:inline-block;
+         position:relative;
+         cursor:pointer;
+         margin-right: 10px;
+     }
+    #views-selector ul li a{
         display:inline-block;
-        position:relative;
-        cursor:pointer;
+        color: #444;
+        padding:2px;
+
+    }
+    #views-selector ul li a:hover{
+        display:inline-block;
+        padding:2px;
+        color: #3399cc;
+
+    }
+    #list-icon {
+        background-position: -663px -70px;
+        width: 20px;
+        float: left;
+        margin-right: 10px;
+    }
+    #calendar-icon {
+        background-position: -720px -70px;
+        width: 20px;
+        float: left;
+        margin-right: 10px;
+    }
+    #chart-icon {
+        background-position: -583px -70px;
+        width: 23px;
+        float: left;
+        margin-right: 10px;
+    }
+    li:hover #list-icon {
+        background-position: -663px -113px;
+        width: 20px;
+        float: left;
+        margin-right: 10px;
+    }
+    li #list-icon:active {
+        background-color: #e8e8e6;
+    }
+    li:hover #calendar-icon{
+        background-position: -720px -114px;
+        width: 20px;
+        float: left;
         margin-right: 10px;
     }
 
-    #views-selector ul li ul {
-        position:absolute;
-        top:31px;
-        right:0px;
-        z-index:999;
-        border:1px solid #7f9db9;
-        width:110px;
-        display:none;
-    }
-
-    #views-selector ul li ul li {
-        display:block;
-        background-color:#eeeeee;
-        font-size:13px;
-        border-collapse:collapse;
-        padding:2px;
-        cursor:default;
-    }
-
-    #views-selector ul li ul li:hover {
-        background-color:#1e90ff;
-        color:#FFFFFF;
-    }
-
-    #views-selector #views-list {
-        background:url("../../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
-        width:65px;
-        height:31px;
-    }
-    #views-selector #views-list:hover {
-        background-position: 0px -31px;
-    }
-
-    #views-selector #views-list.active {
-        background-position: 0px -62px;
-    }
-
-    #views-selector #views-list-edit {
-        background:url("../../assets/images/request-queue-views-01.png") 0px 0px no-repeat;
-        width:78px;
-        height:31px;
-    }
-    #views-selector #views-list-edit:hover {
-        background-position: 0px -31px;
-    }
-
-    #views-selector #views-list-edit.active {
-        background-position: 0px -62px;
-    }
-
-    #views-selector #views-calendar {
-        background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
-        width:97px;
-        height:31px;
-
-    }
-
-    #views-selector #views-calendar:hover {
-        background-position: 0px -31px;
-    }
-
-    #views-selector #views-calendar.active {
-        background-position:0px -62px;
-    }
-
-    #views-selector #views-charts {
-        background:url("../../assets/images/request-queue-views-02.jpg") 0px 0px no-repeat;
-        width:79px;
-        height:31px;
-    }
-
-    #views-selector #views-charts:hover {
-        background-position: 0px -31px;
-    }
-
-    #views-selector #views-charts.active {
-        background-position: 0px -62px;
+    li:hover #chart-icon {
+        background-position: -583px -114px;
+        width: 23px;
+        float: left;
+        margin-right: 10px;
     }
 
     .k-multiselect.k-header {

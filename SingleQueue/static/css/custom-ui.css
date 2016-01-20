@@ -1263,6 +1263,12 @@ tbody tr:first-child .tooltip:hover:after {
         right: 19px; }
 
 /*top header end*/
+/*icons sprite*/
+.rq-btn-icon {
+  background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 0;
+  display: block;
+  height: 22px; }
+
 /*tabs start*/
 #tabs {
   padding-top: 0;
@@ -1517,8 +1523,7 @@ tbody tr:first-child .tooltip:hover:after {
         .rq-top-ribbon > ul > li > ul > li #filters-icon {
           background-position: -548px -3px;
           float: left;
-          width: 30px;
-          height: 33px; }
+          width: 30px; }
         .rq-top-ribbon > ul > li > ul > li #excel-icon {
           background-position: -653px 0;
           width: 30px; }
@@ -1579,11 +1584,12 @@ tbody tr:first-child .tooltip:hover:after {
         .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters.add-bg {
           background-color: #eee;
           border-radius: 5px;
-          height: 33px;
+          height: 24px;
           width: 24px;
           box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
           padding: 7px 10px 0 10px;
-          margin-left: -10px; }
+          margin-left: -10px;
+          margin-top: -7px; }
         .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters {
           position: absolute;
           right: 18px; }
@@ -1675,7 +1681,7 @@ tbody tr:first-child .tooltip:hover:after {
       overflow: hidden;
       margin-left: -11px;
       position: absolute;
-      top: 30px; }
+      top: 21px; }
     .rq-top-ribbon > ul > li .sub-nav {
       background-color: #eee;
       border-top-right-radius: 5px;
