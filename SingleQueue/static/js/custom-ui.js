@@ -4,7 +4,7 @@
 var templateLoader = (function($,host){
 
 	return{
-		loadExtTemplate: function(path, target){
+		loadExtTemplate: function(path, target, scripts){
 
 			var tmplLoader = $.get(path)
 					.success(function(result){
@@ -20,6 +20,20 @@ var templateLoader = (function($,host){
 						alert("Error Loading Templates -- TODO: Better Error Handling");
 					})
 			tmplLoader.complete(function(){
+
+        // Pass scripts that need to be passed after templates are loaded.
+        if(Array.isArray(scripts)){
+          // inject and js files required
+          scripts.forEach(function(path){
+            $.getScript(path)
+              .done(function( script, textStatus ) {
+                console.log( textStatus );
+              })
+              .fail(function( jqxhr, settings, exception ) {
+                alert( "Triggered ajaxError handler." );
+              });
+          });
+        }
 
 				$(host).trigger("TEMPLATE_LOADED", [path]);
 			});
