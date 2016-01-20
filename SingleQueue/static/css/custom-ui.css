@@ -1058,6 +1058,29 @@ tbody tr:first-child .tooltip:hover:after {
 .rq-top-ribbon > ul > li .sub-nav-wrapper {
   top: 54px; }
 
+.form-area {
+  width: 905px;
+  float: left;
+  box-sizing: border-box; }
+  .form-area h2 {
+    border-bottom: 1px solid #aaa;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px; }
+  .form-area form label {
+    font-weight: normal; }
+  .form-area form .required-asterisk {
+    padding: 0;
+    width: 5px; }
+
+.side-sections {
+  width: 500px;
+  margin-left: 76px;
+  box-sizing: border-box; }
+
+.side-sections, .form-area {
+  margin-top: 38px; }
+
 .request-listing .id-col {
   width: 30px; }
 .request-listing .title-col {
@@ -1167,9 +1190,8 @@ tbody tr:first-child .tooltip:hover:after {
   padding-left: 10px; }
 .table-headings > li:last-child {
   float: right;
-  margin-right: 190px;
-  color: #933e9c;
-  font-weight: bold; }
+  margin-right: 254px;
+  color: #933e9c; }
 
 .table-headings > li.task-info-heading {
   margin-right: 508px; }
@@ -1178,11 +1200,33 @@ tbody tr:first-child .tooltip:hover:after {
   /* "Summary sections" */
   border-left: 1px solid #444 !important; }
 
+.form-area {
+  width: 905px;
+  float: left;
+  box-sizing: border-box; }
+  .form-area h2 {
+    border-bottom: 1px solid #aaa;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px; }
+  .form-area form label {
+    font-weight: normal; }
+  .form-area form .required-asterisk {
+    padding: 0;
+    width: 5px; }
+
+.side-sections {
+  width: 500px;
+  margin-left: 76px;
+  box-sizing: border-box; }
+
+.side-sections, .form-area {
+  margin-top: 38px; }
+
 .grid-wrapper {
-  margin-top: 30px;
-  border-top: 1px solid #ccc;
   padding-top: 15px;
-  float: left; }
+  float: left;
+  margin-top: 15px; }
 
 /*top header start*/
 #top-head {
@@ -1217,11 +1261,6 @@ tbody tr:first-child .tooltip:hover:after {
         float: right;
         top: 10px;
         right: 19px; }
-
-.rq-btn-icon {
-  background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 0;
-  display: block;
-  height: 22px; }
 
 /*top header end*/
 /*tabs start*/
