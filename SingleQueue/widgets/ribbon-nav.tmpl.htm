@@ -72,12 +72,6 @@
         </div>
       </div>
     </li>
-    <!--<li class="right">
-      <a target="_blank"
-         href="https://www.share.software.dell.com/sites/Marketing/Digital/online/_layouts/15/start.aspx#/Shared%20Documents/Forms/AllItems.aspx?RootFolder=%2Fsites%2FMarketing%2FDigital%2Fonline%2FShared%20Documents%2FTraining&amp;FolderCTID=0x012000FAD55545DDB51E43B3C1D026D4BBB366&amp;View=%7BDA1AE278%2D2867%2D4B62%2D9467%2DECA6B46A3B02%7D">
-        <span id="question-mark-icon"></span>Help &amp; Training
-      </a>
-    </li>-->
   </ul>
 </div>
 <div class="rq-top-ribbon">
@@ -92,8 +86,8 @@
       <span>New</span>
     </li>
     <li id="views">
-      <ul class="mb-20">
-        <li id="opt-my-work">
+      <ul>
+        <li id="opt-my-work" class="active-item-bg">
           <span id="my-work-icon" class="rq-btn-icon"></span>
           <select id="dp-mywork-dd" name="dp-mywork-dd">
             <option value="0">My Work</option>
@@ -122,13 +116,13 @@
     </li>
     <li id="sprints-section">
       <ul>
-        <li id="sprints">
+        <li id="sprints" class="active-item-bg">
           <span id="jan-fy-icon" class="rq-btn-icon"></span>
           <select name="fy-dd" id="fy-dd">
             <option value="">All Sprints</option>
             <option value="-1">Unassigned</option>
             <option value="81" data-start="2015-02-01">1 - FEB FY16</option>
-            <option value="82" data-start="2015-03-01">2 - MAR FY16</option>
+            <option value="82" data-start="2015-03-01" selected>2 - MAR FY16</option>
             <option value="83" data-start="2015-04-01">3 - APR FY16</option>
             <option value="84" data-start="2015-05-01">4 - MAY FY16</option>
             <option value="85" data-start="2015-06-01">5 - JUN FY16</option>
@@ -149,41 +143,15 @@
       </ul>
       <span>Sprint</span>
     </li>
-    <!--<li id="projectdates-section">
+    <li id="agile-status">
       <ul>
-        <li id="projectdates">
-          <span id="proj-fy-icon" class="rq-btn-icon"></span>
-          <select name="pfy-dd" id="pfy-dd">
-            <option value="">All Dates</option>
-            <option value="2015-08-01T00:00:00" data-start="2015-07-01T00:00:00">JUL FY16</option>
-            <option value="2015-09-01T00:00:00" data-start="2015-08-01T00:00:00">AUG FY16</option>
-            <option value="2015-10-01T00:00:00" data-start="2015-09-01T00:00:00">SEP FY16</option>
-            <option value="2015-11-01T00:00:00" data-start="2015-10-01T00:00:00">OCT FY16</option>
-            <option value="2015-12-01T00:00:00" data-start="2015-11-01T00:00:00">NOV FY16</option>
-            <option value="2016-01-01T00:00:00" data-start="2015-12-01T00:00:00">DEC FY16</option>
-            <option value="2016-02-01T00:00:00" data-start="2016-01-01T00:00:00">JAN FY17</option>
-            <option value="2016-03-01T00:00:00" data-start="2016-02-01T00:00:00">FEB FY17</option>
-            <option value="2016-04-01T00:00:00" data-start="2016-03-01T00:00:00">MAR FY17</option>
-            <option value="2016-05-01T00:00:00" data-start="2016-04-01T00:00:00">APR FY17</option>
-            <option value="2016-06-01T00:00:00" data-start="2016-05-01T00:00:00">MAY FY17</option>
-            <option value="2016-07-01T00:00:00" data-start="2016-06-01T00:00:00">JUN FY17</option>
-            <option value="2016-08-01T00:00:00" data-start="2016-07-01T00:00:00">JUL FY17</option>
-            <option value="Custom" data-start="">Custom</option>
-          </select>
-        </li>
-
-      </ul>
-      <span id="span-projectdate-caption">Due&nbsp;Date</span>
-    </li>-->
-    <li id="agile-phase">
-      <ul class="mb-20">
-        <li id="li-idea" data-value="1">
+        <li id="li-idea" data-value="1" class="active-item-bg">
           <a href="#" id="idea">
             <span id="idea-icon" class="rq-btn-icon"></span>
             <span>Idea</span>
           </a>
         </li>
-        <li id="li-backlog" data-value="2">
+        <li id="li-backlog" data-value="2" class="active-item-bg">
           <a href="#" id="backlog">
             <span id="backlog-icon" class="rq-btn-icon"></span>
             <span>Backlog</span>
@@ -219,7 +187,7 @@
       <span>Agile Status</span>
     </li>
     <li id="filters-section">
-      <ul class="mb-20">
+      <ul>
         <li id="li-department" data-value="1">
           <a href="#" id="department">
             <span id="department-icon" class="rq-btn-icon"></span>
@@ -285,7 +253,7 @@
             </select>
           </a>
         </li>
-        <li id="li-task-status" data-value="3">
+        <li id="li-task-status" data-value="3" class="active-item-bg">
           <a href="#" id="task-status">
             <span id="task-status-icon" class="rq-btn-icon"></span>
             <select class="task-status-dd" name="task-status-dd">
@@ -490,10 +458,6 @@
                     <option value="21">Support &amp; Services</option>
                     <option value="22">StatSoft</option>
                   </select>
-                  <!--@Html.DropDownList("projecttype-dd", Model.ProjectTypes)
-                  @Html.DropDownList("digitaldestination-dd", Model.DigitalDestinations)
-
-                  @*@Html.DropDownList("website-dd", Model.WebSites)*@-->
                   <input type="button" value="Apply" id="search"/>
                   <input type="button" value="Reset" id="reset"/>
                 </div>
@@ -504,13 +468,6 @@
       </ul>
       <span>Filters</span>
     </li>
-    <!--<li id="rq-ribbon-search-item">
-      <div>
-        <input type="text" id="rq-ribbon-search-text">
-        <input type="button" id="rq-ribbon-search-btn" class="rq-btn-icon">
-      </div>
-      <span>Search</span>
-    </li>-->
     <li id="excel">
       <ul>
         <li class="deactive">
@@ -525,23 +482,33 @@
   </ul>
 
 </div>
-<ul class="selected-filters mb-20">
+<ul class="selected-filters">
   <li>
     Filters:
   </li>
   <li>
     <a href="#">
-      X Clear All Filters
+      <span>X</span> My Work
     </a>
   </li>
   <li>
     <a href="#">
-      X 14 - March FY15
+      <span>X</span> 2 - MAR FY16
     </a>
   </li>
   <li>
     <a href="#">
-      X My Work
+      <span>X</span> Backlog
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <span>X</span> Idea
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <span>X</span> Task Status
     </a>
   </li>
 </ul>
