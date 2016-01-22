@@ -1589,84 +1589,91 @@ tbody tr:first-child .tooltip:hover:after {
           background-position: -444px -118px; }
         .rq-top-ribbon > ul > li > ul > li:hover #owner-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #owner-icon {
           background-position: -507px -118px; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters:hover > span:last-child {
-          display: none; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters a:hover #filters-icon, .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters .activate-bg #filters-icon, .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters.add-bg #filters-icon {
-          background-position: -548px -40px; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters.add-bg {
-          background-color: #eee;
-          border-radius: 5px;
-          height: 20px;
-          width: 24px;
-          box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-          padding: 7px 10px 0 10px;
-          margin-left: -10px;
-          margin-top: -7px; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters {
-          position: absolute;
-          right: 30px; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div > div {
-          padding: 0; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item > span:last-child {
-          width: 66%;
-          display: block;
-          padding-top: 23px; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item #request-type-btn, .rq-top-ribbon > ul > li > ul > li#rq-filters-item #campaign-btn, .rq-top-ribbon > ul > li > ul > li#rq-filters-item #project-btn {
-          background-position: -17px -127px;
-          width: 14px;
-          height: 13px;
-          margin: -26px 4px 0 0; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item #requester-btn, .rq-top-ribbon > ul > li > ul > li#rq-filters-item #owner-btn {
-          background-position: -35px -127px;
-          width: 16px;
-          height: 15px;
-          margin: -27px 4px 0 0; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title > a {
-          color: #3399CC;
-          text-decoration: none; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #search {
-          background-color: #007CB8;
-          color: #fff;
-          border: none;
-          padding: 7px 0;
-          margin-right: 7px;
-          width: 107px; }
-          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #search:hover {
-            background-color: #00447B;
-            cursor: pointer; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #reset {
-          background-color: #007CB8;
-          color: #fff;
-          border: none;
-          padding: 7px 0;
-          width: 107px;
-          color: #007db8;
-          background-color: #eeeeee;
-          border: 1px solid #cccccc; }
-          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #reset:hover {
-            cursor: pointer; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title {
-          margin-bottom: 10px;
-          display: block;
-          float: left;
-          width: 100%; }
-          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title > span {
-            float: left;
-            font-weight: bold; }
+        .rq-top-ribbon > ul > li > ul > li:hover a, .rq-top-ribbon > ul > li > ul > li.active-item-bg a {
+          color: #444; }
+        .rq-top-ribbon > ul > li > ul > li#rq-filters-item {
+          padding-right: 22px; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters:hover > span:last-child {
+            display: none; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters a:hover #filters-icon, .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters .activate-bg #filters-icon, .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters.add-bg #filters-icon {
+            background-position: -548px -40px; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters.add-bg {
+            background-color: #eee;
+            border-radius: 5px;
+            height: 20px;
+            width: 24px;
+            box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+            padding: 7px 10px 0 10px;
+            margin-left: -10px;
+            margin-top: -7px; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters {
+            position: absolute;
+            right: 40px; }
+            .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters .arrow {
+              left: 88px;
+              top: 4px; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div > div {
+            padding: 0; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item > span:last-child {
+            width: 66%;
+            display: block;
+            padding-top: 23px; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item #request-type-btn, .rq-top-ribbon > ul > li > ul > li#rq-filters-item #campaign-btn, .rq-top-ribbon > ul > li > ul > li#rq-filters-item #project-btn {
+            background-position: -17px -127px;
+            width: 14px;
+            height: 13px;
+            margin: -26px 4px 0 0; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item #requester-btn, .rq-top-ribbon > ul > li > ul > li#rq-filters-item #owner-btn {
+            background-position: -35px -127px;
+            width: 16px;
+            height: 15px;
+            margin: -27px 4px 0 0; }
           .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title > a {
-            float: right;
+            color: #3399CC;
             text-decoration: none; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav > div {
-          display: block;
-          float: left; }
-        .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav .rq-btn-icon {
-          border: none;
-          cursor: pointer;
-          clear: both;
-          float: right;
-          position: relative;
-          z-index: 99999;
-          /*fix for ie9*/ }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #search {
+            background-color: #007CB8;
+            color: #fff;
+            border: none;
+            padding: 7px 0;
+            margin-right: 7px;
+            width: 107px; }
+            .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #search:hover {
+              background-color: #00447B;
+              cursor: pointer; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #reset {
+            background-color: #007CB8;
+            color: #fff;
+            border: none;
+            padding: 7px 0;
+            width: 107px;
+            color: #007db8;
+            background-color: #eeeeee;
+            border: 1px solid #cccccc; }
+            .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #reset:hover {
+              cursor: pointer; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title {
+            margin-bottom: 10px;
+            display: block;
+            float: left;
+            width: 100%; }
+            .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title > span {
+              float: left;
+              font-weight: bold; }
+            .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav #filter-title > a {
+              float: right;
+              text-decoration: none; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav > div {
+            display: block;
+            float: left; }
+          .rq-top-ribbon > ul > li > ul > li#rq-filters-item .sub-nav .rq-btn-icon {
+            border: none;
+            cursor: pointer;
+            clear: both;
+            float: right;
+            position: relative;
+            z-index: 99999;
+            /*fix for ie9*/ }
     .rq-top-ribbon > ul > li:first-child {
       padding-left: 11px; }
       .rq-top-ribbon > ul > li:first-child > span:last-child {

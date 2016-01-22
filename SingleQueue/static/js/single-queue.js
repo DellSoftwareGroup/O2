@@ -1,7 +1,5 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
 $(function () {
-  var filterFlag = false; // this is to keep filter open when user clicks anywhere in the sub-nav area
-
   //add search placeholder hack in ie9
   $(document).ajaxComplete(function () {
     if ($('html').hasClass('k-ie9')) {
@@ -32,46 +30,41 @@ $(function () {
   $('#rq-filters').on('click', function (e) {
     e.stopPropagation();
     e.preventDefault();
-    //only trigger when user clicks on the filters icon
-    if (!filterFlag || $(e.target).attr('id') == 'filters-icon' || $(e.target).attr('id') == 'filters-wrapper') {
-      filterSubNav.toggle();
-      $(this).toggleClass('add-bg');
-      if (filterSubNav.is(':visible')) {
-        filterSubNavWrapper.css('height', '445px');
-      } else {
-        filterSubNavWrapper.css('height', '0');
-      }
+    filterSubNav.toggle();
+    $(this).toggleClass('add-bg');
+    if($('#rq-filters-item').hasClass('active-item-bg')){
+      $(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft','-10px');
+    }else{
+      $('.sub-nav-wrapper').css('marginLeft','-11px');
+    }
+    if (filterSubNav.is(':visible')) {
+      filterSubNavWrapper.css('height', '445px');
+    } else {
+      filterSubNavWrapper.css('height', '0');
     }
   });
 
-  filterSubNav.children().on('click', function () {
-    if ($(this).attr('id') == 'search') {
-      filterFlag = false;
-    } else {
-      filterFlag = true;
-    }
+  $('body').on('click', function(){
+    $('#rq-filters').removeClass('add-bg');
   });
 
   //click state of bar icons
   $('.rq-top-ribbon > ul > li > ul > li').on('click', function () {
     $(this).toggleClass('active-item-bg').end().removeClass('disable-hover');
+    if($(this).attr('id') == 'rq-filters-item'){
+      $(this).find('#rq-filters').removeClass('add-bg');
+    }
   });
 
   $('.rq-top-ribbon > ul > li > ul > li select').on('click', function (e) {
     e.stopPropagation();
   });
 
-  //active filter
-  $('.sub-nav').children().on('change', function () {
-
-  });
-
-
   /*top nav state*/
   $('.has-subnav')
       .on('mouseover', function () {
-          $(this).addClass('nav-active');
-          $(this).children().find('.sub-nav-col').show();
+        $(this).addClass('nav-active');
+        $(this).children().find('.sub-nav-col').show();
       })
       .on('mouseout', function () {
         $(this).removeClass('nav-active');
