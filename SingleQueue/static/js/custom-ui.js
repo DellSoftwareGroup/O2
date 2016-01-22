@@ -30,7 +30,7 @@ var templateLoader = (function($,host){
                 console.log( textStatus );
               })
               .fail(function( jqxhr, settings, exception ) {
-                alert( "Triggered ajaxError handler." );
+                alert( "Triggered ajaxError handler. Cannot load: " + path );
               });
           });
         }

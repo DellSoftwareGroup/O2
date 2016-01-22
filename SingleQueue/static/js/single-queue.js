@@ -19,7 +19,8 @@ $(function () {
   //trigger search button click when enter
   $("#search-query").keypress(function (e) {
     if (e.which == 13) {
-      $('#search-container #search-btn').trigger('click');
+      //$('#search-container #search-btn').trigger('click');
+      $('#top-search-btn').trigger('click');
     }
   });
 
@@ -70,6 +71,25 @@ $(function () {
         $(this).removeClass('nav-active');
         $(this).children().find('.sub-nav-col').hide();
       });
+
+	//Initialize multiple select for ribbon area
+	$('.rq-top-ribbon').find('select').each(function() {
+		if($(this).attr('multiple') == 'multiple') {
+			var title = $(this).data('title');
+
+			$(this).multipleSelect({
+				placeholder: title,
+				minimumCountSelected: 0,
+				countSelected: title + '&nbsp;(#)',
+				selectAllText: 'Select All',
+				allSelected: title,
+				onClose: function () {
+
+				}
+			});
+			//$(this).multipleSelect("checkAll");
+		}
+	});
 });
 
 $(window).load(function () {
