@@ -186,53 +186,52 @@
 
 </head>
 <body class="add-request">
-<div id="body-content">
-	<div id="top" class="wrapper"></div>
-  <div class="wrapper">
-    <main class="form-area">
-      <h2>Request Information</h2>
-      <form class="form-horizontal">
-        <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Request Type <span class="required-asterisk">*</span></label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="requestType" placeholder="Tech Brief" disabled>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="reqSubType" class="col-sm-2 control-label">Request Sub Type <span class="required-asterisk">*</span></label>
-          <div class="col-sm-10">
-            <select id="reqSubType" class="form-control">
-              <option>Authoring</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Remember me
-              </label>
+  <div id="body-content">
+    <div id="top" class="wrapper"></div>
+    <div class="wrapper">
+      <main class="form-area">
+        <h2>Request Information</h2>
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="requestType" class="col-sm-2 control-label">Request Type <span class="required-asterisk">*</span></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="requestType" placeholder="Tech Brief" disabled>
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Sign in</button>
+          <div class="form-group">
+            <label for="reqSubType" class="col-sm-2 control-label">Request Sub Type <span class="required-asterisk">*</span></label>
+            <div class="col-sm-10">
+              <select id="reqSubType" class="form-control">
+                <option>Authoring</option>
+              </select>
+            </div>
           </div>
-        </div>
-      </form>
-    </main>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+          </div>
+        </form>
+      </main>
 
 
-    <aside class="side-sections"></aside>
+      <aside class="side-sections"></aside>
+    </div>
   </div>
-</div>
+  <script>
+    //Load the template definition from an external file
+    templateLoader.loadExtTemplate("../../widgets/top-area.tmpl.htm", "#top");
 
-<script>
-  //Load the template definition from an external file
-  templateLoader.loadExtTemplate("../../widgets/top-area.tmpl.htm", "#top");
-
-</script>
-<script src="../../static/js/dsg-bootstrap/bootstrap-3.3.4.min.js"></script>
+  </script>
+  <script src="../../static/js/dsg-bootstrap/bootstrap-3.3.4.min.js"></script>
 </body>
 </html>

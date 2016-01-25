@@ -117,7 +117,7 @@
   }
 
   /* warning labels */
-  td span {
+  td span.icon {
     display: inline-block;
     padding: 0 4px !important;
     margin-left: 5px;
@@ -141,6 +141,19 @@
     vertical-align: middle;
     margin-left: 0;
   }
+  .owner-col{
+    span {
+      display: table-cell;
+    }
+    .color-id{
+      width: 5px;
+    }
+    .owner-name {
+      padding-left: 3px;
+      max-width: 46px;
+    }
+  }
+
   td a, td a:visited, td a:link {
     color: #74c1dd;
   }

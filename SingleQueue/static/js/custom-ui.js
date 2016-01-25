@@ -67,10 +67,10 @@ var singleQueueTables = (function($){
 
 			// urgent, new and legacy labels
 			var taggedCol = $('.title-col'),
-					label = ['<span class="urgent">Urgent</span>',
-						'<span class="new">New</span>',
-						'<span class="legacy">Legacy</span>',
-						'<span class="legacy">Legacy</span>'];
+					label = ['<span class="icon urgent">Urgent</span>',
+						'<span class="icon new">New</span>',
+						'<span class="icon legacy">Legacy</span>',
+						'<span class="icon legacy">Legacy</span>'];
 
 			for (var i = 0; i < taggedCol.length; i++) {
 				$(taggedCol[i]).find('a').append(label[i]);
@@ -80,7 +80,7 @@ var singleQueueTables = (function($){
 			var lateCol = ['.endDate-col', '.requestEndDate-col'];
 			lateCol.forEach(function (element) {
 				var temp = $(element)[0];
-				$(temp).append('<span class="past-due"></span>');
+				$(temp).append('<span class="icon past-due"></span>');
 			});
 		};
 
@@ -125,15 +125,39 @@ var singleQueueTables = (function($){
 		}
 	}());
 
+  // Add color tags to owner field
+  var ownerColorTag = function(){
+    var colorToName = [
+      { name: 'James Gomez', color: "#6ea204"},
+      { name: 'Michael Hughes', color: "#42aeaf"},
+      { name: 'Giovani Monsalve', color : "#ee6411"}
+    ]
+    // pick up owner name
+    $('.owner-col').each(function(){
+      var ownerName = $(this).find('.owner-name').text();
+      var $that = $(this);
+
+      // compare and if match add styles
+      colorToName.forEach(function(owner){
+        if (owner.name == ownerName){
+          $that.find('span:first-child')
+            .css('background-color', owner.color)
+            .addClass('color-id');
+        }
+      });
+
+    })
+  };
+
   var requestListings = {
-		styles: function(){
-			var summaryIndx = 11,  summaryStartCol =".group-col";
-			commonStyles.summarySecStyles(summaryIndx);
-			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles();
+    styles: function(){
+      var summaryIndx = 11,  summaryStartCol =".group-col";
+      commonStyles.summarySecStyles(summaryIndx);
+      commonStyles.summaryBorder(summaryStartCol);
+      commonStyles.tempStyles();
       //commonStyles.GridRequest_DataBound();
-		}
-	};
+    }
+  };
 
 	var taskListings =  {
 		styles: function(){
@@ -141,9 +165,13 @@ var singleQueueTables = (function($){
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
 			commonStyles.tempStyles();
-      commonStyles.GridRequest_DataBound()
+      commonStyles.GridRequest_DataBound();
+      ownerColorTag();
 		}
 	};
+
+
+
 
 	return {
 		requestListings: requestListings,

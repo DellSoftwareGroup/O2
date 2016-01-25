@@ -1158,7 +1158,7 @@ tbody tr:first-child .tooltip:hover:after {
   #results-data-list th.summary-th a {
     color: #933e9c !important;
     font-weight: bold !important; }
-  #results-data-list td span {
+  #results-data-list td span.icon {
     display: inline-block;
     padding: 0 4px !important;
     margin-left: 5px;
@@ -1177,6 +1177,13 @@ tbody tr:first-child .tooltip:hover:after {
     width: 16px;
     vertical-align: middle;
     margin-left: 0; }
+  #results-data-list .owner-col span {
+    display: table-cell; }
+  #results-data-list .owner-col .color-id {
+    width: 5px; }
+  #results-data-list .owner-col .owner-name {
+    padding-left: 3px;
+    max-width: 46px; }
   #results-data-list td a, #results-data-list td a:visited, #results-data-list td a:link {
     color: #74c1dd; }
   #results-data-list .k-grid td {
