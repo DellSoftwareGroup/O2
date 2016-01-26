@@ -53,10 +53,7 @@ $(function () {
   //click state of bar icons
   var ribbonItem = $('.rq-top-ribbon > ul > li > ul > li');
   ribbonItem.on('click', function () {
-    $(this).toggleClass('active-item-bg').end().removeClass('disable-hover');
-    if ($(this).attr('id') == 'rq-filters-item') {
-      $(this).find('#rq-filters').removeClass('add-bg');
-    }
+    toggleActiveItem(this);
   });
 
   (ribbonItem.children(),filterSubNav, $('.rq-top-ribbon select')).on('click', function (e) {
@@ -86,9 +83,16 @@ $(function () {
         selectAllText: $(this).data('select-all-text'),
         allSelected: title,
         onClose: function () {
+          //fix for bg toggle issue when multiple select clicked
+          ribbonItem.on('click', function () {
+            toggleActiveItem(this);
+          });
         },
         onOpen: function (elem) {
           var nextElem = $(elem).next(), ul = nextElem.find('ul');
+
+          //fix for bg toggle issue when multiple select clicked
+          ribbonItem.off('click');
           /*width/height fix imported from DSG*/
           if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
             ul.css('width', ul.outerWidth() + $.position.scrollbarWidth());
@@ -132,3 +136,10 @@ $(window).load(function () {
     $('input, textarea').placeholder();
   }
 });
+
+function toggleActiveItem(elem){
+  $(elem).toggleClass('active-item-bg').end().removeClass('disable-hover');
+  if ($(elem).attr('id') == 'rq-filters-item') {
+    $(elem).find('#rq-filters').removeClass('add-bg');
+  }
+}
