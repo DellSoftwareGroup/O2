@@ -98,7 +98,7 @@
   > ul > li {
     display: inline;
     float: left;
-    padding: 15px 11px 0 13px;
+    padding: 15px 13px 0 13px;
     border-right: 1px solid #ccc;
     .wide-blue-button {
       background-color: #007CB8;
@@ -146,7 +146,7 @@
       > li {
         display: inline-block;
         float: left;
-        padding: 7px 10px;
+        padding: 6px;
         margin-right: 7px;
         &.active-item-bg {
           background-color: #eee;
@@ -159,7 +159,10 @@
             background-color: #eee;
           }
           #my-work-icon, #requester-icon {
-            background-position: 4px -2px;
+            background-position: 4px 0;
+          }
+          .ms-choice{
+            background-color: #eee;
           }
         }
         &:hover {
@@ -193,7 +196,7 @@
           margin-right: 0;
         }
         .rq-btn-icon {
-          margin-right: 7px;
+          margin-right: 5px;
           float: left;
           &#jan-fy-icon {
             float: none;
@@ -202,11 +205,11 @@
         }
         /*icons*/
         #my-work-icon, #requester-icon {
-          background-position: 4px -40px;
+          background-position: 4px -38px;
           width: 25px;
         }
         #dp-Team-icon {
-          background-position: -66px -38px;
+          background-position: -66px -36px;
           width: 25px;
         }
         #jan-fy-icon {
@@ -250,9 +253,10 @@
           background-position: -653px 0;
           width: 30px;
           height: 23px;
+          float:none;
         }
         #department-icon {
-          background-position: -853px 3px;
+          background-position: -853px 5px;
           width: 11px;
         }
         #request-type-icon {
@@ -277,10 +281,10 @@
         }
         &:hover, &.active-item-bg {
           #my-work-icon, #requester-icon {
-            background-position: 4px -2px;
+            background-position: 4px 0;
           }
           #dp-Team-icon {
-            background-position: -65px 0;
+            background-position: -65px 2px;
           }
           #jan-fy-icon {
             background-position: -164px -1px;
@@ -307,7 +311,7 @@
             background-position: -548px -40px;
           }
           #department-icon {
-            background-position: -853px -36px;
+            background-position: -853px -34px;
           }
           #request-type-icon {
             background-position: -257px -118px;
@@ -354,7 +358,7 @@
                 position: absolute;
                 right: 40px;
                 .arrow {
-                  left: 88px;
+                  left: 101px;
                   top: 4px;
                 }
               }
@@ -446,24 +450,24 @@
     &:first-child {
       padding-left: 11px;
       > span:last-child {
-        margin-top: 27px;
+        margin-top: 25px;
       }
     }
     &:last-child {
       > span:last-child {
-        width: 60%;
-        padding-top: 33px;
+        width: 100%;
+        padding-top: 10px;
       }
       border-right: none;
     }
     &#sprints-section {
       span:last-child {
         width: 39%;
-        padding-top: 11px;
+        padding-top: 20px;
       }
       select {
-        width: 88px;
-        padding-bottom: 7px;
+        width: 103px;
+        padding:0;
       }
     }
     &#views {
@@ -471,7 +475,7 @@
         padding-top: 13px;
       }
       select {
-        width: 86px;
+        width: 108px;
       }
     }
     &#agile-status {
@@ -489,7 +493,7 @@
         min-width: 126px;
         > a > select, > div > div > a > select {
           border: none;
-          width: 105px;
+          width: 123px;
         }
       }
     }
@@ -503,9 +507,9 @@
       }
     }
     > span:last-child {
-      padding-top: 10px;
+      padding-top: 12px;
       display: block;
-      width: 28%;
+      width: 34%;
       margin: 0px auto;
       font-size: 13px;
       color: #737373;

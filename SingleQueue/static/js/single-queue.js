@@ -50,14 +50,15 @@ $(function () {
   });
 
   //click state of bar icons
-  $('.rq-top-ribbon > ul > li > ul > li').on('click', function () {
+  var ribbonItem = $('.rq-top-ribbon > ul > li > ul > li');
+  ribbonItem.on('click', function () {
     $(this).toggleClass('active-item-bg').end().removeClass('disable-hover');
     if($(this).attr('id') == 'rq-filters-item'){
       $(this).find('#rq-filters').removeClass('add-bg');
     }
   });
 
-  $('.rq-top-ribbon > ul > li > ul > li select').on('click', function (e) {
+  ribbonItem.children().on('click', function (e) {
     e.stopPropagation();
   });
 
@@ -81,11 +82,28 @@ $(function () {
 				placeholder: title,
 				minimumCountSelected: 0,
 				countSelected: title + '&nbsp;(#)',
-				selectAllText: 'Select All',
+				selectAllText: $(this).data('select-all-text'),
 				allSelected: title,
 				onClose: function () {
+				},
+        onOpen: function (elem) {
+          var nextElem = $(elem).next(), ul = nextElem.find('ul');
+          /*width/height fix imported from DSG*/
+          if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
+            ul.css('width', ul.outerWidth() + $.position.scrollbarWidth());
+            ul.data('width-fixed', true);
+          }
 
-				}
+          //Check if dropdown needs to be reversed.
+          nextElem.css('right', 'auto');
+
+          if (nextElem.offset().left + nextElem.find('ul').outerWidth(true) > $('body').width()) {
+            nextElem.css('right', 0);
+          }
+          else {
+            nextElem.css('right', 'auto');
+          }
+        }
 			});
 			//$(this).multipleSelect("checkAll");
 		}

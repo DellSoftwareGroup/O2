@@ -1421,7 +1421,7 @@ tbody tr:first-child .tooltip:hover:after {
   .rq-top-ribbon > ul > li {
     display: inline;
     float: left;
-    padding: 15px 11px 0 13px;
+    padding: 15px 13px 0 13px;
     border-right: 1px solid #ccc; }
     .rq-top-ribbon > ul > li .wide-blue-button {
       background-color: #007CB8;
@@ -1460,7 +1460,7 @@ tbody tr:first-child .tooltip:hover:after {
       .rq-top-ribbon > ul > li > ul > li {
         display: inline-block;
         float: left;
-        padding: 7px 10px;
+        padding: 6px;
         margin-right: 7px;
         /*icons*/ }
         .rq-top-ribbon > ul > li > ul > li.active-item-bg {
@@ -1472,7 +1472,9 @@ tbody tr:first-child .tooltip:hover:after {
           .rq-top-ribbon > ul > li > ul > li.active-item-bg select {
             background-color: #eee; }
           .rq-top-ribbon > ul > li > ul > li.active-item-bg #my-work-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #requester-icon {
-            background-position: 4px -2px; }
+            background-position: 4px 0; }
+          .rq-top-ribbon > ul > li > ul > li.active-item-bg .ms-choice {
+            background-color: #eee; }
         .rq-top-ribbon > ul > li > ul > li:hover {
           cursor: pointer; }
           .rq-top-ribbon > ul > li > ul > li:hover a {
@@ -1495,16 +1497,16 @@ tbody tr:first-child .tooltip:hover:after {
         .rq-top-ribbon > ul > li > ul > li:last-child {
           margin-right: 0; }
         .rq-top-ribbon > ul > li > ul > li .rq-btn-icon {
-          margin-right: 7px;
+          margin-right: 5px;
           float: left; }
           .rq-top-ribbon > ul > li > ul > li .rq-btn-icon#jan-fy-icon {
             float: none;
             margin-bottom: 10px; }
         .rq-top-ribbon > ul > li > ul > li #my-work-icon, .rq-top-ribbon > ul > li > ul > li #requester-icon {
-          background-position: 4px -40px;
+          background-position: 4px -38px;
           width: 25px; }
         .rq-top-ribbon > ul > li > ul > li #dp-Team-icon {
-          background-position: -66px -38px;
+          background-position: -66px -36px;
           width: 25px; }
         .rq-top-ribbon > ul > li > ul > li #jan-fy-icon {
           background-position: -163px -38px;
@@ -1538,9 +1540,10 @@ tbody tr:first-child .tooltip:hover:after {
         .rq-top-ribbon > ul > li > ul > li #excel-icon {
           background-position: -653px 0;
           width: 30px;
-          height: 23px; }
+          height: 23px;
+          float: none; }
         .rq-top-ribbon > ul > li > ul > li #department-icon {
-          background-position: -853px 3px;
+          background-position: -853px 5px;
           width: 11px; }
         .rq-top-ribbon > ul > li > ul > li #request-type-icon {
           background-position: -257px -80px;
@@ -1558,9 +1561,9 @@ tbody tr:first-child .tooltip:hover:after {
           background-position: -507px -80px;
           width: 16px; }
         .rq-top-ribbon > ul > li > ul > li:hover #my-work-icon, .rq-top-ribbon > ul > li > ul > li:hover #requester-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #my-work-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #requester-icon {
-          background-position: 4px -2px; }
+          background-position: 4px 0; }
         .rq-top-ribbon > ul > li > ul > li:hover #dp-Team-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #dp-Team-icon {
-          background-position: -65px 0; }
+          background-position: -65px 2px; }
         .rq-top-ribbon > ul > li > ul > li:hover #jan-fy-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #jan-fy-icon {
           background-position: -164px -1px; }
         .rq-top-ribbon > ul > li > ul > li:hover #backlog-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #backlog-icon {
@@ -1578,7 +1581,7 @@ tbody tr:first-child .tooltip:hover:after {
         .rq-top-ribbon > ul > li > ul > li:hover #filters-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #filters-icon {
           background-position: -548px -40px; }
         .rq-top-ribbon > ul > li > ul > li:hover #department-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #department-icon {
-          background-position: -853px -36px; }
+          background-position: -853px -34px; }
         .rq-top-ribbon > ul > li > ul > li:hover #request-type-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #request-type-icon {
           background-position: -257px -118px; }
         .rq-top-ribbon > ul > li > ul > li:hover #task-type-icon, .rq-top-ribbon > ul > li > ul > li.active-item-bg #task-type-icon {
@@ -1610,7 +1613,7 @@ tbody tr:first-child .tooltip:hover:after {
             position: absolute;
             right: 40px; }
             .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters .arrow {
-              left: 88px;
+              left: 101px;
               top: 4px; }
           .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div > div {
             padding: 0; }
@@ -1677,22 +1680,22 @@ tbody tr:first-child .tooltip:hover:after {
     .rq-top-ribbon > ul > li:first-child {
       padding-left: 11px; }
       .rq-top-ribbon > ul > li:first-child > span:last-child {
-        margin-top: 27px; }
+        margin-top: 25px; }
     .rq-top-ribbon > ul > li:last-child {
       border-right: none; }
       .rq-top-ribbon > ul > li:last-child > span:last-child {
-        width: 60%;
-        padding-top: 33px; }
+        width: 100%;
+        padding-top: 10px; }
     .rq-top-ribbon > ul > li#sprints-section span:last-child {
       width: 39%;
-      padding-top: 11px; }
+      padding-top: 20px; }
     .rq-top-ribbon > ul > li#sprints-section select {
-      width: 88px;
-      padding-bottom: 7px; }
+      width: 103px;
+      padding: 0; }
     .rq-top-ribbon > ul > li#views > span {
       padding-top: 13px; }
     .rq-top-ribbon > ul > li#views select {
-      width: 86px; }
+      width: 108px; }
     .rq-top-ribbon > ul > li#agile-status > ul > li > a {
       padding-top: 0; }
     .rq-top-ribbon > ul > li#filters-section > span {
@@ -1701,16 +1704,16 @@ tbody tr:first-child .tooltip:hover:after {
       min-width: 126px; }
       .rq-top-ribbon > ul > li#filters-section > ul > li > a > select, .rq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
         border: none;
-        width: 105px; }
+        width: 123px; }
     .rq-top-ribbon > ul > li#excel li {
       padding: 15px 0 0 0; }
     .rq-top-ribbon > ul > li#excel #excel-icon-text {
       float: left;
       margin-top: 6px; }
     .rq-top-ribbon > ul > li > span:last-child {
-      padding-top: 10px;
+      padding-top: 12px;
       display: block;
-      width: 28%;
+      width: 34%;
       margin: 0px auto;
       font-size: 13px;
       color: #737373;
@@ -1775,7 +1778,8 @@ tbody tr:first-child .tooltip:hover:after {
   position: relative;
   vertical-align: middle;
   padding: 0;
-  margin-top: -3px; }
+  font-size: 13px;
+  /*margin-top: -3px;*/ }
 
 .ms-choice {
   display: block;
@@ -1801,12 +1805,12 @@ tbody tr:first-child .tooltip:hover:after {
   /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
   .ms-choice:focus {
-    border-color: #007db8;
+    /*border-color: #007db8;*/
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6); }
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);*/ }
   .ms-choice.disabled {
     background-color: #f4f4f4;
     background-image: none;
@@ -1829,7 +1833,7 @@ tbody tr:first-child .tooltip:hover:after {
     position: absolute;
     /*top: 3px;*/
     top: -1px;
-    right: 0;
+    right: -4px;
     width: 20px;
     height: 25px;
     background: url("../../images/multiple-select.png") left top no-repeat; }
