@@ -33,10 +33,10 @@ $(function () {
     e.preventDefault();
     filterSubNav.toggle();
     $(this).toggleClass('add-bg');
-    if($('#rq-filters-item').hasClass('active-item-bg')){
-      $(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft','-10px');
-    }else{
-      $('.sub-nav-wrapper').css('marginLeft','-11px');
+    if ($('#rq-filters-item').hasClass('active-item-bg')) {
+      $(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
+    } else {
+      $('.sub-nav-wrapper').css('marginLeft', '-11px');
     }
     if (filterSubNav.is(':visible')) {
       filterSubNavWrapper.css('height', '445px');
@@ -45,7 +45,8 @@ $(function () {
     }
   });
 
-  $('body').on('click', function(){
+
+  $('body').on('click', function () {
     $('#rq-filters').removeClass('add-bg');
   });
 
@@ -53,12 +54,12 @@ $(function () {
   var ribbonItem = $('.rq-top-ribbon > ul > li > ul > li');
   ribbonItem.on('click', function () {
     $(this).toggleClass('active-item-bg').end().removeClass('disable-hover');
-    if($(this).attr('id') == 'rq-filters-item'){
+    if ($(this).attr('id') == 'rq-filters-item') {
       $(this).find('#rq-filters').removeClass('add-bg');
     }
   });
 
-  ribbonItem.children().on('click', function (e) {
+  (ribbonItem.children(),filterSubNav, $('.rq-top-ribbon select')).on('click', function (e) {
     e.stopPropagation();
   });
 
@@ -73,19 +74,19 @@ $(function () {
         $(this).children().find('.sub-nav-col').hide();
       });
 
-	//Initialize multiple select for ribbon area
-	$('.rq-top-ribbon').find('select').each(function() {
-		if($(this).attr('multiple') == 'multiple') {
-			var title = $(this).data('title');
+  //Initialize multiple select for ribbon area
+  $('.rq-top-ribbon').find('select').each(function () {
+    if ($(this).attr('multiple') == 'multiple') {
+      var title = $(this).data('title');
 
-			$(this).multipleSelect({
-				placeholder: title,
-				minimumCountSelected: 0,
-				countSelected: title + '&nbsp;(#)',
-				selectAllText: $(this).data('select-all-text'),
-				allSelected: title,
-				onClose: function () {
-				},
+      $(this).multipleSelect({
+        placeholder: title,
+        minimumCountSelected: 0,
+        countSelected: title + '&nbsp;(#)',
+        selectAllText: $(this).data('select-all-text'),
+        allSelected: title,
+        onClose: function () {
+        },
         onOpen: function (elem) {
           var nextElem = $(elem).next(), ul = nextElem.find('ul');
           /*width/height fix imported from DSG*/
@@ -104,10 +105,10 @@ $(function () {
             nextElem.css('right', 'auto');
           }
         }
-			});
-			//$(this).multipleSelect("checkAll");
-		}
-	});
+      });
+      //$(this).multipleSelect("checkAll");
+    }
+  });
 });
 
 $(window).load(function () {

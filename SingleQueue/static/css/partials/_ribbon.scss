@@ -356,9 +356,9 @@
               }
               #more-filters {
                 position: absolute;
-                right: 40px;
+                right: 53px;
                 .arrow {
-                  left: 101px;
+                  left: 104px;
                   top: 4px;
                 }
               }
@@ -490,10 +490,13 @@
         width: 6%;
       }
       > ul > li {
-        min-width: 126px;
+        min-width: 136px;
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
+          &.portfolio-dd{
+            padding-left: 5px;
+          }
         }
       }
     }

@@ -1618,9 +1618,9 @@ tbody tr:first-child .tooltip:hover:after {
             margin-top: -7px; }
           .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters {
             position: absolute;
-            right: 40px; }
+            right: 53px; }
             .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div #rq-filters #more-filters .arrow {
-              left: 101px;
+              left: 104px;
               top: 4px; }
           .rq-top-ribbon > ul > li > ul > li#rq-filters-item > div > div {
             padding: 0; }
@@ -1708,10 +1708,12 @@ tbody tr:first-child .tooltip:hover:after {
     .rq-top-ribbon > ul > li#filters-section > span {
       width: 6%; }
     .rq-top-ribbon > ul > li#filters-section > ul > li {
-      min-width: 126px; }
+      min-width: 136px; }
       .rq-top-ribbon > ul > li#filters-section > ul > li > a > select, .rq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
         border: none;
         width: 123px; }
+        .rq-top-ribbon > ul > li#filters-section > ul > li > a > select.portfolio-dd, .rq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select.portfolio-dd {
+          padding-left: 5px; }
     .rq-top-ribbon > ul > li#excel li {
       padding: 15px 0 0 0; }
     .rq-top-ribbon > ul > li#excel #excel-icon-text {
@@ -1814,10 +1816,10 @@ tbody tr:first-child .tooltip:hover:after {
   -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
   .ms-choice:focus {
-    border-color: #007db8;
+    /*border-color: #007db8;*/
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6); }
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);*/ }
   .ms-choice.disabled {
     background-color: #f4f4f4;
     background-image: none;
