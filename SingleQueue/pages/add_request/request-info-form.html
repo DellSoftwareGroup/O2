@@ -191,36 +191,36 @@
   <div class="wrapper">
     <main class="form-area">
       <h2>Request Information</h2>
-      <form novalidate="novalidate" class="form-horizontal" style="">
+      <form style="" class="form-horizontal" novalidate="novalidate">
         <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Request Type <span class="required-asterisk">*</span></label>
+          <label class="col-sm-2 control-label" for="requestType">Request Type <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="requestType" placeholder="Tech Brief" disabled="" style="width: 440px;">
+            <input type="text" style="width: 440px;" disabled="" placeholder="Tech Brief" id="requestType" class="form-control">
           </div>
         </div>
         <div class="form-group">
-          <label for="reqSubType" class="col-sm-2 control-label">Request Sub Type <span class="required-asterisk">*</span></label>
+          <label class="col-sm-2 control-label" for="reqSubType">Request Sub Type <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <select id="reqSubType" class="form-control" style="width: 440px;">
+            <select style="width: 440px;" class="form-control" id="reqSubType">
               <option>Authoring</option>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-2 control-label" for="requestTitle">Request Title <span class="required-asterisk">*</span></label>
+          <label for="requestTitle" class="col-sm-2 control-label">Request Title <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="text" style="" disabled="" placeholder="Active Administrator" id="requestTitle" class="form-control">
+            <input type="text" class="form-control" id="requestTitle" placeholder="Active Administrator" disabled="" style="">
           </div>
         </div>
         <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Requester <span class="required-asterisk">*</span></label>
-          <div class="col-sm-10">     <input type="text" style="width: 250px;" disabled="" placeholder="Carl Becky" class="form-control" id="requestType">                   </div>
+          <label class="col-sm-2 control-label" for="requestType">Requester <span class="required-asterisk">*</span></label>
+          <div class="col-sm-10">     <input type="text" id="requestType" class="form-control" placeholder="Carl Becky" disabled="" style="width: 250px;">                   </div>
         </div>
 
         <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Request Due Date <span class="required-asterisk">*</span></label>
+          <label class="col-sm-2 control-label" for="requestType">Request Due Date <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="requestType" placeholder="6/8/2016" disabled="" style="width: 200px;">
+            <input type="text" style="width: 200px;" disabled="" placeholder="6/8/2016" id="requestType" class="form-control">
           </div>
         </div>
         <div class="form-group">
@@ -239,8 +239,38 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="requestType" class="col-sm-2 control-label">Website <span class="required-asterisk">*</span></label>
+          <div class="col-sm-10">
+            <input type="input" class="form-control" id="requestType" placeholder="wwww.software.com" disabled="">
+          </div>
+          <label for="requestType" class="col-sm-2 control-label">Content URL <span class="required-asterisk">*</span></label>
+          <div class="col-sm-10">
+            <input type="input" class="form-control" id="requestType" placeholder="/products/appassure" disabled="">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="requestType" class="col-sm-2 control-label"><span class="required-asterisk"></span></label>
+          <div class="col-sm-10">
+            <label for="requestType" class="col-sm-2 control-label">+ Add Website</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="requestType" class="col-sm-2 control-label">Tags<span class="required-asterisk">*</span></label>
+          <div class="col-sm-10">
+            <input type="select" class="form-control" id="requestType" placeholder="" disabled="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="requestType" class="col-sm-2 control-label">Request Description <span class="required-asterisk">*</span></label>
+          <div class="col-sm-10">
+            <input type="textarea" class="form-control" id="requestType" placeholder="" disabled="">
+          </div>
+        </div>
+        <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Sign in</button>
+            <button class="btn btn-default" type="submit">Sign in</button>
           </div>
         </div>
       </form>
