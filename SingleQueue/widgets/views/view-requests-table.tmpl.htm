@@ -8,6 +8,19 @@
   <div id="results-data-list" class="results-data request-listing">
     <div id="GridRequest"></div>
   </div>
+  <div class="data-footer">
+    <div id="BottomPager" class="paging pagination-datatables pagination pagination-centered"></div>
+  </div>
+
+    <!-- Modal HTML -->
+    <div id="modalWrapper">
+      <div id="modalTable">
+
+      </div>
+      <span id="undo" style="display:none" class="k-button hide-on-narrow">Click here to open the window.</span>
+    </div>
+    <!-- End of Modal -->
+
 
   <script>
     $(function(){
@@ -664,12 +677,13 @@
           total: 0
         },
         scrollable: false, // for our our layout we need to have this setting!
-        pageable: true,
         sortable: true,
         dataBound : function(){
           setTimeout(function(){singleQueueTables.requestListings.styles()}, 1000)
         }
       });
+
+
     });
   </script>
 </div>

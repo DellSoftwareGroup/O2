@@ -1,0 +1,31 @@
+.filters{
+  select{
+    width: 100%;
+
+    &#event-type{
+      display: none;
+    }
+  }
+  .remove{
+    font-size: 19px;
+    margin-left:5px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .collapse{
+    display: block;
+  }
+}
+
+/*mobile*/
+@media (max-width: 767px) {
+  .filters {
+    .collapse{
+    display:none;
+    }
+    .collapse.in{
+      display: block;
+    }
+  }
+}

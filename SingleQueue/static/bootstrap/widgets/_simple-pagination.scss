@@ -1,0 +1,54 @@
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+
+.pager {
+  margin: 0;
+
+  li {
+    vertical-align: 0;
+
+    > a {
+      padding: 6px 12px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 1px;
+    }
+    a:active,
+    a:focus {
+      -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+    }
+    .icon-ui-arrowleft:before,
+    .icon-ui-arrowright:before {
+      position: relative;
+      top: 2px !important;
+    }
+    .icon-ui-arrowleft:before {
+      content: "\e600";
+    }
+    .icon-ui-arrowright:before {
+      content: "\e601";
+    }
+    input[type=text] {
+      margin-left: 5px;
+      margin-right: 5px;
+      width: 30px;
+      text-align: center;
+      height: 35px;
+      padding: 5px;
+    }
+    .pager-span {
+      padding-left: 5px;
+      padding-right: 5px;
+      display: inline-block;
+      background: none;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+
+
+
