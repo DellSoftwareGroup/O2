@@ -1,0 +1,65 @@
+.summary {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #737373;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  > div {
+    width: 100%;
+    float: left;
+    display: table;
+    clear: both;
+    margin-bottom: 10px;
+    &:first-child {
+      margin-bottom: 15px;
+    }
+    &:nth-child(4) > p {
+      margin-bottom: 20px;
+    }
+
+    h3 a {
+      font-size: 24px !important;
+    }
+    label {
+      display: table-cell;
+      text-align: right;
+      width: 25%;
+      padding-right: 20px;
+      font-size: 14px;
+      h4 {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    #due-date {
+      > span {
+        &:first-child {
+          margin-right: 35px;
+        }
+        &:nth-child(2) {
+          font-weight: bold;
+          margin-right: 15px;
+          font-size: 16px;
+        }
+      }
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px;
+      color: #fff;
+      border-radius: 3px;
+      font-size: 14px;
+      line-height: 14px;
+      &.urgent {
+        background-color: #D74324;
+      }
+    }
+    #QMDStatus{
+      width:114px;
+    }
+  }
+}
+
+
+
+

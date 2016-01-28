@@ -1,94 +1,5 @@
-/*nav start*/
-.nav {
-  position: relative;
-  width: 100%;
-  background: none;
-  margin-bottom: 4px;
-  float: left;
-  overflow: visible;
-  a {
-    color: #666;
-    &:hover, &.active {
-      color: #3399CC;
-      text-decoration: none;
-    }
-  }
-  li {
-    &:first-child {
-      margin-left: 12px;
-    }
-    margin-left: 32px;
-    padding: 7px;
-    &.nav-active {
-      background-color: #eee;
-      border-radius: 5px;
-      padding: 7px;
-      height: 16px;
-      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-    }
-  }
-  ul {
-    .right {
-      float: right;
-    }
-    .right:hover #question-mark-icon {
-      background-position: 0 -18px;
-    }
-    li {
-      .sub-nav-col {
-        display: none;
-        background: none repeat scroll 0 0 #eee;
-        float: left;
-        margin: 0 auto;
-        padding: 10px 7px;
-        position: absolute;
-        text-align: left;
-        z-index: 1000;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px;
-        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-      }
-      ul li {
-        display: block;
-        margin: 0;
-        clear: both;
-        padding: 5px 0;
-        &:last-child {
-          padding-bottom: 0;
-        }
-        &:first-child {
-          margin: 0;
-        }
-      }
-    }
-    > li {
-      &:hover {
-        .sub-nav-col li a {
-          display: block;
-        }
-        .sub-nav-col-wrapper {
-          width: 190px;
-          height: 0;
-          margin-left: -8px;
-          position: absolute;
-          overflow: hidden;
-          min-width: 134px;
-          min-height: 273px;
-        }
-      }
-      &:nth-child(5):hover .sub-nav-col-wrapper {
-        min-width: 247px;
-        min-height: 346px;
-      }
-    }
-  }
-}
-
-/*nav end*/
-
-/*ribbon start*/
-.rq-top-ribbon {
+/*ribbon*/
+.sq-top-ribbon {
   float: left;
   width: 100%;
   border: 1px solid #ccc;
@@ -195,7 +106,7 @@
         &:last-child {
           margin-right: 0;
         }
-        .rq-btn-icon {
+        .sq-btn-icon {
           margin-right: 5px;
           float: left;
           &#jan-fy-icon {
@@ -245,7 +156,7 @@
           height: 20px;
         }
         #filters-icon {
-          background-position: -548px -3px;
+          background-position: -549px -2px;
           float: left;
           width: 30px;
         }
@@ -308,7 +219,7 @@
             background-position: -468px -38px;
           }
           #filters-icon {
-            background-position: -548px -40px;
+            background-position: -549px -39px;
           }
           #department-icon {
             background-position: -853px -34px;
@@ -332,23 +243,23 @@
             color: #444;
           }
         }
-        &#rq-filters-item {
-          padding-right: 22px;
+        &#sq-filters-item {
+          width:164px;
           > div {
-            #rq-filters {
+            #sq-filters {
               &:hover > span:last-child {
                 display: none;
               }
               a:hover, .activate-bg, &.add-bg {
                 #filters-icon {
-                  background-position: -548px -40px;
+                  background-position: -549px -39px;
                 }
               }
               &.add-bg {
                 background-color: #eee;
                 border-radius: 5px;
-                height: 20px;
-                width: 24px;
+                height: 27px;
+                width: 39px;
                 box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
                 padding: 7px 10px 0 10px;
                 margin-left: -10px;
@@ -356,10 +267,11 @@
               }
               #more-filters {
                 position: absolute;
-                right: 53px;
+                right: 55px;
+                top:6px;
                 .arrow {
-                  left: 104px;
-                  top: 4px;
+                  left: 106px;
+                  top: 6px;
                 }
               }
             }
@@ -434,7 +346,7 @@
               display: block;
               float: left;
             }
-            .rq-btn-icon {
+            .sq-btn-icon {
               border: none;
               cursor: pointer;
               clear: both;
@@ -450,24 +362,25 @@
     &:first-child {
       padding-left: 11px;
       > span:last-child {
-        margin-top: 25px;
+        margin-top: 24px;
       }
     }
     &:last-child {
       > span:last-child {
         width: 100%;
-        padding-top: 10px;
+        padding-top:0;
       }
       border-right: none;
     }
     &#sprints-section {
       span:last-child {
         width: 39%;
-        padding-top: 20px;
+        padding-top: 18px;
       }
       select {
         width: 103px;
         padding:0;
+        font-size: 12.6667px;
       }
     }
     &#views {
@@ -506,11 +419,11 @@
       }
       #excel-icon-text {
         float: left;
-        margin-top: 6px;
+        margin-top: 17px;
       }
     }
     > span:last-child {
-      padding-top: 12px;
+      padding-top: 11px;
       display: block;
       width: 34%;
       margin: 0px auto;
@@ -532,12 +445,12 @@
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px;
       padding: 15px 10px 10px 10px;
-      width: 226px;
+      width: 245px;
       display: none;
       position: relative;
       z-index: 1;
       box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-      select, .rq-ribbon-filter-text {
+      select, .sq-ribbon-filter-text {
         display: block;
         box-sizing: content-box;
         margin-bottom: 7px;
@@ -547,13 +460,13 @@
         &:last-child {
           margin-bottom: 0;
         }
-        width: 224px;
+        width: 223px;
         height: 23px;
         clear: both;
         background-color: #fff;
       }
-      .rq-ribbon-filter-text {
-        width: 201px;
+      .sq-ribbon-filter-text {
+        width: 200px;
         height: 21px;
         padding-left: 4px;
         padding-right: 19px;
@@ -562,8 +475,7 @@
   }
 }
 
-/*ribbon end*/
-
+/*filters collector */
 .selected-filters {
   float: left;
   margin-bottom: 20px;

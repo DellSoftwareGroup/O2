@@ -1,17 +1,31 @@
 .grid-wrapper {
-  padding-top: 15px;
-  float:left;
+  float: left;
   margin-top: 15px;
 }
 
-/*top header start*/
+.col-870 {
+  width: 870px;
+  float: left;
+  margin: 20px 157px 0 0;
+}
 
+.col-500 {
+  width: 500px;
+  float: left;
+  margin-top: 20px;
+}
+
+/*margin/padding*/
+.mb-20{
+  margin-bottom:20px;
+}
+/*top header*/
 #top-head {
   position: relative;
   float: left;
   width: 100%;
   #search-container {
-    margin-top:15px;
+    margin-top: 15px;
     #search-query-container {
       display: block;
       float: right;
@@ -45,16 +59,94 @@
   }
 }
 
-/*top header end*/
-
-/*icons sprite*/
-.rq-btn-icon {
-  background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 0;
-  display: block;
-  height: 18px;
+/*nav start*/
+.nav {
+  position: relative;
+  width: 100%;
+  background: none;
+  margin-bottom: 4px;
+  float: left;
+  overflow: visible;
+  a {
+    color: #666;
+    &:hover, &.active {
+      color: #3399CC;
+      text-decoration: none;
+    }
+  }
+  li {
+    &:first-child {
+      margin-left: 12px;
+    }
+    margin-left: 32px;
+    padding: 7px;
+    &.nav-active {
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 7px;
+      height: 28px;
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+  ul {
+    .right {
+      float: right;
+    }
+    .right:hover #question-mark-icon {
+      background-position: 0 -18px;
+    }
+    li {
+      .sub-nav-col {
+        display: none;
+        background: none repeat scroll 0 0 #eee;
+        float: left;
+        margin: 0 auto;
+        padding: 10px 7px;
+        position: absolute;
+        text-align: left;
+        z-index: 1000;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+      }
+      ul li {
+        display: block;
+        margin: 0;
+        clear: both;
+        padding: 5px 0;
+        &:last-child {
+          padding-bottom: 0;
+        }
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+    > li {
+      &:hover {
+        .sub-nav-col li a {
+          display: block;
+        }
+        .sub-nav-col-wrapper {
+          width: 190px;
+          height: 0;
+          margin-left: -8px;
+          position: absolute;
+          overflow: hidden;
+          min-width: 134px;
+          min-height: 300px;
+        }
+      }
+      &:nth-child(5):hover .sub-nav-col-wrapper {
+        min-width: 247px;
+        min-height: 366px;
+      }
+    }
+  }
 }
 
-/*tabs start*/
+/*tabs*/
 #tabs {
   padding-top: 0;
   position: relative;
@@ -106,7 +198,7 @@
       /* IE10+ */
       background: linear-gradient(to bottom, #ffffff 1%, #eeeeee 100%);
       /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
       /* IE6-8 */
       > a {
         display: block;
@@ -129,14 +221,17 @@
     }
   }
 }
-
 .ui-widget-header {
   border-left: 1px solid #e4e4e4;
 }
-
 .ui-tabs {
   padding: 0;
 }
 
-/*tabs end*/
+/*icons sprite*/
+.sq-btn-icon {
+  background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 0;
+  display: block;
+  height: 18px;
+}
 

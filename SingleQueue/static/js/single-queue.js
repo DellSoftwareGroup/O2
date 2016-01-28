@@ -25,19 +25,21 @@ $(function () {
   });
 
   //filters click event
-  var filterSubNavWrapper = $('#rq-filters .sub-nav-wrapper'),
+  var filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
       filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
-  $('#rq-filters').on('click', function (e) {
+  $('#sq-filters').on('click', function (e) {
     e.stopPropagation();
     e.preventDefault();
     filterSubNav.toggle();
     $(this).toggleClass('add-bg');
-    if ($('#rq-filters-item').hasClass('active-item-bg')) {
+
+    $(this).find('.sub-nav-wrapper').css('marginLeft','');
+
+    if ($('#sq-filters-item').hasClass('active-item-bg')) {
       $(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
-    } else {
-      $('.sub-nav-wrapper').css('marginLeft', '-11px');
     }
+
     if (filterSubNav.is(':visible')) {
       filterSubNavWrapper.css('height', '445px');
     } else {
@@ -47,16 +49,16 @@ $(function () {
 
 
   $('body').on('click', function () {
-    $('#rq-filters').removeClass('add-bg');
+    $('#sq-filters').removeClass('add-bg');
   });
 
   //click state of bar icons
-  var ribbonItem = $('.rq-top-ribbon > ul > li > ul > li');
+  var ribbonItem = $('.sq-top-ribbon > ul > li > ul > li');
   ribbonItem.on('click', function () {
     toggleActiveItem(this);
   });
 
-  (ribbonItem.children(),filterSubNav, $('.rq-top-ribbon select')).on('click', function (e) {
+  (ribbonItem.children(),filterSubNav, $('.sq-top-ribbon select')).on('click', function (e) {
     e.stopPropagation();
   });
 
@@ -72,7 +74,7 @@ $(function () {
       });
 
   //Initialize multiple select for ribbon area
-  $('.rq-top-ribbon').find('select').each(function () {
+  $('.sq-top-ribbon').find('select').each(function () {
     if ($(this).attr('multiple') == 'multiple') {
       var title = $(this).data('title');
 
@@ -139,7 +141,7 @@ $(window).load(function () {
 
 function toggleActiveItem(elem){
   $(elem).toggleClass('active-item-bg').end().removeClass('disable-hover');
-  if ($(elem).attr('id') == 'rq-filters-item') {
-    $(elem).find('#rq-filters').removeClass('add-bg');
+  if ($(elem).attr('id') == 'sq-filters-item') {
+    $(elem).find('#sq-filters').removeClass('add-bg');
   }
 }
