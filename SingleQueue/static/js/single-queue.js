@@ -50,6 +50,7 @@ $(function () {
 
   $('body').on('click', function () {
     $('#sq-filters').removeClass('add-bg');
+    $('.sub-nav').hide();
   });
 
   //click state of bar icons

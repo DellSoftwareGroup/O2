@@ -1419,7 +1419,8 @@ tbody tr:first-child .tooltip:hover:after {
         background-color: #fff; }
         #tabs > ul > li.ui-tabs-active a {
           border-top: 4px solid #0085c3;
-          padding: 13px 25px 19px 25px !important; }
+          padding: 13px 25px 19px 25px !important;
+          background-color: #fff; }
       #tabs > ul > li > a:hover {
         text-decoration: none; }
 
@@ -1717,10 +1718,9 @@ tbody tr:first-child .tooltip:hover:after {
       padding-top: 18px; }
     .sq-top-ribbon > ul > li#sprints-section select {
       width: 103px;
-      padding: 0;
-      font-size: 12.6667px; }
+      padding: 0; }
     .sq-top-ribbon > ul > li#views > span {
-      padding-top: 13px; }
+      padding-top: 12px; }
     .sq-top-ribbon > ul > li#views select {
       width: 108px; }
     .sq-top-ribbon > ul > li#agile-status > ul > li > a {
@@ -1738,9 +1738,9 @@ tbody tr:first-child .tooltip:hover:after {
       padding: 15px 0 0 0; }
     .sq-top-ribbon > ul > li#excel #excel-icon-text {
       float: left;
-      margin-top: 17px; }
+      margin-top: 15px; }
     .sq-top-ribbon > ul > li > span:last-child {
-      padding-top: 11px;
+      padding-top: 10px;
       display: block;
       width: 34%;
       margin: 0px auto;
@@ -1760,7 +1760,7 @@ tbody tr:first-child .tooltip:hover:after {
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px;
       padding: 15px 10px 10px 10px;
-      width: 245px;
+      width: 246px;
       display: none;
       position: relative;
       z-index: 1;
@@ -1782,22 +1782,28 @@ tbody tr:first-child .tooltip:hover:after {
         height: 21px;
         padding-left: 4px;
         padding-right: 19px; }
+    .sq-top-ribbon > ul > li select, .sq-top-ribbon > ul > li input {
+      font-size: 12.6667px; }
 
 /*filters collector */
-.selected-filters {
+.filter-collector {
   float: left;
   margin-bottom: 20px; }
-  .selected-filters li {
+  .filter-collector li {
     display: inline-block;
-    float: left; }
-    .selected-filters li:first-child {
-      margin-left: 20px; }
-    .selected-filters li:nth-child(2) {
-      margin-left: 10px; }
-    .selected-filters li a {
-      margin-right: 10px;
-      color: #3399cc;
-      text-decoration: underline; }
+    float: left;
+    margin-right: 10px; }
+    .filter-collector li:first-child {
+      margin-left: 10px;
+      font-size: 18px; }
+    .filter-collector li a {
+      color: #3399CC;
+      font-weight: bold; }
+      .filter-collector li a:hover {
+        text-decoration: none; }
+    .filter-collector li span {
+      color: #999;
+      font-size: 14px; }
 
 /**
  * @author zhixin wen <wenzhixin2010@gmail.com>
