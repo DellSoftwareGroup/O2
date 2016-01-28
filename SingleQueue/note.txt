@@ -1,0 +1,6 @@
+Notes:
+
+* Project is being published at the following directory:
+ \\stage-software-dell-com >> template >> SingleQueue
+
+* Bootstrap was added/copied from DSG project branch 39
