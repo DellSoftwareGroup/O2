@@ -1,0 +1,38 @@
+/*off canvas*/
+
+#off-canvas {
+  @include opacity(0);
+  @include transition(opacity .5s ease 0s);
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  .off-canvas-content {
+    padding: 15px;
+  }
+}
+
+body {
+  @include transition(left .5s ease 0s);
+  left: 0;
+}
+
+.off-canvas-mode {
+  left: -100%;
+
+  #off-canvas {
+    @include opacity(1);
+    left: 100%;
+  }
+}
+
+.off-canvas-back {
+  > span {
+    margin-left: 5px;
+    font-size: 15px;
+  }
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

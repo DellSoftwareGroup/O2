@@ -1,0 +1,12 @@
+.show-collapsed {
+  display: none;
+}
+
+.collapsed {
+  .show-collapsed {
+    display: block;
+  }
+  .hide-expanded {
+    display: none;
+  }
+}

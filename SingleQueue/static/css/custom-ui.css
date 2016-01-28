@@ -1203,9 +1203,17 @@ tbody tr:first-child .tooltip:hover:after {
 .table-headings > li.task-info-heading {
   margin-right: 508px; }
 
+/* "Summary sections" */
 .summary-start {
-  /* "Summary sections" */
   border-left: 1px solid #444 !important; }
+
+/* pagination style adjustments */
+.results-data {
+  margin-bottom: 10px; }
+
+#TopPager {
+  box-sizing: border-box;
+  padding-top: 10px; }
 
 .form-area {
   width: 905px;

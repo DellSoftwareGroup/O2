@@ -1,0 +1,74 @@
+#ui-loader {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -10px 0 0 -10px;
+}
+
+.listing-entries {
+	@include transition(opacity .1s ease);
+  color: #444;
+  a {
+    color: #444;
+    text-decoration: none;
+    display: block;
+    margin: 0 0 40px 0;
+  }
+  .listing-header {
+    color: #fff;
+    padding: 0 0 0 10px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  /* Already defined in _image.scss
+
+  .img-crop {
+    overflow: hidden;
+  }
+  */
+  > h4{
+    font-size:24px;
+    font-weight:bold;
+    color:#666;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .listing-entries {
+    .col-xs-12 {
+      width: 360px;
+      margin: 0 auto;
+      float: none;
+    }
+
+    .img-crop {
+      height: 234px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .listing-entries {
+    .img-crop {
+      height: 166px;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .listing-entries {
+    .img-crop {
+      height: 161px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .listing-entries {
+    .img-crop {
+      height: 197px;
+    }
+  }
+}
