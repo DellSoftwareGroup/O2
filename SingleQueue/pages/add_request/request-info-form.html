@@ -193,10 +193,14 @@
       <h2>Request Information</h2>
       <form style="" class="form-horizontal" novalidate="novalidate">
         <div class="form-group">
-          <label class="col-sm-2 control-label" for="requestType">Request Type <span class="required-asterisk">*</span></label>
+          <label for="requestType" class="col-sm-2 control-label">Request Type <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="text" style="width: 440px;" disabled="" placeholder="Tech Brief" id="requestType" class="form-control">
+            <input type="text" class="form-control" id="requestType" placeholder="Tech Brief" disabled="" style="width: 440px;"> <a href="#" style="">
+            Change</a>
+
           </div>
+
+
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label" for="reqSubType">Request Sub Type <span class="required-asterisk">*</span></label>
@@ -209,64 +213,200 @@
         <div class="form-group">
           <label for="requestTitle" class="col-sm-2 control-label">Request Title <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="requestTitle" placeholder="Active Administrator" disabled="" style="">
+            <input type="text" value="" placeholder="Active Administrator for DNS " class="form-control" id="contenturl">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label" for="requestType">Requester <span class="required-asterisk">*</span></label>
-          <div class="col-sm-10">     <input type="text" id="requestType" class="form-control" placeholder="Carl Becky" disabled="" style="width: 250px;">                   </div>
+          <div class="col-sm-10">     <input type="text" id="Requester" class="form-control" placeholder="Carl Becky" style="width: 250px;">   <input type="button" class="btn btn-primary" value="Search" id="AddComment">                </div>
         </div>
 
         <div class="form-group">
-          <label class="col-sm-2 control-label" for="requestType">Request Due Date <span class="required-asterisk">*</span></label>
+          <label for="requestType" class="col-sm-2 control-label">Request Due Date <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="text" style="width: 200px;" disabled="" placeholder="6/8/2016" id="requestType" class="form-control">
+            <span style="" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" name="StartDate_UTC" id="requestDueDate" data-val-date="The field StartDate_UTC must be a date." data-val="true" data-role="datepicker" style="width: 100%;" class="k-input" role="combobox" aria-expanded="false" aria-owns="StartDate_UTC_dateview" aria-disabled="false" aria-readonly="false"><span class="k-select" unselectable="on" role="button" aria-controls="StartDate_UTC_dateview"><span class="k-icon k-i-calendar" unselectable="on">select</span></span></span></span>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Urgent
-              </label>
-            </div>
+          <label class="col-sm-2 control-label" for="requestType">Urgent<span class="required-asterisk">*</span></label>
+          <div class="col-sm-10">
+            <input type="Checkbox" id="requestType" class="form-control" style="margin-top: 0px; width: 16px;">
           </div>
         </div>
         <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Business Justification <span class="required-asterisk">*</span></label>
+          <label for="requestType" class="col-sm-2 control-label" style="">Business Justification <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="textarea" class="form-control" id="requestType" placeholder="" disabled="">
+            <textarea style="height:70px" cols="10" rows="5" id="businessJustification" class="form-control"></textarea><br><p>If you know the URL of the page you need updates for please provide the URL below</p>
           </div>
         </div>
         <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Website <span class="required-asterisk">*</span></label>
+          <label class="col-sm-2 control-label" for="requestType">Website <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="input" class="form-control" id="requestType" placeholder="wwww.software.com" disabled="">
+            <select id="Website" class="form-control" name="Website"></select>
           </div>
-          <label for="requestType" class="col-sm-2 control-label">Content URL <span class="required-asterisk">*</span></label>
+          <label class="col-sm-2 control-label" for="requestType">Content URL <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="input" class="form-control" id="requestType" placeholder="/products/appassure" disabled="">
+            <input type="text" id="contenturl" class="form-control" placeholder="/products/appasure" value="">
           </div>
         </div>
 
         <div class="form-group">
           <label for="requestType" class="col-sm-2 control-label"><span class="required-asterisk"></span></label>
           <div class="col-sm-10">
-            <label for="requestType" class="col-sm-2 control-label">+ Add Website</label>
+            <a href="#">
+              <span class="icon-ui-plus" style="content: &quot;&quot;;"></span>
+              Add Website
+            </a>
           </div>
         </div>
 
         <div class="form-group">
           <label for="requestType" class="col-sm-2 control-label">Tags<span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="select" class="form-control" id="requestType" placeholder="" disabled="">
+            <select name="Priority_MetadataID" id="agilePriority" data-val-number="The field Priority_MetadataID must be a number." data-val="true" class="form-control"><option value="">Select a Tag</option>
+              <option value="9"></option>
+
+            </select>
           </div>
         </div>
         <div class="form-group">
-          <label for="requestType" class="col-sm-2 control-label">Request Description <span class="required-asterisk">*</span></label>
+          <label class="col-sm-2 control-label" for="requestType">Request Description <span class="required-asterisk">*</span></label>
           <div class="col-sm-10">
-            <input type="textarea" class="form-control" id="requestType" placeholder="" disabled="">
+            <div style="display: inline-block; width: 358px;">
+              <table cellspacing="4" cellpadding="0" role="presentation" class="k-widget k-editor k-header k-editor-widget" style="width: 848px; height: 210px;"><tbody><tr role="presentation"><td role="presentation" class="k-editor-toolbar-wrap"><ul role="toolbar" class="k-editor-toolbar" aria-controls="Desc" data-role="editortoolbar"><li role="presentation" class="k-tool-group"><span class="k-editor-dropdown k-group-start k-group-end"><span style="width: 110px;" title="Format" class="k-widget k-dropdown k-header k-editor-widget" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-readonly="false" aria-busy="false"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">Format</span><span class="k-select" unselectable="on"><span class="k-icon k-i-arrow-s" unselectable="on">select</span></span></span><select class="k-formatting k-decorated" title="Format" style="width: 110px; display: none;" data-role="selectbox" unselectable="on"><option value="p">Paragraph</option><option value="blockquote">Quotation</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="h4">Heading 4</option><option value="h5">Heading 5</option><option value="h6">Heading 6</option></select></span></span></li><li role="presentation" class="k-tool-group k-button-group"><a title="Bold" unselectable="on" class="k-tool k-group-start" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-bold" unselectable="on">Bold</span></a><a title="Italic" unselectable="on" class="k-tool" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-italic" unselectable="on">Italic</span></a><a title="Underline" unselectable="on" class="k-tool k-group-end" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-underline" unselectable="on">Underline</span></a></li><li role="presentation" class="k-tool-group k-button-group"><a title="Align text left" unselectable="on" class="k-tool k-group-start" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-justifyLeft" unselectable="on">Justify Left</span></a><a title="Center text" unselectable="on" class="k-tool" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-justifyCenter" unselectable="on">Justify Center</span></a><a title="Align text right" unselectable="on" class="k-tool k-group-end" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-justifyRight" unselectable="on">Justify Right</span></a></li><li role="presentation" class="k-tool-group k-button-group"><a title="Insert unordered list" unselectable="on" class="k-tool k-group-start" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-insertUnorderedList" unselectable="on">Insert unordered list</span></a><a title="Insert ordered list" unselectable="on" class="k-tool" role="button" href="" aria-pressed="false"><span class="k-tool-icon k-insertOrderedList" unselectable="on">Insert ordered list</span></a><a title="Outdent" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-outdent" unselectable="on">Outdent</span></a><a title="Indent" unselectable="on" class="k-tool k-group-end" role="button" href=""><span class="k-tool-icon k-indent" unselectable="on">Indent</span></a></li><li role="presentation" class="k-tool-group k-button-group"><a title="Insert hyperlink" unselectable="on" class="k-tool k-group-start" role="button" href=""><span class="k-tool-icon k-createLink" unselectable="on">Create Link</span></a><a title="Remove hyperlink" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-unlink" unselectable="on">Remove Link</span></a><a title="Insert image" unselectable="on" class="k-tool k-group-end" role="button" href=""><span class="k-tool-icon k-insertImage" unselectable="on">Insert Image</span></a></li><li role="presentation" class="k-tool-group k-button-group"><a title="Create table" unselectable="on" data-popup="" class="k-tool k-group-start k-group-end" role="button" href=""><span class="k-tool-icon k-createTable" unselectable="on">Create table</span></a><a title="Add column on the left" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-addColumnLeft" unselectable="on">Add column on the left</span></a><a title="Add column on the right" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-addColumnRight" unselectable="on">Add column on the right</span></a><a title="Add row above" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-addRowAbove" unselectable="on">Add row above</span></a><a title="Add row below" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-addRowBelow" unselectable="on">Add row below</span></a><a title="Delete row" unselectable="on" class="k-tool k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-deleteRow" unselectable="on">Delete row</span></a><a title="Delete column" unselectable="on" class="k-tool k-group-end k-state-disabled" role="button" href="" style="display: none;"><span class="k-tool-icon k-deleteColumn" unselectable="on">Delete column</span></a></li></ul></td></tr><tr><td class="k-editable-area"><iframe frameborder="0" title="Editable area. Press F10 for toolbar." class="k-content" src="javascript:&quot;&quot;"></iframe><textarea style="width: 290px; height: 279px; display: none;" rows="5" name="Desc" id="Desc" cols="20" data-role="editor" autocomplete="off" class="k-content k-raw-content">general tasks that support marketing's GTM efforts and backend infrastructure support</textarea></td></tr></tbody></table>
+            </div>
           </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <h3>Request Details for Tech Brief</h3>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="requestTitle" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <label>who is target audience?</label>
+            <input type="text" value="" placeholder="You need to put your answer right here" class="form-control" id="contenturl">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="requestTitle" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <label>what is the key differentiator or unique benifit you want to convey to audience for this activity? </label>
+            <input type="text" value="" placeholder="Place your benifits here" class="form-control" id="contenturl">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>Does the draft has intro and/or abstract?</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>Does the draft has clearly identifiable titles and subtitles?</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>Captions for images?</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>Suggestive portions for narative for pull quotes?</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>Summary or conclusion?</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>Aurthor bio?</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="requestTitle"></label>
+          <div class="col-sm-10">
+            <label>will you need landing page copy based on abstract?(Recommended)</label>
+            <div class="notify-checkboxes">
+
+              <input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+              Yes
+              <input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+              No
+
+            </div>
+          </div>
+
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
@@ -274,6 +414,7 @@
           </div>
         </div>
       </form>
+
     </main>
 
 
