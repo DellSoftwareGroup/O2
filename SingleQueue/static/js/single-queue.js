@@ -34,7 +34,7 @@ $(function () {
     filterSubNav.toggle();
     $(this).toggleClass('add-bg');
 
-    $(this).find('.sub-nav-wrapper').css('marginLeft','');
+    $(this).find('.sub-nav-wrapper').css('marginLeft', '');
 
     if ($('#sq-filters-item').hasClass('active-item-bg')) {
       $(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
@@ -59,7 +59,7 @@ $(function () {
     toggleActiveItem(this);
   });
 
-  (ribbonItem.children(),filterSubNav, $('.sq-top-ribbon select')).on('click', function (e) {
+  (ribbonItem.children(), filterSubNav, $('.sq-top-ribbon select')).on('click', function (e) {
     e.stopPropagation();
   });
 
@@ -116,6 +116,13 @@ $(function () {
       //$(this).multipleSelect("checkAll");
     }
   });
+
+  /*date picker*/
+  $(".date-picker").kendoDatePicker({
+    "format": "MM/dd/yyyy",
+    "min": new Date(1900, 0, 1, 0, 0, 0, 0),
+    "max": new Date(2099, 11, 31, 0, 0, 0, 0)
+  });
 });
 
 $(window).load(function () {
@@ -140,7 +147,7 @@ $(window).load(function () {
   }
 });
 
-function toggleActiveItem(elem){
+function toggleActiveItem(elem) {
   $(elem).toggleClass('active-item-bg').end().removeClass('disable-hover');
   if ($(elem).attr('id') == 'sq-filters-item') {
     $(elem).find('#sq-filters').removeClass('add-bg');

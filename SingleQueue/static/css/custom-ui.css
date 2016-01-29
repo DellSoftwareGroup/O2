@@ -1242,20 +1242,6 @@ tbody tr:first-child .tooltip:hover:after {
   float: left;
   margin-top: 15px; }
 
-.col-870 {
-  width: 870px;
-  float: left;
-  margin: 20px 157px 0 0; }
-
-.col-500 {
-  width: 500px;
-  float: left;
-  margin-top: 20px; }
-
-/*margin/padding*/
-.mb-20 {
-  margin-bottom: 20px; }
-
 /*top header*/
 #top-head {
   position: relative;
@@ -2009,7 +1995,6 @@ tbody tr:first-child .tooltip:hover:after {
   .ms-drop {
     width: auto; } }
 .summary {
-  padding: 10px;
   border-radius: 3px;
   border: 1px solid #737373;
   background-color: #f9f9f9;
@@ -2020,26 +2005,22 @@ tbody tr:first-child .tooltip:hover:after {
     display: table;
     clear: both;
     margin-bottom: 10px; }
-    .summary > div:first-child {
-      margin-bottom: 15px; }
-    .summary > div:nth-child(4) > p {
-      margin-bottom: 20px; }
-    .summary > div h3 a {
-      font-size: 24px !important; }
+    .summary > div h3 {
+      margin: 0; }
+      .summary > div h3 a, .summary > div h3 a:hover {
+        font-size: 24px; }
     .summary > div label {
       display: table-cell;
       text-align: right;
       width: 25%;
       padding-right: 20px;
-      font-size: 14px; }
+      font-weight: normal; }
       .summary > div label h4 {
         font-size: 16px;
-        font-weight: bold; }
-    .summary > div #due-date > span:first-child {
-      margin-right: 35px; }
+        font-weight: bold;
+        margin-bottom: 0; }
     .summary > div #due-date > span:nth-child(2) {
       font-weight: bold;
-      margin-right: 15px;
       font-size: 16px; }
     .summary > div .badge {
       display: inline-block;
@@ -2050,5 +2031,33 @@ tbody tr:first-child .tooltip:hover:after {
       line-height: 14px; }
       .summary > div .badge.urgent {
         background-color: #D74324; }
-    .summary > div #QMDStatus {
-      width: 114px; }
+    .summary > div input, .summary > div select {
+      width: 114px;
+      display: inline;
+      float: left; }
+    .summary > div .btn {
+      color: #fff !important;
+      display: inline;
+      float: left; }
+    .summary > div #planned-date {
+      margin-left: 13px;
+      margin-right: 63px; }
+    .summary > div a, .summary > div a:hover {
+      font-size: 14px;
+      color: #3399cc; }
+    .summary > div > div {
+      display: block;
+      float: left;
+      /*i{
+        left:-18px;
+        top:8px;
+        position: relative;
+      }*/ }
+      .summary > div > div > span {
+        width: 114px; }
+
+.k-picker-wrap {
+  border: none; }
+  .k-picker-wrap .k-state-default > .k-select {
+    background-color: #fff;
+    border: none; }

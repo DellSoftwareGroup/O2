@@ -5089,6 +5089,9 @@ iframe {
 .valign-text-top {
   vertical-align: text-top; }
 
+.valign-middle {
+  vertical-align: middle; }
+
 /* Overflow */
 .overflow-hidden {
   overflow: hidden; }
@@ -5281,6 +5284,9 @@ iframe {
 
 .mr-15 {
   margin-right: 15px !important; }
+
+.mr-35 {
+  margin-right: 35px !important; }
 
 .mt-0 {
   margin-top: 0 !important; }
