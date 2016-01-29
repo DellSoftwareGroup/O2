@@ -263,6 +263,163 @@ var singleQueueTables = (function($){
         }
       }());
 
+  // Bootstrap popover
+  var BootsPopOver = (function () {
+
+    /* private methods and Data example */
+    //IS will pass real data,
+    // for testing purposes we are using sample objects array.
+    var reqData = [
+      {
+        id: '27139',
+        group: 1,
+        task: 'Writing Content',
+        owner: 'James Gomez',
+        status: 'In progress',
+        'plannedStart': '5/20/2015',
+        'plannedEnd': '6/1/2015',
+        'actualStart': '6/1/2015',
+        'actualEnd': '6/10/2015',
+      },
+      {
+        id: '27139',
+        group: 1,
+        task: 'Key words',
+        owner: 'Michael Hughes',
+        status: 'Complete',
+        'plannedStart': '5/20/2015',
+        'plannedEnd': '5/20/2015',
+        'actualStart': '6/1/2015',
+        'actualEnd': '6/5/2015',
+      },
+      {
+        id: 'MRCM-47411',
+        group: 1,
+        task: 'PDF Creation',
+        owner: 'Giovanni Monsalve',
+        status: 'In progress',
+        'plannedStart': '5/20/2015',
+        'plannedEnd': '5/20/2015',
+        'actualStart': '6/1/2015',
+        'actualEnd': '6/5/2015',
+      },
+      {
+        id: 'MRCM-47411',
+        group: 1,
+        task: 'Upload to Website',
+        owner: 'Carol Buckley',
+        status: 'Pending',
+        'plannedStart': '5/20/2015',
+        'plannedEnd': '5/20/2015',
+        'actualStart': '6/1/2015',
+        'actualEnd': '6/5/2015',
+      }
+    ];
+
+    //find web request group
+    function filterReqAndGroup(requestId) {
+      var groupTasks = [];
+      reqData.forEach(function (task) {
+        if (task.id == requestId) {
+          groupTasks.push(task);
+        }
+      })
+      if (groupTasks.length > 0) {
+        return groupTasks;
+      } else {
+        return 'No tasks found';
+      }
+    }
+
+    // build popover template
+    function popoverBuilder(requestId) {
+      var filteredTasks = filterReqAndGroup(requestId), trTasks = "";
+
+      if (Array.isArray(filteredTasks)) {
+
+        // Iterate thru each task
+        filteredTasks.forEach(function (task) {
+          trTasks += String()
+            + '<tr><td><div class="tsk-group">' + task.group + '</div></td>'
+            + '<td><div class="tsk-task">' + task.task + '</div></td>'
+            + '<td><div class="tsk-owner">' + task.owner + '</div></td>'
+            + '<td><div class="pln-start">' + task.plannedStart + '</div></td>'
+            + '<td><div class="pln-end">' + task.plannedEnd + '</div></td>'
+            + '<td><div class="actual-start">' + task.actualStart + '</div></td>'
+            + '<td><div class="actual-end">' + task.actualEnd + '</div></td></tr>';
+        });
+
+        // TODO: missing status
+        // if tasks were found
+        var tasksTmpl = String()
+          + '<div class="popover sq-popover" role="tooltip">'
+          + '<h3 class="popover-title">Group Tasks</h3>'
+          + '<div>'
+          + '<table><thead>'
+          + '<tr><th>Group</th><th>Task</th><th>Owner</th><th>Planned Start</th><th>Planned End</th><th>Actual Start</th><th>Actual End</th></tr>'
+          + '</thead>'
+          + '<tbody class="popover-content">'
+          + '</tbody></table>'
+          + '</div></div>';
+
+        var popUp = {
+          tmpl: tasksTmpl,
+          content: trTasks
+        }
+
+        return popUp;
+
+      } else {
+        // if no request found
+
+        var tasksNotFound = String()
+          + '<div class="popover popover-nr" role="tooltip">'
+          + '<h3 class="popover-title">Group Tasks</h3>'
+          + '<div class="popover-content"></div>'
+          + '</div>';
+
+        var noTaskResp = {
+          tmpl: tasksNotFound,
+          content: filteredTasks
+        }
+
+        return noTaskResp;
+      }
+
+    }
+
+
+    /* Public Method */
+    var init = function () {
+      // initialize Bootstrap popover:
+      $('.popoverTasks').hover(function () {
+        var requestId = $(this).data('reqid'); // pull request Id from data attribute (data-reqID)
+        var popoverTmpl = popoverBuilder(requestId);
+        console.log('one: ' + popoverTmpl);
+        $(this).popover({
+          html: true,
+          content: popoverTmpl.content,
+          template: popoverTmpl.tmpl,
+          placement: 'top',
+          selector: this,
+          container: 'body'
+        });
+        $(this).popover("show");
+      }, function () {
+        $(this).popover('destroy')
+      });
+    }
+
+
+    /* public  API */
+
+    return {
+      init: init
+    }
+
+  }());
+
+
 
   /* ------->  Public methods  <------- */
 
@@ -274,7 +431,8 @@ var singleQueueTables = (function($){
           commonStyles.summaryBorder(summaryStartCol);
           commonStyles.tempStyles();
           commonStyles.GridRequest_DataBound();
-          modalTable.init();
+          // modalTable.init(); --> Kendo window
+          BootsPopOver.init();
         }
       };
 

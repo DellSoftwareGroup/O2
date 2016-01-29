@@ -1215,6 +1215,17 @@ tbody tr:first-child .tooltip:hover:after {
   box-sizing: border-box;
   padding-top: 10px; }
 
+.sq-popover {
+  max-width: 800px;
+}
+
+.sq-popover table {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 15px;
+}
+
 .form-area {
   width: 905px;
   float: left;

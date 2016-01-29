@@ -663,9 +663,11 @@
           {title: "Group", field: "group",
             template: "<div class='group-col'>#= group #</div>"},
           {title: "Active", field: "active",
-            template: "<div class='active-col'>#= active #</div>"},
+            template: "<div class='active-col popoverTasks' data-reqID='#= id #'><a href='javascript:void(0)'>#= active #</a></div>"
+          },
           {title: "Complete", field: "complete",
-            template: "<div class='complete-col'>#= complete #</div>"},
+            template: "<div class='complete-col popoverTasks' data-reqid='#= id #'><a href='javascript:void(0)'>#= complete #</a></div>"
+          },
           {title: "Start Date", field: "startDate",
             template: "<div class='startDate-col'>#= startDate #</div>"},
           {title: "End Date", field: "endDate",
