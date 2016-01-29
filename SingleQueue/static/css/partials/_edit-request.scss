@@ -76,13 +76,59 @@
     }
   }
 }
-.k-picker-wrap{
-  border:none;
-  .k-state-default > .k-select{
+/*Kendo UI datepicker*/
+.k-picker-wrap {
+  height: 32px;
+  .k-input {
+    height: 30px;
+    position: absolute;
+    padding-bottom: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    border-radius: 1px;
+  }
+  &.k-state-default {
+    background-image: none;
     background-color: #fff;
-    border:none;
+    border-radius: 1px;
+    border-color: #ccc;
+    > .k-select {
+      border: none;
+      border-radius: 0;
+      position: relative;
+      float: right;
+      width: auto;
+    }
+  }
+  &.k-state-hover {
+    background-color: #fff;
+    > * > .k-i-calendar {
+      background-position: -779px -75px;
+      width: 15px;
+      height: 12px;
+    }
+  }
+  &.k-state-focused {
+    background-color: #fff;
+    border-color: #66afe9;
+  }
+  .k-icon {
+    background-image: url('../../assets/images/single-queue-sprite.png');
+    background-repeat: no-repeat;
+  }
+  .k-select {
+    line-height: 2.3em;
+  }
+  .k-i-calendar {
+    background-position: -779px -75px;
+    position: absolute;
+    top: 12px;
+    left: 6px;
   }
 }
+
+
+
 
 
 
