@@ -267,6 +267,7 @@ var singleQueueTables = (function($){
   var BootsPopOver = (function () {
 
     /* private methods and Data example */
+
     //IS will pass real data,
     // for testing purposes we are using sample objects array.
     var reqData = [
@@ -343,20 +344,21 @@ var singleQueueTables = (function($){
             + '<tr><td><div class="tsk-group">' + task.group + '</div></td>'
             + '<td><div class="tsk-task">' + task.task + '</div></td>'
             + '<td><div class="tsk-owner">' + task.owner + '</div></td>'
+            + '<td><div class="tsk-owner">' + task.status + '</div></td>'
             + '<td><div class="pln-start">' + task.plannedStart + '</div></td>'
             + '<td><div class="pln-end">' + task.plannedEnd + '</div></td>'
             + '<td><div class="actual-start">' + task.actualStart + '</div></td>'
             + '<td><div class="actual-end">' + task.actualEnd + '</div></td></tr>';
         });
 
-        // TODO: missing status
+
         // if tasks were found
         var tasksTmpl = String()
           + '<div class="popover sq-popover" role="tooltip">'
           + '<h3 class="popover-title">Group Tasks</h3>'
           + '<div>'
           + '<table><thead>'
-          + '<tr><th>Group</th><th>Task</th><th>Owner</th><th>Planned Start</th><th>Planned End</th><th>Actual Start</th><th>Actual End</th></tr>'
+          + '<tr><th>Group</th><th>Task</th><th>Owner</th><th>Status</th><th>Planned Start</th><th>Planned End</th><th>Actual Start</th><th>Actual End</th></tr>'
           + '</thead>'
           + '<tbody class="popover-content">'
           + '</tbody></table>'
@@ -458,6 +460,31 @@ var singleQueueTables = (function($){
 }(jQuery));
 
 
+var commonWidgets = (function ($) {
+
+  function kendoTree(targetElm) {
+
+    if (targetElm.typeof === "string") {
+      $(targetElm).kendoTreeView();
+    } else {
+      console.log('add id or class as string!')
+    }
+
+  }
+
+  function init() {
+
+  }
+
+  return {
+    init: init,
+    kendoTree: kendoTree
+  }
+
+}(jQuery));
 
 
+$(function () {
+  commonWidgets.kendoTree('#files-treeview')
+});
 

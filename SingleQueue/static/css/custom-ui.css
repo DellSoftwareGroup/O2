@@ -1133,7 +1133,8 @@ tbody tr:first-child .tooltip:hover:after {
 .tasks-listing .requestStartDate-col {
   width: 64px; }
 .tasks-listing .requestEndDate-col {
-  width: 92px; }
+  width: 96px;
+}
 .tasks-listing .requester-col {
   width: 65px; }
 .tasks-listing .portfolio-col {
@@ -1151,7 +1152,8 @@ tbody tr:first-child .tooltip:hover:after {
 .tasks-listing .startDate-col {
   width: 74px; }
 .tasks-listing .endDate-col {
-  width: 100px; }
+  width: 104px;
+}
 
 #results-data-list {
   /* warning labels */ }
@@ -1172,7 +1174,7 @@ tbody tr:first-child .tooltip:hover:after {
   #results-data-list span.legacy {
     background-color: #444; }
   #results-data-list span.past-due {
-    background: url(http://o2.prod.quest.corp/mk/Static/Content/Img/icon-warning-red.png) no-repeat right center;
+    background: url(http://o2.prod.quest.corp/mk/Static/Content/Img/icon-warning-red.png) no-repeat center center;
     height: 16px;
     width: 16px;
     vertical-align: middle;

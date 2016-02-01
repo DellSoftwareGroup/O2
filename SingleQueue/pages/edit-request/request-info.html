@@ -188,12 +188,14 @@
 <body>
 <div id="body-content">
   <div id="top" class="wrapper"></div>
-  <div id="content" class="wrapper"></div>
+  <div id="content" class="wrapper">
+    <div class="row summary-info"></div>
+  </div>
 
   <script>
     //Load the template definition from an external file
     templateLoader.loadExtTemplate("../../widgets/top-area.tmpl.htm", "#top");
-    templateLoader.loadExtTemplate("../../widgets/edit-requests/request-summary.tmpl.htm", '#content', ['../../static/js/single-queue.js']);
+    templateLoader.loadExtTemplate("../../widgets/edit-requests/request-summary.tmpl.htm", '.summary-info', ['../../static/js/single-queue.js']);
   </script>
   <script src="../../static/js/dsg-bootstrap/bootstrap-3.3.4.min.js"></script>
 </div>
