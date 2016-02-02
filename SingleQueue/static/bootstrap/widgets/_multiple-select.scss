@@ -64,9 +64,9 @@
       right: 0;
       width: 20px;
       height: 25px;
-      background: url('/images/shared/multiple-select.png') left top no-repeat;
+      background: url('../../images/multiple-select.png') left top no-repeat;
       &.open {
-        background: url('/images/shared/multiple-select.png') right top no-repeat;
+        background: url('../../images/multiple-select.png') right top no-repeat;
       }
     }
   }

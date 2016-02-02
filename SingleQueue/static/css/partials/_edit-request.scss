@@ -49,11 +49,6 @@
       display: inline;
       float: left;
     }
-    .btn {
-      color: #fff !important;
-      display: inline;
-      float: left;
-    }
     #planned-date {
       margin-left: 13px;
       margin-right: 63px;
@@ -76,6 +71,7 @@
     }
   }
 }
+
 /*Kendo UI datepicker*/
 .k-picker-wrap {
   height: 32px;
@@ -122,8 +118,16 @@
   .k-i-calendar {
     background-position: -779px -75px;
     position: absolute;
-    top: 12px;
+    top: 11px;
     left: 6px;
+  }
+}
+
+/*comments*/
+.panel {
+  .panel-title > a {
+    font-size: 18px;
+    font-weight: bold;
   }
 }
 

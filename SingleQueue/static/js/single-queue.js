@@ -1,5 +1,6 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
 $(function () {
+  console.log('here');
   //add search placeholder hack in ie9
   $(document).ajaxComplete(function () {
     if ($('html').hasClass('k-ie9')) {
@@ -75,7 +76,7 @@ $(function () {
       });
 
   //Initialize multiple select for ribbon area
-  $('.sq-top-ribbon').find('select').each(function () {
+  $('body').find('select').each(function () {
     if ($(this).attr('multiple') == 'multiple') {
       var title = $(this).data('title');
 

@@ -1133,8 +1133,7 @@ tbody tr:first-child .tooltip:hover:after {
 .tasks-listing .requestStartDate-col {
   width: 64px; }
 .tasks-listing .requestEndDate-col {
-  width: 96px;
-}
+  width: 96px; }
 .tasks-listing .requester-col {
   width: 65px; }
 .tasks-listing .portfolio-col {
@@ -1152,8 +1151,7 @@ tbody tr:first-child .tooltip:hover:after {
 .tasks-listing .startDate-col {
   width: 74px; }
 .tasks-listing .endDate-col {
-  width: 104px;
-}
+  width: 104px; }
 
 #results-data-list {
   /* warning labels */ }
@@ -1251,6 +1249,11 @@ tbody tr:first-child .tooltip:hover:after {
 .grid-wrapper {
   float: left;
   margin-top: 15px; }
+
+.btn.btn-primary {
+  color: #fff !important;
+  display: inline;
+  float: left; }
 
 /*top header*/
 #top-head {
@@ -1780,6 +1783,29 @@ tbody tr:first-child .tooltip:hover:after {
         padding-right: 19px; }
     .sq-top-ribbon > ul > li select, .sq-top-ribbon > ul > li input {
       font-size: 12.6667px; }
+  .sq-top-ribbon .ms-parent {
+    margin-top: 0; }
+  .sq-top-ribbon .ms-choice {
+    height: 20px;
+    padding: inherit;
+    line-height: inherit;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none; }
+    .sq-top-ribbon .ms-choice > span {
+      padding-left: 0;
+      top: 1px; }
+    .sq-top-ribbon .ms-choice > div {
+      top: -2px; }
+    .sq-top-ribbon .ms-choice:focus {
+      border: none;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+  .sq-top-ribbon .ms-drop {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0; }
 
 /*filters collector */
 .filter-collector {
@@ -1801,209 +1827,6 @@ tbody tr:first-child .tooltip:hover:after {
       color: #999;
       font-size: 14px; }
 
-/**
- * @author zhixin wen <wenzhixin2010@gmail.com>
- */
-.ms-parent {
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  padding: 0;
-  font-size: 13px;
-  /*margin-top: -3px;*/ }
-
-.ms-choice {
-  display: block;
-  width: 100%;
-  /*height: 34px;*/
-  /*height: 28px;*/
-  height: 20px;
-  /*padding: 6px 5px;*/
-  overflow: hidden;
-  cursor: pointer;
-  text-align: left;
-  white-space: nowrap;
-  /*line-height: 30px;*/
-  line-height: 17px;
-  color: #444;
-  text-decoration: none;
-  /*border: 1px solid #ccc;*/
-  border: 0;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
-  background-color: #fff;
-  /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;*/
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
-  .ms-choice:focus {
-    /*border-color: #007db8;*/
-    outline: 0;
-    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 125, 184, 0.6);*/ }
-  .ms-choice.disabled {
-    background-color: #f4f4f4;
-    background-image: none;
-    border: 1px solid #ddd;
-    cursor: default; }
-  .ms-choice > span {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    right: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    padding-left: 8px;
-    color: #555; }
-    .ms-choice > span.placeholder {
-      color: #555; }
-  .ms-choice > div {
-    position: absolute;
-    /*top: 3px;*/
-    top: -1px;
-    right: -4px;
-    width: 20px;
-    height: 25px;
-    background: url("../../images/multiple-select.png") left top no-repeat; }
-    .ms-choice > div.open {
-      background: url("../../images/multiple-select.png") right top no-repeat; }
-
-.ms-drop {
-  min-width: 100%;
-  overflow: hidden;
-  display: none;
-  margin-top: -1px;
-  padding: 0;
-  position: absolute;
-  z-index: 900;
-  background: #fff;
-  color: #000;
-  border: 1px solid #ccc;
-  /*-webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;*/ }
-  .ms-drop.bottom {
-    top: 100%;
-    -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15); }
-  .ms-drop.top {
-    bottom: 100%;
-    -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15); }
-
-.ms-search {
-  display: inline-block;
-  margin: 0;
-  min-height: 26px;
-  padding: 4px;
-  position: relative;
-  white-space: nowrap;
-  width: 100%;
-  z-index: 10000;
-  -webkit-box-sizing: border-box;
-  -khtml-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box; }
-  .ms-search input {
-    width: 100%;
-    height: auto !important;
-    min-height: 24px;
-    padding: 0 20px 0 5px;
-    margin: 0;
-    outline: 0;
-    font-family: sans-serif;
-    font-size: 1em;
-    border: 1px solid #aaa;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    background: white url("/images/shared/multiple-select.png") no-repeat 100% -22px;
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, linear-gradient(top, white 85%, #eeeeee 99%);
-    -webkit-box-sizing: border-box;
-    -khtml-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box; }
-
-.ms-drop ul {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 5px 8px; }
-  .ms-drop ul > li {
-    list-style: none;
-    /*display: list-item;*/
-    background-image: none;
-    position: static;
-    padding-bottom: 0;
-    margin-bottom: 2px; }
-    .ms-drop ul > li:hover {
-      background: #cce5f1; }
-    .ms-drop ul > li .disabled {
-      opacity: .35;
-      filter: Alpha(Opacity=35); }
-    .ms-drop ul > li.multiple {
-      display: block;
-      float: left; }
-    .ms-drop ul > li.group {
-      clear: both; }
-    .ms-drop ul > li.multiple label {
-      width: 100%;
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis; }
-    .ms-drop ul > li label {
-      font-weight: 400;
-      display: block;
-      white-space: nowrap;
-      color: #007db8;
-      padding: 3px;
-      margin-bottom: 0;
-      cursor: pointer; }
-      .ms-drop ul > li label.optgroup {
-        font-weight: bold; }
-.ms-drop input[type="checkbox"] {
-  vertical-align: middle;
-  margin: 0 5px 1px 0; }
-.ms-drop input[type="radio"] {
-  visibility: hidden; }
-.ms-drop .ms-no-results {
-  display: none; }
-
-/*mobile*/
-@media (max-width: 767px) {
-  .filters .ms-drop {
-    position: relative; }
-  .filters .ms-choice {
-    border: none;
-    box-shadow: none; }
-  .filters .ms-drop.bottom {
-    box-shadow: none;
-    border: none; }
-  .filters .ms-choice > span {
-    color: #007db8; }
-    .filters .ms-choice > span.placeholder {
-      color: #007db8; }
-      .filters .ms-choice > span.placeholder:hover, .filters .ms-choice > span.placeholder:focus {
-        color: #00496c; } }
-/*tablet*/
-@media (max-width: 991px) and (min-width: 768px) {
-  .ms-drop {
-    width: auto; } }
 .summary {
   border-radius: 3px;
   border: 1px solid #737373;
@@ -2043,10 +1866,6 @@ tbody tr:first-child .tooltip:hover:after {
         background-color: #D74324; }
     .summary > div input, .summary > div select {
       width: 114px;
-      display: inline;
-      float: left; }
-    .summary > div .btn {
-      color: #fff !important;
       display: inline;
       float: left; }
     .summary > div #planned-date {
@@ -2104,5 +1923,10 @@ tbody tr:first-child .tooltip:hover:after {
   .k-picker-wrap .k-i-calendar {
     background-position: -779px -75px;
     position: absolute;
-    top: 12px;
+    top: 11px;
     left: 6px; }
+
+/*comments*/
+.panel .panel-title > a {
+  font-size: 18px;
+  font-weight: bold; }

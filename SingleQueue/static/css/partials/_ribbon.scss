@@ -72,7 +72,7 @@
           #my-work-icon, #requester-icon {
             background-position: 4px 0;
           }
-          .ms-choice{
+          .ms-choice {
             background-color: #eee;
           }
         }
@@ -164,7 +164,7 @@
           background-position: -653px 0;
           width: 30px;
           height: 23px;
-          float:none;
+          float: none;
         }
         #department-icon {
           background-position: -853px 5px;
@@ -239,12 +239,12 @@
           #owner-icon {
             background-position: -507px -118px;
           }
-          a{
+          a {
             color: #444;
           }
         }
         &#sq-filters-item {
-          width:164px;
+          width: 164px;
           > div {
             #sq-filters {
               &:hover > span:last-child {
@@ -268,7 +268,7 @@
               #more-filters {
                 position: absolute;
                 right: 55px;
-                top:6px;
+                top: 6px;
                 .arrow {
                   left: 106px;
                   top: 6px;
@@ -368,7 +368,7 @@
     &:last-child {
       > span:last-child {
         width: 100%;
-        padding-top:0;
+        padding-top: 0;
       }
       border-right: none;
     }
@@ -379,7 +379,7 @@
       }
       select {
         width: 103px;
-        padding:0;
+        padding: 0;
       }
     }
     &#views {
@@ -406,7 +406,7 @@
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
-          &.portfolio-dd{
+          &.portfolio-dd {
             padding-left: 5px;
           }
         }
@@ -471,10 +471,40 @@
         padding-right: 19px;
       }
     }
-    select, input{
+    select, input {
       font-size: 12.6667px;
     }
   }
+  .ms-parent {
+    margin-top: 0;
+  }
+  .ms-choice {
+    height: 20px;
+    padding: inherit;
+    line-height: inherit;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    > span {
+      padding-left: 0;
+      top:1px;
+    }
+    > div {
+      top: -2px;
+    }
+    &:focus {
+      border: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+  .ms-drop {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+
 }
 
 /*filters collector */
@@ -492,7 +522,7 @@
     a {
       color: #3399CC;
       font-weight: bold;
-      &:hover{
+      &:hover {
         text-decoration: none;
       }
     }
