@@ -1,6 +1,5 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
 $(function () {
-  console.log('here');
   //add search placeholder hack in ie9
   $(document).ajaxComplete(function () {
     if ($('html').hasClass('k-ie9')) {

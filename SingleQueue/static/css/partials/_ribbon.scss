@@ -21,6 +21,7 @@
         display: block;
         color: #fff;
         float: left;
+        font-size: 13px;
         span {
           &:first-child {
             font-size: 38px;
@@ -59,6 +60,7 @@
         float: left;
         padding: 6px;
         margin-right: 7px;
+        font-size: 12.66px;
         &.active-item-bg {
           background-color: #eee;
           border-radius: 3px;
@@ -68,6 +70,9 @@
           }
           select {
             background-color: #eee;
+            &#priority-dd, &#region-dd, &#route-to-market-dd {
+              background-color: #fff;
+            }
           }
           #my-work-icon, #requester-icon {
             background-position: 4px 0;
@@ -363,6 +368,7 @@
       padding-left: 11px;
       > span:last-child {
         margin-top: 24px;
+        width:15%;
       }
     }
     &:last-child {
@@ -389,6 +395,14 @@
       select {
         width: 108px;
       }
+      .ms-choice {
+        > span {
+          top: 2px;
+        }
+        > div {
+          top: -2px;
+        }
+      }
     }
     &#agile-status {
       > ul {
@@ -406,9 +420,6 @@
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
-          &.portfolio-dd {
-            padding-left: 5px;
-          }
         }
       }
     }
@@ -488,10 +499,11 @@
     -webkit-transition: none;
     > span {
       padding-left: 0;
-      top:1px;
+      top: 0;
     }
     > div {
-      top: -2px;
+      top: -5px;
+      right: -3px;
     }
     &:focus {
       border: none;
@@ -510,14 +522,16 @@
 /*filters collector */
 .filter-collector {
   float: left;
-  margin-bottom: 20px;
+  clear: both;
+  &:last-child{
+    margin-bottom:20px;
+  }
   li {
     display: inline-block;
     float: left;
     margin-right: 10px;
     &:first-child {
       margin-left: 10px;
-      font-size: 18px;
     }
     a {
       color: #3399CC;

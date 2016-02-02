@@ -1255,13 +1255,19 @@ tbody tr:first-child .tooltip:hover:after {
   display: inline;
   float: left; }
 
+ul {
+  padding-left: 0; }
+
 /*top header*/
 #top-head {
   position: relative;
   float: left;
   width: 100%; }
+  #top-head > div {
+    display: inline-block; }
   #top-head #search-container {
-    margin-top: 15px; }
+    margin-top: 15px;
+    float: right; }
     #top-head #search-container #search-query-container {
       display: block;
       float: right; }
@@ -1296,14 +1302,16 @@ tbody tr:first-child .tooltip:hover:after {
   background: none;
   margin-bottom: 4px;
   float: left;
-  overflow: visible; }
+  overflow: visible;
+  padding: 5px; }
   .nav a {
     color: #666; }
     .nav a:hover, .nav a.active {
       color: #3399CC;
       text-decoration: none; }
   .nav li {
-    margin-left: 32px;
+    display: inline-block;
+    margin-left: 25px;
     padding: 7px; }
     .nav li:first-child {
       margin-left: 12px; }
@@ -1313,45 +1321,48 @@ tbody tr:first-child .tooltip:hover:after {
       padding: 7px;
       height: 28px;
       box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25); }
-  .nav ul .right {
-    float: right; }
-  .nav ul .right:hover #question-mark-icon {
-    background-position: 0 -18px; }
-  .nav ul li .sub-nav-col {
-    display: none;
-    background: none repeat scroll 0 0 #eee;
-    float: left;
-    margin: 0 auto;
-    padding: 10px 7px;
-    position: absolute;
-    text-align: left;
-    z-index: 1000;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25); }
-  .nav ul li ul li {
-    display: block;
-    margin: 0;
-    clear: both;
-    padding: 5px 0; }
-    .nav ul li ul li:last-child {
-      padding-bottom: 0; }
-    .nav ul li ul li:first-child {
-      margin: 0; }
-  .nav ul > li:hover .sub-nav-col li a {
-    display: block; }
-  .nav ul > li:hover .sub-nav-col-wrapper {
-    width: 190px;
-    height: 0;
-    margin-left: -8px;
-    position: absolute;
-    overflow: hidden;
-    min-width: 134px;
-    min-height: 300px; }
-  .nav ul > li:nth-child(5):hover .sub-nav-col-wrapper {
-    min-width: 247px;
-    min-height: 366px; }
+  .nav ul {
+    margin-bottom: 0;
+    font-size: 13px; }
+    .nav ul .right {
+      float: right; }
+    .nav ul .right:hover #question-mark-icon {
+      background-position: 0 -18px; }
+    .nav ul li .sub-nav-col {
+      display: none;
+      background: none repeat scroll 0 0 #eee;
+      float: left;
+      margin: 0 auto;
+      padding: 10px 7px;
+      position: absolute;
+      text-align: left;
+      z-index: 1000;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25); }
+    .nav ul li ul li {
+      display: block;
+      margin: 0;
+      clear: both;
+      padding: 5px 0; }
+      .nav ul li ul li:last-child {
+        padding-bottom: 0; }
+      .nav ul li ul li:first-child {
+        margin: 0; }
+    .nav ul > li:hover .sub-nav-col li a {
+      display: block; }
+    .nav ul > li:hover .sub-nav-col-wrapper {
+      width: 190px;
+      height: 0;
+      margin-left: -8px;
+      position: absolute;
+      overflow: hidden;
+      min-width: 134px;
+      min-height: 300px; }
+    .nav ul > li:nth-child(5):hover .sub-nav-col-wrapper {
+      min-width: 247px;
+      min-height: 366px; }
 
 /*tabs*/
 #tabs {
@@ -1362,9 +1373,11 @@ tbody tr:first-child .tooltip:hover:after {
   margin-top: 13px;
   height: 48px;
   margin-bottom: 4px;
-  display: none; }
+  display: none;
+  border: none; }
   #tabs > ul {
     top: 0;
+    width: 100%;
     background-image: none;
     background-color: transparent;
     border-top: none;
@@ -1409,17 +1422,28 @@ tbody tr:first-child .tooltip:hover:after {
       /* IE6-8 */ }
       #tabs > ul > li > a {
         display: block;
-        padding: 17px 25px; }
+        padding: 17px 25px;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 12px;
+        color: #0085c3;
+        font-family: Trebuchet MS, Arial, Helvetica, sans-serif; }
       #tabs > ul > li.ui-tabs-active {
         border: none;
         border-right: 1px solid #e4e4e4;
         border-top: 1px solid #e4e4e4;
         -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
-        background-color: #fff; }
+        background-color: #fff;
+        margin-bottom: -1px; }
         #tabs > ul > li.ui-tabs-active a {
           border-top: 4px solid #0085c3;
           padding: 13px 25px 19px 25px !important;
-          background-color: #fff; }
+          background-color: #fff;
+          color: #666;
+          font-size: 15px;
+          font-weight: bold;
+          line-height: 12px;
+          cursor: pointer; }
       #tabs > ul > li > a:hover {
         text-decoration: none; }
 
@@ -1457,7 +1481,8 @@ tbody tr:first-child .tooltip:hover:after {
         padding: 0 10px;
         display: block;
         color: #fff;
-        float: left; }
+        float: left;
+        font-size: 13px; }
         .sq-top-ribbon > ul > li .wide-blue-button a span:first-child {
           font-size: 38px;
           display: block;
@@ -1487,6 +1512,7 @@ tbody tr:first-child .tooltip:hover:after {
         float: left;
         padding: 6px;
         margin-right: 7px;
+        font-size: 12.66px;
         /*icons*/ }
         .sq-top-ribbon > ul > li > ul > li.active-item-bg {
           background-color: #eee;
@@ -1496,6 +1522,8 @@ tbody tr:first-child .tooltip:hover:after {
             color: #444; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg select {
             background-color: #eee; }
+            .sq-top-ribbon > ul > li > ul > li.active-item-bg select#priority-dd, .sq-top-ribbon > ul > li > ul > li.active-item-bg select#region-dd, .sq-top-ribbon > ul > li > ul > li.active-item-bg select#route-to-market-dd {
+              background-color: #fff; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg #my-work-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #requester-icon {
             background-position: 4px 0; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg .ms-choice {
@@ -1706,7 +1734,8 @@ tbody tr:first-child .tooltip:hover:after {
     .sq-top-ribbon > ul > li:first-child {
       padding-left: 11px; }
       .sq-top-ribbon > ul > li:first-child > span:last-child {
-        margin-top: 24px; }
+        margin-top: 24px;
+        width: 15%; }
     .sq-top-ribbon > ul > li:last-child {
       border-right: none; }
       .sq-top-ribbon > ul > li:last-child > span:last-child {
@@ -1722,6 +1751,10 @@ tbody tr:first-child .tooltip:hover:after {
       padding-top: 12px; }
     .sq-top-ribbon > ul > li#views select {
       width: 108px; }
+    .sq-top-ribbon > ul > li#views .ms-choice > span {
+      top: 2px; }
+    .sq-top-ribbon > ul > li#views .ms-choice > div {
+      top: -2px; }
     .sq-top-ribbon > ul > li#agile-status > ul > li > a {
       padding-top: 0; }
     .sq-top-ribbon > ul > li#filters-section > span {
@@ -1731,8 +1764,6 @@ tbody tr:first-child .tooltip:hover:after {
       .sq-top-ribbon > ul > li#filters-section > ul > li > a > select, .sq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
         border: none;
         width: 123px; }
-        .sq-top-ribbon > ul > li#filters-section > ul > li > a > select.portfolio-dd, .sq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select.portfolio-dd {
-          padding-left: 5px; }
     .sq-top-ribbon > ul > li#excel li {
       padding: 15px 0 0 0; }
     .sq-top-ribbon > ul > li#excel #excel-icon-text {
@@ -1795,9 +1826,10 @@ tbody tr:first-child .tooltip:hover:after {
     -webkit-transition: none; }
     .sq-top-ribbon .ms-choice > span {
       padding-left: 0;
-      top: 1px; }
+      top: 0; }
     .sq-top-ribbon .ms-choice > div {
-      top: -2px; }
+      top: -5px;
+      right: -3px; }
     .sq-top-ribbon .ms-choice:focus {
       border: none;
       -webkit-box-shadow: none;
@@ -1810,14 +1842,15 @@ tbody tr:first-child .tooltip:hover:after {
 /*filters collector */
 .filter-collector {
   float: left;
-  margin-bottom: 20px; }
+  clear: both; }
+  .filter-collector:last-child {
+    margin-bottom: 20px; }
   .filter-collector li {
     display: inline-block;
     float: left;
     margin-right: 10px; }
     .filter-collector li:first-child {
-      margin-left: 10px;
-      font-size: 18px; }
+      margin-left: 10px; }
     .filter-collector li a {
       color: #3399CC;
       font-weight: bold; }

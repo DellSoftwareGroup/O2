@@ -4,14 +4,14 @@
       <div class="wide-blue-button">
         <a href="#" id="add-request">
           <span>+</span>
-          <span id="AddTitle">Add New Request</span>
+          <span>Add New Request</span>
         </a>
       </div>
       <span>New</span>
     </li>
     <li id="views">
       <ul>
-        <li id="opt-my-work" class="active-item-bg">
+        <li class="active-item-bg">
           <span id="my-work-icon" class="sq-btn-icon"></span>
           <select id="dp-mywork-dd" name="dp-mywork-dd" multiple="multiple" data-title="My Work"
                   data-select-all-text="All">
@@ -22,7 +22,7 @@
         </li>
       </ul>
       <ul>
-        <li id="teams">
+        <li>
           <span id="dp-Team-icon" class="sq-btn-icon"></span>
           <select id="dp-team-dd" name="dp-team-dd" multiple="multiple" data-title="All Teams"
                   data-select-all-text="All">
@@ -39,9 +39,9 @@
     </li>
     <li id="sprints-section">
       <ul>
-        <li id="sprints" class="active-item-bg">
+        <li class="active-item-bg">
           <span id="jan-fy-icon" class="sq-btn-icon"></span>
-          <select name="fy-dd" id="fy-dd">
+          <select>
             <option value="">All Sprints</option>
             <option value="-1">Unassigned</option>
             <option value="81" data-start="2015-02-01">1 - FEB FY16</option>
@@ -68,40 +68,40 @@
     </li>
     <li id="agile-status">
       <ul>
-        <li id="li-idea" data-value="1" class="active-item-bg">
-          <a href="#" id="idea">
+        <li class="active-item-bg">
+          <a href="#">
             <span id="idea-icon" class="sq-btn-icon"></span>
             <span>Idea</span>
           </a>
         </li>
-        <li id="li-backlog" data-value="2" class="active-item-bg">
-          <a href="#" id="backlog">
+        <li class="active-item-bg">
+          <a href="#">
             <span id="backlog-icon" class="sq-btn-icon"></span>
             <span>Backlog</span>
           </a>
         </li>
-        <li id="li-started" data-value="1096">
-          <a href="#" id="started">
+        <li>
+          <a href="#">
             <span id="started-icon" class="sq-btn-icon"></span>
             <span>Started</span>
           </a>
         </li>
       </ul>
       <ul>
-        <li id="li-done" data-value="6">
-          <a href="#" id="done">
+        <li>
+          <a href="#">
             <span id="done-icon" class="sq-btn-icon"></span>
             <span>Done</span>
           </a>
         </li>
-        <li id="li-council" data-value="3">
-          <a href="#" id="council">
+        <li>
+          <a href="#">
             <span id="council-icon" class="sq-btn-icon"></span>
             <span>Council</span>
           </a>
         </li>
-        <li id="li-cancelled" data-value="8">
-          <a href="#" id="cancelled">
+        <li>
+          <a href="#">
             <span id="cancelled-icon" class="sq-btn-icon"></span>
             <span>Cancelled</span>
           </a>
@@ -111,12 +111,11 @@
     </li>
     <li id="filters-section">
       <ul>
-        <li id="li-department" data-value="1">
-          <a href="#" id="department">
+        <li>
+          <a href="#">
             <span id="department-icon" class="sq-btn-icon"></span>
-            <select class="department-dd" id="department-dd" name="department-dd" multiple="multiple"
+            <select id="department-dd" name="department-dd" multiple="multiple"
                     data-title="Departments" data-select-all-text="All Departments">
-              <!--<option value="56">All Departments</option>-->
               <option value="57">ADVT</option>
               <option value="58">ANLT</option>
               <option value="59">DM</option>
@@ -131,10 +130,10 @@
             </select>
           </a>
         </li>
-        <li id="li-request-type" data-value="2">
-          <a href="#" id="request-type">
+        <li>
+          <a href="#">
             <span id="request-type-icon" class="sq-btn-icon"></span>
-            <select class="request-type-dd" name="requet-type-dd">
+            <select>
               <option value="">Request Type</option>
               <option value="1">Advertising</option>
               <option value="2">Digital & Multimedia</option>
@@ -142,10 +141,10 @@
             </select>
           </a>
         </li>
-        <li id="li-task-type" data-value="1096">
-          <a href="#" id="task-type">
+        <li>
+          <a href="#">
             <span id="task-type-icon" class="sq-btn-icon"></span>
-            <select class="task-type-dd" name="requet-type-dd">
+            <select>
               <option value="">Task Type</option>
               <option value="1">Advertising</option>
               <option value="2">Digital & Multimedia</option>
@@ -153,10 +152,10 @@
             </select>
           </a>
         </li>
-        <li id="li-requester" data-value="1096">
-          <a href="#" id="requester">
+        <li>
+          <a href="#">
             <span id="requester-icon" class="sq-btn-icon"></span>
-            <select class="requester-dd" name="requester-dd">
+            <select>
               <option value="">Requester</option>
               <option value="26">Alan Shivak</option>
               <option value="106">Alan Shivak</option>
@@ -229,10 +228,10 @@
         </li>
       </ul>
       <ul>
-        <li id="li-portfolio" data-value="6">
-          <a href="#" id="portfolio">
+        <li>
+          <a href="#">
             <span id="portfolio-icon" class="sq-btn-icon"></span>
-            <select class="portfolio-dd" name="portfolio-dd">
+            <select>
               <option value="">Portfolio</option>
               <option value="1">Boomi</option>
               <option value="2">Cloud/Enstratius</option>
@@ -249,10 +248,11 @@
             </select>
           </a>
         </li>
-        <li id="li-task-status" data-value="3" class="active-item-bg">
-          <a href="#" id="task-status">
+        <li class="active-item-bg">
+          <a href="#">
             <span id="task-status-icon" class="sq-btn-icon"></span>
-            <select class="task-status-dd" name="task-status-dd">
+            <select>
+              <option value="1">Task Status</option>
               <option value="2">Backlog</option>
               <option value="8">Cancelled</option>
               <option value="1096" selected="">Started</option>
@@ -262,10 +262,10 @@
             </select>
           </a>
         </li>
-        <li id="li-owner" data-value="8">
-          <a href="#" id="owner">
+        <li>
+          <a href="#">
             <span id="owner-icon" class="sq-btn-icon"></span>
-            <select class="owner-dd" name="owner-dd">
+            <select>
               <option value="">Owner</option>
               <option value="26">Alan Shivak</option>
               <option value="106">Alan Shivak</option>
@@ -352,14 +352,14 @@
                   <div id="filter-title">
                     <span>Filters</span>
                   </div>
-                  <select id="Priority-dd" name="Priority-dd">
+                  <select id="priority-dd">
                     <option value="">Select Priority</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
                     <option value="critical">Critical</option>
                   </select>
-                  <select id="region-dd" name="region-dd">
+                  <select id="region-dd">
                     <option value="">--All Regions--</option>
                     <option value="1095">All</option>
                     <option value="80">APACJ</option>
@@ -368,7 +368,7 @@
                     <option value="77">NAM</option>
                   </select>
 
-                  <select id="route-to-market-dd" name="route-to-market-dd">
+                  <select id="route-to-market-dd">
                     <option value="">--All Route to Market--</option>
                     <option value="1094">All</option>
                     <option value="75">Channel</option>
@@ -377,10 +377,9 @@
                     <option value="76">eCommerce</option>
                   </select>
 
-                  <div id="filter-campaign">
-                    <input type="text" value="" placeholder="Parent Campaign" id="campaign-text"
-                           class="sq-ribbon-filter-text">
-                    <input type="hidden" value="" id="campaign-hidden">
+                  <div>
+                    <input type="text" value="" placeholder="Parent Campaign" class="sq-ribbon-filter-text">
+                    <input type="hidden" value="">
                     <input type="button" id="campaign-btn" class="sq-btn-icon">
                   </div>
 
@@ -413,28 +412,59 @@
   </ul>
 
 </div>
-<ul class="filter-collector">
-  <li>
-    Filters:
-  </li>
-  <li>
-    <a href="#">X</a>
-    <span>My Work</span>
-  </li>
-  <li>
-    <a href="#">X</a>
-    <span>Idea</span>
-  </li>
-  <li>
-    <a href="#">X</a>
-    <span>Backlog</span>
-  </li>
-  <li>
-    <a href="#">X</a>
-    <span>Idea</span>
-  </li>
-  <li>
-    <a href="#">X</a>
-    <span>Task Status</span>
-  </li>
-</ul>
+<div class="filter-collector">
+  <ul>
+    <li>
+      My Work: <a href="#">X</a>
+    </li>
+    <li>
+      <span>Owner</span>
+      <a href="#">X</a>
+    </li>
+    <li>
+      <span>Requester</span>
+      <a href="#">X</a>
+    </li>
+    <li>
+      <span>Follower</span>
+      <a href="#">X</a>
+    </li>
+  </ul>
+</div>
+<div class="filter-collector">
+  <ul>
+    <li>
+      Sprints: <a href="#">X</a>
+    </li>
+    <li>
+      <span>2 - MAR FY16</span>
+      <a href="#">X</a>
+    </li>
+  </ul>
+</div>
+<div class="filter-collector">
+  <ul>
+    <li>
+      Request Status: <a href="#">X</a>
+    </li>
+    <li>
+      <span>Idea</span>
+      <a href="#">X</a>
+    </li>
+    <li>
+      <span>Backlog</span>
+      <a href="#">X</a>
+    </li>
+  </ul>
+</div>
+<div class="filter-collector">
+  <ul>
+    <li>
+      Task Status: <a href="#">X</a>
+    </li>
+    <li>
+      <span>Started</span>
+      <a href="#">X</a>
+    </li>
+  </ul>
+</div>
