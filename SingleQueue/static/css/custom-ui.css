@@ -1848,7 +1848,8 @@ ul {
   .filter-collector li {
     display: inline-block;
     float: left;
-    margin-right: 10px; }
+    margin-right: 12px;
+  }
     .filter-collector li:first-child {
       margin-left: 10px; }
     .filter-collector li a {
@@ -1859,6 +1860,10 @@ ul {
     .filter-collector li span {
       color: #999;
       font-size: 14px; }
+
+.filter-collector.hz-filters ul {
+  display: inline;
+}
 
 .summary {
   border-radius: 3px;

@@ -529,7 +529,7 @@
   li {
     display: inline-block;
     float: left;
-    margin-right: 10px;
+    margin-right: 12px;
     &:first-child {
       margin-left: 10px;
     }
@@ -544,6 +544,12 @@
       color: #999;
       font-size: 14px;
     }
+  }
+}
+
+.filter-collector.hz-filters {
+  ul {
+    display: inline;
   }
 }
 
