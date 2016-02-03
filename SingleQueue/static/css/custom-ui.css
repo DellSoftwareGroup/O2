@@ -1963,3 +1963,23 @@ ul {
 .panel .panel-title > a {
   font-size: 18px;
   font-weight: bold; }
+
+#comments .ms-parent {
+  width: 100% !important; }
+#comments .ms-choice > div {
+  top: 5px; }
+#comments .task-group .btn, #comments .task-group .comment-box {
+  -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26); }
+#comments .task-group > div {
+  clear: both;
+  float: left; }
+  #comments .task-group > div .comment-box {
+    border-top: 3px solid #007db8;
+    border-right: 1px solid #a9a9a9;
+    border-left: 1px solid #a9a9a9;
+    border-bottom: 1px solid #a9a9a9;
+    padding: 25px 20px 20px 20px;
+    float: left;
+    clear: both; }
