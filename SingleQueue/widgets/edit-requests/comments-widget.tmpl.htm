@@ -37,6 +37,9 @@
           </div>
 
           <div class="row mt-30">
+            <div class="col-xs-1">
+              <span>Filters: </span>
+            </div>
             <div class="col-xs-4">
               <select id="comments-status-changes-dd" name="comments-status-changes-dd" multiple="multiple"
                       data-title="Comments and Status Changes" data-select-all-text="All Comments and Status Changes">
@@ -54,18 +57,51 @@
             </div>
           </div>
           <div class="task-group">
-            <a class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#group3"
+            <a id="mycollapse" class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#group3"
                aria-expanded="false"
                aria-controls="collapseExample">
               Task Group 3
             </a>
 
+            <div class="border-shadow"></div>
             <div class="collapse" id="group3">
               <div class="comment-box">
-                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-                  ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                  proident.
-                </p>
+                <div class="row">
+                  <div class="col-xs-2">
+                    <img src="../../images/user.png" width="65" height="65">
+                  </div>
+                  <div class="col-xs-10 pl-0">
+                    <div>
+                      <div class="new">New</div>
+                      <a class="user pull-left" href="#" onclick="showPerson(event,'Cindy.Chan@software.dell.com','Cindy Chan')">Diana Spencer</a>
+                      <div class="user-info">
+                        <p>Diana Spencer</p>
+
+                        <p>Sr Web Designer</p>
+                        <a mailto="diana.spencer@software.dell.com">diana.spencer@software.dell.com
+                          <i class="icon-small-mail text-blue"></i>
+                        </a>
+
+                        <p><strong>Department:</strong> Online Marketing</p>
+
+                        <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                        <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                        <p>
+                          <strong>Org Chart:</strong>
+                          <a href="#"><i class="icon-small-network text-blue"></i></a>
+                        </p>
+                      </div>
+                    </div>
+
+
+                    <p class="clear"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+                      ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                      proident.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

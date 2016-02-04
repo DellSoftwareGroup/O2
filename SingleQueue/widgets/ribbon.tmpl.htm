@@ -133,8 +133,8 @@
         <li>
           <a href="#">
             <span id="request-type-icon" class="sq-btn-icon"></span>
-            <select>
-              <option value="">Request Type</option>
+            <select id="request-type-dd" name="request-type-dd" multiple="multiple"
+                    data-title="Request Type" data-select-all-text="All">
               <option value="1">Advertising</option>
               <option value="2">Digital & Multimedia</option>
               <option value="3">eCard</option>
@@ -144,7 +144,8 @@
         <li>
           <a href="#">
             <span id="task-type-icon" class="sq-btn-icon"></span>
-            <select>
+            <select id="task-type-dd" name="task-type-dd" multiple="multiple"
+                    data-title="Task Type" data-select-all-text="All">
               <option value="">Task Type</option>
               <option value="1">Advertising</option>
               <option value="2">Digital & Multimedia</option>
@@ -231,8 +232,8 @@
         <li>
           <a href="#">
             <span id="portfolio-icon" class="sq-btn-icon"></span>
-            <select>
-              <option value="">Portfolio</option>
+            <select id="portfolio-dd" name="portfolio-dd" multiple="multiple"
+                    data-title="Portfolio" data-select-all-text="All">
               <option value="1">Boomi</option>
               <option value="2">Cloud/Enstratius</option>
               <option value="3">Database Management &amp; BI</option>
@@ -251,8 +252,8 @@
         <li class="active-item-bg">
           <a href="#">
             <span id="task-status-icon" class="sq-btn-icon"></span>
-            <select>
-              <option value="1">Task Status</option>
+            <select id="task-status-dd" name="task-status-dd" multiple="multiple"
+                    data-title="Task Status" data-select-all-text="All">
               <option value="2">Backlog</option>
               <option value="8">Cancelled</option>
               <option value="1096" selected="">Started</option>
@@ -407,7 +408,7 @@
           </a>
         </li>
       </ul>
-      <span>Options</span>
+      <span>Export</span>
     </li>
   </ul>
 

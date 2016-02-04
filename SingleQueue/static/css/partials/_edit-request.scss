@@ -130,30 +130,82 @@
     font-weight: bold;
   }
 }
-#comments{
-  .ms-parent{
+
+#comments {
+  &.table-responsive {
+    overflow: hidden;
+  }
+  .ms-parent {
     width: 100% !important;
   }
-  .ms-choice > div{
+  .ms-choice > div {
     top: 5px;
   }
-  .task-group{
-    .btn, .comment-box{
-      -webkit-box-shadow: 2px -4px 4px 0 rgba(0,0,0,0.26);
-      -moz-box-shadow: 2px -4px 4px 0 rgba(0,0,0,0.26);
-      box-shadow: 2px -4px 4px 0 rgba(0,0,0,0.26);
+  .task-group {
+    .comment-box {
+      -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
     }
-    > div{
-      clear:both;
-      float:left;
-      .comment-box{
-        border-top: 3px solid #007db8;
+    .btn {
+      border: 1px solid #007db8;
+      z-index: 2;
+      position: relative;
+      -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      &:focus, &:hover {
+        background-color: #007db8;
+      }
+    }
+    .border-shadow {
+      border-top: 3px solid #007db8;
+      -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+      z-index: 1;
+      position: relative;
+      width: 100%;
+    }
+    > div {
+      clear: both;
+      float: left;
+      .comment-box {
         border-right: 1px solid #a9a9a9;
         border-left: 1px solid #a9a9a9;
         border-bottom: 1px solid #a9a9a9;;
-        padding: 25px 20px 20px 20px;
+        padding: 20px;
         float: left;
         clear: both;
+        .row div:last-child > div {
+          margin-bottom: 10px;
+          float: left;
+          width: 100%;
+          > div:first-child {
+            float: right;
+            padding: 5px;
+            color: #fff;
+            font-size: 12px;
+            &.new {
+              background-color: #6ea204;
+            }
+          }
+        }
+        .user-info {
+          display: none;
+          padding: 10px;
+          background-color: #e5f2f8;
+          border: 1px solid #737373;
+          position: absolute;
+          left: 0;
+          /*display: inline-block;*/
+          a, p {
+            display: block;
+            float: left;
+            clear: both;
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }

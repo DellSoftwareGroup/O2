@@ -10,6 +10,9 @@
 ul{
   padding-left:0;
 }
+.clear{
+  clear: both;
+}
 /*top header*/
 #top-head {
   position: relative;
@@ -243,7 +246,7 @@ ul{
 
 /*icons sprite*/
 .sq-btn-icon {
-  background: url("../../assets/images/single-queue-sprite.png") no-repeat 0 0;
+  background: url("../../images/single-queue-sprite.png") no-repeat 0 0;
   display: block;
   height: 18px;
 }
