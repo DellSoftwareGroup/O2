@@ -13,7 +13,7 @@
       <ul>
         <li class="active-item-bg">
           <span id="my-work-icon" class="sq-btn-icon"></span>
-          <select id="dp-mywork-dd" name="dp-mywork-dd" multiple="multiple" data-title="My Work"
+          <select id="dp-mywork-dd" name="dp-mywork-dd" data-isFilter="true" multiple="multiple" data-title="My Work"
                   data-select-all-text="All">
             <option value="1">Owner</option>
             <option value="1">Requester</option>
@@ -24,7 +24,7 @@
       <ul>
         <li>
           <span id="dp-Team-icon" class="sq-btn-icon"></span>
-          <select id="dp-team-dd" name="dp-team-dd" multiple="multiple" data-title="All Teams"
+          <select id="dp-team-dd" name="dp-team-dd" multiple="multiple" data-isFilter="true" data-title="All Teams"
                   data-select-all-text="All">
             <option value="1153">Endpoints</option>
             <option value="69">Data Protect</option>
@@ -41,7 +41,7 @@
       <ul>
         <li class="active-item-bg">
           <span id="jan-fy-icon" class="sq-btn-icon"></span>
-          <select>
+          <select data-isFilter="true" data-select="default" data-title="Sprint">
             <option value="">All Sprints</option>
             <option value="-1">Unassigned</option>
             <option value="81" data-start="2015-02-01">1 - FEB FY16</option>
@@ -66,21 +66,21 @@
       </ul>
       <span>Sprint</span>
     </li>
-    <li id="agile-status">
+    <li id="agile-status" data-title="Request Status">
       <ul>
-        <li class="active-item-bg">
+        <li class="active-item-bg" data-isFilter="true">
           <a href="#">
             <span id="idea-icon" class="sq-btn-icon"></span>
             <span>Idea</span>
           </a>
         </li>
-        <li class="active-item-bg">
+        <li class="active-item-bg" data-isFilter="true">
           <a href="#">
             <span id="backlog-icon" class="sq-btn-icon"></span>
             <span>Backlog</span>
           </a>
         </li>
-        <li>
+        <li data-isFilter="true">
           <a href="#">
             <span id="started-icon" class="sq-btn-icon"></span>
             <span>Started</span>
@@ -88,19 +88,19 @@
         </li>
       </ul>
       <ul>
-        <li>
+        <li data-isFilter="true">
           <a href="#">
             <span id="done-icon" class="sq-btn-icon"></span>
             <span>Done</span>
           </a>
         </li>
-        <li>
+        <li data-isFilter="true">
           <a href="#">
             <span id="council-icon" class="sq-btn-icon"></span>
             <span>Council</span>
           </a>
         </li>
-        <li>
+        <li data-isFilter="true">
           <a href="#">
             <span id="cancelled-icon" class="sq-btn-icon"></span>
             <span>Cancelled</span>
@@ -115,7 +115,7 @@
           <a href="#">
             <span id="department-icon" class="sq-btn-icon"></span>
             <select id="department-dd" name="department-dd" multiple="multiple"
-                    data-title="Departments" data-select-all-text="All Departments">
+                    data-title="Departments" data-isFilter="true" data-select-all-text="All Departments">
               <option value="57">ADVT</option>
               <option value="58">ANLT</option>
               <option value="59">DM</option>
@@ -134,7 +134,7 @@
           <a href="#">
             <span id="request-type-icon" class="sq-btn-icon"></span>
             <select id="request-type-dd" name="request-type-dd" multiple="multiple"
-                    data-title="Request Type" data-select-all-text="All">
+                    data-title="Request Type" data-isFilter="true" data-select-all-text="All">
               <option value="1">Advertising</option>
               <option value="2">Digital & Multimedia</option>
               <option value="3">eCard</option>
@@ -145,7 +145,7 @@
           <a href="#">
             <span id="task-type-icon" class="sq-btn-icon"></span>
             <select id="task-type-dd" name="task-type-dd" multiple="multiple"
-                    data-title="Task Type" data-select-all-text="All">
+                    data-title="Task Type" data-isFilter="true" data-select-all-text="All">
               <option value="">Task Type</option>
               <option value="1">Advertising</option>
               <option value="2">Digital & Multimedia</option>
@@ -156,7 +156,7 @@
         <li>
           <a href="#">
             <span id="requester-icon" class="sq-btn-icon"></span>
-            <select>
+            <select data-isFilter="true" data-title="Requester" data-select="default">
               <option value="">Requester</option>
               <option value="26">Alan Shivak</option>
               <option value="106">Alan Shivak</option>
@@ -233,7 +233,7 @@
           <a href="#">
             <span id="portfolio-icon" class="sq-btn-icon"></span>
             <select id="portfolio-dd" name="portfolio-dd" multiple="multiple"
-                    data-title="Portfolio" data-select-all-text="All">
+                    data-title="Portfolio" data-isFilter="true" data-select-all-text="All">
               <option value="1">Boomi</option>
               <option value="2">Cloud/Enstratius</option>
               <option value="3">Database Management &amp; BI</option>
@@ -253,7 +253,7 @@
           <a href="#">
             <span id="task-status-icon" class="sq-btn-icon"></span>
             <select id="task-status-dd" name="task-status-dd" multiple="multiple"
-                    data-title="Task Status" data-select-all-text="All">
+                    data-title="Task Status" data-isFilter="true" data-select-all-text="All">
               <option value="2">Backlog</option>
               <option value="8">Cancelled</option>
               <option value="1096" selected="">Started</option>
@@ -266,7 +266,7 @@
         <li>
           <a href="#">
             <span id="owner-icon" class="sq-btn-icon"></span>
-            <select>
+            <select data-isFilter="true" data-title="Owner" data-select="default">
               <option value="">Owner</option>
               <option value="26">Alan Shivak</option>
               <option value="106">Alan Shivak</option>
@@ -463,4 +463,6 @@
     </li>
   </ul>
 </div>
+
+
 
