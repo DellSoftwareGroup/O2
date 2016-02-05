@@ -1,220 +1,224 @@
 .summary {
-  border-radius: 3px;
-  border: 1px solid #737373;
-  background-color: #f9f9f9;
-  overflow: hidden;
-  > div {
-    width: 100%;
-    float: left;
-    display: table;
-    clear: both;
-    margin-bottom: 10px;
-    h3 {
-      margin: 0;
-      a, a:hover {
-        font-size: 24px;
-      }
-    }
-    label {
-      display: table-cell;
-      text-align: right;
-      width: 25%;
-      padding-right: 20px;
-      font-weight: normal;
-      h4 {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 0;
-      }
-    }
-    #due-date {
-      > span:nth-child(2) {
-        font-weight: bold;
-        font-size: 16px;
-      }
-    }
-    .badge {
-      display: inline-block;
-      padding: 3px;
-      color: #fff;
-      border-radius: 3px;
-      font-size: 14px;
-      line-height: 14px;
-      &.urgent {
-        background-color: #D74324;
-      }
-    }
-    input, select {
-      width: 114px;
-      display: inline;
-      float: left;
-    }
-    #planned-date {
-      margin-left: 13px;
-      margin-right: 63px;
-    }
-    a, a:hover {
-      font-size: 14px;
-      color: #3399cc;
-    }
-    > div {
-      display: block;
-      float: left;
-      > span {
-        width: 114px;
-      }
-      /*i{
-        left:-18px;
-        top:8px;
-        position: relative;
-      }*/
-    }
-  }
+	border-radius: 3px;
+	border: 1px solid #737373;
+	background-color: #f9f9f9;
+	overflow: hidden;
+	> div {
+		width: 100%;
+		float: left;
+		display: table;
+		clear: both;
+		margin-bottom: 10px;
+		h3 {
+			margin: 0;
+			a, a:hover {
+				font-size: 24px;
+			}
+		}
+		label {
+			display: table-cell;
+			text-align: right;
+			width: 25%;
+			padding-right: 20px;
+			font-weight: normal;
+			h4 {
+				font-size: 16px;
+				font-weight: bold;
+				margin-bottom: 0;
+			}
+		}
+		#due-date {
+			> span:nth-child(2) {
+				font-weight: bold;
+				font-size: 16px;
+			}
+		}
+		.badge {
+			display: inline-block;
+			padding: 3px;
+			color: #fff;
+			border-radius: 3px;
+			font-size: 14px;
+			line-height: 14px;
+			&.urgent {
+				background-color: #D74324;
+			}
+		}
+		input, select {
+			width: 114px;
+			display: inline;
+			float: left;
+		}
+		#planned-date {
+			margin-left: 13px;
+			margin-right: 63px;
+		}
+		a, a:hover {
+			font-size: 14px;
+			color: #3399cc;
+		}
+		> div {
+			display: block;
+			float: left;
+			> span {
+				width: 114px;
+			}
+			/*i{
+				left:-18px;
+				top:8px;
+				position: relative;
+			}*/
+		}
+	}
 }
 
 /*Kendo UI datepicker*/
 .k-picker-wrap {
-  height: 32px;
-  .k-input {
-    height: 30px;
-    position: absolute;
-    padding-bottom: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    border-radius: 1px;
-  }
-  &.k-state-default {
-    background-image: none;
-    background-color: #fff;
-    border-radius: 1px;
-    border-color: #ccc;
-    > .k-select {
-      border: none;
-      border-radius: 0;
-      position: relative;
-      float: right;
-      width: auto;
-    }
-  }
-  &.k-state-hover {
-    background-color: #fff;
-    > * > .k-i-calendar {
-      background-position: -779px -75px;
-      width: 15px;
-      height: 12px;
-    }
-  }
-  &.k-state-focused {
-    background-color: #fff;
-    border-color: #66afe9;
-  }
-  .k-icon {
-    background-image: url('../../images/single-queue-sprite.png');
-    background-repeat: no-repeat;
-  }
-  .k-select {
-    line-height: 2.3em;
-  }
-  .k-i-calendar {
-    background-position: -779px -75px;
-    position: absolute;
-    top: 11px;
-    left: 6px;
-  }
+	height: 32px;
+	.k-input {
+		height: 30px;
+		position: absolute;
+		padding-bottom: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		border-radius: 1px;
+	}
+	&.k-state-default {
+		background-image: none;
+		background-color: #fff;
+		border-radius: 1px;
+		border-color: #ccc;
+		> .k-select {
+			border: none;
+			border-radius: 0;
+			position: relative;
+			float: right;
+			width: auto;
+		}
+	}
+	&.k-state-hover {
+		background-color: #fff;
+		> * > .k-i-calendar {
+			background-position: -779px -75px;
+			width: 15px;
+			height: 12px;
+		}
+	}
+	&.k-state-focused {
+		background-color: #fff;
+		border-color: #66afe9;
+	}
+	.k-icon {
+		background-image: url('../../images/single-queue-sprite.png');
+		background-repeat: no-repeat;
+	}
+	.k-select {
+		line-height: 2.3em;
+	}
+	.k-i-calendar {
+		background-position: -779px -75px;
+		position: absolute;
+		top: 11px;
+		left: 6px;
+	}
 }
 
 /*comments*/
 .panel {
-  .panel-title > a {
-    font-size: 18px;
-    font-weight: bold;
-  }
+	.panel-title > a {
+		font-size: 18px;
+		font-weight: bold;
+	}
 }
 
 #comments {
-  &.table-responsive {
-    overflow: hidden;
-  }
-  .ms-parent {
-    width: 100% !important;
-  }
-  .ms-choice > div {
-    top: 5px;
-  }
-  .task-group {
-    .comment-box {
-      -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-      -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-      box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-    }
-    .btn {
-      border: 1px solid #007db8;
-      z-index: 2;
-      position: relative;
-      -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-      -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-      box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-      &:focus, &:hover {
-        background-color: #007db8;
-      }
-    }
-    .border-shadow {
-      border-top: 3px solid #007db8;
-      -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-      -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-      box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
-      z-index: 1;
-      position: relative;
-      width: 100%;
-    }
-    > div {
-      clear: both;
-      float: left;
-      .comment-box {
-        border-right: 1px solid #a9a9a9;
-        border-left: 1px solid #a9a9a9;
-        border-bottom: 1px solid #a9a9a9;;
-        padding: 20px;
-        float: left;
-        clear: both;
-        .row div:last-child {
-          > div {
-            .popover-content {
-              p {
-                margin-bottom: 0;
-              }
-            }
-          }
-          .status-label{
-            float: right;
-            padding: 5px;
-            color: #fff;
-            font-size: 12px;
-            &.green {
-              background-color: #6ea204;
-            }
-          }
-          .notify .collapse > div  {
-            margin-right:10px;
-            display: inline-block;
-          }
-        }
-        .user-info {
-          padding: 10px;
-          background-color: #e5f2f8;
-          border: 1px solid #737373;
-          position: absolute;
-          left: 0;
-          a, p {
-            display: block;
-            float: left;
-            clear: both;
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
+	&.table-responsive {
+		overflow: hidden;
+	}
+	.ms-parent {
+		width: 100% !important;
+	}
+	.ms-choice > div {
+		top: 5px;
+	}
+	.task-group {
+		.comment-box {
+			-webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+			-moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+			box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+		}
+		.btn {
+			border: 1px solid #007db8;
+			z-index: 2;
+			position: relative;
+			-webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+			-moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+			box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+			&:focus, &:hover {
+				background-color: #007db8;
+			}
+		}
+		.border-shadow {
+			border-top: 3px solid #007db8;
+			-webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+			-moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+			box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
+			z-index: 1;
+			position: relative;
+			width: 100%;
+		}
+		> div {
+			clear: both;
+			float: left;
+			.comment-box {
+				border-right: 1px solid #a9a9a9;
+				border-left: 1px solid #a9a9a9;
+				border-bottom: 1px solid #a9a9a9;;
+				padding: 20px;
+				float: left;
+				clear: both;
+				.row div:last-child {
+					> div {
+						.popover-content {
+							p {
+								margin-bottom: 0;
+							}
+						}
+					}
+					.status-label {
+						float: right;
+						padding: 5px;
+						color: #fff;
+						font-size: 12px;
+						&.green {
+							background-color: #6ea204;
+						}
+					}
+					.notify {
+						> div {
+							> div {
+								margin-right: 10px;
+								display: inline-block;
+							}
+						}
+					}
+				}
+				.user-info {
+					padding: 10px;
+					background-color: #e5f2f8;
+					border: 1px solid #737373;
+					position: absolute;
+					left: 0;
+					a, p {
+						display: block;
+						float: left;
+						clear: both;
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
 }
 
 

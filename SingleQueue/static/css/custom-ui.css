@@ -1920,9 +1920,9 @@ ul {
       display: block;
       float: left;
       /*i{
-        left:-18px;
-        top:8px;
-        position: relative;
+      	left:-18px;
+      	top:8px;
+      	position: relative;
       }*/ }
       .summary > div > div > span {
         width: 114px; }
@@ -2019,7 +2019,7 @@ ul {
       font-size: 12px; }
       #comments .task-group > div .comment-box .row div:last-child .status-label.green {
         background-color: #6ea204; }
-    #comments .task-group > div .comment-box .row div:last-child .notify .collapse > div {
+    #comments .task-group > div .comment-box .row div:last-child .notify > div > div {
       margin-right: 10px;
       display: inline-block; }
     #comments .task-group > div .comment-box .user-info {
