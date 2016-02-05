@@ -56,25 +56,26 @@
               </select>
             </div>
           </div>
-          <div class="task-group">
-            <a id="mycollapse" class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#group3"
-               aria-expanded="false"
-               aria-controls="collapseExample">
+          <div class="task-group pull-left mb-30">
+            <a class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#group3"
+               aria-expanded="true">
               Task Group 3
             </a>
 
             <div class="border-shadow"></div>
-            <div class="collapse" id="group3">
+            <div class="panel-collapse collapse in" id="group3">
               <div class="comment-box">
                 <div class="row">
                   <div class="col-xs-2">
                     <img src="../../images/user.png" width="65" height="65">
                   </div>
                   <div class="col-xs-10 pl-0">
-                    <div>
-                      <div class="new">New</div>
-                      <a class="user pull-left" href="#" onclick="showPerson(event,'Cindy.Chan@software.dell.com','Cindy Chan')">Diana Spencer</a>
-                      <div class="user-info">
+                    <span class="status-label green">New</span>
+
+                    <div class="toggle-popover mb-10 inline-block" data-placement="right">
+                      <a href="#">Dian Spencer</a>
+
+                      <div class="popover-content hide">
                         <p>Diana Spencer</p>
 
                         <p>Sr Web Designer</p>
@@ -94,12 +95,219 @@
                         </p>
                       </div>
                     </div>
+                    <span class="text-gray ml-10">11/30/2015</span>
+                    <span class="text-gray ml-10">5:15 pm</span>
+                    <i class="icon-small-chat text-gray text-gray"></i>
 
-
-                    <p class="clear"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-                      ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                      proident.
+                    <p>
+                      Hi Aly,
                     </p>
+
+                    <p>It looks like when we are viewing the pages on software-dell-com this issue is
+                      happening (since this is not a valid
+                      top level domain url). Once we push them live the issue will be fixed.
+                      For the time being, can you please use the following url to avoid the issue while testing:
+                    </p>
+
+                    <div class="notify">
+                      <a class="collapsed mb-10 block" data-toggle="collapse" data-target="#Notified-1"
+                         aria-expanded="false" href="javascript:;">
+                        <span class="show-collapsed">
+                          <i aria-hidden="true" class="glyphicon glyphicon-triangle-bottom"></i> View Notified
+                        </span>
+                        <span class="hide-expanded">
+                          <i aria-hidden="true" class="glyphicon glyphicon-triangle-top"></i> Hide Notified
+                        </span>
+                      </a>
+
+                      <div class="collapse" id="Notified-1" aria-expanded="false">
+                        <div class="toggle-popover" data-placement="right">
+                          <a href="#">Elnaz Doostdar</a>
+
+                          <div class="popover-content hide">
+                            <p>Diana Spencer</p>
+
+                            <p>Sr Web Designer</p>
+                            <a mailto="diana.spencer@software.dell.com">diana.spencer.dell.com
+                              <i class="icon-small-mail text-blue"></i>
+                            </a>
+
+                            <p><strong>Department:</strong> Online Marketing</p>
+
+                            <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                            <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                            <p>
+                              <strong>Org Chart:</strong>
+                              <a href="#"><i class="icon-small-network text-blue"></i></a>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="toggle-popover" data-placement="right">
+                          <a href="#">Edward Chong</a>
+
+                          <div class="popover-content hide">
+                            <p>Edward Chong</p>
+
+                            <p>Web UI Designer Lead</p>
+                            <a mailto="edward.chong.dell.com">edward.chong.dell.com
+                              <i class="icon-small-mail text-blue"></i>
+                            </a>
+
+                            <p><strong>Department:</strong> Online Marketing</p>
+
+                            <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                            <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                            <p>
+                              <strong>Org Chart:</strong>
+                              <a href="#"><i class="icon-small-network text-blue"></i></a>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="toggle-popover" data-placement="right">
+                          <a href="#">Gopal Kamaraj</a>
+
+                          <div class="popover-content hide">
+                            <p>Gopal Kamaraj</p>
+
+                            <p>Web Design Architect</p>
+                            <a mailto="gopal.kamaraj.dell.com">gopal.kamaraj.dell.com
+                              <i class="icon-small-mail text-blue"></i>
+                            </a>
+
+                            <p><strong>Department:</strong> Online Marketing</p>
+
+                            <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                            <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                            <p>
+                              <strong>Org Chart:</strong>
+                              <a href="#"><i class="icon-small-network text-blue"></i></a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="task-group">
+            <a class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#group2"
+               aria-expanded="false">
+              Task Group 2
+            </a>
+
+            <div class="border-shadow"></div>
+            <div class="collapse" id="group2">
+              <div class="comment-box">
+                <div class="row">
+                  <div class="col-xs-2">
+                    <img src="../../images/user.png" width="65" height="65">
+                  </div>
+                  <div class="col-xs-10 pl-0">
+                    <div class="toggle-popover mb-10 inline-block" data-placement="right">
+                      <a href="#">Dian Spencer</a>
+
+                      <div class="popover-content hide">
+                        <p>Diana Spencer</p>
+
+                        <p>Sr Web Designer</p>
+                        <a mailto="diana.spencer@software.dell.com">diana.spencer@software.dell.com
+                          <i class="icon-small-mail text-blue"></i>
+                        </a>
+
+                        <p><strong>Department:</strong> Online Marketing</p>
+
+                        <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                        <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                        <p>
+                          <strong>Org Chart:</strong>
+                          <a href="#"><i class="icon-small-network text-blue"></i></a>
+                        </p>
+                      </div>
+                    </div>
+                    <span class="text-gray ml-10">11/30/2015</span>
+                    <span class="text-gray ml-10">5:15 pm</span>
+                    <i class="icon-small-chat text-gray text-gray"></i>
+
+                    <p>
+                      Hi Aly,
+                    </p>
+
+                    <p>It looks like when we are viewing the pages on software-dell-com this issue is
+                      happening (since this is not a valid
+                      top level domain url). Once we push them live the issue will be fixed.
+                      For the time being, can you please use the following url to avoid the issue while testing:
+                    </p>
+
+                    <div class="notify">
+                      <a class="collapsed mb-10 block" data-toggle="collapse" data-target="#Notified-2"
+                         aria-expanded="false" href="javascript:;">
+                        <span class="show-collapsed">
+                          <i aria-hidden="true" class="glyphicon glyphicon-triangle-bottom"></i> View Notified
+                        </span>
+                        <span class="hide-expanded">
+                          <i aria-hidden="true" class="glyphicon glyphicon-triangle-top"></i> Hide Notified
+                        </span>
+                      </a>
+
+                      <div class="collapse" id="Notified-2" aria-expanded="false">
+                        <div class="toggle-popover" data-placement="right">
+                          <a href="#">Edward Chong</a>
+
+                          <div class="popover-content hide">
+                            <p>Edward Chong</p>
+
+                            <p>Web UI Designer Lead</p>
+                            <a mailto="edward.chong.dell.com">edward.chong.dell.com
+                              <i class="icon-small-mail text-blue"></i>
+                            </a>
+
+                            <p><strong>Department:</strong> Online Marketing</p>
+
+                            <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                            <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                            <p>
+                              <strong>Org Chart:</strong>
+                              <a href="#"><i class="icon-small-network text-blue"></i></a>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="toggle-popover" data-placement="right">
+                          <a href="#">Gopal Kamaraj</a>
+
+                          <div class="popover-content hide">
+                            <p>Gopal Kamaraj</p>
+
+                            <p>Web Design Architect</p>
+                            <a mailto="gopal.kamaraj.dell.com">gopal.kamaraj.dell.com
+                              <i class="icon-small-mail text-blue"></i>
+                            </a>
+
+                            <p><strong>Department:</strong> Online Marketing</p>
+
+                            <p><strong>Phone:</strong> +1 999 999 9999 x 99999</p>
+
+                            <p><strong>Manager:</strong> Gopal Kamaraj</p>
+
+                            <p>
+                              <strong>Org Chart:</strong>
+                              <a href="#"><i class="icon-small-network text-blue"></i></a>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,3 +318,6 @@
     </div>
   </div>
 </div>
+
+
+

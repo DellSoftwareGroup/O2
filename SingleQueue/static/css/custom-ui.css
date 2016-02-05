@@ -1261,6 +1261,9 @@ ul {
 .clear {
   clear: both; }
 
+.popover .arrow {
+  background-image: none; }
+
 /*top header*/
 #top-head {
   position: relative;
@@ -1955,7 +1958,7 @@ ul {
     background-color: #fff;
     border-color: #66afe9; }
   .k-picker-wrap .k-icon {
-    background-image: url("../../assets/images/single-queue-sprite.png");
+    background-image: url("../../images/single-queue-sprite.png");
     background-repeat: no-repeat; }
   .k-picker-wrap .k-select {
     line-height: 2.3em; }
@@ -2007,25 +2010,24 @@ ul {
     padding: 20px;
     float: left;
     clear: both; }
-    #comments .task-group > div .comment-box .row div:last-child > div {
-      margin-bottom: 10px;
-      float: left;
-      width: 100%; }
-      #comments .task-group > div .comment-box .row div:last-child > div > div:first-child {
-        float: right;
-        padding: 5px;
-        color: #fff;
-        font-size: 12px; }
-        #comments .task-group > div .comment-box .row div:last-child > div > div:first-child.new {
-          background-color: #6ea204; }
+    #comments .task-group > div .comment-box .row div:last-child > div .popover-content p {
+      margin-bottom: 0; }
+    #comments .task-group > div .comment-box .row div:last-child .status-label {
+      float: right;
+      padding: 5px;
+      color: #fff;
+      font-size: 12px; }
+      #comments .task-group > div .comment-box .row div:last-child .status-label.green {
+        background-color: #6ea204; }
+    #comments .task-group > div .comment-box .row div:last-child .notify .collapse > div {
+      margin-right: 10px;
+      display: inline-block; }
     #comments .task-group > div .comment-box .user-info {
-      display: none;
       padding: 10px;
       background-color: #e5f2f8;
       border: 1px solid #737373;
       position: absolute;
-      left: 0;
-      /*display: inline-block;*/ }
+      left: 0; }
       #comments .task-group > div .comment-box .user-info a, #comments .task-group > div .comment-box .user-info p {
         display: block;
         float: left;

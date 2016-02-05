@@ -109,7 +109,7 @@
     border-color: #66afe9;
   }
   .k-icon {
-    background-image: url('../../assets/images/single-queue-sprite.png');
+    background-image: url('../../images/single-queue-sprite.png');
     background-repeat: no-repeat;
   }
   .k-select {
@@ -177,28 +177,34 @@
         padding: 20px;
         float: left;
         clear: both;
-        .row div:last-child > div {
-          margin-bottom: 10px;
-          float: left;
-          width: 100%;
-          > div:first-child {
+        .row div:last-child {
+          > div {
+            .popover-content {
+              p {
+                margin-bottom: 0;
+              }
+            }
+          }
+          .status-label{
             float: right;
             padding: 5px;
             color: #fff;
             font-size: 12px;
-            &.new {
+            &.green {
               background-color: #6ea204;
             }
           }
+          .notify .collapse > div  {
+            margin-right:10px;
+            display: inline-block;
+          }
         }
         .user-info {
-          display: none;
           padding: 10px;
           background-color: #e5f2f8;
           border: 1px solid #737373;
           position: absolute;
           left: 0;
-          /*display: inline-block;*/
           a, p {
             display: block;
             float: left;
