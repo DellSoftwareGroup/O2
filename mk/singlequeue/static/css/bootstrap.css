@@ -2,49 +2,50 @@
 /*$headings-font-family:    inherit !default;*/
 @font-face {
   font-family: 'museo-sans-for-dell-100';
-  src: url("/SingleQueue/fonts/museosansfordell-100-webfont.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/museosansfordell-100-webfont.woff") format("woff"), url("/SingleQueue/fonts/museosansfordell-100-webfont.ttf") format("truetype"), url("/SingleQueue/fonts/museosansfordell-100-webfont.svg#MuseoSansForDell100") format("svg");
+  src: url("/mk/singlequeue/static/fonts/museosansfordell-100-webfont.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/museosansfordell-100-webfont.woff") format("woff"), url("/mk/singlequeue/static/fonts/museosansfordell-100-webfont.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/museosansfordell-100-webfont.svg#MuseoSansForDell100") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'museo-sans-for-dell-300';
-  src: url("/SingleQueue/fonts/museosansfordell-300-webfont.eot");
-  src: url("/SingleQueue/fonts/museosansfordell-300-webfont.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/museosansfordell-300-webfont.woff") format("woff"), url("/SingleQueue/fonts/museosansfordell-300-webfont.ttf") format("truetype"), url("/SingleQueue/fonts/museosansfordell-300-webfont.svg#MuseoSansForDell300") format("svg");
+  src: url("/mk/singlequeue/static/fonts/museosansfordell-300-webfont.eot");
+  src: url("/mk/singlequeue/static/fonts/museosansfordell-300-webfont.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/museosansfordell-300-webfont.woff") format("woff"), url("/mk/singlequeue/static/fonts/museosansfordell-300-webfont.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/museosansfordell-300-webfont.svg#MuseoSansForDell300") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'museo-sans-for-dell-700';
-  src: url("/SingleQueue/fonts/museosansfordell-700-webfont.eot");
-  src: url("/SingleQueue/fonts/museosansfordell-700-webfont.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/museosansfordell-700-webfont.woff") format("woff"), url("/SingleQueue/fonts/museosansfordell-700-webfont.ttf") format("truetype"), url("/SingleQueue/fonts/museosansfordell-700-webfont.svg#MuseoSansForDell700") format("svg");
+  src: url("/mk/singlequeue/static/fonts/museosansfordell-700-webfont.eot");
+  src: url("/mk/singlequeue/static/fonts/museosansfordell-700-webfont.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/museosansfordell-700-webfont.woff") format("woff"), url("/mk/singlequeue/static/fonts/museosansfordell-700-webfont.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/museosansfordell-700-webfont.svg#MuseoSansForDell700") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'icon-ui';
-  src: url("/SingleQueue/fonts/icon-ui.eot");
-  src: url("/SingleQueue/fonts/icon-ui.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/icon-ui.woff") format("woff"), url("/SingleQueue/fonts/icon-ui.ttf") format("truetype"), url("/SingleQueue/fonts/icon-ui.svg#icon-ui") format("svg");
+  src: url("/mk/singlequeue/static/fonts/icon-ui.eot");
+  src: url("/mk/singlequeue/static/fonts/icon-ui.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/icon-ui.woff") format("woff"), url("/mk/singlequeue/static/fonts/icon-ui.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/icon-ui.svg#icon-ui") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'icon-small';
-  src: url("/SingleQueue/fonts/icon-small.eot");
-  src: url("/SingleQueue/fonts/icon-small.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/icon-small.woff") format("woff"), url("/SingleQueue/fonts/icon-small.ttf") format("truetype"), url("/SingleQueue/fonts/icon-small.svg#icon-small") format("svg");
+  src: url("/mk/singlequeue/static/fonts/icon-small.eot");
+  src: url("/mk/singlequeue/static/fonts/icon-small.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/icon-small.woff") format("woff"), url("/mk/singlequeue/static/fonts/icon-small.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/icon-small.svg#icon-small") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'icon-large';
-  src: url("/SingleQueue/fonts/icon-large.eot");
-  src: url("/SingleQueue/fonts/icon-large.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/icon-large.woff") format("woff"), url("/SingleQueue/fonts/icon-large.ttf") format("truetype"), url("/SingleQueue/fonts/icon-large.svg#icon-large") format("svg");
+  src: url("/mk/singlequeue/static/fonts/icon-large.eot");
+  src: url("/mk/singlequeue/static/fonts/icon-large.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/icon-large.woff") format("woff"), url("/mk/singlequeue/static/fonts/icon-large.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/icon-large.svg#icon-large") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("/SingleQueue/fonts/glyphicons-halflings-regular.eot");
-  src: url("/SingleQueue/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/SingleQueue/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("/SingleQueue/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/SingleQueue/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/SingleQueue/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.eot");
+  src: url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -8754,9 +8755,11 @@ a:hover .has-overlay h4 {
     right: 0;
     width: 20px;
     height: 25px;
-    background: url("../../images/multiple-select.png") left top no-repeat; }
+    background: url("../images/multiple-select.png") left top no-repeat;
+  }
     .ms-choice > div.open {
-      background: url("../../images/multiple-select.png") right top no-repeat; }
+      background: url("../images/multiple-select.png") right top no-repeat;
+    }
 
 .ms-drop {
   min-width: 100%;
