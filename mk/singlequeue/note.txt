@@ -1,6 +1,9 @@
 Notes:
 
-* Project is being published at the following directory:
- \\stage-software-dell-com >> template >> SingleQueue
 
 * Bootstrap was added/copied from DSG project branch 39
+
+* IS provided the final directory where singlequeue will be allocated:
+\\alvqpsw01\WWWROOT\stage-o2\MK.DSG.Web.O2.MVC\SingleQueue
+
+Sample path: /mk/singlequeue/static/css/bootstrap.css
