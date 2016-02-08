@@ -467,7 +467,7 @@ var commonWidgets = (function ($) {
     if (targetElm.typeof === "string") {
       $(targetElm).kendoTreeView();
     } else {
-      console.log('add id or class as string!')
+      console.log('')
     }
 
   }

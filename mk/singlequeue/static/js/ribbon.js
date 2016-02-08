@@ -130,14 +130,33 @@ var ribbonListener = function (ISoperations) {
     return ribbon;
   }
 
-  // add listener to filters
+  // add listener to filters, triggers IS function
   function filterListener($rbWrapper) {
+    var isTimerRunning = false, ifMultipleClicks = "";
 
     $rbWrapper.on('click', function (event) {
-      rebuildRibbonState($rbWrapper);
-      // ISopertion(currentStateObj) --> Will run here.
-      console.log('after click: ' + ribbon);
-    })
+
+      if (isTimerRunning) {
+        clearTimeout(ifMultipleClicks);
+        isTimerRunning = true;
+      } else {
+        isTimerRunning = true;
+      }
+
+      // delay to allow for fast multiple clicking on a filter
+      ifMultipleClicks = setTimeout(function () {
+
+        // rebuild ribbon filters state
+        rebuildRibbonState($rbWrapper);
+
+        // Will trigger IS function passed in the module arguments
+        // ISopertions()
+
+        //testing only
+        console.log('after click: ', ribbon);
+      }, 5000)
+
+    });
   }
 
 
@@ -160,6 +179,7 @@ var ribbonListener = function (ISoperations) {
 }();
 
 
+// Standard jquery onload function will trigger ribbonListener init method
 $(function () {
   if ($('.sq-top-ribbon').length === 0) {
     var timerOne = setInterval(function () {  // timer needed only for localhost
