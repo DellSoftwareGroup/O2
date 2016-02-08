@@ -299,7 +299,6 @@ th {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important; } }
-
 /*@font-face {
   font-family: 'Glyphicons Halflings';
   src: url(if($bootstrap-sass-asset-helper, twbs-font-path('/fonts/glyphicons-halflings-regular.eot'), '/fonts/glyphicons-halflings-regular.eot'));
@@ -5821,6 +5820,9 @@ iframe {
   content: "\e616"; }
 
 .icon-small-zoomout:before {
+  content: "\e639"; }
+
+.icon-small-network:before {
   content: "\e639"; }
 
 .site-wrapper {

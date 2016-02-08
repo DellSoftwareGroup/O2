@@ -146,20 +146,28 @@
     margin-bottom: 30px;
     width: 100%;
     clear: both;
-    .comment-box {
-      -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-      -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-      box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-    }
     .btn {
       border: 1px solid #007db8;
       z-index: 2;
+      font-size: 16px;
+      font-weight: bold;
       position: relative;
       -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
       -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
       box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
       &:focus, &:hover {
         background-color: #007db8;
+      }
+      &.collapsed {
+        .glyphicon:before {
+          content: '\e252';
+        }
+      }
+      i.glyphicon {
+        &:before {
+          content: '\e253';
+        }
+        margin-right: 5px;
       }
     }
     .border-shadow {
@@ -177,7 +185,10 @@
       .comment-box {
         border-right: 1px solid #a9a9a9;
         border-left: 1px solid #a9a9a9;
-        border-bottom: 1px solid #a9a9a9;;
+        border-bottom: 1px solid #a9a9a9;
+        -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+        -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+        box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
         float: left;
         clear: both;
         > div {
@@ -195,6 +206,10 @@
                 p {
                   margin-bottom: 0;
                 }
+                a.icon:hover {
+                  text-decoration: none;
+
+                }
               }
             }
             .status-label {
@@ -205,6 +220,11 @@
               &.green {
                 background-color: #6ea204;
               }
+            }
+            .icon-small-chat {
+              font-size: 19px;
+              margin-left: 5px;
+              vertical-align: middle;
             }
             .notify {
               > div {
