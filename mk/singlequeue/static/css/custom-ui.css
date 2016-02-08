@@ -1869,6 +1869,10 @@ ul {
 .filter-collector.hz-filters ul {
   display: inline; }
 
+.test {
+  color: #fff;
+}
+
 .summary {
   border-radius: 3px;
   border: 1px solid #737373;

@@ -121,12 +121,18 @@ $(function () {
           /*reset*/
           nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
 
-          if ($(elem).parents('.table-responsive').offset().top + $(elem).parents('.table-responsive').outerHeight(true) < nextElem.offset().top + nextElem.find('ul').outerHeight(true)) {
-            nextElem.css({'top': ' -90px', 'box-shadow': '0 -4px 5px rgba(0,0,0,0.15)'});
-          }
-          else {
+          if ($('.table-responsive').length > 0) { // added if statement to prevent 'top' undefined error when .table-responsive is not being used
+            if ($(elem).parents('.table-responsive').offset().top + $(elem).parents('.table-responsive').outerHeight(true) < nextElem.offset().top + nextElem.find('ul').outerHeight(true)) {
+              nextElem.css({'top': ' -90px', 'box-shadow': '0 -4px 5px rgba(0,0,0,0.15)'});
+            }
+            else {
+              nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
+            }
+          } else {
             nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
           }
+
+
         }
       });
       //$(this).multipleSelect("checkAll");
