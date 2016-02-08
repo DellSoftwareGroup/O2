@@ -44,8 +44,7 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.eot");
-  src: url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
-}
+  src: url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/mk/singlequeue/static/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -8755,11 +8754,9 @@ a:hover .has-overlay h4 {
     right: 0;
     width: 20px;
     height: 25px;
-    background: url("../images/multiple-select.png") left top no-repeat;
-  }
+    background: url("/mk/singlequeue/static/images/multiple-select.png") left top no-repeat; }
     .ms-choice > div.open {
-      background: url("../images/multiple-select.png") right top no-repeat;
-    }
+      background: url("/mk/singlequeue/static/images/multiple-select.png") right top no-repeat; }
 
 .ms-drop {
   min-width: 100%;
@@ -8816,13 +8813,13 @@ a:hover .has-overlay h4 {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    background: white url("/images/shared/multiple-select.png") no-repeat 100% -22px;
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-    background: url("/images/shared/multiple-select.png") no-repeat 100% -22px, linear-gradient(top, white 85%, #eeeeee 99%);
+    background: white url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px;
+    background: url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+    background: url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background: url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background: url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+    background: url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+    background: url("/mk/singlequeue/static/images/multiple-select.png") no-repeat 100% -22px, linear-gradient(top, white 85%, #eeeeee 99%);
     -webkit-box-sizing: border-box;
     -khtml-box-sizing: border-box;
     -moz-box-sizing: border-box;

@@ -48,9 +48,14 @@ $(function () {
   });
 
 
-  $('body').on('click', function () {
+  $('body').on('click', function (e) {
     $('#sq-filters').removeClass('add-bg');
     $('.sub-nav').hide();
+
+    /*close any open popover when click elsewhere*/
+    if ($(e.target).parent().find('.toggle-popover').length > 0) {
+      $('.toggle-popover').popover('hide');
+    }
   });
 
   //click state of bar icons
@@ -143,6 +148,8 @@ $(function () {
     }
   }).on('click', function (e) {
     e.preventDefault();
+    /*only one popover visible at any time*/
+    $('.toggle-popover').not(this).popover('hide');
   });
 });
 
