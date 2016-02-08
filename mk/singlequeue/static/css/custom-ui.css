@@ -1869,6 +1869,9 @@ ul {
 .filter-collector.hz-filters ul {
   display: inline; }
 
+.test {
+  color: #fff; }
+
 .summary {
   border-radius: 3px;
   border: 1px solid #737373;
@@ -1984,19 +1987,23 @@ ul {
   margin-bottom: 30px;
   width: 100%;
   clear: both; }
-  #comments .task-group .comment-box {
-    -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-    -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
-    box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26); }
   #comments .task-group .btn {
     border: 1px solid #007db8;
     z-index: 2;
+    font-size: 16px;
+    font-weight: bold;
     position: relative;
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26); }
     #comments .task-group .btn:focus, #comments .task-group .btn:hover {
       background-color: #007db8; }
+    #comments .task-group .btn.collapsed .glyphicon:before {
+      content: '\e252'; }
+    #comments .task-group .btn i.glyphicon {
+      margin-right: 5px; }
+      #comments .task-group .btn i.glyphicon:before {
+        content: '\e253'; }
   #comments .task-group .border-shadow {
     border-top: 3px solid #007db8;
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
@@ -2012,6 +2019,9 @@ ul {
       border-right: 1px solid #a9a9a9;
       border-left: 1px solid #a9a9a9;
       border-bottom: 1px solid #a9a9a9;
+      -webkit-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+      -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
+      box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
       float: left;
       clear: both; }
       #comments .task-group > div .comment-box > div {
@@ -2024,6 +2034,8 @@ ul {
           border-top: none; }
         #comments .task-group > div .comment-box > div div:last-child > div .popover-content p {
           margin-bottom: 0; }
+        #comments .task-group > div .comment-box > div div:last-child > div .popover-content a.icon:hover {
+          text-decoration: none; }
         #comments .task-group > div .comment-box > div div:last-child .status-label {
           float: right;
           padding: 5px;
@@ -2031,6 +2043,10 @@ ul {
           font-size: 12px; }
           #comments .task-group > div .comment-box > div div:last-child .status-label.green {
             background-color: #6ea204; }
+        #comments .task-group > div .comment-box > div div:last-child .icon-small-chat {
+          font-size: 19px;
+          margin-left: 5px;
+          vertical-align: middle; }
         #comments .task-group > div .comment-box > div div:last-child .notify > div > div {
           margin-right: 10px;
           display: inline-block; }
