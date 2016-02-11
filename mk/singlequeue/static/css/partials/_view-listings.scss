@@ -1,210 +1,203 @@
 .request-listing {
-   .id-col {
-     width: 30px;
-   }
-   .title-col {
-     width: 110px;
-   }
-   .type-col {
-     width: 80px;
-   }
-   .project-col {
-     width: 100px;
-   }
-   .agileTeam-col {
-     width: 70px;
-   }
-   .status-col {
-     width: 64px;
-   }
-   .requestStartDate-col {
-     width: 64px;
-   }
-   .requestStartDate-col {
-     width: 64px;
-   }
-   .requestEndDate-col {
-     width: 100px;
-   }
-   .requester-col {
-     width: 40px;
-   }
-   .portfolio-col {
-     width: 65px;
-   }
-   .sprint-col {
-     width: 54px;
-   }
-   .priority-col {
-     width: 54px;
-   }
-   .group-col {
-     width: 46px;
-   }
-   .active-col {
-     width: 22px;
-   }
-   .complete-col {
-     width: 22px;
-   }
-   .startDate-col {
-     width: 80px;
-   }
-   .endDate-col {
-     width: 112px;
-   }
- }
+	.id-col {
+		width: 30px;
+	}
+	.title-col {
+		width: 110px;
+	}
+	.type-col {
+		width: 80px;
+	}
+	.project-col {
+		width: 100px;
+	}
+	.agileTeam-col {
+		width: 70px;
+	}
+	.status-col {
+		width: 64px;
+	}
+	.requestStartDate-col {
+		width: 64px;
+	}
+	.requestStartDate-col {
+		width: 64px;
+	}
+	.requestEndDate-col {
+		width: 100px;
+	}
+	.requester-col {
+		width: 40px;
+	}
+	.portfolio-col {
+		width: 65px;
+	}
+	.sprint-col {
+		width: 54px;
+	}
+	.priority-col {
+		width: 54px;
+	}
+	.group-col {
+		width: 46px;
+	}
+	.active-col {
+		width: 22px;
+	}
+	.complete-col {
+		width: 22px;
+	}
+	.startDate-col {
+		width: 80px;
+	}
+	.endDate-col {
+		width: 112px;
+	}
+}
 
 .tasks-listing {
-  .id-col {
-    width: 30px;
-  }
-  .title-col {
-    width: 110px;
-  }
-  .type-col {
-    width: 55px;
-  }
-  .project-col {
-    width: 127px;
-  }
-  .agileTeam-col {
-    width: 70px;
-  }
-  .status-col {
-    width: 60px;
-  }
-  .requestStartDate-col {
-    width: 64px;
-  }
-  .requestEndDate-col {
-    width: 96px;
-  }
-  .requester-col {
-    width: 65px;
-  }
-  .portfolio-col {
-    width: 65px;
-  }
-  .sprint-col {
-    width: 54px;
-  }
-  .owner-col {
-    width: 55px;
-  }
-  .taskTitle-col {
-    width: 58px;
-  }
-  .taskStatus-col {
-    width: 60px;
-  }
-  .dept-col {
-    width: 38px;
-  }
-  .startDate-col {
-    width: 74px;
-  }
-  .endDate-col {
-    width: 104px;
-  }
+	.id-col {
+		width: 30px;
+	}
+	.title-col {
+		width: 110px;
+	}
+	.type-col {
+		width: 55px;
+	}
+	.project-col {
+		width: 127px;
+	}
+	.agileTeam-col {
+		width: 70px;
+	}
+	.status-col {
+		width: 60px;
+	}
+	.requestStartDate-col {
+		width: 64px;
+	}
+	.requestEndDate-col {
+		width: 96px;
+	}
+	.requester-col {
+		width: 65px;
+	}
+	.portfolio-col {
+		width: 65px;
+	}
+	.sprint-col {
+		width: 54px;
+	}
+	.owner-col {
+		width: 55px;
+	}
+	.taskTitle-col {
+		width: 58px;
+	}
+	.taskStatus-col {
+		width: 60px;
+	}
+	.dept-col {
+		width: 38px;
+	}
+	.startDate-col {
+		width: 74px;
+	}
+	.endDate-col {
+		width: 104px;
+	}
 }
 
 // TODO: bring actual alert icon to images folder
 #results-data-list {
-  th.summary-th a {
-    color: #933e9c !important;
-    font-weight: bold !important;
-  }
+	th.summary-th a {
+		color: #933e9c !important;
+		font-weight: bold !important;
+	}
 
-  /* warning labels */
-  td span.icon {
-    display: inline-block;
-    padding: 0 4px !important;
-    margin-left: 5px;
-    color: #fff;
-    font-size: 10px;
-    border-radius: 3px;
-  }
-  span.urgent {
-    background-color: #cc4321;
-  }
-  span.new {
-    background-color: #6da209;
-  }
-  span.legacy {
-    background-color: #444;
-  }
-  span.past-due {
-    background: url(http://o2.prod.quest.corp/mk/Static/Content/Img/icon-warning-red.png) no-repeat center center;
-    height: 16px;
-    width: 16px;
-    vertical-align: middle;
-    margin-left: 0;
-  }
-  .owner-col{
-    span {
-      display: table-cell;
-    }
-    .color-id{
-      width: 5px;
-    }
-    .owner-name {
-      padding-left: 3px;
-      max-width: 46px;
-    }
-  }
+	/* warning labels */
+	td span.icon {
+		display: inline-block;
+		padding: 0 4px !important;
+		margin-left: 5px;
+		color: #fff;
+		font-size: 10px;
+		border-radius: 3px;
+	}
+	span.urgent {
+		background-color: #cc4321;
+	}
+	span.new {
+		background-color: #6da209;
+	}
+	span.legacy {
+		background-color: #444;
+	}
+	span.past-due {
+		background: url(http://o2.prod.quest.corp/mk/Static/Content/Img/icon-warning-red.png) no-repeat center center;
+		height: 16px;
+		width: 16px;
+		vertical-align: middle;
+		margin-left: 0;
+	}
+	.owner-col {
+		span {
+			display: table-cell;
+		}
+		.color-id {
+			width: 5px;
+		}
+		.owner-name {
+			padding-left: 3px;
+			max-width: 46px;
+		}
+	}
 
-  td a, td a:visited, td a:link {
-    color: #74c1dd;
-  }
-  .k-grid td{
-    border-left: 1px solid #ddd;
-  }
-  .k-grid td:first-child {
-    border-left: none;
-  }
+	td a, td a:visited, td a:link {
+		color: #74c1dd;
+	}
+	.k-grid td {
+		border-left: 1px solid #ddd;
+	}
+	.k-grid td:first-child {
+		border-left: none;
+	}
 }
 
-.table-headings {
-  > li {
-    display: inline-block;
-    line-height: 24px;
-    padding-left: 10px;
-  }
-
-  > li:last-child {
-    float: right;
-    margin-right: 254px;
-    color: #933e9c;
-  }
-}
-
-.table-headings > li.task-info-heading {
-  margin-right: 508px;
-}
 /* "Summary sections" */
 .summary-start {
-  border-left: 1px solid #444 !important;
+	border-left: 1px solid #444 !important;
 }
 
 /* pagination style adjustments */
-.results-data{
-  margin-bottom: 10px;
+.results-data {
+	margin-bottom: 10px;
+	.table-group-headings {
+		th {
+			background: none;
+			font-size: 14px;
+			&:last-child {
+				color: #933e9c;
+			}
+		}
+	}
 }
+
 #TopPager {
-  box-sizing: border-box;
-  padding-top: 10px;
+	box-sizing: border-box;
+	padding-top: 10px;
 }
 
 .sq-popover {
-  max-width: 800px;
+	max-width: 800px;
 
-  table {
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #444;
-    border-radius: 15px;
-  }
+	table {
+		background-color: #fff;
+		padding: 10px;
+		border: 1px solid #444;
+		border-radius: 15px;
+	}
 
 }
 

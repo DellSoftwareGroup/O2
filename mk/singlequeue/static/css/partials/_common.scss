@@ -1,7 +1,3 @@
-.grid-wrapper {
-  float: left;
-  margin-top: 15px;
-}
 .btn.btn-primary {
   color: #fff !important;
   display: inline;
@@ -364,5 +360,7 @@ ul{
   }
 }
 
-
-
+/* Prevent text from wrapping */
+.nowrap {
+  white-space: nowrap !important;
+}

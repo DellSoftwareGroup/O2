@@ -303,6 +303,12 @@ var singleQueueTables = (function ($) {
 			commonStyles.GridRequest_DataBound();
 			// modalTable.init(); --> Kendo window
 			ListingPopOver.init();
+		},
+		addTableHeadings: function() {
+			//Only allow 1 table group heading.
+			if(!$('#GridRequest').find('.table-group-headings').length) {
+				$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
+			}
 		}
 	};
 
@@ -315,6 +321,12 @@ var singleQueueTables = (function ($) {
 			commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			ownerColorTag();
+		},
+		addTableHeadings: function() {
+			//Only allow 1 table group heading.
+			if(!$('#GridRequest').find('.table-group-headings').length) {
+				$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
+			}
 		}
 	};
 
