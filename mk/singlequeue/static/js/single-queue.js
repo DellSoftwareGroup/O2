@@ -49,6 +49,7 @@ $(function () {
 
 
   $('body').on('click', function (e) {
+    -
     $('#sq-filters').removeClass('add-bg');
     $('.sub-nav').hide();
 

@@ -1,21 +1,25 @@
-//
-var ribbonListener = function (ISoperations) {
+// Mockup function, eventually IS will use this function to run their process.
+function ribbon_change(obj) {
+  console.log('ribbon_change: ', obj)
+}
+
+var ribbonListener = function () {
 
   /* Private Variables */
-  var ribbon = {};
+  var ribbonReqObj = {};
 
   /*  Private Methods*/
 
   function rebuildRibbonState($rbWrapper) {
     var $filter = $rbWrapper.find('[data-isFilter=true]');
-    ribbon = {};
+    ribbonReqObj = {};
     return filtersCollection($filter);
   }
 
   // Internal methods to handle filters by type:
   function handleMultiSelect($multiSelect) {
     if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
-      ribbon[$multiSelect.data('title')] = [];
+      ribbonReqObj  [$multiSelect.data('title')] = [];
     } else {
       console.log('Undefined filter title')
       }
@@ -37,13 +41,13 @@ var ribbonListener = function (ISoperations) {
       option.text = $li.find('label').text(); // end of text
 
 
-      ribbon[$multiSelect.data('title')].push(option);
+      ribbonReqObj  [$multiSelect.data('title')].push(option);
     });
   };
 
   function handleDefaultSelect(defaultSelect) {
     if (defaultSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
-      ribbon[defaultSelect.data('title')] = [];
+      ribbonReqObj  [defaultSelect.data('title')] = [];
     } else {
       alert('Undefined ? whats?')
     }
@@ -62,7 +66,7 @@ var ribbonListener = function (ISoperations) {
       }();
 
 
-      ribbon[defaultSelect.data('title')].push(option);
+      ribbonReqObj  [defaultSelect.data('title')].push(option);
     });
   };
 
@@ -72,10 +76,10 @@ var ribbonListener = function (ISoperations) {
 
     // check the title is valid
     if (prTitle !== null || prTitle !== undefined) {
-      if (prTitle in ribbon) {
+      if (prTitle in ribbonReqObj) {
         // property exist
       } else {
-        ribbon[prTitle] = []
+        ribbonReqObj  [prTitle] = []
       }
     } else {
       console.log('undefined title!!!')
@@ -95,8 +99,8 @@ var ribbonListener = function (ISoperations) {
     }();
 
     // test if object exist
-    if (ribbon[prTitle].length > 0) {
-      var tempArr = ribbon[prTitle].filter(function (obj) {
+    if (ribbonReqObj  [prTitle].length > 0) {
+      var tempArr = ribbonReqObj  [prTitle].filter(function (obj) {
         if (obj.text === option.text) {
           return false; // remove modified filter
         } else {
@@ -104,14 +108,14 @@ var ribbonListener = function (ISoperations) {
         }
       })
       tempArr.push(option);
-      ribbon[prTitle] = tempArr;
+      ribbonReqObj  [prTitle] = tempArr;
     } else {
-      ribbon[prTitle].push(option); // if option does not exist simple add option
+      ribbonReqObj  [prTitle].push(option); // if option does not exist simple add option
     }
     }
 
 
-  // create ribbon filters object
+  // create ribbonReqObj   filters object
   function filtersCollection($filter) {
     // Iterate filters by type:
     $filter.each(function () {
@@ -127,14 +131,14 @@ var ribbonListener = function (ISoperations) {
         handleNoSelectFilters(noSelect)
       }
     })
-    return ribbon;
+
+    return ribbonReqObj;
   }
 
   // add listener to filters, triggers IS function
-  function filterListener($rbWrapper) {
+  function filterListener($rbWrapper, ISFunc) {
     var isTimerRunning = false, ifMultipleClicks = "";
-
-    $rbWrapper.on('click', function (event) {
+    $('.sq-top-ribbon li li').on('click', function (event) {
 
       if (isTimerRunning) {
         clearTimeout(ifMultipleClicks);
@@ -146,29 +150,28 @@ var ribbonListener = function (ISoperations) {
       // delay to allow for fast multiple clicking on a filter
       ifMultipleClicks = setTimeout(function () {
 
-        // rebuild ribbon filters state
+        // rebuild ribbonReqObj   filters state
         rebuildRibbonState($rbWrapper);
 
         // Will trigger IS function passed in the module arguments
-        // ISopertions()
-
-        //testing only
-        console.log('after click: ', ribbon);
-      }, 5000)
+        if (ISFunc !== "undefined" || ISFunc === 'function') {
+          ISFunc(ribbonReqObj);
+        }
+      }, 3000)
 
     });
   }
 
 
   /* -----> Public Methods -- */
-  function init() {
+  function init(ISprocess) {
     var $rbWrapper = $('.sq-top-ribbon'),
         $filter = $rbWrapper.find('[data-isFilter=true]'); // variable will be moved when ribbon gets integrated with pages.
-
+    console.log('1: ', typeof ISprocess);
     filtersCollection($filter);
-    filterListener($rbWrapper);
+    filterListener($rbWrapper, ISprocess);
 
-    console.log(ribbon); // test object
+    console.log(ribbonReqObj); // test object
   }
 
   /* -----> API -- */
@@ -184,7 +187,7 @@ $(function () {
   if ($('.sq-top-ribbon').length === 0) {
     var timerOne = setInterval(function () {  // timer needed only for localhost
       if ($('.sq-top-ribbon').length > 0) {
-        ribbonListener.init()
+        ribbonListener.init(ribbon_change);
         clearInterval(timerOne);
       }
     }, 1000);

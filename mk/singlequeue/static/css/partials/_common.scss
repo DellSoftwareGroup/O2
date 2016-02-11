@@ -254,3 +254,115 @@ ul{
   height: 18px;
 }
 
+/*Naveen - view view section styles*/
+#views-selector {
+  margin-left: 30px;
+  float: left;
+  display: inline-block;
+  height: 31px;
+  width: 600px;
+  ul {
+    position: relative;
+
+    li {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      margin-right: 10px;
+
+      a {
+        display: inline-block;
+        color: #444;
+        padding: 2px;
+      }
+      a:hover {
+        display: inline-block;
+        padding: 2px;
+        color: #3399cc;
+
+      }
+    }
+    li:hover #list-icon {
+      background-position: -663px -113px;
+      width: 20px;
+      float: left;
+      margin-right: 10px;
+    }
+    li:hover {
+      background-color: #e8e8e6;
+    }
+    li:hover #calendar-icon {
+      background-position: -720px -114px;
+      width: 20px;
+      float: left;
+      margin-right: 10px;
+    }
+    li:hover #chart-icon {
+      background-position: -583px -114px;
+      width: 23px;
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
+
+#list-icon {
+  background-position: -663px -70px;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 10px;
+}
+
+#calendar-icon {
+  background-position: -720px -70px;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 10px;
+}
+
+#chart-icon {
+  background-position: -583px -70px;
+  width: 23px;
+  float: left;
+  margin-right: 10px;
+}
+
+#views-selector {
+
+  .k-multiselect.k-header {
+    width: 100px !important;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid #ccc !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+  .k-input, .k-textbox > input, .k-multiselect-wrap {
+    background-color: #fff;
+    color: #2e2e2e;
+  }
+  .k-widget, .k-widget * {
+    -moz-background-clip: border-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+  }
+
+}
+
+/* Ribbon Popover */
+
+.ribbon-popover {
+  min-width: 450px;
+
+  button {
+    margin-top: 30px;
+  }
+  input {
+    width: 300px;
+  }
+}
+
+
+
