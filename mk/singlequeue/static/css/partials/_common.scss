@@ -350,13 +350,16 @@ ul{
 /* Ribbon Popover */
 
 .ribbon-popover {
-  min-width: 450px;
+  min-width: 400px;
 
   button {
     margin-top: 30px;
   }
   input {
     width: 300px;
+  }
+  .k-multiselect.k-header {
+    width: 365px !important;
   }
 }
 

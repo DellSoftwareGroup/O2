@@ -44,37 +44,62 @@ var templateLoader = (function($,host){
 
 var commonWidgets = (function ($) {
 
-	function RibbonPopupMultiSelect() {
 
-		// create html template for popover
-		var msPopoverContent = String()
-				+ '<form>'
-				+ '<div class="k-content">'
-				+ '<label for="ownerInput">Owner</label>'
-				+ '<input id="ownerInput" style="width: 100%;" />'
-				+ '</div>'
-				+ '<button type="button" class="btn btn-default popOverbtn">Close</button>'
-				+ '</form>';
+	/* Public methods*/
+	function ribbonPopupMultiSelect() {
 
-		var msHtmlPopover = String()
-				+ '<div class="popover ribbon-popover" role="tooltip" >'
-				+ '<div class="arrow">'
-				+ '</div>'
-				+ '<h3 class="popover-title"></h3>'
-				+ '<div class="popover-content" >'
-				+ '</div>'
-				+ '</div>';
+
+		// Popover factory
+		function PopoverHtmlBuilder(filter) {
+			//Create content section of popover
+			this.msPopoverContent = String()
+					+ '<form>'
+					+ '<div class="k-content">'
+					+ '<label for="ownerInput">' + filter + '</label>'
+					+ '<input id="ownerInput" style="width: 100%;" />'
+					+ '</div>'
+					+ '<button type="button" class="btn btn-default popOverbtn">Close</button>'
+					+ '</form>';
+
+			//Create popover template
+			this.msHtmlPopover = String()
+					+ '<div class="popover ribbon-popover" role="tooltip" >'
+					+ '<div class="arrow">'
+					+ '</div>'
+					+ '<h3 class="popover-title"></h3>'
+					+ '<div class="popover-content" >'
+					+ '</div>'
+					+ '</div>';
+
+			return {
+				content: this.msPopoverContent,
+				tmpl: this.msHtmlPopover
+			}
+		};
+
+		// Detects filter's title
+		function whichFilter(target) {
+			var ckFilter = '';
+			$(target).find('span').each(function () {
+				if ($(this).data('title')) {
+					ckFilter = $(this).data('title');
+				}
+			});
+			return ckFilter;
+		};
+
 
 		// initiate popover
 
 		$('.popoverMS').on('click', function (e) {
 
-			console.log('onClick', e);
+			var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
+
 			$(this).popover({
 				html: true,
 				placement: 'left',
-				content: msPopoverContent,
-				template: msHtmlPopover
+				content: buildHtml.content,
+				template: buildHtml.tmpl
 			});
 			$(this).popover("show");
 			initKendoMultiSelect()
@@ -98,15 +123,19 @@ var commonWidgets = (function ($) {
 							url: '/mk/singlequeue/widgets/views/data/users.json',
 							datatype: 'json'
 						}
+					},
+					schema: {
+						type: 'json',
+						data: 'data'
 					}
 				},
 				select: function (e) {
 					console.log(e);
-				}
+						}
 			});
-		}
+				}
 
-  }
+	} // end of ribbonPopupMultiSelect
 
 
   function init() {
@@ -115,7 +144,7 @@ var commonWidgets = (function ($) {
 
   return {
     init: init,
-		RibbonPopupMultiSelect: RibbonPopupMultiSelect,
+		ribbonPopupMultiSelect: ribbonPopupMultiSelect,
   }
 
 }(jQuery));
@@ -125,7 +154,7 @@ $(function () {
 	if ($('.sq-top-ribbon').length === 0) {
 		var timerOne = setInterval(function () {  // timer needed only for localhost
 			if ($('.sq-top-ribbon').length > 0) {
-				commonWidgets.RibbonPopupMultiSelect();
+				commonWidgets.ribbonPopupMultiSelect();
 				clearInterval(timerOne);
 			}
 		}, 1000);

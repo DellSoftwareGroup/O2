@@ -1532,11 +1532,16 @@ ul {
 
 /* Ribbon Popover */
 .ribbon-popover {
-  min-width: 450px; }
+  min-width: 400px;
+}
   .ribbon-popover button {
     margin-top: 30px; }
   .ribbon-popover input {
     width: 300px; }
+
+.ribbon-popover .k-multiselect.k-header {
+  width: 365px !important;
+}
 
 /* Prevent text from wrapping */
 .nowrap {
