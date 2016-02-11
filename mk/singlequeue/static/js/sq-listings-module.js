@@ -43,32 +43,7 @@ var singleQueueTables = (function ($) {
 
 		// pagination
 		function GridRequest_DataBound() {
-
-			// ---> Top Pagination Starts
-			var pager = $("#TopPager").kendoPager({
-				dataSource: $("#GridRequest").data("kendoGrid").dataSource,
-				pageSize: 50,
-				autoBind: true,
-				selectTemplate: '<li class="active"><a class="data-pager-link" data-page="#=text#">#=text#</a></li>',
-				linkTemplate: '<li><a class="data-pager-link" href="\\#" data-#=ns#page="#=text#">#=text#</a></li>',
-				messages: {
-					display: '<li class="">{0} - {1} of {2}</li>'
-				}
-			});
-
-			$(".k-i-seek-w").parent().hide();
-			$(".k-i-seek-e").parent().hide();
-
-			$('#TopPager>ul').prepend("<li></li>");
-			$('#TopPager .k-i-arrow-w').parent().addClass("prev").detach().appendTo('#TopPager>ul li:first').find("span").remove();
-			$('#TopPager>ul').append("<li></li>");
-			$('#TopPager .k-i-arrow-e').parent().addClass("next").detach().appendTo('#TopPager>ul li:last').find("span").remove();
-			$('#TopPager>ul').prepend("<li></li>");
-			$('#TopPager .k-pager-info').detach().appendTo('#TopPager>ul li:first');
-
-
-			// ---> Bottom Pagination Starts
-			var pager = $("#BottomPager").kendoPager({
+			var PagerConfig = {
 				dataSource: $("#GridRequest").data("kendoGrid").dataSource,
 				pageSize: 10,
 				autoBind: true,
@@ -77,25 +52,45 @@ var singleQueueTables = (function ($) {
 				messages: {
 					display: '<li class="">{0} - {1} of {2}</li>'
 				}
-			})
-			$(".k-i-seek-w").parent().hide();
-			$(".k-i-seek-e").parent().hide();
+			};
 
-			$('#BottomPager>ul').prepend("<li></li>");
-			$('#BottomPager .k-i-arrow-w').parent().addClass("prev").detach().appendTo('#BottomPager>ul li:first').find("span").remove();
-			$('#BottomPager>ul').append("<li></li>");
-			$('#BottomPager .k-i-arrow-e').parent().addClass("next").detach().appendTo('#BottomPager>ul li:last').find("span").remove();
-			$('#BottomPager>ul').prepend("<li></li>");
-			$('#BottomPager .k-pager-info').detach().appendTo('#BottomPager>ul li:first');
+			// ---> Top Pagination Starts
+			var TopPager = $('#TopPager');
 
-			$(".data-pager-link").click(function (e) {
+			TopPager.kendoPager(PagerConfig);
+
+			TopPager.find(".k-pager-first").hide().end().find('.k-pager-last').hide();
+			TopPager.find('> ul').prepend("<li></li>");
+			TopPager.find('.k-i-arrow-w').parent().addClass("prev").detach().appendTo('#TopPager>ul li:first').find("span").remove();
+			TopPager.find('> ul').append("<li></li>");
+			TopPager.find('.k-i-arrow-e').parent().addClass("next").detach().appendTo('#TopPager>ul li:last').find("span").remove();
+			TopPager.find('> ul').prepend("<li></li>");
+			TopPager.find('.k-pager-info').detach().appendTo('#TopPager>ul li:first');
+
+			TopPager.data('processed', true);
+
+			// ---> Bottom Pagination Starts
+			var BottomPager = $('#BottomPager');
+
+			BottomPager.kendoPager(PagerConfig);
+
+			BottomPager.find(".k-pager-first").hide().end().find('.k-pager-last').hide();
+			BottomPager.find('> ul').prepend("<li></li>");
+			BottomPager.find('.k-i-arrow-w').parent().addClass("prev").detach().appendTo('#BottomPager>ul li:first').find("span").remove();
+			BottomPager.find('> ul').append("<li></li>");
+			BottomPager.find('.k-i-arrow-e').parent().addClass("next").detach().appendTo('#BottomPager>ul li:last').find("span").remove();
+			BottomPager.find('> ul').prepend("<li></li>");
+			BottomPager.find('.k-pager-info').detach().appendTo('#BottomPager>ul li:first');
+
+			//Commented out as currently we do not know what these script purpose was.
+			/*$(".data-pager-link").click(function (e) {
 				//return CheckDataChanges();
 				console.log("pager-link");
 			});
 			$(".k-pager-nav").click(function (e) {
 				//return CheckDataChanges();
 				console.log("pager-nav");
-			});
+			 });*/
 		}
 
 		return {
