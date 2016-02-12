@@ -47,8 +47,10 @@ var commonWidgets = (function ($) {
 
 	/* Public methods*/
 	function ribbonPopupModule() {
+		/* ------> Scope varibles <------- */
 		var targetInput = "#ownerInput", popupTrigger = '.popoverMS';
 
+		/* ------> Factories <------- */
 		// Popover factory
 		function PopoverHtmlBuilder(filter) {
 			//Create content section of popover
@@ -128,6 +130,7 @@ var commonWidgets = (function ($) {
 		};
 
 
+		/* ------> Private Functions <------- */
 		// initiate kendo multiselect
 		function initKendoMultiSelect() {
 			$("#ownerInput").kendoMultiSelect({
@@ -150,7 +153,7 @@ var commonWidgets = (function ($) {
 				dataTextField: "Name",
 				dataValueField: "Alias"
 			});
-		}
+				}
 
 		// add Previously selected options to popover
 		function addPrevSelectionsToPopover(target) {
@@ -170,7 +173,7 @@ var commonWidgets = (function ($) {
 					// attach li to popover
 					$('#ownerInput_taglist_prev').append(temp);
 				})
-			}
+					}
 			$(this).find('')
 		};
 
@@ -181,15 +184,17 @@ var commonWidgets = (function ($) {
 			$dynamicSelect.find('option').each(function () {
 				if ($(this).text() == option) {
 					$(this).remove();
-				}
+						}
 			});
 			// remove frame if no previous options
 			if ($dynamicSelect.find('option').length == 0) {
 				$('.taglist-parent').hide('slow');
-			}
+					}
 			// re-adjust tag count
 			cleanTag.addCountToLabel();
-		}
+				}
+
+		/* ------> Utility Functions <------- */
 		// Detects filter's title
 		function whichFilter(target) {
 			var ckFilter = '';
@@ -225,10 +230,11 @@ var commonWidgets = (function ($) {
 				closePopup();
 			} else {
 				alert('Please select Owner name'); //TODO: Should we spend time styling this
-			}
+					}
 
 		};
 
+		/* ------> Dom, Events and Triggers <------- */
 		// initiate popover
 		$(popupTrigger).on('click', function () {
 
