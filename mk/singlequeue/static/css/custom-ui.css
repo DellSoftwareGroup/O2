@@ -1543,6 +1543,18 @@ ul {
   width: 365px !important;
 }
 
+.dyn-select-form #ownerInput {
+  width: 100%;
+}
+
+.dyn-select-form .panel-default {
+  margin-top: 10px;
+}
+
+.dyn-select-form .saveSelected {
+  margin-right: 20px;
+}
+
 /* Prevent text from wrapping */
 .nowrap {
   white-space: nowrap !important; }

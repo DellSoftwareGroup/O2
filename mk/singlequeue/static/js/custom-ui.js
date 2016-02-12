@@ -46,19 +46,27 @@ var commonWidgets = (function ($) {
 
 
 	/* Public methods*/
-	function ribbonPopupMultiSelect() {
-
+	function ribbonPopupModule() {
+		var targetInput = "#ownerInput", popupTrigger = '.popoverMS';
 
 		// Popover factory
 		function PopoverHtmlBuilder(filter) {
 			//Create content section of popover
 			this.msPopoverContent = String()
-					+ '<form>'
+					+ '<form class="dyn-select-form">'
 					+ '<div class="k-content">'
 					+ '<label for="ownerInput">' + filter + '</label>'
-					+ '<input id="ownerInput" style="width: 100%;" />'
+					+ '<input id="ownerInput" />'
+					+ '</div>'
+					+ '<div class="panel panel-default taglist-parent" style="display:none;">'
+					+ '<div class="panel-body">'
+					+ '<div  unselectable="on">'
+					+ '<ul role="listbox" unselectable="on" class="k-reset" id="ownerInput_taglist_prev"></ul>'
+					+ '</div>'
+					+ '</div>'
 					+ '</div>'
 					+ '<button type="button" class="btn btn-default popOverbtn">Close</button>'
+					+ '<button type="button" class="btn btn-primary saveSelected">Select</button>'
 					+ '</form>';
 
 			//Create popover template
@@ -76,48 +84,58 @@ var commonWidgets = (function ($) {
 				tmpl: this.msHtmlPopover
 			}
 		};
-
-		// Detects filter's title
-		function whichFilter(target) {
-			var ckFilter = '';
-			$(target).find('span').each(function () {
-				if ($(this).data('title')) {
-					ckFilter = $(this).data('title');
+		// Dynamic Select factory
+		function BuildDynamicSelect(wrapper) {
+			this.createSelectElem = function () {
+				if ($(wrapper).find('.dynamic-select').length == 0) {
+					$(wrapper).append('<select class="dynamic-select" style="display:none">');
 				}
-			});
-			return ckFilter;
+
+			};
+			this.createOption = function (option) {
+				$(wrapper).find('.dynamic-select').append('<option value="' + option.value + '">' + option.text + '</option>');
+			};
+			this.optionsCount = function () {
+				var count = $(wrapper).find('option').length;
+				return count;
+			};
+			this.sanitizeLabel = function (label) {
+				var tagTxtArr = label.split(' ');
+				tagTxtArr.pop();
+				label = tagTxtArr.toString();
+				return label;
+			};
+			this.addCountToLabel = function () {
+				var tagTxt = $(wrapper).find('span[data-title]').text();
+
+				// check if tag has been modified with parenthesis
+				if (tagTxt.indexOf('(') > -1) {
+					tagTxt = this.sanitizeLabel(tagTxt);
+
+					// check if options container is not empty when options are removed
+					if (this.optionsCount() !== 0) {
+						tagTxt = tagTxt + ' (' + this.optionsCount() + ')';
+						$(wrapper).find('span[data-title]').text(tagTxt);
+					} else {
+						$(wrapper).find('span[data-title]').text(tagTxt);
+					}
+				} else {
+					tagTxt = tagTxt + ' (' + this.optionsCount() + ')';
+					$(wrapper).find('span[data-title]').text(tagTxt);
+				}
+
+			}
 		};
 
-
-		// initiate popover
-
-		$('.popoverMS').on('click', function (e) {
-
-			var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
-
-			$(this).popover({
-				html: true,
-				placement: 'left',
-				content: buildHtml.content,
-				template: buildHtml.tmpl
-			});
-			$(this).popover("show");
-			initKendoMultiSelect()
-		});
-
-		// close popover
-		$('#filters-section').on('click', '.popOverbtn', function () {
-			$('.popoverMS').popover('destroy');
-		})
 
 		// initiate kendo multiselect
 		function initKendoMultiSelect() {
 			$("#ownerInput").kendoMultiSelect({
-				dataTextField: "Name",
 				filter: "contains",
 				separator: ", ",
 				minLength: 2,
 				dataSource: {
+					//serverFiltering: true, -> This setting needs to be activated when pulling data from server
 					transport: {
 						read: {
 							url: '/mk/singlequeue/widgets/views/data/users.json',
@@ -129,11 +147,126 @@ var commonWidgets = (function ($) {
 						data: 'data'
 					}
 				},
-				select: function (e) {
-					console.log(e);
-						}
+				dataTextField: "Name",
+				dataValueField: "Alias"
 			});
+		}
+
+		// add Previously selected options to popover
+		function addPrevSelectionsToPopover(target) {
+			var $dynamicSelect = $(target).find('.dynamic-select');
+
+			if ($dynamicSelect.length > 0) { // check if dynamic select has been created
+
+				if ($dynamicSelect.find('option').length > 0) { // if options are existing show
+					$('.taglist-parent').show();
 				}
+				$dynamicSelect.find('option').each(function () {
+					var name = $(this).text();
+					var temp = String()
+							+ '<li class="k-button" unselectable="on"><span unselectable="on">' + name + '</span><span unselectable="on" class="k-select">'
+							+ '<span unselectable="on" class="k-icon k-i-close remove-prev">delete</span></span></li>';
+
+					// attach li to popover
+					$('#ownerInput_taglist_prev').append(temp);
+				})
+			}
+			$(this).find('')
+		};
+
+		function removePrevOptions(target, option) {
+			var $dynamicSelect = $(target).find('.dynamic-select'),
+					cleanTag = new BuildDynamicSelect(target);
+
+			$dynamicSelect.find('option').each(function () {
+				if ($(this).text() == option) {
+					$(this).remove();
+				}
+			});
+			// remove frame if no previous options
+			if ($dynamicSelect.find('option').length == 0) {
+				$('.taglist-parent').hide('slow');
+			}
+			// re-adjust tag count
+			cleanTag.addCountToLabel();
+		}
+		// Detects filter's title
+		function whichFilter(target) {
+			var ckFilter = '';
+			$(target).find('span').each(function () {
+				if ($(this).data('title')) {
+					ckFilter = $(this).data('title');
+				}
+			});
+			return ckFilter;
+		};
+
+		function closePopup() {
+			$(popupTrigger).popover('destroy');
+		};
+
+		function saveSelected() {
+			var $selctWrapper = $(targetInput).closest('li').find(popupTrigger),
+					buildNewSelect = new BuildDynamicSelect($selctWrapper);
+
+			// check if first if any name has been selected
+			if ($(targetInput).find('option[selected]').length > 0) {
+
+				// prepare select element
+				buildNewSelect.createSelectElem();
+
+				// iterate each option and attach to new selection
+				$(targetInput).find('option').each(function () {
+					if ($(this).attr('selected')) {
+						buildNewSelect.createOption(this);
+					}
+				});
+				buildNewSelect.addCountToLabel();
+				closePopup();
+			} else {
+				alert('Please select Owner name'); //TODO: Should we spend time styling this
+			}
+
+		};
+
+		// initiate popover
+		$(popupTrigger).on('click', function () {
+
+			var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
+
+			$(this).popover({
+				html: true,
+				placement: 'left',
+				content: buildHtml.content,
+				template: buildHtml.tmpl
+			});
+			$(this).popover("show");
+
+			initKendoMultiSelect();
+			addPrevSelectionsToPopover(this);
+		});
+
+		// close popover
+		$('#filters-section').on('click', '.popOverbtn', function () {
+			closePopup()
+		})
+
+		// handle selected
+		$('#filters-section').on('click', '.saveSelected', saveSelected);
+
+		// remove previous selection
+		$('#filters-section').on('click', '.remove-prev', function () {
+			var target = $(this).parents('.popover').siblings(popupTrigger),
+					thisOption = $(this).parents('li.k-button'),
+					thisName = thisOption.find('span').eq(0).text();
+
+			// remove it from DOM
+			removePrevOptions(target, thisName);
+
+			// remove it from popover
+			thisOption.remove();
+
+		});
 
 	} // end of ribbonPopupMultiSelect
 
@@ -144,7 +277,7 @@ var commonWidgets = (function ($) {
 
   return {
     init: init,
-		ribbonPopupMultiSelect: ribbonPopupMultiSelect,
+		ribbonPopupModule: ribbonPopupModule
   }
 
 }(jQuery));
@@ -154,7 +287,7 @@ $(function () {
 	if ($('.sq-top-ribbon').length === 0) {
 		var timerOne = setInterval(function () {  // timer needed only for localhost
 			if ($('.sq-top-ribbon').length > 0) {
-				commonWidgets.ribbonPopupMultiSelect();
+				commonWidgets.ribbonPopupModule();
 				clearInterval(timerOne);
 			}
 		}, 1000);

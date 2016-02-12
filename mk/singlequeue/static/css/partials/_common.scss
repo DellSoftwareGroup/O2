@@ -363,6 +363,19 @@ ul{
   }
 }
 
+.dyn-select-form {
+  #ownerInput {
+    width: 100%;
+  }
+  .panel-default {
+    margin-top: 10px;
+  }
+  .saveSelected {
+    margin-right: 20px;
+  }
+
+}
+
 /* Prevent text from wrapping */
 .nowrap {
   white-space: nowrap !important;
