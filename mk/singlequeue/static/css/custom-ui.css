@@ -1945,23 +1945,22 @@ ul {
   clear: both; }
   .filter-collector:last-child {
     margin-bottom: 20px; }
-  .filter-collector li {
-    display: inline-block;
-    float: left;
-    margin-right: 12px; }
-    .filter-collector li:first-child {
-      margin-left: 10px; }
-    .filter-collector li a {
-      color: #3399CC;
-      font-weight: bold; }
-      .filter-collector li a:hover {
-        text-decoration: none; }
-    .filter-collector li span {
-      color: #999;
-      font-size: 14px; }
-
-.filter-collector.hz-filters ul {
-  display: inline; }
+  .filter-collector ul {
+    display: inline; }
+    .filter-collector ul li {
+      display: inline-block;
+      float: left;
+      margin-right: 12px; }
+      .filter-collector ul li:first-child {
+        margin-left: 10px; }
+      .filter-collector ul li a {
+        color: #3399CC;
+        font-weight: bold; }
+        .filter-collector ul li a:hover {
+          text-decoration: none; }
+      .filter-collector ul li span {
+        color: #999;
+        font-size: 14px; }
 
 .test {
   color: #fff; }
