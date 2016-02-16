@@ -361,8 +361,20 @@ ul{
   .k-multiselect.k-header {
     width: 365px !important;
   }
+  .k-multiselect-wrap .k-input {
+    color: #aaa; /* placeholder */
+    height: 1.5em;
+    line-height: 1.5em;
+  }
 }
 
+.popoverMS {
+  position: relative;
+
+  .chrome {
+    top: 8px;
+  }
+}
 .dyn-select-form {
   #ownerInput {
     width: 100%;

@@ -16,8 +16,8 @@
           <select id="dp-mywork-dd" name="dp-mywork-dd" data-isFilter="true" multiple="multiple" data-title="My Work"
                   data-select-all-text="All">
             <option value="1">Owner</option>
-            <option value="1">Requester</option>
-            <option value="2">Follower</option>
+            <option value="2">Requester</option>
+            <option value="3">Follower</option>
           </select>
         </li>
       </ul>
@@ -42,7 +42,7 @@
         <li class="active-item-bg">
           <span id="jan-fy-icon" class="sq-btn-icon"></span>
           <select data-isFilter="true" data-select="default" data-title="Sprint">
-            <option value="">All Sprints</option>
+            <option value="0">All Sprints</option>
             <option value="-1">Unassigned</option>
             <option value="81" data-start="2015-02-01">1 - FEB FY16</option>
             <option value="82" data-start="2015-03-01" selected>2 - MAR FY16</option>
@@ -154,9 +154,10 @@
           </a>
         </li>
         <li>
-          <a href="#" class="popoverMS">
+          <a href="#" class="popoverMS" data-isFilter="true" data-dynamic="true">
             <span id="requester-icon" class="sq-btn-icon"></span>
             <span data-isFilter="true" data-title="Requester">Requester</span>
+            <span class="arrow chrome"></span>
           </a>
         </li>
       </ul>
@@ -196,9 +197,10 @@
           </a>
         </li>
         <li>
-          <a href="#" class="popoverMS">
+          <a href="#" class="popoverMS" data-isFilter="true" data-dynamic="true">
             <span id="owner-icon" class="sq-btn-icon"></span>
             <span data-title="Owner">Owner</span>
+            <span class="arrow chrome"></span>
           </a>
         </li>
         <li id="sq-filters-item">
@@ -277,54 +279,6 @@
   </ul>
 </div>
 <div class="filter-collector">
-  <ul>
-    <li>
-      My Work: <a href="#">X</a>
-    </li>
-    <li>
-      <span>Owner</span>
-      <a href="#">X</a>
-    </li>
-    <li>
-      <span>Requester</span>
-      <a href="#">X</a>
-    </li>
-    <li>
-      <span>Follower</span>
-      <a href="#">X</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      Sprints: <a href="#">X</a>
-    </li>
-    <li>
-      <span>2 - MAR FY16</span>
-      <a href="#">X</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      Request Status: <a href="#">X</a>
-    </li>
-    <li>
-      <span>Idea</span>
-      <a href="#">X</a>
-    </li>
-    <li>
-      <span>Backlog</span>
-      <a href="#">X</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      Task Status: <a href="#">X</a>
-    </li>
-    <li>
-      <span>Started</span>
-      <a href="#">X</a>
-    </li>
-  </ul>
 </div>
 
 
