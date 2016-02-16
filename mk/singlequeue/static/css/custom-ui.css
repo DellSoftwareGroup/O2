@@ -1532,41 +1532,30 @@ ul {
 
 /* Ribbon Popover */
 .ribbon-popover {
-  min-width: 400px;
-}
+  min-width: 400px; }
   .ribbon-popover button {
     margin-top: 30px; }
   .ribbon-popover input {
     width: 300px; }
-
-.ribbon-popover .k-multiselect.k-header {
-  width: 365px !important;
-}
-
-.ribbon-popover .k-multiselect-wrap .k-input {
-  color: #aaa;
-  /* placeholder */
-  height: 1.5em;
-  line-height: 1.5em;
-}
+  .ribbon-popover .k-multiselect.k-header {
+    width: 365px !important; }
+  .ribbon-popover .k-multiselect-wrap .k-input {
+    color: #aaa;
+    /* placeholder */
+    height: 1.5em;
+    line-height: 1.5em; }
 
 .popoverMS {
-  position: relative;
-}
-
-.popoverMS .chrome {
-  top: 8px;
-}
+  position: relative; }
+  .popoverMS .chrome {
+    top: 8px; }
 
 .dyn-select-form #ownerInput {
-  width: 100%;
-}
+  width: 100%; }
 .dyn-select-form .panel-default {
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 .dyn-select-form .saveSelected {
-  margin-right: 20px;
-}
+  margin-right: 20px; }
 
 /* Prevent text from wrapping */
 .nowrap {
@@ -1983,58 +1972,43 @@ ul {
   border: 1px solid #737373;
   background-color: #f9f9f9;
   overflow: hidden; }
-  .summary > div {
-    width: 100%;
+  .summary > div h3 {
+    margin: 0; }
+    .summary > div h3 a, .summary > div h3 a:hover {
+      font-size: 24px; }
+  .summary > div label h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0; }
+  .summary > div #due-date > span:nth-child(2) {
+    font-weight: bold;
+    font-size: 16px; }
+  .summary > div .badge {
+    display: inline-block;
+    padding: 3px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 14px; }
+    .summary > div .badge.urgent {
+      background-color: #D74324; }
+  .summary > div input, .summary > div select {
+    width: 114px;
+    display: inline;
+    float: left; }
+  .summary > div #planned-date {
+    margin-left: 13px;
+    margin-right: 63px; }
+  .summary > div > div {
+    display: block;
     float: left;
-    display: table;
-    clear: both;
-    margin-bottom: 10px; }
-    .summary > div h3 {
-      margin: 0; }
-      .summary > div h3 a, .summary > div h3 a:hover {
-        font-size: 24px; }
-    .summary > div label {
-      display: table-cell;
-      text-align: right;
-      width: 25%;
-      padding-right: 20px;
-      font-weight: normal; }
-      .summary > div label h4 {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 0; }
-    .summary > div #due-date > span:nth-child(2) {
-      font-weight: bold;
-      font-size: 16px; }
-    .summary > div .badge {
-      display: inline-block;
-      padding: 3px;
-      color: #fff;
-      border-radius: 3px;
-      font-size: 14px;
-      line-height: 14px; }
-      .summary > div .badge.urgent {
-        background-color: #D74324; }
-    .summary > div input, .summary > div select {
-      width: 114px;
-      display: inline;
-      float: left; }
-    .summary > div #planned-date {
-      margin-left: 13px;
-      margin-right: 63px; }
-    .summary > div a, .summary > div a:hover {
-      font-size: 14px;
-      color: #3399cc; }
-    .summary > div > div {
-      display: block;
-      float: left;
-      /*i{
-          left:-18px;
-          top:8px;
-          position: relative;
-      }*/ }
-      .summary > div > div > span {
-        width: 114px; }
+    /*i{
+        left:-18px;
+        top:8px;
+        position: relative;
+    }*/ }
+    .summary > div > div > span {
+      width: 114px; }
 
 /*Kendo UI datepicker*/
 .k-picker-wrap {
@@ -2077,11 +2051,22 @@ ul {
     top: 11px;
     left: 6px; }
 
-/*comments*/
-.panel .panel-title > a {
-  font-size: 18px;
-  font-weight: bold; }
+/*panel*/
+.panel-group-collapsible {
+  border-bottom: none; }
+  .panel-group-collapsible > .panel {
+    border-top: none; }
+    .panel-group-collapsible > .panel .panel-title > a {
+      font-size: 18px;
+      font-weight: bold; }
+      .panel-group-collapsible > .panel .panel-title > a.collapsed:before {
+        content: "\e250"; }
+      .panel-group-collapsible > .panel .panel-title > a:before {
+        content: "\e252"; }
+    .panel-group-collapsible > .panel .table-responsive {
+      margin-bottom: 0; }
 
+/*comments*/
 #comments.table-responsive {
   overflow: visible; }
 #comments .ms-parent {
@@ -2167,3 +2152,30 @@ ul {
           float: left;
           clear: both;
           margin-bottom: 0; }
+
+/*table view*/
+.table-view > div {
+  width: 100%;
+  float: left;
+  display: table;
+  clear: both;
+  margin-bottom: 10px; }
+  .table-view > div label {
+    display: table-cell;
+    text-align: right;
+    width: 25%;
+    padding-right: 20px;
+    font-weight: normal; }
+  .table-view > div input, .table-view > div select {
+    width: 114px;
+    display: inline;
+    float: left; }
+  .table-view > div a, .table-view > div a:hover {
+    font-size: 14px;
+    color: #3399cc; }
+
+/*project detail section*/
+#project-detail label {
+  width: 20%; }
+#project-detail .panel-body > div:first-child {
+  border-top: 1px solid #aaa; }
