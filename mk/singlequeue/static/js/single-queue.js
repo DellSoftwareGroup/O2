@@ -158,6 +158,21 @@ $(function () {
     /*only one popover visible at any time*/
     $('.toggle-popover').not(this).popover('hide');
   });
+
+  /*collapsibles*/
+  /*keep border bottom only when they are collapsed*/
+  $('.panel-group-collapsible').each(function(){
+    if($(this).find('.panel-title > a').hasClass('collapsed')){
+      $(this).css('border-bottom','1px solid #aaa');
+    }
+  });
+  $('.table-responsive').on('hidden.bs.collapse', function () {
+    console.log(this);
+    $(this).parent().parent().css('border-bottom','1px solid #aaa');
+  }).on('shown.bs.collapse', function () {
+    console.log(this);
+    $(this).parent().parent().attr('style','');
+  });
 });
 
 $(window).load(function () {

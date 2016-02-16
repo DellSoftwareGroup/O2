@@ -4,28 +4,16 @@
   background-color: #f9f9f9;
   overflow: hidden;
   > div {
-    width: 100%;
-    float: left;
-    display: table;
-    clear: both;
-    margin-bottom: 10px;
     h3 {
       margin: 0;
       a, a:hover {
         font-size: 24px;
       }
     }
-    label {
-      display: table-cell;
-      text-align: right;
-      width: 25%;
-      padding-right: 20px;
-      font-weight: normal;
-      h4 {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 0;
-      }
+    label h4 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 0;
     }
     #due-date {
       > span:nth-child(2) {
@@ -52,10 +40,6 @@
     #planned-date {
       margin-left: 13px;
       margin-right: 63px;
-    }
-    a, a:hover {
-      font-size: 14px;
-      color: #3399cc;
     }
     > div {
       display: block;
@@ -123,14 +107,28 @@
   }
 }
 
-/*comments*/
-.panel {
-  .panel-title > a {
-    font-size: 18px;
-    font-weight: bold;
+/*panel*/
+.panel-group-collapsible {
+  border-bottom: none;
+  > .panel {
+    border-top: none;
+    .panel-title > a {
+      font-size: 18px;
+      font-weight: bold;
+      &.collapsed:before {
+        content: "\e250";
+      }
+      &:before {
+        content: "\e252";
+      }
+    }
+    .table-responsive {
+      margin-bottom: 0;
+    }
   }
 }
 
+/*comments*/
 #comments {
   &.table-responsive {
     overflow: visible;
@@ -254,6 +252,42 @@
   }
 }
 
+/*table view*/
+.table-view {
+  > div {
+    width: 100%;
+    float: left;
+    display: table;
+    clear: both;
+    margin-bottom: 10px;
+    label {
+      display: table-cell;
+      text-align: right;
+      width: 25%;
+      padding-right: 20px;
+      font-weight: normal;
+    }
+    input, select {
+      width: 114px;
+      display: inline;
+      float: left;
+    }
+    a, a:hover {
+      font-size: 14px;
+      color: #3399cc;
+    }
+  }
+}
+
+/*project detail section*/
+#project-detail {
+  label {
+    width: 20%;
+  }
+  .panel-body > div:first-child {
+    border-top: 1px solid #aaa;
+  }
+}
 
 
 
