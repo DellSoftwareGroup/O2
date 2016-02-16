@@ -235,7 +235,7 @@ var ribbonListener = function () {
     buildObj(obj);
 
     var IsObj = JSON.stringify(ISribbonObj);
-    console.log('isObj: ', IsObj)
+    // console.log('ISobj: ', IsObj)
     return IsObj;
   }
 
@@ -624,7 +624,7 @@ var ribbonWidgets = function () {
       // helping functions
       function updateMultiSelect(filterType, option) {
         var updatedValues = [];
-        if (option === 'undefined') {  // Process for removing whole filter
+        if (option === undefined) {  // Process for removing whole filter
           $(filterType).multipleSelect('setSelects', []);
 
         } else { // Process to remove single option
@@ -647,7 +647,6 @@ var ribbonWidgets = function () {
 
       function updateDynamicSelect(filterType, option) {
         var $filterWrap = $(filterType).parent('a');
-        console.log(option);
 
         if (option === undefined) {
           $filterWrap.find('select').html(''); // Remove all options

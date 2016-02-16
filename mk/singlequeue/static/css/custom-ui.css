@@ -1530,6 +1530,10 @@ ul {
   -webkit-background-clip: border-box;
   background-clip: border-box; }
 
+#views-selector select.k-input {
+  width: 100px;
+}
+
 /* Ribbon Popover */
 .ribbon-popover {
   min-width: 400px; }
