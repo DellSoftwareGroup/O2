@@ -177,6 +177,12 @@ $(function () {
       $(this).parent().parent().attr('style', '');
     }
   });
+
+  /*kendo editor*/
+  $(".editor").kendoEditor({ resizable: {
+    content: true,
+    toolbar: true
+  }});
 });
 
 $(window).load(function () {

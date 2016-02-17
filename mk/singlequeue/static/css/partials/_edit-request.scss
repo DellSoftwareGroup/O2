@@ -10,10 +10,10 @@
         font-size: 24px;
       }
     }
-    label h4 {
+    h4 {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 0;
+      margin: 0;
     }
     #due-date {
       > span:nth-child(2) {
@@ -32,78 +32,64 @@
         background-color: #D74324;
       }
     }
-    input, select {
-      width: 114px;
-      display: inline;
-      float: left;
-    }
     #planned-date {
       margin-left: 13px;
-      margin-right: 63px;
-    }
-    > div {
-      display: block;
-      float: left;
-      > span {
-        width: 114px;
-      }
-      /*i{
-          left:-18px;
-          top:8px;
-          position: relative;
-      }*/
+      margin-right: 85px;
     }
   }
 }
 
 /*Kendo UI datepicker*/
-.k-picker-wrap {
-  height: 32px;
-  .k-input {
-    height: 30px;
-    position: absolute;
-    padding-bottom: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    border-radius: 1px;
-  }
-  &.k-state-default {
-    background-image: none;
-    background-color: #fff;
-    border-radius: 1px;
-    border-color: #ccc;
-    > .k-select {
-      border: none;
-      border-radius: 0;
-      position: relative;
-      float: right;
-      width: auto;
+.date-picker {
+  width: 100%;
+  .k-picker-wrap {
+    height: 32px;
+    .k-input {
+      height: 30px;
+      position: absolute;
+      padding-bottom: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      border-radius: 1px;
     }
-  }
-  &.k-state-hover {
-    background-color: #fff;
-    > * > .k-i-calendar {
+    &.k-state-default {
+      background-image: none;
+      background-color: #fff;
+      border-radius: 1px;
+      border-color: #ccc;
+      > .k-select {
+        border: none;
+        border-radius: 0;
+        position: relative;
+        float: right;
+        width: auto;
+      }
+    }
+    &.k-state-hover {
+      background-color: #fff;
+      > * > .k-i-calendar {
+        background-position: -779px -75px;
+        width: 15px;
+        height: 12px;
+      }
+    }
+    &.k-state-focused {
+      background-color: #fff;
+      border-color: #66afe9;
+    }
+    .k-icon {
+      background-image: url('/mk/singlequeue/static/images/single-queue-sprite.png');
+      background-repeat: no-repeat;
+    }
+    .k-select {
+      line-height: 2.3em;
+    }
+    .k-i-calendar {
       background-position: -779px -75px;
-      width: 15px;
-      height: 12px;
+      position: absolute;
+      top: 11px;
+      left: 6px;
     }
-  }
-  &.k-state-focused {
-    background-color: #fff;
-    border-color: #66afe9;
-  }
-  .k-icon {
-    background-image: url('/mk/singlequeue/static/images/single-queue-sprite.png');
-    background-repeat: no-repeat;
-  }
-  .k-select {
-    line-height: 2.3em;
-  }
-  .k-i-calendar {
-    background-position: -779px -75px;
-    position: absolute;
-    top: 11px;
-    left: 6px;
   }
 }
 
@@ -252,43 +238,23 @@
   }
 }
 
-/*table view*/
-.table-view {
-  > div {
-    width: 100%;
-    float: left;
-    display: table;
-    clear: both;
+/*request info*/
+#request-info{
+  .panel-body > .row{
     margin-bottom: 10px;
-    label {
-      display: table-cell;
-      text-align: right;
-      width: 25%;
-      padding-right: 20px;
-      font-weight: normal;
-    }
-    input, select {
-      width: 114px;
-      display: inline;
-      float: left;
-    }
-    a, a:hover {
-      font-size: 14px;
-      color: #3399cc;
+    label{
+      line-height: 34px;
     }
   }
 }
-
-/*project detail section*/
-#project-detail {
-  label {
-    width: 20%;
-  }
-  .panel-body > div:first-child {
-    border-top: 1px solid #aaa;
-  }
+.lh-29 {
+  line-height: 29px;
 }
 
+label {
+  float: right;
+  font-weight: normal;
+}
 
 
 

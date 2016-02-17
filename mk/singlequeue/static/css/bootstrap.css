@@ -7578,6 +7578,9 @@ body {
 .border-t-grey, .comparison .panel-body .row:nth-of-type(odd) {
   border-top: 1px solid #cccccc; }
 
+.border-t-dell-grey {
+  border-top: 1px solid #aaaaaa; }
+
 .border-b-grey {
   border-bottom: 1px solid #cccccc; }
 
