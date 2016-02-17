@@ -448,87 +448,6 @@ tbody tr:first-child .tooltip:hover:after {
 #TopPager .k-current-page, #BottomPager .k-current-page {
   display: none !important; }
 
-/* Views */
-#views-selector {
-  margin-left: 30px;
-  float: left;
-  display: inline-block;
-  height: 31px;
-  width: 600px; }
-
-#views-selector ul {
-  position: relative; }
-
-#views-selector ul li {
-  display: inline-block;
-  position: relative;
-  cursor: pointer; }
-
-#views-selector ul li ul {
-  position: absolute;
-  top: 31px;
-  right: 0px;
-  z-index: 999;
-  border: 1px solid #7f9db9;
-  width: 110px;
-  display: none; }
-
-#views-selector ul li ul li {
-  display: block;
-  background-color: #eeeeee;
-  font-size: 13px;
-  border-collapse: collapse;
-  padding: 2px;
-  cursor: default; }
-
-#views-selector ul li ul li:hover {
-  background-color: #1e90ff;
-  color: #FFFFFF; }
-
-#views-selector #views-list {
-  background: url(../Content/Img/request-queue-views-01.png) 0px 0px no-repeat;
-  width: 65px;
-  height: 31px; }
-
-#views-selector #views-list:hover {
-  background-position: 0px -31px; }
-
-#views-selector #views-list.active {
-  background-position: 0px -62px; }
-
-#views-selector #views-list-edit {
-  background: url(../Content/Img/request-queue-views-01-edit.png) 0px 0px no-repeat;
-  width: 78px;
-  height: 31px; }
-
-#views-selector #views-list-edit:hover {
-  background-position: 0px -31px; }
-
-#views-selector #views-list-edit.active {
-  background-position: 0px -62px; }
-
-#views-selector #views-calendar {
-  background: url(../Content/Img/request-queue-views-02.jpg) 0px 0px no-repeat;
-  width: 97px;
-  height: 31px; }
-
-#views-selector #views-calendar:hover {
-  background-position: 0px -31px; }
-
-#views-selector #views-calendar.active {
-  background-position: 0px -62px; }
-
-#views-selector #views-charts {
-  background: url(../Content/Img/request-queue-views-03.jpg) 0px 0px no-repeat;
-  width: 79px;
-  height: 31px; }
-
-#views-selector #views-charts:hover {
-  background-position: 0px -31px; }
-
-#views-selector #views-charts.active {
-  background-position: 0px -62px; }
-
 /* Calendar view */
 #results-data-calendar .fc-day-grid-event .fc-content {
   white-space: normal !important;
@@ -1457,66 +1376,47 @@ ul {
 
 /*Naveen - view view section styles*/
 #views-selector {
-  margin-left: 30px;
-  float: left;
-  display: inline-block;
-  height: 31px;
-  width: 600px; }
-  #views-selector ul {
-    position: relative; }
-    #views-selector ul li {
+  margin-left: 0; }
+  #views-selector ul li {
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+    padding-bottom: 0; }
+    #views-selector ul li a {
       display: inline-block;
-      position: relative;
-      cursor: pointer;
-      margin-right: 10px; }
-      #views-selector ul li a {
-        display: inline-block;
-        color: #444;
-        padding: 2px; }
+      color: #444;
+      padding: 5px 8px 0 8px; }
       #views-selector ul li a:hover {
-        display: inline-block;
-        padding: 2px;
         color: #3399cc; }
-    #views-selector ul li:hover #list-icon {
-      background-position: -663px -113px;
-      width: 20px;
-      float: left;
-      margin-right: 10px; }
-    #views-selector ul li:hover {
-      background-color: #e8e8e6; }
-    #views-selector ul li:hover #calendar-icon {
-      background-position: -720px -114px;
-      width: 20px;
-      float: left;
-      margin-right: 10px; }
-    #views-selector ul li:hover #chart-icon {
-      background-position: -583px -114px;
-      width: 23px;
-      float: left;
-      margin-right: 10px; }
+      #views-selector ul li a span.sq-btn-icon {
+        margin-right: 10px;
+        width: 20px;
+        height: 24px;
+        float: left; }
+      #views-selector ul li a span:last-child {
+        display: block;
+        float: right;
+        line-height: 24px; }
+  #views-selector ul li:hover #list-icon {
+    background-position: -663px -113px; }
+  #views-selector ul li.active {
+    background-color: #e8e8e6; }
+  #views-selector ul li:hover #calendar-icon {
+    background-position: -720px -114px; }
+  #views-selector ul li:hover #chart-icon {
+    background-position: -583px -114px; }
 
 #list-icon {
-  background-position: -663px -70px;
-  width: 20px;
-  height: 20px;
-  float: left;
-  margin-right: 10px; }
+  background-position: -663px -70px; }
 
 #calendar-icon {
-  background-position: -720px -70px;
-  width: 20px;
-  height: 20px;
-  float: left;
-  margin-right: 10px; }
+  background-position: -720px -70px; }
 
 #chart-icon {
-  background-position: -583px -70px;
-  width: 23px;
-  float: left;
-  margin-right: 10px; }
+  background-position: -583px -70px; }
 
 #views-selector .k-multiselect.k-header {
-  width: 100px !important;
+  width: 119px !important;
   background-image: none;
   background-color: #fff;
   border: 1px solid #ccc !important;
@@ -1524,13 +1424,17 @@ ul {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 #views-selector .k-input, #views-selector .k-textbox > input, #views-selector .k-multiselect-wrap {
   background-color: #fff;
-  color: #2e2e2e; }
+  color: #444;
+  font-size: 20px;
+  font-weight: bold; }
 #views-selector .k-widget, #views-selector .k-widget * {
   -moz-background-clip: border-box;
   -webkit-background-clip: border-box;
   background-clip: border-box; }
 #views-selector select.k-input {
-  width: 100px; }
+  width: 119px;
+  padding: 0;
+  margin: 0; }
 
 /* Ribbon Popover */
 .ribbon-popover {
