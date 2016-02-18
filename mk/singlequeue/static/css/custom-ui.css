@@ -2080,6 +2080,6 @@ ul {
 .lh-34 {
   line-height: 34px; }
 
-label {
-  float: right;
-  font-weight: normal; }
+.summary label, #request-info label, #project-detail label {
+  font-weight: normal;
+  float: right; }
