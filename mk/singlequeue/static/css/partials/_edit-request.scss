@@ -239,16 +239,52 @@
 }
 
 /*request info*/
-#request-info{
-  .panel-body > .row{
-    margin-bottom: 10px;
-    label{
-      line-height: 34px;
+#request-info {
+  .panel-body {
+    /*padding-right: 0;*/
+    > .row {
+      margin-bottom: 10px;
+      label {
+        line-height: 34px;
+      }
+      .icon-small-checkmark {
+        position: absolute;
+        right: 28px;
+        top: 8px;
+      }
+      #website{
+        select{
+          width:34%;
+          float:left;
+        }
+        span{
+          float:left;
+          line-height:34px;
+          margin: 0 10px;
+        }
+        input{
+          width:310px;
+        }
+      }
+      #tags select{
+        width:212px;
+      }
+      .has-icon:hover{
+        text-decoration: none;
+      }
+      .icon-ui-plus{
+        font-size: 14px;
+      }
     }
   }
 }
+
 .lh-29 {
   line-height: 29px;
+}
+
+.lh-34 {
+  line-height: 34px;
 }
 
 label {

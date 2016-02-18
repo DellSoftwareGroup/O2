@@ -2048,13 +2048,37 @@ ul {
           margin-bottom: 0; }
 
 /*request info*/
-#request-info .panel-body > .row {
-  margin-bottom: 10px; }
-  #request-info .panel-body > .row label {
-    line-height: 34px; }
+#request-info .panel-body {
+  /*padding-right: 0;*/ }
+  #request-info .panel-body > .row {
+    margin-bottom: 10px; }
+    #request-info .panel-body > .row label {
+      line-height: 34px; }
+    #request-info .panel-body > .row .icon-small-checkmark {
+      position: absolute;
+      right: 28px;
+      top: 8px; }
+    #request-info .panel-body > .row #website select {
+      width: 34%;
+      float: left; }
+    #request-info .panel-body > .row #website span {
+      float: left;
+      line-height: 34px;
+      margin: 0 10px; }
+    #request-info .panel-body > .row #website input {
+      width: 310px; }
+    #request-info .panel-body > .row #tags select {
+      width: 212px; }
+    #request-info .panel-body > .row .has-icon:hover {
+      text-decoration: none; }
+    #request-info .panel-body > .row .icon-ui-plus {
+      font-size: 14px; }
 
 .lh-29 {
   line-height: 29px; }
+
+.lh-34 {
+  line-height: 34px; }
 
 label {
   float: right;

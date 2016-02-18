@@ -5825,6 +5825,9 @@ iframe {
 .icon-small-network:before {
   content: "\e639"; }
 
+.icon-ui-plus:before {
+  content: "\e60d"; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;
