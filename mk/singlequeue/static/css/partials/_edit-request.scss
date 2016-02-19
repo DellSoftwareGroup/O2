@@ -287,11 +287,15 @@
   line-height: 34px;
 }
 
+/* please adjust this style to not affect all
+   other places where label is used - style overrieds bootstrap label styles
+
 label {
   float: right;
   font-weight: normal;
 }
 
+*/
 
 
 

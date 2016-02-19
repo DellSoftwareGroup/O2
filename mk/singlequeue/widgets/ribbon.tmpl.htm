@@ -212,21 +212,22 @@
               <a href="#" id="more-filters">
                 More Filters <span class="arrow chrome"></span>
               </a>
-
               <div class="sub-nav-wrapper">
                 <!--this is to get rid of top box shadow-->
                 <div class="sub-nav">
                   <div id="filter-title">
                     <span>Filters</span>
                   </div>
-                  <select id="priority-dd">
+                  <select id="priority-dd" data-isFilter="true" multiple="multiple" data-select="default"
+                          data-title="Priority">
                     <option value="">Select Priority</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
                     <option value="critical">Critical</option>
                   </select>
-                  <select id="region-dd">
+                  <select id="region-dd" data-isFilter="true" multiple="multiple" data-select="default"
+                          data-title="Regions">
                     <option value="">--All Regions--</option>
                     <option value="1095">All</option>
                     <option value="80">APACJ</option>
@@ -234,9 +235,9 @@
                     <option value="78">LATAM</option>
                     <option value="77">NAM</option>
                   </select>
-
-                  <select id="route-to-market-dd">
-                    <option value="">--All Route to Market--</option>
+                  <select id="route-to-market-dd" multiple="multiple" data-isFilter="true" data-select="default"
+                          data-title="Route To Market">
+                    <option value="0">--All Route to Market--</option>
                     <option value="1094">All</option>
                     <option value="75">Channel</option>
                     <option value="93">CSES</option>
@@ -245,13 +246,15 @@
                   </select>
 
                   <div>
-                    <input type="text" value="" placeholder="Parent Campaign" class="sq-ribbon-filter-text">
+                    <input id="campaign-filter" type="text" value="" placeholder="Parent Campaign"
+                           class="sq-ribbon-filter-text">
                     <input type="hidden" value="">
                     <input type="button" id="campaign-btn" class="sq-btn-icon">
                   </div>
 
                   <div id="filter-project">
-                    <input type="text" value="" placeholder="Project" id="project-text" class="sq-ribbon-filter-text">
+                    <input id="project-filter" type="text" value="" placeholder="Project" id="project-text"
+                           class="sq-ribbon-filter-text">
                     <input type="hidden" value="" id="project-hidden">
                     <input type="button" id="project-btn" class="sq-btn-icon"/>
                   </div>

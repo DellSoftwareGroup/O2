@@ -370,6 +370,9 @@ ul {
   .chrome {
     top: 8px;
   }
+  .ie11 {
+    top: 0 !important;
+  }
 }
 
 .dyn-select-form {

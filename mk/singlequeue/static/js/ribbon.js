@@ -1,6 +1,5 @@
-function ribbon_change() {
-  // This is what IS will use
-  // just adding her for testing
+function ribbon_change(obj) {
+  console.log('from IS form: ', obj);
 }
 
 var ribbonListener = function () {
@@ -8,22 +7,22 @@ var ribbonListener = function () {
   /* Private Variables */
   var ribbonReqObj = {};
 
-  /*  Private Methods*/
+  /* -----> Private Methods <-----*/
 
   function rebuildRibbonState($rbWrapper) {
     var $filter = $rbWrapper.find('[data-isFilter=true]');
     ribbonReqObj = {};
     return filtersCollection($filter);
 
-  }
+    }
 
   // Internal methods to handle filters by type:
   function handleMultiSelect($multiSelect) {
     if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
       ribbonReqObj  [$multiSelect.data('title')] = [];
-    } else {
+      } else {
       console.log('Undefined filter title')
-      }
+        }
 
     $multiSelect.next().find('.ms-drop li').each(function () {
       var $li = $(this);
@@ -44,7 +43,7 @@ var ribbonListener = function () {
 
       ribbonReqObj  [$multiSelect.data('title')].push(option);
     });
-  }
+    }
 
   function handleDefaultSelect(defaultSelect) {
     if (defaultSelect.data('title') !== null || defaultSelect.data('title') !== undefined) {
@@ -54,10 +53,10 @@ var ribbonListener = function () {
     }
 
     defaultSelect.find('option').each(function () {
-      var $option = $(this);
-      var option = {};
-      option.text = $option.text();
-      option.value = $option.attr('value');
+        var $option = $(this);
+        var option = {};
+        option.text = $option.text();
+        option.value = $option.attr('value');
       option.isSelected = function () {
         if ($option.attr('selected')) {
           return true
@@ -68,8 +67,8 @@ var ribbonListener = function () {
 
 
       ribbonReqObj[defaultSelect.data('title')].push(option);
-    });
-  }
+      });
+    }
 
   function handleNoSelectFilters(noSelect) {
     var $prntLi = noSelect.parents('li'),
@@ -79,12 +78,12 @@ var ribbonListener = function () {
     if (prTitle !== null || prTitle !== undefined) {
       if (prTitle in ribbonReqObj) {
         // property exist
-      } else {
+        } else {
         ribbonReqObj[prTitle] = []
-      }
+        }
     } else {
       console.log('undefined title!!!')
-    }
+      }
 
     // Collect filter info
     var option = {};
@@ -99,8 +98,8 @@ var ribbonListener = function () {
         if (obj.text === option.text) {
           return false; // remove modified filter
         } else {
-          return true;
-        }
+            return true;
+          }
       })
       tempArr.push(option);
       ribbonReqObj  [prTitle] = tempArr;
@@ -108,7 +107,7 @@ var ribbonListener = function () {
       ribbonReqObj  [prTitle].push(option); // if option does not exist simple add option
     }
 
-    }
+  }
 
   function handleDynamicSelect(fromPopup) {
     var filterTitle = $(fromPopup).find('[data-title]').data('title'),
@@ -130,10 +129,35 @@ var ribbonListener = function () {
         ribbonReqObj[filterTitle].push(option);
       });
     }
+    }
+
+
+  /* -----> IS Interactions <-----*/
+
+  var initISfunc = {};
+
+  // gets function passed in the init and saves it for later use in an obj
+  function getISfunction(funcPassed) {
+    initISfunc = (function () {
+      var passedFunc = funcPassed;
+
+      function run() {
+        if (typeof passedFunc !== "undefined" || typeof passedFunc !== 'function') {
+          passedFunc(getISobj(ribbonReqObj));
+        }
+      }
+
+      return {
+        passedFund: passedFunc,
+        run: run
+      }
+    }());
   }
 
-  function getISobj(obj) {
-    var ISribbonObj = {}
+  // function converts object to meet IS requirements
+  function getISobj(uiObj) {
+
+    var ISribbonObj = {}, obj = (uiObj == undefined) ? ribbonReqObj : uiObj;
 
     function ISobjBuilder() {
       this.addProperty = function (propertyName, values) {
@@ -209,7 +233,7 @@ var ribbonListener = function () {
           buildObj.fixedPropertyName(title),
           values // array with values only
       );
-    }
+      }
 
     function noDropDown(title, options) {
       var buildObj = new ISobjBuilder();
@@ -220,7 +244,7 @@ var ribbonListener = function () {
             true
         );
       });
-    }
+      }
 
     function isdynamicFilter(title, options) {
       var buildObj = new ISobjBuilder();
@@ -229,7 +253,7 @@ var ribbonListener = function () {
           buildObj.fixedPropertyName(title),
           options
       );
-    }
+      }
 
     // Call to build object
     buildObj(obj);
@@ -238,6 +262,9 @@ var ribbonListener = function () {
     // console.log('ISobj: ', IsObj)
     return IsObj;
   }
+
+
+  /* -----> Public functions <-----*/
 
   // create ribbonReqObj   filters object
   function filtersCollection($filter) {
@@ -259,12 +286,15 @@ var ribbonListener = function () {
       }
     })
     ribbonWidgets.filterCollectorModule();
-    getISobj(ribbonReqObj)
+
+    // Will trigger IS function passed as argument in the init
+    initISfunc.run();
+
     return ribbonReqObj;
   }
 
   // add listener to filters, triggers IS function
-  function filterListener($rbWrapper, ISFunc) {
+  function filterListener($rbWrapper) {
     var isTimerRunning = false, ifMultipleClicks = "";
 
     // on select change event
@@ -283,10 +313,6 @@ var ribbonListener = function () {
         // rebuild ribbonReqObj   filters state
         rebuildRibbonState($rbWrapper);
 
-        // Will trigger IS function passed in the module arguments
-        if (typeof ISFunc !== "undefined" || typeof ISFunc === 'function') {
-          ISFunc(ribbonReqObj);
-        }
       }, 500)
 
     });
@@ -296,11 +322,6 @@ var ribbonListener = function () {
       e.preventDefault();
       // rebuild ribbonReqObj   filters state
       rebuildRibbonState($rbWrapper);
-
-      // Will trigger IS function passed in the module arguments
-      if (typeof ISFunc !== "undefined" || typeof ISFunc === 'function') {
-        ISFunc(ribbonReqObj);
-      }
     });
 
   }
@@ -310,72 +331,102 @@ var ribbonListener = function () {
     return ribbonReqObj;
   }
 
-  // build
 
-  /* -----> Public Methods -- */
+  /* -----> init <-----*/
   function init(ISprocess) {
     var $rbWrapper = $('.sq-top-ribbon'),
         $filter = $rbWrapper.find('[data-isFilter=true]'); // variable will be moved when ribbon gets integrated with pages.
+
+    getISfunction(ISprocess);
     filtersCollection($filter);
-    filterListener($rbWrapper, ISprocess);
+    filterListener($rbWrapper);
     ribbonWidgets.filterCollectorModule();// filters under ribbon - comes from custom-ui.js
 
     console.log(ribbonReqObj); // test object
-    console.log('ISobj: ', getISobj(ribbonReqObj));
+    console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
   }
 
   /* -----> API -- */
   return {
     init: init,
     rebuildRibbonState: rebuildRibbonState,
-    passFilterStateObj: passFilterStateObj
+    passFilterStateObj: passFilterStateObj,
+    getISobj: getISobj
   }
 
 }();
 
 var ribbonWidgets = function () {
 
+  // factories
+  function PopoverHtmlBuilder(filter) {
+    //Create content section of popover
+    this.msPopoverContent = String()
+        + '<form class="dyn-select-form">'
+        + '<div class="k-content">'
+        + '<label for="popoverInput">' + filter + '</label>'
+        + '<input id="popoverInput" />'
+        + '</div>'
+        + '<div class="panel panel-default taglist-parent" style="display:none;">'
+        + '<div class="panel-body">'
+        + '<div  unselectable="on">'
+        + '<ul role="listbox" unselectable="on" class="k-reset" id="popoverInput_taglist_prev"></ul>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<button type="button" class="btn btn-default popOverbtn">Close</button>'
+        + '<button type="button" class="btn btn-primary saveSelected">Apply</button>'
+        + '</form>';
+
+    //Create popover template
+    this.msHtmlPopover = String()
+        + '<div class="popover ribbon-popover" role="tooltip" >'
+        + '<div class="arrow">'
+        + '</div>'
+        + '<h3 class="popover-title"></h3>'
+        + '<div class="popover-content" >'
+        + '</div>'
+        + '</div>';
+
+    return {
+      content: this.msPopoverContent,
+      tmpl: this.msHtmlPopover
+    }
+  }
+
+  function ModalHtmlBuilder(modalInfo) {
+
+    this.modal = String()
+        + '<div class="modal fade ribbon-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'
+        + '<div class="modal-dialog" role="document">'
+        + '<div class="modal-content">'
+        + '<div class="modal-header">'
+        + '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+        + '<h4 class="modal-title" id="myModalLabel">' + modalInfo.title + '</h4>'
+        + '</div>'
+        + '<div class="modal-body">'
+        + modalInfo.content
+        + '</div>'
+        + '<div class="modal-footer">'
+        + '<button type="submit" class="btn btn-default">Select</button>'
+        + '<button type="reset" class="btn btn-default">Reset</button>'
+        + '</div></div></div></div>';
+
+    this.initModal = function () {
+      $('body').append(this.modal);
+    };
+
+    this.show = function () {
+      $('#myModal').modal('show');
+    }
+  }
+
+
   // Widget Modules:
   function ribbonPopupModule() {
     /* ------> Scope varibles <------- */
-    var targetInput = "#ownerInput", popupTrigger = '.popoverMS';
+    var targetInput = "#popoverInput", popupTrigger = '.popoverMS';
 
-    /* ------> Factories <------- */
-    // Popover factory
-    function PopoverHtmlBuilder(filter) {
-      //Create content section of popover
-      this.msPopoverContent = String()
-          + '<form class="dyn-select-form">'
-          + '<div class="k-content">'
-          + '<label for="ownerInput">' + filter + '</label>'
-          + '<input id="ownerInput" />'
-          + '</div>'
-          + '<div class="panel panel-default taglist-parent" style="display:none;">'
-          + '<div class="panel-body">'
-          + '<div  unselectable="on">'
-          + '<ul role="listbox" unselectable="on" class="k-reset" id="ownerInput_taglist_prev"></ul>'
-          + '</div>'
-          + '</div>'
-          + '</div>'
-          + '<button type="button" class="btn btn-default popOverbtn">Close</button>'
-          + '<button type="button" class="btn btn-primary saveSelected">Apply</button>'
-          + '</form>';
-
-      //Create popover template
-      this.msHtmlPopover = String()
-          + '<div class="popover ribbon-popover" role="tooltip" >'
-          + '<div class="arrow">'
-          + '</div>'
-          + '<h3 class="popover-title"></h3>'
-          + '<div class="popover-content" >'
-          + '</div>'
-          + '</div>';
-
-      return {
-        content: this.msPopoverContent,
-        tmpl: this.msHtmlPopover
-      }
-    };
     // Dynamic Select factory
     function BuildDynamicSelect(wrapper) {
       this.createSelectElem = function () {
@@ -417,13 +468,13 @@ var ribbonWidgets = function () {
         }
 
       }
-    };
+    }
 
 
     /* ------> Private Functions <------- */
     // initiate kendo multiselect
     function initKendoMultiSelect() {
-      $("#ownerInput").kendoMultiSelect({
+      $("#popoverInput").kendoMultiSelect({
         filter: "contains",
         separator: ", ",
         placeholder: 'Enter name...',
@@ -462,7 +513,7 @@ var ribbonWidgets = function () {
               + '<span unselectable="on" class="k-icon k-i-close remove-prev">delete</span></span></li>';
 
           // attach li to popover
-          $('#ownerInput_taglist_prev').append(temp);
+          $('#popoverInput_taglist_prev').append(temp);
         })
       }
       $(this).find('')
@@ -770,12 +821,148 @@ var ribbonWidgets = function () {
     buildTmpl(findActiveFilters());
     setXTrigger()
 
-  };
+  }
 
+  function moreFiltersAutoComplete() {
+
+    // Campaign Modal
+    function runCampaignModal() {
+      var campaignInfo = {};
+
+      campaignInfo.content = String()
+          + '<div>'
+          + '<form class="form-horizontal">'
+          + '<div class="form-group">'
+          + '<label for="campaignFilter">Campaign name: </label>'
+          + '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
+          + '<div id="hidenDropdown" style="display: none"></div>'
+          + '</div>'
+          + '<p>Or</p>'
+          + '<div class="form-group">'
+          + '<label for="campaignFilter">Campaign Creator: </label>'
+          + '<select  id="campaignCreator" placeholder="Campaign">'
+          + addCreatorOptions()
+          + '</select>'
+          + '</div>'
+          + '<p></p>'
+          + '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
+          + '</form></div>';
+      campaignInfo.title = 'Search Campaign';
+
+      var buildModal = new ModalHtmlBuilder(campaignInfo);
+
+      buildModal.initModal();
+      buildModal.show();
+
+      initCampaignAutoComplete('#campaignFilter');
+      // remove kendo styles
+      $("#campaignFilter").removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
+    }
+
+    function initCampaignAutoComplete(id) {
+      var CampaignDataJSON = '';
+
+      // TODO: will be used when go live to pull data.
+      function CampaignData_Get() {
+        $.ajax({
+          url: RootPath + "RequestQueues/CampaignData_Get",
+          contentType: "application/json; charset=utf-8",
+          success: function (response) {
+            if (response.error == "") {
+              CampaignDataJSON = response.data;
+              console.log(CampaignDataJSON);
+            } else {
+              alert(response.error);
+            }
+          },
+          error: function () {
+            alert('Cannot load requests at this moment please try again later ');
+          },
+          async: true
+        });
+
+      };
+
+      // Temporary data fix
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "/mk/singlequeue/widgets/views/data/CampaignData_Get.json"
+          }
+        },
+        schema: {
+          data: "data"
+        },
+        change: function (e) {
+          var view = dataSource.view();
+          console.log(view.length);
+          console.log(view[0]);
+          $('.campFilterResults').html('');
+          for (var i = 0; i < view.length; i++) {
+            $('.campFilterResults').append('<option>' + view[i].Name + '</option>');
+          }
+        }
+      });
+      $(id).kendoAutoComplete({
+        dataSource: dataSource,
+        dataTextField: "Name",
+        popup: {
+          appendTo: $("#hidenDropdown")
+        },
+        animation: false
+      });
+
+    }
+
+    function addCreatorOptions() {
+      var test = String()
+          + '<option>'
+          + 'this option'
+          + '</option>';
+      for (var i = 0; i < 4; i++) {
+        test = test + test;
+      }
+
+      return test;
+    } // endpoint needs to return createdBy as a Name
+
+    // Project Modal
+    function projectFilter() {
+      var dataSource = '';
+
+      //TODO reomve when pushing live or stage environments
+      $.get('/mk/singlequeue/widgets/views/data/ProjectData.js').done(function () {
+        dataSource = projectsList();
+
+        // This function is only to allow me to consume local data.
+        // Once data comes from IS this function should not be used
+        runFilter(dataSource);
+      });
+
+      // Temporary data fix
+      function runFilter(data) {
+
+        $("#project-filter").kendoAutoComplete({
+          dataSource: data,
+          dataTextField: "Name"
+        });
+      }
+
+    }
+
+    // Events
+
+    $('#campaign-btn').on('click', function (e) {
+      runCampaignModal()
+
+    });
+
+  }
 
   return {
     ribbonPopupModule: ribbonPopupModule,
-    filterCollectorModule: filterCollectorModule
+    filterCollectorModule: filterCollectorModule,
+    moreFiltersAutoComplete: moreFiltersAutoComplete
   }
 
 }();
@@ -789,6 +976,7 @@ $(function () {
         ribbonListener.init(ribbon_change);  // ribon_change is IS function
         ribbonWidgets.ribbonPopupModule();
         ribbonWidgets.filterCollectorModule();
+        ribbonWidgets.moreFiltersAutoComplete();
         clearInterval(timerOne);
       }
     }, 1000);

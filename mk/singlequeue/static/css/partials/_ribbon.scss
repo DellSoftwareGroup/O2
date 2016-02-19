@@ -460,13 +460,13 @@
       position: relative;
       z-index: 1;
       box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-      select, .sq-ribbon-filter-text {
+      select, .sq-ribbon-filter-text, .ms-parent {
         display: block;
         box-sizing: content-box;
         margin-bottom: 7px;
         border: 1px solid #ccc;
       }
-      select {
+      select, .ms-parent {
         &:last-child {
           margin-bottom: 0;
         }
@@ -481,6 +481,20 @@
         padding-left: 4px;
         padding-right: 19px;
       }
+
+      /* multiselect fields */
+      .ms-choice {
+
+        span {
+          padding-top: 5px;
+          padding-left: 2px;
+        }
+        div {
+          top: 0px;
+        }
+
+      }
+
     }
     select, input {
       font-size: 12.6667px;
@@ -551,7 +565,24 @@
 
 }
 
-.test {
-  color: #fff;
+/* ribbon modal */
+
+.ribbon-modal {
+  .modal-body {
+    padding: 20px;
+
+    form {
+      max-width: 100%;
+    }
+
+    .form-group {
+      margin-left: 0;
+      margin-right: 0;
+
+      &:first-child {
+        width: 490px;
+      }
+    }
+  }
 }
 

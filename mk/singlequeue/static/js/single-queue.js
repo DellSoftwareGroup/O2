@@ -1,5 +1,13 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
 $(function () {
+
+  // Prevent propagation on "More Filters" multiselect
+  var $mfMulti = $('.ms-choice').children;
+
+  $('.sub-nav').on('click', $mfMulti, function (e) {
+    e.stopPropagation();
+  });
+
   //add search placeholder hack in ie9
   $(document).ajaxComplete(function () {
     if ($('html').hasClass('k-ie9')) {
@@ -49,7 +57,6 @@ $(function () {
 
 
   $('body').on('click', function (e) {
-    -
         $('#sq-filters').removeClass('add-bg');
     $('.sub-nav').hide();
 
@@ -60,14 +67,18 @@ $(function () {
   });
 
   //click state of bar icons
-  var ribbonItem = $('.sq-top-ribbon > ul > li > ul > li');
+  var ribbonItem = $('.sq-top-ribbon > ul > li > ul > li'),
+      subNavMultiSelct = $('.sub-nav .ms-parent').children();
+
   ribbonItem.on('click', function () {
     toggleActiveItem(this);
   });
 
-  (ribbonItem.children(), filterSubNav, $('.sq-top-ribbon select')).on('click', function (e) {
+  (ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function (e) {
     e.stopPropagation();
+    console.log('test 1');
   });
+
 
   /*top nav state*/
   $('.has-subnav')
