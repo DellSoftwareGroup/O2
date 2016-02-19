@@ -252,27 +252,27 @@
         right: 28px;
         top: 8px;
       }
-      #website{
-        select{
-          width:34%;
-          float:left;
+      #website {
+        select {
+          width: 34%;
+          float: left;
         }
-        span{
-          float:left;
-          line-height:34px;
+        span {
+          float: left;
+          line-height: 34px;
           margin: 0 10px;
         }
-        input{
-          width:310px;
+        input {
+          width: 310px;
         }
       }
-      #tags select{
-        width:212px;
+      #tags select {
+        width: 212px;
       }
-      .has-icon:hover{
+      .has-icon:hover {
         text-decoration: none;
       }
-      .icon-ui-plus{
+      .icon-ui-plus {
         font-size: 14px;
       }
     }
@@ -287,15 +287,14 @@
   line-height: 34px;
 }
 
-/* please adjust this style to not affect all
-   other places where label is used - style overrieds bootstrap label styles
-
-label {
-  float: right;
-  font-weight: normal;
+.summary, #request-info, #project-detail {
+  label {
+    font-weight: normal;
+    float: right;
+  }
 }
 
-*/
+
 
 
 
