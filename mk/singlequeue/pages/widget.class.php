@@ -39,6 +39,8 @@
 					$widgetName = $arr[0];
 
 					$files = array(
+						'../widgets/' . $widgetName . '.htm',
+						'../widgets/' . $widgetName . '.html',
 						'../widgets/' . $widgetName . '/' . $filename . '.htm',
 						'../widgets/' . $widgetName . '/' . $filename . '.html'
 					);
@@ -48,7 +50,7 @@
 							$widgetContent = file_get_contents($file);
 							$content = '';
 
-							if (isset($_GET['ReduceContainer'])) {
+							if (isset($_GET['ReduceContainer']) && false) {
 								$dom = new DOMDocument();
 								$dom->loadHTML($widgetContent);
 
@@ -114,6 +116,8 @@
 							break;
 						}
 					}
+
+					$this->html = str_replace($m[0][$indx], '', $this->html);
 
 					$this->loadDependencies($widgetName, $filename);
 				}
