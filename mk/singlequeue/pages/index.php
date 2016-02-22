@@ -194,25 +194,15 @@
 </head>
 <body>
 <div id="body-content">
-	<div id="top" class="wrapper">
+	<div class="wrapper">
 		<?php
 			echo file_get_contents('../widgets/top-area.tmpl.htm');
 		?>
-		<?php
-			echo file_get_contents('../widgets/ribbon.tmpl.htm');
-		?>
 	</div>
-	<div id="content" class="wrapper">
-		<div class="data-heading">
-			<?php
-				echo file_get_contents('../widgets/view-view-widget.tmpl.htm');
-			?>
-		</div>
 
-		<?php
-			echo $widget->content();
-		?>
-	</div>
+    <?php
+        echo $widget->content();
+    ?>
 
 	<script src="/mk/singlequeue/static/js/dsg-bootstrap/bootstrap-3.3.4.min.js"></script>
 	<script src="/mk/singlequeue/static/js/ribbon.js"></script>
