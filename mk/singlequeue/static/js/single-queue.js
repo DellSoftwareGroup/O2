@@ -2,7 +2,7 @@
 $(function () {
 
   // Prevent propagation on "More Filters" multiselect
-  var $mfMulti = $('.ms-choice').children;
+  var $mfMulti = $('.ms-choice').children();
 
   $('.sub-nav').on('click', $mfMulti, function (e) {
     e.stopPropagation();
@@ -76,7 +76,6 @@ $(function () {
 
   (ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function (e) {
     e.stopPropagation();
-    console.log('test 1');
   });
 
 
