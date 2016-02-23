@@ -573,15 +573,16 @@
 
     form {
       max-width: 100%;
+
+      select {
+        z-index: 99999;
+      }
     }
 
     .form-group {
       margin-left: 0;
       margin-right: 0;
-
-      &:first-child {
-        width: 490px;
-      }
+      width: 490px;
     }
   }
 }

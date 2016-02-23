@@ -408,16 +408,22 @@ var ribbonWidgets = function () {
         + modalInfo.content
         + '</div>'
         + '<div class="modal-footer">'
-        + '<button type="submit" class="btn btn-default">Select</button>'
+        + '<button type="submit" class="btn select-btn btn-default">Select</button>'
         + '<button type="reset" class="btn btn-default">Reset</button>'
         + '</div></div></div></div>';
 
     this.initModal = function () {
-      $('body').append(this.modal);
+      $('#body-content').append(this.modal);
     };
 
     this.show = function () {
       $('#myModal').modal('show');
+    };
+
+    this.destroyListener = function () {
+      $('#myModal').on('hidden.bs.modal', function (e) {
+        $('body').find('.ribbon-modal').remove();
+      })
     }
   }
 
@@ -825,13 +831,23 @@ var ribbonWidgets = function () {
 
   function moreFiltersAutoComplete() {
 
+    // Private
+    function initSelected(that, target) {
+      // is there an option selected
+
+      $(target).find('option[selected]').each(function () {
+        $(this).removeAttr('selected');
+      });
+      $(that).attr('selected', 'selected');
+    }
+
     // Campaign Modal
     function runCampaignModal() {
       var campaignInfo = {};
 
       campaignInfo.content = String()
           + '<div>'
-          + '<form class="form-horizontal">'
+          + '<form class="form-horizontal" data-whichModal="campaign">'
           + '<div class="form-group">'
           + '<label for="campaignFilter">Campaign name: </label>'
           + '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
@@ -853,6 +869,7 @@ var ribbonWidgets = function () {
 
       buildModal.initModal();
       buildModal.show();
+      buildModal.destroyListener();
 
       initCampaignAutoComplete('#campaignFilter');
       // remove kendo styles
@@ -906,6 +923,7 @@ var ribbonWidgets = function () {
       $(id).kendoAutoComplete({
         dataSource: dataSource,
         dataTextField: "Name",
+        minLength: 2,
         popup: {
           appendTo: $("#hidenDropdown")
         },
@@ -927,7 +945,54 @@ var ribbonWidgets = function () {
     } // endpoint needs to return createdBy as a Name
 
     // Project Modal
-    function projectFilter() {
+    function runProjectModal() {
+      var projectInfo = {};
+
+      projectInfo.content = String()
+          + '<div>'
+          + '<form class="form-horizontal" data-whichModal="project">'
+          + '<div class="form-group">'
+          + '<label for="projectFilter">Project Name</label>'
+          + '<input type="text" class="form-control" id="projectFilter">'
+          + '<div id="hidenDropdown" style="display: none"></div>'
+          + '</div>'
+          + '<p>Or</p>'
+          + '<div class="form-group">'
+          + '<label for="projectOwner">Project Owner</label>'
+          + '<select  id="projectOwner" class="form-control">'
+          + addCreatorOptions()
+          + '</select>'
+          + '</div>'
+          + '<p></p>'
+          + '<div class="form-group">'
+          + '<label for="agileTeam">Agile Team</label>'
+          + '<select  id="agileTeam" class="form-control">'
+          + addCreatorOptions()
+          + '</select>'
+          + '</div>'
+          + '<p></p>'
+          + '<div class="form-group">'
+          + '<label for="sprintFilter">Sprint</label>'
+          + '<select  id="sprintFilter" class="form-control">'
+          + addCreatorOptions()
+          + '</select>'
+          + '</div>'
+          + '<p></p>'
+          + '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
+          + '</form></div>';
+      projectInfo.title = 'Search project';
+
+      var buildModal = new ModalHtmlBuilder(projectInfo);
+
+      buildModal.initModal();
+      buildModal.show();
+      buildModal.destroyListener();
+
+      initProjectAutoComplte('#projectFilter');
+
+    }
+
+    function initProjectAutoComplte(projectBtn) {
       var dataSource = '';
 
       //TODO reomve when pushing live or stage environments
@@ -937,14 +1002,33 @@ var ribbonWidgets = function () {
         // This function is only to allow me to consume local data.
         // Once data comes from IS this function should not be used
         runFilter(dataSource);
+        $('#projectFilter').removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
       });
 
       // Temporary data fix
       function runFilter(data) {
 
-        $("#project-filter").kendoAutoComplete({
-          dataSource: data,
-          dataTextField: "Name"
+        var dataSource = new kendo.data.DataSource({
+          data: data,
+          change: function (e) {
+            var view = dataSource.view();
+            console.log(view.length);
+            console.log(view[0]);
+            $('.projectFilterResults').html('');
+            for (var i = 0; i < view.length; i++) {
+              $('.projectFilterResults').append('<option>' + view[i].Name + '</option>');
+            }
+          }
+        });
+
+        $(projectBtn).kendoAutoComplete({
+          dataSource: dataSource,
+          dataTextField: "Name",
+          minLength: 2,
+          popup: {
+            appendTo: $("#hidenDropdown")
+          },
+          animation: false
         });
       }
 
@@ -952,11 +1036,58 @@ var ribbonWidgets = function () {
 
     // Events
 
-    $('#campaign-btn').on('click', function (e) {
-      runCampaignModal()
-
+    // prevent filter menu to close on modal clicks
+    var modalChildren = $('.ribbon-modal').children();
+    $('#body-content').on('click', modalChildren, function (e) {
+      e.stopPropagation();
     });
 
+
+    $('#campaign-btn').on('click', function (e) {
+      runCampaignModal();
+    });
+
+    $('#project-btn').on('click', function (e) {
+      runProjectModal();
+    });
+
+    // add selected attr
+    $('#body-content').on('click', '.ribbon-modal option', function (e) {
+      initSelected($(this), $(this).parents('select'));
+    });
+
+    $('#body-content').on('click', '.ribbon-modal .select-btn', function (e) {
+      var exports = {}, modalBody = $(this).parents('.modal-content'),
+          $form = modalBody.find('form'),
+          $optionSelected = modalBody.find('form > select').find('option[selected]');
+
+      if (!$optionSelected.length) {
+        alert('Please click again on selected Option!')
+      }
+
+      exports.name = $optionSelected.text();
+      exports.id = $optionSelected.val();
+
+      // find which modal (campaign or project : may grow later time)
+      var $whichModal = $form.data('whichmodal');
+      $('#' + $whichModal + '-filter')
+          .val(exports.name)
+          .data('filterId', exports.id || 'oops no id found!');
+
+      $('#myModal').modal('hide')
+
+
+      console.log('0')
+      var test = setTimeout(function () {
+        console.log('1')
+      }, 5000).promise();
+
+      test.done(function () {
+        // create selector
+        console.log('2');
+      })
+
+    })
   }
 
   return {
