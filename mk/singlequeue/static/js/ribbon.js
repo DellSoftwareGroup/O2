@@ -17,7 +17,7 @@ var ribbonListener = function () {
     }
 
   // Internal methods to handle filters by type:
-  function handleMultiSelect($multiSelect) {
+  function handleMultiSelect($multiSelect, filterType) {
     if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
       ribbonReqObj  [$multiSelect.data('title')] = [];
       } else {
@@ -34,22 +34,24 @@ var ribbonListener = function () {
         } else {
           return false;
         }
+
       }();// end of is selected
 
       option.value = $li.find('input').attr('value'); // end of value
 
       option.text = $li.find('label').text(); // end of text
 
+      option.type = filterType;
 
       ribbonReqObj  [$multiSelect.data('title')].push(option);
     });
     }
 
-  function handleDefaultSelect(defaultSelect) {
+  function handleDefaultSelect(defaultSelect, filterType) {
     if (defaultSelect.data('title') !== null || defaultSelect.data('title') !== undefined) {
       ribbonReqObj[defaultSelect.data('title')] = [];
     } else {
-      alert('No Title issue: see ribbon.js ln:48')
+      alert('No Title issue: see ribbon.js')
     }
 
     defaultSelect.find('option').each(function () {
@@ -57,6 +59,8 @@ var ribbonListener = function () {
         var option = {};
         option.text = $option.text();
         option.value = $option.attr('value');
+      option.type = filterType;
+
       option.isSelected = function () {
         if ($option.attr('selected')) {
           return true
@@ -70,7 +74,7 @@ var ribbonListener = function () {
       });
     }
 
-  function handleNoSelectFilters(noSelect) {
+  function handleNoSelectFilters(noSelect, filterType) {
     var $prntLi = noSelect.parents('li'),
         prTitle = $prntLi.data('title');
 
@@ -90,6 +94,7 @@ var ribbonListener = function () {
 
     option.text = noSelect.find('a span:last-child').text();
     option.value = "no value assigned"; // this filter section doesn't have values
+    option.type = filterType;
     option.isSelected = noSelect.hasClass('active-item-bg') ? true : false;
 
     // test if object exist
@@ -109,7 +114,7 @@ var ribbonListener = function () {
 
   }
 
-  function handleDynamicSelect(fromPopup) {
+  function handleDynamicSelect(fromPopup, filterType) {
     var filterTitle = $(fromPopup).find('[data-title]').data('title'),
         $dynamicSelectElem = $(fromPopup).find('.dynamic-select');
 
@@ -124,6 +129,7 @@ var ribbonListener = function () {
         var option = {};
         option.text = $option.text();
         option.value = $option.attr('value');
+        option.type = filterType;
         option.isSelected = true;
 
         ribbonReqObj[filterTitle].push(option);
@@ -157,7 +163,7 @@ var ribbonListener = function () {
   // function converts object to meet IS requirements
   function getISobj(uiObj) {
 
-    var ISribbonObj = {}, obj = (uiObj == undefined) ? ribbonReqObj : uiObj;
+    var ISribbonObj = {}, obj = (uiObj == undefined) ? {} : uiObj;
 
     function ISobjBuilder() {
       this.addProperty = function (propertyName, values) {
@@ -193,11 +199,11 @@ var ribbonListener = function () {
           valueObj.forEach(function (option) {
             if (option.isSelected === true) {
               // what type of value
-              if (!isNaN(option.value)) {
+              if (option.type == 'array-list') {
                 numValues.push(option.value); // if is a number it is a dropdown
-              } else if (option.value == "no value assigned") {
+              } else if (option.type == 'boolean') {
                 activeOptions.push(option.text);
-              } else if (typeof option.value === 'string') { // there could not be other case but we are checking for undefined.
+              } else if (typeof option.type === 'userType') { // there could not be other case but we are checking for undefined.
                 optObj = {
                   value: option.value,
                   email: ''
@@ -256,11 +262,18 @@ var ribbonListener = function () {
       }
 
     // Call to build object
-    buildObj(obj);
+    // check object is not empty
+    if ($.isEmptyObject(obj)) {  // IS may call the function with and empty object
+      console.log('empty object');
+      return false;
+    } else {
+      buildObj(obj);
 
-    var IsObj = JSON.stringify(ISribbonObj);
-    // console.log('ISobj: ', IsObj)
-    return IsObj;
+      var IsObj = JSON.stringify(ISribbonObj);
+      // console.log('ISobj: ', IsObj)
+      return IsObj;
+    }
+
   }
 
 
@@ -272,16 +285,16 @@ var ribbonListener = function () {
     $filter.each(function () {
       // Filter Types
       if ($(this).attr('multiple')) { // check for multiselect
-        handleMultiSelect($(this));
+        handleMultiSelect($(this), 'array-list');
 
       } else if ($(this).attr('data-select') === "default") { // check for default select elem
-        handleDefaultSelect($(this));
+        handleDefaultSelect($(this), 'array-list');
 
-      } else if ($(this).attr('data-dynamic') === 'true') {
-        handleDynamicSelect($(this));
+      } else if ($(this).attr('data-dynamic', 'userType') === 'true') {
+        handleDynamicSelect($(this), 'userType');
 
       } else if ($(this).find('select').length == 0) {  //check for filter options without select elem
-        handleNoSelectFilters($(this));
+        handleNoSelectFilters($(this), 'boolean');
 
       }
     })
@@ -480,24 +493,25 @@ var ribbonWidgets = function () {
     /* ------> Private Functions <------- */
     // initiate kendo multiselect
     function initKendoMultiSelect() {
+      var userDataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: '/mk/singlequeue/widgets/views/data/users.json',
+            datatype: 'json'
+          }
+        },
+        schema: {
+          type: 'json',
+          data: 'data'
+        }
+      });
+
       $("#popoverInput").kendoMultiSelect({
         filter: "contains",
         separator: ", ",
         placeholder: 'Enter name...',
         minLength: 2,
-        dataSource: {
-          //serverFiltering: true, -> This setting needs to be activated when pulling data from server
-          transport: {
-            read: {
-              url: '/mk/singlequeue/widgets/views/data/users.json',
-              datatype: 'json'
-            }
-          },
-          schema: {
-            type: 'json',
-            data: 'data'
-          }
-        },
+        dataSource: userDataSource,
         dataTextField: "Name",
         dataValueField: "Alias"
       });
@@ -1101,17 +1115,10 @@ var ribbonWidgets = function () {
 
 // Standard jquery onload function will trigger ribbonListener init method
 $(function () {
-  if ($('.sq-top-ribbon').length === 0) {
-    var timerOne = setInterval(function () {  // timer needed only for localhost
-      if ($('.sq-top-ribbon').length > 0) {
         ribbonListener.init(ribbon_change);  // ribon_change is IS function
         ribbonWidgets.ribbonPopupModule();
         ribbonWidgets.filterCollectorModule();
         ribbonWidgets.moreFiltersAutoComplete();
-        clearInterval(timerOne);
-      }
-    }, 1000);
-  }
 });
 
 
