@@ -9,7 +9,7 @@ var commonWidgets = (function ($) {
 				console.log(value);
 			}
 		});
-	}
+	};
 
 	return {
 		listingDropdown: listingDropdown

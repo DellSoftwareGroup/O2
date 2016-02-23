@@ -1,46 +1,45 @@
 <?php require 'widget.class.php'; $widget = new Widget(); ?><!DOCTYPE html>
-<!DOCTYPE html >
 <html>
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>View Request Listings</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<!-- Kendo and IS JS and Styles -->
-	<script type="text/javascript">
+	<script>
 		//document.location.href = document.location.href.replace("/v2", "/mk/");
 		var RootPath = "http://qa-o2.prod.quest.corp/v2/";
 		var WebMarketingRootPath = "http://webmarketingstage.prod.quest.corp";
 		var O2URL = "http" + '://' + "qa-o2.prod.quest.corp" + "http://qa-o2.prod.quest.corp/v2/";
 	</script>
 
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-migrate-1.2.1.min.js"></script>
 
 	<!-- multiple-select jquery plugin -->
-	<script src="../../static/js/jquery.multiple.select.min.js"></script>
+	<script src="/mk/singlequeue/static/js/jquery.multiple.select.min.js"></script>
 
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.unobtrusive.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jqueryDateFormat.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jqueryDateFormat.js"></script>
 
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/jquery.placeholder.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Library/bowser-master/bowser.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/View-Scripts/Common.js"></script>
-	<script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script type="text/javascript" src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/moment.min.js'></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/jquery.placeholder.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Library/bowser-master/bowser.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/View-Scripts/Common.js"></script>
+	<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/moment.min.js'></script>
 
 	<link href="http://qa-o2.prod.quest.corp/v2/Static/Content/kendo/2015.1.318/kendo.requestqueues.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.all.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.aspnetmvc.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.all.min.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.aspnetmvc.min.js"></script>
 
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.cookie.js"></script>
-	<!--<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/web-queue-plugins.js"></script>-->
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.js"></script>
-	<script type="text/javascript" src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.js'></script>
-	<script type="text/javascript" src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/browser-warning.js'></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/TimeZone.js"></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.cookie.js"></script>
+	<!--<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/web-queue-plugins.js"></script>-->
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.js"></script>
+	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.js'></script>
+	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/browser-warning.js'></script>
+	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/TimeZone.js"></script>
 
-	<link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/mk/singlequeue/static/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/RequestQueues.css">
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/Header.css">-->
@@ -54,7 +53,7 @@
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/warning.css" />
 
 
-	<!--<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/singlequeue.js"></script>-->
+	<!--<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/singlequeue.js"></script>-->
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/project-form.css">
 
 	<script>
@@ -66,7 +65,7 @@
 			cursor: pointer !important;
 		}
 	</style>
-	<script type="text/javascript">
+	<script>
 		$(function () {
 			var a = setTimeout(function () {
 
