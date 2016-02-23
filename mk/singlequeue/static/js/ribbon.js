@@ -493,24 +493,48 @@ var ribbonWidgets = function () {
     /* ------> Private Functions <------- */
     // initiate kendo multiselect
     function initKendoMultiSelect() {
-      var userDataSource = new kendo.data.DataSource({
+	    /*var userDataSource = new kendo.data.DataSource({
+	     type: 'odata',
+	     serverFiltering: true,
         transport: {
           read: {
             url: '/mk/singlequeue/widgets/views/data/users.json',
             datatype: 'json'
           }
-        },
-        schema: {
-          type: 'json',
-          data: 'data'
         }
-      });
+	     });*/
+
+	    var userDataSource = new kendo.data.DataSource({
+		    //type: 'odata',
+		    serverFiltering: true,
+		    transport: {
+			    read: function(options) {
+				    if (typeof options.data.filter != 'undefined') {
+					    $.ajax({
+						    url: "/mk/singlequeue/widgets/views/data/users.json?key=" + options.data.filter.filters[0].value,
+						    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+						    success: function(result) {
+							    // notify the data source that the request succeeded
+							    options.success(result.data);
+						    },
+						    error: function(result) {
+							    // notify the data source that the request failed
+							    options.error(result);
+						    }
+					    });
+				    }
+				    else {
+					    options.success([]);
+				    }
+			    }
+		    }
+	    });
 
       $("#popoverInput").kendoMultiSelect({
         filter: "contains",
         separator: ", ",
         placeholder: 'Enter name...',
-        minLength: 2,
+	      minLength: 3,
         dataSource: userDataSource,
         dataTextField: "Name",
         dataValueField: "Alias"
