@@ -2091,23 +2091,23 @@ ul {
       line-height: 34px;
       margin: 0 10px; }
     #request-info .panel-body > div #website input {
-      width: 338px; }
+      width: 329px; }
     #request-info .panel-body > div .three-col-dd select {
       float: left;
       width: 18%; }
     #request-info .panel-body > div .three-col-dd label {
       float: left;
       line-height: 34px;
-      margin-left: 49px;
+      margin-left: 46px;
       margin-right: 15px; }
       #request-info .panel-body > div .three-col-dd label#region {
         margin-left: 97px; }
       #request-info .panel-body > div .three-col-dd label#route {
-        margin-left: 31px; }
+        margin-left: 26px; }
       #request-info .panel-body > div .three-col-dd label#sprint {
         margin-left: 101px; }
       #request-info .panel-body > div .three-col-dd label#priority {
-        margin-left: 52px; }
+        margin-left: 48px; }
     #request-info .panel-body > div #tags select {
       width: 212px; }
     #request-info .panel-body > div .has-icon:hover {
