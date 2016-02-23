@@ -12,8 +12,8 @@
 		var O2URL = "http" + '://' + "qa-o2.prod.quest.corp" + "http://qa-o2.prod.quest.corp/v2/";
 	</script>
 
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-1.10.2.min.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-migrate-1.2.1.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 	<!-- multiple-select jquery plugin -->
 	<script src="/mk/singlequeue/static/js/jquery.multiple.select.min.js"></script>
