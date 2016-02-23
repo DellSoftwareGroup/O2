@@ -3,13 +3,12 @@
     <div class="panel">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#request-info" aria-expanded="false"
-             class="collapsed">
+          <a data-toggle="collapse" data-parent="#accordion" href="#request-info" aria-expanded="true">
             Request Information
           </a>
         </h4>
       </div>
-      <div id="request-info" class="table-responsive collapse" aria-expanded="false">
+      <div id="request-info" class="table-responsive collapse in" aria-expanded="true">
         <div class="panel-body">
           <div class="pt-20 border-t-dell-grey">
             <div class="col-xs-3">
@@ -191,7 +190,7 @@
                 <option value="70">Windows</option>
                 <option value="73" selected="">None</option>
               </select>
-              <label id="region">Region *</label>
+              <label id="region">Region</label>
               <select name="QMDRegion" id="QMDRegion" class="form-control">
                 <option value="1095">All</option>
                 <option value="80">APACJ</option>
@@ -199,7 +198,7 @@
                 <option value="78">LATAM</option>
                 <option value="77">NAM</option>
               </select>
-              <label id="route">Route to Market *</label>
+              <label id="route">Route to Market</label>
               <select name="QMDRouteToMarket" id="QMDRouteToMarket" class="form-control">
                 <option value="1094">All</option>
                 <option value="75">Channel</option>
@@ -229,7 +228,7 @@
           </div>
           <div>
             <div class="col-xs-3">
-              <label>Request Status</label>
+              <label>Request Status *</label>
             </div>
             <div class="col-xs-9 ph-0 three-col-dd">
               <select name="StatusID" id="StatusID" class="form-control">

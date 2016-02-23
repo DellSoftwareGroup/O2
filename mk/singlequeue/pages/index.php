@@ -185,9 +185,6 @@
 	<script src="../../static/js/custom-ui.js"></script>
 	<script src="../../static/js/sq-listings-module.js"></script>
 
-	<!-- template only styles and js -->
-	<script src="view-requests.js"></script>
-
 	<?php
 		echo $widget->css();
 	?>
