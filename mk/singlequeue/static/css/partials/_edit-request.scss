@@ -98,18 +98,25 @@
   border-bottom: none;
   > .panel {
     border-top: none;
-    .panel-title > a {
-      font-size: 18px;
-      font-weight: bold;
-      &.collapsed:before {
-        content: "\e250";
-      }
-      &:before {
-        content: "\e252";
+    .panel-heading {
+      padding: 10px 0;
+      .panel-title > a {
+        font-size: 18px;
+        font-weight: bold;
+        &.collapsed:before {
+          content: "\e250";
+        }
+        &:before {
+          content: "\e252";
+        }
       }
     }
     .table-responsive {
       margin-bottom: 0;
+      overflow: hidden;
+      .panel-body {
+        padding: 0;
+      }
     }
   }
 }
@@ -241,8 +248,11 @@
 /*request info*/
 #request-info {
   .panel-body {
-    /*padding-right: 0;*/
-    > .row {
+    padding: 0;
+    > div {
+      float: left;
+      clear: both;
+      width: 100%;
       margin-bottom: 10px;
       label {
         line-height: 34px;
@@ -263,7 +273,31 @@
           margin: 0 10px;
         }
         input {
-          width: 310px;
+          width: 338px;
+        }
+      }
+      .three-col-dd {
+        select {
+          float: left;
+          width: 18%;
+        }
+        label {
+          float: left;
+          line-height: 34px;
+          margin-left: 49px;
+          margin-right: 15px;
+          &#region {
+            margin-left: 87px;
+          }
+          &#route {
+            margin-left: 24px;
+          }
+          &#sprint {
+            margin-left: 101px;
+          }
+          &#priority {
+            margin-left: 52px;
+          }
         }
       }
       #tags select {
@@ -274,6 +308,30 @@
       }
       .icon-ui-plus {
         font-size: 14px;
+      }
+      .icon-small-magnifying-glass {
+        position: absolute;
+        top: 9px;
+        right: 25px;
+        color: #666;
+      }
+    }
+    #GridQA {
+      thead tr th {
+        font-weight: bold;
+      }
+      tbody tr {
+        td {
+          border-bottom: 1px solid #aaa;
+        }
+        &:nth-child(even) {
+          background-color: #fff;
+        }
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
       }
     }
   }

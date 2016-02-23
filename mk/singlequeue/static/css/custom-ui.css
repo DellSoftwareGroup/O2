@@ -1455,10 +1455,8 @@ ul {
   position: relative; }
   .popoverMS .chrome {
     top: 8px; }
-
-.popoverMS .ie11 {
-  top: 0 !important;
-}
+  .popoverMS .ie11 {
+    top: 0 !important; }
 
 .dyn-select-form #ownerInput {
   width: 100%; }
@@ -1807,37 +1805,29 @@ ul {
       position: relative;
       z-index: 1;
       box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-      /* multiselect fields */
-    }
-
-.sq-top-ribbon > ul > li .sub-nav select, .sq-top-ribbon > ul > li .sub-nav .sq-ribbon-filter-text, .sq-top-ribbon > ul > li .sub-nav .ms-parent {
+      /* multiselect fields */ }
+      .sq-top-ribbon > ul > li .sub-nav select, .sq-top-ribbon > ul > li .sub-nav .sq-ribbon-filter-text, .sq-top-ribbon > ul > li .sub-nav .ms-parent {
         display: block;
         box-sizing: content-box;
         margin-bottom: 7px;
         border: 1px solid #ccc; }
-
-.sq-top-ribbon > ul > li .sub-nav select, .sq-top-ribbon > ul > li .sub-nav .ms-parent {
+      .sq-top-ribbon > ul > li .sub-nav select, .sq-top-ribbon > ul > li .sub-nav .ms-parent {
         width: 223px;
         height: 23px;
         clear: both;
         background-color: #fff; }
-
-.sq-top-ribbon > ul > li .sub-nav select:last-child, .sq-top-ribbon > ul > li .sub-nav .ms-parent:last-child {
+        .sq-top-ribbon > ul > li .sub-nav select:last-child, .sq-top-ribbon > ul > li .sub-nav .ms-parent:last-child {
           margin-bottom: 0; }
       .sq-top-ribbon > ul > li .sub-nav .sq-ribbon-filter-text {
         width: 200px;
         height: 21px;
         padding-left: 4px;
         padding-right: 19px; }
-
-.sq-top-ribbon > ul > li .sub-nav .ms-choice span {
-  padding-top: 5px;
-  padding-left: 2px;
-}
-
-.sq-top-ribbon > ul > li .sub-nav .ms-choice div {
-  top: 0px;
-}
+      .sq-top-ribbon > ul > li .sub-nav .ms-choice span {
+        padding-top: 5px;
+        padding-left: 2px; }
+      .sq-top-ribbon > ul > li .sub-nav .ms-choice div {
+        top: 0px; }
     .sq-top-ribbon > ul > li select, .sq-top-ribbon > ul > li input {
       font-size: 12.6667px; }
   .sq-top-ribbon .ms-parent {
@@ -1890,21 +1880,14 @@ ul {
 
 /* ribbon modal */
 .ribbon-modal .modal-body {
-  padding: 20px;
-}
-
-.ribbon-modal .modal-body form {
-  max-width: 100%;
-}
-
-.ribbon-modal .modal-body .form-group {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.ribbon-modal .modal-body .form-group:first-child {
-  width: 490px;
-}
+  padding: 20px; }
+  .ribbon-modal .modal-body form {
+    max-width: 100%; }
+  .ribbon-modal .modal-body .form-group {
+    margin-left: 0;
+    margin-right: 0; }
+    .ribbon-modal .modal-body .form-group:first-child {
+      width: 490px; }
 
 .summary {
   border-radius: 3px;
@@ -1983,15 +1966,20 @@ ul {
   border-bottom: none; }
   .panel-group-collapsible > .panel {
     border-top: none; }
-    .panel-group-collapsible > .panel .panel-title > a {
-      font-size: 18px;
-      font-weight: bold; }
-      .panel-group-collapsible > .panel .panel-title > a.collapsed:before {
-        content: "\e250"; }
-      .panel-group-collapsible > .panel .panel-title > a:before {
-        content: "\e252"; }
+    .panel-group-collapsible > .panel .panel-heading {
+      padding: 10px 0; }
+      .panel-group-collapsible > .panel .panel-heading .panel-title > a {
+        font-size: 18px;
+        font-weight: bold; }
+        .panel-group-collapsible > .panel .panel-heading .panel-title > a.collapsed:before {
+          content: "\e250"; }
+        .panel-group-collapsible > .panel .panel-heading .panel-title > a:before {
+          content: "\e252"; }
     .panel-group-collapsible > .panel .table-responsive {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      overflow: hidden; }
+      .panel-group-collapsible > .panel .table-responsive .panel-body {
+        padding: 0; }
 
 /*comments*/
 #comments.table-responsive {
@@ -2082,30 +2070,62 @@ ul {
 
 /*request info*/
 #request-info .panel-body {
-  /*padding-right: 0;*/ }
-  #request-info .panel-body > .row {
+  padding: 0; }
+  #request-info .panel-body > div {
+    float: left;
+    clear: both;
+    width: 100%;
     margin-bottom: 10px; }
-    #request-info .panel-body > .row label {
+    #request-info .panel-body > div label {
       line-height: 34px; }
-    #request-info .panel-body > .row .icon-small-checkmark {
+    #request-info .panel-body > div .icon-small-checkmark {
       position: absolute;
       right: 28px;
       top: 8px; }
-    #request-info .panel-body > .row #website select {
+    #request-info .panel-body > div #website select {
       width: 34%;
       float: left; }
-    #request-info .panel-body > .row #website span {
+    #request-info .panel-body > div #website span {
       float: left;
       line-height: 34px;
       margin: 0 10px; }
-    #request-info .panel-body > .row #website input {
-      width: 310px; }
-    #request-info .panel-body > .row #tags select {
+    #request-info .panel-body > div #website input {
+      width: 338px; }
+    #request-info .panel-body > div .three-col-dd select {
+      float: left;
+      width: 18%; }
+    #request-info .panel-body > div .three-col-dd label {
+      float: left;
+      line-height: 34px;
+      margin-left: 49px;
+      margin-right: 15px; }
+      #request-info .panel-body > div .three-col-dd label#region {
+        margin-left: 87px; }
+      #request-info .panel-body > div .three-col-dd label#route {
+        margin-left: 24px; }
+      #request-info .panel-body > div .three-col-dd label#sprint {
+        margin-left: 101px; }
+      #request-info .panel-body > div .three-col-dd label#priority {
+        margin-left: 52px; }
+    #request-info .panel-body > div #tags select {
       width: 212px; }
-    #request-info .panel-body > .row .has-icon:hover {
+    #request-info .panel-body > div .has-icon:hover {
       text-decoration: none; }
-    #request-info .panel-body > .row .icon-ui-plus {
+    #request-info .panel-body > div .icon-ui-plus {
       font-size: 14px; }
+    #request-info .panel-body > div .icon-small-magnifying-glass {
+      position: absolute;
+      top: 9px;
+      right: 25px;
+      color: #666; }
+  #request-info .panel-body #GridQA thead tr th {
+    font-weight: bold; }
+  #request-info .panel-body #GridQA tbody tr td {
+    border-bottom: 1px solid #aaa; }
+  #request-info .panel-body #GridQA tbody tr:nth-child(even) {
+    background-color: #fff; }
+  #request-info .panel-body #GridQA tbody tr:last-child td {
+    border-bottom: none; }
 
 .lh-29 {
   line-height: 29px; }

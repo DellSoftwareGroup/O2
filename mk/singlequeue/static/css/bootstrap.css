@@ -5828,6 +5828,9 @@ iframe {
 .icon-ui-plus:before {
   content: "\e60d"; }
 
+.icon-small-magnifying-glass:before {
+  content: "\e64d"; }
+
 .site-wrapper {
   overflow: hidden;
   position: relative;

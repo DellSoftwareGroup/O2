@@ -11,35 +11,35 @@
       </div>
       <div id="request-info" class="table-responsive collapse" aria-expanded="false">
         <div class="panel-body">
-          <div class="pt-20 border-t-dell-grey row">
+          <div class="pt-20 border-t-dell-grey">
             <div class="col-xs-3">
               <label>Request Type *</label>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-6 pl-0">
               <input type="text" readonly class="form-control" value="Tech Brief">
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Request Sub Type *</label>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-6 pl-0">
               <input type="text" readonly class="form-control" value="Authoring">
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Request Title *</label>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-9 ph-0">
               <input type="text" class="form-control" value="Active Administrator for DNS Management">
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Requester *</label>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4 pl-0">
               <i class="icon-small-checkmark text-green"></i>
               <input type="text" class="form-control" value="Carol Buckley">
             </div>
@@ -49,11 +49,11 @@
               </a>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Requested Due Date *</label>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-3 pl-0">
               <input class="date-picker" data-val="true" id="DueDate_UTC"
                      name="DueDate_UTC" type="date"/>
             </div>
@@ -63,29 +63,29 @@
               </span>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Urgent</label>
             </div>
-            <div class="col-xs-8">
+            <div class="col-xs-8 pl-0">
               <input type="checkbox" class="mt-10">
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Business Justification *</label>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-9 ph-0">
               <textarea class="form-control" row="2" cols="60">
             </textarea>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label class="valign-middle">Start Date</label>
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-3 pl-0">
               <input class="date-picker" data-val="true" id="StartDate_UTC"
                      name="StartDate_UTC" type="date"/>
             </div>
@@ -95,17 +95,17 @@
               </a>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3"></div>
-            <div class="col-xs-8">
+            <div class="col-xs-8 pl-0">
               <p>If you know the URL of the page you need updates for please provide the URL below.</p>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Website</label>
             </div>
-            <div id="website" class="col-xs-9">
+            <div id="website" class="col-xs-9 ph-0">
               <select class="form-control">
                 <option>http://software.dell.com</option>
                 <option>http://www.dell.com</option>
@@ -117,17 +117,18 @@
               <input type="text" class="form-control" value="/products/appassure">
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-8 col-xs-offset-3">
-              <a class="has-icon" href="#"><i class="icon-ui-plus text-blue inline-block pull-left mr-10" aria-hidden="true"></i></a>
+          <div>
+            <div class="col-xs-8 col-xs-offset-3 pl-0">
+              <a class="has-icon" href="#"><i class="icon-ui-plus text-blue inline-block pull-left mr-10"
+                                              aria-hidden="true"></i></a>
               <a href="#" class="block">Add Website</a>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Tags</label>
             </div>
-            <div id="tags" class="col-xs-8">
+            <div id="tags" class="col-xs-8 pl-0">
               <select class="form-control">
                 <option>Select a Tag</option>
                 <option>AppAssure</option>
@@ -137,16 +138,215 @@
               </select>
             </div>
           </div>
-          <div class="row">
+          <div>
             <div class="col-xs-3">
               <label>Request Description *</label>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-9 ph-0">
               <textarea class="editor" rows="5" cols="30"></textarea>
             </div>
           </div>
+          <div>
+            <div class="col-xs-12 col-xs-offset-3 pl-0">
+              <h4>Request Details for Tech Brief</h4>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-offset-3 mb-7">
+              <div id="GridQA"></div>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-3">
+              <label>Parent Campaign</label>
+            </div>
+            <div class="col-xs-6 pl-0">
+              <input type="text" class="form-control" value="EMEA DP">
+              <i class="icon-small-magnifying-glass"></i>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-3">
+              <label>Project</label>
+            </div>
+            <div class="col-xs-6 pl-0">
+              <input type="text" class="form-control" value="19 Requirements September Inbound">
+              <i class="icon-small-magnifying-glass"></i>
+            </div>
+            <div class="col-xs-3 pl-0">
+              <a class="btn btn-default mr-35" href="#">New Project</a>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-3">
+              <label>Agile Team *</label>
+            </div>
+            <div id="agile-team" class="col-xs-9 ph-0 three-col-dd">
+              <select name="QMDAgileTeam" id="QMDAgileTeam" class="form-control">
+                <option value="1153">Endpoints</option>
+                <option value="69">Data Protect</option>
+                <option value="68">Databases</option>
+                <option value="71">Security</option>
+                <option value="72">Platforms</option>
+                <option value="70">Windows</option>
+                <option value="73" selected="">None</option>
+              </select>
+              <label id="region">Region *</label>
+              <select name="QMDRegion" id="QMDRegion" class="form-control">
+                <option value="1095">All</option>
+                <option value="80">APACJ</option>
+                <option value="79">EMEA</option>
+                <option value="78">LATAM</option>
+                <option value="77">NAM</option>
+              </select>
+              <label id="route">Route to Market *</label>
+              <select name="QMDRouteToMarket" id="QMDRouteToMarket" class="form-control">
+                <option value="1094">All</option>
+                <option value="75">Channel</option>
+                <option value="93">CSES</option>
+                <option value="74">Direct</option>
+                <option value="76">eCommerce</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-3">
+              <label>Buyer Persona</label>
+            </div>
+            <div class="col-xs-9 ph-0 three-col-dd">
+              <select class="form-control">
+                <option value="1153">All</option>
+              </select>
+              <label>Buyer Journey</label>
+              <select class="form-control">
+                <option value="1" selected="">Awareness</option>
+              </select>
+              <label>Business Unit</label>
+              <select class="form-control">
+                <option value="1094">All</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-3">
+              <label>Request Status</label>
+            </div>
+            <div class="col-xs-9 ph-0 three-col-dd">
+              <select name="StatusID" id="StatusID" class="form-control">
+                <option value="1" selected="">Not started</option>
+                <option value="2">In progress</option>
+                <option value="10">Waiting for content</option>
+                <option value="7">Waiting for dev</option>
+                <option value="12">Waiting for Dell Migration</option>
+                <option value="3">Ready on staging</option>
+                <option value="4">Ready to post live</option>
+                <option value="5">Complete</option>
+                <option value="9">Postponed</option>
+                <option value="11">Transfered</option>
+                <option value="6">Canceled</option>
+              </select>
+              <label id="sprint">Sprint</label>
+              <select class="form-control">
+                <option value="1" selected="">JUN FY16</option>
+              </select>
+              <label id="priority">Agile Priority</label>
+              <select class="form-control">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-3">
+              <label>T-Shirt Size</label>
+            </div>
+            <div class="col-xs-9 ph-0 three-col-dd">
+              <select name="QMDTShirtSize" id="QMDTShirtSize" class="form-control">
+                <option value="31">1 - XS</option>
+                <option value="13">2 - S</option>
+                <option value="14">3 - M</option>
+                <option value="15">5 - L</option>
+                <option value="16">8 - XL</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="col-xs-offset-3">
+              <a class="btn btn-primary mr-10" href="#">
+              Save
+              </a>
+              <a class="btn btn-default mr-35" href="#">
+                Cancel
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $(function () {
+    var data = [
+      {
+        "question": "Who is the target audience?",
+        "answer": "AcYou need to put an answer to the question right here."
+      },
+      {
+        "question": "What is the key differentiator?",
+        "answer": "This is where the answer goes. "
+      },
+      {
+        "question": "Does the draft have intro and/or abstract?",
+        "answer": "Yes"
+      },
+      {
+        "question": "Does the draft have clearly identifiable titles and subtitles?",
+        "answer": "Yes"
+      },
+      {
+        "question": "Captions for the images?",
+        "answer": "Yes"
+      },
+      {
+        "question": "Suggested portions of narrative for pull quotes?",
+        "answer": "Yes"
+      },
+      {
+        "question": "Summary or conclusion?",
+        "answer": "Yes"
+      },
+      {
+        "question": "Author bio?",
+        "answer": "Yes"
+      },
+      {
+        "question": "Will you need landing page copy based on the abstract?",
+        "answer": "Yes"
+      },
+      {
+        "question": "What are some provacative points for social media?",
+        "answer": "Yes"
+      }
+    ];
+
+    $('#GridQA').kendoGrid({
+      columns: [{
+        title: "Question", field: "question",
+        template: "<div class='question-col'>#= question #</div>"
+      },
+        {
+          title: "Answer", field: "answer",
+          template: "<div class='answer-col'>#= answer #</div>"
+        }
+      ],
+      dataSource: {
+        data: data
+      },
+      scrollable: false // for our our layout we need to have this setting!
+    });
+  });
+</script>
