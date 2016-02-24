@@ -1,0 +1,145 @@
+<div class="panel-group-collapsible">
+  <div class="panel">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#tasks" aria-expanded="true">
+          Tasks
+        </a>
+      </h4>
+    </div>
+    <div id="tasks" class="table-responsive collapse in" aria-expanded="true">
+      <div class="panel-body">
+        <div class="pt-20">
+            <div id="edit-task-listing"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function() {
+    var data = [
+      {
+        "group": "1",
+        "task": "Writing Content",
+        "department": "Marcom",
+        "owner": "James Gomez",
+        "sla": "10",
+        "sprint": "JUN FY16",
+        "plannedStart": "06/01/2015",
+        "plannedEnd": "06/018/2015",
+        "actualStart": "06/01/2015",
+        "actualEnd": "06/01/2015",
+        "status" : "In Progress",
+        "timeSpent": "4 hrs 30 mins"
+      },
+      {
+        "group": "1",
+        "task": "Keyword",
+        "department": "SEO",
+        "owner": "Michael Hughes",
+        "sla": "5",
+        "sprint": "JUN FY16",
+        "plannedStart": "06/01/2015",
+        "plannedEnd": "06/018/2015",
+        "actualStart": "06/01/2015",
+        "actualEnd": "06/01/2015",
+        "status" : "Complete",
+        "timeSpent": "2 hrs 15 mins"
+      },
+      {
+        "group": "2",
+        "task": "PDF Creation",
+        "department": "Creative",
+        "owner": "Giovanni Monsalve",
+        "sla": "5",
+        "sprint": "JUN FY16",
+        "plannedStart": "06/01/2015",
+        "plannedEnd": "06/018/2015",
+        "actualStart": "06/01/2015",
+        "actualEnd": "06/01/2015",
+        "status" : "Pending group 1",
+        "timeSpent": "0 hrs 0 mins"
+      },
+      {
+        "group": "3",
+        "task": "Upload to Website",
+        "department": "PMM",
+        "owner": "Carol Buckley",
+        "sla": "2",
+        "sprint": "JUN FY16",
+        "plannedStart": "06/01/2015",
+        "plannedEnd": "06/018/2015",
+        "actualStart": "06/01/2015",
+        "actualEnd": "06/01/2015",
+        "status" : "Pending group 2",
+        "timeSpent": "0 hrs 0 mins"
+      }
+    ];
+    $('#edit-task-listing').kendoGrid({
+      columns: [{
+        title: "Group", field: "group",
+        template: "<div class='group-col'>#= group #</div>"
+      },
+        {
+          title: "Task", field: "task",
+          template: "<div class='task-col'>#= task #</div>"
+        },
+        {
+          title: "Department", field: "department",
+          template: "<div class='department-col'>#= department #</div>"
+        },
+        {
+          title: "Owner", field: "owner",
+          template: "<div class='owner-col'>#= owner #</div>"
+        },
+        {
+          title: "SLA", field: "sla",
+          template: "<div class='sla-col'>#= sla #</div>"
+        },
+        {
+          title: "Sprint", field: "sprint",
+          template: "<div class='sprint-col'>#= sprint #</div>"
+        },
+        {
+          title: "Planned Start", field: "plannedStart",
+          template: "<div class='plannedStart-col'>#= plannedStart #</div>"
+        },
+        {
+          title: "planned End", field: "plannedEnd",
+          template: "<div class='plannedEnd-col nowrap'>#= plannedEnd #</div>"
+        },
+        {
+          title: "Actual Start", field: "actualStart",
+          template: "<div class='actualStart-col'>#= actualStart #</div>"
+        },
+        {
+          title: "Actual End", field: "actualEnd",
+          template: "<div class='actualEnd-col'>#= actualEnd #</div>"
+        },
+        {
+          title: "Status", field: "status",
+          template: "<div class='status-col'>#= status #</div>"
+        },
+
+        {
+          title: "Time Spent", field: "timeSpent",
+          template: "<div class='timeSpent-col'>#= timeSpent #</div>"
+        },
+        {
+          title: "", field: "edit",
+          template: "<div class='edit-col'></div>"
+        }],
+      dataSource: {
+        data: data
+      },
+      scrollable: false, // for our our layout we need to have this setting!
+      sortable: false,
+      dataBound: function() {
+        setTimeout(function() {
+          singleQueueTables.editTaskListing.styles();
+        }, 1000);
+      }
+    });
+  });
+</script>

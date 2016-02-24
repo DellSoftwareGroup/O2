@@ -325,11 +325,19 @@ var singleQueueTables = (function ($) {
 		}
 	};
 
+	//Edit Request - Task listing table
+	var editTaskListing = {
+		styles: function () {
+			ownerColorTag();
+		}
+	};
+
 
 	/* ------->  API  <------- */
 	return {
 		requestListings: requestListings,
-		taskListings: taskListings
+		taskListings: taskListings,
+		editTaskListing: editTaskListing
 	}
 
 }(jQuery));

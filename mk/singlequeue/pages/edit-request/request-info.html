@@ -2,10 +2,17 @@
 	[[widget:edit-requests/request-summary.tmpl]]
 	<div class="container-fluid">
 		<div class="row">
-			<div id="accordion" class="col-xs-7 mt-20">
-				[[widget:edit-requests/request-info-form.tmpl]]
-				[[widget:edit-requests/project-detail-section.tmpl]]
-				[[widget:edit-requests/comments-widget.tmpl]]
+			<div id="accordion">
+				<div class="col-xs-7">
+					[[widget:edit-requests/request-info-form.tmpl]]
+					[[widget:edit-requests/project-detail-section.tmpl]]
+				</div>
+				<div class="col-xs-12">
+					[[widget:edit-requests/task-table.tmpl]]
+				</div>
+				<div class="col-xs-7">
+					[[widget:edit-requests/comments-widget.tmpl]]
+				</div>
 			</div>
 		</div>
 	</div>
