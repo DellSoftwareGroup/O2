@@ -2,7 +2,7 @@ function ribbon_change(obj) {
 	console.log('from IS form: ', obj);
 }
 
-var ribbonListener = function() {
+var ribbonListener = function () {
 
 	/* Private Variables */
 	var ribbonReqObj = {};
@@ -20,20 +20,18 @@ var ribbonListener = function() {
 	function handleMultiSelect($multiSelect, filterType) {
 		if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
 			ribbonReqObj  [$multiSelect.data('title')] = [];
-		}
-		else {
+		} else {
 			console.log('Undefined filter title')
 		}
 
-		$multiSelect.next().find('.ms-drop li').each(function() {
+		$multiSelect.next().find('.ms-drop li').each(function () {
 			var $li = $(this);
 			var option = {};
 
-			option.isSelected = function() {
+			option.isSelected = function () {
 				if ($li.hasClass('selected')) {
 					return true;
-				}
-				else {
+				} else {
 					return false;
 				}
 
@@ -52,23 +50,21 @@ var ribbonListener = function() {
 	function handleDefaultSelect(defaultSelect, filterType) {
 		if (defaultSelect.data('title') !== null || defaultSelect.data('title') !== undefined) {
 			ribbonReqObj[defaultSelect.data('title')] = [];
-		}
-		else {
+		} else {
 			alert('No Title issue: see ribbon.js')
 		}
 
-		defaultSelect.find('option').each(function() {
+		defaultSelect.find('option').each(function () {
 			var $option = $(this);
 			var option = {};
 			option.text = $option.text();
 			option.value = $option.attr('value');
 			option.type = filterType;
 
-			option.isSelected = function() {
+			option.isSelected = function () {
 				if ($option.attr('selected')) {
 					return true
-				}
-				else {
+				} else {
 					return false;
 				}
 			}();
@@ -80,18 +76,16 @@ var ribbonListener = function() {
 
 	function handleNoSelectFilters(noSelect, filterType) {
 		var $prntLi = noSelect.parents('li'),
-			prTitle = $prntLi.data('title');
+				prTitle = $prntLi.data('title');
 
 		// check the title is valid
 		if (prTitle !== null || prTitle !== undefined) {
 			if (prTitle in ribbonReqObj) {
 				// property exist
-			}
-			else {
+			} else {
 				ribbonReqObj[prTitle] = []
 			}
-		}
-		else {
+		} else {
 			console.log('undefined title!!!')
 		}
 
@@ -105,18 +99,16 @@ var ribbonListener = function() {
 
 		// test if object exist
 		if (ribbonReqObj[prTitle].length > 0) {
-			var tempArr = ribbonReqObj  [prTitle].filter(function(obj) {
+			var tempArr = ribbonReqObj  [prTitle].filter(function (obj) {
 				if (obj.text === option.text) {
 					return false; // remove modified filter
-				}
-				else {
+				} else {
 					return true;
 				}
 			})
 			tempArr.push(option);
 			ribbonReqObj  [prTitle] = tempArr;
-		}
-		else {
+		} else {
 			ribbonReqObj  [prTitle].push(option); // if option does not exist simple add option
 		}
 
@@ -124,7 +116,7 @@ var ribbonListener = function() {
 
 	function handleDynamicSelect(fromPopup, filterType) {
 		var filterTitle = $(fromPopup).find('[data-title]').data('title'),
-			$dynamicSelectElem = $(fromPopup).find('.dynamic-select');
+				$dynamicSelectElem = $(fromPopup).find('.dynamic-select');
 
 		// add filter to object
 		if (filterTitle !== null || filterTitle !== undefined) {
@@ -132,11 +124,12 @@ var ribbonListener = function() {
 		}
 		// check if select exist
 		if ($dynamicSelectElem.length > 0) {
-			$dynamicSelectElem.find('option').each(function() {
+			$dynamicSelectElem.find('option').each(function () {
 				var $option = $(this);
 				var option = {};
 				option.text = $option.text();
 				option.value = $option.attr('value');
+				option.email = $option.data('email');
 				option.type = filterType;
 				option.isSelected = true;
 
@@ -152,7 +145,7 @@ var ribbonListener = function() {
 
 	// gets function passed in the init and saves it for later use in an obj
 	function getISfunction(funcPassed) {
-		initISfunc = (function() {
+		initISfunc = (function () {
 			var passedFunc = funcPassed;
 
 			function run() {
@@ -183,25 +176,26 @@ var ribbonListener = function() {
 
 
 		function ISobjBuilder() {
-			this.addProperty = function(propertyName, values) {
+
+			this.addProperty = function (propertyName, values) {
 				ISribbonObj[propertyName] = values;
 			}
-			this.fixedPropertyName = function(title, option) {
-				String.prototype.capitalize = function() {
-					return this.charAt(0).toUpperCase() + this.slice(1);
-				}
+			this.fixedPropertyName = function (title, option) {
 				var fixedTitle = '';
 				if (typeof option !== "undefined") {
 					title = title + ' ' + option;
 				}
 				if (title.indexOf(' ') > 0) {
 					var titleArr = title.split(' ');
-					titleArr.forEach(function(word) {
-						fixedTitle = fixedTitle + word.capitalize();
+					titleArr.forEach(function (word) {
+						if (typeof word == 'string') {
+							fixedTitle = fixedTitle + word.capitalize();
+						}
 					});
-				}
-				else {
-					fixedTitle = title.capitalize();
+				} else {
+					if (typeof title == 'string') {
+						fixedTitle = title.capitalize();
+					}
 				}
 				return fixedTitle;
 			}
@@ -211,22 +205,20 @@ var ribbonListener = function() {
 		function buildObj(obj) {
 			var numValues = [], activeOptions = [], objValue = [];
 
-			$.each(obj, function(title, valueObj) {
+			$.each(obj, function (title, valueObj) {
 				// test is there is active and what type of value this filter has
 				if (Array.isArray(valueObj) && valueObj.length > -1) {
-					valueObj.forEach(function(option) {
+					valueObj.forEach(function (option) {
 						if (option.isSelected === true) {
 							// what type of value
 							if (option.type == 'array-list') {
 								numValues.push(option.value); // if is a number it is a dropdown
-							}
-							else if (option.type == 'boolean') {
+							} else if (option.type == 'boolean') {
 								activeOptions.push(option.text);
-							}
-							else if (typeof option.type === 'userType') { // there could not be other case but we are checking for undefined.
+							} else if (option.type === 'userType') { // there could not be other case but we are checking for undefined.
 								optObj = {
 									value: option.value,
-									email: ''
+									email: option.email
 								};
 								objValue.push(optObj);
 							}
@@ -237,13 +229,11 @@ var ribbonListener = function() {
 						isDropDown(title, numValues);
 						numValues = [];
 						return true;
-					}
-					else if (activeOptions.length > 0) {
+					} else if (activeOptions.length > 0) {
 						noDropDown(title, activeOptions);
 						activeOptions = [];
 						return true;
-					}
-					else if (objValue.length > 0) {
+					} else if (objValue.length > 0) {
 						isdynamicFilter(title, objValue);
 						objValue = [];
 						return true;
@@ -258,18 +248,18 @@ var ribbonListener = function() {
 			var buildObj = new ISobjBuilder()
 
 			buildObj.addProperty(
-				buildObj.fixedPropertyName(title),
-				values // array with values only
+					buildObj.fixedPropertyName(title),
+					values // array with values only
 			);
 		}
 
 		function noDropDown(title, options) {
 			var buildObj = new ISobjBuilder();
 
-			options.forEach(function(optionName) {
+			options.forEach(function (optionName) {
 				buildObj.addProperty(
-					buildObj.fixedPropertyName(title, optionName),
-					true
+						buildObj.fixedPropertyName(title, optionName),
+						true
 				);
 			});
 		}
@@ -278,8 +268,8 @@ var ribbonListener = function() {
 			var buildObj = new ISobjBuilder();
 
 			buildObj.addProperty(
-				buildObj.fixedPropertyName(title),
-				options
+					buildObj.fixedPropertyName(title),
+					options
 			);
 		}
 
@@ -288,8 +278,7 @@ var ribbonListener = function() {
 		if ($.isEmptyObject(obj)) {  // IS may call the function with and empty object
 			console.log('empty object');
 			return false;
-		}
-		else {
+		} else {
 			buildObj(obj);
 
 			var IsObj = JSON.stringify(ISribbonObj);
@@ -305,21 +294,18 @@ var ribbonListener = function() {
 	// create ribbonReqObj   filters object
 	function filtersCollection($filter) {
 		// Iterate filters by type:
-		$filter.each(function() {
+		$filter.each(function () {
 			// Filter Types
 			if ($(this).attr('multiple')) { // check for multiselect
 				handleMultiSelect($(this), 'array-list');
 
-			}
-			else if ($(this).attr('data-select') === "default") { // check for default select elem
+			} else if ($(this).attr('data-select') === "default") { // check for default select elem
 				handleDefaultSelect($(this), 'array-list');
 
-			}
-			else if ($(this).attr('data-dynamic', 'userType') === 'true') {
+			} else if ($(this).attr('data-dynamic') === "true") {
 				handleDynamicSelect($(this), 'userType');
 
-			}
-			else if ($(this).find('select').length == 0) {  //check for filter options without select elem
+			} else if ($(this).find('select').length == 0) {  //check for filter options without select elem
 				handleNoSelectFilters($(this), 'boolean');
 
 			}
@@ -328,7 +314,7 @@ var ribbonListener = function() {
 
 		// Will trigger IS function passed as argument in the init
 		initISfunc.run();
-
+		console.log(getISobj(ribbonReqObj));
 		return ribbonReqObj;
 	}
 
@@ -337,18 +323,17 @@ var ribbonListener = function() {
 		var isTimerRunning = false, ifMultipleClicks = "";
 
 		// on select change event
-		$('.sq-top-ribbon select').on('change', function(event) {
+		$('.sq-top-ribbon select').on('change', function (event) {
 
 			if (isTimerRunning) {
 				clearTimeout(ifMultipleClicks);
 				isTimerRunning = true;
-			}
-			else {
+			} else {
 				isTimerRunning = true;
 			}
 
 			// delay to allow for fast multiple clicking on a filter
-			ifMultipleClicks = setTimeout(function() {
+			ifMultipleClicks = setTimeout(function () {
 
 				// rebuild ribbonReqObj   filters state
 				rebuildRibbonState($rbWrapper);
@@ -358,7 +343,7 @@ var ribbonListener = function() {
 		});
 
 		// on click event for li with now select
-		$('#agile-status').find('li').on('click', function(e) {
+		$('#agile-status').find('li').on('click', function (e) {
 			e.preventDefault();
 			// rebuild ribbonReqObj   filters state
 			rebuildRibbonState($rbWrapper);
@@ -375,7 +360,7 @@ var ribbonListener = function() {
 	/* -----> init <-----*/
 	function init(ISprocess) {
 		var $rbWrapper = $('.sq-top-ribbon'),
-			$filter = $rbWrapper.find('[data-isFilter=true]'); // variable will be moved when ribbon gets integrated with pages.
+				$filter = $rbWrapper.find('[data-isFilter=true]'); // variable will be moved when ribbon gets integrated with pages.
 
 		getISfunction(ISprocess);
 		filtersCollection($filter);
@@ -396,37 +381,37 @@ var ribbonListener = function() {
 
 }();
 
-var ribbonWidgets = function() {
+var ribbonWidgets = function () {
 
 	// factories
 	function PopoverHtmlBuilder(filter) {
 		//Create content section of popover
 		this.msPopoverContent = String()
-			+ '<form class="dyn-select-form">'
-			+ '<div class="k-content">'
-			+ '<label for="popoverInput">' + filter + '</label>'
-			+ '<input id="popoverInput" />'
-			+ '</div>'
-			+ '<div class="panel panel-default taglist-parent" style="display:none;">'
-			+ '<div class="panel-body">'
-			+ '<div  unselectable="on">'
-			+ '<ul role="listbox" unselectable="on" class="k-reset" id="popoverInput_taglist_prev"></ul>'
-			+ '</div>'
-			+ '</div>'
-			+ '</div>'
-			+ '<button type="button" class="btn btn-default popOverbtn">Close</button>'
-			+ '<button type="button" class="btn btn-primary saveSelected">Apply</button>'
-			+ '</form>';
+				+ '<form class="dyn-select-form">'
+				+ '<div class="k-content">'
+				+ '<label for="popoverInput">' + filter + '</label>'
+				+ '<input id="popoverInput" />'
+				+ '</div>'
+				+ '<div class="panel panel-default taglist-parent" style="display:none;">'
+				+ '<div class="panel-body">'
+				+ '<div  unselectable="on">'
+				+ '<ul role="listbox" unselectable="on" class="k-reset" id="popoverInput_taglist_prev"></ul>'
+				+ '</div>'
+				+ '</div>'
+				+ '</div>'
+				+ '<button type="button" class="btn btn-default popOverbtn">Close</button>'
+				+ '<button type="button" class="btn btn-primary saveSelected">Apply</button>'
+				+ '</form>';
 
 		//Create popover template
 		this.msHtmlPopover = String()
-			+ '<div class="popover ribbon-popover" role="tooltip" >'
-			+ '<div class="arrow">'
-			+ '</div>'
-			+ '<h3 class="popover-title"></h3>'
-			+ '<div class="popover-content" >'
-			+ '</div>'
-			+ '</div>';
+				+ '<div class="popover ribbon-popover" role="tooltip" >'
+				+ '<div class="arrow">'
+				+ '</div>'
+				+ '<h3 class="popover-title"></h3>'
+				+ '<div class="popover-content" >'
+				+ '</div>'
+				+ '</div>';
 
 		return {
 			content: this.msPopoverContent,
@@ -437,31 +422,31 @@ var ribbonWidgets = function() {
 	function ModalHtmlBuilder(modalInfo) {
 
 		this.modal = String()
-			+ '<div class="modal fade ribbon-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'
-			+ '<div class="modal-dialog" role="document">'
-			+ '<div class="modal-content">'
-			+ '<div class="modal-header">'
-			+ '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
-			+ '<h4 class="modal-title" id="myModalLabel">' + modalInfo.title + '</h4>'
-			+ '</div>'
-			+ '<div class="modal-body">'
-			+ modalInfo.content
-			+ '</div>'
-			+ '<div class="modal-footer">'
-			+ '<button type="submit" class="btn select-btn btn-default">Select</button>'
-			+ '<button type="reset" class="btn btn-default">Reset</button>'
-			+ '</div></div></div></div>';
+				+ '<div class="modal fade ribbon-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'
+				+ '<div class="modal-dialog" role="document">'
+				+ '<div class="modal-content">'
+				+ '<div class="modal-header">'
+				+ '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+				+ '<h4 class="modal-title" id="myModalLabel">' + modalInfo.title + '</h4>'
+				+ '</div>'
+				+ '<div class="modal-body">'
+				+ modalInfo.content
+				+ '</div>'
+				+ '<div class="modal-footer">'
+				+ '<button type="submit" class="btn select-btn btn-default">Select</button>'
+				+ '<button type="reset" class="btn btn-default">Reset</button>'
+				+ '</div></div></div></div>';
 
-		this.initModal = function() {
+		this.initModal = function () {
 			$('#body-content').append(this.modal);
 		};
 
-		this.show = function() {
+		this.show = function () {
 			$('#myModal').modal('show');
 		};
 
-		this.destroyListener = function() {
-			$('#myModal').on('hidden.bs.modal', function(e) {
+		this.destroyListener = function () {
+			$('#myModal').on('hidden.bs.modal', function (e) {
 				$('body').find('.ribbon-modal').remove();
 			})
 		}
@@ -471,30 +456,41 @@ var ribbonWidgets = function() {
 	// Widget Modules:
 	function ribbonPopupModule() {
 		/* ------> Scope varibles <------- */
-		var targetInput = "#popoverInput", popupTrigger = '.popoverMS';
+		var targetInput = "#popoverInput", popupTrigger = '.popoverMS', resultsData = [];
 
 		// Dynamic Select factory
 		function BuildDynamicSelect(wrapper) {
-			this.createSelectElem = function() {
+			this.createSelectElem = function () {
 				if ($(wrapper).find('.dynamic-select').length == 0) {
 					$(wrapper).append('<select class="dynamic-select" style="display:none">');
 				}
 
 			};
-			this.createOption = function(option) {
-				$(wrapper).find('.dynamic-select').append('<option value="' + option.value + '">' + option.text + '</option>');
+			this.createOption = function (option) {
+				// add email data attribute from resulsData
+				var email = '';
+				if (Array.isArray(resultsData)) {
+					resultsData.forEach(function (result) {
+						if (result.Alias == option.value) {
+							email = result.Email
+						}
+					});
+				}
+				;
+				// build option
+				$(wrapper).find('.dynamic-select').append('<option value="' + option.value + '" data-email="' + email + '">' + option.text + '</option>');
 			};
-			this.optionsCount = function() {
+			this.optionsCount = function () {
 				var count = $(wrapper).find('option').length;
 				return count;
 			};
-			this.sanitizeLabel = function(label) {
+			this.sanitizeLabel = function (label) {
 				var tagTxtArr = label.split(' ');
 				tagTxtArr.pop();
 				label = tagTxtArr.toString();
 				return label;
 			};
-			this.addCountToLabel = function() {
+			this.addCountToLabel = function () {
 				var tagTxt = $(wrapper).find('span[data-title]').text();
 
 				// check if tag has been modified with parenthesis
@@ -505,12 +501,10 @@ var ribbonWidgets = function() {
 					if (this.optionsCount() !== 0) {
 						tagTxt = tagTxt + ' (' + this.optionsCount() + ')';
 						$(wrapper).find('span[data-title]').text(tagTxt);
-					}
-					else {
+					} else {
 						$(wrapper).find('span[data-title]').text(tagTxt);
 					}
-				}
-				else {
+				} else {
 					tagTxt = tagTxt + ' (' + this.optionsCount() + ')';
 					$(wrapper).find('span[data-title]').text(tagTxt);
 				}
@@ -522,28 +516,20 @@ var ribbonWidgets = function() {
 		/* ------> Private Functions <------- */
 		// initiate kendo multiselect
 		function initKendoMultiSelect() {
-			/*var userDataSource = new kendo.data.DataSource({
-			 type: 'odata',
-			 serverFiltering: true,
-			 transport: {
-			 read: {
-			 url: '/mk/singlequeue/widgets/views/data/users.json',
-			 datatype: 'json'
-			 }
-			 }
-			 });*/
 
 			var userDataSource = new kendo.data.DataSource({
+				//type: 'odata',
 				serverFiltering: true,
 				transport: {
 					read: function(options) {
 						if (typeof options.data.filter != 'undefined') {
 							$.ajax({
-								url: "/mk/singlequeue/widgets/views/data/users.json?key=" + options.data.filter.filters[0].value,
+								url: endPoints.users + "?key=" + options.data.filter.filters[0].value,
 								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
 								success: function(result) {
 									// notify the data source that the request succeeded
 									options.success(result.data);
+									resultsData = result.data; //need to pull additional data: email
 								},
 								error: function(result) {
 									// notify the data source that the request failed
@@ -564,7 +550,7 @@ var ribbonWidgets = function() {
 				placeholder: 'Enter name...',
 				minLength: 3,
 				dataSource: userDataSource,
-				dataTextField: "Name",
+				dataTextField: "DisplayName",
 				dataValueField: "Alias"
 			});
 		}
@@ -578,11 +564,11 @@ var ribbonWidgets = function() {
 				if ($dynamicSelect.find('option').length > 0) { // if options are existing show
 					$('.taglist-parent').show();
 				}
-				$dynamicSelect.find('option').each(function() {
+				$dynamicSelect.find('option').each(function () {
 					var name = $(this).text();
 					var temp = String()
-						+ '<li class="k-button" unselectable="on"><span unselectable="on">' + name + '</span><span unselectable="on" class="k-select">'
-						+ '<span unselectable="on" class="k-icon k-i-close remove-prev">delete</span></span></li>';
+							+ '<li class="k-button" unselectable="on"><span unselectable="on">' + name + '</span><span unselectable="on" class="k-select">'
+							+ '<span unselectable="on" class="k-icon k-i-close remove-prev">delete</span></span></li>';
 
 					// attach li to popover
 					$('#popoverInput_taglist_prev').append(temp);
@@ -593,9 +579,9 @@ var ribbonWidgets = function() {
 
 		function removePrevOptions(target, option) {
 			var $dynamicSelect = $(target).find('.dynamic-select'),
-				cleanTag = new BuildDynamicSelect(target);
+					cleanTag = new BuildDynamicSelect(target);
 
-			$dynamicSelect.find('option').each(function() {
+			$dynamicSelect.find('option').each(function () {
 				if ($(this).text() == option) {
 					$(this).remove();
 				}
@@ -612,7 +598,7 @@ var ribbonWidgets = function() {
 		// Detects filter's title
 		function whichFilter(target) {
 			var ckFilter = '';
-			$(target).find('span').each(function() {
+			$(target).find('span').each(function () {
 				if ($(this).data('title')) {
 					ckFilter = $(this).data('title');
 				}
@@ -626,7 +612,7 @@ var ribbonWidgets = function() {
 
 		function saveSelected() {
 			var $selctWrapper = $(targetInput).closest('li').find(popupTrigger),
-				buildNewSelect = new BuildDynamicSelect($selctWrapper);
+					buildNewSelect = new BuildDynamicSelect($selctWrapper);
 
 			// check if first if any name has been selected
 			if ($(targetInput).find('option[selected]').length > 0) {
@@ -635,15 +621,14 @@ var ribbonWidgets = function() {
 				buildNewSelect.createSelectElem();
 
 				// iterate each option and attach to new selection
-				$(targetInput).find('option').each(function() {
+				$(targetInput).find('option').each(function () {
 					if ($(this).attr('selected')) {
 						buildNewSelect.createOption(this);
 					}
 				});
 				buildNewSelect.addCountToLabel();
 				closePopup();
-			}
-			else {
+			} else {
 				alert('Please select Owner name'); //TODO: Should we spend time styling this
 			}
 
@@ -651,7 +636,7 @@ var ribbonWidgets = function() {
 
 		/* ------> Dom, Events and Triggers <------- */
 		// initiate popover
-		$(popupTrigger).on('click', function(e) {
+		$(popupTrigger).on('click', function (e) {
 
 			var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
 
@@ -668,23 +653,23 @@ var ribbonWidgets = function() {
 		});
 
 		// close popover
-		$('#filters-section').on('click', '.popOverbtn', function() {
+		$('#filters-section').on('click', '.popOverbtn', function () {
 
 			ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // Check for possible filter changes
 			closePopup()
 		})
 
 		// handle selected
-		$('#filters-section').on('click', '.saveSelected', function() {
+		$('#filters-section').on('click', '.saveSelected', function () {
 			saveSelected();
 			ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // method from ribbon.js
 		});
 
 		// remove previous selection
-		$('#filters-section').on('click', '.remove-prev', function() {
+		$('#filters-section').on('click', '.remove-prev', function () {
 			var target = $(this).parents('.popover').siblings(popupTrigger),
-				thisOption = $(this).parents('li.k-button'),
-				thisName = thisOption.find('span').eq(0).text();
+					thisOption = $(this).parents('li.k-button'),
+					thisName = thisOption.find('span').eq(0).text();
 
 			// remove it from DOM
 			removePrevOptions(target, thisName);
@@ -704,14 +689,13 @@ var ribbonWidgets = function() {
 
 		function findActiveFilters() {
 			var activeFilters = {};
-			$.each(filterObj, function(filter, options) {
+			$.each(filterObj, function (filter, options) {
 				if (Array.isArray(options)) {
-					options.forEach(function(option) {
+					options.forEach(function (option) {
 						if (option.isSelected == true) {
 							if (filter in activeFilters) {
 								activeFilters[filter].push(option);
-							}
-							else {
+							} else {
 								activeFilters[filter] = [];
 								activeFilters[filter].push(option);
 							}
@@ -727,12 +711,12 @@ var ribbonWidgets = function() {
 			// append filter tag:
 			$('.filter-collector').append('<ul><li>Filters:</li></ul>');
 			var filterHtml = '', activeArr = [];
-			$.each(activeFilters, function(filter, options) {
+			$.each(activeFilters, function (filter, options) {
 				filterHtml = String()
-					+ '<ul>'
-					+ '<li>' + filter + '<a href="#"> X</a></li>';
+						+ '<ul>'
+						+ '<li>' + filter + '<a href="#"> X</a></li>';
 				if (Array.isArray(options)) {
-					options.forEach(function(option) {
+					options.forEach(function (option) {
 						filterHtml = filterHtml + '<li><span>' + option.text + '</span><a href="#"> X</a></li>';
 					});
 				}
@@ -752,11 +736,10 @@ var ribbonWidgets = function() {
 				if (option === undefined) {  // Process for removing whole filter
 					$(filterType).multipleSelect('setSelects', []);
 
-				}
-				else { // Process to remove single option
+				} else { // Process to remove single option
 					var optionValues = $(filterType).multipleSelect('getSelects'),
-						optionTxt = $(filterType).multipleSelect('getSelects', 'text');
-					optionTxt.forEach(function(optionTxt, index) {
+							optionTxt = $(filterType).multipleSelect('getSelects', 'text');
+					optionTxt.forEach(function (optionTxt, index) {
 						if (option == optionTxt) {
 							updatedValues = optionValues.splice(index, 1);
 						}
@@ -778,9 +761,8 @@ var ribbonWidgets = function() {
 					$filterWrap.find('select').html(''); // Remove all options
 					ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
 					$(filterType).text($(filterType).data('title'));
-				}
-				else {
-					$filterWrap.find('select option').each(function() {
+				} else {
+					$filterWrap.find('select option').each(function () {
 						if ($(this).text() == option) {
 							$(this).remove();
 							ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // Remove only clicked option
@@ -795,13 +777,12 @@ var ribbonWidgets = function() {
 			function updateNoSelectFilters(filterType, option) {
 
 				if (option == undefined) {
-					$(filterType).find('li').each(function() {
+					$(filterType).find('li').each(function () {
 						$(this).hasClass('active-item-bg') ? $(this).removeClass('active-item-bg') : false; // Clear all items
 					});
 					ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
-				}
-				else {
-					$(filterType).find('li').each(function() {
+				} else {
+					$(filterType).find('li').each(function () {
 						if ($(this).find('a span:last-child').text() == option) {
 							$(this).removeClass('active-item-bg'); // clear only option clicked
 							ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
@@ -813,8 +794,8 @@ var ribbonWidgets = function() {
 
 			function findFilterTitle(clickedElm) {
 				var filterUl = $(clickedElm).closest('ul'),
-					filterTxt = filterUl.find('li').eq(0).text(),
-					filterTile = cleanFilterTxt(filterTxt);
+						filterTxt = filterUl.find('li').eq(0).text(),
+						filterTile = cleanFilterTxt(filterTxt);
 				return filterTile;
 			}
 
@@ -839,7 +820,7 @@ var ribbonWidgets = function() {
 
 			function editCountToLabel(filterType) {
 				var tagTxt = filterType.text(),
-					optionCount = $(filterType).siblings('select').find('option').length;
+						optionCount = $(filterType).siblings('select').find('option').length;
 
 				// check if tag has been modified with parenthesis
 				if (tagTxt.indexOf('(') > -1) {
@@ -849,12 +830,10 @@ var ribbonWidgets = function() {
 					if (optionCount !== 0) {
 						tagTxt = tagTxt + ' (' + optionCount + ')';
 						$(filterType).text(tagTxt);
-					}
-					else {
+					} else {
 						$(filterType).text(tagTxt);
 					}
-				}
-				else {
+				} else {
 					tagTxt = tagTxt + ' (' + optionCount + ')';
 					$(filterType).text(tagTxt);
 				}
@@ -867,16 +846,13 @@ var ribbonWidgets = function() {
 				if ($(filterType).attr('multiple')) { // check for multiselect
 					updateMultiSelect($(filterType), option);
 
-				}
-				else if ($(filterType).attr('data-select') === "default") { // check for default select elem
+				} else if ($(filterType).attr('data-select') === "default") { // check for default select elem
 					updateDefaultSelect($(filterType));
 
-				}
-				else if ($(filterType).parent('a').attr('data-dynamic') === 'true') {
+				} else if ($(filterType).parent('a').attr('data-dynamic') === 'true') {
 					updateDynamicSelect($(filterType), option);
 
-				}
-				else if ($(filterType).find('select').length == 0) {  //check for filter options without select elem
+				} else if ($(filterType).find('select').length == 0) {  //check for filter options without select elem
 					updateNoSelectFilters($(filterType), option);
 
 				}
@@ -884,7 +860,7 @@ var ribbonWidgets = function() {
 
 			// Register Events and trigger responses
 
-			$('.filter-collector').on('click', 'a', function(e) {
+			$('.filter-collector').on('click', 'a', function (e) {
 				e.stopImmediatePropagation();
 				e.preventDefault();
 				var filterType = findFilterTitle($(this));
@@ -893,8 +869,7 @@ var ribbonWidgets = function() {
 				if ($(this).siblings('span').length > 0) {
 					var optionTxt = findOptionTxt($(this));
 					whichFilterType($('[data-title="' + filterType + '"]'), optionTxt); // determine which filter type and remove option
-				}
-				else {
+				} else {
 					whichFilterType($('[data-title="' + filterType + '"]')); // determine and remove whole filter type
 				}
 
@@ -912,7 +887,7 @@ var ribbonWidgets = function() {
 		function initSelected(that, target) {
 			// is there an option selected
 
-			$(target).find('option[selected]').each(function() {
+			$(target).find('option[selected]').each(function () {
 				$(this).removeAttr('selected');
 			});
 			$(that).attr('selected', 'selected');
@@ -923,23 +898,23 @@ var ribbonWidgets = function() {
 			var campaignInfo = {};
 
 			campaignInfo.content = String()
-				+ '<div>'
-				+ '<form class="form-horizontal" data-whichModal="campaign">'
-				+ '<div class="form-group">'
-				+ '<label for="campaignFilter">Campaign name: </label>'
-				+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
-				+ '<div id="hidenDropdown" style="display: none"></div>'
-				+ '</div>'
-				+ '<p>Or</p>'
-				+ '<div class="form-group">'
-				+ '<label for="campaignFilter">Campaign Creator: </label>'
-				+ '<select  id="campaignCreator" placeholder="Campaign">'
-				+ addCreatorOptions()
-				+ '</select>'
-				+ '</div>'
-				+ '<p></p>'
-				+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
-				+ '</form></div>';
+					+ '<div>'
+					+ '<form class="form-horizontal" data-whichModal="campaign">'
+					+ '<div class="form-group">'
+					+ '<label for="campaignFilter">Campaign name: </label>'
+					+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
+					+ '<div id="hidenDropdown" style="display: none"></div>'
+					+ '</div>'
+					+ '<p>Or</p>'
+					+ '<div class="form-group">'
+					+ '<label for="campaignFilter">Campaign Creator: </label>'
+					+ '<select  id="campaignCreator" placeholder="Campaign">'
+					+ addCreatorOptions()
+					+ '</select>'
+					+ '</div>'
+					+ '<p></p>'
+					+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
+					+ '</form></div>';
 			campaignInfo.title = 'Search Campaign';
 
 			var buildModal = new ModalHtmlBuilder(campaignInfo);
@@ -961,16 +936,15 @@ var ribbonWidgets = function() {
 				$.ajax({
 					url: RootPath + "RequestQueues/CampaignData_Get",
 					contentType: "application/json; charset=utf-8",
-					success: function(response) {
+					success: function (response) {
 						if (response.error == "") {
 							CampaignDataJSON = response.data;
 							console.log(CampaignDataJSON);
-						}
-						else {
+						} else {
 							alert(response.error);
 						}
 					},
-					error: function() {
+					error: function () {
 						alert('Cannot load requests at this moment please try again later ');
 					},
 					async: true
@@ -988,7 +962,7 @@ var ribbonWidgets = function() {
 				schema: {
 					data: "data"
 				},
-				change: function(e) {
+				change: function (e) {
 					var view = dataSource.view();
 					console.log(view.length);
 					console.log(view[0]);
@@ -1012,9 +986,9 @@ var ribbonWidgets = function() {
 
 		function addCreatorOptions() {
 			var test = String()
-				+ '<option>'
-				+ 'this option'
-				+ '</option>';
+					+ '<option>'
+					+ 'this option'
+					+ '</option>';
 			for (var i = 0; i < 4; i++) {
 				test = test + test;
 			}
@@ -1027,37 +1001,37 @@ var ribbonWidgets = function() {
 			var projectInfo = {};
 
 			projectInfo.content = String()
-				+ '<div>'
-				+ '<form class="form-horizontal" data-whichModal="project">'
-				+ '<div class="form-group">'
-				+ '<label for="projectFilter">Project Name</label>'
-				+ '<input type="text" class="form-control" id="projectFilter">'
-				+ '<div id="hidenDropdown" style="display: none"></div>'
-				+ '</div>'
-				+ '<p>Or</p>'
-				+ '<div class="form-group">'
-				+ '<label for="projectOwner">Project Owner</label>'
-				+ '<select  id="projectOwner" class="form-control">'
-				+ addCreatorOptions()
-				+ '</select>'
-				+ '</div>'
-				+ '<p></p>'
-				+ '<div class="form-group">'
-				+ '<label for="agileTeam">Agile Team</label>'
-				+ '<select  id="agileTeam" class="form-control">'
-				+ addCreatorOptions()
-				+ '</select>'
-				+ '</div>'
-				+ '<p></p>'
-				+ '<div class="form-group">'
-				+ '<label for="sprintFilter">Sprint</label>'
-				+ '<select  id="sprintFilter" class="form-control">'
-				+ addCreatorOptions()
-				+ '</select>'
-				+ '</div>'
-				+ '<p></p>'
-				+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
-				+ '</form></div>';
+					+ '<div>'
+					+ '<form class="form-horizontal" data-whichModal="project">'
+					+ '<div class="form-group">'
+					+ '<label for="projectFilter">Project Name</label>'
+					+ '<input type="text" class="form-control" id="projectFilter">'
+					+ '<div id="hidenDropdown" style="display: none"></div>'
+					+ '</div>'
+					+ '<p>Or</p>'
+					+ '<div class="form-group">'
+					+ '<label for="projectOwner">Project Owner</label>'
+					+ '<select  id="projectOwner" class="form-control">'
+					+ addCreatorOptions()
+					+ '</select>'
+					+ '</div>'
+					+ '<p></p>'
+					+ '<div class="form-group">'
+					+ '<label for="agileTeam">Agile Team</label>'
+					+ '<select  id="agileTeam" class="form-control">'
+					+ addCreatorOptions()
+					+ '</select>'
+					+ '</div>'
+					+ '<p></p>'
+					+ '<div class="form-group">'
+					+ '<label for="sprintFilter">Sprint</label>'
+					+ '<select  id="sprintFilter" class="form-control">'
+					+ addCreatorOptions()
+					+ '</select>'
+					+ '</div>'
+					+ '<p></p>'
+					+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
+					+ '</form></div>';
 			projectInfo.title = 'Search project';
 
 			var buildModal = new ModalHtmlBuilder(projectInfo);
@@ -1074,7 +1048,7 @@ var ribbonWidgets = function() {
 			var dataSource = '';
 
 			//TODO reomve when pushing live or stage environments
-			$.get('/mk/singlequeue/widgets/views/data/ProjectData.js').done(function() {
+			$.get('/mk/singlequeue/widgets/views/data/ProjectData.js').done(function () {
 				dataSource = projectsList();
 
 				// This function is only to allow me to consume local data.
@@ -1088,7 +1062,7 @@ var ribbonWidgets = function() {
 
 				var dataSource = new kendo.data.DataSource({
 					data: data,
-					change: function(e) {
+					change: function (e) {
 						var view = dataSource.view();
 						console.log(view.length);
 						console.log(view[0]);
@@ -1116,28 +1090,28 @@ var ribbonWidgets = function() {
 
 		// prevent filter menu to close on modal clicks
 		var modalChildren = $('.ribbon-modal').children();
-		$('#body-content').on('click', modalChildren, function(e) {
+		$('#body-content').on('click', modalChildren, function (e) {
 			e.stopPropagation();
 		});
 
 
-		$('#campaign-btn').on('click', function(e) {
+		$('#campaign-btn').on('click', function (e) {
 			runCampaignModal();
 		});
 
-		$('#project-btn').on('click', function(e) {
+		$('#project-btn').on('click', function (e) {
 			runProjectModal();
 		});
 
 		// add selected attr
-		$('#body-content').on('click', '.ribbon-modal option', function(e) {
+		$('#body-content').on('click', '.ribbon-modal option', function (e) {
 			initSelected($(this), $(this).parents('select'));
 		});
 
-		$('#body-content').on('click', '.ribbon-modal .select-btn', function(e) {
+		$('#body-content').on('click', '.ribbon-modal .select-btn', function (e) {
 			var exports = {}, modalBody = $(this).parents('.modal-content'),
-				$form = modalBody.find('form'),
-				$optionSelected = modalBody.find('form > select').find('option[selected]');
+					$form = modalBody.find('form'),
+					$optionSelected = modalBody.find('form > select').find('option[selected]');
 
 			if (!$optionSelected.length) {
 				alert('Please click again on selected Option!')
@@ -1149,18 +1123,18 @@ var ribbonWidgets = function() {
 			// find which modal (campaign or project : may grow later time)
 			var $whichModal = $form.data('whichmodal');
 			$('#' + $whichModal + '-filter')
-				.val(exports.name)
-				.data('filterId', exports.id || 'oops no id found!');
+					.val(exports.name)
+					.data('filterId', exports.id || 'oops no id found!');
 
 			$('#myModal').modal('hide')
 
 
 			console.log('0')
-			var test = setTimeout(function() {
+			var test = setTimeout(function () {
 				console.log('1')
 			}, 5000).promise();
 
-			test.done(function() {
+			test.done(function () {
 				// create selector
 				console.log('2');
 			})
