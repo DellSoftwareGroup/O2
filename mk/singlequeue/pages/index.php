@@ -68,9 +68,7 @@
 
 	<!-- Global ui styles and js -->
 	<link rel="stylesheet" href="/mk/singlequeue/static/css/custom-ui.css">
-	<!--<script src="/mk/singlequeue/static/js/custom-ui.js"></script>
-	<script src="/mk/singlequeue/static/js/sq-listings-module.js"></script>-->
-
+	
 	<?php
 		echo $widget->css();
 	?>
@@ -87,6 +85,7 @@
 	echo $widget->content();
 ?>
 
+<script src="/mk/singlequeue/static/js/custom-ui.js"></script>
 <script src="/mk/singlequeue/static/js/ribbon.js"></script>
 <script src="/mk/singlequeue/static/js/single-queue.js"></script>
 <script src="/mk/singlequeue/static/js/sq-listings-module.js"></script>
