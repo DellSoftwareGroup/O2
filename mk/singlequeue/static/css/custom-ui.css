@@ -2114,7 +2114,8 @@ ul {
     #request-info .panel-body > div .has-icon:hover {
       text-decoration: none; }
     #request-info .panel-body > div .icon-ui-plus {
-      font-size: 14px; }
+      font-size: 14px;
+      line-height: 16px; }
     #request-info .panel-body > div .icon-small-magnifying-glass {
       position: absolute;
       top: 9px;
