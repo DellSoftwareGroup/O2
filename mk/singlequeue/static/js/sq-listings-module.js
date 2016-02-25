@@ -106,8 +106,8 @@ var singleQueueTables = (function ($) {
 		var colorToName = [
 			{name: 'James Gomez', color: "#6ea204"},
 			{name: 'Michael Hughes', color: "#42aeaf"},
-			{name: 'Giovani Monsalve', color: "#ee6411"}
-		]
+			{name: 'Giovanni Monsalve', color: "#ee6411"}
+		];
 		// pick up owner name
 		$('.owner-col').each(function () {
 			var ownerName = $(this).find('.owner-name').text();
@@ -123,6 +123,34 @@ var singleQueueTables = (function ($) {
 			});
 
 		})
+	};
+
+	// Add icon to status
+	var statusIcon = function(){
+		var icons = [
+			{status:'In Progress', class:'started-icon'},
+			{status: 'Complete', class:'done-icon'},
+			{status: 'Pending', class:'backlog-icon'}
+		];
+		$('.status-col').each(function(){
+			var status = $(this).text(),
+					iconPlaceholder = $(this).find('i');
+
+			if(status.indexOf('Pending')>=0){
+				iconPlaceholder.addClass('backlog-icon');
+			}
+			if(status.indexOf('In Progress') >=0 || status.indexOf('Complete') >=0 ){
+				$(this).parents('tr').addClass('bg-light-blue');
+			}
+			if(status.indexOf('Complete') >=0 ){
+				$(this).parents('tr').addClass('text-light-gray');
+			}
+			icons.forEach(function (icon) {
+				if(icon.status == status){
+					iconPlaceholder.addClass(icon.class);
+				}
+			});
+		});
 	};
 
 	// Bootstrap popover
@@ -329,6 +357,7 @@ var singleQueueTables = (function ($) {
 	var editTaskListing = {
 		styles: function () {
 			ownerColorTag();
+			statusIcon();
 		}
 	};
 

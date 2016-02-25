@@ -1100,10 +1100,11 @@ tbody tr:first-child .tooltip:hover:after {
   #results-data-list .owner-col span {
     display: table-cell; }
   #results-data-list .owner-col .color-id {
-    width: 5px; }
+    width: 5px;
+    height: 24px; }
   #results-data-list .owner-col .owner-name {
-    padding-left: 3px;
-    max-width: 46px; }
+    padding-left: 5px;
+    max-width: 100px; }
   #results-data-list td a, #results-data-list td a:visited, #results-data-list td a:link {
     color: #74c1dd; }
   #results-data-list .k-grid td {
@@ -2138,3 +2139,42 @@ ul {
 .summary label, #request-info label, #project-detail label {
   font-weight: normal;
   float: right; }
+
+/*task listing*/
+#results-data-list #edit-task-listing td {
+  padding: 5px !important; }
+#results-data-list #edit-task-listing th {
+  font-size: 14px;
+  font-weight: bold; }
+#results-data-list #edit-task-listing tr:nth-child(even) {
+  background-color: #fff; }
+#results-data-list #edit-task-listing tr.bg-light-blue {
+  background-color: #e5f2f8; }
+#results-data-list #edit-task-listing tr.text-light-gray td {
+  color: #999; }
+#results-data-list #edit-task-listing tr td {
+  border-bottom: 1px solid #aaa;
+  border-left: none; }
+  #results-data-list #edit-task-listing tr td .task-col {
+    width: 150px; }
+  #results-data-list #edit-task-listing tr td .department-col {
+    width: 100px; }
+  #results-data-list #edit-task-listing tr td .icon-small-edit {
+    margin-right: 5px; }
+  #results-data-list #edit-task-listing tr td .status-col {
+    line-height: 22px; }
+    #results-data-list #edit-task-listing tr td .status-col i {
+      background: url("/mk/singlequeue/static/images/single-queue-sprite.png") no-repeat 0 0;
+      display: inline-block;
+      width: 18px;
+      height: 20px;
+      float: left;
+      margin-right: 5px; }
+      #results-data-list #edit-task-listing tr td .status-col i.started-icon {
+        background-position: -722px -37px; }
+      #results-data-list #edit-task-listing tr td .status-col i.done-icon {
+        background-position: -412px -38px; }
+      #results-data-list #edit-task-listing tr td .status-col i.backlog-icon {
+        background-position: -254px -34px; }
+#results-data-list #edit-task-listing tr:last-child td {
+  border-bottom: none; }
