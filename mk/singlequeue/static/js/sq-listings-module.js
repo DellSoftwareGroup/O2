@@ -106,8 +106,8 @@ var singleQueueTables = (function ($) {
 		var colorToName = [
 			{name: 'James Gomez', color: "#6ea204"},
 			{name: 'Michael Hughes', color: "#42aeaf"},
-			{name: 'Giovani Monsalve', color: "#ee6411"}
-		]
+			{name: 'Giovanni Monsalve', color: "#ee6411"}
+		];
 		// pick up owner name
 		$('.owner-col').each(function () {
 			var ownerName = $(this).find('.owner-name').text();
@@ -123,6 +123,47 @@ var singleQueueTables = (function ($) {
 			});
 
 		})
+	};
+
+	// Add icon to status
+	var statusIcon = function(){
+		var icons = [
+			{status:'In Progress', class:'started-icon'},
+			{status: 'Complete', class:'done-icon'},
+			{status: 'Pending', class:'backlog-icon'}
+		];
+		$('.status-col').each(function(){
+			var status = $(this).text(),
+					iconPlaceholder = $(this).find('i');
+
+			/*in edit mode remove icon*/
+			if($(this).find('select').length > 0){
+				$(this).find('i').hide();
+			}else if(status.indexOf('Pending')>=0){
+				iconPlaceholder.addClass('backlog-icon');
+				$(this).find('i').show();
+			}
+			if(status.indexOf('In Progress') >=0 || status.indexOf('Complete') >=0 ){
+				$(this).parents('tr').addClass('bg-light-blue');
+			}
+			if(status.indexOf('Complete') >=0 ){
+				$(this).parents('tr').addClass('text-light-gray');
+			}
+			icons.forEach(function (icon) {
+				if(icon.status == status){
+					iconPlaceholder.addClass(icon.class);
+				}
+			});
+		});
+	};
+
+	//Edit mode
+	var editMode = function(){
+		$('#edit-task-listing tr').each(function(){
+			if($(this).find('select').length > 0){
+				$(this).find('.edit-col a').text('OK').after('<a href="#" class="btn btn-default ml-10">Cancel</a>').end().find('i').hide();
+			}
+		});
 	};
 
 	// Bootstrap popover
@@ -329,6 +370,8 @@ var singleQueueTables = (function ($) {
 	var editTaskListing = {
 		styles: function () {
 			ownerColorTag();
+			statusIcon();
+			editMode();
 		}
 
 	};

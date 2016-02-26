@@ -1100,10 +1100,11 @@ tbody tr:first-child .tooltip:hover:after {
   #results-data-list .owner-col span {
     display: table-cell; }
   #results-data-list .owner-col .color-id {
-    width: 5px; }
+    width: 5px;
+    height: 24px; }
   #results-data-list .owner-col .owner-name {
-    padding-left: 3px;
-    max-width: 46px; }
+    padding-left: 5px;
+    max-width: 100px; }
   #results-data-list td a, #results-data-list td a:visited, #results-data-list td a:link {
     color: #74c1dd; }
   #results-data-list .k-grid td {
@@ -2113,7 +2114,8 @@ ul {
     #request-info .panel-body > div .has-icon:hover {
       text-decoration: none; }
     #request-info .panel-body > div .icon-ui-plus {
-      font-size: 14px; }
+      font-size: 14px;
+      line-height: 16px; }
     #request-info .panel-body > div .icon-small-magnifying-glass {
       position: absolute;
       top: 9px;
@@ -2138,3 +2140,51 @@ ul {
 .summary label, #request-info label, #project-detail label {
   font-weight: normal;
   float: right; }
+
+/*task listing*/
+#results-data-list #edit-task-listing th {
+  font-size: 14px;
+  font-weight: bold; }
+#results-data-list #edit-task-listing tr:nth-child(even) {
+  background-color: #fff; }
+#results-data-list #edit-task-listing tr.bg-light-blue {
+  background-color: #e5f2f8; }
+#results-data-list #edit-task-listing tr.text-light-gray td {
+  color: #999; }
+#results-data-list #edit-task-listing tr td {
+  border-bottom: 1px solid #aaa;
+  border-left: none; }
+  #results-data-list #edit-task-listing tr td .task-col {
+    width: 250px; }
+  #results-data-list #edit-task-listing tr td .owner-col {
+    width: 130px; }
+  #results-data-list #edit-task-listing tr td .department-col {
+    width: 100px; }
+  #results-data-list #edit-task-listing tr td .icon-small-edit {
+    margin-right: 5px; }
+  #results-data-list #edit-task-listing tr td .status-col {
+    line-height: 22px; }
+    #results-data-list #edit-task-listing tr td .status-col i {
+      background: url("/mk/singlequeue/static/images/single-queue-sprite.png") no-repeat 0 0;
+      display: inline-block;
+      width: 18px;
+      height: 20px;
+      float: left;
+      margin-right: 5px; }
+      #results-data-list #edit-task-listing tr td .status-col i.started-icon {
+        background-position: -722px -37px; }
+      #results-data-list #edit-task-listing tr td .status-col i.done-icon {
+        background-position: -412px -38px; }
+      #results-data-list #edit-task-listing tr td .status-col i.backlog-icon {
+        background-position: -254px -34px; }
+  #results-data-list #edit-task-listing tr td select {
+    padding: 5px 0; }
+  #results-data-list #edit-task-listing tr td .owner-name select {
+    width: 105px; }
+  #results-data-list #edit-task-listing tr td .timeSpent-col input {
+    width: 14px;
+    text-align: center; }
+  #results-data-list #edit-task-listing tr td .btn-default {
+    color: #007db8; }
+#results-data-list #edit-task-listing tr:last-child td {
+  border-bottom: none; }

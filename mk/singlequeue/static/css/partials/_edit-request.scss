@@ -308,6 +308,7 @@
       }
       .icon-ui-plus {
         font-size: 14px;
+        line-height: 16px;
       }
       .icon-small-magnifying-glass {
         position: absolute;
@@ -353,7 +354,83 @@
   }
 }
 
+/*task listing*/
+#results-data-list #edit-task-listing {
+  th{
+    font-size:14px;
+    font-weight:bold;
+  }
+  tr{
+    &:nth-child(even){
+      background-color: #fff;
+    }
+    &.bg-light-blue{
+      background-color: #e5f2f8;
+    }
+    &.text-light-gray{
+      td{
+        color: #999;
+      }
+    }
+    td{
+      border-bottom: 1px solid #aaa;
+      border-left: none;
+      .task-col{
+        width: 250px;
+      }
+      .owner-col{
+        width: 130px;
+      }
+      .department-col{
+        width: 100px;
+      }
 
+      .icon-small-edit{
+        margin-right:5px;
+      }
+      .status-col{
+        line-height: 22px;
+        i{
+          background: url("/mk/singlequeue/static/images/single-queue-sprite.png") no-repeat 0 0;
+          display: inline-block;
+          width:18px;
+          height: 20px;
+          float: left;
+          margin-right: 5px;
+          &.started-icon{
+            background-position: -722px -37px;
+          }
+          &.done-icon{
+            background-position: -412px -38px;
+          }
+          &.backlog-icon{
+            background-position: -254px -34px;
+          }
+        }
+      }
+      select{
+        padding: 5px 0;
+      }
+      .owner-name{
+        select{
+          width: 105px;
+        }
+      }
+      .timeSpent-col{
+        input {
+          width: 14px;
+          text-align: center;
+        }
+      }
+      .btn-default{
+        color: #007db8;
+      }
+    }
+    &:last-child td{
+      border-bottom: none;
+    }
+  }
+}
 
 
 
