@@ -1,105 +1,106 @@
 <div class="wrapper">
-	<main class="form-area">
-		<h2>Request Information</h2><br>
-		<form novalidate="novalidate" class="form-horizontal" style="">
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestType" style="">Request Type
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="requestType" placeholder="Tech Brief" style="width: 440px;">
-					<a href="#" style="">
-						Change</a>
 
-				</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-7">
+				<h2>Request Information</h2>
 
+				<form novalidate="novalidate" class="form-horizontal" style="">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestType" style="">Request Type<sup>*</sup></label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="requestType" placeholder="Tech Brief">
+						</div>
+						<div class="col-sm-1">
+							<a href="#">Change</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="reqSubType" class="col-sm-2 control-label">Request Sub
+							Type<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<select id="reqSubType" class="form-control" style="width: 440px;">
+								<option>Authoring</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestTitle">Request
+							Title<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" id="requestTitle" class="form-control" placeholder="Active Administrator for DNS" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-sm-2 control-label">Requester
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" style="width: 250px;" placeholder="Carl Becky" class="form-control" id="Requester">
+							<br><input type="button" id="AddComment" value="Search" class="btn  btn btn-default"></div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestType">Request Due Date
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<span class="k-widget k-datepicker k-header" style=""><span class="k-picker-wrap k-state-default"><input type="text" aria-readonly="false" aria-disabled="false" aria-owns="StartDate_UTC_dateview" aria-expanded="false" role="combobox" class="k-input" style="width: 100%;" data-role="datepicker" data-val="true" data-val-date="The field StartDate_UTC must be a date." id="requestDueDate" name="StartDate_UTC"><span aria-controls="StartDate_UTC_dateview" role="button" unselectable="on" class="k-select"><span unselectable="on" class="k-icon k-i-calendar">select</span></span></span></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-sm-2 control-label">Urgent<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<input type="Checkbox" style="margin-top: 0px; width: 16px;" class="form-control" id="requestType">
+						</div>
+					</div>
+					<div class="form-group">
+						<label style="" class="col-sm-2 control-label" for="requestType">Business Justification
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="businessJustification" rows="5" cols="10" style="height:70px"></textarea><br>
+							<p>If you know the URL of the page you need updates for please provide the URL below</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-sm-2 control-label">Website
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<select name="Website" class="form-control" id="Website"></select>
+						</div>
+						<label for="requestType" class="col-sm-2 control-label">Content URL
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" value="" placeholder="/products/appasure" class="form-control" id="contenturl">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestType"><span class="required-asterisk"></span></label>
+						<div class="col-sm-10">
+							<a href="#">
+								<span style="content: &quot;&quot;;" class="icon-ui-plus"></span>
+								Add Website
+							</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestType">Tags<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<select class="form-control" data-val="true" data-val-number="The field Priority_MetadataID must be a number." id="agilePriority" name="Priority_MetadataID">
+								<option value="">Select a Tag</option>
+								<option value="9"></option>
 
-			</div>
-			<div class="form-group">
-				<label for="reqSubType" class="col-sm-2 control-label">Request Sub Type <span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<select id="reqSubType" class="form-control" style="width: 440px;">
-						<option>Authoring</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestTitle">Request Title <span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="text" id="contenturl" class="form-control" placeholder="Active Administrator for DNS " value="">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="requestType" class="col-sm-2 control-label">Requester
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="text" style="width: 250px;" placeholder="Carl Becky" class="form-control" id="Requester">
-					<br><input type="button" id="AddComment" value="Search" class="btn  btn btn-default"></div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestType">Request Due Date
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<span class="k-widget k-datepicker k-header" style=""><span class="k-picker-wrap k-state-default"><input type="text" aria-readonly="false" aria-disabled="false" aria-owns="StartDate_UTC_dateview" aria-expanded="false" role="combobox" class="k-input" style="width: 100%;" data-role="datepicker" data-val="true" data-val-date="The field StartDate_UTC must be a date." id="requestDueDate" name="StartDate_UTC"><span aria-controls="StartDate_UTC_dateview" role="button" unselectable="on" class="k-select"><span unselectable="on" class="k-icon k-i-calendar">select</span></span></span></span>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="requestType" class="col-sm-2 control-label">Urgent<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="Checkbox" style="margin-top: 0px; width: 16px;" class="form-control" id="requestType">
-				</div>
-			</div>
-			<div class="form-group">
-				<label style="" class="col-sm-2 control-label" for="requestType">Business Justification
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<textarea class="form-control" id="businessJustification" rows="5" cols="10" style="height:70px"></textarea><br>
-					<p>If you know the URL of the page you need updates for please provide the URL below</p>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="requestType" class="col-sm-2 control-label">Website <span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<select name="Website" class="form-control" id="Website"></select>
-				</div>
-				<label for="requestType" class="col-sm-2 control-label">Content URL
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="text" value="" placeholder="/products/appasure" class="form-control" id="contenturl">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestType"><span class="required-asterisk"></span></label>
-				<div class="col-sm-10">
-					<a href="#">
-						<span style="content: &quot;&quot;;" class="icon-ui-plus"></span>
-						Add Website
-					</a>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestType">Tags<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<select class="form-control" data-val="true" data-val-number="The field Priority_MetadataID must be a number." id="agilePriority" name="Priority_MetadataID">
-						<option value="">Select a Tag</option>
-						<option value="9"></option>
-
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="requestType" class="col-sm-2 control-label">Request Description
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<div style="display: inline-block; width: 358px;">
-						<table cellspacing="4" cellpadding="0" style="width: 848px; height: 210px;" class="k-widget k-editor k-header k-editor-widget" role="presentation">
-							<tbody>
-							<tr role="presentation">
-								<td class="k-editor-toolbar-wrap" role="presentation">
-									<ul data-role="editortoolbar" aria-controls="Desc" class="k-editor-toolbar" role="toolbar">
-										<li class="k-tool-group" role="presentation">
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-sm-2 control-label">Request Description
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<div style="display: inline-block; width: 358px;">
+								<table cellspacing="4" cellpadding="0" style="width: 848px; height: 210px;" class="k-widget k-editor k-header k-editor-widget" role="presentation">
+									<tbody>
+									<tr role="presentation">
+										<td class="k-editor-toolbar-wrap" role="presentation">
+											<ul data-role="editortoolbar" aria-controls="Desc" class="k-editor-toolbar" role="toolbar">
+												<li class="k-tool-group" role="presentation">
 											<span class="k-editor-dropdown k-group-start k-group-end"><span aria-busy="false" aria-readonly="false" aria-disabled="false" aria-owns="" tabindex="0" aria-expanded="false" aria-haspopup="true" role="listbox" unselectable="on" class="k-widget k-dropdown k-header k-editor-widget" title="Format" style="width: 110px;"><span unselectable="on" class="k-dropdown-wrap k-state-default"><span unselectable="on" class="k-input">Format</span><span unselectable="on" class="k-select"><span unselectable="on" class="k-icon k-i-arrow-s">select</span></span></span><select unselectable="on" data-role="selectbox" style="width: 110px; display: none;" title="Format" class="k-formatting k-decorated">
 												<option value="p">Paragraph</option>
 												<option value="blockquote">Quotation</option>
@@ -110,282 +111,285 @@
 												<option value="h5">Heading 5</option>
 												<option value="h6">Heading 6</option>
 											</select></span></span></li>
-										<li class="k-tool-group k-button-group" role="presentation">
-											<a aria-pressed="false" href="" role="button" class="k-tool k-group-start" unselectable="on" title="Bold"><span unselectable="on" class="k-tool-icon k-bold">Bold</span></a><a aria-pressed="false" href="" role="button" class="k-tool" unselectable="on" title="Italic"><span unselectable="on" class="k-tool-icon k-italic">Italic</span></a><a aria-pressed="false" href="" role="button" class="k-tool k-group-end" unselectable="on" title="Underline"><span unselectable="on" class="k-tool-icon k-underline">Underline</span></a>
-										</li>
-										<li class="k-tool-group k-button-group" role="presentation">
-											<a aria-pressed="false" href="" role="button" class="k-tool k-group-start" unselectable="on" title="Align text left"><span unselectable="on" class="k-tool-icon k-justifyLeft">Justify Left</span></a><a aria-pressed="false" href="" role="button" class="k-tool" unselectable="on" title="Center text"><span unselectable="on" class="k-tool-icon k-justifyCenter">Justify Center</span></a><a aria-pressed="false" href="" role="button" class="k-tool k-group-end" unselectable="on" title="Align text right"><span unselectable="on" class="k-tool-icon k-justifyRight">Justify Right</span></a>
-										</li>
-										<li class="k-tool-group k-button-group" role="presentation">
-											<a aria-pressed="false" href="" role="button" class="k-tool k-group-start" unselectable="on" title="Insert unordered list"><span unselectable="on" class="k-tool-icon k-insertUnorderedList">Insert unordered list</span></a><a aria-pressed="false" href="" role="button" class="k-tool" unselectable="on" title="Insert ordered list"><span unselectable="on" class="k-tool-icon k-insertOrderedList">Insert ordered list</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Outdent"><span unselectable="on" class="k-tool-icon k-outdent">Outdent</span></a><a href="" role="button" class="k-tool k-group-end" unselectable="on" title="Indent"><span unselectable="on" class="k-tool-icon k-indent">Indent</span></a>
-										</li>
-										<li class="k-tool-group k-button-group" role="presentation">
-											<a href="" role="button" class="k-tool k-group-start" unselectable="on" title="Insert hyperlink"><span unselectable="on" class="k-tool-icon k-createLink">Create Link</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Remove hyperlink"><span unselectable="on" class="k-tool-icon k-unlink">Remove Link</span></a><a href="" role="button" class="k-tool k-group-end" unselectable="on" title="Insert image"><span unselectable="on" class="k-tool-icon k-insertImage">Insert Image</span></a>
-										</li>
-										<li class="k-tool-group k-button-group" role="presentation">
-											<a href="" role="button" class="k-tool k-group-start k-group-end" data-popup="" unselectable="on" title="Create table"><span unselectable="on" class="k-tool-icon k-createTable">Create table</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add column on the left"><span unselectable="on" class="k-tool-icon k-addColumnLeft">Add column on the left</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add column on the right"><span unselectable="on" class="k-tool-icon k-addColumnRight">Add column on the right</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add row above"><span unselectable="on" class="k-tool-icon k-addRowAbove">Add row above</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add row below"><span unselectable="on" class="k-tool-icon k-addRowBelow">Add row below</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Delete row"><span unselectable="on" class="k-tool-icon k-deleteRow">Delete row</span></a><a style="display: none;" href="" role="button" class="k-tool k-group-end k-state-disabled" unselectable="on" title="Delete column"><span unselectable="on" class="k-tool-icon k-deleteColumn">Delete column</span></a>
-										</li>
-									</ul>
-								</td>
-							</tr>
-							<tr>
-								<td class="k-editable-area">
-									<iframe frameborder="0" src="javascript:&quot;&quot;" class="k-content" title="Editable area. Press F10 for toolbar."></iframe>
-									<textarea class="k-content k-raw-content" autocomplete="off" data-role="editor" cols="20" id="Desc" name="Desc" rows="5" style="width: 290px; height: 279px; display: none;">general tasks that support marketing's GTM efforts and backend infrastructure support</textarea>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<h3>Request Details for Tech Brief</h3>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestTitle"></label>
-				<div class="col-sm-10">
-					<label>who is target audience?</label>
-					<input type="text" id="contenturl" class="form-control" placeholder="You need to put your answer right here" value="">
-
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestTitle"></label>
-				<div class="col-sm-10">
-					<label>what is the key differentiator or unique benifit you want to convey to audience for this
-						activity? </label>
-					<input type="text" id="contenturl" class="form-control" placeholder="Place your benifits here" value="">
-
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>Does the draft has intro and/or abstract?</label>
-					<div class="notify-checkboxes">
-
-						<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
-						Yes
-						<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
-						No
+												<li class="k-tool-group k-button-group" role="presentation">
+													<a aria-pressed="false" href="" role="button" class="k-tool k-group-start" unselectable="on" title="Bold"><span unselectable="on" class="k-tool-icon k-bold">Bold</span></a><a aria-pressed="false" href="" role="button" class="k-tool" unselectable="on" title="Italic"><span unselectable="on" class="k-tool-icon k-italic">Italic</span></a><a aria-pressed="false" href="" role="button" class="k-tool k-group-end" unselectable="on" title="Underline"><span unselectable="on" class="k-tool-icon k-underline">Underline</span></a>
+												</li>
+												<li class="k-tool-group k-button-group" role="presentation">
+													<a aria-pressed="false" href="" role="button" class="k-tool k-group-start" unselectable="on" title="Align text left"><span unselectable="on" class="k-tool-icon k-justifyLeft">Justify Left</span></a><a aria-pressed="false" href="" role="button" class="k-tool" unselectable="on" title="Center text"><span unselectable="on" class="k-tool-icon k-justifyCenter">Justify Center</span></a><a aria-pressed="false" href="" role="button" class="k-tool k-group-end" unselectable="on" title="Align text right"><span unselectable="on" class="k-tool-icon k-justifyRight">Justify Right</span></a>
+												</li>
+												<li class="k-tool-group k-button-group" role="presentation">
+													<a aria-pressed="false" href="" role="button" class="k-tool k-group-start" unselectable="on" title="Insert unordered list"><span unselectable="on" class="k-tool-icon k-insertUnorderedList">Insert unordered list</span></a><a aria-pressed="false" href="" role="button" class="k-tool" unselectable="on" title="Insert ordered list"><span unselectable="on" class="k-tool-icon k-insertOrderedList">Insert ordered list</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Outdent"><span unselectable="on" class="k-tool-icon k-outdent">Outdent</span></a><a href="" role="button" class="k-tool k-group-end" unselectable="on" title="Indent"><span unselectable="on" class="k-tool-icon k-indent">Indent</span></a>
+												</li>
+												<li class="k-tool-group k-button-group" role="presentation">
+													<a href="" role="button" class="k-tool k-group-start" unselectable="on" title="Insert hyperlink"><span unselectable="on" class="k-tool-icon k-createLink">Create Link</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Remove hyperlink"><span unselectable="on" class="k-tool-icon k-unlink">Remove Link</span></a><a href="" role="button" class="k-tool k-group-end" unselectable="on" title="Insert image"><span unselectable="on" class="k-tool-icon k-insertImage">Insert Image</span></a>
+												</li>
+												<li class="k-tool-group k-button-group" role="presentation">
+													<a href="" role="button" class="k-tool k-group-start k-group-end" data-popup="" unselectable="on" title="Create table"><span unselectable="on" class="k-tool-icon k-createTable">Create table</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add column on the left"><span unselectable="on" class="k-tool-icon k-addColumnLeft">Add column on the left</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add column on the right"><span unselectable="on" class="k-tool-icon k-addColumnRight">Add column on the right</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add row above"><span unselectable="on" class="k-tool-icon k-addRowAbove">Add row above</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Add row below"><span unselectable="on" class="k-tool-icon k-addRowBelow">Add row below</span></a><a style="display: none;" href="" role="button" class="k-tool k-state-disabled" unselectable="on" title="Delete row"><span unselectable="on" class="k-tool-icon k-deleteRow">Delete row</span></a><a style="display: none;" href="" role="button" class="k-tool k-group-end k-state-disabled" unselectable="on" title="Delete column"><span unselectable="on" class="k-tool-icon k-deleteColumn">Delete column</span></a>
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td class="k-editable-area">
+											<iframe frameborder="0" src="javascript:&quot;&quot;" class="k-content" title="Editable area. Press F10 for toolbar."></iframe>
+											<textarea class="k-content k-raw-content" autocomplete="off" data-role="editor" cols="20" id="Desc" name="Desc" rows="5" style="width: 290px; height: 279px; display: none;">general tasks that support marketing's GTM efforts and backend infrastructure support</textarea>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<h3>Request Details for Tech Brief</h3>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestTitle"></label>
+						<div class="col-sm-10">
+							<label>who is target audience?</label>
+							<input type="text" id="contenturl" class="form-control" placeholder="You need to put your answer right here" value="">
 
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>Does the draft has clearly identifiable titles and subtitles?</label>
-					<div class="notify-checkboxes">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestTitle"></label>
+						<div class="col-sm-10">
+							<label>what is the key differentiator or unique benifit you want to convey to audience for this
+								activity? </label>
+							<input type="text" id="contenturl" class="form-control" placeholder="Place your benifits here" value="">
 
-						<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
-						Yes
-						<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
-						No
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>Does the draft has intro and/or abstract?</label>
+							<div class="notify-checkboxes">
+
+								<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
+								Yes
+								<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
+								No
+
+							</div>
+						</div>
 
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>Does the draft has clearly identifiable titles and subtitles?</label>
+							<div class="notify-checkboxes">
 
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>Captions for images?</label>
-					<div class="notify-checkboxes">
+								<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
+								Yes
+								<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
+								No
 
-						<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
-						Yes
-						<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
-						No
-
-					</div>
-				</div>
-
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>Suggestive portions for narative for pull quotes?</label>
-					<div class="notify-checkboxes">
-
-						<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
-						Yes
-						<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
-						No
+							</div>
+						</div>
 
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>Captions for images?</label>
+							<div class="notify-checkboxes">
 
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>Summary or conclusion?</label>
-					<div class="notify-checkboxes">
+								<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
+								Yes
+								<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
+								No
 
-						<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
-						Yes
-						<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
-						No
-
-					</div>
-				</div>
-
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>Aurthor bio?</label>
-					<div class="notify-checkboxes">
-
-						<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
-						Yes
-						<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
-						No
+							</div>
+						</div>
 
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>Suggestive portions for narative for pull quotes?</label>
+							<div class="notify-checkboxes">
 
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestTitle"></label>
-				<div class="col-sm-10">
-					<label>will you need landing page copy based on abstract?(Recommended)</label>
-					<div class="notify-checkboxes">
+								<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
+								Yes
+								<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
+								No
 
-						<input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
-						Yes
-						<input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
-						No
+							</div>
+						</div>
 
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>Summary or conclusion?</label>
+							<div class="notify-checkboxes">
 
-			</div>
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label"></label>
-				<div class="col-sm-10">
-					<label>What are some proactive point that we could turn into tweets or other social media comments?</label>
+								<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
+								Yes
+								<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
+								No
 
-					<textarea class="form-control" id="businessJustification" rows="5" cols="10" style="height:70px"></textarea>
+							</div>
+						</div>
 
-				</div>
+					</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>Aurthor bio?</label>
+							<div class="notify-checkboxes">
 
-			</div>
+								<input type="radio" name="NotifyOwner" value="1" checked="checked" id="NotifyOwner">
+								Yes
+								<input type="radio" name="NotifyRequester" value="2" id="NotifyRequester">
+								No
 
-			<div class="form-group">
-				<label for="requestTitle" class="col-sm-2 control-label">Parent campaign<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="text" id="contenturl" class="form-control" placeholder="" value="">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="requestTitle">Project<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<input type="text" value="" placeholder="" class="form-control" id="contenturl">
-					<br><input type="button" id="AddComment" value="New Project" class="btn  btn btn-default">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Agile Team
-					<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Team</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Region</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Region</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Route to Market</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Route</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Buyer Personna</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Personna</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Buyer Journey</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Journey</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Business unit</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Department</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Request
-					Status<span class="required-asterisk">*</span></label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Sprint</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Sprint</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">Agile Priority</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Priority</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="reqSubType">T-shirt size</label>
-				<div class="col-sm-10">
-					<select style="width: 440px;" class="form-control" id="reqSubType">
-						<option>Select Size</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-primary">Save</button>
-					<button class="btn btn-default" type="submit">Cancel</button>
-				</div>
-			</div>
-		</form>
+							</div>
+						</div>
 
-	</main>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestTitle"></label>
+						<div class="col-sm-10">
+							<label>will you need landing page copy based on abstract?(Recommended)</label>
+							<div class="notify-checkboxes">
 
-	<aside class="side-sections"></aside>
+								<input type="radio" id="NotifyOwner" checked="checked" value="1" name="NotifyOwner">
+								Yes
+								<input type="radio" id="NotifyRequester" value="2" name="NotifyRequester">
+								No
+
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label>What are some proactive point that we could turn into tweets or other social media
+								comments?</label>
+
+							<textarea class="form-control" id="businessJustification" rows="5" cols="10" style="height:70px"></textarea>
+
+						</div>
+
+					</div>
+
+					<div class="form-group">
+						<label for="requestTitle" class="col-sm-2 control-label">Parent
+							campaign<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" id="contenturl" class="form-control" placeholder="" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="requestTitle">Project<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" value="" placeholder="" class="form-control" id="contenturl">
+							<br><input type="button" id="AddComment" value="New Project" class="btn  btn btn-default">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Agile Team
+							<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Team</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Region</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Region</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Route to Market</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Route</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Buyer Personna</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Personna</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Buyer Journey</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Journey</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Business unit</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Department</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Request
+							Status<span class="required-asterisk">*</span></label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Sprint</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Sprint</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">Agile Priority</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Priority</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="reqSubType">T-shirt size</label>
+						<div class="col-sm-10">
+							<select style="width: 440px;" class="form-control" id="reqSubType">
+								<option>Select Size</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary">Save</button>
+							<button class="btn btn-default" type="submit">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-5">
+				Placeholder
+			</div>
+		</div>
+	</div>
+
 </div>
