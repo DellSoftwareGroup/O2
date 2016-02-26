@@ -356,9 +356,6 @@
 
 /*task listing*/
 #results-data-list #edit-task-listing {
-  td{
-    padding:5px !important;
-  }
   th{
     font-size:14px;
     font-weight:bold;
@@ -379,7 +376,10 @@
       border-bottom: 1px solid #aaa;
       border-left: none;
       .task-col{
-        width: 150px;
+        width: 250px;
+      }
+      .owner-col{
+        width: 130px;
       }
       .department-col{
         width: 100px;
@@ -407,6 +407,23 @@
             background-position: -254px -34px;
           }
         }
+      }
+      select{
+        padding: 5px 0;
+      }
+      .owner-name{
+        select{
+          width: 105px;
+        }
+      }
+      .timeSpent-col{
+        input {
+          width: 14px;
+          text-align: center;
+        }
+      }
+      .btn-default{
+        color: #007db8;
       }
     }
     &:last-child td{

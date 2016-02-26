@@ -2142,8 +2142,6 @@ ul {
   float: right; }
 
 /*task listing*/
-#results-data-list #edit-task-listing td {
-  padding: 5px !important; }
 #results-data-list #edit-task-listing th {
   font-size: 14px;
   font-weight: bold; }
@@ -2157,7 +2155,9 @@ ul {
   border-bottom: 1px solid #aaa;
   border-left: none; }
   #results-data-list #edit-task-listing tr td .task-col {
-    width: 150px; }
+    width: 250px; }
+  #results-data-list #edit-task-listing tr td .owner-col {
+    width: 130px; }
   #results-data-list #edit-task-listing tr td .department-col {
     width: 100px; }
   #results-data-list #edit-task-listing tr td .icon-small-edit {
@@ -2177,5 +2177,14 @@ ul {
         background-position: -412px -38px; }
       #results-data-list #edit-task-listing tr td .status-col i.backlog-icon {
         background-position: -254px -34px; }
+  #results-data-list #edit-task-listing tr td select {
+    padding: 5px 0; }
+  #results-data-list #edit-task-listing tr td .owner-name select {
+    width: 105px; }
+  #results-data-list #edit-task-listing tr td .timeSpent-col input {
+    width: 14px;
+    text-align: center; }
+  #results-data-list #edit-task-listing tr td .btn-default {
+    color: #007db8; }
 #results-data-list #edit-task-listing tr:last-child td {
   border-bottom: none; }
