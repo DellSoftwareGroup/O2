@@ -75,22 +75,22 @@
         "group": "3",
         "task": "Upload to Website",
         "department": "PMM",
-        "owner": "Carol Buckley",
+        "owner": "<select><option>James Gomez</option><option>	Michael Hughes</option><option>Giovanni Monsalve</option><option selected>Carol Buckley</option></select>",
         "sla": "2",
-        "sprint": "JUN FY16",
+        "sprint": "<select><option>APR FY16</option><option>MAY FY16</option><option selected>JUN FY16</option><option>JUL FY16</option></select>",
         "plannedStart": "06/01/2015",
         "plannedEnd": "06/018/2015",
         "actualStart": "06/01/2015",
         "actualEnd": "06/01/2015",
-        "status": "Pending group 2",
-        "timeSpent": "0 hrs 0 mins",
+        "status": "<select><option>Pending Group 1</option><option selected>Pending Group 2</option><option>Pending Group 3</option></select>",
+        "timeSpent": "<input type='text' value='11'> hrs <input type='text' value='00'> mins",
         "edit": "Edit"
       }
     ];
     $('#edit-task-listing').kendoGrid({
       columns: [{
         title: "Group", field: "group",
-        template: "<div class='group-col'>#= group #</div>"
+        template: "<div class='group-col pl-10'>#= group #</div>"
       },
         {
           title: "Task", field: "task",

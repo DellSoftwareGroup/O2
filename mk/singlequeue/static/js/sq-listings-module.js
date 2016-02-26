@@ -136,8 +136,12 @@ var singleQueueTables = (function ($) {
 			var status = $(this).text(),
 					iconPlaceholder = $(this).find('i');
 
-			if(status.indexOf('Pending')>=0){
+			/*in edit mode remove icon*/
+			if($(this).find('select').length > 0){
+				$(this).find('i').hide();
+			}else if(status.indexOf('Pending')>=0){
 				iconPlaceholder.addClass('backlog-icon');
+				$(this).find('i').show();
 			}
 			if(status.indexOf('In Progress') >=0 || status.indexOf('Complete') >=0 ){
 				$(this).parents('tr').addClass('bg-light-blue');
@@ -150,6 +154,15 @@ var singleQueueTables = (function ($) {
 					iconPlaceholder.addClass(icon.class);
 				}
 			});
+		});
+	};
+
+	//Edit mode
+	var editMode = function(){
+		$('#edit-task-listing tr').each(function(){
+			if($(this).find('select').length > 0){
+				$(this).find('.edit-col a').text('OK').after('<a href="#" class="btn btn-default ml-10">Cancel</a>').end().find('i').hide();
+			}
 		});
 	};
 
@@ -358,7 +371,9 @@ var singleQueueTables = (function ($) {
 		styles: function () {
 			ownerColorTag();
 			statusIcon();
+			editMode();
 		}
+
 	};
 
 

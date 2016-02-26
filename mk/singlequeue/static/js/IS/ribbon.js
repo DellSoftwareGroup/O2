@@ -138,6 +138,45 @@ var ribbonListener = function () {
 		}
 	}
 
+	function viewsSectionLogic() {
+
+		//local variables
+		var $checkBoxes = $('#views').find('.ms-drop').find('input');
+		var triggered = false;
+
+		// Utiliti functions
+		function clearOppositeView(title) {
+			if (title == undefined) {
+				return;
+			} else {
+				var oppositeView = (title == 'My Work') ? 'All Teams' : 'My Work';
+				var $selectOff = $('#views').find('select[data-title="' + oppositeView + '"]');
+
+				$selectOff.multipleSelect('setSelects', []);
+			}
+
+		}
+
+		function activeView(target) {
+			if ($(target).is('select')) {
+				if (triggered == false) {
+					var title = $(target).data('title');
+					triggered = true;
+					return title;
+				} else {
+					triggered = false;
+					return;
+				}
+			}
+		};
+
+		// events
+		$('#views').on('change', $checkBoxes, function (e) {
+			e.preventDefault();
+			clearOppositeView(activeView(e.target));
+		})
+	}
+
 
 	/* -----> IS Interactions <-----*/
 
@@ -365,6 +404,7 @@ var ribbonListener = function () {
 		getISfunction(ISprocess);
 		filtersCollection($filter);
 		filterListener($rbWrapper);
+		viewsSectionLogic();
 		ribbonWidgets.filterCollectorModule();// filters under ribbon - comes from custom-ui.js
 
 		console.log(ribbonReqObj); // test object
@@ -521,17 +561,17 @@ var ribbonWidgets = function () {
 				//type: 'odata',
 				serverFiltering: true,
 				transport: {
-					read: function(options) {
+					read: function (options) {
 						if (typeof options.data.filter != 'undefined') {
 							$.ajax({
 								url: endPoints.users + "?key=" + options.data.filter.filters[0].value,
 								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-								success: function(result) {
+								success: function (result) {
 									// notify the data source that the request succeeded
 									options.success(result.data);
 									resultsData = result.data; //need to pull additional data: email
 								},
-								error: function(result) {
+								error: function (result) {
 									// notify the data source that the request failed
 									options.error(result);
 								}
@@ -883,7 +923,7 @@ var ribbonWidgets = function () {
 
 	function moreFiltersAutoComplete() {
 
-		// Private
+		// Private & helpers
 		function initSelected(that, target) {
 			// is there an option selected
 
@@ -891,6 +931,21 @@ var ribbonWidgets = function () {
 				$(this).removeAttr('selected');
 			});
 			$(that).attr('selected', 'selected');
+		}
+
+		function groupByCreatorName(results) {
+			var namesList = [];
+			if (Array.isArray(results.data)) {
+				results.data.forEach(function (campaign) {
+					if ($.inArray(campaign.CreatedByName, namesList) == -1) {
+						namesList.push(campaign.CreatedByName);
+					}
+				})
+			} else {
+				console.error('see ribbon.js | function:: groupByCreator')
+			}
+			namesList.pop(); // always the last is null;
+			return namesList;
 		}
 
 		// Campaign Modal
@@ -905,11 +960,11 @@ var ribbonWidgets = function () {
 					+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
 					+ '<div id="hidenDropdown" style="display: none"></div>'
 					+ '</div>'
-					+ '<p>Or</p>'
+					+ '<p>And</p>'
 					+ '<div class="form-group">'
 					+ '<label for="campaignFilter">Campaign Creator: </label>'
-					+ '<select  id="campaignCreator" placeholder="Campaign">'
-					+ addCreatorOptions()
+					+ '<select  id="campaignCreator" class="form-control" placeholder="Campaign">'
+					+ addCreatorOptions(campaignCreatorNames)
 					+ '</select>'
 					+ '</div>'
 					+ '<p></p>'
@@ -926,44 +981,53 @@ var ribbonWidgets = function () {
 			initCampaignAutoComplete('#campaignFilter');
 			// remove kendo styles
 			$("#campaignFilter").removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
-		}
+		};
+
+		var campaignCreatorNames = function () {
+			$.ajax({
+				url: endPoints.campaigns,
+				dataType: 'json',
+				success: function (data) {
+				},
+				error: function (error) {
+					console.error(error);
+				}
+			}).done(function (data) {
+				campaignCreatorNames = groupByCreatorName(data);
+			});
+
+		}();
 
 		function initCampaignAutoComplete(id) {
-			var CampaignDataJSON = '';
 
-			// TODO: will be used when go live to pull data.
-			function CampaignData_Get() {
-				$.ajax({
-					url: RootPath + "RequestQueues/CampaignData_Get",
-					contentType: "application/json; charset=utf-8",
-					success: function (response) {
-						if (response.error == "") {
-							CampaignDataJSON = response.data;
-							console.log(CampaignDataJSON);
-						} else {
-							alert(response.error);
-						}
-					},
-					error: function () {
-						alert('Cannot load requests at this moment please try again later ');
-					},
-					async: true
-				});
-
-			};
-
+			console.log('campaignNames', campaignCreatorNames);
 			// Temporary data fix
-			var dataSource = new kendo.data.DataSource({
+			var campaignDataSource = new kendo.data.DataSource({
+				serverFiltering: true,
 				transport: {
-					read: {
-						url: "/mk/singlequeue/widgets/views/data/CampaignData_Get.json"
+					read: function (options) {
+						if (typeof options.data.filter != 'undefined') {
+							$.ajax({
+								url: endPoints.campaigns + "?key=" + options.data.filter.filters[0].value,
+								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+								success: function (result) {
+									// notify the data source that the request succeeded
+									options.success(result.data);
+									resultsData = result.data; //need to pull additional data: email
+								},
+								error: function (result) {
+									// notify the data source that the request failed
+									options.error(result);
+								}
+							});
+						}
+						else {
+							options.success([]);
+						}
 					}
 				},
-				schema: {
-					data: "data"
-				},
 				change: function (e) {
-					var view = dataSource.view();
+					var view = campaignDataSource.view();
 					console.log(view.length);
 					console.log(view[0]);
 					$('.campFilterResults').html('');
@@ -972,10 +1036,12 @@ var ribbonWidgets = function () {
 					}
 				}
 			});
+
 			$(id).kendoAutoComplete({
-				dataSource: dataSource,
+				dataSource: campaignDataSource,
+				filter: "contains",
 				dataTextField: "Name",
-				minLength: 2,
+				minLength: 3,
 				popup: {
 					appendTo: $("#hidenDropdown")
 				},
@@ -984,17 +1050,20 @@ var ribbonWidgets = function () {
 
 		}
 
-		function addCreatorOptions() {
-			var test = String()
-					+ '<option>'
-					+ 'this option'
-					+ '</option>';
-			for (var i = 0; i < 4; i++) {
-				test = test + test;
+		function addCreatorOptions(nameList) {
+			var names = '<option>Creator...</option>';
+			if (Array.isArray(nameList)) {
+				nameList.forEach(function (name) {
+					currntName = String()
+							+ '<option>'
+							+ name
+							+ '</option>';
+					names = names + currntName;
+				})
 			}
+			return names;
+		}
 
-			return test;
-		} // endpoint needs to return createdBy as a Name
 
 		// Project Modal
 		function runProjectModal() {
@@ -1008,7 +1077,7 @@ var ribbonWidgets = function () {
 					+ '<input type="text" class="form-control" id="projectFilter">'
 					+ '<div id="hidenDropdown" style="display: none"></div>'
 					+ '</div>'
-					+ '<p>Or</p>'
+					+ '<p>And</p>'
 					+ '<div class="form-group">'
 					+ '<label for="projectOwner">Project Owner</label>'
 					+ '<select  id="projectOwner" class="form-control">'
@@ -1044,55 +1113,68 @@ var ribbonWidgets = function () {
 
 		}
 
-		function initProjectAutoComplte(projectBtn) {
-			var dataSource = '';
-
-			//TODO reomve when pushing live or stage environments
-			$.get('/mk/singlequeue/widgets/views/data/ProjectData.js').done(function () {
-				dataSource = projectsList();
-
-				// This function is only to allow me to consume local data.
-				// Once data comes from IS this function should not be used
-				runFilter(dataSource);
-				$('#projectFilter').removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
-			});
-
-			// Temporary data fix
-			function runFilter(data) {
-
-				var dataSource = new kendo.data.DataSource({
-					data: data,
-					change: function (e) {
-						var view = dataSource.view();
-						console.log(view.length);
-						console.log(view[0]);
-						$('.projectFilterResults').html('');
-						for (var i = 0; i < view.length; i++) {
-							$('.projectFilterResults').append('<option>' + view[i].Name + '</option>');
+		function initProjectAutoComplte(projectFilter) {
+			var resultsData = [];
+			var projectDataSource = new kendo.data.DataSource({
+				serverFiltering: true,
+				transport: {
+					read: function (options) {
+						if (typeof options.data.filter != 'undefined') {
+							$.ajax({
+								url: endPoints.projects + "?key=" + options.data.filter.filters[0].value,
+								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+								success: function (result) {
+									// notify the data source that the request succeeded
+									options.success(result.data);
+									resultsData = result.data; //need to pull additional object properties (campagin owner, status etc)
+								},
+								error: function (result) {
+									// notify the data source that the request failed
+									options.error(result);
+								}
+							}).done(function () {
+								console.log('done: ', resultsData.length);
+							});
+						}
+						else {
+							options.success([]);
 						}
 					}
-				});
+				},
+				change: function (e) {
+					var view = projectDataSource.view();
+					console.log(view.length);
+					console.log(view[0]);
+					$('.projectFilterResults').html('');
+					for (var i = 0; i < view.length; i++) {
+						$('.projectFilterResults').append('<option>' + view[i].Name + '</option>');
+					}
+				}
+			});
 
-				$(projectBtn).kendoAutoComplete({
-					dataSource: dataSource,
-					dataTextField: "Name",
-					minLength: 2,
-					popup: {
-						appendTo: $("#hidenDropdown")
-					},
-					animation: false
-				});
-			}
+			$(projectFilter).kendoAutoComplete({
+				filter: "contains",
+				dataSource: projectDataSource,
+				dataTextField: "Name",
+				minLength: 3,
+				popup: {
+					appendTo: $("#hidenDropdown")
+				}
+			});
+			// prevents issues with field styles
+			$('#projectFilter').removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
+
 
 		}
 
 		// Events
 
+		// TODO: need to figure a way to prevent modal to close more filters popover
 		// prevent filter menu to close on modal clicks
-		var modalChildren = $('.ribbon-modal').children();
-		$('#body-content').on('click', modalChildren, function (e) {
-			e.stopPropagation();
-		});
+		/*    var modalChildren = $('.ribbon-modal').children();
+		 $('#body-content').on('click', modalChildren, function (e) {
+		 e.stopPropagation();
+		 });*/
 
 
 		$('#campaign-btn').on('click', function (e) {
@@ -1128,7 +1210,7 @@ var ribbonWidgets = function () {
 
 			$('#myModal').modal('hide')
 
-		})
+		});
 	}
 
 	return {
@@ -1140,13 +1222,9 @@ var ribbonWidgets = function () {
 }();
 
 
-// Standard jquery onload function will trigger ribbonListener init method
-$(function () {
-	ribbonListener.init(ribbon_change);  // ribon_change is IS function
-	ribbonWidgets.ribbonPopupModule();
-	ribbonWidgets.filterCollectorModule();
-	ribbonWidgets.moreFiltersAutoComplete();
-});
+
+
+
 
 
 
