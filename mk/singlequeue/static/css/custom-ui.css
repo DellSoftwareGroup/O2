@@ -87,7 +87,6 @@
 
 /***************** Bottom Section Tables *********************/
 .data-heading {
-  width: 1540px;
   margin: 20px auto;
   clear: both;
   overflow: hidden; }
@@ -95,7 +94,8 @@
 .data-heading h3 {
   color: #444;
   font-size: 18px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .results-data {
   width: 1540px;
@@ -106,24 +106,10 @@
   z-index: 0;
   position: relative; }
 
-.data-footer {
-  width: 1540px;
-  margin: 20px auto; }
-
-table {
-  width: 100%;
-  border-spacing: 0;
-  box-sizing: border-box;
-  overflow: hidden; }
-
 .results-data thead {
-  background: transparent; }
+  background: transparent;
+}
 
-/*thead tr {
-  border: 1px solid #eaeaea;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}*/
 .results-data thead th {
   background: #e7e7e7;
   /* Old browsers */
@@ -144,8 +130,24 @@ table {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7e7e7', endColorstr='#f5f5f5', GradientType=0);
   /* IE6-8 */
   color: #444;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
+.data-footer {
+  width: 1540px;
+  margin: 20px auto; }
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  box-sizing: border-box;
+  overflow: hidden; }
+
+/*thead tr {
+  border: 1px solid #eaeaea;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}*/
 th, td {
   padding: 10px;
   text-align: left;
