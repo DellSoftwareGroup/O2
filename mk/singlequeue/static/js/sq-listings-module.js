@@ -330,6 +330,7 @@ var singleQueueTables = (function ($) {
 		styles: function () {
 			ownerColorTag();
 		}
+
 	};
 
 
