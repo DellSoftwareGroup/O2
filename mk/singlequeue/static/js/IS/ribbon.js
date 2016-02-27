@@ -153,6 +153,7 @@ var ribbonListener = function () {
 				var $selectOff = $('#views').find('select[data-title="' + oppositeView + '"]');
 
 				$selectOff.multipleSelect('setSelects', []);
+				$selectOff.parent('li').removeClass('active-item-bg');
 			}
 
 		}
@@ -161,6 +162,7 @@ var ribbonListener = function () {
 			if ($(target).is('select')) {
 				if (triggered == false) {
 					var title = $(target).data('title');
+					$(target).parent('li').addClass('active-item-bg')
 					triggered = true;
 					return title;
 				} else {
@@ -922,6 +924,8 @@ var ribbonWidgets = function () {
 	}
 
 	function moreFiltersAutoComplete() {
+		// Module variables
+		var creator = {alias: null, refresh: false};
 
 		// Private & helpers
 		function initSelected(that, target) {
@@ -935,17 +939,33 @@ var ribbonWidgets = function () {
 
 		function groupByCreatorName(results) {
 			var namesList = [];
+			objNameList = [];
 			if (Array.isArray(results.data)) {
 				results.data.forEach(function (campaign) {
+
 					if ($.inArray(campaign.CreatedByName, namesList) == -1) {
-						namesList.push(campaign.CreatedByName);
+
+						namesList.push(campaign.CreatedByName); // intersections array
+						campgnObj = {};
+						campgnObj.name = campaign.CreatedByName;
+						campgnObj.alias = campaign.CreatedBy;
+						objNameList.push(campgnObj); // consumable object array
+
 					}
 				})
 			} else {
 				console.error('see ribbon.js | function:: groupByCreator')
 			}
+			objNameList.pop();
 			namesList.pop(); // always the last is null;
-			return namesList;
+			return objNameList;
+		}
+
+		function refreshCampaignModal(selectElm, option) {
+			console.log('optionPassed: ', option);
+			creator.alias = option;
+			creator.refresh = true;
+			initCampaignAutoComplete('#campaignFilter'); // refresh kendo autocomplete;
 		}
 
 		// Campaign Modal
@@ -999,14 +1019,14 @@ var ribbonWidgets = function () {
 		}();
 
 		function initCampaignAutoComplete(id) {
-
-			console.log('campaignNames', campaignCreatorNames);
+			var keyEntered = {};
 			// Temporary data fix
 			var campaignDataSource = new kendo.data.DataSource({
 				serverFiltering: true,
 				transport: {
 					read: function (options) {
 						if (typeof options.data.filter != 'undefined') {
+							creator.key = options.data.filter.filters[0].value;
 							$.ajax({
 								url: endPoints.campaigns + "?key=" + options.data.filter.filters[0].value,
 								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
@@ -1027,12 +1047,27 @@ var ribbonWidgets = function () {
 					}
 				},
 				change: function (e) {
+					$('.campFilterResults').html('');
 					var view = campaignDataSource.view();
 					console.log(view.length);
-					console.log(view[0]);
-					$('.campFilterResults').html('');
-					for (var i = 0; i < view.length; i++) {
-						$('.campFilterResults').append('<option>' + view[i].Name + '</option>');
+					if (creator.alias !== null && creator.alias !== "All") { // if creator has been selected
+						var resultsTally = [];
+						view.forEach(function (results) {
+							if (results.CreatedBy == creator.alias) {
+								$('.campFilterResults').append('<option>' + results.Name + '</option>');
+								resultsTally.push(results.Name);
+							}
+							;
+						});
+						if (resultsTally.length === 0) {
+							$('.campFilterResults').append('<option>0 Camapigns found!</option>');
+						} else {
+							resultsTally = [];
+						}
+					} else {
+						for (var i = 0; i < view.length; i++) {
+							$('.campFilterResults').append('<option>' + view[i].Name + '</option>');
+						}
 					}
 				}
 			});
@@ -1047,16 +1082,20 @@ var ribbonWidgets = function () {
 				},
 				animation: false
 			});
+			var autocomplete = $(id).data("kendoAutoComplete");
 
+			if (creator.refresh === true) {
+				autocomplete.search(creator.key); // kendo .search() method is the only way to dynamically trigget change event!
+			}
 		}
 
 		function addCreatorOptions(nameList) {
-			var names = '<option>Creator...</option>';
+			var names = '<option>All</option>';
 			if (Array.isArray(nameList)) {
-				nameList.forEach(function (name) {
+				nameList.forEach(function (creator) {
 					currntName = String()
-							+ '<option>'
-							+ name
+							+ '<option value="' + creator.alias + '">'
+							+ creator.name
 							+ '</option>';
 					names = names + currntName;
 				})
@@ -1114,6 +1153,7 @@ var ribbonWidgets = function () {
 		}
 
 		function initProjectAutoComplte(projectFilter) {
+
 			var resultsData = [];
 			var projectDataSource = new kendo.data.DataSource({
 				serverFiltering: true,
@@ -1186,6 +1226,12 @@ var ribbonWidgets = function () {
 		});
 
 		// add selected attr
+		$('#body-content').on('change', '#campaignCreator', function (e) {
+			var selectElm = e.target;
+			var option = $(selectElm).find('option:selected').val(); // get selected value which is Alias
+			refreshCampaignModal(selectElm, option)
+		});
+
 		$('#body-content').on('click', '.ribbon-modal option', function (e) {
 			initSelected($(this), $(this).parents('select'));
 		});
@@ -1211,6 +1257,11 @@ var ribbonWidgets = function () {
 			$('#myModal').modal('hide')
 
 		});
+
+		// clear previous searches
+		$('#campaignFilter').on('focus', function () {
+			creator.key = '';
+		});
 	}
 
 	return {
@@ -1220,6 +1271,24 @@ var ribbonWidgets = function () {
 	}
 
 }();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
