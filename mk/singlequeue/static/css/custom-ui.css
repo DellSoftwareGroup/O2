@@ -1893,6 +1893,10 @@ ul {
     margin-right: 0;
     width: 490px; }
 
+.ribbon-modal .k-loading {
+  display: none !important;
+}
+
 .summary {
   border-radius: 3px;
   border: 1px solid #737373;

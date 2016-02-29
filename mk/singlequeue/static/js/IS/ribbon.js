@@ -487,6 +487,17 @@ var ribbonWidgets = function () {
 			$('#myModal').modal('show');
 		};
 
+		this.preventEventPropagation = function () {
+			$(".modal").click(function (e) {
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		}
+
+		this.afterModalLoad = function (process) {
+			process();
+		}
+
 		this.destroyListener = function () {
 			$('#myModal').on('hidden.bs.modal', function (e) {
 				$('body').find('.ribbon-modal').remove();
@@ -937,6 +948,10 @@ var ribbonWidgets = function () {
 			$(that).attr('selected', 'selected');
 		}
 
+		function removeInputKendoStyles() {
+			$("#campaignFilter").removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
+		}
+
 		function groupByCreatorName(results) {
 			var namesList = [];
 			objNameList = [];
@@ -966,6 +981,26 @@ var ribbonWidgets = function () {
 			creator.alias = option;
 			creator.refresh = true;
 			initCampaignAutoComplete('#campaignFilter'); // refresh kendo autocomplete;
+			removeInputKendoStyles();
+		}
+
+		function exportSelectedToPopover(target, option) {
+
+			if ($.isEmptyObject(option)) {
+				alert('Please select campaign!')
+				return
+			}
+			// add ellipsis if name to long
+			if (option.name.length > 27) {
+				option.name = option.name.substr(0, 26) + '...';
+			}
+			// find which modal (campaign or project : may grow later time)
+			var $modalName = $('.ribbon-modal form').data('modalname');
+			$('#filter-' + $modalName).find('input:first-child')
+					.val(option.name)
+					.attr('filterId', option.val);
+
+			$('#myModal').modal('hide')
 		}
 
 		// Campaign Modal
@@ -974,7 +1009,7 @@ var ribbonWidgets = function () {
 
 			campaignInfo.content = String()
 					+ '<div>'
-					+ '<form class="form-horizontal" data-whichModal="campaign">'
+					+ '<form class="form-horizontal" data-modalName="campaign">'
 					+ '<div class="form-group">'
 					+ '<label for="campaignFilter">Campaign name: </label>'
 					+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
@@ -996,11 +1031,28 @@ var ribbonWidgets = function () {
 
 			buildModal.initModal();
 			buildModal.show();
+			buildModal.preventEventPropagation();
+			buildModal.afterModalLoad(function () {
+						var selectedOption = {}
+						// campaign select dropdown
+						$('.campFilterResults').change(function (e) {
+							selectedOption = {
+								val: e.target.selectedOptions[0].value,
+								name: e.target.selectedOptions[0].text
+							}
+						});
+						// bind select btn event
+						$('.ribbon-modal .select-btn').click(function () {
+							console.log('clicked a');
+							exportSelectedToPopover(this, selectedOption);
+						});
+					}
+			)
 			buildModal.destroyListener();
 
 			initCampaignAutoComplete('#campaignFilter');
 			// remove kendo styles
-			$("#campaignFilter").removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
+			removeInputKendoStyles();
 		};
 
 		var campaignCreatorNames = function () {
@@ -1054,7 +1106,7 @@ var ribbonWidgets = function () {
 						var resultsTally = [];
 						view.forEach(function (results) {
 							if (results.CreatedBy == creator.alias) {
-								$('.campFilterResults').append('<option>' + results.Name + '</option>');
+								$('.campFilterResults').append('<option value="' + results.ID + '">' + results.Name + '</option>');
 								resultsTally.push(results.Name);
 							}
 							;
@@ -1066,7 +1118,7 @@ var ribbonWidgets = function () {
 						}
 					} else {
 						for (var i = 0; i < view.length; i++) {
-							$('.campFilterResults').append('<option>' + view[i].Name + '</option>');
+							$('.campFilterResults').append('<option value="' + view[i].ID + '">' + view[i].Name + '</option>');
 						}
 					}
 				}
@@ -1110,7 +1162,7 @@ var ribbonWidgets = function () {
 
 			projectInfo.content = String()
 					+ '<div>'
-					+ '<form class="form-horizontal" data-whichModal="project">'
+					+ '<form class="form-horizontal" data-modalName="project">'
 					+ '<div class="form-group">'
 					+ '<label for="projectFilter">Project Name</label>'
 					+ '<input type="text" class="form-control" id="projectFilter">'
@@ -1146,6 +1198,7 @@ var ribbonWidgets = function () {
 
 			buildModal.initModal();
 			buildModal.show();
+			buildModal.preventEventPropagation();
 			buildModal.destroyListener();
 
 			initProjectAutoComplte('#projectFilter');
@@ -1231,31 +1284,15 @@ var ribbonWidgets = function () {
 			var option = $(selectElm).find('option:selected').val(); // get selected value which is Alias
 			refreshCampaignModal(selectElm, option)
 		});
+		/*
 
-		$('#body-content').on('click', '.ribbon-modal option', function (e) {
-			initSelected($(this), $(this).parents('select'));
-		});
+
+		 initSelected($(this), $(this).parents('select'));
+		 });*/
 
 		$('#body-content').on('click', '.ribbon-modal .select-btn', function (e) {
-			var exports = {}, modalBody = $(this).parents('.modal-content'),
-					$form = modalBody.find('form'),
-					$optionSelected = modalBody.find('form > select').find('option[selected]');
-
-			if (!$optionSelected.length) {
-				alert('Please click again on selected Option!')
-			}
-
-			exports.name = $optionSelected.text();
-			exports.id = $optionSelected.val();
-
-			// find which modal (campaign or project : may grow later time)
-			var $whichModal = $form.data('whichmodal');
-			$('#' + $whichModal + '-filter')
-					.val(exports.name)
-					.data('filterId', exports.id || 'oops no id found!');
-
-			$('#myModal').modal('hide')
-
+			console.log('clicked b');
+			exportSelectedToPopover(this);
 		});
 
 		// clear previous searches
@@ -1271,24 +1308,6 @@ var ribbonWidgets = function () {
 	}
 
 }();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
