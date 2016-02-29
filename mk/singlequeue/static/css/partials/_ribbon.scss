@@ -569,7 +569,6 @@
 
 .ribbon-modal {
   .modal-body {
-    padding: 20px;
 
     form {
       max-width: 100%;
@@ -587,6 +586,21 @@
   }
   .k-loading {
     display: none !important;
+  }
+  .modal-body,
+  .modal-header,
+  .modal-footer {
+    padding: 20px;
+  }
+  .select-btn {
+    float: right !important;
+    margin-left: 20px;
+  }
+}
+
+@media(min-width: 768px) {
+  .modal-dialog {
+    width: 535px;
   }
 }
 

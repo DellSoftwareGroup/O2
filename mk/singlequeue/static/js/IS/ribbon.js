@@ -475,8 +475,8 @@ var ribbonWidgets = function () {
 				+ modalInfo.content
 				+ '</div>'
 				+ '<div class="modal-footer">'
-				+ '<button type="submit" class="btn select-btn btn-default">Select</button>'
-				+ '<button type="reset" class="btn btn-default">Reset</button>'
+				+ '<button type="submit" class="btn select-btn btn-primary">Select</button>'
+				+ '<button type="reset" class="btn reset-btn btn-default">Reset</button>'
 				+ '</div></div></div></div>';
 
 		this.initModal = function () {
@@ -934,20 +934,11 @@ var ribbonWidgets = function () {
 
 	}
 
-	function moreFiltersAutoComplete() {
+	var moreFiltersModals = function () {
 		// Module variables
 		var creator = {alias: null, refresh: false};
 
 		// Private & helpers
-		function initSelected(that, target) {
-			// is there an option selected
-
-			$(target).find('option[selected]').each(function () {
-				$(this).removeAttr('selected');
-			});
-			$(that).attr('selected', 'selected');
-		}
-
 		function removeInputKendoStyles() {
 			$("#campaignFilter").removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
 		}
@@ -980,7 +971,7 @@ var ribbonWidgets = function () {
 			console.log('optionPassed: ', option);
 			creator.alias = option;
 			creator.refresh = true;
-			initCampaignAutoComplete('#campaignFilter'); // refresh kendo autocomplete;
+			campaignModal.initCampaignAutoComplete('#campaignFilter'); // refresh kendo autocomplete;
 			removeInputKendoStyles();
 		}
 
@@ -1003,308 +994,319 @@ var ribbonWidgets = function () {
 			$('#myModal').modal('hide')
 		}
 
-		// Campaign Modal
-		function runCampaignModal() {
-			var campaignInfo = {};
+		// public methods
+		var campaignModal = function () {
 
-			campaignInfo.content = String()
-					+ '<div>'
-					+ '<form class="form-horizontal" data-modalName="campaign">'
-					+ '<div class="form-group">'
-					+ '<label for="campaignFilter">Campaign name: </label>'
-					+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
-					+ '<div id="hidenDropdown" style="display: none"></div>'
-					+ '</div>'
-					+ '<p>And</p>'
-					+ '<div class="form-group">'
-					+ '<label for="campaignFilter">Campaign Creator: </label>'
-					+ '<select  id="campaignCreator" class="form-control" placeholder="Campaign">'
-					+ addCreatorOptions(campaignCreatorNames)
-					+ '</select>'
-					+ '</div>'
-					+ '<p></p>'
-					+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
-					+ '</form></div>';
-			campaignInfo.title = 'Search Campaign';
+			function runCampaignModal() {
+				var campaignInfo = {};
 
-			var buildModal = new ModalHtmlBuilder(campaignInfo);
+				campaignInfo.content = String()
+						+ '<div>'
+						+ '<form class="form-horizontal" data-modalName="campaign">'
+						+ '<div class="form-group">'
+						+ '<label for="campaignFilter">Campaign name: </label>'
+						+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
+						+ '<div id="hidenDropdown" style="display: none"></div>'
+						+ '</div>'
+						+ '<p>And</p>'
+						+ '<div class="form-group">'
+						+ '<label for="campaignFilter">Campaign Creator: </label>'
+						+ '<select  id="campaignCreator" class="form-control" placeholder="Campaign">'
+						+ addCreatorOptions(campaignCreatorNames)
+						+ '</select>'
+						+ '</div>'
+						+ '<p></p>'
+						+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
+						+ '</form></div>';
+				campaignInfo.title = 'Search Campaign';
 
-			buildModal.initModal();
-			buildModal.show();
-			buildModal.preventEventPropagation();
-			buildModal.afterModalLoad(function () {
-						var selectedOption = {}
-						// campaign select dropdown
-						$('.campFilterResults').change(function (e) {
-							selectedOption = {
-								val: e.target.selectedOptions[0].value,
-								name: e.target.selectedOptions[0].text
-							}
-						});
-						// bind select btn event
-						$('.ribbon-modal .select-btn').click(function () {
-							console.log('clicked a');
-							exportSelectedToPopover(this, selectedOption);
-						});
+				var buildModal = new ModalHtmlBuilder(campaignInfo);
+
+				buildModal.initModal();
+				buildModal.show();
+				buildModal.preventEventPropagation();
+				buildModal.afterModalLoad(function () {
+							var selectedOption = {}
+							// campaign select dropdown
+							$('.campFilterResults').change(function (e) {
+								selectedOption = {
+									val: e.target.selectedOptions[0].value,
+									name: e.target.selectedOptions[0].text
+								}
+							});
+							// bind select btn event
+							$('.ribbon-modal .select-btn').click(function () {
+								console.log('clicked a');
+								exportSelectedToPopover(this, selectedOption);
+							});
+							// bind reset btn event
+							$('.ribbon-modal .reset-btn').click(function () {
+								$('#campaignCreator').val('All');
+								$('#campaignFilter').val('');
+								$('.campFilterResults').html(''); // make sure all options are new
+								creator.key = '';
+								refreshCampaignModal('', 'All');
+								// clear previous searches
+								$('#campaignFilter').on('focus', function () {
+									creator.key = '';
+								});
+
+							});
+						}
+				)
+				buildModal.destroyListener();
+
+				initCampaignAutoComplete('#campaignFilter');
+				// remove kendo styles
+				removeInputKendoStyles();
+			};
+
+			var campaignCreatorNames = function () {
+				$.ajax({
+					url: endPoints.campaigns,
+					dataType: 'json',
+					success: function (data) {
+					},
+					error: function (error) {
+						console.error(error);
 					}
-			)
-			buildModal.destroyListener();
+				}).done(function (data) {
+					campaignCreatorNames = groupByCreatorName(data);
+				});
 
-			initCampaignAutoComplete('#campaignFilter');
-			// remove kendo styles
-			removeInputKendoStyles();
-		};
+			}();
 
-		var campaignCreatorNames = function () {
-			$.ajax({
-				url: endPoints.campaigns,
-				dataType: 'json',
-				success: function (data) {
-				},
-				error: function (error) {
-					console.error(error);
+			function initCampaignAutoComplete(id) {
+				var keyEntered = {};
+				// Temporary data fix
+				var campaignDataSource = new kendo.data.DataSource({
+					serverFiltering: true,
+					transport: {
+						read: function (options) {
+							if (typeof options.data.filter != 'undefined') {
+								creator.key = options.data.filter.filters[0].value;
+								$.ajax({
+									url: endPoints.campaigns + "?key=" + options.data.filter.filters[0].value,
+									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+									success: function (result) {
+										// notify the data source that the request succeeded
+										options.success(result.data);
+										resultsData = result.data; //need to pull additional data: email
+									},
+									error: function (result) {
+										// notify the data source that the request failed
+										options.error(result);
+									}
+								});
+							}
+							else {
+								options.success([]);
+							}
+						}
+					},
+					change: function (e) {
+						$('.campFilterResults').html('');
+						var view = campaignDataSource.view();
+						console.log(view.length);
+						if (creator.alias !== null && creator.alias !== "All") { // if creator has been selected
+							var resultsTally = [];
+							view.forEach(function (results) {
+								if (results.CreatedBy == creator.alias) {
+									$('.campFilterResults').append('<option value="' + results.ID + '">' + results.Name + '</option>');
+									resultsTally.push(results.Name);
+								}
+								;
+							});
+							if (resultsTally.length === 0) {
+								$('.campFilterResults').append('<option>0 Camapigns found!</option>');
+							} else {
+								resultsTally = [];
+							}
+						} else {
+							for (var i = 0; i < view.length; i++) {
+								$('.campFilterResults').append('<option value="' + view[i].ID + '">' + view[i].Name + '</option>');
+							}
+						}
+					}
+				});
+
+				$(id).kendoAutoComplete({
+					dataSource: campaignDataSource,
+					filter: "contains",
+					dataTextField: "Name",
+					minLength: 3,
+					popup: {
+						appendTo: $("#hidenDropdown")
+					},
+					animation: false
+				});
+				var autocomplete = $(id).data("kendoAutoComplete");
+
+				if (creator.refresh === true) {
+					autocomplete.search(creator.key); // kendo .search() method is the only way to dynamically trigget change event!
 				}
-			}).done(function (data) {
-				campaignCreatorNames = groupByCreatorName(data);
-			});
+			}
 
+			function addCreatorOptions(nameList) {
+				var names = '<option>All</option>';
+				if (Array.isArray(nameList)) {
+					nameList.forEach(function (creator) {
+						currntName = String()
+								+ '<option value="' + creator.alias + '">'
+								+ creator.name
+								+ '</option>';
+						names = names + currntName;
+					})
+				}
+				return names;
+			}
+
+			return {
+				runCampaignModal: runCampaignModal,
+				initCampaignAutoComplete: initCampaignAutoComplete
+			}
 		}();
 
-		function initCampaignAutoComplete(id) {
-			var keyEntered = {};
-			// Temporary data fix
-			var campaignDataSource = new kendo.data.DataSource({
-				serverFiltering: true,
-				transport: {
-					read: function (options) {
-						if (typeof options.data.filter != 'undefined') {
-							creator.key = options.data.filter.filters[0].value;
-							$.ajax({
-								url: endPoints.campaigns + "?key=" + options.data.filter.filters[0].value,
-								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-								success: function (result) {
-									// notify the data source that the request succeeded
-									options.success(result.data);
-									resultsData = result.data; //need to pull additional data: email
-								},
-								error: function (result) {
-									// notify the data source that the request failed
-									options.error(result);
-								}
-							});
-						}
-						else {
-							options.success([]);
-						}
-					}
-				},
-				change: function (e) {
-					$('.campFilterResults').html('');
-					var view = campaignDataSource.view();
-					console.log(view.length);
-					if (creator.alias !== null && creator.alias !== "All") { // if creator has been selected
-						var resultsTally = [];
-						view.forEach(function (results) {
-							if (results.CreatedBy == creator.alias) {
-								$('.campFilterResults').append('<option value="' + results.ID + '">' + results.Name + '</option>');
-								resultsTally.push(results.Name);
+		var projectModal = function () {
+			// Project Modal
+			function runProjectModal() {
+				var projectInfo = {};
+
+				projectInfo.content = String()
+						+ '<div>'
+						+ '<form class="form-horizontal" data-modalName="project">'
+						+ '<div class="form-group">'
+						+ '<label for="projectFilter">Project Name</label>'
+						+ '<input type="text" class="form-control" id="projectFilter">'
+						+ '<div id="hidenDropdown" style="display: none"></div>'
+						+ '</div>'
+						+ '<p>And</p>'
+						+ '<div class="form-group">'
+						+ '<label for="projectOwner">Project Owner</label>'
+						+ '<select  id="projectOwner" class="form-control">'
+						+ addCreatorOptions()
+						+ '</select>'
+						+ '</div>'
+						+ '<p></p>'
+						+ '<div class="form-group">'
+						+ '<label for="agileTeam">Agile Team</label>'
+						+ '<select  id="agileTeam" class="form-control">'
+						+ addCreatorOptions()
+						+ '</select>'
+						+ '</div>'
+						+ '<p></p>'
+						+ '<div class="form-group">'
+						+ '<label for="sprintFilter">Sprint</label>'
+						+ '<select  id="sprintFilter" class="form-control">'
+						+ addCreatorOptions()
+						+ '</select>'
+						+ '</div>'
+						+ '<p></p>'
+						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
+						+ '</form></div>';
+				projectInfo.title = 'Search project';
+
+				var buildModal = new ModalHtmlBuilder(projectInfo);
+
+				buildModal.initModal();
+				buildModal.show();
+				buildModal.preventEventPropagation();
+				buildModal.destroyListener();
+
+				initProjectAutoComplte('#projectFilter');
+
+			}
+
+			function initProjectAutoComplte(projectFilter) {
+
+				var resultsData = [];
+				var projectDataSource = new kendo.data.DataSource({
+					serverFiltering: true,
+					transport: {
+						read: function (options) {
+							if (typeof options.data.filter != 'undefined') {
+								$.ajax({
+									url: endPoints.projects + "?key=" + options.data.filter.filters[0].value,
+									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+									success: function (result) {
+										// notify the data source that the request succeeded
+										options.success(result.data);
+										resultsData = result.data; //need to pull additional object properties (campagin owner, status etc)
+									},
+									error: function (result) {
+										// notify the data source that the request failed
+										options.error(result);
+									}
+								}).done(function () {
+									console.log('done: ', resultsData.length);
+								});
 							}
-							;
-						});
-						if (resultsTally.length === 0) {
-							$('.campFilterResults').append('<option>0 Camapigns found!</option>');
-						} else {
-							resultsTally = [];
+							else {
+								options.success([]);
+							}
 						}
-					} else {
+					},
+					change: function (e) {
+						var view = projectDataSource.view();
+						console.log(view.length);
+						console.log(view[0]);
+						$('.projectFilterResults').html('');
 						for (var i = 0; i < view.length; i++) {
-							$('.campFilterResults').append('<option value="' + view[i].ID + '">' + view[i].Name + '</option>');
+							$('.projectFilterResults').append('<option>' + view[i].Name + '</option>');
 						}
 					}
-				}
-			});
+				});
 
-			$(id).kendoAutoComplete({
-				dataSource: campaignDataSource,
-				filter: "contains",
-				dataTextField: "Name",
-				minLength: 3,
-				popup: {
-					appendTo: $("#hidenDropdown")
-				},
-				animation: false
-			});
-			var autocomplete = $(id).data("kendoAutoComplete");
+				$(projectFilter).kendoAutoComplete({
+					filter: "contains",
+					dataSource: projectDataSource,
+					dataTextField: "Name",
+					minLength: 3,
+					popup: {
+						appendTo: $("#hidenDropdown")
+					}
+				});
+				// prevents issues with field styles
+				$('#projectFilter').removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
 
-			if (creator.refresh === true) {
-				autocomplete.search(creator.key); // kendo .search() method is the only way to dynamically trigget change event!
+
 			}
-		}
 
-		function addCreatorOptions(nameList) {
-			var names = '<option>All</option>';
-			if (Array.isArray(nameList)) {
-				nameList.forEach(function (creator) {
-					currntName = String()
-							+ '<option value="' + creator.alias + '">'
-							+ creator.name
-							+ '</option>';
-					names = names + currntName;
-				})
+			return {
+				runProjectModal: runProjectModal
 			}
-			return names;
-		}
+		}();
 
+		function init() {
 
-		// Project Modal
-		function runProjectModal() {
-			var projectInfo = {};
+			// Events
 
-			projectInfo.content = String()
-					+ '<div>'
-					+ '<form class="form-horizontal" data-modalName="project">'
-					+ '<div class="form-group">'
-					+ '<label for="projectFilter">Project Name</label>'
-					+ '<input type="text" class="form-control" id="projectFilter">'
-					+ '<div id="hidenDropdown" style="display: none"></div>'
-					+ '</div>'
-					+ '<p>And</p>'
-					+ '<div class="form-group">'
-					+ '<label for="projectOwner">Project Owner</label>'
-					+ '<select  id="projectOwner" class="form-control">'
-					+ addCreatorOptions()
-					+ '</select>'
-					+ '</div>'
-					+ '<p></p>'
-					+ '<div class="form-group">'
-					+ '<label for="agileTeam">Agile Team</label>'
-					+ '<select  id="agileTeam" class="form-control">'
-					+ addCreatorOptions()
-					+ '</select>'
-					+ '</div>'
-					+ '<p></p>'
-					+ '<div class="form-group">'
-					+ '<label for="sprintFilter">Sprint</label>'
-					+ '<select  id="sprintFilter" class="form-control">'
-					+ addCreatorOptions()
-					+ '</select>'
-					+ '</div>'
-					+ '<p></p>'
-					+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
-					+ '</form></div>';
-			projectInfo.title = 'Search project';
-
-			var buildModal = new ModalHtmlBuilder(projectInfo);
-
-			buildModal.initModal();
-			buildModal.show();
-			buildModal.preventEventPropagation();
-			buildModal.destroyListener();
-
-			initProjectAutoComplte('#projectFilter');
-
-		}
-
-		function initProjectAutoComplte(projectFilter) {
-
-			var resultsData = [];
-			var projectDataSource = new kendo.data.DataSource({
-				serverFiltering: true,
-				transport: {
-					read: function (options) {
-						if (typeof options.data.filter != 'undefined') {
-							$.ajax({
-								url: endPoints.projects + "?key=" + options.data.filter.filters[0].value,
-								dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-								success: function (result) {
-									// notify the data source that the request succeeded
-									options.success(result.data);
-									resultsData = result.data; //need to pull additional object properties (campagin owner, status etc)
-								},
-								error: function (result) {
-									// notify the data source that the request failed
-									options.error(result);
-								}
-							}).done(function () {
-								console.log('done: ', resultsData.length);
-							});
-						}
-						else {
-							options.success([]);
-						}
-					}
-				},
-				change: function (e) {
-					var view = projectDataSource.view();
-					console.log(view.length);
-					console.log(view[0]);
-					$('.projectFilterResults').html('');
-					for (var i = 0; i < view.length; i++) {
-						$('.projectFilterResults').append('<option>' + view[i].Name + '</option>');
-					}
-				}
+			$('#campaign-btn').on('click', function (e) {
+				campaignModal.runCampaignModal();
 			});
 
-			$(projectFilter).kendoAutoComplete({
-				filter: "contains",
-				dataSource: projectDataSource,
-				dataTextField: "Name",
-				minLength: 3,
-				popup: {
-					appendTo: $("#hidenDropdown")
-				}
+			$('#project-btn').on('click', function (e) {
+				projectModal.runProjectModal();
 			});
-			// prevents issues with field styles
-			$('#projectFilter').removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
 
+			// add selected attr
+			$('#body-content').on('change', '#campaignCreator', function (e) {
+				var selectElm = e.target;
+				var option = $(selectElm).find('option:selected').val(); // get selected value which is Alias
+				refreshCampaignModal(selectElm, option)
+			});
 
 		}
 
-		// Events
-
-		// TODO: need to figure a way to prevent modal to close more filters popover
-		// prevent filter menu to close on modal clicks
-		/*    var modalChildren = $('.ribbon-modal').children();
-		 $('#body-content').on('click', modalChildren, function (e) {
-		 e.stopPropagation();
-		 });*/
-
-
-		$('#campaign-btn').on('click', function (e) {
-			runCampaignModal();
-		});
-
-		$('#project-btn').on('click', function (e) {
-			runProjectModal();
-		});
-
-		// add selected attr
-		$('#body-content').on('change', '#campaignCreator', function (e) {
-			var selectElm = e.target;
-			var option = $(selectElm).find('option:selected').val(); // get selected value which is Alias
-			refreshCampaignModal(selectElm, option)
-		});
-		/*
-
-
-		 initSelected($(this), $(this).parents('select'));
-		 });*/
-
-		$('#body-content').on('click', '.ribbon-modal .select-btn', function (e) {
-			console.log('clicked b');
-			exportSelectedToPopover(this);
-		});
-
-		// clear previous searches
-		$('#campaignFilter').on('focus', function () {
-			creator.key = '';
-		});
-	}
+		return {
+			init: init
+		}
+	}();
 
 	return {
 		ribbonPopupModule: ribbonPopupModule,
 		filterCollectorModule: filterCollectorModule,
-		moreFiltersAutoComplete: moreFiltersAutoComplete
+		moreFiltersModals: moreFiltersModals
 	}
 
 }();
