@@ -32,11 +32,12 @@ var ribbonListener = function () {
 
 			option.isSelected = function () {
 				if ($li.hasClass('selected')) {
-					return true;
+					parentTag.addClass('active-item-bg');
+					hasActive = true;
+					return true
 				} else {
-					return false;
+					return false
 				}
-
 			}();// end of is selected
 
 			option.value = $li.find('input').attr('value'); // end of value
@@ -47,6 +48,9 @@ var ribbonListener = function () {
 
 			ribbonReqObj  [$multiSelect.data('title')].push(option);
 		});
+		if (!hasActive) { // if no active options remove active bg class
+			parentTag.removeClass('active-item-bg');
+		}
 	}
 
 	function handleDefaultSelect(defaultSelect, filterType) {
@@ -370,16 +374,13 @@ var ribbonListener = function () {
 
 			if (isTimerRunning) {
 				clearTimeout(ifMultipleClicks);
-				isTimerRunning = true;
-			} else {
-				isTimerRunning = true;
 			}
-
 			// delay to allow for fast multiple clicking on a filter
 			ifMultipleClicks = setTimeout(function () {
 
 				// rebuild ribbonReqObj   filters state
 				rebuildRibbonState($rbWrapper);
+				isTimerRunning = true;
 
 			}, 500)
 
@@ -1177,33 +1178,36 @@ var ribbonWidgets = function () {
 				projectInfo.content = String()
 						+ '<div>'
 						+ '<form class="form-horizontal" data-modalName="project">'
-						+ '<div class="form-group">'
-						+ '<label for="projectFilter">Project Name</label>'
-						+ '<input type="text" class="form-control" id="projectFilter">'
+						+ '<div class="form-inline firstProjFilter mb-10">'
+						+ '<select class="form-control" id="projectSelectFirst">'
+						+ '<option value="Project Name">Project Name</option>'
+						+ '<option value="Project Id">Project ID</option>'
+						+ '</select>'
+						+ '<input type="text" class="form-control" id="nameOrID">'
 						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
-						+ '<p>And</p>'
-						+ '<div class="form-group">'
-						+ '<label for="projectOwner">Project Owner</label>'
-						+ '<select  id="projectOwner" class="form-control">'
-						+ addCreatorOptions()
+						+ '<p class="mb-10">And</p>'
+						+ '<div class="form-inline secondProjFilter mb-10">'
+						+ '<select class="form-control" id="projectSelectSecond">'
+						+ '<option value="Project Name">Project Owner</option>'
+						+ '<option value="Project Id">Project Requester</option>'
 						+ '</select>'
+						+ '<input type="text" class="form-control" id="ownerOrRequester">'
+						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
-						+ '<p></p>'
-						+ '<div class="form-group">'
-						+ '<label for="agileTeam">Agile Team</label>'
-						+ '<select  id="agileTeam" class="form-control">'
-						+ addCreatorOptions()
+						+ '<p class="mb-10">And</p>'
+						+ '<div class="form-inline thirdProjFilter mb-20">'
+						+ '<select class="form-control" id="projectSelectThird">'
+						+ '<option value="Project Name">Idea</option>'
+						+ '<option value="Project Id">Backlog</option>'
+						+ '<option value="Project Name">Started</option>'
+						+ '<option value="Project Id">Done</option>'
+						+ '<option value="Project Name">Council</option>'
+						+ '<option value="Project Id">Cancelled</option>'
 						+ '</select>'
+						+ '<input type="text" class="form-control" id="projStatus">'
+						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
-						+ '<p></p>'
-						+ '<div class="form-group">'
-						+ '<label for="sprintFilter">Sprint</label>'
-						+ '<select  id="sprintFilter" class="form-control">'
-						+ addCreatorOptions()
-						+ '</select>'
-						+ '</div>'
-						+ '<p></p>'
 						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
 						+ '</form></div>';
 				projectInfo.title = 'Search project';
@@ -1215,7 +1219,7 @@ var ribbonWidgets = function () {
 				buildModal.preventEventPropagation();
 				buildModal.destroyListener();
 
-				initProjectAutoComplte('#projectFilter');
+				initProjectAutoComplte('#nameOrID');
 
 			}
 
@@ -1228,7 +1232,7 @@ var ribbonWidgets = function () {
 						read: function (options) {
 							if (typeof options.data.filter != 'undefined') {
 								$.ajax({
-									url: endPoints.projects + "?key=" + options.data.filter.filters[0].value,
+									url: endPoints.projects + "?name=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
 									success: function (result) {
 										// notify the data source that the request succeeded
@@ -1312,6 +1316,7 @@ var ribbonWidgets = function () {
 	}
 
 }();
+
 
 
 
