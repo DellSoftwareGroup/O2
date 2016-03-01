@@ -1889,22 +1889,18 @@ ul {
 .ribbon-modal .modal-body form select {
   z-index: 99999;
 }
-
 .ribbon-modal .modal-body .form-group {
   margin-left: 0;
   margin-right: 0;
   width: 490px;
 }
-
 .ribbon-modal .k-loading {
   display: none !important;
 }
-
 .ribbon-modal .modal-body,
 .ribbon-modal .modal-header,
 .ribbon-modal .modal-footer {
   padding: 20px; }
-
 .ribbon-modal .select-btn {
   float: right !important;
   margin-left: 20px;
@@ -2212,3 +2208,13 @@ ul {
     color: #007db8; }
 #results-data-list #edit-task-listing tr:last-child td {
   border-bottom: none; }
+
+/* Use this file to override overall Kendo UI styles */
+.form-group .k-textbox, .form-group .k-autocomplete, .form-group .k-dropdown-wrap, .form-group .k-picker-wrap, .form-group .k-numeric-wrap {
+  border-width: 0;
+}
+
+.form-horizontal .form-group .control-text {
+  padding-top: 7px;
+  display: inline-block;
+}

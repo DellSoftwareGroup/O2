@@ -56,7 +56,7 @@
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.css">
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/warning.css">
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/project-form.css">
+	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/project-form.css">-->
 
 	<style>
 		#tabs > ul > li.ui-tabs-active a {
