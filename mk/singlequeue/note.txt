@@ -7,3 +7,8 @@ Notes:
 \\alvqpsw01\WWWROOT\stage-o2\MK.DSG.Web.O2.MVC\SingleQueue
 
 Sample path: /mk/singlequeue/static/css/bootstrap.css
+
+
+* 03/01/2016 Integration has started so the latest code is at http://stage-o2.prod.quest.corp/mk/singlequeue
+The HTML has been integrated into the view. To see the latest JS changes to the ribbon please go to
+static/js/IS/ribbon.js (points now to actual endpoints)
