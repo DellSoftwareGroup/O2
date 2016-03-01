@@ -8,6 +8,7 @@ var singleQueueTables = (function ($) {
 
 	// common functions for all tables - Table DOM manipulations
 	var commonStyles = (function () {
+
 		function summarySecStyles(numCol) {
 			$('th').each(function () {
 				if ($(this).data("index") > numCol) {
@@ -15,6 +16,7 @@ var singleQueueTables = (function ($) {
 				}
 			})
 		};
+
 		function summaryBorder(colClass) {
 			$(colClass).parent('td').addClass('summary-start');
 		};
