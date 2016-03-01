@@ -1,6 +1,8 @@
+/*
 function ribbon_change(obj) {
 	console.log('from IS form: ', obj);
 }
+ */
 
 var ribbonListener = function () {
 
@@ -185,18 +187,18 @@ var ribbonListener = function () {
 	var initISfunc = {};
 
 	// gets function passed in the init and saves it for later use in an obj
+	//TODO: In the future if only one function needs to be called when filter changes, we can simplify this portion.
 	function getISfunction(funcPassed) {
 		initISfunc = (function () {
-			var passedFunc = funcPassed;
+			var passedFunc = funcPassed; //funcPassed is a function
 
 			function run() {
-				if (typeof passedFunc !== "undefined" || typeof passedFunc !== 'function') {
+				if (typeof passedFunc == 'function') {
 					passedFunc(getISobj(ribbonReqObj));
 				}
 			}
 
 			return {
-				passedFund: passedFunc,
 				run: run
 			}
 		}());
