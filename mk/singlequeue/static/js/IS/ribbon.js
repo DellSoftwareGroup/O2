@@ -1,8 +1,6 @@
-/*
-function ribbon_change(obj) {
-	console.log('from IS form: ', obj);
-}
- */
+/*function ribbon_change(obj) {
+ console.log('from IS form: ', obj);
+ }*/
 
 var ribbonListener = function () {
 
@@ -20,8 +18,9 @@ var ribbonListener = function () {
 
 	// Internal methods to handle filters by type:
 	function handleMultiSelect($multiSelect, filterType) {
+		var hasActive = false, parentTag = $multiSelect.closest('li');
 		if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
-			ribbonReqObj  [$multiSelect.data('title')] = [];
+			ribbonReqObj[$multiSelect.data('title')] = [];
 		} else {
 			console.log('Undefined filter title')
 		}
@@ -191,18 +190,18 @@ var ribbonListener = function () {
 	var initISfunc = {};
 
 	// gets function passed in the init and saves it for later use in an obj
-	//TODO: In the future if only one function needs to be called when filter changes, we can simplify this portion.
 	function getISfunction(funcPassed) {
 		initISfunc = (function () {
-			var passedFunc = funcPassed; //funcPassed is a function
+			var passedFunc = funcPassed;
 
 			function run() {
-				if (typeof passedFunc == 'function') {
+				if (typeof passedFunc !== "undefined" || typeof passedFunc !== 'function') {
 					passedFunc(getISobj(ribbonReqObj));
 				}
 			}
 
 			return {
+				passedFund: passedFunc,
 				run: run
 			}
 		}());
@@ -387,10 +386,12 @@ var ribbonListener = function () {
 		});
 
 		// on click event for li with now select
-		$('#agile-status').find('li').on('click', function (e) {
+		$('#agile-status a').on('click', function (e) {
 			e.preventDefault();
+			toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
 			// rebuild ribbonReqObj   filters state
 			rebuildRibbonState($rbWrapper);
+
 		});
 
 	}
@@ -917,7 +918,7 @@ var ribbonWidgets = function () {
 			// Register Events and trigger responses
 
 			$('.filter-collector').on('click', 'a', function (e) {
-				e.stopImmediatePropagation();
+				// e.stopImmediatePropagation();
 				e.preventDefault();
 				var filterType = findFilterTitle($(this));
 
@@ -1316,12 +1317,3 @@ var ribbonWidgets = function () {
 	}
 
 }();
-
-
-
-
-
-
-
-
-
