@@ -1,1 +1,6 @@
 /* Use this file to override overall Kendo UI styles */
+.form-group {
+	.k-textbox, .k-autocomplete, .k-dropdown-wrap, .k-picker-wrap, .k-numeric-wrap {
+		border-width: 0;
+	}
+}
