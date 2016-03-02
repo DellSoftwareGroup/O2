@@ -6,3 +6,16 @@
 		}
 	}
 }
+
+.icon-input-overlay {
+	display: inline-block;
+	position: relative;
+	input {
+		padding-right: 30px;
+	}
+	.glyphicon {
+		position: absolute;
+		right: 8px;
+		top: 8px;
+	}
+}

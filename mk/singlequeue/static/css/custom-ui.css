@@ -2220,3 +2220,18 @@ ul {
   padding-top: 7px;
   display: inline-block;
 }
+
+.icon-input-overlay {
+  display: inline-block;
+  position: relative;
+}
+
+.icon-input-overlay input {
+  padding-right: 30px;
+}
+
+.icon-input-overlay .glyphicon {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
