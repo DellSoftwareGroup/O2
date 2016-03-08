@@ -2222,7 +2222,7 @@ ul {
 }
 
 .icon-input-overlay {
-  display: inline-block;
+  display: block;
   position: relative;
 }
 
