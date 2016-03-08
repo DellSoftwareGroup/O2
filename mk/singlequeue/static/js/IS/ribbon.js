@@ -394,6 +394,9 @@ var ribbonListener = function () {
 
 		});
 
+
+		$('#dp-sprint-dd').find('option:first-child').text('All Sprints');
+
 	}
 
 	// get object used to pase object to external widgets
@@ -499,7 +502,9 @@ var ribbonWidgets = function () {
 		}
 
 		this.afterModalLoad = function (process) {
-			process();
+			$('#myModal').on('shown.bs.modal', function (e) {
+				process();
+			})
 		}
 
 		this.destroyListener = function () {
@@ -940,11 +945,18 @@ var ribbonWidgets = function () {
 
 	var moreFiltersModals = function () {
 		// Module variables
-		var creator = {alias: null, refresh: false};
+		var subFilter = {
+			alias: null,
+			refresh: false,
+			isOwnerOrRequester: null,
+			destroySubFilter: null,
+			status: null,
+			SearchByID: false
+		};
 
 		// Private & helpers
-		function removeInputKendoStyles() {
-			$("#campaignFilter").removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
+		function removeInputKendoStyles(targetInput) {
+			$(targetInput).removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
 		}
 
 		function groupByCreatorName(results) {
@@ -971,25 +983,29 @@ var ribbonWidgets = function () {
 			return objNameList;
 		}
 
-		function refreshCampaignModal(selectElm, option) {
+		function refreshModal(selectElm, option, inputTarget) {
 			console.log('optionPassed: ', option);
-			creator.alias = option;
-			creator.refresh = true;
-			campaignModal.initCampaignAutoComplete('#campaignFilter'); // refresh kendo autocomplete;
-			removeInputKendoStyles();
+			subFilter.alias = option;
+			subFilter.refresh = true;
+			if (inputTarget.indexOf('campaign') > -1) {
+				campaignModal.initCampaignAutoComplete(inputTarget); // refresh kendo autocomplete;
+			} else {
+				projectModal.initProjectAutoComplete(inputTarget);
+			}
+			removeInputKendoStyles(inputTarget);
 		}
 
 		function exportSelectedToPopover(target, option) {
 
 			if ($.isEmptyObject(option)) {
-				alert('Please select campaign!')
+				alert('Please make a selection')
 				return
 			}
 			// add ellipsis if name to long
 			if (option.name.length > 27) {
 				option.name = option.name.substr(0, 26) + '...';
 			}
-			// find which modal (campaign or project : may grow later time)
+			// find which modal (campaign or project : may grow later)
 			var $modalName = $('.ribbon-modal form').data('modalname');
 			$('#filter-' + $modalName).find('input:first-child')
 					.val(option.name)
@@ -1014,7 +1030,7 @@ var ribbonWidgets = function () {
 						+ '</div>'
 						+ '<p>And</p>'
 						+ '<div class="form-group">'
-						+ '<label for="campaignFilter">Campaign Creator: </label>'
+						+ '<label for="campaignCreator">Campaign Creator: </label>'
 						+ '<select  id="campaignCreator" class="form-control" placeholder="Campaign">'
 						+ addCreatorOptions(campaignCreatorNames)
 						+ '</select>'
@@ -1030,39 +1046,45 @@ var ribbonWidgets = function () {
 				buildModal.show();
 				buildModal.preventEventPropagation();
 				buildModal.afterModalLoad(function () {
-							var selectedOption = {}
-							// campaign select dropdown
-							$('.campFilterResults').change(function (e) {
-								selectedOption = {
-									val: e.target.selectedOptions[0].value,
-									name: e.target.selectedOptions[0].text
-								}
-							});
-							// bind select btn event
-							$('.ribbon-modal .select-btn').click(function () {
-								console.log('clicked a');
-								exportSelectedToPopover(this, selectedOption);
-							});
-							// bind reset btn event
-							$('.ribbon-modal .reset-btn').click(function () {
-								$('#campaignCreator').val('All');
-								$('#campaignFilter').val('');
-								$('.campFilterResults').html(''); // make sure all options are new
-								creator.key = '';
-								refreshCampaignModal('', 'All');
-								// clear previous searches
-								$('#campaignFilter').on('focus', function () {
-									creator.key = '';
-								});
-
-							});
+					var selectedOption = {}
+					// campaign select dropdown
+					$('.campFilterResults').change(function (e) {
+						selectedOption = {
+							val: e.target.selectedOptions[0].value,
+							name: e.target.selectedOptions[0].text
 						}
-				)
+					});
+					// bind select btn event
+					$('.ribbon-modal .select-btn').click(function () {
+						console.log('clicked a');
+						exportSelectedToPopover(this, selectedOption);
+					});
+
+					// bind reset btn event
+					$('.ribbon-modal .reset-btn').click(function () {
+						$('#campaignCreator').val('All');
+						$('#campaignFilter').val('');
+						$('.campFilterResults').html(''); // make sure all options are new
+						subFilter.key = '';
+						refreshModal('', 'All', '#campaignFilter');
+						// clear previous searches
+						$('#campaignFilter').on('focus', function () {
+							subFilter.key = '';
+						});
+					});
+
+					// add selected attr
+					$('#campaignCreator').on('change', function (e) {
+						var selectElm = e.target;
+						var option = $(selectElm).find('option:selected').val(); // get selected value which is Alias
+						refreshModal(selectElm, option, '#campaignFilter');
+					});
+				});
 				buildModal.destroyListener();
 
 				initCampaignAutoComplete('#campaignFilter');
 				// remove kendo styles
-				removeInputKendoStyles();
+				removeInputKendoStyles("#campaignFilter");
 			};
 
 			var campaignCreatorNames = function () {
@@ -1081,14 +1103,13 @@ var ribbonWidgets = function () {
 			}();
 
 			function initCampaignAutoComplete(id) {
-				var keyEntered = {};
-				// Temporary data fix
+
 				var campaignDataSource = new kendo.data.DataSource({
 					serverFiltering: true,
 					transport: {
 						read: function (options) {
 							if (typeof options.data.filter != 'undefined') {
-								creator.key = options.data.filter.filters[0].value;
+								subFilter.key = options.data.filter.filters[0].value;
 								$.ajax({
 									url: endPoints.campaigns + "?key=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
@@ -1112,10 +1133,10 @@ var ribbonWidgets = function () {
 						$('.campFilterResults').html('');
 						var view = campaignDataSource.view();
 						console.log(view.length);
-						if (creator.alias !== null && creator.alias !== "All") { // if creator has been selected
+						if (subFilter.alias !== null && subFilter.alias !== "All") { // if creator has been selected
 							var resultsTally = [];
 							view.forEach(function (results) {
-								if (results.CreatedBy == creator.alias) {
+								if (results.CreatedBy == subFilter.alias) {
 									$('.campFilterResults').append('<option value="' + results.ID + '">' + results.Name + '</option>');
 									resultsTally.push(results.Name);
 								}
@@ -1146,8 +1167,8 @@ var ribbonWidgets = function () {
 				});
 				var autocomplete = $(id).data("kendoAutoComplete");
 
-				if (creator.refresh === true) {
-					autocomplete.search(creator.key); // kendo .search() method is the only way to dynamically trigget change event!
+				if (subFilter.refresh === true) {
+					autocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
 				}
 			}
 
@@ -1172,42 +1193,126 @@ var ribbonWidgets = function () {
 		}();
 
 		var projectModal = function () {
+
 			// Project Modal
 			function runProjectModal() {
-				var projectInfo = {};
+				var projectInfo = {}, projFiltersPreData = {}, ownerOrRequester = 'clean';
 
+				// Internal methods
+				function splitDataByFilter(data) {
+					var requestors = ['All Requestors'], owners = ['All Owners'], ids = [], dataArray = data.data;
+
+					if (Array.isArray(dataArray)) {
+						dataArray.forEach(function (projInfo) {
+							var requestor, id, owner;
+
+							// Handle Null properties
+							requestor = (projInfo.RequestedByName == null) ? 'No Requestor' : projInfo.RequestedByName;
+							id = (projInfo.ID == null) ? 'No ID' : projInfo.ID;
+							owner = (projInfo.OwnedByName == null) ? 'No Owner' : projInfo.OwnedByName;
+
+
+							// create requestor array
+							if ($.inArray(requestor, requestors) == -1) {
+								requestors.push(requestor); // intersections array
+							}
+
+							// create IDs array
+							if ($.inArray(id, ids) == -1) {
+								ids.push(id); // intersections array
+							}
+
+							// create Owners array
+							if ($.inArray(owner, owners) == -1) {
+
+								owners.push(owner); // intersections array
+							}
+						})
+					}
+					projFiltersPreData = {
+						requestors: requestors,
+						IDs: ids,
+						owners: owners
+					}
+
+				}
+
+				(function getProjectData() {
+					$.ajax({
+						url: endPoints.projects,
+						dataType: 'json',
+						success: function (data) {
+							splitDataByFilter(data);
+						},
+						error: function (error) {
+							console.error(error);
+						}
+					});
+
+				}());
+
+				function initOwnerReqAutoComp(selected) {
+
+					subFilter.isOwnerOrRequester = selected;
+					var dataSource = (selected == 'ProjOwner') ? projFiltersPreData.owners : projFiltersPreData.requestors
+
+					$('#ownerOrRequester').kendoAutoComplete({
+						filter: "contains",
+						dataSource: {
+							data: dataSource
+						},
+						minLength: 3,
+						select: function (e) {
+							var item = e.item;
+							var text = item.text();
+							var selectElm = e.item;
+							var option = item.text(); // get selected value which is Alias
+							refreshModal(selectElm, option, '#nameOrID');
+						}
+					});
+
+					// owner and request dataSource
+					var OandRDataSource = $('#ownerOrRequester').data("kendoAutoComplete");
+
+					if (subFilter.refresh) {
+						OandRDataSource.refresh();
+						initProjectAutoComplete('#nameOrID');
+					}
+					removeInputKendoStyles('#ownerOrRequester');
+				}
+
+				var InputByIdStyles = "display:none; position: absolute; left:0; top: 0;";
 				projectInfo.content = String()
 						+ '<div>'
 						+ '<form class="form-horizontal" data-modalName="project">'
-						+ '<div class="form-inline firstProjFilter mb-10">'
+						+ '<div class="form-inline firstProjFilter mb-10" >'
 						+ '<select class="form-control" id="projectSelectFirst">'
-						+ '<option value="Project Name">Project Name</option>'
-						+ '<option value="Project Id">Project ID</option>'
+						+ '<option value="ProjName">Project Name</option>'
+						+ '<option value="ProjId">Project ID</option>'
 						+ '</select>'
-						+ '<input type="text" class="form-control" id="nameOrID">'
+						+ '<div style="position: relative; display: inline-block">'
+						+ '<input type="text" class="form-control resetable" id="nameOrID">'
+						+ '<input type="text" class="form-control resetable" id="searchById" style="' + InputByIdStyles + '">'
+						+ '</div>'
 						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
-						+ '<p class="mb-10">And</p>'
 						+ '<div class="form-inline secondProjFilter mb-10">'
 						+ '<select class="form-control" id="projectSelectSecond">'
-						+ '<option value="Project Name">Project Owner</option>'
-						+ '<option value="Project Id">Project Requester</option>'
+						+ '<option value="ProjOwner">Project Owner</option>'
+						+ '<option value="ProjRequester">Project Requester</option>'
 						+ '</select>'
-						+ '<input type="text" class="form-control" id="ownerOrRequester">'
-						+ '<div id="hidenDropdown" style="display: none"></div>'
+						+ '<input type="text" class="form-control resetable" id="ownerOrRequester">'
 						+ '</div>'
-						+ '<p class="mb-10">And</p>'
 						+ '<div class="form-inline thirdProjFilter mb-20">'
-						+ '<select class="form-control" id="projectSelectThird">'
-						+ '<option value="Project Name">Idea</option>'
-						+ '<option value="Project Id">Backlog</option>'
-						+ '<option value="Project Name">Started</option>'
-						+ '<option value="Project Id">Done</option>'
-						+ '<option value="Project Name">Council</option>'
-						+ '<option value="Project Id">Cancelled</option>'
+						+ '<select class="form-control resetable" id="projectSelectThird" style="width:490px;">'
+						+ '<option value="">Select Project Status...</option>'
+						+ '<option value="Idea">Idea</option>'
+						+ '<option value="Backlog">Backlog</option>'
+						+ '<option value="Started">Started</option>'
+						+ '<option value="Done">Done</option>'
+						+ '<option value="Council">Council</option>'
+						+ '<option value="Cancelled">Cancelled</option>'
 						+ '</select>'
-						+ '<input type="text" class="form-control" id="projStatus">'
-						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
 						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
 						+ '</form></div>';
@@ -1218,20 +1323,131 @@ var ribbonWidgets = function () {
 				buildModal.initModal();
 				buildModal.show();
 				buildModal.preventEventPropagation();
+				buildModal.afterModalLoad(function () {
+
+					// when serching by ID
+					$('#projectSelectFirst').on('change', function (e) {
+						if ($(this).val() == 'ProjId') {
+							$.when(
+									$('#searchById').css('display', 'inline-block')
+							).then(
+									$('.secondProjFilter, .thirdProjFilter').hide('slow')
+							);
+							resetProjModal();
+							initSearchById('#searchById');
+						} else {
+							$('#searchById').css('display', 'none');
+							$('.secondProjFilter, .thirdProjFilter').show('slow');
+							resetProjModal();
+							initProjectAutoComplete('#nameOrID');
+						}
+					})
+
+					// trigger autocomplete when change of owner / requester
+					$('#projectSelectSecond').on('change', function () {
+						initOwnerReqAutoComp($(this).val());
+					});
+
+					// trigger autocomplete when focus on owner/requester input
+					$('#ownerOrRequester').on('focus', function () {
+
+						if (ownerOrRequester == 'clean') { // prevent being trigger multiple times
+							initOwnerReqAutoComp($('#projectSelectSecond').val());
+							ownerOrRequester = 'durty';
+						}
+					});
+
+					// when owner or requested field is cleared we need to show all
+					// trigger autocomplete when focus on owner/requester input
+					$('#ownerOrRequester').on('blur', function () {
+
+						if ($('#ownerOrRequester').val() == '') { //  chech if name has been clear
+							subFilter.alias = null;  // clear name from reference obj
+							initOwnerReqAutoComp($('#projectSelectSecond').val()); // initialize process
+							ownerOrRequester = 'durty';
+						}
+
+					});
+
+					// when status is selected
+					$('#projectSelectThird').on('change', function () {
+
+						subFilter.status = $(this).val() == '' ? null : $(this).val();
+						subFilter.refresh = true;
+						initProjectAutoComplete('#nameOrID');
+						;
+					});
+
+					// reset
+					$('.reset-btn').on('click', function () {
+						resetProjModal();
+					});
+
+					// when clicked select button
+					$('.select-btn').on('click', function () {
+						var exportSelected = {};
+						exportSelected.name = $('.projectFilterResults').find('option:selected').data('name');
+						exportSelected.val = $('.projectFilterResults').find('option:selected').val();
+						exportSelectedToPopover(null, exportSelected);
+					});
+
+
+				});
 				buildModal.destroyListener();
 
-				initProjectAutoComplte('#nameOrID');
-
+				initProjectAutoComplete('#nameOrID');
 			}
 
-			function initProjectAutoComplte(projectFilter) {
+			// Kendo Data processing
+			function initProjectAutoComplete(projectFilter) {
 
-				var resultsData = [];
+				// seach by ID
+				var projectDataSourceById = new kendo.data.DataSource({
+					serverFiltering: true,
+					transport: {
+						read: function (options) {
+							if (typeof options.data.filter != 'undefined') {
+								subFilter.key = options.data.filter.filters[0].value;
+								$.ajax({
+									url: endPoints.projects + "?id=" + options.data.filter.filters[0].value,
+									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+									success: function (result) {
+										// notify the data source that the request succeeded
+										options.success(result.data);
+										resultsData = result.data; //need to pull additional object properties (campagin owner, status etc)
+									},
+									error: function (result) {
+										// notify the data source that the request failed
+										options.error(result);
+									}
+								});
+							}
+							else {
+								options.success([]);
+							}
+						}
+					},
+					change: function (e) {
+						$('.projectFilterResults').html(''); // clear results
+						var view = projectDataSourceById.view();
+						console.log(view.length);
+						if (view.length > 0) {
+							for (var i = 0; i < view.length; i++) {
+								appendToResults('.projectFilterResults', view[i]);
+							}
+						} else {
+							appendToResults('.projectFilterResults', 0);
+						}
+					}
+				});
+
+				// search by Title
 				var projectDataSource = new kendo.data.DataSource({
 					serverFiltering: true,
 					transport: {
 						read: function (options) {
 							if (typeof options.data.filter != 'undefined') {
+								subFilter.key = options.data.filter.filters[0].value;
 								$.ajax({
 									url: endPoints.projects + "?name=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
@@ -1244,8 +1460,6 @@ var ribbonWidgets = function () {
 										// notify the data source that the request failed
 										options.error(result);
 									}
-								}).done(function () {
-									console.log('done: ', resultsData.length);
 								});
 							}
 							else {
@@ -1254,13 +1468,68 @@ var ribbonWidgets = function () {
 						}
 					},
 					change: function (e) {
+						var filtered = [], resultsTally = [];
+						$('.projectFilterResults').html(''); // clear results
 						var view = projectDataSource.view();
 						console.log(view.length);
-						console.log(view[0]);
-						$('.projectFilterResults').html('');
-						for (var i = 0; i < view.length; i++) {
-							$('.projectFilterResults').append('<option>' + view[i].Name + '</option>');
+
+						// no subfilter modified
+						if ((subFilter.alias == null || subFilter.alias.indexOf('All') != -1) && subFilter.status == null) {
+							for (var i = 0; i < view.length; i++) {
+								appendToResults('.projectFilterResults', view[i]);
+							}
+							return;
 						}
+
+						// filter owner / Requester
+						if (subFilter.alias !== null && subFilter.alias.indexOf('All') == -1) { // if creator has been selected
+
+							view.forEach(function (result) {
+
+								//what are they using for filtering owner or requeter
+								var name = (subFilter.isOwnerOrRequester == 'ProjOwner') ? result.OwnedByName : result.RequestedByName;
+
+								if (name == subFilter.alias) {
+
+									if (subFilter.status !== null) { // if status has also been selected
+										filtered.push(result);
+									} else {
+										appendToResults('.projectFilterResults', result);
+										resultsTally.push(result.Name);
+									}
+								}
+							});
+
+						}
+						;
+
+						// filter status
+						if (subFilter.status !== null) {
+							if (filtered.length > 0) {
+								filtered.forEach(function (result) {
+									if (subFilter.status == result.Status) {
+										appendToResults('.projectFilterResults', result);
+										resultsTally.push(result.Name);
+									}
+								})
+							} else {
+								view.forEach(function (result) {
+									if (subFilter.status == result.Status) {
+										appendToResults('.projectFilterResults', result);
+										resultsTally.push(result.Name);
+									}
+								});
+							}// end of filtering if owner or requester + status
+
+						}
+						;
+
+						if (resultsTally.length === 0) {
+							appendToResults('.projectFilterResults', 0);
+						} else {
+							resultsTally = [];
+						}//
+
 					}
 				});
 
@@ -1273,14 +1542,112 @@ var ribbonWidgets = function () {
 						appendTo: $("#hidenDropdown")
 					}
 				});
-				// prevents issues with field styles
-				$('#projectFilter').removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
 
+				removeInputKendoStyles(projectFilter);
 
+				// After dom interactions
+				var projAutocomplete = $(projectFilter).data("kendoAutoComplete");
+
+				if (subFilter.refresh === true) {
+					projAutocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
+				}
+				;
 			}
 
+			function initSearchById(projectFilterbyId) {
+
+				// seach by ID
+				var projectDataSourceById = new kendo.data.DataSource({
+					serverFiltering: true,
+					transport: {
+						read: function (options) {
+							if (typeof options.data.filter != 'undefined') {
+								subFilter.key = options.data.filter.filters[0].value;
+								$.ajax({
+									url: endPoints.projects + "?id=" + options.data.filter.filters[0].value,
+									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+									success: function (result) {
+										// notify the data source that the request succeeded
+										options.success(result.data);
+										resultsData = result.data; //need to pull additional object properties (campagin owner, status etc)
+									},
+									error: function (result) {
+										// notify the data source that the request failed
+										options.error(result);
+									}
+								});
+							}
+							else {
+								options.success([]);
+							}
+						}
+					},
+					change: function (e) {
+						$('.projectFilterResults').html(''); // clear results
+						var view = projectDataSourceById.view();
+						console.log(view.length);
+						if (view.length > 0) {
+							for (var i = 0; i < view.length; i++) {
+								appendToResults('.projectFilterResults', view[i]);
+							}
+						} else {
+							appendToResults('.projectFilterResults', 0);
+						}
+					}
+				});
+				if (typeof projectFilterbyId != 'undefined') {
+					$(projectFilterbyId).kendoAutoComplete({
+						filter: "contains",
+						dataSource: projectDataSourceById,
+						dataTextField: "Name",
+						minLength: 2,
+						popup: {
+							appendTo: $("#hidenDropdown")
+						}
+					});
+
+					removeInputKendoStyles(projectFilterbyId);
+				}
+			}
+
+			// Reset
+			function resetProjModal() {
+				subFilter = {
+					alias: null,
+					refresh: false,
+					isOwnerOrRequester: null,
+					destroySubFilter: null,
+					status: null,
+					SearchByID: false
+				};
+				$('.ribbon-modal .resetable').each(function () {
+					$(this).val('');
+				});
+				$('.projectFilterResults').html('');
+			}
+
+			// set results
+			function appendToResults(target, result) {
+				if (result == 0) {
+					$(target).append('<option>0 Projects found!</option>');
+				} else {
+
+					var spanTmpl = '<span style="font-weight: bold;">';
+					var optionTmpl = String()
+							+ '<option value="' + result.ID + '" data-name="' + result.Name
+							+ '">' + spanTmpl + 'ID:</span> ' + result.ID
+							+ ' | ' + spanTmpl + 'Name:</span>' + result.Name
+							+ ' | ' + spanTmpl + 'Status:</span> ' + result.Status
+							+ '</option>';
+
+					$(target).append(optionTmpl);
+				}
+			}
+
+
 			return {
-				runProjectModal: runProjectModal
+				runProjectModal: runProjectModal,
+				initProjectAutoComplete: initProjectAutoComplete
 			}
 		}();
 
@@ -1294,13 +1661,6 @@ var ribbonWidgets = function () {
 
 			$('#project-btn').on('click', function (e) {
 				projectModal.runProjectModal();
-			});
-
-			// add selected attr
-			$('#body-content').on('change', '#campaignCreator', function (e) {
-				var selectElm = e.target;
-				var option = $(selectElm).find('option:selected').val(); // get selected value which is Alias
-				refreshCampaignModal(selectElm, option)
 			});
 
 		}
@@ -1317,3 +1677,12 @@ var ribbonWidgets = function () {
 	}
 
 }();
+
+
+
+
+
+
+
+
+
