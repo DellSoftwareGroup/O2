@@ -1314,7 +1314,10 @@ var ribbonWidgets = function () {
 						+ '<option value="Cancelled">Cancelled</option>'
 						+ '</select>'
 						+ '</div>'
+						+ '<div class="modal-results" style="position:relative">'
 						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
+						+ '<span class="k-icon k-loading" style="display: none"></span>'
+						+ '</div>'
 						+ '</form></div>';
 				projectInfo.title = 'Search project';
 
@@ -1401,46 +1404,6 @@ var ribbonWidgets = function () {
 			// Kendo Data processing
 			function initProjectAutoComplete(projectFilter) {
 
-				// seach by ID
-				var projectDataSourceById = new kendo.data.DataSource({
-					serverFiltering: true,
-					transport: {
-						read: function (options) {
-							if (typeof options.data.filter != 'undefined') {
-								subFilter.key = options.data.filter.filters[0].value;
-								$.ajax({
-									url: endPoints.projects + "?id=" + options.data.filter.filters[0].value,
-									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-									success: function (result) {
-										// notify the data source that the request succeeded
-										options.success(result.data);
-										resultsData = result.data; //need to pull additional object properties (campagin owner, status etc)
-									},
-									error: function (result) {
-										// notify the data source that the request failed
-										options.error(result);
-									}
-								});
-							}
-							else {
-								options.success([]);
-							}
-						}
-					},
-					change: function (e) {
-						$('.projectFilterResults').html(''); // clear results
-						var view = projectDataSourceById.view();
-						console.log(view.length);
-						if (view.length > 0) {
-							for (var i = 0; i < view.length; i++) {
-								appendToResults('.projectFilterResults', view[i]);
-							}
-						} else {
-							appendToResults('.projectFilterResults', 0);
-						}
-					}
-				});
-
 				// search by Title
 				var projectDataSource = new kendo.data.DataSource({
 					serverFiltering: true,
@@ -1451,6 +1414,10 @@ var ribbonWidgets = function () {
 								$.ajax({
 									url: endPoints.projects + "?name=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+									beforeSend: function (xhr) {
+										$('.projectFilterResults').html(''); // clear results
+										$('.modal-results span').toggleClass('custom-loading');
+									},
 									success: function (result) {
 										// notify the data source that the request succeeded
 										options.success(result.data);
@@ -1469,7 +1436,6 @@ var ribbonWidgets = function () {
 					},
 					change: function (e) {
 						var filtered = [], resultsTally = [];
-						$('.projectFilterResults').html(''); // clear results
 						var view = projectDataSource.view();
 						console.log(view.length);
 
@@ -1566,6 +1532,10 @@ var ribbonWidgets = function () {
 								$.ajax({
 									url: endPoints.projects + "?id=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+									beforeSend: function (xhr) {
+										$('.projectFilterResults').html(''); // clear results
+										$('.modal-results span').toggleClass('custom-loading');
+									},
 									success: function (result) {
 										// notify the data source that the request succeeded
 										options.success(result.data);
@@ -1642,6 +1612,7 @@ var ribbonWidgets = function () {
 
 					$(target).append(optionTmpl);
 				}
+				$('.modal-results span').removeClass('custom-loading');
 			}
 
 

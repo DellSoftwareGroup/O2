@@ -2495,6 +2495,13 @@ ul {
   display: none !important
 }
 
+.ribbon-modal .k-loading.custom-loading {
+  display: block !important;
+  position: absolute;
+  top: 49.5%;
+  left: 49.5%
+}
+
 .ribbon-modal .modal-body, .ribbon-modal .modal-header, .ribbon-modal .modal-footer {
   padding: 20px
 }

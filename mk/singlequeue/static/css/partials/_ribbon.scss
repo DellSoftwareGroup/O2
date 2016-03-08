@@ -586,7 +586,15 @@
   }
   .k-loading {
     display: none !important;
+
+    &.custom-loading {
+      display: block !important;
+      position: absolute;
+      top: 49.5%;
+      left: 49.5%;
+    }
   }
+
   .modal-body,
   .modal-header,
   .modal-footer {
