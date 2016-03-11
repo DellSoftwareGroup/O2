@@ -1466,7 +1466,9 @@ ul {
 .dyn-select-form .panel-default {
   margin-top: 10px; }
 .dyn-select-form .saveSelected {
-  margin-right: 20px; }
+  margin: 20px 0;
+  float: right !important;
+}
 
 /* Prevent text from wrapping */
 .nowrap {
@@ -1562,10 +1564,12 @@ ul {
             line-height: 20px; }
         .sq-top-ribbon > ul > li > ul > li:last-child {
           margin-right: 0; }
-        .sq-top-ribbon > ul > li > ul > li .sq-btn-icon {
+
+.sq-top-ribbon > ul > li > ul > li .sq-btn-icon, .sq-top-ribbon > ul > li > ul > li .glyphicon-remove-sign {
           margin-right: 5px;
           float: left; }
-          .sq-top-ribbon > ul > li > ul > li .sq-btn-icon#jan-fy-icon {
+
+.sq-top-ribbon > ul > li > ul > li .sq-btn-icon#jan-fy-icon, .sq-top-ribbon > ul > li > ul > li .glyphicon-remove-sign#jan-fy-icon {
             float: none;
             margin-bottom: 10px; }
         .sq-top-ribbon > ul > li > ul > li #my-work-icon, .sq-top-ribbon > ul > li > ul > li #requester-icon {
@@ -1689,7 +1693,8 @@ ul {
             width: 66%;
             display: block;
             padding-top: 23px; }
-          .sq-top-ribbon > ul > li > ul > li#sq-filters-item #request-type-btn, .sq-top-ribbon > ul > li > ul > li#sq-filters-item #campaign-btn, .sq-top-ribbon > ul > li > ul > li#sq-filters-item #project-btn {
+
+.sq-top-ribbon > ul > li > ul > li#sq-filters-item #request-type-btn, .sq-top-ribbon > ul > li > ul > li#sq-filters-item #campaign-btn, .sq-top-ribbon > ul > li > ul > li#sq-filters-item #project-btn, .sq-top-ribbon > ul > li > ul > li#sq-filters-item .clear-btn {
             background-position: -17px -127px;
             width: 14px;
             height: 13px;
@@ -1737,7 +1742,8 @@ ul {
           .sq-top-ribbon > ul > li > ul > li#sq-filters-item .sub-nav > div {
             display: block;
             float: left; }
-          .sq-top-ribbon > ul > li > ul > li#sq-filters-item .sub-nav .sq-btn-icon {
+
+.sq-top-ribbon > ul > li > ul > li#sq-filters-item .sub-nav .sq-btn-icon, .sq-top-ribbon > ul > li > ul > li#sq-filters-item .sub-nav .glyphicon-remove-sign {
             border: none;
             cursor: pointer;
             clear: both;
@@ -1860,6 +1866,10 @@ ul {
     -moz-border-radius: 0;
     border-radius: 0; }
 
+.sq-top-ribbon .sub-nav .ms-drop {
+  z-index: 999999;
+}
+
 /*filters collector */
 .filter-collector {
   float: left;
@@ -1884,33 +1894,42 @@ ul {
         font-size: 14px; }
 
 /* ribbon modal */
-.ribbon-modal .modal-body form {
+.custom-modal .modal-body form {
   max-width: 100%;
 }
 
-.ribbon-modal .modal-body form select {
+.custom-modal .modal-body form select {
   z-index: 99999;
 }
-.ribbon-modal .modal-body .form-group {
+
+.custom-modal .modal-body .form-group {
   margin-left: 0;
   margin-right: 0;
   width: 490px;
 }
-.ribbon-modal .k-loading {
+
+.custom-modal .k-loading {
   display: none !important;
 }
 
-.ribbon-modal .k-loading.custom-loading {
+.custom-modal .k-loading.custom-loading {
   display: block !important;
   position: absolute;
   top: 49.5%;
   left: 49.5%;
 }
-.ribbon-modal .modal-body,
-.ribbon-modal .modal-header,
-.ribbon-modal .modal-footer {
+
+.custom-modal .campaign-input, .custom-modal .project-input {
+  background-color: #fff;
+  line-height: 23px;
+}
+
+.custom-modal .modal-body,
+.custom-modal .modal-header,
+.custom-modal .modal-footer {
   padding: 20px; }
-.ribbon-modal .select-btn {
+
+.custom-modal .select-btn {
   float: right !important;
   margin-left: 20px;
 }

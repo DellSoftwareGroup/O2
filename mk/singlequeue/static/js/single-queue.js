@@ -1,31 +1,44 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
-$(function() {
+$(function () {
 
 	// Prevent propagation on "More Filters" multiselect
 	var $mfMulti = $('.ms-choice').children();
 
-	$('.sub-nav').on('click', $mfMulti, function(e) {
+	$('.sub-nav').on('click', $mfMulti, function (e) {
 		e.stopPropagation();
+		target = e.target;
+		// fix for "More Filters" multiselect - allow only one multiselect open
+		if (!$(target).is('input')) {
+
+			$('.sub-nav').find('.ms-drop').each(function () {
+				$(this).css('display', 'none');
+			})
+
+		}
+		if ($(target).is('span')) {
+			var parent = $(target).parents('.ms-parent');
+			parent.find('.ms-drop').css('display', 'block');
+		}
 	});
 
 	//add search placeholder hack in ie9
-	$(document).ajaxComplete(function() {
+	$(document).ajaxComplete(function () {
 		if ($('html').hasClass('k-ie9')) {
 			var searchQuery = $('iframe').contents().find('#search-query');
 			searchQuery.val('Search').css('color', '#ccc');
 
 			searchQuery
-				.on(focus, function() {
-					$(this).val('').css('color', '#000');
-				})
-				.on('blur', function() {
-					$(this).val('Search').css('color', '#ccc');
-				});
+					.on(focus, function () {
+						$(this).val('').css('color', '#000');
+					})
+					.on('blur', function () {
+						$(this).val('Search').css('color', '#ccc');
+					});
 		}
 	});
 
 	//trigger search button click when enter
-	$("#search-query").keypress(function(e) {
+	$("#search-query").keypress(function (e) {
 		if (e.which == 13) {
 			//$('#search-container #search-btn').trigger('click');
 			$('#top-search-btn').trigger('click');
@@ -34,9 +47,9 @@ $(function() {
 
 	//filters click event
 	var filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
-		filterSubNav = filterSubNavWrapper.find('.sub-nav');
+			filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
-	$('#sq-filters').on('click', function(e) {
+	$('#sq-filters').on('click', function (e) {
 		e.stopPropagation();
 		e.preventDefault();
 		filterSubNav.toggle();
@@ -50,14 +63,13 @@ $(function() {
 
 		if (filterSubNav.is(':visible')) {
 			filterSubNavWrapper.css('height', '445px');
-		}
-		else {
+		} else {
 			filterSubNavWrapper.css('height', '0');
 		}
 	});
 
 
-	$('body').on('click', function(e) {
+	$('body').on('click', function (e) {
 		$('#sq-filters').removeClass('add-bg');
 		$('.sub-nav').hide();
 
@@ -68,31 +80,35 @@ $(function() {
 	});
 
 	//click state of bar icons
-	var ribbonItem = $('.sq-top-ribbon > ul > li > ul > li'),
-		subNavMultiSelct = $('.sub-nav .ms-parent').children();
+	var ribbonItem = $('.sq-top-ribbon > ul > li > ul > li'),// Todo: it was used for the previous ribbon style, should be removed? JL.
+			subNavMultiSelct = $('.sub-nav .ms-parent').children();
 
-	ribbonItem.on('click', function() {
-		toggleActiveItem(this);
-	});
+	/*
+	 $('#agile-status ul > li').on('click', function (e) {
+	 e.preventDefault();
+	 e.stopImmediatePropagation()
 
-	(ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function(e) {
+	 });
+	 */
+
+	(ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function (e) {
 		e.stopPropagation();
 	});
 
 
 	/*top nav state*/
 	$('.has-subnav')
-		.on('mouseover', function() {
-			$(this).addClass('nav-active');
-			$(this).children().find('.sub-nav-col').show();
-		})
-		.on('mouseout', function() {
-			$(this).removeClass('nav-active');
-			$(this).children().find('.sub-nav-col').hide();
-		});
+			.on('mouseover', function () {
+				$(this).addClass('nav-active');
+				$(this).children().find('.sub-nav-col').show();
+			})
+			.on('mouseout', function () {
+				$(this).removeClass('nav-active');
+				$(this).children().find('.sub-nav-col').hide();
+			});
 
 	//Initialize multiple select for ribbon area
-	$('body').find('select').each(function() {
+	$('body').find('select').each(function () {
 		if ($(this).attr('multiple') == 'multiple') {
 			var title = $(this).data('title');
 
@@ -102,13 +118,13 @@ $(function() {
 				countSelected: title + '&nbsp;(#)',
 				selectAllText: $(this).data('select-all-text'),
 				allSelected: title,
-				onClose: function() {
+				onClose: function () {
 					//fix for bg toggle issue when multiple select clicked
-					ribbonItem.on('click', function() {
-						toggleActiveItem(this);
-					});
+					/*          ribbonItem.on('click', function () {
+					 toggleActiveItem(this);
+					 });*/
 				},
-				onOpen: function(elem) {
+				onOpen: function (elem) {
 					var nextElem = $(elem).next(), ul = nextElem.find('ul');
 
 					//fix for bg toggle issue when multiple select clicked
@@ -140,8 +156,7 @@ $(function() {
 						else {
 							nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
 						}
-					}
-					else {
+					} else {
 						nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
 					}
 
@@ -162,10 +177,10 @@ $(function() {
 	/*popover*/
 	$('.toggle-popover').popover({
 		html: true,
-		content: function() {
+		content: function () {
 			return $(".popover-content", this).html();
 		}
-	}).on('click', function(e) {
+	}).on('click', function (e) {
 		e.preventDefault();
 		/*only one popover visible at any time*/
 		$('.toggle-popover').not(this).popover('hide');
@@ -173,17 +188,17 @@ $(function() {
 
 	/*collapsibles*/
 	/*keep border bottom only when they are collapsed*/
-	$('.panel-group-collapsible').each(function() {
+	$('.panel-group-collapsible').each(function () {
 		if ($(this).find('.panel-title > a').hasClass('collapsed')) {
 			$(this).css('border-bottom', '1px solid #aaa');
 		}
 	});
-	$('.table-responsive').on('hidden.bs.collapse', function(e) {
+	$('.table-responsive').on('hidden.bs.collapse', function (e) {
 		/*prevent toggling border by Notified collapsibles in comments */
 		if (!$(e.target).attr('id').match('^Notified')) {
 			$(this).parent().parent().css('border-bottom', '1px solid #aaa');
 		}
-	}).on('shown.bs.collapse', function(e) {
+	}).on('shown.bs.collapse', function (e) {
 		/*prevent toggling border by Notified collapsibles in comments */
 		if (!$(e.target).attr('id').match('^Notified')) {
 			$(this).parent().parent().attr('style', '');
@@ -199,23 +214,19 @@ $(function() {
 	});
 });
 
-$(window).load(function() {
+$(window).load(function () {
 	//change image position based on browser for select
 	if ($('.k-multiselect').length) {
 		var arrow = $('.arrow');
 		if ($.browser.chrome) {
 			arrow.addClass('chrome');
-		}
-		else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
+		} else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
 			arrow.addClass('firefox');
-		}
-		else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
+		} else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
 			arrow.addClass('ie9');
-		}
-		else if ($('html').hasClass('k-ie11')) {
+		} else if ($('html').hasClass('k-ie11')) {
 			arrow.addClass('ie11');
-		}
-		else {
+		} else {
 			arrow.addClass('safari');
 		}
 	}

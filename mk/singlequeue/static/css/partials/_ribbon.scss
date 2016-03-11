@@ -111,7 +111,7 @@
         &:last-child {
           margin-right: 0;
         }
-        .sq-btn-icon {
+        .sq-btn-icon, .glyphicon-remove-sign {
           margin-right: 5px;
           float: left;
           &#jan-fy-icon {
@@ -289,7 +289,7 @@
             display: block;
             padding-top: 23px;
           }
-          #request-type-btn, #campaign-btn, #project-btn {
+          #request-type-btn, #campaign-btn, #project-btn, .clear-btn {
             background-position: -17px -127px;
             width: 14px;
             height: 13px;
@@ -351,7 +351,7 @@
               display: block;
               float: left;
             }
-            .sq-btn-icon {
+            .sq-btn-icon, .glyphicon-remove-sign {
               border: none;
               cursor: pointer;
               clear: both;
@@ -530,6 +530,12 @@
     -moz-border-radius: 0;
     border-radius: 0;
   }
+  .sub-nav {
+
+    .ms-drop {
+      z-index: 999999;
+    }
+  }
 
 }
 
@@ -567,7 +573,7 @@
 
 /* ribbon modal */
 
-.ribbon-modal {
+.custom-modal {
   .modal-body {
 
     form {
@@ -594,7 +600,10 @@
       left: 49.5%;
     }
   }
-
+  .campaign-input, .project-input {
+    background-color: #fff;
+    line-height: 23px;
+  }
   .modal-body,
   .modal-header,
   .modal-footer {

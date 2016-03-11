@@ -10,7 +10,7 @@ var ribbonListener = function () {
 	/* -----> Private Methods <-----*/
 
 	function rebuildRibbonState($rbWrapper) {
-		var $filter = $rbWrapper.find('[data-isFilter=true]');
+		var $filter = $($rbWrapper).find('[data-isFilter=true]');
 		ribbonReqObj = {};
 		return filtersCollection($filter);
 
@@ -31,7 +31,11 @@ var ribbonListener = function () {
 
 			option.isSelected = function () {
 				if ($li.hasClass('selected')) {
-					parentTag.addClass('active-item-bg');
+					console.log(parentTag.children('.filter').length);
+					if ($li.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
+						parentTag.addClass('active-item-bg');
+					}
+
 					hasActive = true;
 					return true
 				} else {
@@ -77,6 +81,19 @@ var ribbonListener = function () {
 
 			ribbonReqObj[defaultSelect.data('title')].push(option);
 		});
+	}
+
+	function handleValueFromModal(whichModal, filtertype) {
+		var $thisModal = $(whichModal);
+		var option = {};
+		ribbonReqObj[$thisModal.data('title')] = [];
+
+		option.value = $thisModal.find('div:first-child').attr('filterid');
+		option.text = $thisModal.find('div:first-child').text();
+		option.isSelected = (typeof option.value != 'undefined' && option.value != '');
+		option.type = filtertype;
+
+		ribbonReqObj[$thisModal.data('title')].push(option);
 	}
 
 	function handleNoSelectFilters(noSelect, filterType) {
@@ -351,6 +368,9 @@ var ribbonListener = function () {
 			} else if ($(this).attr('data-dynamic') === "true") {
 				handleDynamicSelect($(this), 'userType');
 
+			} else if ($(this).attr('filter-type') === 'from-modal') {
+				handleValueFromModal($(this), 'array-list'); // Array-list is set as it will be process as an arrary for ISobj
+
 			} else if ($(this).find('select').length == 0) {  //check for filter options without select elem
 				handleNoSelectFilters($(this), 'boolean');
 
@@ -394,7 +414,7 @@ var ribbonListener = function () {
 
 		});
 
-
+		// manual change of sprints IS returns only "[ALL]" so we manually maintain it.
 		$('#dp-sprint-dd').find('option:first-child').text('All Sprints');
 
 	}
@@ -448,7 +468,6 @@ var ribbonWidgets = function () {
 				+ '</div>'
 				+ '</div>'
 				+ '</div>'
-				+ '<button type="button" class="btn btn-default popOverbtn">Close</button>'
 				+ '<button type="button" class="btn btn-primary saveSelected">Apply</button>'
 				+ '</form>';
 
@@ -689,11 +708,8 @@ var ribbonWidgets = function () {
 					}
 				});
 				buildNewSelect.addCountToLabel();
-				closePopup();
-			} else {
-				alert('Please select Owner name'); //TODO: Should we spend time styling this
 			}
-
+			closePopup();
 		};
 
 		/* ------> Dom, Events and Triggers <------- */
@@ -715,11 +731,10 @@ var ribbonWidgets = function () {
 		});
 
 		// close popover
-		$('#filters-section').on('click', '.popOverbtn', function () {
-
-			ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // Check for possible filter changes
-			closePopup()
-		})
+		/*		$('#filters-section').on('click', '.popOverbtn', function () {
+		 ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // Check for possible filter changes
+		 closePopup()
+		 })*/
 
 		// handle selected
 		$('#filters-section').on('click', '.saveSelected', function () {
@@ -836,6 +851,13 @@ var ribbonWidgets = function () {
 
 			}
 
+			function updateOptionFromModal(filterType) {
+				var $thisModal = $(filterType);
+				$thisModal.find('div:first-child').attr('filterid', '');
+				$thisModal.find('div:first-child').html('<span>' + $thisModal.data('title') + '</span>');
+				ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
+			}
+
 			function updateNoSelectFilters(filterType, option) {
 
 				if (option == undefined) {
@@ -903,7 +925,6 @@ var ribbonWidgets = function () {
 			}
 
 			function whichFilterType(filterType, option) {
-
 				// which type of fiter is it
 				if ($(filterType).attr('multiple')) { // check for multiselect
 					updateMultiSelect($(filterType), option);
@@ -913,6 +934,9 @@ var ribbonWidgets = function () {
 
 				} else if ($(filterType).parent('a').attr('data-dynamic') === 'true') {
 					updateDynamicSelect($(filterType), option);
+
+				} else if ($(filterType).attr('filter-type') === "from-modal") {
+					updateOptionFromModal($(filterType));
 
 				} else if ($(filterType).find('select').length == 0) {  //check for filter options without select elem
 					updateNoSelectFilters($(filterType), option);
@@ -941,6 +965,22 @@ var ribbonWidgets = function () {
 		buildTmpl(findActiveFilters());
 		setXTrigger()
 
+	}
+
+	function moreFiltersPopover() {
+
+		// Clear campaign or project fields when icon is clicked
+		$('.sub-nav').on('click', '.clear-btn', function () {
+			var thisParent = $(this).parent('div');
+			$(this).siblings('div')
+					.attr('filterid', '')
+					.html('<span>' + thisParent.data('title') + '</span>').end()
+					.addClass('hidden')
+					.siblings('input[type=button]').removeClass('hidden');
+
+			// call ribbonListener to track changes
+			ribbonListener.rebuildRibbonState('.sq-top-ribbon');
+		})
 	}
 
 	var moreFiltersModals = function () {
@@ -984,7 +1024,6 @@ var ribbonWidgets = function () {
 		}
 
 		function refreshModal(selectElm, option, inputTarget) {
-			console.log('optionPassed: ', option);
 			subFilter.alias = option;
 			subFilter.refresh = true;
 			if (inputTarget.indexOf('campaign') > -1) {
@@ -1001,15 +1040,29 @@ var ribbonWidgets = function () {
 				alert('Please make a selection')
 				return
 			}
-			// add ellipsis if name to long
-			if (option.name.length > 27) {
-				option.name = option.name.substr(0, 26) + '...';
-			}
+
 			// find which modal (campaign or project : may grow later)
 			var $modalName = $('.ribbon-modal form').data('modalname');
-			$('#filter-' + $modalName).find('input:first-child')
-					.val(option.name)
-					.attr('filterId', option.val);
+
+			var changeIcon = function () {
+						$('#filter-' + $modalName).find('#' + $modalName + '-btn')
+								.addClass('hidden').end()
+								.find('> span').removeClass('hidden');
+					},
+
+					attachValues = function () {
+						$('#filter-' + $modalName).find('div:first-child')
+								.html(option.name)
+								.attr('filterId', option.val);
+					},
+
+					callRibbonListener = function () {
+						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
+					};
+
+			$.when(changeIcon()).done(function () {
+				$.when(attachValues()).done(callRibbonListener());
+			});
 
 			$('#myModal').modal('hide')
 		}
@@ -1056,7 +1109,6 @@ var ribbonWidgets = function () {
 					});
 					// bind select btn event
 					$('.ribbon-modal .select-btn').click(function () {
-						console.log('clicked a');
 						exportSelectedToPopover(this, selectedOption);
 					});
 
@@ -1066,11 +1118,12 @@ var ribbonWidgets = function () {
 						$('#campaignFilter').val('');
 						$('.campFilterResults').html(''); // make sure all options are new
 						subFilter.key = '';
-						refreshModal('', 'All', '#campaignFilter');
+						return
 						// clear previous searches
-						$('#campaignFilter').on('focus', function () {
-							subFilter.key = '';
-						});
+					});
+					// clear previous option
+					$('#campaignFilter').on('focus', function () {
+						subFilter.key = '';
 					});
 
 					// add selected attr
@@ -1132,7 +1185,6 @@ var ribbonWidgets = function () {
 					change: function (e) {
 						$('.campFilterResults').html('');
 						var view = campaignDataSource.view();
-						console.log(view.length);
 						if (subFilter.alias !== null && subFilter.alias !== "All") { // if creator has been selected
 							var resultsTally = [];
 							view.forEach(function (results) {
@@ -1437,7 +1489,6 @@ var ribbonWidgets = function () {
 					change: function (e) {
 						var filtered = [], resultsTally = [];
 						var view = projectDataSource.view();
-						console.log(view.length);
 
 						// no subfilter modified
 						if ((subFilter.alias == null || subFilter.alias.indexOf('All') != -1) && subFilter.status == null) {
@@ -1555,7 +1606,6 @@ var ribbonWidgets = function () {
 					change: function (e) {
 						$('.projectFilterResults').html(''); // clear results
 						var view = projectDataSourceById.view();
-						console.log(view.length);
 						if (view.length > 0) {
 							for (var i = 0; i < view.length; i++) {
 								appendToResults('.projectFilterResults', view[i]);
@@ -1634,6 +1684,7 @@ var ribbonWidgets = function () {
 				projectModal.runProjectModal();
 			});
 
+
 		}
 
 		return {
@@ -1644,7 +1695,8 @@ var ribbonWidgets = function () {
 	return {
 		ribbonPopupModule: ribbonPopupModule,
 		filterCollectorModule: filterCollectorModule,
-		moreFiltersModals: moreFiltersModals
+		moreFiltersModals: moreFiltersModals,
+		moreFiltersPopover: moreFiltersPopover
 	}
 
 }();
