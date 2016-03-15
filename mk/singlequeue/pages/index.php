@@ -15,11 +15,11 @@
 	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script src="/mk/singlequeue/static/js/dsg-bootstrap/bootstrap-3.3.4.min.js"></script>
+	<script src="/mk/static/scripts/RequestQueues/bootstrap-3.3.4.min.js"></script>
 	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/moment.min.js'></script>
 
 	<!-- Initialize jQuery Plugins -->
-	<script src="/mk/singlequeue/static/js/jquery.multiple.select.min.js"></script>
+	<script src="/mk/static/scripts/RequestQueues/jquery.multiple.select.min.js"></script>
 	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.cookie.js"></script>
 	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/web-queue-plugins.js"></script>
 	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.js"></script>
@@ -45,7 +45,7 @@
 	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/TimeZone.js"></script>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-	<link rel="stylesheet" href="/mk/singlequeue/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/mk/static/css/bootstrap.min.css">
 	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/RequestQueues.css">
 	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/Header.css">-->
 
@@ -67,11 +67,13 @@
 	<!-- */ End of Kendo and IS JS and Styles -->
 
 	<!-- Global ui styles and js -->
-	<link rel="stylesheet" href="/mk/singlequeue/static/css/custom-ui.css">
+	<link rel="stylesheet" href="/mk/static/css/custom-ui.css">
 	
 	<?php
 		echo $widget->css();
 	?>
+
+
 </head>
 <body>
 
@@ -85,10 +87,21 @@
 	echo $widget->content();
 ?>
 
-<script src="/mk/singlequeue/static/js/custom-ui.js"></script>
-<script src="/mk/singlequeue/static/js/ribbon.js"></script>
-<script src="/mk/singlequeue/static/js/single-queue.js"></script>
-<script src="/mk/singlequeue/static/js/sq-listings-module.js"></script>
+
+            <script src="/mk/static/scripts/RequestQueues/custom-ui.js"></script>
+<?php
+  $localURL = $_SERVER['REQUEST_URI'];
+  if($localURL == '/mk/singlequeue/pages/view_requests/view-requests.html'){
+	  echo "<script src=\"/mk/static/scripts/RequestQueues/ribbon.js\"></script>";
+	  echo "<script src=\"/mk/static/scripts/RequestQueues/single-queue.js\"></script>";
+	  echo "<script src=\"/mk/static/scripts/RequestQueues/sq-listings-module.js\"></script>";
+  }
+
+?>
+			<script src="/mk/static/scripts/RequestQueues/o2-global-modules.js"></script>
+
+
+
 
 <?php
 	echo $widget->js();
