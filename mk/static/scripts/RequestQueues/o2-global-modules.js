@@ -63,7 +63,7 @@ var globalModules = function () {
 			SearchByID: false
 		};
 
-		// Private & helpers
+		// Private & helper functions
 		function removeInputKendoStyles(targetInput) {
 			$(targetInput).removeClass('k-input').parent().removeClass("k-widget k-autocomplete k-header form-control");
 		}
@@ -132,7 +132,7 @@ var globalModules = function () {
 			$('#myModal').modal('hide')
 		}
 
-		// public methods
+		// main sub-modules
 		var campaignModal = function () {
 
 			function runCampaignModal() {
@@ -773,11 +773,28 @@ var globalModules = function () {
 		return {
 			init: init
 		}
-	}();
+	}(); // */ end of custom modals module
 
 	var popupModule = function () {
+
 		// private methods
-		function PopoverHtmlBuilder(filter) {
+		function PopoverHtmlBuilder(filter, settings) {
+			var newSettings = {
+				btnTag: 'Apply',
+				cancelBtn: 'none',
+				prmBtnClass: 'saveSelected'
+			};
+
+			if (typeof settings != 'undefined') { // check if settings where passed (non ribbon popovers)
+				newSettings = {};
+				newSettings = settings;
+			}
+
+			// settings obj = values for non ribbon popovers
+			var btnOne = newSettings.btnTag,
+					btnState = newSettings.cancelBtn,
+					prmBtnClass = newSettings.prmBtnClass;
+
 			//Create content section of popover
 			this.msPopoverContent = String()
 					+ '<form class="dyn-select-form">'
@@ -792,12 +809,13 @@ var globalModules = function () {
 					+ '</div>'
 					+ '</div>'
 					+ '</div>'
-					+ '<button type="button" class="btn btn-primary saveSelected">Apply</button>'
+					+ '<button type="button" class="btn btn-primary ' + prmBtnClass + '">' + btnOne + '</button>'
+					+ '<button type="button" style="display:' + btnState + '" class="btn btn-default closePopover">Canceled</button>'
 					+ '</form>';
 
 			//Create popover template
 			this.msHtmlPopover = String()
-					+ '<div class="popover ribbon-popover" role="tooltip" >'
+					+ '<div class="popover custom-popover" role="tooltip" >'
 					+ '<div class="arrow">'
 					+ '</div>'
 					+ '<h3 class="popover-title"></h3>'
@@ -812,7 +830,7 @@ var globalModules = function () {
 		}
 
 		var settings = {
-			targetInput: null,
+			selectedTarget: null,
 			trigger: null,
 			activate: false, // It can be used to activate popover without the external use of init()
 		}
@@ -826,19 +844,14 @@ var globalModules = function () {
 		}
 
 		// checks if new input or target elements have been set otherwise wil fall back to original
-		var targetInput = settings.targetInput ? settings.targetInput : "#popoverInput",
+		var targetInput = "#popoverInput",
 				popupTrigger = settings.trigger ? settings.trigger : '.popoverMS',
+				selectedTarget = settings.htmlSelect ? settings.htmlSelect : ".dynamic-select",
 				resultsData = [];
 
 		// Dynamic Select factory
 		function BuildDynamicSelect(wrapper) {
-			this.createSelectElem = function () {
-				if ($(wrapper).find('.dynamic-select').length == 0) {
-					$(wrapper).append('<select class="dynamic-select" style="display:none">');
-				}
-
-			};
-			this.createOption = function (option) {
+			this.createOption = function (option, doReturn) {
 				// add email data attribute from resulsData
 				var email = '';
 				if (Array.isArray(resultsData)) {
@@ -850,10 +863,18 @@ var globalModules = function () {
 				}
 				;
 				// build option
-				$(wrapper).find('.dynamic-select').append('<option value="' + option.value + '" data-email="' + email + '">' + option.text + '</option>');
+
+				if (doReturn) { // non ribbon popovers
+					optionObj = {};
+					optionObj.val = option.value;
+					optionObj.email = email;
+					return optionObj
+				} else {
+					$(wrapper).siblings(selectedTarget).append('<option value="' + option.value + '" data-email="' + email + '">' + option.text + '</option>');
+				}
 			};
 			this.optionsCount = function () {
-				var count = $(wrapper).find('option').length;
+				var count = $(selectedTarget).find('option').length;
 				return count;
 			};
 			this.sanitizeLabel = function (label) {
@@ -883,7 +904,6 @@ var globalModules = function () {
 
 			}
 		}
-
 
 		/* ------> Private Functions <------- */
 		// initiate kendo multiselect
@@ -929,7 +949,7 @@ var globalModules = function () {
 
 		// add Previously selected options to popover
 		function addPrevSelectionsToPopover(target) {
-			var $dynamicSelect = $(target).find('.dynamic-select');
+			var $dynamicSelect = $(target).siblings(selectedTarget);
 
 			if ($dynamicSelect.length > 0) { // check if dynamic select has been created
 
@@ -950,7 +970,7 @@ var globalModules = function () {
 		};
 
 		function removePrevOptions(target, option) {
-			var $dynamicSelect = $(target).find('.dynamic-select'),
+			var $dynamicSelect = $(target).siblings(selectedTarget),
 					cleanTag = new BuildDynamicSelect(target);
 
 			$dynamicSelect.find('option').each(function () {
@@ -967,6 +987,7 @@ var globalModules = function () {
 		}
 
 		/* ------> Utility Functions <------- */
+
 		// Detects filter's title
 		function whichFilter(target) {
 			var ckFilter = '';
@@ -978,8 +999,10 @@ var globalModules = function () {
 			return ckFilter;
 		};
 
-		function closePopup() {
-			$(popupTrigger).popover('destroy');
+		function closePopup(whichOne) {
+
+			closeThis = (typeof whichOne == 'undefined') ? popupTrigger : whichOne;
+			$(closeThis).popover('destroy');
 		};
 
 		function saveSelected() {
@@ -989,22 +1012,37 @@ var globalModules = function () {
 			// check if first if any name has been selected
 			if ($(targetInput).find('option[selected]').length > 0) {
 
-				// prepare select element
-				buildNewSelect.createSelectElem();
-
 				// iterate each option and attach to new selection
-				$(targetInput).find('option').each(function () {
-					if ($(this).attr('selected')) {
-						buildNewSelect.createOption(this);
-					}
+				$(targetInput).find('option:selected').each(function () {
+					buildNewSelect.createOption(this);
 				});
 				buildNewSelect.addCountToLabel();
 			}
 			closePopup();
 		};
 
-		function init(customSettings) {
-			settings = customSettings;
+
+		/*-----------------------------------------
+		 non Ribbon functions
+		 -----------------------------------------*/
+		function buildUserObj(selectedData) {
+			console.log('func: ', selectedData);
+		}
+
+		// return a unique value which will be used as the
+		// key in a array (for rapid retrieval of data in the array: hash table)
+		var positionHashCode = function (key) {
+			var hash = 0;
+			for (var i = 0; i < key.length; i++) {
+				hash += key.charCodeAt(i);
+			}
+			return hash % 37; // random %num for shorter numbers
+		};
+
+		/*-----------------------------------------
+		 Popover Types:
+		 -----------------------------------------*/
+		function ribbonPopoverInit() {
 			// initiate popover
 			$(popupTrigger).on('click', function (e) {
 
@@ -1028,7 +1066,7 @@ var globalModules = function () {
 			 closePopup()
 			 })*/
 
-			// handle selected
+			// handle select
 			$('#filters-section').on('click', '.saveSelected', function () {
 				saveSelected();
 				ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // method from ribbon.js
@@ -1049,20 +1087,84 @@ var globalModules = function () {
 			});
 		}
 
+		function usersPopoverInit() {
+			var selectedArr = [];
+
+			// trigger popover
+			$('.user-popover').on('click', function (e) {
+				e.preventDefault();
+				//pass new settings
+				var settings = {
+					btnTag: 'Add',
+					cancelBtn: 'inline-block',
+					prmBtnClass: 'addSelected'
+				};
+
+				var buildHtml = new PopoverHtmlBuilder(whichFilter(this), settings);
+
+				$(this).popover({
+					html: true,
+					placement: 'left',
+					content: buildHtml.content,
+					template: buildHtml.tmpl
+				});
+				$(this).popover("show");
+
+				initKendoMultiSelect();
+			});
+
+			// trigger add results to sourceData
+			$('body').on('click', '.addSelected', function (e) {
+				e.preventDefault();
+
+				var multiselect = $("#popoverInput").data("kendoMultiSelect");
+
+				buildUserObj(selectedArr);
+				selectedArr = [];
+				closePopup('.user-popover');
+			});
+
+			//Need to collect values every time as kendo dataSource refresh every time
+			$('body').on('change', targetInput, function (e) {
+				buildNewSelect = new BuildDynamicSelect();
+				if ($(targetInput).find('option[selected]').length > 0) {
+
+					// iterate each option and attach to new selection
+					$(targetInput).find('option:selected').each(function () {
+						var option = buildNewSelect.createOption(this, true);
+
+						// eliminate multiple iterations using a Hash Table -
+						optionPosition = positionHashCode(option.val);
+
+						if (selectedArr[optionPosition] == undefined) {
+							selectedArr[optionPosition] = (option);
+						}
+
+					});// end of each
+
+				} // end of if
+			});
+
+			// Cancel
+			$('body').on('click', '.closePopover', function () {
+				selectedArr = [];
+				closePopup('.user-popover');
+			});
+
+		}
+
+		/*-----------------------------------------
+		 API:
+		 -----------------------------------------*/
 		return {
-			customSettings: customSettings,
-			init: init
+			ribbonPopoverInit: ribbonPopoverInit,
+			usersPopoverInit: usersPopoverInit
 		}
 
 
-	}()// end of PopupModule
-
-	function init() {
-		// Will use when more modules are created
-	}
+	}(); // */end of popupModule module
 
 	return {
-		init: init,
 		customModals: customModals,
 		popupModule: popupModule
 	}
@@ -1079,7 +1181,9 @@ $(function () {
 	 * "activate" parameter is optional as you could simple call popupModule.init() (fallback for views with ribbon section)
 	 *
 	 * */
-	globalModules.popupModule.customSettings({activate: true});
+	globalModules.popupModule.ribbonPopoverInit();
+	globalModules.popupModule.usersPopoverInit();
 
-})
+});
+
 
