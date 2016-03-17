@@ -72,6 +72,13 @@
 	<?php
 		echo $widget->css();
 	?>
+<script>
+    var endPoints = {
+        users: RootPath + "Common/GetSearchMKUserNames",
+        projects: RootPath + "SingleQueue/ProjectsData_Get",
+        campaigns: RootPath + "SingleQueue/CampaignData_Get"
+    };
+</script>
 
 
 </head>
@@ -93,11 +100,11 @@
   $localURL = $_SERVER['REQUEST_URI'];
   if($localURL == '/mk/singlequeue/pages/view_requests/view-requests.html'){
 	  echo "<script src=\"/mk/static/scripts/RequestQueues/ribbon.js\"></script>";
-	  echo "<script src=\"/mk/static/scripts/RequestQueues/single-queue.js\"></script>";
-	  echo "<script src=\"/mk/static/scripts/RequestQueues/sq-listings-module.js\"></script>";
   }
 
 ?>
+			<script src="/mk/static/scripts/RequestQueues/single-queue.js"></script>
+			<script src="/mk/static/scripts/RequestQueues/sq-listings-module.js"></script>
 			<script src="/mk/static/scripts/RequestQueues/o2-global-modules.js"></script>
 
 

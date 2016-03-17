@@ -345,11 +345,12 @@ ul {
 
 /* Ribbon Popover */
 
-.ribbon-popover {
+.custom-popover {
   min-width: 400px;
 
   button {
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-right: 10px;
   }
   input {
     width: 300px;
@@ -392,4 +393,10 @@ ul {
 /* Prevent text from wrapping */
 .nowrap {
   white-space: nowrap !important;
+}
+
+/* side info widgets: squares, add files, add followers */
+
+.add-follower-row {
+  display: block;
 }

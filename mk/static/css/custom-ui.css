@@ -1434,15 +1434,21 @@ ul {
   margin: 0; }
 
 /* Ribbon Popover */
-.ribbon-popover {
+.custom-popover {
   min-width: 400px; }
-  .ribbon-popover button {
-    margin-top: 30px; }
-  .ribbon-popover input {
+
+.custom-popover button {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.custom-popover input {
     width: 300px; }
-  .ribbon-popover .k-multiselect.k-header {
+
+.custom-popover .k-multiselect.k-header {
     width: 365px !important; }
-  .ribbon-popover .k-multiselect-wrap .k-input {
+
+.custom-popover .k-multiselect-wrap .k-input {
     color: #aaa;
     /* placeholder */
     height: 1.5em;
@@ -1466,6 +1472,11 @@ ul {
 /* Prevent text from wrapping */
 .nowrap {
   white-space: nowrap !important; }
+
+/* side info widgets: squares, add files, add followers */
+.add-follower-row {
+  display: block;
+}
 
 /*ribbon*/
 .sq-top-ribbon {
