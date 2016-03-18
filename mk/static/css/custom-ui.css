@@ -1436,19 +1436,14 @@ ul {
 /* Ribbon Popover */
 .custom-popover {
   min-width: 400px; }
-
-.custom-popover button {
-  margin-top: 20px;
-  margin-right: 10px;
-}
-
-.custom-popover input {
+  .custom-popover button {
+    margin-top: 20px;
+    margin-right: 10px; }
+  .custom-popover input {
     width: 300px; }
-
-.custom-popover .k-multiselect.k-header {
+  .custom-popover .k-multiselect.k-header {
     width: 365px !important; }
-
-.custom-popover .k-multiselect-wrap .k-input {
+  .custom-popover .k-multiselect-wrap .k-input {
     color: #aaa;
     /* placeholder */
     height: 1.5em;
@@ -1475,8 +1470,7 @@ ul {
 
 /* side info widgets: squares, add files, add followers */
 .add-follower-row {
-  display: block;
-}
+  display: block; }
 
 /*ribbon*/
 .sq-top-ribbon {
@@ -2193,7 +2187,7 @@ ul {
   #results-data-list #edit-task-listing tr td .status-col {
     line-height: 22px; }
     #results-data-list #edit-task-listing tr td .status-col i {
-      background: url("/mk/singlequeue/static/images/single-queue-sprite.png") no-repeat 0 0;
+      background: url("/mk/static/images/single-queue-sprite.png") no-repeat 0 0;
       display: inline-block;
       width: 18px;
       height: 20px;
