@@ -4,6 +4,32 @@
 
 var globalModules = function () {
 
+	// Private Functions
+	function populateTemplate(obj, tpl, prefix) {
+		if (prefix === undefined) {
+			prefix = '';
+		}
+
+		$.each(obj, function (n, v) {
+			if (typeof v == 'object') {
+				if ($.isEmptyObject(v)) {
+					var regExp = new RegExp("\\[\\[" + prefix + n + "\\]\\]", "g");
+					tpl = tpl.replace(regExp, '');
+				}
+				else {
+					tpl = populateTemplate(v, tpl, prefix + n + '.');
+				}
+			}
+			else {
+				var regExp = new RegExp("\\[\\[" + prefix + n + "\\]\\]", "g");
+				tpl = tpl.replace(regExp, v);
+			}
+		});
+
+		return tpl;
+	}
+
+	// Public methods
 	var customModals = function () {
 
 		function ModalHtmlBuilder(modalInfo) {
@@ -847,7 +873,8 @@ var globalModules = function () {
 		var targetInput = "#popoverInput",
 				popupTrigger = settings.trigger ? settings.trigger : '.popoverMS',
 				selectedTarget = settings.htmlSelect ? settings.htmlSelect : ".dynamic-select",
-				resultsData = [];
+				IStriggered = false,
+				resultsData = []; // Kendo UI temp data
 
 		// Dynamic Select factory
 		function BuildDynamicSelect(wrapper) {
@@ -857,7 +884,8 @@ var globalModules = function () {
 				if (Array.isArray(resultsData)) {
 					resultsData.forEach(function (result) {
 						if (result.Alias == option.value) {
-							email = result.Email
+							email = result.Email;
+							name = result.DisplayName;
 						}
 					});
 				}
@@ -866,8 +894,9 @@ var globalModules = function () {
 
 				if (doReturn) { // non ribbon popovers
 					optionObj = {};
-					optionObj.val = option.value;
+					optionObj.elias = option.value;
 					optionObj.email = email;
+					optionObj.name = name;
 					return optionObj
 				} else {
 					$(wrapper).siblings(selectedTarget).append('<option value="' + option.value + '" data-email="' + email + '">' + option.text + '</option>');
@@ -1021,23 +1050,28 @@ var globalModules = function () {
 			closePopup();
 		};
 
+		// non-ribbon popover
+		function customSelected() {
+			var options = [];
+			buildNewSelect = new BuildDynamicSelect();
 
-		/*-----------------------------------------
-		 non Ribbon functions
-		 -----------------------------------------*/
-		function buildUserObj(selectedData) {
-			console.log('func: ', selectedData);
-		}
+			// Attach custom binding (identify IS triggered)
+			$('.dyn-select-form').find('.btn-primary').removeClass('addSelected').addClass('custom-triggered');
 
-		// return a unique value which will be used as the
-		// key in a array (for rapid retrieval of data in the array: hash table)
-		var positionHashCode = function (key) {
-			var hash = 0;
-			for (var i = 0; i < key.length; i++) {
-				hash += key.charCodeAt(i);
+			if ($(targetInput).find('option[selected]').length > 0) {
+
+				// iterate each option and attach to new selection
+				$(targetInput).find('option:selected').each(function () {
+					var option = buildNewSelect.createOption(this, true);
+					option.date = moment().unix();
+
+					options.push(option);
+
+				});
+
+				return options;
 			}
-			return hash % 37; // random %num for shorter numbers
-		};
+		}
 
 		/*-----------------------------------------
 		 Popover Types:
@@ -1088,7 +1122,7 @@ var globalModules = function () {
 		}
 
 		function usersPopoverInit() {
-			var selectedArr = [];
+			var selectedAFollowers = {};
 
 			// trigger popover
 			$('.user-popover').on('click', function (e) {
@@ -1116,12 +1150,9 @@ var globalModules = function () {
 			// trigger add results to sourceData
 			$('body').on('click', '.addSelected', function (e) {
 				e.preventDefault();
-
-				var multiselect = $("#popoverInput").data("kendoMultiSelect");
-
-				buildUserObj(selectedArr);
-				selectedArr = [];
 				closePopup('.user-popover');
+				followersGrid.getFollowers(selectedAFollowers);
+				selectedAFollowers = {};
 			});
 
 			//Need to collect values every time as kendo dataSource refresh every time
@@ -1132,12 +1163,10 @@ var globalModules = function () {
 					// iterate each option and attach to new selection
 					$(targetInput).find('option:selected').each(function () {
 						var option = buildNewSelect.createOption(this, true);
+						option.date = moment().unix();
 
-						// eliminate multiple iterations using a Hash Table -
-						optionPosition = positionHashCode(option.val);
-
-						if (selectedArr[optionPosition] == undefined) {
-							selectedArr[optionPosition] = (option);
+						if (selectedAFollowers[option.elias] == undefined) {
+							selectedAFollowers[option.elias] = (option);
 						}
 
 					});// end of each
@@ -1147,26 +1176,134 @@ var globalModules = function () {
 
 			// Cancel
 			$('body').on('click', '.closePopover', function () {
-				selectedArr = [];
+				selectedAFollowers = [];
 				closePopup('.user-popover');
 			});
 
 		}
+
+		// Needs to be explicitly triggered (Functionality requested by IS)
+		function runUserPopover(data, fx) {
+			var options = [];
+			IStriggered = true;
+
+
+			$('body').on('change', targetInput, function () {
+				if (IStriggered) {
+					options = customSelected();
+				}
+			});
+
+			// add selected items to IS passed data when "Add" button clicked
+			$('body').on('click', '.custom-triggered', initCallback);
+
+			function initCallback() {
+				if (Array.isArray(data)) {
+					options.forEach(function (user) {
+						data.push(user);
+					})
+				}
+				fx(data);
+				$('body').off('change', targetInput, "**");
+				$('body').off('click', '.custom-triggered', initCallback);
+				closePopup('.custom-popover');
+				IStriggered = false;
+			}
+
+		}
+
 
 		/*-----------------------------------------
 		 API:
 		 -----------------------------------------*/
 		return {
 			ribbonPopoverInit: ribbonPopoverInit,
-			usersPopoverInit: usersPopoverInit
+			usersPopoverInit: usersPopoverInit,
+			runUserPopover: runUserPopover // called manually by IS
 		}
 
 
 	}(); // */end of popupModule module
 
+	var followersGrid = function () {
+		var followersIS = {};
+		followerUpdates = {};
+
+		function getFollowers(newFollowers) {
+			followerUpdates = newFollowers;
+			formatDate();
+		}
+
+		function formatDate() {
+			$.each(followerUpdates, function (key, obj) {
+				obj.startDate = moment().calendar(obj.date, 'DD/MM/YYYY');
+			})
+			addToFollowersIS();
+		}
+
+		function addToFollowersIS() {
+			for (follower in followerUpdates) {
+				if (typeof followersIS[follower] == "undefined") {
+					followersIS[follower] = followerUpdates[follower];
+					addToTempl()
+					toggleTable(true);
+				}
+			}
+			console.log(followersIS);
+		}
+
+		function addToTempl() {
+			$.each(followerUpdates, function (follower, info) {
+				template = $('#followerTpl').html();
+				trFollower = populateTemplate(info, template);
+				$('#newFollowers table').find('tbody').append(trFollower);
+			})
+			followerUpdates = {}; // clear temp repository
+		}
+
+		function removeFollower(target) {
+			var $remFollwer = $(target);
+			// remove html
+			$remFollwer.parents('tr').remove();
+			// romove from obj
+			delete followersIS[$remFollwer.data('alias')];
+		}
+
+		function toggleTable(addUser) {
+			numOfRows = $('.followers-table table').find('tbody tr').length;
+
+			if (numOfRows == 0) {
+				$('.followers-table').hide('slow');
+			}
+
+			if (addUser) {
+				$('.followers-table').show('slow');
+			}
+		}
+
+		function init(gridInitState) {
+			if (!$.isEmptyObject(gridInitState)) {
+				getFollowers(gridInitState);
+			}
+
+			toggleTable();
+			$('body').on('click', '.removeFollower', function (e) {
+				e.preventDefault();
+				removeFollower(this);
+				toggleTable();
+			})
+		}
+
+		return {
+			init: init,
+			getFollowers: getFollowers
+		}
+	}();
+
 	return {
 		customModals: customModals,
-		popupModule: popupModule
+		popupModule: popupModule,
+		followersGrid: followersGrid
 	}
 }();
 
@@ -1183,7 +1320,5 @@ $(function () {
 	 * */
 	globalModules.popupModule.ribbonPopoverInit();
 	globalModules.popupModule.usersPopoverInit();
-
 });
-
 

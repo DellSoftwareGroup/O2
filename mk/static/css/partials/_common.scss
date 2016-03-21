@@ -400,3 +400,20 @@ ul {
 .add-follower-row {
   display: block;
 }
+
+/* Followers Grid */
+#newFollowers {
+
+  th {
+    background-color: transparent;
+    color: #444;
+  }
+  .followers-table {
+    background-color: transparent;
+    width: 400px;
+    display: block;
+  }
+  tbody tr:nth-child(even) {
+    background: #fff;
+  }
+}

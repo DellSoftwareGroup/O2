@@ -1449,6 +1449,10 @@ ul {
     height: 1.5em;
     line-height: 1.5em; }
 
+.custom-popover .arrow {
+  top: 56px !important;
+}
+
 .popoverMS {
   position: relative; }
   .popoverMS .chrome {
@@ -1468,10 +1472,77 @@ ul {
 .nowrap {
   white-space: nowrap !important; }
 
-/* side info widgets: squares, add files, add followers */
-.add-follower-row {
+/* singlequeue aside widgets: squares, add files, add followers */
+.singlequeue-aside .followers {
+  width: 100% !important;
+}
+
+.singlequeue-aside .followers .add-follower-row {
+  padding: 0;
+  background-color: transparent;
   display: block; }
 
+.singlequeue-aside .add-follower-row a,
+.singlequeue-aside .add-follower-row input,
+.singlequeue-aside .add-follower-row button {
+  display: inline-block;
+}
+
+.singlequeue-aside .add-follower-row .btn.btn-primary {
+  float: none !important;
+}
+
+.singlequeue-aside .add-follower-row a {
+  margin-right: 30px;
+}
+
+.singlequeue-aside .add-follower-row button {
+  margin-left: 3px;
+}
+
+/* Followers Grid */
+#newFollowers thead {
+  background-color: #e8e8e8;
+  border-bottom: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+#newFollowers th, #newFollowers td {
+  border-bottom: 0;
+  border-top: 0;
+  background-color: transparent;
+  color: #444;
+}
+
+#newFollowers .followers-table {
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  border: 1px solid #dadada;
+  background-color: transparent;
+  padding: 0;
+  width: 498px;
+  display: block;
+}
+
+#newFollowers tbody tr:nth-child(even) {
+  background: #fff;
+}
+
+#newFollowers table th:first-child, #newFollowers table td:first-child {
+  padding-left: 20px;
+}
+
+#newFollowers .table {
+  margin-bottom: 5px;
+}
+
+#newFollowers td a,
+#newFollowers td a:hover,
+#newFollowers td a:visited {
+  color: #007db8 !important;
+}
 /*ribbon*/
 .sq-top-ribbon {
   float: left;
@@ -1898,10 +1969,8 @@ ul {
     display: block !important;
     position: absolute;
     top: 49.5%;
-    left: 49.5%; }
-.custom-modal .campaign-input, .custom-modal .project-input {
-  background-color: #fff;
-  line-height: 23px; }
+    left: 49.5%;
+  }
 .custom-modal .modal-body,
 .custom-modal .modal-header,
 .custom-modal .modal-footer {
@@ -1910,9 +1979,36 @@ ul {
   float: right !important;
   margin-left: 20px; }
 
+form[data-modalname='project'] label {
+  width: 143px;
+}
+
+form[data-modalname='project'] input {
+  width: 320px !important;
+}
+
+form[data-modalname='project'] .form-inline select {
+  width: 160px;
+  margin-right: 10px;
+}
+
+.campaign-input, .project-input {
+  background-color: #fff;
+  line-height: 23px;
+  white-space: nowrap;
+  overflow: hidden; /* "overflow" value must be different from "visible" */
+  text-overflow: ellipsis;
+}
+
+.campaign-input span, .project-input span {
+  color: #ccc;
+}
+
 @media (min-width: 768px) {
   .modal-dialog {
     width: 535px; } }
+
+/* end of Modal */
 .summary {
   border-radius: 3px;
   border: 1px solid #737373;
