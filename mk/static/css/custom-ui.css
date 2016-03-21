@@ -2029,11 +2029,11 @@ ul {
     #comments .task-group .btn:focus, #comments .task-group .btn:hover {
       background-color: #007db8; }
     #comments .task-group .btn.collapsed .glyphicon:before {
-      content: '\e252'; }
+      content: '\e250'; }
     #comments .task-group .btn i.glyphicon {
       margin-right: 5px; }
       #comments .task-group .btn i.glyphicon:before {
-        content: '\e253'; }
+        content: '\e252'; }
   #comments .task-group .border-shadow {
     border-top: 3px solid #007db8;
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
@@ -2077,6 +2077,12 @@ ul {
           font-size: 19px;
           margin-left: 5px;
           vertical-align: middle; }
+        #comments .task-group > div .comment-box > div div:last-child .notify i {
+          font-size: 14px; }
+        #comments .task-group > div .comment-box > div div:last-child .notify a:hover {
+          text-decoration: none; }
+          #comments .task-group > div .comment-box > div div:last-child .notify a:hover span span {
+            text-decoration: underline; }
         #comments .task-group > div .comment-box > div div:last-child .notify > div > div {
           margin-right: 10px;
           display: inline-block; }
@@ -2114,23 +2120,25 @@ ul {
       line-height: 34px;
       margin: 0 10px; }
     #request-info .panel-body > div #website input {
-      width: 329px; }
+      width: 338px; }
     #request-info .panel-body > div .three-col-dd select {
       float: left;
       width: 18%; }
     #request-info .panel-body > div .three-col-dd label {
       float: left;
       line-height: 34px;
-      margin-left: 46px;
+      margin-left: 49px;
       margin-right: 15px; }
       #request-info .panel-body > div .three-col-dd label#region {
-        margin-left: 97px; }
+        margin-left: 94px; }
       #request-info .panel-body > div .three-col-dd label#route {
-        margin-left: 26px; }
-      #request-info .panel-body > div .three-col-dd label#sprint {
-        margin-left: 101px; }
+        margin-left: 35px; }
       #request-info .panel-body > div .three-col-dd label#priority {
-        margin-left: 48px; }
+        margin-left: 55px; }
+      #request-info .panel-body > div .three-col-dd label#buyer-journey {
+        margin-left: 46px; }
+      #request-info .panel-body > div .three-col-dd label#business-unit {
+        margin-left: 53px; }
     #request-info .panel-body > div #tags select {
       width: 212px; }
     #request-info .panel-body > div .has-icon:hover {
@@ -2208,8 +2216,18 @@ ul {
     text-align: center; }
   #results-data-list #edit-task-listing tr td .btn-default {
     color: #007db8; }
+  #results-data-list #edit-task-listing tr td .minute {
+    padding: 1px 0; }
 #results-data-list #edit-task-listing tr:last-child td {
   border-bottom: none; }
+
+.k-ie11 select, .k-ie11 input {
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  border-radius: 1px; }
 
 /* Use this file to override overall Kendo UI styles */
 .form-group .k-textbox, .form-group .k-autocomplete, .form-group .k-dropdown-wrap, .form-group .k-picker-wrap, .form-group .k-numeric-wrap {

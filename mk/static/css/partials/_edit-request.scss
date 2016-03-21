@@ -151,12 +151,12 @@
       }
       &.collapsed {
         .glyphicon:before {
-          content: '\e252';
+          content: '\e250';
         }
       }
       i.glyphicon {
         &:before {
-          content: '\e253';
+          content: '\e252';
         }
         margin-right: 5px;
       }
@@ -218,6 +218,15 @@
               vertical-align: middle;
             }
             .notify {
+              i{
+                font-size:14px;
+              }
+              a:hover{
+                text-decoration: none;
+                span span{
+                  text-decoration: underline;
+                }
+              }
               > div {
                 > div {
                   margin-right: 10px;
@@ -273,7 +282,7 @@
           margin: 0 10px;
         }
         input {
-          width: 329px;
+          width: 338px;
         }
       }
       .three-col-dd {
@@ -284,19 +293,22 @@
         label {
           float: left;
           line-height: 34px;
-          margin-left: 46px;
+          margin-left: 49px;
           margin-right: 15px;
           &#region {
-            margin-left: 97px;
+            margin-left: 94px;
           }
           &#route {
-            margin-left: 26px;
-          }
-          &#sprint {
-            margin-left: 101px;
+            margin-left: 35px;
           }
           &#priority {
-            margin-left: 48px;
+            margin-left: 55px;
+          }
+          &#buyer-journey{
+            margin-left:46px;
+          }
+          &#business-unit{
+            margin-left:53px;
           }
         }
       }
@@ -425,10 +437,24 @@
       .btn-default{
         color: #007db8;
       }
+      .minute{
+        padding:1px 0;
+      }
     }
     &:last-child td{
       border-bottom: none;
     }
+  }
+}
+
+.k-ie11{
+  select,input{
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    border-radius: 1px;
   }
 }
 
