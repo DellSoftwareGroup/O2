@@ -46,7 +46,7 @@
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/RequestQueues.css">-->
-	<link rel="stylesheet" href="/mk/static/css/Header.css">
+	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/Header.css">
 	<link rel="stylesheet" href="/mk/static/css/bootstrap.min.css">
 
 	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/web-queue-plugins-style.css" >-->
