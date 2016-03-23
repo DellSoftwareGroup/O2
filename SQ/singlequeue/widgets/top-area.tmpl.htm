@@ -1,0 +1,104 @@
+<div id="top-head">
+	<div id="search-container" onkeypress="onSearchKeyPress(event);">
+		<div>
+			<div id="search-query-container">
+				<input type="text" id="search-query" name="query" placeholder="Search"/>
+				<a href="#" class="sq-btn-icon rq-btn-icon" onclick="doSearch();" id="top-search-btn"></a>
+			</div>
+		</div>
+	</div>
+
+	<div id="logo-container">
+		<img src="http://stage-o2.prod.quest.corp/images/portal/images/logo.png" alt=""/>
+		<a href="http://stage-o2.prod.quest.corp/sq/RequestQueues/Requests/" id="sub-logo-link" target="_parent"
+			 onclick="return CheckParentDataChanges();">
+			<img src="http://stage-o2.prod.quest.corp/images/portal/images/sublogo-marketing-request-queue.png" alt=""
+					 id="sub-logo"/></a>
+	</div>
+</div>
+<div id="tabs">
+	<ul>
+		<li><a href="#marketing-request-queues">Marketing Requests</a></li>
+		<li><a href="#oasis2">Content Management</a></li>
+	</ul>
+	<div id="marketing-request-queues"></div>
+	<div id="oasis2"></div>
+</div>
+
+<div class="nav">
+	<ul>
+		<li><a href="/sq/RequestQueues/" class="active">Requests</a></li>
+		<li><a href="/sq/RequestQueues/Projects">Projects</a></li>
+		<li class="has-subnav">
+			<a href="http://o2.prod.quest.corp/v2/Listing/Campaigns">Campaigns</a>
+
+			<div class="sub-nav-col-wrapper">
+				<div class="sub-nav-col">
+					<ul>
+						<li><a target="_blank"
+									 href="https://www.share.software.dell.com/sites/Marketing/CampaignMarketing/_layouts/15/start.aspx#/Lists/Demand%20Center/Summary.aspx#InplviewHashd4f5fb8c-a53a-4a88-ba3c-b6c84b029b5a=ShowInGrid%3DTrue">Marketing
+							Demand Center</a></li>
+						<li><a target="_blank" href="http://o2/v2/Listing/Campaigns/">Manage Parent Campaign</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li><a href="/sq/RequestQueues/Projects">Reporting</a></li>
+		<li class="has-subnav">
+			<a href="/ecommerce/">Quick Links</a>
+
+			<div class="sub-nav-col-wrapper">
+				<div class="sub-nav-col">
+					<ul>
+						<li><a target="_blank"
+									 href="https://www.share.software.dell.com/sites/Marketing/AgileMarketing/_layouts/15/start.aspx#/">Agile
+							Marketing SharePoint</a></li>
+						<li><a target="_blank" href="https://workorder.cbre.com/CRSDell/">Corporate&nbsp;Services&nbsp;Request</a>
+						</li>
+						<li><a target="_blank"
+									 href="https://srms.dell.com/arsys/forms/svmgtprdapp.us.dell.com/SRS%3AServiceRequestConsole/enduser/?cacheid=26dac9fd&amp;wait=0">Dell.com&nbsp;IT&nbsp;Support&nbsp;(Workplace)</a>
+						</li>
+						<li><a target="_blank" href="\\prod.quest.corp\software">Employee&nbsp;Desktop&nbsp;Software</a></li>
+						<li><a target="_blank"
+									 href="https://dsg.service-now.com/com.glideapp.servicecatalog_cat_item_view.do?sysparm_id=63547474b58c1940fa0627cb8cab7d7c&amp;sysparm_cancelable=true">DSG&nbsp;AD&nbsp;Account&nbsp;Request</a>
+						</li>
+						<li><a target="_blank" href="http://software.dell.com/hidden/dsg64.exe">DSG&nbsp;Quick&nbsp;Connect</a></li>
+						<li><a target="_blank" href="https://dsg.service-now.com/">Help&nbsp;Desk</a></li>
+						<li><a target="_blank" href="https://access-new.dell.com/go/ausmaximine10.us.dell.com~8881/">Maxamine&nbsp;Report&nbsp;Request&nbsp;(Workplace)</a>
+						</li>
+						<li><a target="_blank" href="http://iq.prod.quest.corp/mis/purchaseRequest/purchaseForm.asp">Purchase&nbsp;Request</a>
+						</li>
+						<li><a target="_blank" href="https://alvicaw01.prod.quest.corp/certsrv/certrqma.asp">QAP&nbsp;Certificate&nbsp;Request</a>
+						</li>
+						<li><a target="_blank"
+									 href="http://webteamtfs:8080/tfs/web/Index.aspx?puri=vstfs%3A%2F%2F%2FClassification%2FTeamProject%2F8b7962b9-6d39-4c33-a570-beb174c3f8f4">TFS&nbsp;Bugs&nbsp;&amp;&nbsp;User&nbsp;Stories</a>
+						</li>
+						<li><a target="_blank" href="https://team.prod.quest.corp/sites/Mkt-Internet/default.aspx">TFS&nbsp;Release&nbsp;Calendar</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li class="has-subnav">
+			<a href="http://webmarketing.prod.quest.corp">Old Queues</a>
+
+			<div class="sub-nav-col-wrapper">
+				<div class="sub-nav-col">
+					<ul>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/advertising/">Advertising</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/analytics/">Analytics</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/creativeservices/">Design &amp;
+							Multimedia</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/email/">Email</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/ecommerce/">eCommerce</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/marcom/">Marcom/Promotions</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/mops/">Marketing Ops</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/search/">Search Marketing</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/socialmedia/">SoMe</a></li>
+						<li><a target="_blank" href="http://webmarketing.prod.quest.corp/webrequests/">Web</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

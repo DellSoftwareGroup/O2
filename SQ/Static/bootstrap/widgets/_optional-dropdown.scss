@@ -1,0 +1,44 @@
+.optional-dropdown {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.triangle-top {
+  content: "";
+  transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  background: $dell-gray-very-light;
+  height: 16px;
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  box-shadow: 1px 1px 0 #cdcdcd;
+  display: block;
+}
+
+.has-collapsibles {
+  &:before {
+    font-family: 'Glyphicons Halflings';
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    content: "\e114";
+    color: #007db8;
+    position: relative;
+    vertical-align: -2px;
+    padding-right: 2px;
+  }
+  &.collapsed:before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e080";
+    vertical-align: -2px;
+  }
+}
+
+/*mobile*/
+@media (max-width: 767px) {
+  .off-canvas-content .panel-wrapper {
+    margin: 0 15px;
+    border-bottom: 1px solid $dell-gray;
+  }
+}

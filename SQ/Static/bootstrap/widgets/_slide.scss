@@ -1,0 +1,13 @@
+.has-slide {
+  visibility: hidden;
+  overflow: hidden;
+
+  > div {
+    position: relative;
+    overflow: hidden;
+
+    > div {
+      float: left;
+    }
+  }
+}

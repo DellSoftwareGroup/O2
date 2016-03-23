@@ -1,0 +1,75 @@
+a:hover .has-overlay h4 {
+  text-decoration: none;
+  color: #007db8;
+}
+
+.has-overlay {
+  position: relative;
+  background-size: cover !important;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  padding: 0;
+  height: 206px;
+  .overlay {
+    background: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 11px 15px;
+    position: absolute;
+    bottom: 0;
+    height: 118px;
+    h4 {
+      margin-bottom: 2px;
+    }
+    p, &:hover p {
+      color: #333;
+      height: 80px;
+    }
+  }
+}
+
+/*#tech-support {
+  background-image: url("/images/home/dsg-home/tech-support.jpg");
+}
+
+#support-renewal {
+  background-image: url("/images/home/dsg-home/support-renewals.jpg");
+}
+
+#tech-center {
+  background-image: url("/images/home/dsg-home/dell-tech-center.jpg");
+}
+
+#conversation-with-kace {
+  background-image: url("/images/product-line/kace/communities/conversations-with-kace.jpg");
+}
+
+#conversation-with-sonicwall {
+  background-image: url("/images/product-line/sonicwall/communities/conversations-with-sonicwall.png");
+}
+
+#threat-alert {
+  background-image: url("/images/product-line/sonicwall/communities/threat-alert.png");
+}
+
+#it-ninja {
+  background-image: url("/images/product-line/kace/communities/IT-Ninja.jpg");
+}*/
+
+/*mobile*/
+@media (max-width: 767px) {
+  .has-overlay {
+    margin-bottom: 20px;
+    .overlay {
+      height: 118px;
+    }
+  }
+}
+
+/*tablet*/
+@media (max-width: 991px) and (min-width: 768px) {
+  .has-overlay {
+    margin-bottom: 20px;
+  }
+}

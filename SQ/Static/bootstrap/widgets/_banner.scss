@@ -1,0 +1,38 @@
+.banner {
+  .headline {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+  }
+  .subheadline {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 0 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner {
+    .headline {
+      font-size: 26px;
+      line-height: 30px;
+    }
+    .subheadline {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .banner {
+    .headline {
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .subheadline {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteCond %{SCRIPT_FILENAME} (.*?).html?$
+RewriteCond %{SCRIPT_FILENAME} !index.php
+RewriteRule (.*)$ /SQ/singlequeue/pages/index.php?page=$1 [QSA,NC,L]

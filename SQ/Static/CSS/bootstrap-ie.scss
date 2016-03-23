@@ -1,0 +1,53 @@
+@import "../bootstrap/custom/_variables";
+
+.ie9 {
+  #searchterm {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  select.form-control {
+    &.error {
+      background-position: 91% 50%;
+    }
+  }
+  .form-horizontal-2 {
+    width: 100%;
+    .form-group {
+      > label {
+        height: 49px;
+      }
+      /*>label, >input, >select {
+        &::before {
+          content: "";
+          margin-bottom: 15px;
+          padding-bottom: 15px;
+          display: inline-block;
+        }
+      }*/
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .ie9 {
+    &.openNav {
+      .site-canvas {
+        position: relative;
+        left: -276px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) { //SM
+  .ie9 {
+    #affix-nav {
+      ul {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
+        li {
+          text-align: center; /* This is needed for IE8 to center the text */
+        }
+      }
+    }
+  }
+}

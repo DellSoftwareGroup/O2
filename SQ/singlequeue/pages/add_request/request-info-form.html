@@ -1,0 +1,291 @@
+<div class="wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-7">
+				<h2>Request Information</h2>
+				<form novalidate="novalidate" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="requestType">Request Type<sup>*</sup></label>
+						<div class="col-xs-7">
+							<input type="text" class="form-control" id="request">
+						</div>
+						<div class="col-xs-1">
+							<a href="#" class="control-text">Change</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Request Sub Type<sup>*</sup></label>
+						<div class="col-xs-7">
+							<select class="form-control">
+								<option>Authoring</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="requestTitle">Request Title<sup>*</sup></label>
+						<div class="col-xs-10">
+							<input type="text" id="requestTitle" class="form-control" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-xs-2 control-label">Requester<sup>*</sup></label>
+						<div class="col-xs-3">
+							<input type="text" class="form-control" id="Requester">
+						</div>
+						<div class="col-xs-1">
+							<input type="button" id="RequesterInput" value="Search" class="btn  btn btn-default"></div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="requestType">Request Due Date<sup>*</sup></label>
+						<div class="col-xs-3">
+							<input class="date-picker form-control" type="date" name="DueDate" id="DueDate">
+						</div>
+						<div class="col-xs-3">
+							<p class="control-text">SLA Total Business Day 20</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-xs-2 control-label">Urgent<sup>*</sup></label>
+						<div class="col-xs-1">
+							<div class="checkbox">
+								<label>
+									<input type="Checkbox" id="requestType">
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Business Justification<sup>*</sup></label>
+						<div class="col-xs-10">
+							<textarea class="form-control" rows="5" cols="10" style="height:70px"></textarea>
+							<p>If you know the URL of the page you need updates for please provide the URL below</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestType" class="col-xs-2 control-label">Website <sup>*</sup></label>
+						<div class="col-xs-4">
+							<select name="Website" class="form-control" id="Website"></select>
+						</div>
+						<label for="requestType" class="col-xs-2 control-label">Content URL <sup>*</sup></label>
+						<div class="col-xs-3">
+							<input type="text" value="" class="form-control" id="content">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-10 col-xs-offset-2">
+							<a href="#"><span class="icon-ui-plus"></span>Add Website</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="requestType">Tags<sup>*</sup></label>
+						<div class="col-xs-4">
+							<select class="form-control" id="Tags" name="Tags">
+								<option value="">Select a Tag</option>
+								<option value="9"></option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Request Description<sup>*</sup></label>
+						<div class="col-xs-9">
+							<textarea class="editor" rows="5" cols="30"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2 ">
+							<h4>Request Details for Tech Brief</h4>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<label>who is target audience?</label>
+							<input type="text" id="TargetAudience" class="form-control" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<label>what is the key differentiator or unique benifit you want to convey to audience for this
+								activity? </label>
+							<input type="text" id="differentiator" class="form-control" value="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>Does the draft has intro and/or abstract?</strong>
+							<div>
+								<input type="radio" name="abstract" value="1" checked="checked" id="AbstractYes"> Yes
+								<input type="radio" name="NotifyRequester" value="2" id="AbstractNo"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>Does the draft has clearly identifiable titles and subtitles?</strong>
+							<div>
+								<input type="radio" name="subtitles" value="1" checked="checked"> Yes
+								<input type="radio" name="NotifyRequester" value="2"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>Captions for images?</strong>
+							<div>
+								<input type="radio" name="NotifyOwner" value="1" checked="checked"> Yes
+								<input type="radio" name="NotifyRequester" value="2"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>Suggestive portions for narative for pull quotes?</strong>
+							<div>
+								<input type="radio" name="NotifyOwner" value="1" checked="checked"> Yes
+								<input type="radio" name="NotifyRequester" value="2"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>Summary or conclusion?</strong>
+							<div>
+								<input type="radio" name="NotifyOwner" value="1" checked="checked"> Yes
+								<input type="radio" name="NotifyRequester" value="2"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>Aurthor bio?</strong>
+							<div>
+								<input type="radio" name="NotifyOwner" value="1" checked="checked"> Yes
+								<input type="radio" name="NotifyRequester" value="2"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<strong>will you need landing page copy based on abstract?(Recommended)</strong>
+							<div>
+								<input type="radio" checked="checked" value="1" name="NotifyOwner"> Yes
+								<input type="radio" value="2" name="NotifyRequester"> No
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 col-xs-offset-2">
+							<label>What are some proactive point that we could turn into tweets or other social media
+								comments?</label>
+							<textarea class="form-control" id="businessJustification" rows="4" cols="10"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="requestTitle" class="col-xs-2 control-label">Parent campaign<sup>*</sup></label>
+						<div class="col-xs-6">
+							<div class="icon-input-overlay">
+								<input type="text" id="campaign" class="form-control" value="">
+								<a href="#"><span class="glyphicon glyphicon-search"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label" for="requestTitle">Project<sup>*</sup></label>
+						<div class="col-xs-6">
+							<div class="icon-input-overlay">
+								<input type="text" id="contenturl" class="form-control" value="">
+								<a href="#"><span class="glyphicon glyphicon-search"></span></a>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<input type="button" id="AddComment" class="btn btn btn-default" value="New Project">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Agile Team<sup>*</sup></label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Team</option>
+							</select>
+						</div>
+						<label class="col-xs-2 control-label">Region</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Region</option>
+							</select>
+						</div>
+						<label class="col-xs-2 control-label">Route to Market</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Route</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Buyer Personna</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Personna</option>
+							</select>
+						</div>
+						<label class="col-xs-2 control-label">Buyer Journey</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Journey</option>
+							</select>
+						</div>
+						<label class="col-xs-2 control-label">Business unit</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Department</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">Request
+							Status<sup>*</sup></label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select</option>
+							</select>
+						</div>
+						<label class="col-xs-2 control-label">Sprint</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Sprint</option>
+							</select>
+						</div>
+						<label class="col-xs-2 control-label">Agile Priority</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Priority</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">T-shirt size</label>
+						<div class="col-xs-2">
+							<select class="form-control">
+								<option>Select Size</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-2 col-xs-1">
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+						<div class="col-xs-2">
+							<button class="btn btn-default" type="submit">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

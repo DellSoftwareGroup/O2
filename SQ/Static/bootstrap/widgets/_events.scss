@@ -1,0 +1,18 @@
+#event-container {
+  tbody {
+    > tr {
+      cursor: pointer;
+    }
+  }
+}
+
+.off-canvas-content {
+  #event-container {
+    padding: 0;
+    border: 0;
+    background-color: #fff;
+  }
+  > #right-rail-form {
+    margin: -15px;
+  }
+}

@@ -1,0 +1,28 @@
+.dbwrapper {
+  box-sizing: border-box;
+  line-height: 24px;
+  position: absolute;
+  background: #c0c0c0;
+  font-weight: 700;
+  height: 24;
+  display: none;
+  z-index: 9999;
+  border: 1px solid #c0c0c0;
+
+  > div {
+    position: relative;
+    height: 100%;
+    padding: 0 0 0 5px;
+
+    > div {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      padding: 0 0 0 5px;
+      box-sizing: border-box;
+      font-weight: 400
+    }
+  }
+}

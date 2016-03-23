@@ -1,0 +1,269 @@
+/* Background Color */
+.bg-white {
+  background-color: $white;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-light-grey {
+  background-color: #f9f9f9;
+  color: #444;
+}
+
+.bg-grey {
+  background-color: #f9f9f9;
+}
+
+.anchor-blue {
+  color: #007db8;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+a[class^="icon-"]:hover, a[class^="icon-"]:focus {
+  text-decoration: none;
+  color: $dell-blue;
+}
+
+a.no-underline:hover {
+  text-decoration: none;
+}
+
+.polaris-divider {
+  border-top: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+  min-height: 20px;
+  margin: 17px 0 0 0;
+  &:before {
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    content: "";
+    height: 3px;
+    left: 5%;
+    position: absolute;
+    top: -3px;
+    width: 90%;
+  }
+}
+
+/* TODO: Need to find where this is being used */
+ul {
+  &.bullet-check-mark {
+    padding-left: 2em;
+
+    li {
+      list-style-image: url("/images/shared/bullet-check-mark.png");
+    }
+  }
+}
+
+li {
+  padding-bottom: .6em;
+}
+
+/* Text */
+
+.text-sm {
+  font-size: 11px;
+  line-height: 15px;
+  p {
+    @extend .text-sm;
+  }
+}
+
+.text-md {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.pos-relative {
+  position: relative;
+}
+
+/* Border */
+
+.border-b-0 {
+  border-bottom: 0 !important;
+}
+
+/* iframe */
+
+iframe {
+  border: 0;
+}
+
+/* Vertical Alignment */
+
+.valign-top {
+  vertical-align: top;
+}
+
+.valign-text-top {
+  vertical-align: text-top;
+}
+
+.valign-middle {
+  vertical-align: middle;
+}
+
+/* Overflow */
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/*display*/
+.block {
+  display: block !important;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.vertical-center {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex !important; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  > div {
+    overflow: hidden;
+  }
+}
+
+.horizontal-center {
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  //Mobile - XS
+  #right-rail-form {
+    label {
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+  }
+  .center-block-xs {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-center-xs {
+    text-align: center;
+  }
+  .bg-white-xs {
+    background-color: #fff;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  //Tablet - SM
+  .center-block-sm-only {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-right-sm-only {
+    text-align: right;
+  }
+  .pull-right-sm-only {
+    float: right !important;
+  }
+  .pull-left-sm-only {
+    float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  //Tablet - SM
+  #right-rail-form {
+    label {
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+    .row {
+      margin-bottom: 15px;
+    }
+  }
+  .center-block-sm {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-center-sm {
+    text-align: center;
+  }
+  .text-right-sm {
+    text-align: right;
+  }
+  .pull-right-sm {
+    float: right !important;
+  }
+  .pull-left-sm {
+    float: left;
+  }
+  .inline-block-sm {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  //Desktop - MD
+  .pull-left-md-only {
+    float: left;
+  }
+  .text-left-md-only {
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  //Desktop - MD
+  #right-rail-form {
+    label {
+      padding-top: 8px;
+      padding-bottom: 0;
+      padding-left: 0;
+    }
+  }
+  .pull-left-md {
+    float: left;
+  }
+  .text-left-md {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pull-left-lg {
+    float: left;
+  }
+}
