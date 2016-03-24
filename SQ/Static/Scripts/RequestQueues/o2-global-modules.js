@@ -853,7 +853,8 @@ var globalModules = function () {
 					+ '</div>';
 
 			this.afterLoad = function (fx) {
-				$('.custom-popover').on('shown.bs.popover', function () {
+				$('.popoverMS').on('shown.bs.popover', function () {
+					console.log('hit');
 					fx();
 				})
 			}
@@ -1061,6 +1062,21 @@ var globalModules = function () {
 			closePopup();
 		};
 
+		function closeWhenClickedOutside(e, $that) {
+			console.log('count');
+			var $eTarget = $(e.target);
+			if ($eTarget.hasClass('popover')) {
+				// do nothing
+			} else {
+				$($that).popover('destroy');
+				offClickBinding();
+			}
+		}
+
+		function offClickBinding() {
+			$('body').off('click', closeWhenClickedOutside);
+		}
+
 		function onCloseBtn(thisPopover) {
 			$('body').on('click', '.close', function () {
 				closePopup(thisPopover);
@@ -1098,7 +1114,17 @@ var globalModules = function () {
 			$(popupTrigger).on('click', function (e) {
 
 				var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
+				var $that = this;
+				buildHtml.afterLoad(function () {
 
+					$('body').on('click', function (e) {
+						e.stopImmediatePropagation();
+						console.log(e.target);
+						closeWhenClickedOutside(e, $that)
+					});
+
+
+				});
 				$(this).popover({
 					html: true,
 					placement: 'left',
@@ -1107,9 +1133,6 @@ var globalModules = function () {
 				});
 				$(this).popover("show");
 
-				buildHtml.afterLoad(function () {
-					console.log('testing After Load');
-				});
 				initKendoMultiSelect();
 				addPrevSelectionsToPopover(this);
 			});

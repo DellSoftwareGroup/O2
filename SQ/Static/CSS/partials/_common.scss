@@ -158,6 +158,13 @@ ul {
   }
 }
 
+.nav #question-mark-icon {
+  background: url('../Content/Img/icon-question-mark-sprite.png') no-repeat 0 -1px;
+  width: 10px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
+}
 /*tabs*/
 #tabs {
   padding-top: 0;
