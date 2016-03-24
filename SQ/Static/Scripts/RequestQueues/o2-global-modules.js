@@ -1044,6 +1044,7 @@ var globalModules = function () {
 
 			closeThis = (typeof whichOne == 'undefined') ? popupTrigger : whichOne;
 			$(closeThis).popover('destroy');
+
 		};
 
 		function saveSelected() {
@@ -1062,25 +1063,23 @@ var globalModules = function () {
 			closePopup();
 		};
 
-		function closeWhenClickedOutside(e, $that) {
-			console.log('count');
-			var $eTarget = $(e.target);
-			if ($eTarget.hasClass('popover')) {
-				// do nothing
-			} else {
-				$($that).popover('destroy');
-				offClickBinding();
-			}
-		}
-
-		function offClickBinding() {
-			$('body').off('click', closeWhenClickedOutside);
-		}
-
 		function onCloseBtn(thisPopover) {
 			$('body').on('click', '.close', function () {
 				closePopup(thisPopover);
 			})
+		}
+
+		function closeOnBodyClick(e) {
+			var $eTarget = $(e.target);
+			if ($eTarget.parents('.popover-wrapper').length > 0) {
+			} else {
+				// check for kendo dropdown
+				if ($eTarget.hasClass('k-state-selected')) {
+					return;
+				}
+				closePopup()
+				$('body').off('click.popover');
+			}
 		}
 
 		// non-ribbon popover
@@ -1111,25 +1110,19 @@ var globalModules = function () {
 		 -----------------------------------------*/
 		function ribbonPopoverInit() {
 			// initiate popover
-			$(popupTrigger).on('click', function (e) {
+			$(popupTrigger).on('click', function () {
 
 				var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
-				var $that = this;
 				buildHtml.afterLoad(function () {
-
-					$('body').on('click', function (e) {
-						e.stopImmediatePropagation();
-						console.log(e.target);
-						closeWhenClickedOutside(e, $that)
-					});
-
-
-				});
+					$('body').on('click.popover', function (e) {
+						closeOnBodyClick(e)
+					})
+				}); // add interactions after popover is shown
 				$(this).popover({
 					html: true,
 					placement: 'left',
 					content: buildHtml.content,
-					template: buildHtml.tmpl
+					template: buildHtml.tmpl,
 				});
 				$(this).popover("show");
 
