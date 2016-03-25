@@ -854,7 +854,6 @@ var globalModules = function () {
 
 			this.afterLoad = function (fx) {
 				$('.popoverMS').on('shown.bs.popover', function () {
-					console.log('hit');
 					fx();
 				})
 			}
