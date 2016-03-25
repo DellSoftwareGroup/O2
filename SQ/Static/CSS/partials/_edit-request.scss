@@ -4,6 +4,9 @@
   background-color: #f9f9f9;
   overflow: hidden;
   > div {
+    &.row {
+      margin-bottom: 10px;
+    }
     h3 {
       margin: 0;
       a, a:hover {
@@ -263,57 +266,31 @@
       clear: both;
       width: 100%;
       margin-bottom: 10px;
-      label {
+      &.form-group{
+        margin-left:0;
+        margin-right: 0;
+        div.col-xs-2{
+          padding-left:15px;
+          margin-bottom: 10px;
+        }
+      }
+      span {
         line-height: 34px;
+        &.k-input{
+          line-height: 20px;
+        }
+      }
+      > .col-xs-2 {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      label {
+        white-space: nowrap;
       }
       .icon-small-checkmark {
         position: absolute;
         right: 28px;
         top: 8px;
-      }
-      #website {
-        select {
-          width: 34%;
-          float: left;
-        }
-        span {
-          float: left;
-          line-height: 34px;
-          margin: 0 10px;
-        }
-        input {
-          width: 338px;
-        }
-      }
-      .three-col-dd {
-        select {
-          float: left;
-          width: 18%;
-        }
-        label {
-          float: left;
-          line-height: 34px;
-          margin-left: 49px;
-          margin-right: 15px;
-          &#region {
-            margin-left: 94px;
-          }
-          &#route {
-            margin-left: 35px;
-          }
-          &#priority {
-            margin-left: 55px;
-          }
-          &#buyer-journey {
-            margin-left: 46px;
-          }
-          &#business-unit {
-            margin-left: 53px;
-          }
-        }
-      }
-      #tags select {
-        width: 212px;
       }
       .has-icon:hover {
         text-decoration: none;
@@ -364,6 +341,10 @@
     font-weight: normal;
     float: right;
   }
+}
+
+#request-info .control-label {
+  float: left;
 }
 
 /*task listing*/
