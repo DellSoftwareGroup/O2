@@ -366,10 +366,6 @@
     }
     &:first-child {
       padding-left: 11px;
-      > span:last-child {
-        margin-top: 24px;
-        width: 15%;
-      }
     }
     &:last-child {
       > span:last-child {
@@ -534,6 +530,12 @@
 
     .ms-drop {
       z-index: 999999;
+    }
+  }
+  .button-area {
+    > span {
+      margin-top: 24px !important;
+      width: 15% !important;
     }
   }
 

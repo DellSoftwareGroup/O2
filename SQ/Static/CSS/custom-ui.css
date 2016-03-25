@@ -1,3 +1,274 @@
+.form-area {
+  width: 905px;
+  float: left;
+  box-sizing: border-box;
+}
+
+.form-area h2 {
+  border-bottom: 1px solid #aaa;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 32px;
+}
+
+.form-area form label {
+  font-weight: normal;
+}
+
+.form-area form .required-asterisk {
+  padding: 0;
+  width: 5px;
+}
+
+.side-sections {
+  width: 500px;
+  margin-left: 76px;
+  box-sizing: border-box;
+}
+
+.side-sections, .form-area {
+  margin-top: 38px;
+}
+
+.request-listing .id-col {
+  width: 30px;
+}
+
+.request-listing .title-col {
+  width: 110px;
+}
+
+.request-listing .type-col {
+  width: 80px;
+}
+
+.request-listing .project-col {
+  width: 100px;
+}
+
+.request-listing .agileTeam-col {
+  width: 70px;
+}
+
+.request-listing .status-col {
+  width: 64px;
+}
+
+.request-listing .requestStartDate-col {
+  width: 64px;
+}
+
+.request-listing .requestStartDate-col {
+  width: 64px;
+}
+
+.request-listing .requestEndDate-col {
+  width: 100px;
+}
+
+.request-listing .requester-col {
+  width: 40px;
+}
+
+.request-listing .portfolio-col {
+  width: 65px;
+}
+
+.request-listing .sprint-col {
+  width: 54px;
+}
+
+.request-listing .priority-col {
+  width: 54px;
+}
+
+.request-listing .group-col {
+  width: 46px;
+}
+
+.request-listing .active-col {
+  width: 22px;
+}
+
+.request-listing .complete-col {
+  width: 22px;
+}
+
+.request-listing .startDate-col {
+  width: 80px;
+}
+
+.request-listing .endDate-col {
+  width: 112px;
+}
+
+.tasks-listing .id-col {
+  width: 30px;
+}
+
+.tasks-listing .title-col {
+  width: 110px;
+}
+
+.tasks-listing .type-col {
+  width: 55px;
+}
+
+.tasks-listing .project-col {
+  width: 127px;
+}
+
+.tasks-listing .agileTeam-col {
+  width: 70px;
+}
+
+.tasks-listing .status-col {
+  width: 60px;
+}
+
+.tasks-listing .requestStartDate-col {
+  width: 64px;
+}
+
+.tasks-listing .requestEndDate-col {
+  width: 96px;
+}
+
+.tasks-listing .requester-col {
+  width: 65px;
+}
+
+.tasks-listing .portfolio-col {
+  width: 65px;
+}
+
+.tasks-listing .sprint-col {
+  width: 54px;
+}
+
+.tasks-listing .owner-col {
+  width: 55px;
+}
+
+.tasks-listing .taskTitle-col {
+  width: 58px;
+}
+
+.tasks-listing .taskStatus-col {
+  width: 60px;
+}
+
+.tasks-listing .dept-col {
+  width: 38px;
+}
+
+.tasks-listing .startDate-col {
+  width: 74px;
+}
+
+.tasks-listing .endDate-col {
+  width: 104px;
+}
+
+#results-data-list {
+  /* warning labels */
+}
+
+#results-data-list th.summary-th a {
+  color: #933e9c !important;
+  font-weight: bold !important;
+}
+
+#results-data-list td span.icon {
+  display: inline-block;
+  padding: 0 4px !important;
+  margin-left: 5px;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 3px;
+}
+
+#results-data-list span.urgent {
+  background-color: #cc4321;
+}
+
+#results-data-list span.new {
+  background-color: #6da209;
+}
+
+#results-data-list span.legacy {
+  background-color: #444;
+}
+
+#results-data-list span.past-due {
+  background: url(http://o2.prod.quest.corp/sq/Static/Content/Img/icon-warning-red.png) no-repeat center center;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-left: 0;
+}
+
+#results-data-list .owner-col span {
+  display: table-cell;
+}
+
+#results-data-list .owner-col .color-id {
+  width: 5px;
+  height: 24px;
+}
+
+#results-data-list .owner-col .owner-name {
+  padding-left: 5px;
+  max-width: 100px;
+}
+
+#results-data-list td a, #results-data-list td a:visited, #results-data-list td a:link {
+  color: #74c1dd;
+}
+
+#results-data-list .k-grid td {
+  border-left: 1px solid #ddd;
+}
+
+#results-data-list .k-grid td:first-child {
+  border-left: none;
+}
+
+/* "Summary sections" */
+.summary-start {
+  border-left: 1px solid #444 !important;
+}
+
+/* pagination style adjustments */
+.results-data {
+  margin-bottom: 10px;
+}
+
+.results-data .table-group-headings th {
+  background: none;
+  font-size: 14px;
+}
+
+.results-data .table-group-headings th:last-child {
+  color: #933e9c;
+}
+
+#TopPager {
+  box-sizing: border-box;
+  padding-top: 10px;
+}
+
+.sq-popover {
+  max-width: 800px;
+}
+
+.sq-popover table {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 15px;
+}
+
 /*Styles imported from  web-queue.css */
 .wrapper {
   width: 1540px;
@@ -1192,244 +1463,7 @@ tbody tr:first-child .tooltip:hover:after {
   top: 54px;
 }
 
-.form-area {
-  width: 905px;
-  float: left;
-  box-sizing: border-box;
-}
-
-.form-area h2 {
-  border-bottom: 1px solid #aaa;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 32px;
-}
-
-.form-area form label {
-  font-weight: normal;
-}
-
-.form-area form .required-asterisk {
-  padding: 0;
-  width: 5px;
-}
-
-.side-sections {
-  width: 500px;
-  margin-left: 76px;
-  box-sizing: border-box;
-}
-
-.side-sections, .form-area {
-  margin-top: 38px;
-}
-
-.request-listing .id-col {
-  width: 30px;
-}
-.request-listing .title-col {
-  width: 110px;
-}
-.request-listing .type-col {
-  width: 80px;
-}
-.request-listing .project-col {
-  width: 100px;
-}
-.request-listing .agileTeam-col {
-  width: 70px;
-}
-.request-listing .status-col {
-  width: 64px;
-}
-.request-listing .requestStartDate-col {
-  width: 64px;
-}
-.request-listing .requestStartDate-col {
-  width: 64px;
-}
-.request-listing .requestEndDate-col {
-  width: 100px;
-}
-.request-listing .requester-col {
-  width: 40px;
-}
-.request-listing .portfolio-col {
-  width: 65px;
-}
-.request-listing .sprint-col {
-  width: 54px;
-}
-.request-listing .priority-col {
-  width: 54px;
-}
-.request-listing .group-col {
-  width: 46px;
-}
-.request-listing .active-col {
-  width: 22px;
-}
-.request-listing .complete-col {
-  width: 22px;
-}
-.request-listing .startDate-col {
-  width: 80px;
-}
-.request-listing .endDate-col {
-  width: 112px;
-}
-
-.tasks-listing .id-col {
-  width: 30px;
-}
-.tasks-listing .title-col {
-  width: 110px;
-}
-.tasks-listing .type-col {
-  width: 55px;
-}
-.tasks-listing .project-col {
-  width: 127px;
-}
-.tasks-listing .agileTeam-col {
-  width: 70px;
-}
-.tasks-listing .status-col {
-  width: 60px;
-}
-.tasks-listing .requestStartDate-col {
-  width: 64px;
-}
-.tasks-listing .requestEndDate-col {
-  width: 96px;
-}
-.tasks-listing .requester-col {
-  width: 65px;
-}
-.tasks-listing .portfolio-col {
-  width: 65px;
-}
-.tasks-listing .sprint-col {
-  width: 54px;
-}
-.tasks-listing .owner-col {
-  width: 55px;
-}
-.tasks-listing .taskTitle-col {
-  width: 58px;
-}
-.tasks-listing .taskStatus-col {
-  width: 60px;
-}
-.tasks-listing .dept-col {
-  width: 38px;
-}
-.tasks-listing .startDate-col {
-  width: 74px;
-}
-.tasks-listing .endDate-col {
-  width: 104px;
-}
-
-#results-data-list {
-  /* warning labels */
-}
-
-#results-data-list th.summary-th a {
-  color: #933e9c !important;
-  font-weight: bold !important;
-}
-
-#results-data-list td span.icon {
-  display: inline-block;
-  padding: 0 4px !important;
-  margin-left: 5px;
-  color: #fff;
-  font-size: 10px;
-  border-radius: 3px;
-}
-
-#results-data-list span.urgent {
-  background-color: #cc4321;
-}
-
-#results-data-list span.new {
-  background-color: #6da209;
-}
-
-#results-data-list span.legacy {
-  background-color: #444;
-}
-
-#results-data-list span.past-due {
-  background: url(http://o2.prod.quest.corp/sq/Static/Content/Img/icon-warning-red.png) no-repeat center center;
-  height: 16px;
-  width: 16px;
-  vertical-align: middle;
-  margin-left: 0;
-}
-
-#results-data-list .owner-col span {
-  display: table-cell;
-}
-
-#results-data-list .owner-col .color-id {
-  width: 5px;
-  height: 24px;
-}
-
-#results-data-list .owner-col .owner-name {
-  padding-left: 5px;
-  max-width: 100px;
-}
-
-#results-data-list td a, #results-data-list td a:visited, #results-data-list td a:link {
-  color: #74c1dd;
-}
-
-#results-data-list .k-grid td {
-  border-left: 1px solid #ddd;
-}
-
-#results-data-list .k-grid td:first-child {
-  border-left: none;
-}
-
-/* "Summary sections" */
-.summary-start {
-  border-left: 1px solid #444 !important;
-}
-
-/* pagination style adjustments */
-.results-data {
-  margin-bottom: 10px;
-}
-
-.results-data .table-group-headings th {
-  background: none;
-  font-size: 14px;
-}
-
-.results-data .table-group-headings th:last-child {
-  color: #933e9c;
-}
-
-#TopPager {
-  box-sizing: border-box;
-  padding-top: 10px;
-}
-
-.sq-popover {
-  max-width: 800px;
-}
-
-.sq-popover table {
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #444;
-  border-radius: 15px;
-}
-
+/* End of Web-queue.css */
 .form-area {
   width: 905px;
   float: left;
@@ -1632,6 +1666,14 @@ ul {
 .nav ul > li:nth-child(5):hover .sub-nav-col-wrapper {
   min-width: 247px;
   min-height: 366px;
+}
+
+.nav #question-mark-icon {
+  background: url("../Content/Img/icon-question-mark-sprite.png") no-repeat 0 -1px;
+  width: 10px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
 }
 
 /*tabs*/
@@ -2345,11 +2387,6 @@ ul {
   padding-left: 11px;
 }
 
-.sq-top-ribbon > ul > li:first-child > span:last-child {
-  margin-top: 24px;
-  width: 15%;
-}
-
 .sq-top-ribbon > ul > li:last-child {
   border-right: none;
 }
@@ -2520,6 +2557,11 @@ ul {
 
 .sq-top-ribbon .sub-nav .ms-drop {
   z-index: 999999;
+}
+
+.sq-top-ribbon .button-area > span {
+  margin-top: 24px !important;
+  width: 15% !important;
 }
 
 /*filters collector */
