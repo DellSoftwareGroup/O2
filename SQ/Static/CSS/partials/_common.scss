@@ -33,7 +33,6 @@ ul {
   }
   #search-container {
     margin-top: 15px;
-    float: right;
     #search-query-container {
       display: block;
       float: right;
@@ -48,6 +47,7 @@ ul {
         border-right-color: #e6e6e6;
         border-style: solid;
         border-radius: 2px;
+        margin-right: 0;
       }
       > input {
         padding-left: 4px;
