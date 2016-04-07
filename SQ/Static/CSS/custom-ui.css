@@ -773,9 +773,9 @@ tbody tr:first-child .tooltip:hover:after {
 .filters-on p {
   margin-bottom: 10px; }
 
-.filters-on span {
-  font-weight: bold; }
-
+/*.filters-on span {
+  font-weight: bold;
+}*/
 .filters-on div:last-child {
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
