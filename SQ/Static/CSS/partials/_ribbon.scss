@@ -574,7 +574,6 @@
 }
 
 /* ribbon modal */
-
 .custom-modal {
   .modal-body {
 
@@ -616,6 +615,64 @@
     margin-left: 20px;
   }
 }
+
+/* single deck ribbon (Admin areas)*/
+
+.sq-top-ribbon.single-deck {
+  #filters-section {
+    > ul {
+      margin-bottom: 0;
+    }
+  }
+  #sq-filters-item {
+    min-width: inherit;
+    width: inherit;
+
+    span {
+      margin: 0 auto;
+    }
+    #filters {
+      padding-bottom: 10px;
+    }
+  }
+  #sq-ribbon-search-item {
+    box-sizing: border-box;
+    width: 338px;
+
+    span {
+      padding-top: 20px;
+    }
+  }
+  .sq-ribbon-search-text {
+    width: 310px !important;
+    position: relative;
+    z-index: 0;
+    padding-right: 21px;
+  }
+  #sq-ribbon-search-btn {
+    top: -18px;
+    right: 8px;
+    background-position: 0 -127px;
+    cursor: pointer;
+    clear: both;
+    position: relative;
+    width: 13px;
+    height: 13px;
+    float: right;
+  }
+  .sq-btn-icon {
+    background-image: url('../Content/Img/request-queue-sprite.png');
+    background-repeat: no-repeat;
+    border: medium none;
+    background-color: transparent;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4px;
+    height: 22px;
+  }
+}
+
 
 @media(min-width: 768px) {
   .modal-dialog {

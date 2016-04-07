@@ -423,6 +423,10 @@ tbody tr:first-child .tooltip:hover:after {
   color: #fff !important;
 }
 
+#row-save button {
+  margin-right: 10px;
+}
+
 .outside-sprint {
   background: url(../Content/Img/icon-warning.png) no-repeat right center;
   padding-right: 20px;
@@ -470,6 +474,7 @@ tbody tr:first-child .tooltip:hover:after {
 
 .field-validation-error {
   color: red;
+  display: block;
 }
 
 #project-campaign-search img {
@@ -899,7 +904,7 @@ tbody tr:first-child .tooltip:hover:after {
 .dynamic-field .form-group > label,
 .sprint-metadata-form .form-group > label {
   display: inline-block;
-  width: 174px;
+  width: 182px;
 }
 
 .form-860 .form-group > label {

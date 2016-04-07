@@ -372,7 +372,7 @@ var singleQueueTables = (function ($) {
 	var editTaskListing = {
 		styles: function () {
 			ownerColorTag();
-			statusIcon();
+			// statusIcon(); as per Eder -- He will add this based on the backend logic
 			editMode();
 		}
 

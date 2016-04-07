@@ -4,8 +4,6 @@
 
 var globalModules = function () {
 
-	// Private Functions
-
 	// helps to populate html templates
 	function populateTemplate(obj, tpl, prefix) {
 		if (prefix === undefined) {
@@ -1351,14 +1349,15 @@ $(function () {
 
 	globalModules.customModals.init();
 
-	/* popModules can be called multiple times with different targeted inputs and triggers
-	 * you can pass and object as following example:
-	 * { targetInput : '.someClass', trigger: '.someClass', activate: true,}
-	 * if no parameters are passed it will fallback to default classes: (used only for the ribbon area)
-	 * "activate" parameter is optional as you could simple call popupModule.init() (fallback for views with ribbon section)
-	 *
-	 * */
-	globalModules.popupModule.ribbonPopoverInit();
-	globalModules.popupModule.usersPopoverInit();
+	if ($('.sq-top-ribbon')) {
+		globalModules.popupModule.ribbonPopoverInit();
+	}
+
+	// modules have a dependency on global variable endPoints
+	if (typeof endPoints === 'object') {
+		globalModules.popupModule.usersPopoverInit();
+		globalModules.customModals.init();
+	}
+
 });
 
