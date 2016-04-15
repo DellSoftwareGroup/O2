@@ -2827,7 +2827,6 @@ ul {
 .sq-top-ribbon.single-deck #filters-section > ul {
   margin-bottom: 0;
 }
-
 .sq-top-ribbon.single-deck #sq-filters-item {
   min-width: inherit;
   width: inherit;
@@ -2840,7 +2839,6 @@ ul {
 .sq-top-ribbon.single-deck #sq-filters-item #filters {
   padding-bottom: 10px;
 }
-
 .sq-top-ribbon.single-deck #sq-ribbon-search-item {
   box-sizing: border-box;
   width: 338px;
@@ -2849,14 +2847,12 @@ ul {
 .sq-top-ribbon.single-deck #sq-ribbon-search-item span {
   padding-top: 20px;
 }
-
 .sq-top-ribbon.single-deck .sq-ribbon-search-text {
   width: 310px !important;
   position: relative;
   z-index: 0;
   padding-right: 21px;
 }
-
 .sq-top-ribbon.single-deck #sq-ribbon-search-btn {
   top: -18px;
   right: 8px;
@@ -2868,7 +2864,6 @@ ul {
   height: 13px;
   float: right;
 }
-
 .sq-top-ribbon.single-deck .sq-btn-icon {
   background-image: url("../Content/Img/request-queue-sprite.png");
   background-repeat: no-repeat;
@@ -3192,6 +3187,32 @@ ul {
 /* Use this file to override overall Kendo UI styles */
 .form-group .k-textbox, .form-group .k-autocomplete, .form-group .k-dropdown-wrap, .form-group .k-picker-wrap, .form-group .k-numeric-wrap {
   border-width: 0; }
+
+.browser-warning {
+  display: none;
+}
+
+.message {
+  display: inline-block;
+  margin: 0 auto 15px;
+}
+
+.message a {
+  font-weight: bold;
+}
+
+.close-msg {
+  position: absolute;
+  right: 20px;
+  display: block;
+  top: 12px;
+  cursor: pointer;
+}
+
+.icon-ui-closecircle::before {
+  content: "";
+  box-sizing: border-box;
+}
 
 .form-horizontal .form-group .control-text {
   padding-top: 7px;
