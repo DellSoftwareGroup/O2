@@ -439,7 +439,83 @@
   }
 }
 
+/* add task popover */
+.table-in-k-windo {
+  max-height: 100px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  overflow-y: scroll
+}
 
+.k-widget.k-window.k-window-titleless {
+  padding: 20px;
+}
+
+input.form-control.search-task-text.ml-20 {
+  min-width: 218px;
+}
+
+.generic-task {
+  margin-top: 20px;
+
+  label {
+    width: 120px;
+  }
+  .form-control {
+    margin-top: 10px;
+  }
+  #taskDepModal,
+  #ownerTaskModal {
+    width: 200px;
+  }
+  #taskNameModal {
+    width: 433px;
+  }
+
+}
+
+#tabs > ul > li.ui-tabs-active a {
+  cursor: pointer !important;
+}
+
+.task-triggers a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.reject-task {
+  width: 500px;
+
+  label {
+    width: 142px;
+  }
+  a {
+    margin-right: 10px;
+  }
+}
+
+.task-search {
+
+  span.k-numeric-wrap.k-state-default {
+    margin: 10px 0 0;
+    padding: 2px;
+  }
+  .k-numeric-wrap .k-input {
+    height: 2em;
+    line-height: 2em
+  }
+  .has-icon {
+    display: inline-block;
+  }
+  .k-state-default > .k-select {
+    border-color: #c5c5c5;
+    padding-top: 1px;
+  }
+}
+
+#TaskOwnerGerericUser {
+  width: 192px;
+}
 
 
 

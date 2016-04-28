@@ -11,6 +11,10 @@ var commonWidgets = (function ($) {
 		});
 	};
 
+	var init = function () {
+
+	}
+
 	return {
 		listingDropdown: listingDropdown
 	}
