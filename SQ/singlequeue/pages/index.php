@@ -7,56 +7,56 @@
 
 	<script>
 		//document.location.href = document.location.href.replace("/v2", "/SQ/");
-		var RootPath = "http://qa-o2.prod.quest.corp/v2/";
+		var RootPath = "http://stage-o2.prod.quest.corp/v2/";
 		var WebMarketingRootPath = "http://webmarketingstage.prod.quest.corp";
-		var O2URL = "http" + '://' + "qa-o2.prod.quest.corp" + "http://qa-o2.prod.quest.corp/v2/";
+		var O2URL = "http" + '://' + "stage-o2.prod.quest.corp" + "http://stage-o2.prod.quest.corp/v2/";
 	</script>
 
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script src="/SQ/static/scripts/RequestQueues/bootstrap-3.3.4.min.js"></script>
-	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/moment.min.js'></script>
+	<script src='http://stage-o2.prod.quest.corp/v2/Static/Scripts/moment.min.js'></script>
 
 	<!-- Initialize jQuery Plugins -->
 	<script src="/SQ/static/scripts/RequestQueues/jquery.multiple.select.min.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.cookie.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/web-queue-plugins.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.js"></script>
-	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.js'></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.min.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.unobtrusive.min.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/jqueryDateFormat.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/jquery.placeholder.min.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Library/bowser-master/bowser.min.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/jquery.cookie.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/web-queue-plugins.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.js"></script>
+	<script src='http://stage-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.js'></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.min.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/jqueryDateFormat.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/jquery.placeholder.min.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Library/bowser-master/bowser.min.js"></script>
 
-	<script src="http://qa-o2.prod.quest.corp/v2/View-Scripts/Common.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/View-Scripts/Common.js"></script>
 
 	<!-- Kendo UI -->
 
-	<link href="http://qa-o2.prod.quest.corp/v2/Static/Content/kendo/2015.1.318/kendo.requestqueues.css" rel="stylesheet" type="text/css">
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.all.min.js"></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.aspnetmvc.min.js"></script>
+	<link href="http://stage-o2.prod.quest.corp/v2/Static/Content/kendo/2015.1.318/kendo.requestqueues.css" rel="stylesheet" type="text/css">
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.all.min.js"></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.aspnetmvc.min.js"></script>
 	<script>
 		kendo.culture("en-US");
 	</script>
 
-	<script src='http://qa-o2.prod.quest.corp/v2/Static/Scripts/browser-warning.js'></script>
-	<script src="http://qa-o2.prod.quest.corp/v2/Static/Scripts/TimeZone.js"></script>
+	<script src='http://stage-o2.prod.quest.corp/v2/Static/Scripts/browser-warning.js'></script>
+	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/TimeZone.js"></script>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/RequestQueues.css">-->
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Content/RequestQueues/Header.css">
+	<!--<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Content/RequestQueues/RequestQueues.css">-->
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Content/RequestQueues/Header.css">
 	<link rel="stylesheet" href="/SQ/static/css/bootstrap.min.css">
 
-	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/web-queue-plugins-style.css" >-->
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/smoothness/jquery-ui-1.9.2.custom.css">
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/smoothness/jquery-ui-1.9.2.custom.css">
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.css">
-	<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/warning.css">
-	<!--<link rel="stylesheet" href="http://qa-o2.prod.quest.corp/v2/Static/CSS/project-form.css">-->
+	<!--<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/web-queue-plugins-style.css" >-->
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/smoothness/jquery-ui-1.9.2.custom.css">
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/smoothness/jquery-ui-1.9.2.custom.css">
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.css">
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/warning.css">
+	<!--<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/project-form.css">-->
 
 	<style>
 		#tabs > ul > li.ui-tabs-active a {
@@ -68,17 +68,17 @@
 
 	<!-- Global ui styles and js -->
 	<link rel="stylesheet" href="/SQ/static/css/custom-ui.css">
-	
+
 	<?php
 		echo $widget->css();
 	?>
-<script>
-    var endPoints = {
-        users: RootPath + "Common/GetSearchMKUserNames",
-        projects: RootPath + "SingleQueue/ProjectsData_Get",
-        campaigns: RootPath + "SingleQueue/CampaignData_Get"
-    };
-</script>
+	<script>
+		var endPoints = {
+			users: RootPath + "Common/GetSearchMKUserNames",
+			projects: RootPath + "SingleQueue/ProjectsData_Get",
+			campaigns: RootPath + "SingleQueue/CampaignData_Get"
+		};
+	</script>
 
 
 </head>
@@ -95,19 +95,17 @@
 ?>
 
 
-            <script src="/SQ/static/scripts/RequestQueues/custom-ui.js"></script>
+<script src="/SQ/static/scripts/RequestQueues/custom-ui.js"></script>
 <?php
-  $localURL = $_SERVER['REQUEST_URI'];
-  if($localURL == '/SQ/singlequeue/pages/view_requests/view-requests.html'){
-	  echo "<script src=\"/SQ/static/scripts/RequestQueues/ribbon.js\"></script>";
-  }
+	$localURL = $_SERVER['REQUEST_URI'];
+	if ($localURL == '/SQ/singlequeue/pages/view_requests/view-requests.html') {
+		echo "<script src=\"/SQ/static/scripts/RequestQueues/ribbon.js\"></script>";
+	}
 
 ?>
-			<script src="/SQ/static/scripts/RequestQueues/single-queue.js"></script>
-			<script src="/SQ/static/scripts/RequestQueues/sq-listings-module.js"></script>
-			<script src="/SQ/static/scripts/RequestQueues/o2-global-modules.js"></script>
-
-
+<script src="/SQ/static/scripts/RequestQueues/single-queue.js"></script>
+<script src="/SQ/static/scripts/RequestQueues/sq-listings-module.js"></script>
+<script src="/SQ/static/scripts/RequestQueues/o2-global-modules.js"></script>
 
 
 <?php
