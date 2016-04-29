@@ -673,6 +673,124 @@
   }
 }
 
+/* style for Add new request modal */
+.modal-nav {
+  h3, li {
+    margin: 0;
+    padding: 0;
+    line-height: 66px;
+    font-weight: bold;
+    border-bottom: 1px solid #aaaaaa;
+    width: 170px;
+  }
+  li {
+    line-height: 52px;
+  }
+  #myTabs {
+    a {
+      color: #444;
+    }
+    &:hover,
+    li.active & {
+      color: #007db8;
+    }
+  }
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .sprite-docs {
+    background: url('Images/common/add-new-req-icons.png') no-repeat 0 -40px;
+    width: 27px;
+    height: 32px;
+
+  }
+  li.active .sprite-docs {
+    background: url('Images/common/add-new-req-icons.png') no-repeat 0 0;
+    width: 27px;
+    height: 32px;
+  }
+  .sprite-ecommerce {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -79px -45px;
+    width: 32px;
+    height: 22px;
+
+  }
+  li.active .sprite-ecommerce {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -79px -5px;
+    width: 32px;
+    height: 22px;
+  }
+  .sprite-operations {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -34px -40px;
+    width: 32px;
+    height: 32px;
+
+  }
+  li.active .sprite-operations {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -34px 0;
+    width: 32px;
+    height: 32px;
+  }
+  .sprite-reporting {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -162px -40px;
+    width: 32px;
+    height: 32px;
+
+  }
+  li.active .sprite-reporting {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -162px 0;
+    width: 32px;
+    height: 32px;
+  }
+  .sprite-support {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -123px -40px;
+    width: 32px;
+    height: 32px;
+
+  }
+  li.active .sprite-support {
+    background: url('Images/common/add-new-req-icons.png') no-repeat -123px 0;
+    width: 32px;
+    height: 32px;
+  }
+
+}
+
+.tab-content {
+  padding-top: 66px;
+  border-left: 1px solid #aaa;
+  padding-left: 20px;
+  min-height: 345px;
+
+  .glyphicon {
+    margin-right: 10px;
+  }
+  ul {
+    list-style: none;
+
+    ul > li {
+      padding-left: 40px;
+    }
+
+  }
+  .simple-list {
+    padding-left: 24px;
+  }
+  .collapse.in {
+    margin-top: 10px;
+  }
+  h4 {
+    margin-bottom: 30px;
+  }
+}
+
+#tabstrip-modal .modal-top-area {
+  padding-right: 4px;
+}
+
+
 
 @media(min-width: 768px) {
   .modal-dialog {
