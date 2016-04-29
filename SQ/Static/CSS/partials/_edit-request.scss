@@ -190,11 +190,10 @@
         > div {
           background-color: #eee;
           float: left;
-          padding: 20px;
+          padding: 15px 0 0;
           border-top: 1px solid #a9a9a9;
           width: 100%;
           &:first-child {
-            background-color: #fff;
             border-top: none;
           }
           div:last-child {
