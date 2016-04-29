@@ -2771,7 +2771,8 @@ ul {
     width: 100%; }
   #comments .task-group > div {
     clear: both;
-    float: left; }
+    float: left;
+    width: 100%; }
     #comments .task-group > div .comment-box {
       border-right: 1px solid #a9a9a9;
       border-left: 1px solid #a9a9a9;
@@ -2780,12 +2781,14 @@ ul {
       -moz-box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
       box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
       float: left;
-      clear: both; }
+      clear: both;
+      width: 100%; }
       #comments .task-group > div .comment-box > div {
         background-color: #eee;
         float: left;
         padding: 20px;
-        border-top: 1px solid #a9a9a9; }
+        border-top: 1px solid #a9a9a9;
+        width: 100%; }
         #comments .task-group > div .comment-box > div:first-child {
           background-color: #fff;
           border-top: none; }

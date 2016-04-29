@@ -176,6 +176,7 @@
     > div {
       clear: both;
       float: left;
+      width: 100%;
       .comment-box {
         border-right: 1px solid #a9a9a9;
         border-left: 1px solid #a9a9a9;
@@ -185,11 +186,13 @@
         box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
         float: left;
         clear: both;
+        width: 100%;
         > div {
           background-color: #eee;
           float: left;
           padding: 20px;
           border-top: 1px solid #a9a9a9;
+          width: 100%;
           &:first-child {
             background-color: #fff;
             border-top: none;
