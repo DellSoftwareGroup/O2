@@ -125,7 +125,7 @@
 }
 
 /*comments*/
-#comments {
+#comment-filters{
   &.table-responsive {
     overflow: visible;
   }
@@ -135,6 +135,8 @@
   .ms-choice > div {
     top: 5px;
   }
+}
+#groups{
   .task-group {
     float: right;
     margin-bottom: 30px;
@@ -190,7 +192,7 @@
         > div {
           background-color: #eee;
           float: left;
-          padding: 15px 0 0;
+          padding: 15px 0;
           border-top: 1px solid #a9a9a9;
           width: 100%;
           &:first-child {

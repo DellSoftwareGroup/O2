@@ -2642,107 +2642,78 @@ ul {
   line-height: 66px;
   font-weight: bold;
   border-bottom: 1px solid #aaaaaa;
-  width: 170px;
-}
+  width: 170px; }
 .modal-nav li {
-  line-height: 52px;
-}
+  line-height: 52px; }
 .modal-nav #myTabs a {
-  color: #444;
-}
+  color: #444; }
 .modal-nav #myTabs:hover, li.active .modal-nav #myTabs {
-  color: #007db8;
-}
+  color: #007db8; }
 .modal-nav .icon {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
 .modal-nav .sprite-docs {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat 0 -40px;
   width: 27px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav li.active .sprite-docs {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat 0 0;
   width: 27px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav .sprite-ecommerce {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -79px -45px;
   width: 32px;
-  height: 22px;
-}
+  height: 22px; }
 .modal-nav li.active .sprite-ecommerce {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -79px -5px;
   width: 32px;
-  height: 22px;
-}
+  height: 22px; }
 .modal-nav .sprite-operations {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -34px -40px;
   width: 32px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav li.active .sprite-operations {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -34px 0;
   width: 32px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav .sprite-reporting {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -162px -40px;
   width: 32px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav li.active .sprite-reporting {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -162px 0;
   width: 32px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav .sprite-support {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -123px -40px;
   width: 32px;
-  height: 32px;
-}
+  height: 32px; }
 .modal-nav li.active .sprite-support {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -123px 0;
   width: 32px;
-  height: 32px;
-}
+  height: 32px; }
 
 .tab-content {
   padding-top: 66px;
   border-left: 1px solid #aaa;
   padding-left: 20px;
-  min-height: 345px;
-}
-
-.tab-content .glyphicon {
-  margin-right: 10px;
-}
-
-.tab-content ul {
-  list-style: none;
-}
-
-.tab-content ul ul > li {
-  padding-left: 40px;
-}
-
-.tab-content .simple-list {
-  padding-left: 24px;
-}
-
-.tab-content .collapse.in {
-  margin-top: 10px;
-}
-
-.tab-content h4 {
-  margin-bottom: 30px;
-}
+  min-height: 345px; }
+  .tab-content .glyphicon {
+    margin-right: 10px; }
+  .tab-content ul {
+    list-style: none; }
+    .tab-content ul ul > li {
+      padding-left: 40px; }
+  .tab-content .simple-list {
+    padding-left: 24px; }
+  .tab-content .collapse.in {
+    margin-top: 10px; }
+  .tab-content h4 {
+    margin-bottom: 30px; }
 
 #tabstrip-modal .modal-top-area {
-  padding-right: 4px;
-}
+  padding-right: 4px; }
 
 @media (min-width: 768px) {
   .modal-dialog {
@@ -2842,18 +2813,19 @@ ul {
         padding: 0; }
 
 /*comments*/
-#comments.table-responsive {
+#comment-filters.table-responsive {
   overflow: visible; }
-#comments .ms-parent {
+#comment-filters .ms-parent {
   width: 100% !important; }
-#comments .ms-choice > div {
+#comment-filters .ms-choice > div {
   top: 5px; }
-#comments .task-group {
+
+#groups .task-group {
   float: right;
   margin-bottom: 30px;
   width: 100%;
   clear: both; }
-  #comments .task-group .btn {
+  #groups .task-group .btn {
     border: 1px solid #007db8;
     z-index: 2;
     font-size: 16px;
@@ -2862,15 +2834,15 @@ ul {
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26); }
-    #comments .task-group .btn:focus, #comments .task-group .btn:hover {
+    #groups .task-group .btn:focus, #groups .task-group .btn:hover {
       background-color: #007db8; }
-    #comments .task-group .btn.collapsed .glyphicon:before {
+    #groups .task-group .btn.collapsed .glyphicon:before {
       content: '\e250'; }
-    #comments .task-group .btn i.glyphicon {
+    #groups .task-group .btn i.glyphicon {
       margin-right: 5px; }
-      #comments .task-group .btn i.glyphicon:before {
+      #groups .task-group .btn i.glyphicon:before {
         content: '\e252'; }
-  #comments .task-group .border-shadow {
+  #groups .task-group .border-shadow {
     border-top: 3px solid #007db8;
     -webkit-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
     -moz-box-shadow: 2px -4px 4px 0 rgba(0, 0, 0, 0.26);
@@ -2878,11 +2850,11 @@ ul {
     z-index: 1;
     position: relative;
     width: 100%; }
-  #comments .task-group > div {
+  #groups .task-group > div {
     clear: both;
     float: left;
     width: 100%; }
-    #comments .task-group > div .comment-box {
+    #groups .task-group > div .comment-box {
       border-right: 1px solid #a9a9a9;
       border-left: 1px solid #a9a9a9;
       border-bottom: 1px solid #a9a9a9;
@@ -2892,45 +2864,45 @@ ul {
       float: left;
       clear: both;
       width: 100%; }
-      #comments .task-group > div .comment-box > div {
+      #groups .task-group > div .comment-box > div {
         background-color: #eee;
         float: left;
-        padding: 15px 0 0;
+        padding: 15px 0;
         border-top: 1px solid #a9a9a9;
         width: 100%; }
-        #comments .task-group > div .comment-box > div:first-child {
+        #groups .task-group > div .comment-box > div:first-child {
           border-top: none; }
-        #comments .task-group > div .comment-box > div div:last-child > div .popover-content p {
+        #groups .task-group > div .comment-box > div div:last-child > div .popover-content p {
           margin-bottom: 0; }
-        #comments .task-group > div .comment-box > div div:last-child > div .popover-content a.icon:hover {
+        #groups .task-group > div .comment-box > div div:last-child > div .popover-content a.icon:hover {
           text-decoration: none; }
-        #comments .task-group > div .comment-box > div div:last-child .status-label {
+        #groups .task-group > div .comment-box > div div:last-child .status-label {
           float: right;
           padding: 5px;
           color: #fff;
           font-size: 12px; }
-          #comments .task-group > div .comment-box > div div:last-child .status-label.green {
+          #groups .task-group > div .comment-box > div div:last-child .status-label.green {
             background-color: #6ea204; }
-        #comments .task-group > div .comment-box > div div:last-child .icon-small-chat {
+        #groups .task-group > div .comment-box > div div:last-child .icon-small-chat {
           font-size: 19px;
           margin-left: 5px;
           vertical-align: middle; }
-        #comments .task-group > div .comment-box > div div:last-child .notify i {
+        #groups .task-group > div .comment-box > div div:last-child .notify i {
           font-size: 14px; }
-        #comments .task-group > div .comment-box > div div:last-child .notify a:hover {
+        #groups .task-group > div .comment-box > div div:last-child .notify a:hover {
           text-decoration: none; }
-          #comments .task-group > div .comment-box > div div:last-child .notify a:hover span span {
+          #groups .task-group > div .comment-box > div div:last-child .notify a:hover span span {
             text-decoration: underline; }
-        #comments .task-group > div .comment-box > div div:last-child .notify > div > div {
+        #groups .task-group > div .comment-box > div div:last-child .notify > div > div {
           margin-right: 10px;
           display: inline-block; }
-      #comments .task-group > div .comment-box .user-info {
+      #groups .task-group > div .comment-box .user-info {
         padding: 10px;
         background-color: #e5f2f8;
         border: 1px solid #737373;
         position: absolute;
         left: 0; }
-        #comments .task-group > div .comment-box .user-info a, #comments .task-group > div .comment-box .user-info p {
+        #groups .task-group > div .comment-box .user-info a, #groups .task-group > div .comment-box .user-info p {
           display: block;
           float: left;
           clear: both;
