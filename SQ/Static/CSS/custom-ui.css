@@ -2645,21 +2645,29 @@ ul {
   width: 170px; }
 .modal-nav li {
   line-height: 52px; }
+
+.modal-nav #myTabs {
+  list-style: none;
+}
+
 .modal-nav #myTabs a {
-  color: #444; }
+  color: #444;
+}
+
 .modal-nav #myTabs:hover, li.active .modal-nav #myTabs {
-  color: #007db8; }
+  color: #007db8;
+}
 .modal-nav .icon {
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px; }
 .modal-nav .sprite-docs {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat 0 -40px;
-  width: 27px;
+  width: 32px;
   height: 32px; }
 .modal-nav li.active .sprite-docs {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat 0 0;
-  width: 27px;
+  width: 32px;
   height: 32px; }
 .modal-nav .sprite-ecommerce {
   background: url("../../Images/common/add-new-req-icons.png") no-repeat -79px -45px;
