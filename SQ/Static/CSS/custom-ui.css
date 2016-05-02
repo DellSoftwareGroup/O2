@@ -2645,7 +2645,6 @@ ul {
   width: 170px; }
 .modal-nav li {
   line-height: 52px; }
-
 .modal-nav #myTabs {
   list-style: none;
 }
@@ -2654,7 +2653,11 @@ ul {
   color: #444;
 }
 
-.modal-nav #myTabs:hover, li.active .modal-nav #myTabs {
+.modal-nav #myTabs a:hover {
+  color: #007db8;
+}
+
+.modal-nav #myTabs li.active a {
   color: #007db8;
 }
 .modal-nav .icon {

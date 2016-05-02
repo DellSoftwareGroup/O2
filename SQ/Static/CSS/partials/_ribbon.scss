@@ -690,9 +690,12 @@
     list-style: none;
     a {
       color: #444;
+
+      &:hover {
+        color: #007db8;
+      }
     }
-    &:hover,
-    li.active & {
+    li.active a {
       color: #007db8;
     }
   }
