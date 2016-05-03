@@ -687,11 +687,15 @@
     line-height: 52px;
   }
   #myTabs {
+    list-style: none;
     a {
       color: #444;
+
+      &:hover {
+        color: #007db8;
+      }
     }
-    &:hover,
-    li.active & {
+    li.active a {
       color: #007db8;
     }
   }
@@ -702,13 +706,13 @@
   }
   .sprite-docs {
     background: url('../../Images/common/add-new-req-icons.png') no-repeat 0 -40px;
-    width: 27px;
+    width: 32px;
     height: 32px;
 
   }
   li.active .sprite-docs {
     background: url('../../Images/common/add-new-req-icons.png') no-repeat 0 0;
-    width: 27px;
+    width: 32px;
     height: 32px;
   }
   .sprite-ecommerce {
