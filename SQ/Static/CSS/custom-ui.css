@@ -2813,8 +2813,6 @@ ul {
         padding: 0; }
 
 /*comments*/
-#comment-filters.table-responsive {
-  overflow: visible; }
 #comment-filters .ms-parent {
   width: 100% !important; }
 #comment-filters .ms-choice > div {
@@ -2896,6 +2894,15 @@ ul {
         #groups .task-group > div .comment-box > div div:last-child .notify > div > div {
           margin-right: 10px;
           display: inline-block; }
+        #groups .task-group > div .comment-box > div.alert {
+          padding: 10px 35px 0 40px;
+          border-radius: 1px;
+          color: #444;
+          text-shadow: none;
+          background: #ffffc9;
+          position: relative;
+          margin-bottom: 0;
+          border: none; }
       #groups .task-group > div .comment-box .user-info {
         padding: 10px;
         background-color: #e5f2f8;

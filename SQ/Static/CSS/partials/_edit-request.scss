@@ -126,9 +126,6 @@
 
 /*comments*/
 #comment-filters{
-  &.table-responsive {
-    overflow: visible;
-  }
   .ms-parent {
     width: 100% !important;
   }
@@ -241,6 +238,16 @@
                 }
               }
             }
+          }
+          &.alert{
+            padding: 10px 35px 0 40px;
+            border-radius: 1px;
+            color: #444;
+            text-shadow: none;
+            background: #ffffc9;
+            position: relative;
+            margin-bottom:0;
+            border:none;
           }
         }
         .user-info {
