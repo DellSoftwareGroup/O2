@@ -36,7 +36,6 @@ var globalModules = function () {
 			var jqxhr = $.ajax("/sq/genericcontent/getcontent/?id=1")
 					.done(function (data) {
 						content = data;
-						console.log(data);
 					});
 		};
 		returnData = function () {
@@ -48,11 +47,10 @@ var globalModules = function () {
 			})
 
 			$('#expandable-control').on('click', function () {
-				console.log($(this).data('expandables-state'));
 				if ($(this).data('expandables-state') == 'closed') {
 					$('.collapsed').trigger('click');
 					$(this).data('expandables-state', 'open')
-							.html('Close All <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>')
+							.html('Collapse All <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>')
 				} else {
 					$('.tab-content').find('a[aria-expanded="true"]').trigger('click');
 					$(this).data('expandables-state', 'closed')
