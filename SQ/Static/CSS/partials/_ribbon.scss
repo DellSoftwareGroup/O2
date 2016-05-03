@@ -762,6 +762,17 @@
 
 }
 
+#expandable-control {
+  border-right: 2px solid #ccc;
+  padding: 5px 24px;
+  color: #2e2e2e;
+
+  span {
+    font-size: 10px;
+    display: inline-block;
+    margin-left: 4px;
+  }
+}
 .tab-content {
   padding-top: 66px;
   border-left: 1px solid #aaa;

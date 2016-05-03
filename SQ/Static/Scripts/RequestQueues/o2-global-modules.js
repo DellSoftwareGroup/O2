@@ -30,6 +30,44 @@ var globalModules = function () {
 	}
 
 	// Public methods
+	var addNewRequestModal = function () {
+		var content;
+		getModalData = function () {
+			var jqxhr = $.ajax("/sq/genericcontent/getcontent/?id=1")
+					.done(function (data) {
+						content = data;
+						console.log(data);
+					});
+		};
+		returnData = function () {
+			return content;
+		};
+		init = function () {
+			$('.cancel-window').on('click', function () {
+				$addReqModal.close();
+			})
+
+			$('#expandable-control').on('click', function () {
+				console.log($(this).data('expandables-state'));
+				if ($(this).data('expandables-state') == 'closed') {
+					$('.collapsed').trigger('click');
+					$(this).data('expandables-state', 'open')
+							.html('Close All <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>')
+				} else {
+					$('.tab-content').find('a[aria-expanded="true"]').trigger('click');
+					$(this).data('expandables-state', 'closed')
+							.html('Expand All <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>')
+				}
+			});
+		}
+
+		return {
+			getModalData: getModalData,
+			returnData: returnData,
+			init: init
+		}
+	}();
+
 	var customModals = function () {
 
 		function ModalHtmlBuilder(modalInfo) {
@@ -1341,7 +1379,8 @@ var globalModules = function () {
 	return {
 		customModals: customModals,
 		popupModule: popupModule,
-		followersGrid: followersGrid
+		followersGrid: followersGrid,
+		addNewRequesModal: addNewRequestModal
 	}
 }();
 
@@ -1352,12 +1391,16 @@ $(function () {
 	if ($('.sq-top-ribbon')) {
 		globalModules.popupModule.ribbonPopoverInit();
 	}
+	;
 
 	// modules have a dependency on global variable endPoints
 	if (typeof endPoints === 'object') {
 		globalModules.popupModule.usersPopoverInit();
 		globalModules.customModals.init();
 	}
+	;
+
+	globalModules.addNewRequesModal.getModalData();
 
 });
 
