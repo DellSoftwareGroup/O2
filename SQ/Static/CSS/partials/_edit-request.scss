@@ -125,16 +125,15 @@
 }
 
 /*comments*/
-#comments {
-  &.table-responsive {
-    overflow: visible;
-  }
+#comment-filters{
   .ms-parent {
     width: 100% !important;
   }
   .ms-choice > div {
     top: 5px;
   }
+}
+#groups{
   .task-group {
     float: right;
     margin-bottom: 30px;
@@ -176,6 +175,7 @@
     > div {
       clear: both;
       float: left;
+      width: 100%;
       .comment-box {
         border-right: 1px solid #a9a9a9;
         border-left: 1px solid #a9a9a9;
@@ -185,13 +185,14 @@
         box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.26);
         float: left;
         clear: both;
+        width: 100%;
         > div {
           background-color: #eee;
           float: left;
-          padding: 20px;
+          padding: 15px 0;
           border-top: 1px solid #a9a9a9;
+          width: 100%;
           &:first-child {
-            background-color: #fff;
             border-top: none;
           }
           div:last-child {
@@ -237,6 +238,16 @@
                 }
               }
             }
+          }
+          &.alert{
+            padding: 10px 35px 0 40px;
+            border-radius: 1px;
+            color: #444;
+            text-shadow: none;
+            background: #ffffc9;
+            position: relative;
+            margin-bottom:0;
+            border:none;
           }
         }
         .user-info {
@@ -439,7 +450,83 @@
   }
 }
 
+/* add task popover */
+.table-in-k-windo {
+  max-height: 100px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  overflow-y: scroll
+}
 
+.k-widget.k-window.k-window-titleless {
+  padding: 20px;
+}
+
+input.form-control.search-task-text.ml-20 {
+  min-width: 218px;
+}
+
+.generic-task {
+  margin-top: 20px;
+
+  label {
+    width: 120px;
+  }
+  .form-control {
+    margin-top: 10px;
+  }
+  #taskDepModal,
+  #ownerTaskModal {
+    width: 200px;
+  }
+  #taskNameModal {
+    width: 433px;
+  }
+
+}
+
+#tabs > ul > li.ui-tabs-active a {
+  cursor: pointer !important;
+}
+
+.task-triggers a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.reject-task {
+  width: 500px;
+
+  label {
+    width: 142px;
+  }
+  a {
+    margin-right: 10px;
+  }
+}
+
+.task-search {
+
+  span.k-numeric-wrap.k-state-default {
+    margin: 10px 0 0;
+    padding: 2px;
+  }
+  .k-numeric-wrap .k-input {
+    height: 2em;
+    line-height: 2em
+  }
+  .has-icon {
+    display: inline-block;
+  }
+  .k-state-default > .k-select {
+    border-color: #c5c5c5;
+    padding-top: 1px;
+  }
+}
+
+#TaskOwnerGerericUser {
+  width: 192px;
+}
 
 
 
