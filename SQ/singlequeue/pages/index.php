@@ -35,7 +35,8 @@
 	<!-- Kendo UI -->
 
 	<link href="http://stage-o2.prod.quest.corp/v2/Static/Content/kendo/2015.1.318/kendo.requestqueues.css" rel="stylesheet" type="text/css">
-	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.all.min.js"></script>
+	<script src="http://kendo.cdn.telerik.com/2016.1.412/js/kendo.all.min.js"></script>
+	<!--<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.all.min.js"></script>-->
 	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/kendo/2015.1.429/kendo.aspnetmvc.min.js"></script>
 	<script>
 		kendo.culture("en-US");
@@ -45,18 +46,15 @@
 	<script src="http://stage-o2.prod.quest.corp/v2/Static/Scripts/TimeZone.js"></script>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-	<!--<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Content/RequestQueues/RequestQueues.css">-->
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Content/RequestQueues/Header.css">
 	<link rel="stylesheet" href="/SQ/static/css/bootstrap.min.css">
 
-	<!--<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/web-queue-plugins-style.css" >-->
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/smoothness/jquery-ui-1.9.2.custom.css">
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/smoothness/jquery-ui-1.9.2.custom.css">
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Scripts/RequestQueues/qtip/jquery.qtip.css">
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/Scripts/fullcalendar/fullcalendar.min.css">
 	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/warning.css">
-	<!--<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/v2/Static/CSS/project-form.css">-->
 
 	<style>
 		#tabs > ul > li.ui-tabs-active a {
@@ -72,6 +70,7 @@
 	<?php
 		echo $widget->css();
 	?>
+
 	<script>
 		var endPoints = {
 			users: RootPath + "Common/GetSearchMKUserNames",
@@ -79,7 +78,6 @@
 			campaigns: RootPath + "SingleQueue/CampaignData_Get"
 		};
 	</script>
-
 
 </head>
 <body>
@@ -94,14 +92,12 @@
 	echo $widget->content();
 ?>
 
-
 <script src="/SQ/static/scripts/RequestQueues/custom-ui.js"></script>
 <?php
 	$localURL = $_SERVER['REQUEST_URI'];
 	if ($localURL == '/SQ/singlequeue/pages/view_requests/view-requests.html') {
 		echo "<script src=\"/SQ/static/scripts/RequestQueues/ribbon.js\"></script>";
 	}
-
 ?>
 <script src="/SQ/static/scripts/RequestQueues/single-queue.js"></script>
 <script src="/SQ/static/scripts/RequestQueues/sq-listings-module.js"></script>

@@ -1,9 +1,17 @@
-<div id="treelist"></div>
+<div class="wrapper">
+	<div id="treelist"></div>
+</div>
 
-<script id="photo-template" type="text/x-kendo-template">
-	<div class='employee-photo'
-		style='background-image: url("http://demos.telerik.com/kendo-ui/content/web/treelist/people/#:data.EmployeeID#.jpg");'></div>
-	<div class='employee-name'>#: FirstName #</div>
+<script id="primary-level-template" type="text/x-kendo-template">
+	# if (PrimaryLevel != "") { #
+	<div>#: PrimaryLevel # <a href="/">Edit</a></div>
+	# } #
+</script>
+
+<script id="secondary-level-template" type="text/x-kendo-template">
+	# if (SecondaryLevel != "") { #
+	<div>#: SecondaryLevel # <a href="/">View Products</a></div>
+	# } #
 </script>
 
 <script>
@@ -11,128 +19,55 @@
 		$("#treelist").kendoTreeList({
 			dataSource: {
 				transport: {
-					data: [
-						{
-							"EmployeeId": 1,
-							"FirstName": "Daryl",
-							"LastName": "Sweeney",
-							"ReportsTo": null,
-							"Address": "P.O. Box 427, 5676 Arcu. Rd.",
-							"City": "Castelvecchio Calvisio",
-							"Country": "Antigua and Barbuda",
-							"Phone": "(555) 924-9726",
-							"Extension": 8253,
-							"Position": "CEO",
-							"BirthDate": "Date(-409111200000)",
-							"HireDate": "Date(1328644800000)"
-						},
-						{
-							"EmployeeId": 2,
-							"FirstName": "Guy",
-							"LastName": "Wooten",
-							"ReportsTo": 1,
-							"Address": "Ap #348-1754 Lacus Avenue",
-							"City": "Acoz",
-							"Country": "Saint Martin",
-							"Phone": "(438) 738-4935",
-							"Extension": 1155,
-							"Position": "Chief Technical Officer",
-							"BirthDate": "Date(-358484400000)",
-							"HireDate": "Date(1267646400000)"
-						},
-						{
-							"EmployeeId": 3,
-							"FirstName": "Priscilla",
-							"LastName": "Frank",
-							"ReportsTo": 1,
-							"Address": "1569 Cras Road",
-							"City": "Wells",
-							"Country": "Russian Federation",
-							"Phone": "(278) 927-2684",
-							"Extension": 4183,
-							"Position": "Chief Product Officer",
-							"BirthDate": "Date(38966400000)",
-							"HireDate": "Date(1417305600000)"
-						},
-						{
-							"EmployeeId": 4,
-							"FirstName": "Ursula",
-							"LastName": "Holmes",
-							"ReportsTo": 3,
-							"Address": "221-4534 Vitae, Ave",
-							"City": "Sarre",
-							"Country": "Nigeria",
-							"Phone": "(302) 760-2034",
-							"Extension": 2226,
-							"Position": "EVP, Product Strategy",
-							"BirthDate": "Date(524102400000)",
-							"HireDate": "Date(1307318400000)"
-						},
-						{
-							"EmployeeId": 5,
-							"FirstName": "Anika",
-							"LastName": "Vega",
-							"ReportsTo": 1,
-							"Address": "199-1773 Ultricies Street",
-							"City": "Pavone del Mella",
-							"Country": "Tanzania",
-							"Phone": "(910) 714-1802",
-							"Extension": 6353,
-							"Position": "Chief Process Officer",
-							"BirthDate": "Date(558662400000)",
-							"HireDate": "Date(1267056000000)"
-						}
-					]
-					/*read: {
-					 url: "/SQ/singlequeue/pages/product-solution-mapping/sample-data.json",
-					 dataType: "json"
-					 }*/
+					read: {
+						url: "/SQ/singlequeue/pages/product-solution-mapping/sample-data.json",
+						dataType: "json"
+					}
 				},
 				schema: {
 					model: {
-						id: "EmployeeID",
-						parentId: "ReportsTo",
+						id: "ID",
+						parentId: "Parent",
 						fields: {
-							ReportsTo: {field: "ReportsTo", nullable: true},
-							EmployeeID: {field: "EmployeeId", type: "number"},
-							Extension: {field: "Extension", type: "number"}
+							Parent: {field: "Parent", nullable: true},
+							ID: {field: "Id", type: "number"}
 						},
-						expanded: true
+						expanded: false
 					}
 				}
 			},
 			height: 540,
-			filterable: true,
+			filterable: false,
 			sortable: true,
 			columns: [
 				{
-					field: "FirstName", title: "First Name", width: 280,
-					template: $("#photo-template").html()
+					field: "Taxonomy",
+					title: "Learn Taxonomy"
 				},
-				{field: "LastName", title: "Last Name", width: 160},
-				{field: "Position"},
-				{field: "Phone", width: 200},
-				{field: "Extension", width: 140},
-				{field: "Address"}
+				{
+					field: "PrimaryLevel",
+					title: "Primary Level",
+					template: $("#primary-level-template").html()
+				},
+				{
+					field: "SecondaryLevel",
+					title: "Secondary Level",
+					template: $("#secondary-level-template").html()
+				},
+				{
+					field: "TertiaryLevel",
+					title: "Tertiary Level"
+				},
+				{
+					field: "BusinessGroup",
+					title: "Business Group"
+				}
 			]
 		});
 	});
 </script>
 
 <style>
-	.employee-photo {
-		display: inline-block;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		background-size: 32px 35px;
-		background-position: center center;
-		vertical-align: middle;
-		line-height: 32px;
-		box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, .2);
-		margin-left: 5px;
-	}
-
 	.employee-name {
 		display: inline-block;
 		vertical-align: middle;
@@ -140,4 +75,3 @@
 		padding-left: 3px;
 	}
 </style>
-</div>
