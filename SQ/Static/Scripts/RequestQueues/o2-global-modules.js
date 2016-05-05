@@ -1104,8 +1104,9 @@ var globalModules = function () {
 
 		function closeOnBodyClick(e) {
 			var $eTarget = $(e.target);
-			if ($eTarget.parents('.popover-wrapper').length > 0) {
-			} else {
+			var $eParent = $eTarget.parents('li');
+			var offPopover = $eParent.find('.custom-popover').length === 0 ? true : false;
+			if (offPopover) {
 				// check for kendo dropdown
 				if ($eTarget.hasClass('k-state-selected')) {
 					return;
