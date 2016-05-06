@@ -3,11 +3,9 @@
   padding-top: 4px;
   padding-bottom: 4px;
 }
-
 .ie9 select.form-control.error {
   background-position: 91% 50%;
 }
-
 .ie9 .form-horizontal-2 {
   width: 100%;
 }
@@ -33,7 +31,6 @@
     left: -276px;
   }
 }
-
 @media (min-width: 768px) {
   .ie9 #affix-nav ul {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
