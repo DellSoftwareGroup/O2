@@ -694,83 +694,127 @@ p.data {
 .side-sections, .form-area {
   margin-top: 38px; }
 
-.request-listing .id-col {
-  width: 30px; }
-.request-listing .title-col {
-  width: 110px; }
-.request-listing .type-col {
-  width: 80px; }
-.request-listing .project-col {
-  width: 100px; }
-.request-listing .agileTeam-col {
-  width: 70px; }
-.request-listing .status-col {
-  width: 64px; }
-.request-listing .requestStartDate-col {
-  width: 64px; }
-.request-listing .requestStartDate-col {
-  width: 64px; }
-.request-listing .requestEndDate-col {
-  width: 100px; }
-.request-listing .requester-col {
-  width: 40px; }
-.request-listing .portfolio-col {
-  width: 65px; }
-.request-listing .sprint-col {
-  width: 54px; }
-.request-listing .priority-col {
-  width: 54px; }
-.request-listing .group-col {
-  width: 46px; }
-.request-listing .active-col {
-  width: 22px; }
-.request-listing .complete-col {
-  width: 22px; }
-.request-listing .startDate-col {
-  width: 80px; }
-.request-listing .endDate-col {
-  width: 112px; }
+/*
+.request-listing {
+  .id-col {
+    width: 30px;
+  }
+  .title-col {
+    width: 110px;
+  }
+  .type-col {
+    width: 80px;
+  }
+  .project-col {
+    width: 100px;
+  }
+  .agileTeam-col {
+    width: 70px;
+  }
+  .status-col {
+    width: 64px;
+  }
+  .requestStartDate-col {
+    width: 64px;
+  }
+  .requestStartDate-col {
+    width: 64px;
+  }
+  .requestEndDate-col {
+    width: 100px;
+  }
+  .requester-col {
+    width: 40px;
+  }
+  .portfolio-col {
+    width: 65px;
+  }
+  .sprint-col {
+    width: 54px;
+  }
+  .priority-col {
+    width: 54px;
+  }
+  .group-col {
+    width: 46px;
+  }
+  .active-col {
+    width: 22px;
+  }
+  .complete-col {
+    width: 22px;
+  }
+  .startDate-col {
+    width: 80px;
+  }
+  .endDate-col {
+    width: 112px;
+  }
+}
 
-.tasks-listing .id-col {
-  width: 30px; }
-.tasks-listing .title-col {
-  width: 110px; }
-.tasks-listing .type-col {
-  width: 55px; }
-.tasks-listing .project-col {
-  width: 127px; }
-.tasks-listing .agileTeam-col {
-  width: 70px; }
-.tasks-listing .status-col {
-  width: 60px; }
-.tasks-listing .requestStartDate-col {
-  width: 64px; }
-.tasks-listing .requestEndDate-col {
-  width: 96px; }
-.tasks-listing .requester-col {
-  width: 65px; }
-.tasks-listing .portfolio-col {
-  width: 65px; }
-.tasks-listing .sprint-col {
-  width: 54px; }
-.tasks-listing .owner-col {
-  width: 55px; }
-.tasks-listing .taskTitle-col {
-  width: 58px; }
-.tasks-listing .taskStatus-col {
-  width: 60px; }
-.tasks-listing .dept-col {
-  width: 38px; }
-.tasks-listing .startDate-col {
-  width: 74px; }
-.tasks-listing .endDate-col {
-  width: 104px; }
-
+.tasks-listing {
+  .id-col {
+    width: 30px;
+  }
+  .title-col {
+    width: 110px;
+  }
+  .type-col {
+    width: 55px;
+  }
+  .project-col {
+    width: 127px;
+  }
+  .agileTeam-col {
+    width: 70px;
+  }
+  .status-col {
+    width: 60px;
+  }
+  .requestStartDate-col {
+    width: 64px;
+  }
+  .requestEndDate-col {
+    width: 96px;
+  }
+  .requester-col {
+    width: 65px;
+  }
+  .portfolio-col {
+    width: 65px;
+  }
+  .sprint-col {
+    width: 54px;
+  }
+  .owner-col {
+    width: 55px;
+  }
+  .taskTitle-col {
+    width: 58px;
+  }
+  .taskStatus-col {
+    width: 60px;
+  }
+  .dept-col {
+    width: 38px;
+  }
+  .startDate-col {
+    width: 74px;
+  }
+  .endDate-col {
+    width: 104px;
+  }
+}
+*/
 #results-data-list {
   /* warning labels */ }
+
+#results-data-list th.summary-th,
   #results-data-list th.summary-th a {
     color: #00447c !important;
-    font-weight: bold !important; }
+  font-weight: bold !important;
+  font-size: 13px;
+}
   #results-data-list td span.icon {
     display: inline-block;
     padding: 0 4px !important;
@@ -785,11 +829,35 @@ p.data {
   #results-data-list span.legacy {
     background-color: #444; }
   #results-data-list span.past-due {
-    background: url(http://o2.prod.quest.corp/sq/Static/Content/Img/icon-warning-red.png) no-repeat center center;
+    background: url(/sq/Static/Content/Img/icon-warning-red.png) no-repeat center center;
     height: 16px;
     width: 16px;
     vertical-align: middle;
     margin-left: 0; }
+
+#results-data-list span.outside-sprint {
+  background: url(/sq/Static/Content/Img/icon-warning.png) no-repeat center center;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-left: 0;
+}
+
+#results-data-list span.past-due-outside-sprint {
+  background: url(/sq/Static/Content/Img/icon-warning-red-yellow.png) no-repeat center center;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-left: 0;
+}
+
+#results-data-list span.checkmark {
+  background: url(/sq/Static/Content/Img/checkmark.gif) no-repeat center center;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-left: 0;
+}
   #results-data-list .owner-col span {
     display: table-cell; }
   #results-data-list .owner-col .color-id {
