@@ -2665,15 +2665,15 @@ ul {
     width: 15% !important; }
 
 @media (min-width: 1540px) {
-  .sq-top-ribbin > ul > li {
+  .sq-top-ribbon > ul > li {
     padding: 15px 13px;
   }
 
-  .sq-top-ribbin > ul > li > ul > li {
+  .sq-top-ribbon > ul > li > ul > li {
     margin-right: 7px;
   }
 
-  .sq-top-ribbin > ul > li > ul > li .sq-btn-icon + span {
+  .sq-top-ribbon > ul > li > ul > li .sq-btn-icon + span {
     margin-left: 5px;
   }
 }
