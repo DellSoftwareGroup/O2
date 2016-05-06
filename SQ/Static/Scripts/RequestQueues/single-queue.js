@@ -118,6 +118,7 @@ $(function () {
 				countSelected: title + '&nbsp;(#)',
 				selectAllText: $(this).data('select-all-text'),
 				allSelected: title,
+				maxHeight: 240,
 				onClose: function () {
 					//fix for bg toggle issue when multiple select clicked
 					/*          ribbonItem.on('click', function () {

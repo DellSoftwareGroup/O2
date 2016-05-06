@@ -2256,16 +2256,16 @@ ul {
 
 /*ribbon*/
 .sq-top-ribbon {
-  float: left;
   width: 100%;
+  float: left;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px; }
   .sq-top-ribbon > ul > li {
-    display: inline;
+    list-style: none;
     float: left;
-    padding: 10px 10px 0;
+    padding: 5px 10px 0;
     border-right: 1px solid #ccc; }
     .sq-top-ribbon > ul > li .wide-blue-button {
       background-color: #007CB8;
@@ -2292,7 +2292,6 @@ ul {
         .sq-top-ribbon > ul > li .wide-blue-button a:hover {
           text-decoration: none; }
     .sq-top-ribbon > ul > li > ul {
-      float: left;
       clear: both;
       position: relative; }
       .sq-top-ribbon > ul > li > ul:first-child {
@@ -2523,10 +2522,10 @@ ul {
             position: relative;
             z-index: 99999;
             /*fix for ie9*/ }
-    .sq-top-ribbon > ul > li:first-child {
-      padding-left: 11px; }
-      .sq-top-ribbon > ul > li:first-child > span:last-child {
-        margin-top: 25px; }
+
+.sq-top-ribbon > ul > li:first-child > span:last-child {
+  margin-top: 13px;
+}
     .sq-top-ribbon > ul > li:last-child {
       border-right: none; }
       .sq-top-ribbon > ul > li:last-child > span:last-child {
@@ -2641,7 +2640,8 @@ ul {
 
 @media (min-width: 1540px) {
   .sq-top-ribbon > ul > li {
-    padding: 15px 13px; }
+    padding: 5px 15px;
+  }
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px; }
       .sq-top-ribbon > ul > li > ul > li .sq-btn-icon + span {
