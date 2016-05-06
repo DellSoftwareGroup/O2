@@ -366,6 +366,10 @@
     }
     &:first-child {
       padding-left: 11px;
+      > span:last-child {
+        width: 15%;
+        margin-top: 28px;
+      }
     }
     &:last-child {
       > span:last-child {
@@ -405,6 +409,9 @@
         > li > a {
           padding-top: 0;
         }
+      }
+      > span:last-child {
+        width: 36%;
       }
     }
     &#filters-section {
@@ -773,6 +780,7 @@
     margin-left: 4px;
   }
 }
+
 .tab-content {
   padding-top: 15px;
   border-left: 1px solid #aaa;
@@ -804,7 +812,6 @@
 #tabstrip-modal .modal-top-area {
   padding-right: 4px;
 }
-
 
 @media(min-width: 768px) {
   .modal-dialog {
