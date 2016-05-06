@@ -365,13 +365,11 @@
     &:first-child {
       padding-left: 11px;
       > span:last-child {
-        width: 15%;
         margin-top: 25px;
       }
     }
     &:last-child {
       > span:last-child {
-        width: 100%;
         padding-top: 0;
       }
       border-right: none;
@@ -409,14 +407,10 @@
         }
       }
       > span:last-child {
-        width: 39%;
         padding-top: 12px;
       }
     }
     &#filters-section {
-      > span {
-        width: 6%;
-      }
       > ul > li {
         min-width: 158px;
         > a > select, > div > div > a > select {
@@ -437,8 +431,7 @@
     > span:last-child {
       padding-top: 10px;
       display: block;
-      width: 34%;
-      margin: 0px auto;
+      margin: 0 auto;
       font-size: 13px;
       color: #737373;
       clear: both;

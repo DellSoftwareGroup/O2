@@ -2526,12 +2526,10 @@ ul {
     .sq-top-ribbon > ul > li:first-child {
       padding-left: 11px; }
       .sq-top-ribbon > ul > li:first-child > span:last-child {
-        width: 15%;
         margin-top: 25px; }
     .sq-top-ribbon > ul > li:last-child {
       border-right: none; }
       .sq-top-ribbon > ul > li:last-child > span:last-child {
-        width: 100%;
         padding-top: 0; }
     .sq-top-ribbon > ul > li#sprints-section span:last-child {
       width: 39%;
@@ -2550,10 +2548,7 @@ ul {
     .sq-top-ribbon > ul > li#agile-status > ul > li > a {
       padding-top: 0; }
     .sq-top-ribbon > ul > li#agile-status > span:last-child {
-      width: 39%;
       padding-top: 12px; }
-    .sq-top-ribbon > ul > li#filters-section > span {
-      width: 6%; }
     .sq-top-ribbon > ul > li#filters-section > ul > li {
       min-width: 158px; }
       .sq-top-ribbon > ul > li#filters-section > ul > li > a > select, .sq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
@@ -2567,8 +2562,7 @@ ul {
     .sq-top-ribbon > ul > li > span:last-child {
       padding-top: 10px;
       display: block;
-      width: 34%;
-      margin: 0px auto;
+      margin: 0 auto;
       font-size: 13px;
       color: #737373;
       clear: both; }
