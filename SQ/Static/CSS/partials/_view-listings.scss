@@ -1,3 +1,4 @@
+/*
 .request-listing {
   .id-col {
     width: 30px;
@@ -108,12 +109,14 @@
     width: 104px;
   }
 }
-
+*/
 // TODO: bring actual alert icon to images folder
 #results-data-list {
+  th.summary-th,
   th.summary-th a {
     color: #00447c !important;
     font-weight: bold !important;
+    font-size: 13px;
   }
 
   /* warning labels */
@@ -135,7 +138,28 @@
     background-color: #444;
   }
   span.past-due {
-    background: url(http://o2.prod.quest.corp/sq/Static/Content/Img/icon-warning-red.png) no-repeat center center;
+    background: url(/sq/Static/Content/Img/icon-warning-red.png) no-repeat center center;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-left: 0;
+  }
+  span.outside-sprint {
+    background: url(/sq/Static/Content/Img/icon-warning.png) no-repeat center center;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-left: 0;
+  }
+  span.past-due-outside-sprint {
+    background: url(/sq/Static/Content/Img/icon-warning-red-yellow.png) no-repeat center center;
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-left: 0;
+  }
+  span.checkmark {
+    background: url(/sq/Static/Content/Img/checkmark.gif) no-repeat center center;
     height: 16px;
     width: 16px;
     vertical-align: middle;
