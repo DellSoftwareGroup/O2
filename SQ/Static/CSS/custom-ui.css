@@ -2285,7 +2285,7 @@ ul {
   .sq-top-ribbon > ul > li {
     display: inline;
     float: left;
-    padding: 15px 13px 0 13px;
+    padding: 10px 10px 0;
     border-right: 1px solid #ccc; }
     .sq-top-ribbon > ul > li .wide-blue-button {
       background-color: #007CB8;
@@ -2299,10 +2299,8 @@ ul {
         float: left;
         font-size: 13px; }
         .sq-top-ribbon > ul > li .wide-blue-button a span:first-child {
-          font-size: 38px;
           display: block;
           float: left;
-          line-height: 8px;
           line-height: 55px;
           font-size: 2.5em; }
         .sq-top-ribbon > ul > li .wide-blue-button a span:last-child {
@@ -2326,7 +2324,7 @@ ul {
         display: inline-block;
         float: left;
         padding: 6px;
-        margin-right: 7px;
+        /*margin-right: 7px;*/
         font-size: 12.66px;
         /*icons*/ }
         .sq-top-ribbon > ul > li > ul > li.active-item-bg {
@@ -2365,7 +2363,6 @@ ul {
         .sq-top-ribbon > ul > li > ul > li:last-child {
           margin-right: 0; }
         .sq-top-ribbon > ul > li > ul > li .sq-btn-icon, .sq-top-ribbon > ul > li > ul > li .glyphicon-remove-sign {
-          margin-right: 5px;
           float: left; }
           .sq-top-ribbon > ul > li > ul > li .sq-btn-icon#jan-fy-icon, .sq-top-ribbon > ul > li > ul > li .glyphicon-remove-sign#jan-fy-icon {
             float: none;
@@ -2381,25 +2378,27 @@ ul {
           width: 30%;
           margin: 0 auto; }
         .sq-top-ribbon > ul > li > ul > li #backlog-icon {
-          background-position: -253px 1px;
-          width: 24px; }
+          background-position: -256px 1px;
+          width: 16px;
+        }
         .sq-top-ribbon > ul > li > ul > li #started-icon {
           background-position: -722px -2px;
-          width: 20px;
+          width: 16px;
           height: 20px; }
         .sq-top-ribbon > ul > li > ul > li #idea-icon {
-          background-position: -312px 0;
-          width: 20px; }
+          background-position: -310px 0;
+          width: 16px;
+        }
         .sq-top-ribbon > ul > li > ul > li #council-icon {
           background-position: -357px -1px;
           width: 20px; }
         .sq-top-ribbon > ul > li > ul > li #done-icon {
           background-position: -410px 0;
-          width: 20px;
+          width: 17px;
           height: 20px; }
         .sq-top-ribbon > ul > li > ul > li #cancelled-icon {
-          background-position: -466px 0;
-          width: 20px;
+          background-position: -468px 0;
+          width: 17px;
           height: 20px; }
         .sq-top-ribbon > ul > li > ul > li #filters-icon {
           background-position: -549px -2px;
@@ -2435,17 +2434,20 @@ ul {
         .sq-top-ribbon > ul > li > ul > li:hover #jan-fy-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #jan-fy-icon {
           background-position: -164px -1px; }
         .sq-top-ribbon > ul > li > ul > li:hover #backlog-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #backlog-icon {
-          background-position: -254px -34px; }
+          background-position: -257px -34px;
+        }
         .sq-top-ribbon > ul > li > ul > li:hover #started-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #started-icon {
           background-position: -722px -37px; }
         .sq-top-ribbon > ul > li > ul > li:hover #idea-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #idea-icon {
-          background-position: -314px -38px; }
+          background-position: -312px -38px;
+        }
         .sq-top-ribbon > ul > li > ul > li:hover #council-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #council-icon {
           background-position: -359px -38px; }
         .sq-top-ribbon > ul > li > ul > li:hover #done-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #done-icon {
           background-position: -412px -38px; }
         .sq-top-ribbon > ul > li > ul > li:hover #cancelled-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #cancelled-icon {
-          background-position: -468px -38px; }
+          background-position: -470px -38px;
+        }
         .sq-top-ribbon > ul > li > ul > li:hover #filters-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #filters-icon {
           background-position: -549px -39px; }
         .sq-top-ribbon > ul > li > ul > li:hover #department-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #department-icon {
@@ -2662,6 +2664,19 @@ ul {
     margin-top: 24px !important;
     width: 15% !important; }
 
+@media (min-width: 1540px) {
+  .sq-top-ribbin > ul > li {
+    padding: 15px 13px;
+  }
+
+  .sq-top-ribbin > ul > li > ul > li {
+    margin-right: 7px;
+  }
+
+  .sq-top-ribbin > ul > li > ul > li .sq-btn-icon + span {
+    margin-left: 5px;
+  }
+}
 /*filters collector */
 .filter-collector {
   float: left;

@@ -247,7 +247,7 @@ $(window).load(function () {
 		if ($.browser.chrome) {
 			arrow.addClass('chrome');
 		} else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
-			arrow.addClass('firefox');
+			//arrow.addClass('firefox');
 		} else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
 			arrow.addClass('ie9');
 		} else if ($('html').hasClass('k-ie11')) {
