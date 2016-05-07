@@ -2236,7 +2236,7 @@ ul {
 
 #smllWidgetTable td {
   border-top: 0;
-  line-height: 34px;
+  height: 34px;
 }
 
 #smllWidgetTable th {
@@ -2251,12 +2251,12 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#f5f5f5', GradientType=0);
 }
 
-#smllWidgetTable th:nth-child(2) {
+#addFollowers #smllWidgetTable th:nth-child(2) {
   width: 144px;
 }
 
-#smllWidgetTable td:first-child,
-#smllWidgetTable th:first-child {
+#addFollowers #smllWidgetTable td:first-child,
+#addFollowers #smllWidgetTable th:first-child {
   padding-left: 20px;
   width: 212px;
 }
@@ -2272,6 +2272,17 @@ ul {
 
 .save-follower {
   float: none !important;
+}
+
+#addFiles .file-name {
+  width: 221px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#addFiles tr.collapse.in {
+  display: table-row !important;
 }
 
 /*ribbon*/
