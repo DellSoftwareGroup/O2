@@ -43,10 +43,11 @@
       }
     }
     > ul {
+	    float: left;
       clear: both;
       position: relative;
       &:first-child {
-        margin-bottom: 15px;
+	      margin-bottom: 5px;
       }
       .grey-bg {
         background-color: #eee;

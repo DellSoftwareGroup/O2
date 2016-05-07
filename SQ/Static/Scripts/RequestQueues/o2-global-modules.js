@@ -217,7 +217,7 @@ var globalModules = function () {
 						+ '</div>'
 						+ '<p></p>'
 						+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
-						+ '</form></div>';
+						+ '</form><div class="camp-no-result text-red mt-10 hide">0 Camapigns found!</div></div>';
 				campaignInfo.title = 'Search Campaign';
 
 				var buildModal = new ModalHtmlBuilder(campaignInfo);
@@ -331,9 +331,16 @@ var globalModules = function () {
 								;
 							});
 							if (resultsTally.length === 0) {
-								$('.campFilterResults').append('<option>0 Camapigns found!</option>');
+								if($('.campFilterResults').data('no-result-processed') == undefined || $('.campFilterResults').data('no-result-processed') == false){
+									$('.camp-no-result').removeClass('hide');
+									$('.campFilterResults').data('no-result-processed',true);
+								}else{
+									return false;
+								}
 							} else {
 								resultsTally = [];
+								$('.camp-no-result').addClass('hide');
+								$('.campFilterResults').data('no-result-processed',false);
 							}
 						} else {
 							for (var i = 0; i < view.length; i++) {
@@ -508,7 +515,7 @@ var globalModules = function () {
 						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
 						+ '<span class="k-icon k-loading" style="display: none"></span>'
 						+ '</div>'
-						+ '</form></div>';
+						+ '</form><div class="pro-no-result text-red mt-10 hide">0 Projects found!</div></div>';
 				projectInfo.title = 'Search project';
 
 				var buildModal = new ModalHtmlBuilder(projectInfo);
@@ -793,9 +800,13 @@ var globalModules = function () {
 			// set results
 			function appendToResults(target, result) {
 				if (result == 0) {
-					$(target).append('<option>0 Projects found!</option>');
+					if($('.projectFilterResults').data('no-result-processed') == undefined || $('.projectFilterResults').data('no-result-processed') == false){
+						$('.pro-no-result').removeClass('hide');
+						$('.projectFilterResults').data('no-result-processed',true);
+					}else{
+						return false;
+					}
 				} else {
-
 					var spanTmpl = '<span style="font-weight: bold;">';
 					var optionTmpl = String()
 							+ '<option value="' + result.ID + '" data-name="' + result.Name
@@ -803,7 +814,8 @@ var globalModules = function () {
 							+ ' | ' + spanTmpl + 'Name:</span>' + result.Name
 							+ ' | ' + spanTmpl + 'Status:</span> ' + result.Status
 							+ '</option>';
-
+					$('.pro-no-result').addClass('hide');
+					$('.projectFilterResults').data('no-result-processed',false);
 					$(target).append(optionTmpl);
 				}
 				$('.modal-results span').removeClass('custom-loading');
