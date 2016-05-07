@@ -1,15 +1,15 @@
 /*ribbon*/
 .sq-top-ribbon {
-  float: left;
   width: 100%;
+	float: left;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px;
   > ul > li {
-    display: inline;
+	  list-style: none;
     float: left;
-    padding: 10px 10px 0;
+	  padding: 5px 10px 0;
     border-right: 1px solid #ccc;
     .wide-blue-button {
       background-color: #007CB8;
@@ -43,11 +43,11 @@
       }
     }
     > ul {
-      float: left;
+	    float: left;
       clear: both;
       position: relative;
       &:first-child {
-        margin-bottom: 15px;
+	      margin-bottom: 5px;
       }
       .grey-bg {
         background-color: #eee;
@@ -363,15 +363,12 @@
       }
     }
     &:first-child {
-      padding-left: 11px;
       > span:last-child {
-        width: 15%;
-        margin-top: 25px;
+	      margin-top: 13px;
       }
     }
     &:last-child {
       > span:last-child {
-        width: 100%;
         padding-top: 0;
       }
       border-right: none;
@@ -409,14 +406,10 @@
         }
       }
       > span:last-child {
-        width: 39%;
         padding-top: 12px;
       }
     }
     &#filters-section {
-      > span {
-        width: 6%;
-      }
       > ul > li {
         min-width: 158px;
         > a > select, > div > div > a > select {
@@ -437,8 +430,7 @@
     > span:last-child {
       padding-top: 10px;
       display: block;
-      width: 34%;
-      margin: 0px auto;
+      margin: 0 auto;
       font-size: 13px;
       color: #737373;
       clear: both;
@@ -549,7 +541,7 @@
 @media(min-width: 1540px) {
   .sq-top-ribbon {
     > ul > li {
-      padding: 15px 13px;
+	    padding: 5px 15px;
       > ul > li {
         margin-right: 7px;
         .sq-btn-icon + span {

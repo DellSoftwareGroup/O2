@@ -987,7 +987,7 @@ p.data {
     font-weight: bold; }
 
 .results-data {
-  width: 1540px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   font-size: 12px;
@@ -2256,16 +2256,16 @@ ul {
 
 /*ribbon*/
 .sq-top-ribbon {
-  float: left;
   width: 100%;
+  float: left;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px; }
   .sq-top-ribbon > ul > li {
-    display: inline;
+    list-style: none;
     float: left;
-    padding: 10px 10px 0;
+    padding: 5px 10px 0;
     border-right: 1px solid #ccc; }
     .sq-top-ribbon > ul > li .wide-blue-button {
       background-color: #007CB8;
@@ -2296,7 +2296,8 @@ ul {
       clear: both;
       position: relative; }
       .sq-top-ribbon > ul > li > ul:first-child {
-        margin-bottom: 15px; }
+        margin-bottom: 5px;
+      }
       .sq-top-ribbon > ul > li > ul .grey-bg {
         background-color: #eee;
         border-radius: 3px; }
@@ -2523,15 +2524,13 @@ ul {
             position: relative;
             z-index: 99999;
             /*fix for ie9*/ }
-    .sq-top-ribbon > ul > li:first-child {
-      padding-left: 11px; }
-      .sq-top-ribbon > ul > li:first-child > span:last-child {
-        width: 15%;
-        margin-top: 25px; }
+
+.sq-top-ribbon > ul > li:first-child > span:last-child {
+  margin-top: 13px;
+}
     .sq-top-ribbon > ul > li:last-child {
       border-right: none; }
       .sq-top-ribbon > ul > li:last-child > span:last-child {
-        width: 100%;
         padding-top: 0; }
     .sq-top-ribbon > ul > li#sprints-section span:last-child {
       width: 39%;
@@ -2550,10 +2549,7 @@ ul {
     .sq-top-ribbon > ul > li#agile-status > ul > li > a {
       padding-top: 0; }
     .sq-top-ribbon > ul > li#agile-status > span:last-child {
-      width: 39%;
       padding-top: 12px; }
-    .sq-top-ribbon > ul > li#filters-section > span {
-      width: 6%; }
     .sq-top-ribbon > ul > li#filters-section > ul > li {
       min-width: 158px; }
       .sq-top-ribbon > ul > li#filters-section > ul > li > a > select, .sq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
@@ -2567,8 +2563,7 @@ ul {
     .sq-top-ribbon > ul > li > span:last-child {
       padding-top: 10px;
       display: block;
-      width: 34%;
-      margin: 0px auto;
+      margin: 0 auto;
       font-size: 13px;
       color: #737373;
       clear: both; }
@@ -2647,7 +2642,8 @@ ul {
 
 @media (min-width: 1540px) {
   .sq-top-ribbon > ul > li {
-    padding: 15px 13px; }
+    padding: 5px 15px;
+  }
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px; }
       .sq-top-ribbon > ul > li > ul > li .sq-btn-icon + span {

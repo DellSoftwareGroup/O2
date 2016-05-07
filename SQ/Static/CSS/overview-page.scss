@@ -1,0 +1,9 @@
+@media(max-width: 1366px) {
+	#GridRequest thead, tbody {
+		& > tr > th, & > tr > td {
+			&:nth-child(4), &:nth-child(6) {
+				display: none;
+			}
+		}
+	}
+}
