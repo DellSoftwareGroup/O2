@@ -2226,7 +2226,8 @@ ul {
   -moz-border-radius: 5px; }
   #smllWidgetTable td {
     border-top: 0;
-    line-height: 34px; }
+    height: 34px;
+  }
   #smllWidgetTable th {
     border-bottom: 2px solid #eaeaea;
     background: #e8e8e8;
@@ -2237,12 +2238,16 @@ ul {
     background: -ms-linear-gradient(top, #e8e8e8 0%, whitesmoke 100%);
     background: linear-gradient(to bottom, #e8e8e8 0%, whitesmoke 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#f5f5f5', GradientType=0); }
-  #smllWidgetTable th:nth-child(2) {
-    width: 144px; }
-  #smllWidgetTable td:first-child,
-  #smllWidgetTable th:first-child {
-    padding-left: 20px;
-    width: 212px; }
+
+#addFollowers #smllWidgetTable th:nth-child(2) {
+  width: 144px;
+}
+
+#addFollowers #smllWidgetTable td:first-child,
+#addFollowers #smllWidgetTable th:first-child {
+  padding-left: 20px;
+  width: 212px;
+}
 
 .add-follower-row {
   margin-top: 10px; }
@@ -2251,8 +2256,39 @@ ul {
 .follower-input .has-icon {
   display: inline-block !important; }
 
+.follower-input input {
+  width: 360px;
+}
+
 .save-follower {
   float: none !important; }
+
+#addFiles .file-name {
+  width: 221px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#addFiles tr.collapse.in {
+  display: table-row !important;
+}
+
+#add-link-form input {
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+#add-link-form .btn-primary {
+  margin-right: 10px;
+}
+
+.file-upload-widget .k-button.k-upload-button {
+  color: #2e2e2e !important;
+  border-color: #c5c5c5;
+  background-color: #e3e3e3 !important;
+  text-align: center;
+}
 
 /*ribbon*/
 .sq-top-ribbon {

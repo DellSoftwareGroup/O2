@@ -543,6 +543,10 @@ ul {
   display: inline-block !important;
 }
 
+.follower-input input {
+  width: 360px;
+}
+
 .save-follower {
   float: none !important;
 }
@@ -558,3 +562,21 @@ ul {
     display: table-row !important;
   }
 }
+
+#add-link-form {
+  input {
+    width: 500px;
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    margin-right: 10px;
+  }
+}
+
+.file-upload-widget .k-button.k-upload-button {
+  color: #2e2e2e !important;
+  border-color: #c5c5c5;
+  background-color: #e3e3e3 !important;
+  text-align: center;
+}
+
