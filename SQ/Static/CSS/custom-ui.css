@@ -987,7 +987,7 @@ p.data {
     font-weight: bold; }
 
 .results-data {
-  width: 1540px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   font-size: 12px;
@@ -2292,10 +2292,12 @@ ul {
         .sq-top-ribbon > ul > li .wide-blue-button a:hover {
           text-decoration: none; }
     .sq-top-ribbon > ul > li > ul {
+      float: left;
       clear: both;
       position: relative; }
       .sq-top-ribbon > ul > li > ul:first-child {
-        margin-bottom: 15px; }
+        margin-bottom: 5px;
+      }
       .sq-top-ribbon > ul > li > ul .grey-bg {
         background-color: #eee;
         border-radius: 3px; }
