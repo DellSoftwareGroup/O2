@@ -474,7 +474,7 @@ var globalModules = function () {
 						+ '<div>'
 						+ '<form class="form-horizontal" data-modalName="project">'
 						+ '<div class="form-inline firstProjFilter mb-10" >'
-						+ '<select class="form-control" id="projectSelectFirst">'
+						+ '<select class="form-control mr-10" id="projectSelectFirst">'
 						+ '<option value="ProjName">Project Name</option>'
 						+ '<option value="ProjId">Project ID</option>'
 						+ '</select>'
@@ -485,11 +485,13 @@ var globalModules = function () {
 						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
 						+ '<div class="form-inline secondProjFilter mb-10">'
-						+ '<select class="form-control" id="projectSelectSecond">'
+						+ '<select class="form-control mr-10" id="projectSelectSecond">'
 						+ '<option value="ProjOwner">Project Owner</option>'
 						+ '<option value="ProjRequester">Project Requester</option>'
 						+ '</select>'
-						+ '<input type="text" class="form-control resetable" id="ownerOrRequester">'
+						+ '<div style="position: relative; display: inline-block">'
+						+	'<input type="text" class="form-control resetable" id="ownerOrRequester">'
+						+ '</div>'
 						+ '</div>'
 						+ '<div class="form-inline thirdProjFilter mb-20">'
 						+ '<select class="form-control resetable" id="projectSelectThird" style="width:490px;">'
@@ -541,7 +543,6 @@ var globalModules = function () {
 
 					// trigger autocomplete when focus on owner/requester input
 					$('#ownerOrRequester').on('focus', function () {
-
 						if (ownerOrRequester == 'clean') { // prevent being trigger multiple times
 							initOwnerReqAutoComp($('#projectSelectSecond').val());
 							ownerOrRequester = 'durty';
@@ -551,7 +552,6 @@ var globalModules = function () {
 					// when owner or requested field is cleared we need to show all
 					// trigger autocomplete when focus on owner/requester input
 					$('#ownerOrRequester').on('blur', function () {
-
 						if ($('#ownerOrRequester').val() == '') { //  chech if name has been clear
 							subFilter.alias = null;  // clear name from reference obj
 							initOwnerReqAutoComp($('#projectSelectSecond').val()); // initialize process

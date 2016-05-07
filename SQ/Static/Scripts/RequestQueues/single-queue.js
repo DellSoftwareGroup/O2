@@ -117,7 +117,8 @@ $(function () {
 				minimumCountSelected: 0,
 				countSelected: title + '&nbsp;(#)',
 				selectAllText: $(this).data('select-all-text'),
-				allSelected: title,
+				allSelected: title + '&nbsp;(all)',
+				maxHeight: 240,
 				onClose: function () {
 					//fix for bg toggle issue when multiple select clicked
 					/*          ribbonItem.on('click', function () {
@@ -247,7 +248,7 @@ $(window).load(function () {
 		if ($.browser.chrome) {
 			arrow.addClass('chrome');
 		} else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
-			arrow.addClass('firefox');
+			//arrow.addClass('firefox');
 		} else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
 			arrow.addClass('ie9');
 		} else if ($('html').hasClass('k-ie11')) {
