@@ -117,7 +117,7 @@ $(function () {
 				minimumCountSelected: 0,
 				countSelected: title + '&nbsp;(#)',
 				selectAllText: $(this).data('select-all-text'),
-				allSelected: title,
+				allSelected: title + '&nbsp;(all)',
 				maxHeight: 240,
 				onClose: function () {
 					//fix for bg toggle issue when multiple select clicked
