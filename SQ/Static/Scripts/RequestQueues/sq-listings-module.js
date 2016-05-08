@@ -95,11 +95,26 @@ var singleQueueTables = (function ($) {
 			 });*/
 		}
 
+		function addTableHeadings(tableName){
+			if(tableName == 'request'){
+				//Only allow 1 table group heading.
+				if (!$('#GridRequest').find('.table-group-headings').length) {
+					$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
+				}
+			}else{
+				//Only allow 1 table group heading.
+				if (!$('#GridRequest').find('.table-group-headings').length) {
+					$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
+				}
+			}
+		}
+
 		return {
 			summarySecStyles: summarySecStyles,
 			summaryBorder: summaryBorder,
 			tempStyles: tempStyles,
-			GridRequest_DataBound: GridRequest_DataBound
+			GridRequest_DataBound: GridRequest_DataBound,
+			addTableHeadings : addTableHeadings
 		}
 	}());
 
@@ -196,7 +211,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '5/20/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/5/2015',
+				'actualEnd': '6/5/2015'
 			},
 			{
 				id: 'MRCM-47411',
@@ -207,7 +222,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '5/20/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/5/2015',
+				'actualEnd': '6/5/2015'
 			},
 			{
 				id: 'MRCM-47411',
@@ -218,7 +233,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '5/20/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/5/2015',
+				'actualEnd': '6/5/2015'
 			}
 		];
 
@@ -341,12 +356,7 @@ var singleQueueTables = (function ($) {
 			commonStyles.GridRequest_DataBound();
 			// modalTable.init(); --> Kendo window
 			ListingPopOver.init();
-		},
-		addTableHeadings: function () {
-			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('.table-group-headings').length) {
-				$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
-			}
+			commonStyles.addTableHeadings('request');
 		}
 	};
 
@@ -359,12 +369,7 @@ var singleQueueTables = (function ($) {
 			commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			ownerColorTag();
-		},
-		addTableHeadings: function () {
-			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('.table-group-headings').length) {
-				$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
-			}
+			commonStyles.addTableHeadings('task');
 		}
 	};
 
