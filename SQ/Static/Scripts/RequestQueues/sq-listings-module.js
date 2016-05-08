@@ -95,26 +95,11 @@ var singleQueueTables = (function ($) {
 			 });*/
 		}
 
-		function addTableHeadings(tableName){
-			if(tableName == 'request'){
-				//Only allow 1 table group heading.
-				if (!$('#GridRequest').find('.table-group-headings').length) {
-					$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
-				}
-			}else{
-				//Only allow 1 table group heading.
-				if (!$('#GridRequest').find('.table-group-headings').length) {
-					$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
-				}
-			}
-		}
-
 		return {
 			summarySecStyles: summarySecStyles,
 			summaryBorder: summaryBorder,
 			tempStyles: tempStyles,
-			GridRequest_DataBound: GridRequest_DataBound,
-			addTableHeadings : addTableHeadings
+			GridRequest_DataBound: GridRequest_DataBound
 		}
 	}());
 
@@ -200,7 +185,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '6/1/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/10/2015',
+				'actualEnd': '6/10/2015'
 			},
 			{
 				id: '27139',
@@ -261,14 +246,14 @@ var singleQueueTables = (function ($) {
 				// Iterate thru each task
 				filteredTasks.forEach(function (task) {
 					trTasks += String()
-							+ '<tr><td><div class="tsk-group">' + task.group + '</div></td>'
-							+ '<td><div class="tsk-task">' + task.task + '</div></td>'
-							+ '<td><div class="tsk-owner">' + task.owner + '</div></td>'
-							+ '<td><div class="tsk-owner">' + task.status + '</div></td>'
-							+ '<td><div class="pln-start">' + task.plannedStart + '</div></td>'
-							+ '<td><div class="pln-end">' + task.plannedEnd + '</div></td>'
-							+ '<td><div class="actual-start">' + task.actualStart + '</div></td>'
-							+ '<td><div class="actual-end">' + task.actualEnd + '</div></td></tr>';
+					+ '<tr><td><div class="tsk-group">' + task.group + '</div></td>'
+					+ '<td><div class="tsk-task">' + task.task + '</div></td>'
+					+ '<td><div class="tsk-owner">' + task.owner + '</div></td>'
+					+ '<td><div class="tsk-owner">' + task.status + '</div></td>'
+					+ '<td><div class="pln-start">' + task.plannedStart + '</div></td>'
+					+ '<td><div class="pln-end">' + task.plannedEnd + '</div></td>'
+					+ '<td><div class="actual-start">' + task.actualStart + '</div></td>'
+					+ '<td><div class="actual-end">' + task.actualEnd + '</div></td></tr>';
 				});
 
 
@@ -356,7 +341,12 @@ var singleQueueTables = (function ($) {
 			commonStyles.GridRequest_DataBound();
 			// modalTable.init(); --> Kendo window
 			ListingPopOver.init();
-			commonStyles.addTableHeadings('request');
+		},
+		addTableHeadings: function () {
+			//Only allow 1 table group heading.
+			if (!$('#GridRequest').find('.table-group-headings').length) {
+				$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
+			}
 		}
 	};
 
@@ -369,7 +359,12 @@ var singleQueueTables = (function ($) {
 			commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			ownerColorTag();
-			commonStyles.addTableHeadings('task');
+		},
+		addTableHeadings: function () {
+			//Only allow 1 table group heading.
+			if (!$('#GridRequest').find('.table-group-headings').length) {
+				$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
+			}
 		}
 	};
 
@@ -392,6 +387,3 @@ var singleQueueTables = (function ($) {
 	}
 
 }(jQuery));
-
-
-
