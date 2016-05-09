@@ -854,7 +854,8 @@ p.data {
     display: table-cell; }
   #results-data-list .owner-col .color-id {
     width: 5px;
-    height: 24px; }
+    /*height: 24px;*/
+  }
   #results-data-list .owner-col .owner-name {
     padding-left: 5px;
     max-width: 100px; }
@@ -2242,7 +2243,6 @@ ul {
 #addFollowers #smllWidgetTable th:nth-child(2) {
   width: 144px;
 }
-
 #addFollowers #smllWidgetTable td:first-child,
 #addFollowers #smllWidgetTable th:first-child {
   padding-left: 20px;
@@ -2269,7 +2269,6 @@ ul {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 #addFiles tr.collapse.in {
   display: table-row !important;
 }
@@ -2278,7 +2277,6 @@ ul {
   width: 500px;
   margin-bottom: 20px;
 }
-
 #add-link-form .btn-primary {
   margin-right: 10px;
 }
@@ -2678,7 +2676,7 @@ ul {
 
 @media (min-width: 1540px) {
   .sq-top-ribbon > ul > li {
-    padding: 5px 15px;
+    /*padding: 5px 15px;*/
   }
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px; }
@@ -3140,13 +3138,17 @@ ul {
   color: #999; }
 #results-data-list #edit-task-listing tr td {
   border-bottom: 1px solid #aaa;
-  border-left: none; }
-  #results-data-list #edit-task-listing tr td .task-col {
-    width: 250px; }
-  #results-data-list #edit-task-listing tr td .owner-col {
-    width: 130px; }
-  #results-data-list #edit-task-listing tr td .department-col {
-    width: 100px; }
+  border-left: none;
+  /*.task-col {
+    width: 250px;
+  }
+  .owner-col {
+    width: 130px;
+  }
+  .department-col {
+    width: 100px;
+  }*/
+}
   #results-data-list #edit-task-listing tr td .icon-small-edit {
     margin-right: 5px; }
   #results-data-list #edit-task-listing tr td .status-col {
