@@ -2329,6 +2329,14 @@ ul {
   margin-left: 5px;
 }
 
+.border-box {
+  box-sizing: border-box;
+}
+
+.border-box *, .border-box *::before, .border-box *::after {
+  box-sizing: border-box;
+}
+
 /*ribbon*/
 .sq-top-ribbon {
   width: 100%;
@@ -2821,7 +2829,8 @@ ul {
   line-height: 66px;
   font-weight: bold;
   border-bottom: 1px solid #aaaaaa;
-  width: 170px; }
+  /*width: 170px;*/
+}
 .modal-nav li {
   line-height: 52px; }
 .modal-nav #myTabs {
@@ -2888,8 +2897,8 @@ ul {
 
 .tab-content {
   padding-top: 15px;
-  border-left: 1px solid #aaa;
-  padding-left: 20px;
+  /*border-left: 1px solid #aaa;*/
+  /*padding-left: 20px;*/
   min-height: 345px; }
   .tab-content .glyphicon {
     margin-right: 10px; }
@@ -2940,49 +2949,6 @@ ul {
   .summary > div #planned-date {
     margin-left: 13px;
     margin-right: 77px; }
-
-/*Kendo UI datepicker*/
-.date-picker {
-  width: 100%; }
-  .date-picker .k-picker-wrap {
-    height: 32px; }
-    .date-picker .k-picker-wrap .k-input {
-      height: 30px;
-      position: absolute;
-      padding-bottom: 0;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      border-radius: 1px; }
-    .date-picker .k-picker-wrap.k-state-default {
-      background-image: none;
-      background-color: #fff;
-      border-radius: 1px;
-      border-color: #ccc; }
-      .date-picker .k-picker-wrap.k-state-default > .k-select {
-        border: none;
-        border-radius: 0;
-        position: relative;
-        float: right;
-        width: auto; }
-    .date-picker .k-picker-wrap.k-state-hover {
-      background-color: #fff; }
-      .date-picker .k-picker-wrap.k-state-hover > * > .k-i-calendar {
-        background-position: -779px -75px;
-        width: 15px;
-        height: 12px; }
-    .date-picker .k-picker-wrap.k-state-focused {
-      background-color: #fff;
-      border-color: #66afe9; }
-    .date-picker .k-picker-wrap .k-icon {
-      background-image: url("/sq/static/images/single-queue-sprite.png");
-      background-repeat: no-repeat; }
-    .date-picker .k-picker-wrap .k-select {
-      line-height: 2.3em; }
-    .date-picker .k-picker-wrap .k-i-calendar {
-      background-position: -779px -75px;
-      position: absolute;
-      top: 11px;
-      left: 6px; }
 
 /*panel*/
 .panel-group-collapsible {
@@ -3122,7 +3088,8 @@ ul {
         margin-bottom: 10px;
         padding: 0 0 0 15px; }
     #request-info .panel-body > div span {
-      line-height: 34px; }
+      /*line-height: 34px;*/
+    }
       #request-info .panel-body > div span.k-input {
         line-height: 20px; }
     #request-info .panel-body > div > .col-xs-2 {
@@ -3290,6 +3257,77 @@ input.form-control.search-task-text.ml-20 {
 .k-editor-toolbar .k-tool-text {
   display: none; }
 
+.form-control.date-picker {
+  box-sizing: border-box;
+}
+.form-control > .k-picker-wrap {
+  border: 0;
+}
+
+/*Kendo UI datepicker*/
+.date-picker {
+  width: 100%;
+}
+
+.date-picker .k-picker-wrap {
+  height: 32px;
+}
+
+.date-picker .k-picker-wrap .k-input {
+  height: 30px;
+  position: absolute;
+  padding-bottom: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border-radius: 1px;
+}
+
+.date-picker .k-picker-wrap.k-state-default {
+  background-image: none;
+  background-color: #fff;
+  border-radius: 1px;
+  border-color: #ccc;
+}
+
+.date-picker .k-picker-wrap.k-state-default > .k-select {
+  border: none;
+  border-radius: 0;
+  position: relative;
+  float: right;
+  width: auto;
+}
+
+.date-picker .k-picker-wrap.k-state-hover {
+  background-color: #fff;
+}
+
+.date-picker .k-picker-wrap.k-state-hover > * > .k-i-calendar {
+  background-position: -779px -75px;
+  width: 15px;
+  height: 12px;
+}
+
+.date-picker .k-picker-wrap.k-state-focused {
+  background-color: #fff;
+  border-color: #66afe9;
+}
+
+.date-picker .k-picker-wrap .k-icon {
+  background-image: url("/sq/static/images/single-queue-sprite.png");
+  background-repeat: no-repeat;
+}
+
+.date-picker .k-picker-wrap .k-select {
+  line-height: 2.3em;
+}
+
+.date-picker .k-picker-wrap .k-i-calendar {
+  background-position: -779px -75px;
+  position: absolute;
+  top: 11px;
+  left: 6px;
+}
+
 .browser-warning {
   display: none; }
 
@@ -3323,4 +3361,5 @@ input.form-control.search-task-text.ml-20 {
   .icon-input-overlay .glyphicon {
     position: absolute;
     right: 8px;
-    top: 8px; }
+    top: 10px;
+  }
