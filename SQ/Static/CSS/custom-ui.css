@@ -2219,7 +2219,7 @@ ul {
 
 /* sidebar widgets */
 #smllWidgetTable {
-  width: 500px;
+  width: 100%;
   border: 1px solid #dadada;
   border-collapse: separate;
   border-spacing: 0;
@@ -2257,11 +2257,15 @@ ul {
   display: inline-block !important; }
 
 .follower-input input {
-  width: 360px;
+  width: 435px;
 }
 
 .save-follower {
   float: none !important; }
+
+#addFiles {
+  /* file icons */
+}
 
 #addFiles .file-name {
   width: 221px;
@@ -2269,12 +2273,46 @@ ul {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 #addFiles tr.collapse.in {
   display: table-row !important;
 }
 
+#addFiles .child-doc {
+  padding-left: 30px;
+}
+
+#addFiles .icon-files {
+  display: inline-block;
+  background: url("/SQ/static/images/widgets/doc.png") no-repeat 0 0;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#addFiles .icon-files.icon-files-png {
+  background: url("/SQ/static/images/widgets/png.png") no-repeat 0 0;
+}
+
+#addFiles .icon-files.icon-files-jpg {
+  background: url("/SQ/static/images/widgets/jpg.png") no-repeat 0 0;
+}
+
+#addFiles .icon-files.icon-files-jpg {
+  background: url("/SQ/static/images/widgets/jpg.png") no-repeat 0 0;
+}
+
+#addFiles .icon-files.icon-files-pdf {
+  background: url("/SQ/static/images/widgets/pdf.png") no-repeat 0 0;
+}
+
+#addFiles .glyphicon-triangle-bottom {
+  color: #007db8 !important;
+}
+
 #add-link-form input {
-  width: 500px;
+  width: 100%;
   margin-bottom: 20px;
 }
 #add-link-form .btn-primary {

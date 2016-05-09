@@ -496,7 +496,7 @@ ul {
 
 /* sidebar widgets */
 #smllWidgetTable {
-  width: 500px;
+  width: 100%;
   border: 1px solid #dadada;
   border-collapse: separate;
   border-spacing: 0;
@@ -544,7 +544,7 @@ ul {
 }
 
 .follower-input input {
-  width: 360px;
+  width: 435px;
 }
 
 .save-follower {
@@ -561,11 +561,39 @@ ul {
   tr.collapse.in {
     display: table-row !important;
   }
+  .child-doc {
+    padding-left: 30px;
+  }
+  /* file icons */
+  .icon-files {
+    display: inline-block;
+    background: url("/SQ/static/images/widgets/doc.png") no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .icon-files.icon-files-png {
+    background: url("/SQ/static/images/widgets/png.png") no-repeat 0 0;
+  }
+  .icon-files.icon-files-jpg {
+    background: url("/SQ/static/images/widgets/jpg.png") no-repeat 0 0;
+  }
+  .icon-files.icon-files-jpg {
+    background: url("/SQ/static/images/widgets/jpg.png") no-repeat 0 0;
+  }
+  .icon-files.icon-files-pdf {
+    background: url("/SQ/static/images/widgets/pdf.png") no-repeat 0 0;
+  }
+
+  .glyphicon-triangle-bottom {
+    color: #007db8 !important;
+  }
 }
 
 #add-link-form {
   input {
-    width: 500px;
+    width: 100%;
     margin-bottom: 20px;
   }
   .btn-primary {
