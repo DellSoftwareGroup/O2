@@ -6495,7 +6495,8 @@ body {
       text-decoration: none; }
     .panel-group-collapsible > .panel .panel-body {
       padding: 0 30px;
-      margin-bottom: 10px; }
+      /*margin-bottom: 10px;*/
+    }
     .panel-group-collapsible > .panel .table-responsive {
       margin-bottom: 13px; }
       .panel-group-collapsible > .panel .table-responsive .panel-body {
