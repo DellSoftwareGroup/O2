@@ -3222,7 +3222,6 @@ input.form-control.search-task-text.ml-20 {
 .form-control.date-picker {
   box-sizing: border-box;
 }
-
 .form-control > .k-picker-wrap {
   border: 0;
 }
@@ -3324,4 +3323,5 @@ input.form-control.search-task-text.ml-20 {
   .icon-input-overlay .glyphicon {
     position: absolute;
     right: 8px;
-    top: 8px; }
+    top: 10px;
+  }
