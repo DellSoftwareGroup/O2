@@ -3262,6 +3262,11 @@ input.form-control.search-task-text.ml-20 {
   border: 0;
 }
 
+.k-list .k-item {
+  padding: 7px;
+  cursor: pointer;
+}
+
 /*Kendo UI datepicker*/
 .date-picker {
   width: 100%;
