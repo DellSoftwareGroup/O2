@@ -573,10 +573,17 @@ ul {
   }
 }
 
-.file-upload-widget .k-button.k-upload-button {
-  color: #2e2e2e !important;
-  border-color: #c5c5c5;
-  background-color: #e3e3e3 !important;
-  text-align: center;
+.file-upload-widget {
+
+  .k-button.k-upload-button {
+    font-size: 14px !important;
+    border: 0 !important;
+
+    span:last-child {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+
 }
 
