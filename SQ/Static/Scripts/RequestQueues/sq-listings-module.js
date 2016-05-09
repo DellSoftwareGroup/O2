@@ -344,8 +344,8 @@ var singleQueueTables = (function ($) {
 		},
 		addTableHeadings: function () {
 			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('.table-group-headings').length) {
-				$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
+			if (!$('#GridRequest').find('thead .table-group-headings').length) {
+				$('#GridRequest thead').prepend('<tr class="table-group-headings"><th colspan="12"><strong>Request Info</strong></th><th colspan="5"><strong>Current Group Summary</strong></th></tr>');
 			}
 		}
 	};
@@ -362,8 +362,8 @@ var singleQueueTables = (function ($) {
 		},
 		addTableHeadings: function () {
 			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('.table-group-headings').length) {
-				$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
+			if (!$('#GridRequest').find('thead .table-group-headings').length) {
+				$('#GridRequest thead').prepend('<tr class="table-group-headings"><th colspan="10"><strong>Request Info</strong></th><th colspan="7"><strong>Task Info</strong></th></tr>');
 			}
 		}
 	};
