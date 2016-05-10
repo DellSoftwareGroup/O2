@@ -2931,11 +2931,30 @@ select[multiple].input-lg,
 .has-error select.form-control {
   background-position: 95% 50%; }
 
-.form-control.error {
+.form-control.error, .form-control.input-validation-error:not([readonly]) {
   background-color: #ffffc9;
   border: 1px solid #ce1126; }
-  .form-control.error:active, .form-control.error:focus {
+
+.form-control.error:active, .form-control.error:focus, .form-control.input-validation-error:not([readonly]):active, .form-control.input-validation-error:not([readonly]):focus {
     background-color: white; }
+
+.form-control.input-validation-error[readonly] {
+  border: 1px solid #ce1126;
+}
+
+.form-control.k-widget.input-validation-error {
+  background-color: #ffffc9;
+  border: 1px solid #ce1126;
+}
+
+.form-control.k-widget.input-validation-error:active, .form-control.k-widget.input-validation-error:focus {
+  background-color: white;
+}
+
+.form-control.k-widget.input-validation-error .input-validation-error {
+  background-color: white;
+  border: 0;
+}
 
 .has-feedback label ~ .form-control-feedback {
   top: 25px; }
@@ -3010,10 +3029,6 @@ select[multiple].input-lg,
     text-align: right;
     margin-bottom: 0;
     padding-top: 7px;
-  }
-
-  .form-horizontal .control-label[class^="col-"] {
-    padding-top: 13px;
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {

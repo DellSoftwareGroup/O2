@@ -297,18 +297,22 @@ dl.collapsible dt:nth-of-type(2n+1) {
   padding: 5px 0 5px 5px;
   top: 8px;
   right: 6px;
-  color: #444; }
+  color: #444;
+}
 
 .has-icon a span {
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .has-icon img {
   position: absolute;
   top: 9px;
-  right: -24px; }
+  right: -24px;
+}
 
 .has-icon.double-icon img {
-  right: -55px; }
+  right: -55px;
+}
 
 .required-asterisk {
   font-size: 20px;
@@ -3284,7 +3288,7 @@ input.form-control.search-task-text.ml-20 {
 }
 
 .date-picker .k-picker-wrap .k-input {
-  height: 30px;
+  height: 32px;
   position: absolute;
   padding-bottom: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
