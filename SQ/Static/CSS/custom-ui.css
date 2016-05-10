@@ -1827,6 +1827,10 @@ tbody tr:first-child .tooltip:hover:after {
 .side-sections, .form-area {
   margin-top: 38px; }
 
+a {
+  cursor: pointer;
+}
+
 .btn.btn-primary {
   color: #fff !important;
   display: inline;
@@ -3257,6 +3261,7 @@ input.form-control.search-task-text.ml-20 {
 
 .form-control.date-picker {
   box-sizing: border-box;
+  width: 100px;
 }
 .form-control > .k-picker-wrap {
   border: 0;

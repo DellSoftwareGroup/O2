@@ -2603,6 +2603,10 @@ output {
     color: #999999; }
   .form-control::-webkit-input-placeholder {
     color: #999999; }
+
+.form-control.width-auto {
+  width: auto;
+}
   .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     background-color: #eeeeee;
     opacity: 1; }
