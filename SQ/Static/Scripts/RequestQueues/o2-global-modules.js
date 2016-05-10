@@ -1401,7 +1401,7 @@ var globalModules = function () {
 
 			// Need to add manual collapsable triangle indicator for files with child files
 			$('#addFiles .glyphicon').on('click', function () {
-				$(this).toggleClass('glyphicon-triangle-bottom, glyphicon-triangle-top');
+				$(this).toggleClass('glyphicon-triangle-right, glyphicon-triangle-bottom');
 			})
 		}
 

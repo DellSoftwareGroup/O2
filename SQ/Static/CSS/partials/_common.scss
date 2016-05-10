@@ -590,18 +590,19 @@ ul {
     background: url("/SQ/static/images/widgets/pdf.png") no-repeat 0 0;
   }
 
-  .glyphicon-triangle-bottom {
+  .glyphicon-triangle-right {
     color: #007db8 !important;
   }
 }
 
 #add-link-form {
   input {
-    width: 100%;
+    width: 435px;
     margin-bottom: 20px;
+    display: inline-block;
   }
   .btn-primary {
-    margin-right: 10px;
+    float: none !important;
   }
 }
 
