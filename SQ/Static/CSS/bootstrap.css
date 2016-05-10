@@ -3009,7 +3009,13 @@ select[multiple].input-lg,
   .form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
-    padding-top: 7px; } }
+    padding-top: 7px;
+  }
+
+  .form-horizontal .control-label[class^="col-"] {
+    padding-top: 13px;
+  }
+}
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px; }
 @media (min-width: 768px) {

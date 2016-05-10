@@ -597,6 +597,9 @@ select {
       text-align: right;
       margin-bottom: 0;
       padding-top: ($padding-base-vertical + 1); // Default padding plus a border
+	    &[class^="col-"] {
+		    padding-top: 13px;
+	    }
     }
   }
 

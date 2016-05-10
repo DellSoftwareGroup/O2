@@ -829,7 +829,6 @@ var globalModules = function () {
 		}();
 
 		function init() {
-
 			// Events
 			$('[data-custom-modal=campaign]').on('click', function (e) {
 				e.preventDefault();
@@ -840,8 +839,6 @@ var globalModules = function () {
 				e.preventDefault();
 				projectModal.runProjectModal();
 			});
-
-
 		}
 
 		return {
@@ -1402,14 +1399,13 @@ $(function () {
 	if ($('.sq-top-ribbon')) {
 		globalModules.popupModule.ribbonPopoverInit();
 	}
-	;
 
 	// modules have a dependency on global variable endPoints
 	if (typeof endPoints === 'object') {
 		globalModules.popupModule.usersPopoverInit();
-		globalModules.customModals.init();
+		//Removed calling init twice.
+		//globalModules.customModals.init();
 	}
-	;
 
 	globalModules.addNewRequesModal.getModalData();
 
