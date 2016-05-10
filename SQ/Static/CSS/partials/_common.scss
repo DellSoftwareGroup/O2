@@ -619,6 +619,20 @@ ul {
 
 }
 
+.k-upload-button {
+
+  a.span-wrapper {
+    margin-left: -4px;
+  }
+  &:hover {
+    a.span-wrapper,
+    .span-wrapper span {
+      text-decoration: underline;
+    }
+
+  }
+}
+
 .border-box {
   box-sizing: border-box;
 

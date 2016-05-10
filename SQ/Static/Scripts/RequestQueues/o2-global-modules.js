@@ -1384,11 +1384,38 @@ var globalModules = function () {
 		}
 	}();
 
+	var rightRailWidgets = function () {
+
+		function init() {
+
+			/********** Dom Manipulations **********/
+			//for the file widget we are using kendo uplad and it adds its own buttons structure.
+			// This code will modify kendo structure to match our link structure:
+			var $kendoDynamicSpan = $('#addFiles .k-upload-button').find('span:last-child');
+
+			$kendoDynamicSpan
+					.text('')
+					.wrap('<a class="span-wrapper" href="javascript:void(0)"></a>')
+
+			$('.span-wrapper').html('<span class="icon-ui-plus"></span> Add File');
+
+			// Need to add manual collapsable triangle indicator for files with child files
+			$('#addFiles .glyphicon').on('click', function () {
+				$(this).toggleClass('glyphicon-triangle-bottom, glyphicon-triangle-top');
+			})
+		}
+
+		return {
+			init: init
+		}
+	}();
+
 	return {
 		customModals: customModals,
 		popupModule: popupModule,
 		followersGrid: followersGrid,
-		addNewRequesModal: addNewRequestModal
+		addNewRequesModal: addNewRequestModal,
+		rightRailWidgets: rightRailWidgets
 	}
 }();
 
@@ -1408,6 +1435,7 @@ $(function () {
 	}
 
 	globalModules.addNewRequesModal.getModalData();
+	globalModules.rightRailWidgets.init();
 
 });
 
