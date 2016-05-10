@@ -1321,7 +1321,7 @@ var globalModules = function () {
 		function formatDate() {
 			$.each(followerUpdates, function (key, obj) {
 				obj.startDate = moment().calendar(obj.date, 'DD/MM/YYYY');
-			})
+			});
 			addToFollowersIS();
 		}
 
@@ -1430,8 +1430,6 @@ $(function () {
 	// modules have a dependency on global variable endPoints
 	if (typeof endPoints === 'object') {
 		globalModules.popupModule.usersPopoverInit();
-		//Removed calling init twice.
-		//globalModules.customModals.init();
 	}
 
 	globalModules.addNewRequesModal.getModalData();
