@@ -360,10 +360,10 @@ dl.collapsible dt:nth-of-type(2n+1) {
   display: inline-block;
   margin-left: 25px; }
 
-label.radio-inline {
-  text-align: left;
-  display: inline; }
-
+/*label.radio-inline {
+	text-align: left;
+	display: inline;
+}*/
 .form-col .last-section {
   margin-top: 20px; }
 
