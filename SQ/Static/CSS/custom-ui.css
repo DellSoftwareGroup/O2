@@ -2341,10 +2341,9 @@ ul {
 .k-upload-button a.span-wrapper {
   margin-left: -4px;
 }
-
 .k-upload-button:hover a.span-wrapper,
 .k-upload-button:hover .span-wrapper span {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .border-box {

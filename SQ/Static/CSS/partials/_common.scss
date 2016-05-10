@@ -627,7 +627,7 @@ ul {
   &:hover {
     a.span-wrapper,
     .span-wrapper span {
-      text-decoration: underline;
+      text-decoration: underline !important;
     }
 
   }
