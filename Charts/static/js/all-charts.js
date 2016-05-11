@@ -709,6 +709,107 @@ function createChart() {
       template:"SLA #=dataItem.sla # : #=dataItem.number # Requests"
     }
   });
+
+  $("#planned-closed-data-protection").kendoChart({
+    dataSource: {
+      transport: {
+        read: {
+          url: "../../Charts/endpoints/data-protection.json",
+          dataType: "json"
+        }
+      }/*,
+       sort: {
+       field: "year",
+       dir: "asc"
+       }*/
+    },
+    title: {
+      text: "Planned/Closed requests by Data Protection"
+    },
+    legend: {
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      field: "planned",
+      name:"Planned",
+      color:"#579AD6"
+    }, {
+      field: "closed",
+      name: "Closed",
+      color:"#78C466"
+    }],
+    categoryAxis: {
+      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
+      crosshair: {
+        visible: true
+      }
+    },
+    valueAxis: {
+      Max: 50,
+      majorUnit: 5
+    },
+    tooltip: {
+      visible: true,
+      /*shared: true*/
+      template: "<strong>Sprint #= dataItem.sprint#</strong> <br> #= series.name #: #= value #"
+      /*sharedTemplate:kendo.template($("#template").html())*/
+      /*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*/
+    }
+  });
+  $("#planned-closed-security").kendoChart({
+    dataSource: {
+      transport: {
+        read: {
+          url: "../../Charts/endpoints/data-protection.json",
+          dataType: "json"
+        }
+      }/*,
+       sort: {
+       field: "year",
+       dir: "asc"
+       }*/
+    },
+    title: {
+      text: "Planned/Closed requests by Security"
+    },
+    legend: {
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      field: "planned",
+      name:"Planned",
+      color:"#579AD6"
+    }, {
+      field: "closed",
+      name: "Closed",
+      color:"#78C466"
+    },{
+      xField:"week"
+    }
+    ],
+    categoryAxis: {
+      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
+      crosshair: {
+        visible: true
+      }
+    },
+    valueAxis: {
+      Max: 50,
+      majorUnit: 5
+    },
+    tooltip: {
+      visible: true,
+      /*shared: true*/
+      template: "<strong>Sprint #= dataItem.sprint#</strong> <br> #= series.name #: #= value #"
+      /*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*/
+    }
+  });
 }
 function createSparklines() {
   // binding to array
