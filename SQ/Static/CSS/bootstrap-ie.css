@@ -12,13 +12,13 @@
 
 .ie9 .form-horizontal-2 .form-group {
   /*>label, >input, >select {
-    &::before {
-      content: "";
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      display: inline-block;
-    }
-  }*/
+		&::before {
+			content: "";
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+			display: inline-block;
+		}
+	}*/
 }
 
 .ie9 .form-horizontal-2 .form-group > label {
