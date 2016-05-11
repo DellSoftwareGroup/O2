@@ -2809,6 +2809,17 @@ ul {
   float: right !important;
   margin-left: 20px; }
 
+.firstProjFilter > select, .secondProjFilter > select {
+  width: 160px !important;
+}
+
+.firstProjFilter div,
+.secondProjFilter div,
+input#ownerOrRequester,
+input#searchById {
+  width: 320px !important;
+}
+
 /* single deck ribbon (Admin areas)*/
 .sq-top-ribbon.single-deck #filters-section > ul {
   margin-bottom: 0; }
@@ -3281,7 +3292,6 @@ input.form-control.search-task-text.ml-20 {
   margin-left: 0;
   margin-right: 0;
 }
-
 #seoKeywords textarea {
   height: 140px;
 }

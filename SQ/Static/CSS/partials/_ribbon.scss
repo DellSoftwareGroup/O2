@@ -627,6 +627,17 @@
   }
 }
 
+.firstProjFilter > select, .secondProjFilter > select {
+  width: 160px !important;
+}
+
+.firstProjFilter div,
+.secondProjFilter div,
+input#ownerOrRequester,
+input#searchById {
+  width: 320px !important;
+}
+
 /* single deck ribbon (Admin areas)*/
 
 .sq-top-ribbon.single-deck {
