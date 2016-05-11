@@ -1836,11 +1836,11 @@ a {
   cursor: pointer;
 }
 
-.btn.btn-primary {
+/*.btn.btn-primary {
   color: #fff !important;
   display: inline;
-  float: left; }
-
+  float: left;
+}*/
 ul {
   padding-left: 0; }
 
@@ -2338,29 +2338,8 @@ ul {
 .asterick:after {
   content: "*";
   display: inline;
-  < < < < < < < Updated upstream
   vertical-align: super;
 }
-
-=
-=
-=
-=
-=
-=
-=
-vertical-align: super
-
-;
-}
->
->
->
->
->
->
->
-Stashed changes
 .asterick p {
   float: left;
 }
@@ -3244,9 +3223,6 @@ input#searchById {
 .k-widget.k-window.k-window-titleless {
   padding: 20px; }
 
-input.form-control.search-task-text.ml-20 {
-  min-width: 218px; }
-
 .generic-task {
   margin-top: 20px; }
   .generic-task label {
@@ -3291,8 +3267,30 @@ input.form-control.search-task-text.ml-20 {
 /* SEO Keywords */
 #seoKeywords .form-group {
   margin-left: 0;
+  < < < < < < < Updated upstream
   margin-right: 0;
 }
+
+=
+=
+=
+=
+=
+=
+=
+margin-right:
+
+0
+;
+}
+>
+>
+>
+>
+>
+>
+>
+Stashed changes
 #seoKeywords textarea {
   height: 140px;
 }
