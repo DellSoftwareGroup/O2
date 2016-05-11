@@ -2355,6 +2355,16 @@ ul {
   box-sizing: border-box;
 }
 
+.asterick:after {
+  content: "*";
+  display: inline;
+  vertical-align: super;
+}
+
+.asterick p {
+  float: left;
+}
+
 /*ribbon*/
 .sq-top-ribbon {
   width: 100%;

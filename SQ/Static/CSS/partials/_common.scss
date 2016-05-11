@@ -641,3 +641,14 @@ ul {
     box-sizing: border-box;
   }
 }
+
+.asterick {
+	&:after {
+		content: "*";
+		display: inline;
+		vertical-align: super;
+	}
+	p {
+		float: left;
+	}
+}
