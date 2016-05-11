@@ -284,13 +284,13 @@ var globalScripts = (function ($) {
 		// function will be called by IS
 		function hideAddTaskSection() {
 			$('.task-triggers').slideDown(400, function () {
-				$('.add-task-form').slideUp(1200);
+				$('.add-task-form').slideUp(600);
 			});
 		}
 
 		function hideRejectTaskSection() {
 			$('.task-triggers').slideDown(400, function () {
-				$('.reject-task').slideUp(1200);
+				$('.reject-task').slideUp(600);
 			});
 		}
 
@@ -304,14 +304,14 @@ var globalScripts = (function ($) {
 			$('.task-triggers').find('a.add-slide').on('click', function (e) {
 				e.preventDefault();
 				$(this).parent('div').slideToggle(400, function () {
-					$('.add-task-form').slideToggle(1200);
+					$('.add-task-form').slideToggle(600);
 				});
 			});
 
 			$('.edit-col').find('.btn-default').on('click', function (e) {
 				e.preventDefault();
 				$('.task-triggers').slideToggle(400, function () {
-					$('.add-task-form').slideToggle(1200);
+					$('.add-task-form').slideToggle(600);
 				});
 			});
 
@@ -319,14 +319,14 @@ var globalScripts = (function ($) {
 			$('.task-triggers').find('a.reject-slide').on('click', function (e) {
 				e.preventDefault();
 				$(this).parent('div').slideToggle(400);
-				$('.reject-task').slideToggle(1200);
+				$('.reject-task').slideToggle(600);
 
 			});
 
 			$('.reject-task').find('.btn-default').on('click', function (e) {
 				e.preventDefault();
 				$('.task-triggers').slideToggle(400, function () {
-					$('.reject-task').slideToggle(1200);
+					$('.reject-task').slideToggle(600);
 				});
 			});
 

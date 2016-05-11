@@ -2338,29 +2338,8 @@ ul {
 .asterick:after {
   content: "*";
   display: inline;
-  < < < < < < < Updated upstream
   vertical-align: super;
 }
-
-=
-=
-=
-=
-=
-=
-=
-vertical-align: super
-
-;
-}
->
->
->
->
->
->
->
-Stashed changes
 .asterick p {
   float: left;
 }
