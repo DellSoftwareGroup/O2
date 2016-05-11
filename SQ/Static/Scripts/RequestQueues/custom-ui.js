@@ -1,5 +1,6 @@
 var globalScripts = (function ($) {
 
+	// This js module will only run at editRequest.cshtml
 	var editRequestTmpl = function () {
 
 		//Private functions
@@ -279,6 +280,15 @@ var globalScripts = (function ($) {
 			});
 		}
 
+		// close/hide "Add Task" section after Angular
+		// function will be called by IS
+
+		function hideAddTaskSection() {
+			$('.task-triggers').slideDown(400, function () {
+				$('.add-task-form').slideUp(1200);
+			});
+		}
+
 		// Init
 		function init() {
 
@@ -314,21 +324,29 @@ var globalScripts = (function ($) {
 					$('.reject-task').slideToggle(1200);
 				});
 			});
+
+			// run common js scripts
+			multiTmpl.init();
 		}
 
 		// API
 		return {
-			init: init
+			init: init,
+			hideAddTaskSection: hideAddTaskSection
 		}
 
 	}();
 
+	// This js module will only run at addRequest.cshtml
 	var addRequestTmpl = function () {
 
 		var init = function () {
 			//Prevent auto complete on input field.
 			//$('#data_Requester_UserIDUser').attr('autocomplete', /Chrome/.test(navigator.userAgent) ? false : 'off');
 			$('#data_Requester_UserIDUser').attr('autocomplete', 'off');
+
+			// run common js scripts
+			multiTmpl.init();
 		}
 
 		return {
@@ -336,6 +354,7 @@ var globalScripts = (function ($) {
 		}
 	}();
 
+	// This js module will only run only on both addRequest.cshtml and editRequest.cshtml
 	var multiTmpl = function () {
 
 		var init = function () {
@@ -352,7 +371,6 @@ var globalScripts = (function ($) {
 		multiTmpl: multiTmpl
 	}
 
-
 }(jQuery));
 
 
@@ -364,6 +382,4 @@ $(function () {
 	// initialize addRequest scripts
 	!!$('#addRequestTmpl').length && globalScripts.addRequestTmpl.init();
 
-	//Across all templates
-	globalScripts.multiTmpl.init();
 });
