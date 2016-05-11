@@ -282,10 +282,15 @@ var globalScripts = (function ($) {
 
 		// close/hide "Add Task" section after Angular
 		// function will be called by IS
-
 		function hideAddTaskSection() {
 			$('.task-triggers').slideDown(400, function () {
 				$('.add-task-form').slideUp(1200);
+			});
+		}
+
+		function hideRejectTaskSection() {
+			$('.task-triggers').slideDown(400, function () {
+				$('.reject-task').slideUp(1200);
 			});
 		}
 
@@ -332,7 +337,8 @@ var globalScripts = (function ($) {
 		// API
 		return {
 			init: init,
-			hideAddTaskSection: hideAddTaskSection
+			hideAddTaskSection: hideAddTaskSection,
+			hideRejectTaskSection: hideRejectTaskSection
 		}
 
 	}();

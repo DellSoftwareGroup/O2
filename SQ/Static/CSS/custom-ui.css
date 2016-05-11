@@ -2360,7 +2360,6 @@ ul {
   display: inline;
   vertical-align: super;
 }
-
 .asterick p {
   float: left;
 }
@@ -3276,6 +3275,16 @@ input.form-control.search-task-text.ml-20 {
 
 #TaskOwnerGerericUser {
   width: 192px; }
+
+/* SEO Keywords */
+#seoKeywords .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#seoKeywords textarea {
+  height: 140px;
+}
 
 /* Use this file to override overall Kendo UI styles */
 .form-group .k-textbox, .form-group .k-autocomplete, .form-group .k-dropdown-wrap, .form-group .k-picker-wrap, .form-group .k-numeric-wrap {
