@@ -411,7 +411,7 @@
     }
     &#filters-section {
       > ul > li {
-        min-width: 158px;
+        min-width: 145px;
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
@@ -538,7 +538,7 @@
   }
 }
 
-@media(min-width: 1540px) {
+@media(min-width: $screen-lg-min) {
   .sq-top-ribbon {
     > ul > li {
       /*padding: 5px 15px;*/
@@ -546,6 +546,11 @@
         margin-right: 7px;
         .sq-btn-icon + span {
           margin-left: 5px;
+        }
+      }
+      &#filters-section {
+        > ul > li {
+          min-width: 158px;
         }
       }
     }
@@ -625,6 +630,17 @@
     float: right !important;
     margin-left: 20px;
   }
+}
+
+.firstProjFilter > select, .secondProjFilter > select {
+  width: 160px !important;
+}
+
+.firstProjFilter div,
+.secondProjFilter div,
+input#ownerOrRequester,
+input#searchById {
+  width: 320px !important;
 }
 
 /* single deck ribbon (Admin areas)*/

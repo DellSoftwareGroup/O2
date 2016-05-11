@@ -1,4 +1,5 @@
 @charset "IBM437";
+/*$headings-font-family:    inherit !default;*/
 html, .ui-widget {
   font-family: 'Trebuchet MS' !important;
   color: #444; }
@@ -1836,11 +1837,11 @@ a {
   cursor: pointer;
 }
 
-.btn.btn-primary {
+/*.btn.btn-primary {
   color: #fff !important;
   display: inline;
-  float: left; }
-
+  float: left;
+}*/
 ul {
   padding-left: 0; }
 
@@ -2338,29 +2339,8 @@ ul {
 .asterick:after {
   content: "*";
   display: inline;
-  < < < < < < < Updated upstream
   vertical-align: super;
 }
-
-=
-=
-=
-=
-=
-=
-=
-vertical-align: super
-
-;
-}
->
->
->
->
->
->
->
-Stashed changes
 .asterick p {
   float: left;
 }
@@ -2662,7 +2642,8 @@ Stashed changes
     .sq-top-ribbon > ul > li#agile-status > span:last-child {
       padding-top: 12px; }
     .sq-top-ribbon > ul > li#filters-section > ul > li {
-      min-width: 158px; }
+      min-width: 145px;
+    }
       .sq-top-ribbon > ul > li#filters-section > ul > li > a > select, .sq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
         border: none;
         width: 123px; }
@@ -2751,14 +2732,20 @@ Stashed changes
     margin-top: 24px !important;
     width: 15% !important; }
 
-@media (min-width: 1540px) {
+@media (min-width: 1570px) {
   .sq-top-ribbon > ul > li {
     /*padding: 5px 15px;*/
   }
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px; }
       .sq-top-ribbon > ul > li > ul > li .sq-btn-icon + span {
-        margin-left: 5px; } }
+        margin-left: 5px;
+      }
+
+  .sq-top-ribbon > ul > li#filters-section > ul > li {
+    min-width: 158px;
+  }
+}
 /*filters collector */
 .filter-collector {
   float: left;
@@ -2809,6 +2796,17 @@ Stashed changes
 .custom-modal .select-btn {
   float: right !important;
   margin-left: 20px; }
+
+.firstProjFilter > select, .secondProjFilter > select {
+  width: 160px !important;
+}
+
+.firstProjFilter div,
+.secondProjFilter div,
+input#ownerOrRequester,
+input#searchById {
+  width: 320px !important;
+}
 
 /* single deck ribbon (Admin areas)*/
 .sq-top-ribbon.single-deck #filters-section > ul {
@@ -3233,9 +3231,6 @@ Stashed changes
 .k-widget.k-window.k-window-titleless {
   padding: 20px; }
 
-input.form-control.search-task-text.ml-20 {
-  min-width: 218px; }
-
 .generic-task {
   margin-top: 20px; }
   .generic-task label {
@@ -3282,7 +3277,6 @@ input.form-control.search-task-text.ml-20 {
   margin-left: 0;
   margin-right: 0;
 }
-
 #seoKeywords textarea {
   height: 140px;
 }

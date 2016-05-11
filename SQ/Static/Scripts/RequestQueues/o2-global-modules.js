@@ -719,7 +719,6 @@ var globalModules = function () {
 				if (subFilter.refresh === true) {
 					projAutocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
 				}
-				;
 			}
 
 			function initSearchById(projectFilterbyId) {
