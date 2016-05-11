@@ -526,7 +526,6 @@ ul {
 }
 
 #addFollowers {
-
   #smllWidgetTable {
     th:nth-child(2) {
       width: 144px;
@@ -540,19 +539,6 @@ ul {
 }
 .add-follower-row {
   margin-top: 10px;
-}
-
-.inline-block-sq,
-.follower-input .has-icon {
-  display: inline-block !important;
-}
-
-.follower-input input {
-  width: 435px;
-}
-
-.save-follower {
-  float: none !important;
 }
 
 #addFiles {
@@ -595,19 +581,7 @@ ul {
   }
 }
 
-#add-link-form {
-  input {
-    width: 435px;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
-  .btn-primary {
-    float: none !important;
-  }
-}
-
 .file-upload-widget {
-
   .k-button.k-upload-button {
     font-size: 14px !important;
     border: 0 !important;
