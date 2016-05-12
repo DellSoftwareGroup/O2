@@ -493,7 +493,7 @@ ul {
 }
 
 /* sidebar widgets */
-#smllWidgetTable {
+#smllWidgetTable, .smllWidgetTable {
   width: 100%;
   border: 1px solid #dadada;
   border-collapse: separate;
@@ -520,7 +520,7 @@ ul {
 }
 
 #addFollowers {
-  #smllWidgetTable {
+  #smllWidgetTable, .smllWidgetTable {
     th:nth-child(2) {
       width: 144px;
     }
