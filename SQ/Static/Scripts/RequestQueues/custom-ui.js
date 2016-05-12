@@ -306,7 +306,7 @@ var globalScripts = (function ($) {
           $(this).css('border-bottom', '1px solid #aaa');
         }
       });
-      $('.panel-body > div').on('hidden.bs.collapse', function (e) {
+      $('.panel .table-responsive').on('hidden.bs.collapse', function (e) {
         /*prevent toggling border by Notified collapsibles in comments */
         if (!$(e.target).attr('id').match('^Notified')) {
           $(this).parent().parent().css('border-bottom', '1px solid #aaa');
@@ -317,7 +317,7 @@ var globalScripts = (function ($) {
           $(this).parent().parent().attr('style', '');
         }
       });
-    }
+    };
     return {
       init: init
     }
