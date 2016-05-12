@@ -213,25 +213,6 @@ var globalScripts = (function ($) {
           }
         }, 100);
       });
-
-      /*collapsibles*/
-      /*keep border bottom only when they are collapsed*/
-      $('.panel-group-collapsible').each(function () {
-        if ($(this).find('.panel-title > a').hasClass('collapsed')) {
-          $(this).css('border-bottom', '1px solid #aaa');
-        }
-      });
-      $('.table-responsive').on('hidden.bs.collapse', function (e) {
-        /*prevent toggling border by Notified collapsibles in comments */
-        if (!$(e.target).attr('id').match('^Notified')) {
-          $(this).parent().parent().css('border-bottom', '1px solid #aaa');
-        }
-      }).on('shown.bs.collapse', function (e) {
-        /*prevent toggling border by Notified collapsibles in comments */
-        if (!$(e.target).attr('id').match('^Notified')) {
-          $(this).parent().parent().attr('style', '');
-        }
-      });
     }
 
     // close/hide "Add Task" section after Angular
@@ -318,8 +299,25 @@ var globalScripts = (function ($) {
   var multiTmpl = function () {
 
     var init = function () {
-      // code goes here
-    }
+      /*collapsibles*/
+      /*keep border bottom only when they are collapsed*/
+      $('.panel-group-collapsible').each(function () {
+        if ($(this).find('.panel-title > a').hasClass('collapsed')) {
+          $(this).css('border-bottom', '1px solid #aaa');
+        }
+      });
+      $('.panel .table-responsive').on('hidden.bs.collapse', function (e) {
+        /*prevent toggling border by Notified collapsibles in comments */
+        if (!$(e.target).attr('id').match('^Notified')) {
+          $(this).parent().parent().css('border-bottom', '1px solid #aaa');
+        }
+      }).on('shown.bs.collapse', function (e) {
+        /*prevent toggling border by Notified collapsibles in comments */
+        if (!$(e.target).attr('id').match('^Notified')) {
+          $(this).parent().parent().attr('style', '');
+        }
+      });
+    };
     return {
       init: init
     }
