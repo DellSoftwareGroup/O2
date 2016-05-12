@@ -378,6 +378,12 @@
     }
     &:last-child td {
       border-bottom: none;
+      &:last-child{
+        width:73px;
+      }
+    }
+    &.k-grid-edit-row td:last-child{
+      width:121px;
     }
   }
 }
