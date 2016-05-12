@@ -29,12 +29,11 @@ $(function () {
 			filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
 	$('#sq-filters').on('click', function (e) {
-		console.log('sq filter click');
 		//Do not toggle if clicking anywhere in the dropdown.
 		if ($(e.target).parents('.sub-nav-wrapper').length) {
 			return false;
 		}
-		console.log('sq filter click 2');
+		
 		e.stopPropagation();
 		e.preventDefault();
 		filterSubNav.toggle();

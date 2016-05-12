@@ -828,8 +828,6 @@ var globalModules = function () {
 		}();
 
 		function init() {
-			console.log('init');
-			console.log($('[data-custom-modal=campaign]'));
 			// Events
 			$('[data-custom-modal=campaign]').on('click', function (e) {
 				e.preventDefault();
@@ -1334,7 +1332,7 @@ var globalModules = function () {
 					toggleTable(true);
 				}
 			}
-			console.log(followersIS);
+			//console.log(followersIS);
 		}
 
 		function addToTempl() {
