@@ -269,34 +269,3 @@ dl.collapsible dt.expand + dd {
 dl.collapsible dt:nth-of-type(2n+1) {
   background-color: #eee;
 }
-
-.nav {
-  background: #444;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  overflow: hidden;
-  padding: 5px;
-  margin-bottom: 10px;
-  width: 963px;
-  position: absolute;
-}
-
-.nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-.nav li {
-  list-style: none outside none;
-  display: inline-block;
-  margin-left: 25px;
-}
-
-.nav li:first-child {
-  margin-left: 10px;
-}
-
-.nav a {
-  color: #c0c0c0;
-}

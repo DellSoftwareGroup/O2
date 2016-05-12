@@ -22,7 +22,7 @@ var ribbonListener = function () {
 		if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
 			ribbonReqObj[$multiSelect.data('title')] = [];
 		} else {
-			console.log('Undefined filter title')
+			//console.log('Undefined filter title')
 		}
 
 		$multiSelect.next().find('.ms-drop li').each(function () {
@@ -31,7 +31,7 @@ var ribbonListener = function () {
 
 			option.isSelected = function () {
 				if ($li.hasClass('selected')) {
-					console.log(parentTag.children('.filter').length);
+					//console.log(parentTag.children('.filter').length);
 					if ($li.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
 						parentTag.addClass('active-item-bg');
 					}
@@ -108,7 +108,7 @@ var ribbonListener = function () {
 				ribbonReqObj[prTitle] = []
 			}
 		} else {
-			console.log('undefined title!!!')
+			//console.log('undefined title!!!')
 		}
 
 		// Collect filter info
@@ -170,7 +170,8 @@ var ribbonListener = function () {
 		function clearOppositeView(title) {
 			if (title == undefined) {
 				return;
-			} else {
+			}
+			else {
 				var oppositeView = (title == 'My Work') ? 'All Teams' : 'My Work';
 				var $selectOff = $('#views').find('select[data-title="' + oppositeView + '"]');
 
@@ -235,7 +236,7 @@ var ribbonListener = function () {
 				return this.charAt(0).toUpperCase() + this.slice(1);
 			}
 
-		}
+		};
 
 
 		function ISobjBuilder() {
@@ -339,7 +340,7 @@ var ribbonListener = function () {
 		// Call to build object
 		// check object is not empty
 		if ($.isEmptyObject(obj)) {  // IS may call the function with and empty object
-			console.log('empty object');
+			//console.log('empty object');
 			return false;
 		} else {
 			buildObj(obj);
@@ -380,7 +381,7 @@ var ribbonListener = function () {
 
 		// Will trigger IS function passed as argument in the init
 		initISfunc.run();
-		console.log(getISobj(ribbonReqObj));
+		//console.log(getISobj(ribbonReqObj));
 		return ribbonReqObj;
 	}
 
@@ -436,8 +437,8 @@ var ribbonListener = function () {
 		viewsSectionLogic();
 		ribbonWidgets.filterCollectorModule();// filters under ribbon - comes from custom-ui.js
 
-		console.log(ribbonReqObj); // test object
-		console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
+		//console.log(ribbonReqObj); // test object
+		//console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
 	}
 
 	/* -----> API -- */

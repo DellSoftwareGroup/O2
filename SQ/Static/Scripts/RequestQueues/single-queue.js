@@ -110,14 +110,14 @@ $(function () {
 	//Initialize multiple select for ribbon area
 	$('body').find('select').each(function () {
 		if ($(this).attr('multiple') == 'multiple') {
-			var title = $(this).data('title');
-
-			$(this).multipleSelect({
+			var id = $(this).attr('id'), title = $(this).data('title'), obj = {
 				placeholder: title,
 				minimumCountSelected: 0,
-				countSelected: title + '&nbsp;(#)',
+				//countSelected: title + '&nbsp;(#)',
+				countSelected: title,
 				selectAllText: $(this).data('select-all-text'),
-				allSelected: title + '&nbsp;(all)',
+				//allSelected: title + '&nbsp;(all)',
+				allSelected: title,
 				maxHeight: 240,
 				onClose: function () {
 					//fix for bg toggle issue when multiple select clicked
@@ -163,8 +163,16 @@ $(function () {
 
 
 				}
-			});
-			//$(this).multipleSelect("checkAll");
+			};
+
+			if ($.inArray(id, ['dp-team-dd', 'dp-mywork-dd']) > -1) {
+				obj.width = 80;
+			}
+			else if ($(this).parents('#filters-section').length) {
+				obj.width = 100;
+			}
+
+			$(this).multipleSelect(obj);
 		}
 	});
 
@@ -243,17 +251,21 @@ $(function () {
 
 $(window).load(function () {
 	//change image position based on browser for select
-	if ($('.k-multiselect').length) {
+	if ($('.k-multiselect').length && false) {
 		var arrow = $('.arrow');
 		if ($.browser.chrome) {
 			arrow.addClass('chrome');
-		} else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
+		}
+		else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
 			//arrow.addClass('firefox');
-		} else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
+		}
+		else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
 			arrow.addClass('ie9');
-		} else if ($('html').hasClass('k-ie11')) {
+		}
+		else if ($('html').hasClass('k-ie11')) {
 			arrow.addClass('ie11');
-		} else {
+		}
+		else {
 			arrow.addClass('safari');
 		}
 	}
