@@ -2294,11 +2294,9 @@ ul {
   display: inline-block;
   margin-left: 5px;
 }
-
 .file-upload-widget .k-upload {
   border: 0;
 }
-
 .file-upload-widget .k-upload-files {
   width: 400px;
   margin: 0;
@@ -2307,7 +2305,7 @@ ul {
 
 .k-upload-button {
   /*a.span-wrapper {
-    margin-left: -4px;
+  	margin-left: -4px;
   }*/
 }
 
@@ -2726,18 +2724,10 @@ ul {
 
 @media (min-width: 1570px) {
   .sq-top-ribbon > ul > li {
-    /*padding: 5px 15px;*/
-    /*&#filters-section {
-      > ul > li {
-        min-width: 158px;
-      }
-    }*/
+    padding: 5px 25px;
   }
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px;
-      /*.sq-btn-icon + span {
-        margin-left: 5px;
-      }*/
     }
 }
 /*filters collector */

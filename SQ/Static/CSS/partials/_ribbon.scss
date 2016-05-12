@@ -541,18 +541,10 @@
 @media(min-width: $screen-lg-min) {
   .sq-top-ribbon {
     > ul > li {
-      /*padding: 5px 15px;*/
+      padding: 5px 25px;
       > ul > li {
         margin-right: 7px;
-        /*.sq-btn-icon + span {
-          margin-left: 5px;
-        }*/
       }
-      /*&#filters-section {
-        > ul > li {
-          min-width: 158px;
-        }
-      }*/
     }
   }
 }
