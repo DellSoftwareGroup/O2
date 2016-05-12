@@ -1,26 +1,5 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
 $(function () {
-
-	// Prevent propagation on "More Filters" multiselect
-	var $mfMulti = $('.ms-choice').children();
-
-	$('.sub-nav').on('click', $mfMulti, function (e) {
-		e.stopPropagation();
-		target = e.target;
-		// fix for "More Filters" multiselect - allow only one multiselect open
-		if (!$(target).is('input')) {
-
-			$('.sub-nav').find('.ms-drop').each(function () {
-				$(this).css('display', 'none');
-			})
-
-		}
-		if ($(target).is('span')) {
-			var parent = $(target).parents('.ms-parent');
-			parent.find('.ms-drop').css('display', 'block');
-		}
-	});
-
 	//add search placeholder hack in ie9
 	$(document).ajaxComplete(function () {
 		if ($('html').hasClass('k-ie9')) {
@@ -50,6 +29,12 @@ $(function () {
 			filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
 	$('#sq-filters').on('click', function (e) {
+		console.log('sq filter click');
+		//Do not toggle if clicking anywhere in the dropdown.
+		if ($(e.target).parents('.sub-nav-wrapper').length) {
+			return false;
+		}
+		console.log('sq filter click 2');
 		e.stopPropagation();
 		e.preventDefault();
 		filterSubNav.toggle();
@@ -108,7 +93,7 @@ $(function () {
 			});
 
 	//Initialize multiple select for ribbon area
-	$('body').find('select').each(function () {
+	$('.sq-top-ribbon').find('select').each(function() {
 		if ($(this).attr('multiple') == 'multiple') {
 			var id = $(this).attr('id'), title = $(this).data('title'), obj = {
 				placeholder: title,
@@ -161,12 +146,24 @@ $(function () {
 						nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
 					}
 
+					var selectTagElem = $(elem).parent().prev().get(0);
 
+					//Close all other multiselect dropdown
+					$('.sq-top-ribbon').find('select').each(function() {
+						if (selectTagElem != this && $(this).attr('multiple') == 'multiple') {
+							var elem = $(this).next();
+
+							elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
+						}
+					});
 				}
 			};
 
 			if ($.inArray(id, ['dp-team-dd', 'dp-mywork-dd']) > -1) {
 				obj.width = 80;
+			}
+			else if ($.inArray(id, ['priority-dd', 'region-dd', 'route-to-market-dd']) > -1) {
+				obj.width = 223;
 			}
 			else if ($(this).parents('#filters-section').length) {
 				obj.width = 100;
@@ -212,6 +209,7 @@ $(function () {
 			$(this).css('border-bottom', '1px solid #aaa');
 		}
 	});
+
 	$('.table-responsive').on('hidden.bs.collapse', function (e) {
 		/*prevent toggling border by Notified collapsibles in comments */
 		if (!$(e.target).attr('id').match('^Notified')) {

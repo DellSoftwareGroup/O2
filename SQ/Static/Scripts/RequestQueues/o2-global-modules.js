@@ -87,7 +87,7 @@ var globalModules = function () {
 					+ '</div></div></div></div>';
 
 			this.initModal = function () {
-				$('#body-content').append(this.modal);
+				$('body').append(this.modal);
 			};
 
 			this.show = function () {
@@ -274,7 +274,7 @@ var globalModules = function () {
 				initCampaignAutoComplete('#campaignFilter');
 				// remove kendo styles
 				removeInputKendoStyles("#campaignFilter");
-			};
+			}
 
 			var campaignCreatorNames = function () {
 				$.ajax({
@@ -828,6 +828,8 @@ var globalModules = function () {
 		}();
 
 		function init() {
+			console.log('init');
+			console.log($('[data-custom-modal=campaign]'));
 			// Events
 			$('[data-custom-modal=campaign]').on('click', function (e) {
 				e.preventDefault();
