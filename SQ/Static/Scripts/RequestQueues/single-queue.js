@@ -31,9 +31,9 @@ $(function () {
 	$('#sq-filters').on('click', function (e) {
 		//Do not toggle if clicking anywhere in the dropdown.
 		if ($(e.target).parents('.sub-nav-wrapper').length) {
-			return false;
+			return true;
 		}
-		
+
 		e.stopPropagation();
 		e.preventDefault();
 		filterSubNav.toggle();
@@ -47,7 +47,8 @@ $(function () {
 
 		if (filterSubNav.is(':visible')) {
 			filterSubNavWrapper.css('height', '445px');
-		} else {
+		}
+		else {
 			filterSubNavWrapper.css('height', '0');
 		}
 	});

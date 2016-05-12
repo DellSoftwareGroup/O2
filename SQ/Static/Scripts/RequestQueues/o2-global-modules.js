@@ -99,7 +99,7 @@ var globalModules = function () {
 					e.stopPropagation();
 					e.preventDefault();
 				});
-			}
+			};
 
 			this.afterModalLoad = function (process) {
 				$('#myModal').on('shown.bs.modal', function (e) {
