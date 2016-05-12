@@ -87,7 +87,7 @@ var globalModules = function () {
 					+ '</div></div></div></div>';
 
 			this.initModal = function () {
-				$('#body-content').append(this.modal);
+				$('body').append(this.modal);
 			};
 
 			this.show = function () {
@@ -274,7 +274,7 @@ var globalModules = function () {
 				initCampaignAutoComplete('#campaignFilter');
 				// remove kendo styles
 				removeInputKendoStyles("#campaignFilter");
-			};
+			}
 
 			var campaignCreatorNames = function () {
 				$.ajax({
@@ -1332,7 +1332,7 @@ var globalModules = function () {
 					toggleTable(true);
 				}
 			}
-			console.log(followersIS);
+			//console.log(followersIS);
 		}
 
 		function addToTempl() {
