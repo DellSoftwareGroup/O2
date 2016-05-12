@@ -1485,7 +1485,6 @@ dd {
   display: table; }
 .dl-horizontal dd:after {
   clear: both; }
-
 @media (min-width: 992px) {
   .dl-horizontal dt {
     float: left;
@@ -3024,7 +3023,6 @@ select[multiple].input-lg,
     display: table; }
   .form-horizontal .form-group:after {
     clear: both; }
-
 @media (min-width: 992px) {
   .form-horizontal .control-label {
     text-align: right;
@@ -3034,11 +3032,9 @@ select[multiple].input-lg,
 }
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px; }
-
 @media (min-width: 992px) {
   .form-horizontal .form-group-lg .control-label {
     padding-top: 14.33333px; } }
-
 @media (min-width: 992px) {
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px; } }
@@ -3898,7 +3894,6 @@ tbody.collapse.in {
   display: table; }
 .navbar-header:after {
   clear: both; }
-
 @media (min-width: 992px) {
   .navbar-header {
     float: left; } }
@@ -5171,6 +5166,10 @@ iframe {
 
 .pl-15 {
   padding-left: 15px !important; }
+
+.pl-40 {
+  padding-left: 40px !important;
+}
 
 .pr-0 {
   padding-right: 0 !important; }
@@ -8677,7 +8676,6 @@ a:hover .has-overlay h4 {
 
   .modal-sm {
     width: 300px; } }
-
 @media (min-width: 1350px) {
   .modal-lg {
     width: 900px; } }
@@ -9010,7 +9008,6 @@ a:hover .has-overlay h4 {
   th.visible-xs,
   td.visible-xs {
     display: table-cell !important; } }
-
 @media (max-width: 991px) {
   .visible-xs-block {
     display: block !important; } }
@@ -9036,7 +9033,6 @@ a:hover .has-overlay h4 {
   th.visible-sm,
   td.visible-sm {
     display: table-cell !important; } }
-
 @media (min-width: 992px) and (max-width: 1349px) {
   .visible-sm-block {
     display: block !important; } }
@@ -9062,7 +9058,6 @@ a:hover .has-overlay h4 {
   th.visible-md,
   td.visible-md {
     display: table-cell !important; } }
-
 @media (min-width: 1350px) and (max-width: 1569px) {
   .visible-md-block {
     display: block !important; } }
@@ -9103,11 +9098,9 @@ a:hover .has-overlay h4 {
 @media (max-width: 991px) {
   .hidden-xs {
     display: none !important; } }
-
 @media (min-width: 992px) and (max-width: 1349px) {
   .hidden-sm {
     display: none !important; } }
-
 @media (min-width: 1350px) and (max-width: 1569px) {
   .hidden-md {
     display: none !important; } }

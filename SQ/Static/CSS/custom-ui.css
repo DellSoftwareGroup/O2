@@ -564,7 +564,7 @@ p.data {
 
 .followers .add-follower, #add-link-form .add-link {
   margin-left: 0px;
-  margin-top: 10px;
+  margin-top: 5px;
   display: inline-block;
   font-weight: bold;
   color: #007db8; }
@@ -658,7 +658,12 @@ p.data {
   text-align: left; }
 
 .file-upload-widget {
-  width: 500px; }
+  width: 100px !important;
+}
+
+.file-upload-widget .k-dropzone em {
+  display: none;
+}
 
 .k-widget.k-upload.k-upload-empty .k-dropzone {
   display: block !important; }
@@ -669,9 +674,6 @@ p.data {
 
 .k-widget.k-upload.k-header {
   background-color: transparent !important; }
-
-#add-link-form {
-  margin: 0px 0px 20px 0px; }
 
 .add-link-row {
   display: none; }
@@ -2159,10 +2161,6 @@ ul {
 .nowrap {
   white-space: nowrap !important; }
 
-/* side info widgets: squares, add files, add followers */
-.add-follower-row {
-  display: block; }
-
 /* Followers Grid */
 #newFollowers th {
   background-color: transparent;
@@ -2258,9 +2256,6 @@ ul {
   padding-left: 20px;
   width: 212px;
 }
-
-.add-follower-row {
-  margin-top: 10px; }
 
 #addFiles {
   /* file icons */
