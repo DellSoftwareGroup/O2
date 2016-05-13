@@ -21,6 +21,62 @@ ul {
   }
 }
 
+/* Browser warning */
+
+.browser-warning {
+  display: none;
+
+  .message {
+    display: inline-block;
+    margin: 0 auto;
+
+    a {
+      font-weight: bold;
+    }
+  }
+  .close-msg {
+    position: absolute;
+    right: 20px;
+    display: block;
+    top: 12px;
+    cursor: pointer;
+  }
+
+  [data-icon]::before {
+    content: attr(data-icon);
+    font-family: "icon-ui";
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-transform: none;
+  }
+
+}
+
+.alert.browser-warning {
+  background: #ffffc9 none repeat scroll 0 0;
+  border: 1px solid #eeeeee;
+  color: #444444;
+  margin-bottom: 20px;
+  padding: 10px 35px 10px 45px !important;
+  position: relative;
+  text-shadow: none;
+  border-radius: 1px;
+}
+
+.browser-warning.alert-error::before {
+  color: #ce1126;
+  content: "\e082";
+  float: left;
+  font-family: "Glyphicons Halflings";
+  font-size: 20px;
+  left: 0;
+  margin-top: -5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+}
+
 /*top header*/
 #top-head {
   position: relative;
@@ -473,7 +529,7 @@ ul {
 }
 
 /* sidebar widgets */
-#smllWidgetTable, .smllWidgetTable {
+.smllWidgetTable {
   width: 100%;
   border: 1px solid #dadada;
   border-collapse: separate;
