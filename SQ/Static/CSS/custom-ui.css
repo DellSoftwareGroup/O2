@@ -2217,11 +2217,6 @@ ul {
   margin-top: 4px;
   display: inline-block; }
 
-/* Scrollable Table Body */
-.table-body-scroll > div {
-  max-height: 170px;
-  overflow-y: auto; }
-
 /* sidebar widgets */
 .smllWidgetTable {
   width: 100%;
@@ -2246,6 +2241,26 @@ ul {
     background: -ms-linear-gradient(top, #e8e8e8 0%, whitesmoke 100%);
     background: linear-gradient(to bottom, #e8e8e8 0%, whitesmoke 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#f5f5f5', GradientType=0); }
+
+/* Scrollable Table Body */
+.table-body-scroll {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.table-body-scroll > div {
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.table-body-scroll .table > tbody + tbody,
+.table-body-scroll tbody > tr > td {
+  border-top: 0 !important;
+}
+
+.table-body-scroll .smllWidgetTable {
+  border-bottom: 0 !important;
+}
 
 #addFollowers #smllWidgetTable th:nth-child(2), #addFollowers .smllWidgetTable th:nth-child(2) {
   width: 144px; }
