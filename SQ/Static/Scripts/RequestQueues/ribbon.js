@@ -416,8 +416,7 @@ var ribbonListener = function () {
 		var isTimerRunning = false, ifMultipleClicks = "";
 
 		// on select change event
-		$('.sq-top-ribbon select').on('change', function (event) {
-
+		$('.sq-top-ribbon').on('change', 'select', function(event) {
 			if (isTimerRunning) {
 				clearTimeout(ifMultipleClicks);
 			}
@@ -428,12 +427,12 @@ var ribbonListener = function () {
 				rebuildRibbonState($rbWrapper);
 				isTimerRunning = true;
 
-			}, 500)
+			}, 500);
 
 		});
 
 		// on click event for li with now select
-		$('#agile-status a').on('click', function (e) {
+		$('#agile-status').on('click', 'a', function(e) {
 			e.preventDefault();
 			toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
 			// rebuild ribbonReqObj   filters state

@@ -1,5 +1,9 @@
 @import "../bootstrap/custom/variables";
 
+html, body {
+	width: 100% !important;
+}
+
 @import 'partials/header';
 @import 'partials/project-form';
 @import 'partials/add-request';

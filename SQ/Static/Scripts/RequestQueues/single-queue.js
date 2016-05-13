@@ -31,7 +31,7 @@ $(function () {
 	$('#sq-filters').on('click', function (e) {
 		//Do not toggle if clicking anywhere in the dropdown.
 		if ($(e.target).parents('.sub-nav-wrapper').length) {
-			return true;
+			return false;
 		}
 
 		e.stopPropagation();

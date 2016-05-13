@@ -1,5 +1,9 @@
 @charset "IBM437";
 /*$headings-font-family:    inherit !default;*/
+html, body {
+  width: 100% !important;
+}
+
 html, .ui-widget {
   font-family: 'Trebuchet MS' !important;
   color: #444; }
@@ -3072,10 +3076,25 @@ input#searchById {
   }
   .department-col {
     width: 100px;
+<<<<<<< Updated upstream
   }*/
   /*.status-col {
     line-height: 22px;
     i {
+=======
+  }*/
+}
+
+#results-data-list #edit-task-listing tr td .icon-small-edit {
+  margin-right: 5px;
+}
+
+#results-data-list #edit-task-listing tr td .status-col {
+  line-height: 22px;
+}
+
+#results-data-list #edit-task-listing tr td .status-col i {
+> > > > > > > Stashed changes
       background: url("/sq/static/images/single-queue-sprite.png") no-repeat 0 0;
       display: inline-block;
       width: 18px;
@@ -3238,6 +3257,36 @@ input#searchById {
       position: absolute;
       top: 11px;
       left: 6px; }
+
+<
+<
+<
+<
+<
+<
+<
+Updated upstream
+
+=
+=
+=
+=
+=
+=
+=
+
+.k-datepicker {
+  width: 110px !important;
+}
+
+>
+>
+>
+>
+>
+>
+>
+Stashed changes
 
 .browser-warning {
   display: none; }
