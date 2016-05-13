@@ -2262,6 +2262,9 @@ ul {
   border-bottom: 0 !important;
 }
 
+#addFollowers #smllWidgetTable th, #addFollowers .smllWidgetTable th {
+  padding-left: 0;
+}
 #addFollowers #smllWidgetTable th:nth-child(2), #addFollowers .smllWidgetTable th:nth-child(2) {
   width: 144px; }
 #addFollowers #smllWidgetTable td:first-child,

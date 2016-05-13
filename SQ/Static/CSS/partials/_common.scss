@@ -567,6 +567,10 @@ ul {
 
 #addFollowers {
   #smllWidgetTable, .smllWidgetTable {
+
+    th {
+      padding-left: 0;
+    }
     th:nth-child(2) {
       width: 144px;
     }
