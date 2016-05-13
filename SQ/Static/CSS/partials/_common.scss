@@ -546,6 +546,9 @@ ul {
   }
 }
 
+.panel-group-collapsible > .panel .panel-body {
+  padding-right: 0;
+}
 /* Scrollable Table Body */
 .table-body-scroll {
   border: 1px solid #ccc;

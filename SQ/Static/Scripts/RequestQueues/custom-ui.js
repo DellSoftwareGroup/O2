@@ -299,9 +299,6 @@ var globalScripts = (function ($) {
   var multiTmpl = function () {
 
     var init = function () {
-      <<<<<<<
-      Updated
-      upstream
       /*collapsibles*/
       /*keep border bottom only when they are collapsed*/
       $('.panel-group-collapsible').each(function () {
@@ -320,12 +317,6 @@ var globalScripts = (function ($) {
           $(this).parent().parent().attr('style', '');
         }
       });
-      ======
-      =
-      // code goes here
-      >>>>>>>
-      Stashed
-      changes
     };
     return {
       init: init
