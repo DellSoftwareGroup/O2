@@ -22,7 +22,7 @@ var ribbonListener = function () {
 		if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
 			ribbonReqObj[$multiSelect.data('title')] = [];
 		} else {
-			console.log('Undefined filter title')
+			console.error('Undefined filter title');
 		}
 
 		$multiSelect.next().find('.ms-drop li').each(function () {
@@ -31,7 +31,7 @@ var ribbonListener = function () {
 
 			option.isSelected = function () {
 				if ($li.hasClass('selected')) {
-					console.log(parentTag.children('.filter').length);
+					// console.log(parentTag.children('.filter').length);
 					if ($li.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
 						parentTag.addClass('active-item-bg');
 					}
@@ -108,7 +108,7 @@ var ribbonListener = function () {
 				ribbonReqObj[prTitle] = []
 			}
 		} else {
-			console.log('undefined title!!!')
+			console.error('undefined title!!!')
 		}
 
 		// Collect filter info
@@ -163,42 +163,69 @@ var ribbonListener = function () {
 	function viewsSectionLogic() {
 
 		//local variables
-		var $checkBoxes = $('#views').find('.ms-drop').find('input');
-		var triggered = false;
+		var $checkBoxes = $('#views').find('.ms-drop').find('input'), views = {active: ''};
 
-		// Utiliti functions
+		function bindViewChanges() {
+			$('#views').on('change.views', $checkBoxes, function (e) {
+				e.preventDefault()
+				var $selected = $(e.target);
+
+				if ($selected.is('select')) {
+					views.clicked = getView($selected);
+					if (views.clicked === views.active) {
+						if ($($selected).multipleSelect('getSelects') == 0) { // test if user is clearing all options
+							selectOppositeView(getView($selected));
+						} else {
+							return;  // users is selecting more options from same view
+						}
+					} else { // user is selecting from a different view - clear opposite view
+						if ($($selected).multipleSelect('getSelects') == 0) { // helps prevent posible infinite loop by changes from filter section (below ribbon)
+							return;
+						}
+						clearOppositeView(getView($selected))
+					}
+				}
+
+			})
+		} // bind select event to trigger business logic
+
+		function selectOppositeView(title) {
+			var oppositeView = (title == 'My Work') ? 'All Teams' : 'My Work';
+			var $selectBack = $('#views').find('select[data-title="' + oppositeView + '"]');
+			$selectBack.data('trigger', 'dynamic');
+			views.active = oppositeView;
+			$('#views').off('.views'); // turn off bind to prevent a infinite change cycle
+			//$selectBack.multipleSelect('setSelects', allOptions);
+			$selectBack.multipleSelect('checkAll');
+			$selectBack.parent('li').addClass('active-item-bg');
+			bindViewChanges(); //turn on binding again
+		}
+
 		function clearOppositeView(title) {
 			if (title == undefined) {
 				return;
 			} else {
 				var oppositeView = (title == 'My Work') ? 'All Teams' : 'My Work';
 				var $selectOff = $('#views').find('select[data-title="' + oppositeView + '"]');
-
+				$selectOff.data('trigger', 'dynamic')
+				// $('#views').off('.views'); // need to unbind original .on to prevent cycle
+				views.active = title;
+				$('#views').off('.views'); // turn off bind to prevent a infinite change cycle
 				$selectOff.multipleSelect('setSelects', []);
 				$selectOff.parent('li').removeClass('active-item-bg');
+				bindViewChanges() //turn on binding again
 			}
 
 		}
 
-		function activeView(target) {
-			if ($(target).is('select')) {
-				if (triggered == false) {
+		function getView(target) {
 					var title = $(target).data('title');
 					$(target).parent('li').addClass('active-item-bg')
-					triggered = true;
 					return title;
-				} else {
-					triggered = false;
-					return;
-				}
-			}
-		};
+		}; // finds clicked filter by title
 
-		// events
-		$('#views').on('change', $checkBoxes, function (e) {
-			e.preventDefault();
-			clearOppositeView(activeView(e.target));
-		})
+		// bind view selects
+		bindViewChanges()
 	}
 
 
@@ -339,7 +366,7 @@ var ribbonListener = function () {
 		// Call to build object
 		// check object is not empty
 		if ($.isEmptyObject(obj)) {  // IS may call the function with and empty object
-			console.log('empty object');
+			console.error('empty object -- see func isdynamicFilter');
 			return false;
 		} else {
 			buildObj(obj);
@@ -380,7 +407,7 @@ var ribbonListener = function () {
 
 		// Will trigger IS function passed as argument in the init
 		initISfunc.run();
-		console.log(getISobj(ribbonReqObj));
+		// console.log(getISobj(ribbonReqObj));
 		return ribbonReqObj;
 	}
 
@@ -389,8 +416,7 @@ var ribbonListener = function () {
 		var isTimerRunning = false, ifMultipleClicks = "";
 
 		// on select change event
-		$('.sq-top-ribbon select').on('change', function (event) {
-
+		$('.sq-top-ribbon').on('change', 'select', function(event) {
 			if (isTimerRunning) {
 				clearTimeout(ifMultipleClicks);
 			}
@@ -401,12 +427,12 @@ var ribbonListener = function () {
 				rebuildRibbonState($rbWrapper);
 				isTimerRunning = true;
 
-			}, 500)
+			}, 500);
 
 		});
 
 		// on click event for li with now select
-		$('#agile-status a').on('click', function (e) {
+		$('#agile-status').on('click', 'a', function(e) {
 			e.preventDefault();
 			toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
 			// rebuild ribbonReqObj   filters state
@@ -436,8 +462,8 @@ var ribbonListener = function () {
 		viewsSectionLogic();
 		ribbonWidgets.filterCollectorModule();// filters under ribbon - comes from custom-ui.js
 
-		console.log(ribbonReqObj); // test object
-		console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
+		//console.log(ribbonReqObj); // test object
+		//console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
 	}
 
 	/* -----> API -- */
@@ -515,6 +541,7 @@ var ribbonWidgets = function () {
 							updatedValues = optionValues.splice(index, 1);
 						}
 					})
+					$(filterType).data('trigger', 'dynamic');
 					$(filterType).multipleSelect('setSelects', optionValues);
 				}
 
@@ -641,7 +668,6 @@ var ribbonWidgets = function () {
 			// Register Events and trigger responses
 
 			$('.filter-collector').on('click', 'a', function (e) {
-				// e.stopImmediatePropagation();
 				e.preventDefault();
 				var filterType = findFilterTitle($(this));
 

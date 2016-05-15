@@ -128,7 +128,7 @@ var singleQueueTables = (function ($) {
 	};
 
 	// Add icon to status
-	var statusIcon = function () {
+	/*var statusIcon = function () {
 		var icons = [
 			{status: 'In Progress', class: 'started-icon'},
 			{status: 'Complete', class: 'done-icon'},
@@ -138,7 +138,7 @@ var singleQueueTables = (function ($) {
 			var status = $(this).text(),
 					iconPlaceholder = $(this).find('i');
 
-			/*in edit mode remove icon*/
+			/!*in edit mode remove icon*!/
 			if ($(this).find('select').length > 0) {
 				$(this).find('i').hide();
 			} else if (status.indexOf('Pending') >= 0) {
@@ -157,7 +157,7 @@ var singleQueueTables = (function ($) {
 				}
 			});
 		});
-	};
+	};*/
 
 	//Edit mode
 	var editMode = function () {

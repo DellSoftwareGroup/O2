@@ -181,6 +181,9 @@
 
   td a, td a:visited, td a:link {
     color: #74c1dd;
+    &.btn-primary{
+      color: #fff;
+    }
   }
   .k-grid td {
     border-left: 1px solid #ddd;

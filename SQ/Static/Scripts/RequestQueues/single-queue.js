@@ -1,26 +1,5 @@
 ﻿/*created by: Elnaz Doostdar 1/19/2014*/
 $(function () {
-
-	// Prevent propagation on "More Filters" multiselect
-	var $mfMulti = $('.ms-choice').children();
-
-	$('.sub-nav').on('click', $mfMulti, function (e) {
-		e.stopPropagation();
-		target = e.target;
-		// fix for "More Filters" multiselect - allow only one multiselect open
-		if (!$(target).is('input')) {
-
-			$('.sub-nav').find('.ms-drop').each(function () {
-				$(this).css('display', 'none');
-			})
-
-		}
-		if ($(target).is('span')) {
-			var parent = $(target).parents('.ms-parent');
-			parent.find('.ms-drop').css('display', 'block');
-		}
-	});
-
 	//add search placeholder hack in ie9
 	$(document).ajaxComplete(function () {
 		if ($('html').hasClass('k-ie9')) {
@@ -50,6 +29,11 @@ $(function () {
 			filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
 	$('#sq-filters').on('click', function (e) {
+		//Do not toggle if clicking anywhere in the dropdown.
+		if ($(e.target).parents('.sub-nav-wrapper').length) {
+			return false;
+		}
+
 		e.stopPropagation();
 		e.preventDefault();
 		filterSubNav.toggle();
@@ -63,7 +47,8 @@ $(function () {
 
 		if (filterSubNav.is(':visible')) {
 			filterSubNavWrapper.css('height', '445px');
-		} else {
+		}
+		else {
 			filterSubNavWrapper.css('height', '0');
 		}
 	});
@@ -108,16 +93,16 @@ $(function () {
 			});
 
 	//Initialize multiple select for ribbon area
-	$('body').find('select').each(function () {
+	$('.sq-top-ribbon').find('select').each(function() {
 		if ($(this).attr('multiple') == 'multiple') {
-			var title = $(this).data('title');
-
-			$(this).multipleSelect({
+			var id = $(this).attr('id'), title = $(this).data('title'), obj = {
 				placeholder: title,
 				minimumCountSelected: 0,
-				countSelected: title + '&nbsp;(#)',
+				//countSelected: title + '&nbsp;(#)',
+				countSelected: title,
 				selectAllText: $(this).data('select-all-text'),
-				allSelected: title + '&nbsp;(all)',
+				//allSelected: title + '&nbsp;(all)',
+				allSelected: title,
 				maxHeight: 240,
 				onClose: function () {
 					//fix for bg toggle issue when multiple select clicked
@@ -161,10 +146,30 @@ $(function () {
 						nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
 					}
 
+					var selectTagElem = $(elem).parent().prev().get(0);
 
+					//Close all other multiselect dropdown
+					$('.sq-top-ribbon').find('select').each(function() {
+						if (selectTagElem != this && $(this).attr('multiple') == 'multiple') {
+							var elem = $(this).next();
+
+							elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
+						}
+					});
 				}
-			});
-			//$(this).multipleSelect("checkAll");
+			};
+
+			if ($.inArray(id, ['dp-team-dd', 'dp-mywork-dd']) > -1) {
+				obj.width = 80;
+			}
+			else if ($.inArray(id, ['priority-dd', 'region-dd', 'route-to-market-dd']) > -1) {
+				obj.width = 223;
+			}
+			else if ($(this).parents('#filters-section').length) {
+				obj.width = 100;
+			}
+
+			$(this).multipleSelect(obj);
 		}
 	});
 
@@ -204,6 +209,7 @@ $(function () {
 			$(this).css('border-bottom', '1px solid #aaa');
 		}
 	});
+
 	$('.table-responsive').on('hidden.bs.collapse', function (e) {
 		/*prevent toggling border by Notified collapsibles in comments */
 		if (!$(e.target).attr('id').match('^Notified')) {
@@ -243,17 +249,21 @@ $(function () {
 
 $(window).load(function () {
 	//change image position based on browser for select
-	if ($('.k-multiselect').length) {
+	if ($('.k-multiselect').length && false) {
 		var arrow = $('.arrow');
 		if ($.browser.chrome) {
 			arrow.addClass('chrome');
-		} else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
+		}
+		else if ($.browser.mozilla && !$('html').hasClass('k-ie11')) {
 			//arrow.addClass('firefox');
-		} else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
+		}
+		else if ($('html').hasClass('ie9') || $('html').hasClass('k-ie9')) {
 			arrow.addClass('ie9');
-		} else if ($('html').hasClass('k-ie11')) {
+		}
+		else if ($('html').hasClass('k-ie11')) {
 			arrow.addClass('ie11');
-		} else {
+		}
+		else {
 			arrow.addClass('safari');
 		}
 	}

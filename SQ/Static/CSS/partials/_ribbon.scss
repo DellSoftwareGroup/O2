@@ -57,12 +57,11 @@
         display: inline-block;
         float: left;
         padding: 6px;
-        /*margin-right: 7px;*/
+        margin-right: 7px;
         font-size: 12.66px;
         &.active-item-bg {
           background-color: #eee;
           border-radius: 3px;
-          margin-right: 7px;
           &:hover a {
             color: #444;
           }
@@ -247,7 +246,7 @@
           }
         }
         &#sq-filters-item {
-          width: 158px;
+          /*width: 158px;*/
           > div {
             #sq-filters {
               &:hover > span:last-child {
@@ -269,9 +268,7 @@
                 margin-top: -7px;
               }
               #more-filters {
-                position: absolute;
-                right: 55px;
-                top: 6px;
+                position: relative;
                 .arrow {
                   left: 106px;
                   top: 6px;
@@ -411,7 +408,7 @@
     }
     &#filters-section {
       > ul > li {
-        min-width: 145px;
+        min-width: 125px;
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
@@ -536,22 +533,17 @@
       width: 15% !important;
     }
   }
+  .sq-btn-icon + span {
+    margin-left: 5px;
+  }
 }
 
 @media(min-width: $screen-lg-min) {
   .sq-top-ribbon {
     > ul > li {
-      /*padding: 5px 15px;*/
+      padding: 5px 25px;
       > ul > li {
         margin-right: 7px;
-        .sq-btn-icon + span {
-          margin-left: 5px;
-        }
-      }
-      &#filters-section {
-        > ul > li {
-          min-width: 158px;
-        }
       }
     }
   }
