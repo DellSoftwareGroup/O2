@@ -281,6 +281,11 @@
       }
     }
   }
+  .form-group {
+    > label, > div {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .lh-29 {

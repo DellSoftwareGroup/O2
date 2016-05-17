@@ -251,10 +251,11 @@ var globalModules = function () {
 					// bind reset btn event
 					$('.custom-modal .reset-btn').click(function () {
 						$('#campaignCreator').val('All');
-						$('#campaignFilter').val('');
+						$('#campaignFilter').val('').attr('placeholder', "All Campaigns");
 						$('.campFilterResults').html(''); // make sure all options are new
 						subFilter.key = '';
-						return
+						refreshModal(null, "All", '#campaignFilter');
+						// return
 						// clear previous searches
 					});
 					// clear previous option
@@ -321,6 +322,8 @@ var globalModules = function () {
 					change: function (e) {
 						$('.campFilterResults').html('');
 						var view = campaignDataSource.view();
+						var jlkey = subFilter.key;
+						var jlalias = subFilter.alias;
 						if (subFilter.alias !== null && subFilter.alias !== "All") { // if creator has been selected
 							var resultsTally = [];
 							view.forEach(function (results) {
@@ -371,11 +374,13 @@ var globalModules = function () {
 				var names = '<option>All</option>';
 				if (Array.isArray(nameList)) {
 					nameList.forEach(function (creator) {
-						currntName = String()
-								+ '<option value="' + creator.alias + '">'
-								+ creator.name
-								+ '</option>';
-						names = names + currntName;
+						if (creator.name !== null) {
+							currntName = String()
+									+ '<option value="' + creator.alias + '">'
+									+ creator.name
+									+ '</option>';
+							names = names + currntName;
+						}
 					})
 				}
 				return names;
