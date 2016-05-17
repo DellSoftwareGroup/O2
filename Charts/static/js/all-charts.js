@@ -2,7 +2,9 @@ var dataSource = new kendo.data.DataSource({
       transport: {
         read: {
           url: function () {
-            return "../../Charts/endpoints/sla-variance-drill-down.json";
+            /*return "../../Charts/endpoints/sla-variance-drill-down-grey.json";*/
+           /* return "../../Charts/endpoints/sla-variance-drill-down-red.json";*/
+            return "../../Charts/endpoints/sla-variance-drill-down-orange.json";
           },
           dataType: "json"
         }
@@ -14,13 +16,15 @@ var dataSource = new kendo.data.DataSource({
     valueArrayX = new Array(),
     valueArrayY = new Array();
 $.ajax({
-  url: "../../Charts/endpoints/sla-variance-drill-down.json"
+  /*url: "../../Charts/endpoints/sla-variance-drill-down-grey.json"*/
+  /*url: "../../Charts/endpoints/sla-variance-drill-down-red.json"*/
+  url: "../../Charts/endpoints/sla-variance-drill-down-orange.json"
 }).done(function (response) {
   var i = 1, j = 1;
   $.each(response, function (key, val) {
     if (!isInArray(val.category, valueArrayX)) {
       valueArrayX[i] = val.category;
-      /*console.log(val.category);*/
+      console.log(val.category);
       i++;
     }
 
@@ -55,6 +59,7 @@ function changeYLabels(value) {
 }
 
 function createChart() {
+  /*requests*/
   $(".chart-overall-opened-closed").kendoChart({
     title: {
       text: "Number of Requests "
@@ -109,7 +114,6 @@ function createChart() {
       template: "#= series.name #"
     }
   });
-
   $("#chart-opened-closed-data-protection").kendoChart({
     title: {
       text: "Number of Requests "
@@ -171,7 +175,6 @@ function createChart() {
       template: "#= series.name #"
     }
   });
-
   $("#sla-variance").kendoChart({
     /*title: {
      position: "top",
@@ -196,23 +199,23 @@ function createChart() {
       data: [{
         category: "-1",
         value: 200,
-        color: "#78C466"
+        color: "#79c4e4"
       }, {
         category: "-2 to -3",
         value: 125,
-        color: "#5FAA4D"
+        color: "#3aa3cf"
       }, {
         category: "-4 to -5",
         value: 150,
-        color: "#479035"
+        color: "#0093D1"
       }, {
         category: "-6 to -7 to -8",
         value: 120,
-        color: "#2E761D"
+        color: "#006495"
       }, {
         category: "-8+",
         value: 100,
-        color: "#165D05"
+        color: "#004C70"
       }],
       labels: {
         visible: true,
@@ -220,7 +223,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "white"
+        color:"white"
       }
     }, {
       name: "late",
@@ -230,31 +233,30 @@ function createChart() {
       data: [{
         category: "+1",
         value: 200,
-        color: "#F46868"
+        color: "#F6C7B6"
       }, {
         category: "+2 to +3",
         value: 175,
-        color: "#D94F4F"
+        color: "#F3B49F"
       }, {
         category: "+4 to +5",
         value: 50,
-        color: "#BF3636"
+        color: "#EC8F6E"
       }, {
         category: "+6 to +7 to +8",
         value: 140,
-        color: "#A41D1D"
+        color: "#E6693E"
       }, {
         category: "8+",
         value: 40,
-        color: "#8A0404"
+        color: "#E0440E"
       }],
       labels: {
         visible: true,
         font: "14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
-        template: "#= value #",
-        color: "white"
+        template: "#= value #"
       }
     }],
     tooltip: {
@@ -295,7 +297,7 @@ function createChart() {
         category: "Missed SLA",
         value: 85,
         tasks: 595,
-        color: "#F15858"
+        color: "#FF9900"
       }]
     }],
     tooltip: {
@@ -327,23 +329,23 @@ function createChart() {
       data: [{
         category: "-1",
         value: 50,
-        color: "#78C466"
+        color: "#BDAEC6"
       }, {
         category: "-2 to -3",
         value: 25,
-        color: "#5FAA4D"
+        color: "#a371a9"
       }, {
         category: "-4 to -5",
         value: 10,
-        color: "#479035"
+        color: "#9c3ea7"
       }, {
         category: "-6 to -7 to -8",
         value: 10,
-        color: "#2E761D"
+        color: "#732C7B"
       }, {
         category: "-8+",
         value: 10,
-        color: "#165D05"
+        color: "#421C52"
       }]
       ,
       labels: {
@@ -362,23 +364,23 @@ function createChart() {
       data: [{
         category: "+1",
         value: 75,
-        color: "#F46868"
+        color: "#aaaaaa"
       }, {
         category: "+2 to +3",
         value: 50,
-        color: "#D94F4F"
+        color: "#9d9d9d"
       }, {
         category: "+4 to +5",
         value: 20,
-        color: "#BF3636"
+        color: "#858484"
       }, {
         category: "+6 to +7 to +8",
         value: 40,
-        color: "#A41D1D"
+        color: "#676666"
       }, {
         category: "8+",
         value: 20,
-        color: "#8A0404"
+        color: "#444444"
       }],
       labels: {
         visible: true,
@@ -422,12 +424,12 @@ function createChart() {
         category: "Started late",
         value: 76,
         tasks: 205,
-        color: "#479035"
+        color: "#69a2d6"
       }, {
         category: "Ended early",
         value: 24,
         tasks: 65,
-        color: "#F15858"
+        color: "#E6693E"
       }]
     }],
     tooltip: {
@@ -463,12 +465,12 @@ function createChart() {
         category: "Started early",
         value: 58,
         tasks:145,
-        color: "#479035"
+        color: "#69a2d6"
       }, {
         category: "Ended late",
         value: 42,
         tasks:105,
-        color: "#F15858"
+        color: "#E6693E"
       }]
     }],
     tooltip: {
@@ -535,23 +537,23 @@ function createChart() {
       data: [{
         category: "+1",
         value: 65,
-        color: "#F46868"
+        color: "#FFEBCC"
       }, {
         category: "+2 to +3",
         value: 70,
-        color: "#D94F4F"
+        color: "#FFD799"
       }, {
         category: "+4 to +5",
         value: 30,
-        color: "#BF3636"
+        color: "#FFC266"
       }, {
         category: "+6 to +7 to +8",
         value: 20,
-        color: "#A41D1D"
+        color: "#FFAE33"
       }, {
         category: "8+",
         value: 30,
-        color: "#8A0404"
+        color: "#FF9900"
       }],
       labels: {
         visible: true,
@@ -559,7 +561,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "white"
+        color: "#444444"
       }
     }],
     tooltip: {
@@ -595,12 +597,12 @@ function createChart() {
         category: "Started late",
         value: 59,
         tasks:215,
-        color: "#479035"
+        color: "#69a2d6"
       }, {
         category: "Ended late",
         value: 41,
         tasks:150,
-        color: "#F15858"
+        color: "#9d9d9d"
       }]
     }],
     tooltip: {
@@ -636,12 +638,12 @@ function createChart() {
         category: "Started early",
         value: 70,
         tasks:250,
-        color: "#479035"
+        color: "#69a2d6"
       }, {
         category: "Ended late",
         value: 30,
         tasks:105,
-        color: "#F15858"
+        color: "#9d9d9d"
       }]
     }],
     tooltip: {
@@ -649,7 +651,6 @@ function createChart() {
       template: "#= category#: #= dataItem.tasks# tasks "
     }
   });
-
   $("#sla-variance-dd").kendoChart({
     dataSource: dataSource,
     /*title: {
@@ -665,7 +666,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         format: "{2:N0}",
-        color:"white"
+        color:"black"
       }
     },
     chartArea: {
@@ -687,6 +688,7 @@ function createChart() {
         template: "#= changeXLabels(value) #"
       },
       majorUnit: 1,
+      max: 11,
       appearance: {
         LabelAppearance: {
           Position: {
@@ -707,9 +709,11 @@ function createChart() {
     tooltip: {
       visible: true,
       template:"SLA #=dataItem.sla # : #=dataItem.number # Requests"
+    },
+    seriesClick: function(e) {
+      console.log("category:" + e.dataItem.category + "  & SLA: " + e.dataItem.sla);
     }
   });
-
   $("#planned-closed-data-protection").kendoChart({
     dataSource: {
       transport: {
@@ -735,7 +739,7 @@ function createChart() {
     series: [{
       field: "planned",
       name:"Planned",
-      color:"#579AD6"
+      color:"#69a2d6"
     }, {
       field: "closed",
       name: "Closed",
@@ -810,10 +814,159 @@ function createChart() {
       /*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*/
     }
   });
+
+  /*tasks*/
+  $("#opened-closed-tasks-by-owner").kendoChart({
+    title: {
+      /* text: "Number of comments by task type"*/
+    },
+    legend: {
+      visible: false
+    },
+    seriesDefaults: {
+      type: "bar",
+      labels: {
+        visible: true,
+        background: "transparent",
+        position: "center",
+        color: "black"
+      }
+    },
+    series: [{
+      name: "Closed",
+      stack: "Closed",
+      data: [4, 8, 6, 7, 3],
+      color: "#4caf50"
+    },
+      {
+        name: "HPG Creative",
+        stack: "Opened",
+        data: [5, 10, 2, 5, 6],
+        color: "#C9C9C9"
+      }, {
+        name: "HPG Content",
+        stack: "Opened",
+        data: [7, 10, 11, 7, 13],
+        color: "#C7885C"
+      }, {
+        name: "Reporting support",
+        stack: "Opened",
+        data: [10, 10, null , 10, 20],
+        color: "#F7C773"
+      }],
+    valueAxis: {
+      Max: 200,
+      line: {
+        visible: true
+      }
+    },
+    categoryAxis: {
+      categories: ["Elnaz", "Edward", "Diana", "BJ", "Jorge"],
+      majorGridLines: {
+        visible: false
+      }
+    },
+    tooltip: {
+      visible: true,
+      template: "#= series.name #"
+    }
+  });
+  $("#15-open-closed-tickets-per-task-type").kendoChart({
+    dataSource: {
+      transport: {
+        read: {
+          url: "../../Charts/endpoints/opened-closed-tasks.json",
+          dataType: "json"
+        }
+      }
+    },
+    title: {
+      text: ""
+    },
+    legend: {
+      visible: false
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      field: "HPGCreative",
+      name: "HPG Creative"
+    }, {
+      field: "HPGContent",
+      name: "HPG Content"
+    }, {
+      field: "AddTags",
+      name: "Add Tags"
+    }, {
+      field: "AnimatedVideo",
+      name: "Animated Video"
+    }, {
+      field: "CreateLogo",
+      name: "Create Logo"
+    },{
+      field: "EmailSupport",
+      name: "Email Support"
+    },{
+      field: "EventContent",
+      name: "Event Content"
+    },{
+      field: "ListPull",
+      name: "List Pull"
+    },{
+      field: "MediaPlan",
+      name: "Media Plan"
+    },{
+      field: "ReportingSupport",
+      name: "Reporting Support"
+    },{
+      field: "InfographicCreative",
+      name: "Infographic Creative"
+    },{
+      field: "OnsiteSearch",
+      name: "Onsite Search"
+    },{
+      field: "OptimizePage",
+      name: "Optimize Page"
+    },{
+      field: "NewTraining",
+      name: "New Training"
+    },{
+      field: "MediaLayout",
+      name: "Media Layout"
+    }],
+    categoryAxis: {
+      field: "time",
+      labels: {
+        /*rotation: -90*/
+      },
+      crosshair: {
+        visible: true
+      }
+    },
+    valueAxis: {
+      Max: 100,
+      majorUnit: 20,
+      labels: {
+
+      },
+      minorGridLines: {
+        visible: true
+      }
+    },
+    tooltip: {
+      visible: true,
+      shared: true,
+      format: "N0"
+    }
+  });
 }
 function createSparklines() {
   // binding to array
   $("#data-protection-opened").kendoSparkline({
+    title: {
+      text: "Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       30, 40, 10, 20, 10, 15, 5, 20, 10, 10, 30, 5
@@ -826,6 +979,9 @@ function createSparklines() {
   });
 
   $("#data-protection-closed").kendoSparkline({
+    title:{
+      text: "Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -839,6 +995,9 @@ function createSparklines() {
   });
 
   $("#endpoints-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       10, 30, 20, 10, 15, 10, 10, 10, 10, 10, 10, 20
@@ -852,6 +1011,9 @@ function createSparklines() {
 
 
   $("#endpoints-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -864,6 +1026,9 @@ function createSparklines() {
     }
   });
   $("#databases-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       20, 20, 5, 10, 5, 20, 0, 20, 10, 5, 10, 10
@@ -877,6 +1042,9 @@ function createSparklines() {
 
 
   $("#databases-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -890,6 +1058,9 @@ function createSparklines() {
   });
 
   $("#security-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       10, 10, 5, 20, 30, 20, 10, 20, 5, 5, 10, 15
@@ -903,6 +1074,9 @@ function createSparklines() {
 
 
   $("#security-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -916,6 +1090,9 @@ function createSparklines() {
   });
 
   $("#platforms-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       10, 5, 10, 10, 30, 10, 5, 20, 5, 5, 10, 5
@@ -929,6 +1106,9 @@ function createSparklines() {
 
 
   $("#platforms-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -942,6 +1122,9 @@ function createSparklines() {
   });
 
   $("#windows-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       10, 20, 10, 5, 10, 5, 5, 10, 10, 5, 20, 10
@@ -955,6 +1138,9 @@ function createSparklines() {
 
 
   $("#windows-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -968,6 +1154,9 @@ function createSparklines() {
   });
 
   $("#none-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       10, 10, 10, 5, 10, 10, 5, 20, 20, 20, 5, 5
@@ -981,6 +1170,9 @@ function createSparklines() {
 
 
   $("#none-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [
@@ -994,6 +1186,9 @@ function createSparklines() {
   });
 
   $("#sim-opened").kendoSparkline({
+    title:{
+      text:"Opened Requests"
+    },
     seriesColors: ["#579AD6"],
     data: [
       0, 5, 10, 10, 10, 10, 20, 20, 30, 0, 15, 15
@@ -1007,6 +1202,9 @@ function createSparklines() {
 
 
   $("#sim-closed").kendoSparkline({
+    title:{
+      text:"Closed Requests"
+    },
     type: "column",
     seriesColors: ["#78C466"],
     data: [

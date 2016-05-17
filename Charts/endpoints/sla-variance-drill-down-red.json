@@ -1,0 +1,920 @@
+[
+  {
+    "sla": "-8(+)",
+    "standing": 1,
+    "range": 1,
+    "number": 15,
+    "category": "Development",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 1,
+    "range": 2,
+    "number": 10,
+    "category": "Development",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 1,
+    "range": 3,
+    "number": 20,
+    "category": "Development",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 1,
+    "range": 4,
+    "number": 20,
+    "category": "Development",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 1,
+    "range": 5,
+    "number": 5,
+    "category": "Development",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 1,
+    "range": 6,
+    "number": 20,
+    "category": "Development",
+    "color": "#a9d2e3",
+    "textColor": "#a9d2e3"
+  },
+  {
+    "sla": "+1",
+    "standing": 1,
+    "range": 7,
+    "number": 60,
+    "category": "Development",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 1,
+    "range": 8,
+    "number": 60,
+    "category": "Development",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 1,
+    "range": 9,
+    "number": 100,
+    "category": "Development",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 1,
+    "range": 10,
+    "number": 25,
+    "category": "Development",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 1,
+    "range": 11,
+    "number": 12,
+    "category": "Development",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 2,
+    "range": 4,
+    "number": 20,
+    "category": "Web page - HPG",
+    "color": "#3aa3cf",
+    "textColor":"white"
+  },
+  {
+    "sla": "0",
+    "standing": 2,
+    "range": 6,
+    "number": 0,
+    "category": "Web page - HPG",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 2,
+    "range": 9,
+    "number": 10,
+    "category": "Web page - HPG",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 3,
+    "range": 1,
+    "number": 25,
+    "category": "Ad copy",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 3,
+    "range": 2,
+    "number": 10,
+    "category": "Ad copy",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 3,
+    "range": 3,
+    "number": 50,
+    "category": "Ad copy",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 3,
+    "range": 4,
+    "number": 20,
+    "category": "Ad copy",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 3,
+    "range": 5,
+    "number": 5,
+    "category": "Ad copy",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 3,
+    "range": 6,
+    "number": 20,
+    "category": "Ad copy",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 3,
+    "range": 7,
+    "number": 20,
+    "category": "Ad copy",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 3,
+    "range": 8,
+    "number": 60,
+    "category": "Ad copy",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 3,
+    "range": 9,
+    "number": 26,
+    "category": "Ad copy",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 3,
+    "range": 10,
+    "number": 25,
+    "category": "Ad copy",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 3,
+    "range": 11,
+    "number": 12,
+    "category": "Ad copy",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 4,
+    "range": 1,
+    "number": 25,
+    "category": "Analytics",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 4,
+    "range": 2,
+    "number": 10,
+    "category": "Analytics",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 4,
+    "range": 3,
+    "number": 50,
+    "category": "Analytics",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 4,
+    "range": 4,
+    "number": 20,
+    "category": "Analytics",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 4,
+    "range": 5,
+    "number": 5,
+    "category": "Analytics",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 4,
+    "range": 6,
+    "number": 20,
+    "category": "Analytics",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 4,
+    "range": 7,
+    "number": 0,
+    "category": "Analytics",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 4,
+    "range": 8,
+    "number": 60,
+    "category": "Analytics",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 4,
+    "range": 9,
+    "number": 26,
+    "category": "Analytics",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 4,
+    "range": 10,
+    "number": 25,
+    "category": "Analytics",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 4,
+    "range": 11,
+    "number": 15,
+    "category": "Analytics",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 5,
+    "range": 1,
+    "number": 25,
+    "category": "EBook - Support",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 5,
+    "range": 2,
+    "number": 10,
+    "category": "EBook - Support",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 5,
+    "range": 3,
+    "number": 50,
+    "category": "EBook - Support",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 5,
+    "range": 4,
+    "number": 20,
+    "category": "EBook - Support",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 5,
+    "range": 5,
+    "number": 5,
+    "category": "EBook - Support",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 5,
+    "range": 6,
+    "number": 20,
+    "category": "EBook - Support",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 5,
+    "range": 7,
+    "number": 0,
+    "category": "EBook - Support",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 5,
+    "range": 8,
+    "number": 60,
+    "category": "EBook - Support",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 5,
+    "range": 9,
+    "number": 26,
+    "category": "EBook - Support",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 5,
+    "range": 10,
+    "number": 25,
+    "category": "EBook - Support",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 5,
+    "range": 11,
+    "number": 15,
+    "category": "EBook - Support",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 6,
+    "range": 1,
+    "number": 25,
+    "category": "Edit Solution",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 6,
+    "range": 2,
+    "number": 10,
+    "category": "Edit Solution",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 6,
+    "range": 3,
+    "number": 50,
+    "category": "Edit Solution",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 6,
+    "range": 4,
+    "number": 20,
+    "category": "Edit Solution",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 6,
+    "range": 5,
+    "number": 5,
+    "category": "Edit Solution",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 6,
+    "range": 6,
+    "number": 20,
+    "category": "Edit Solution",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 6,
+    "range": 7,
+    "number": 0,
+    "category": "Edit Solution",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 6,
+    "range": 8,
+    "number": 60,
+    "category": "Edit Solution",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 6,
+    "range": 9,
+    "number": 26,
+    "category": "Edit Solution",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 6,
+    "range": 10,
+    "number": 25,
+    "category": "Edit Solution",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 6,
+    "range": 11,
+    "number": 15,
+    "category": "Edit Solution",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 7,
+    "range": 1,
+    "number": 25,
+    "category": "Infographic",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 7,
+    "range": 2,
+    "number": 10,
+    "category": "Infographic",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 7,
+    "range": 3,
+    "number": 50,
+    "category": "Infographic",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 7,
+    "range": 4,
+    "number": 20,
+    "category": "Infographic",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 7,
+    "range": 5,
+    "number": 5,
+    "category": "Infographic",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 7,
+    "range": 6,
+    "number": 20,
+    "category": "Infographic",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 7,
+    "range": 7,
+    "number": 0,
+    "category": "Infographic",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 7,
+    "range": 8,
+    "number": 60,
+    "category": "Infographic",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 7,
+    "range": 9,
+    "number": 26,
+    "category": "Infographic",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 7,
+    "range": 10,
+    "number": 25,
+    "category": "Infographic",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 7,
+    "range": 11,
+    "number": 15,
+    "category": "Infographic",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 8,
+    "range": 1,
+    "number": 25,
+    "category": "Home Page Banner",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 8,
+    "range": 2,
+    "number": 10,
+    "category": "Home Page Banner",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 8,
+    "range": 3,
+    "number": 50,
+    "category": "Home Page Banner",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 8,
+    "range": 4,
+    "number": 20,
+    "category": "Home Page Banner",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 8,
+    "range": 5,
+    "number": 5,
+    "category": "Home Page Banner",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 8,
+    "range": 6,
+    "number": 20,
+    "category": "Home Page Banner",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 8,
+    "range": 7,
+    "number": 0,
+    "category": "Home Page Banner",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 8,
+    "range": 8,
+    "number": 60,
+    "category": "Home Page Banner",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 8,
+    "range": 9,
+    "number": 26,
+    "category": "Home Page Banner",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 8,
+    "range": 10,
+    "number": 25,
+    "category": "Home Page Banner",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 8,
+    "range": 11,
+    "number": 15,
+    "category": "Home Page Banner",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 9,
+    "range": 1,
+    "number": 25,
+    "category": "New Product",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 9,
+    "range": 2,
+    "number": 10,
+    "category": "New Product",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 9,
+    "range": 3,
+    "number": 50,
+    "category": "New Product",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 9,
+    "range": 4,
+    "number": 20,
+    "category": "New Product",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 9,
+    "range": 5,
+    "number": 5,
+    "category": "New Product",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 9,
+    "range": 6,
+    "number": 20,
+    "category": "New Product",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 9,
+    "range": 7,
+    "number": 0,
+    "category": "New Product",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 9,
+    "range": 8,
+    "number": 60,
+    "category": "New Product",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 9,
+    "range": 9,
+    "number": 26,
+    "category": "New Product",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 9,
+    "range": 10,
+    "number": 25,
+    "category": "New Product",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 9,
+    "range": 11,
+    "number": 15,
+    "category": "New Product",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "-8(+)",
+    "standing": 10,
+    "range": 1,
+    "number": 25,
+    "category": "Onsite Search",
+    "color": "#004C70",
+    "textColor": "white"
+  },
+  {
+    "sla": "-6 to -7 to -8",
+    "standing": 10,
+    "range": 2,
+    "number": 10,
+    "category": "Onsite Search",
+    "color": "#006495",
+    "textColor": "white"
+  },
+  {
+    "sla": "-4 to -5",
+    "standing": 10,
+    "range": 3,
+    "number": 50,
+    "category": "Onsite Search",
+    "color": "#0093D1",
+    "textColor": "white"
+  },
+  {
+    "sla": "-2 to -3",
+    "standing": 10,
+    "range": 4,
+    "number": 20,
+    "category": "Onsite Search",
+    "color": "#3aa3cf",
+    "textColor": "white"
+  },
+  {
+    "sla": "-1",
+    "standing": 10,
+    "range": 5,
+    "number": 5,
+    "category": "Onsite Search",
+    "color": "#79c4e4",
+    "textColor": "white"
+  },
+  {
+    "sla": "0",
+    "standing": 10,
+    "range": 6,
+    "number": 20,
+    "category": "Onsite Search",
+    "color": "#a9d2e3",
+    "textColor": "white"
+  },
+  {
+    "sla": "+1",
+    "standing": 10,
+    "range": 7,
+    "number": 0,
+    "category": "Onsite Search",
+    "color": "#F6C7B6",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+2 to +3",
+    "standing": 10,
+    "range": 8,
+    "number": 60,
+    "category": "Onsite Search",
+    "color": "#F3B49F",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+4 to +5",
+    "standing": 10,
+    "range": 9,
+    "number": 26,
+    "category": "Onsite Search",
+    "color": "#EC8F6E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "+6 to +7 to +8",
+    "standing": 10,
+    "range": 10,
+    "number": 25,
+    "category": "Onsite Search",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "sla": "8(+)",
+    "standing": 10,
+    "range": 11,
+    "number": 15,
+    "category": "Onsite Search",
+    "color": "#E0440E",
+    "textColor": "#444444"
+  }
+]

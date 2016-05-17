@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
 <head>
   <style>
     .box {
       border: 1px solid #737373;
-      background-color: #f9f9f9;
-      padding: 10px;
+      background-color: #eee;
+      padding: 15px;
     }
 
     .spark span > span {
-      width: 263px;
-      height: 50px;
+      width: 244px;
+      height: 100px;
     }
     .container {
       width: 1170px !important;
     }
+    /*.k-tooltip {
+      color: #444444 !important;
+    }*/
 
   </style>
   <title></title>
@@ -41,7 +43,7 @@
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="data-protection-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -49,13 +51,13 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">Data Protection</h4>
+            <h4 class="center-block text-center mb-0 mt-20">Data Protection</h4>
           </div>
         </div>
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="endpoints-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -63,13 +65,13 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">Endpoints</h4>
+            <h4 class="center-block text-center mb-0 mt-20">Endpoints</h4>
           </div>
         </div>
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="databases-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -77,13 +79,13 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">Databases</h4>
+            <h4 class="center-block text-center mb-0 mt-20">Databases</h4>
           </div>
         </div>
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="security-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -91,7 +93,7 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">Security</h4>
+            <h4 class="center-block text-center mb-0 mt-20">Security</h4>
           </div>
         </div>
       </div>
@@ -99,7 +101,7 @@
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="platforms-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -107,13 +109,13 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">Platforms</h4>
+            <h4 class="center-block text-center mb-0 mt-20">Platforms</h4>
           </div>
         </div>
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="windows-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -121,13 +123,13 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">Windows</h4>
+            <h4 class="center-block text-center mb-0 mt-20">Windows</h4>
           </div>
         </div>
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="none-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -135,13 +137,13 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">None</h4>
+            <h4 class="center-block text-center mb-0 mt-20">None</h4>
           </div>
         </div>
         <div class="col-xs-3 pl-0">
           <div class="box">
             <div class="spark">
-              <div class="col-xs-12 ph-0">
+              <div class="col-xs-12 ph-0 mb-20">
                 <span id="sim-opened"></span>
               </div>
               <div class="col-xs-12 ph-0">
@@ -149,7 +151,7 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <h4 class="center-block text-center mb-0">SIM</h4>
+            <h4 class="center-block text-center mb-0 mt-20">SIM</h4>
           </div>
         </div>
       </div>
@@ -158,7 +160,8 @@
           <div class="box">
             <h2 class="text-center mb-20">SLA Variance</h2>
             <div id="sla-variance"></div>
-            <div id="slav-met-missed-sla" style="width:151.48px; height:180px;" class="center-block pt-20"></div>
+            <h3 class="text-center mb-20" style="margin-top:2px;">Missed SLA vs. SLA Met</h3>
+            <div id="slav-met-missed-sla" style="width:120px; height:120px;" class="center-block pt-20"></div>
             <div class="text-center mt-20">
               <a href="#" class="btn btn-primary">Drill Down</a>
             </div>
@@ -169,11 +172,14 @@
             <h2 class="text-center mb-20">Baseline vs. Actual</h2>
             <div id="baseline-vs-actual"></div>
             <div class="col-xs-6">
-              <div id="started-late-ended-early" style="height:200px" class="center-block"></div>
+              <h3 class="text-center mb-20">Started after Baseline</h3>
+              <div id="started-late-ended-early" style="width:100px;height:100px" class="center-block"></div>
             </div>
             <div class="col-xs-6">
-              <div id="started-early-ended-late-1" style="height:200px" class="center-block"></div>
+              <h3 class="text-center mb-20">Completed after Baseline</h3>
+              <div id="started-early-ended-late-1" style="width:100px;height:100px" class="center-block"></div>
             </div>
+            <div class="clearfix"></div>
             <div class="text-center mt-20">
               <a href="#" class="btn btn-primary">Drill Down</a>
             </div>
@@ -184,11 +190,14 @@
             <h2 class="text-center mb-20">Planned vs. Actual</h2>
             <div id="planned-vs-actual"></div>
             <div class="col-xs-6">
-              <div id="started-late-ended-late" style="height:200px" class="center-block"></div>
+              <h3 class="text-center mb-20">Started after Planned</h3>
+              <div id="started-late-ended-late" style="width:100px;height:100px"  class="center-block"></div>
             </div>
             <div class="col-xs-6">
-              <div id="started-early-ended-late-2" style="height:200px" class="center-block"></div>
+              <h3 class="text-center mb-20">Completed after Planned</h3>
+              <div id="started-early-ended-late-2" style="width:100px;height:100px"  class="center-block"></div>
             </div>
+            <div class="clearfix"></div>
             <div class="text-center mt-20">
               <a href="#" class="btn btn-primary">Drill Down</a>
             </div>
