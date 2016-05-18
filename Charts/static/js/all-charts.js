@@ -746,7 +746,7 @@ function createChart() {
       color:"#78C466"
     }],
     categoryAxis: {
-      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
+      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
       crosshair: {
         visible: true
       }
@@ -798,7 +798,7 @@ function createChart() {
     }
     ],
     categoryAxis: {
-      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
+      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
       crosshair: {
         visible: true
       }

@@ -29,9 +29,37 @@
   },
   {
     "week": 1,
-    "sprint":25,
-    "planned" : 15,
-    "closed": 15,
+    "sprint":24,
+    "planned" : 20,
+    "closed":18,
+    "agile": "Data Protection"
+  },
+  {
+    "week": 2,
+    "sprint":24,
+    "planned" : 30,
+    "closed": 30,
+    "agile": "Data Protection"
+  },
+  {
+    "week": 3,
+    "sprint":24,
+    "planned" : 35,
+    "closed": 20,
+    "agile": "Data Protection"
+  },
+  {
+    "week": 4,
+    "sprint":24,
+    "planned" : 12,
+    "closed": 10,
+    "agile": "Data Protection"
+  },
+  {
+    "week": 1,
+    "sprint":24,
+    "planned" : 20,
+    "closed": 20,
     "agile": "Data Protection"
   },
   {
