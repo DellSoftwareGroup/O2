@@ -130,6 +130,16 @@
         float: left;
         clear: both;
         width: 100%;
+        h4{
+          padding: 2px 10px 4px 10px;
+          border: 1px solid #ababab;
+          &.request-label{
+            background-color: #cde6f2;
+          }
+          &.task-label{
+            background-color: #faf8cb;
+          }
+        }
         > div {
           background-color: #eee;
           float: left;
