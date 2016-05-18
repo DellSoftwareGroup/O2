@@ -679,6 +679,10 @@ p.data {
   margin-top: 5px;
 }
 
+#addRequestTmpl table.k-editor-widget {
+  height: 120px;
+}
+
 /*
 .request-listing {
   .id-col {
@@ -1818,6 +1822,10 @@ tbody tr:first-child .tooltip:hover:after {
   display: block;
   font-style: italic;
   margin-top: 5px;
+}
+
+#addRequestTmpl table.k-editor-widget {
+  height: 120px;
 }
 
 a {
@@ -3140,7 +3148,6 @@ input#searchById {
     background-color: #fff; }
   #request-info .panel-body #GridQA tbody tr:last-child td {
     border-bottom: none; }
-
 #request-info .form-group > label, #request-info .form-group > div {
   margin-bottom: 10px;
 }
@@ -3220,6 +3227,11 @@ input#searchById {
 #results-data-list #edit-task-listing tr.k-grid-edit-row td:last-child {
   width: 121px; }
 
+@media (max-width: 1570px) {
+  .task-status select {
+    width: 112px;
+  }
+}
 .k-ie11 select, .k-ie11 input {
   border: 1px solid #ccc;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);

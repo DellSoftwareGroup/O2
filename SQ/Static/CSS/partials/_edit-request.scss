@@ -393,6 +393,14 @@
   }
 }
 
+@media(max-width: 1570px) {
+  .task-status {
+    select {
+      width: 112px; // important, after 1350px container breaks table layout: jl
+    }
+  }
+}
+
 .k-ie11 {
   select, input {
     border: 1px solid #ccc;

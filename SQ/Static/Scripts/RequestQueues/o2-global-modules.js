@@ -110,6 +110,8 @@ var globalModules = function () {
 			this.destroyListener = function () {
 				$('#myModal').on('hidden.bs.modal', function (e) {
 					$('body').find('.custom-modal').remove();
+					subFilter.key = '';
+					subFilter.alias = null; // !important to show all results if modal is open again
 				})
 			}
 		}
@@ -205,7 +207,7 @@ var globalModules = function () {
 						+ '<form class="form-horizontal" data-modalName="campaign">'
 						+ '<div class="form-group">'
 						+ '<label for="campaignFilter">Campaign name: </label>'
-						+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Campaign">'
+						+ '<input type="text" class="form-control" id="campaignFilter" placeholder="Enter campaign name...">'
 						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
 						+ '<p>And</p>'
@@ -217,6 +219,7 @@ var globalModules = function () {
 						+ '</div>'
 						+ '<p></p>'
 						+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
+						+ '<i>Click on campaign and hit select button</i>'
 						+ '</form><div class="camp-no-result text-red mt-10 hide">0 Camapigns found!</div></div>';
 				campaignInfo.title = 'Search Campaign';
 
@@ -262,6 +265,11 @@ var globalModules = function () {
 					$('#campaignFilter').on('focus', function () {
 						subFilter.key = '';
 					});
+					// prevent the enter key to refresh page. (kendo bug)
+					$('#campaignFilter').keypress(function (event) {
+						if (event.keyCode === 10 || event.keyCode === 13)
+							event.preventDefault();
+					});
 
 					// add selected attr
 					$('#campaignCreator').on('change', function (e) {
@@ -270,6 +278,7 @@ var globalModules = function () {
 						refreshModal(selectElm, option, '#campaignFilter');
 					});
 				});
+
 				buildModal.destroyListener();
 
 				initCampaignAutoComplete('#campaignFilter');
@@ -291,6 +300,16 @@ var globalModules = function () {
 				});
 
 			}();
+
+			function showNoResultsAlert() {
+				$('.camp-no-result').removeClass('hide');
+				$('.campFilterResults').data('no-result-processed', true);
+			}
+
+			function hideNoResultsAlert() {
+				$('.camp-no-result').addClass('hide');
+				$('.campFilterResults').data('no-result-processed', false);
+			}
 
 			function initCampaignAutoComplete(id) {
 
@@ -335,20 +354,25 @@ var globalModules = function () {
 							});
 							if (resultsTally.length === 0) {
 								if($('.campFilterResults').data('no-result-processed') == undefined || $('.campFilterResults').data('no-result-processed') == false){
-									$('.camp-no-result').removeClass('hide');
-									$('.campFilterResults').data('no-result-processed',true);
+									showNoResultsAlert()
 								}else{
 									return false;
 								}
 							} else {
 								resultsTally = [];
-								$('.camp-no-result').addClass('hide');
-								$('.campFilterResults').data('no-result-processed',false);
+								hideNoResultsAlert()
 							}
 						} else {
-							for (var i = 0; i < view.length; i++) {
-								$('.campFilterResults').append('<option value="' + view[i].ID + '">' + view[i].Name + '</option>');
+							// check if there is results
+							if (view.length > 0) {
+								hideNoResultsAlert();
+								for (var i = 0; i < view.length; i++) {
+									$('.campFilterResults').append('<option value="' + view[i].ID + '">' + view[i].Name + '</option>');
+								}
+							} else {
+								showNoResultsAlert();
 							}
+
 						}
 					}
 				});
@@ -365,9 +389,11 @@ var globalModules = function () {
 				});
 				var autocomplete = $(id).data("kendoAutoComplete");
 
-				if (subFilter.refresh === true) {
+				autocomplete.search(subFilter.key);
+
+				/*				if (subFilter.refresh === true) {
 					autocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
-				}
+				 }*/
 			}
 
 			function addCreatorOptions(nameList) {
@@ -397,6 +423,7 @@ var globalModules = function () {
 			// Project Modal
 			function runProjectModal() {
 				var projectInfo = {}, projFiltersPreData = {}, ownerOrRequester = 'clean';
+				subFilter.refresh = true; // unload refresh
 
 				// Internal methods
 				function splitDataByFilter(data) {
@@ -491,8 +518,8 @@ var globalModules = function () {
 						+ '<option value="ProjId">Project ID</option>'
 						+ '</select>'
 						+ '<div style="position: relative; display: inline-block">'
-						+ '<input type="text" class="form-control resetable" id="nameOrID">'
-						+ '<input type="text" class="form-control resetable" id="searchById" style="' + InputByIdStyles + '">'
+						+ '<input type="text" class="form-control resetable" id="nameOrID" placeholder="Enter project name...">'
+						+ '<input type="text" class="form-control resetable" id="searchById" placeholder="Enter project id..." style="' + InputByIdStyles + '">'
 						+ '</div>'
 						+ '<div id="hidenDropdown" style="display: none"></div>'
 						+ '</div>'
@@ -518,6 +545,7 @@ var globalModules = function () {
 						+ '</div>'
 						+ '<div class="modal-results" style="position:relative">'
 						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
+						+ '<i>Click on campaign and hit select button</i>'
 						+ '<span class="k-icon k-loading" style="display: none"></span>'
 						+ '</div>'
 						+ '</form><div class="pro-no-result text-red mt-10 hide">0 Projects found!</div></div>';
@@ -583,7 +611,12 @@ var globalModules = function () {
 
 					// reset
 					$('.reset-btn').on('click', function () {
+						// check if ID field is active
+						if ($('#projectSelectFirst').val() == 'ProjId') {
+							$('#projectSelectFirst').val('ProjName').change();
+						}
 						resetProjModal();
+
 					});
 
 					// when clicked select button
@@ -611,7 +644,7 @@ var globalModules = function () {
 
 			// Kendo Data processing
 			function initProjectAutoComplete(projectFilter) {
-
+				console.log('hit');
 				// search by Title
 				var projectDataSource = new kendo.data.DataSource({
 					serverFiltering: true,
@@ -619,6 +652,7 @@ var globalModules = function () {
 						read: function (options) {
 							if (typeof options.data.filter != 'undefined') {
 								subFilter.key = options.data.filter.filters[0].value;
+								console.log(subFilter.key);
 								$.ajax({
 									url: endPoints.projects + "?name=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
@@ -721,8 +755,9 @@ var globalModules = function () {
 				// After dom interactions
 				var projAutocomplete = $(projectFilter).data("kendoAutoComplete");
 
-				if (subFilter.refresh === true) {
+				if (subFilter.refresh == true) {
 					projAutocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
+					subFilter.refresh = false;
 				}
 			}
 
@@ -799,6 +834,7 @@ var globalModules = function () {
 					$(this).val('');
 				});
 				$('.projectFilterResults').html('');
+				initProjectAutoComplete('#nameOrID');
 			}
 
 			// set results
