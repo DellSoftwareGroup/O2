@@ -105,10 +105,10 @@ $(function () {
 				allSelected: title,
 				maxHeight: 240,
 				onClose: function () {
-					//fix for bg toggle issue when multiple select clicked
-					/*          ribbonItem.on('click', function () {
-					 toggleActiveItem(this);
-					 });*/
+					console.log('test');
+					var $target = this.title;
+
+					ribbonListener.onCloseMultiFilter($target);
 				},
 				onOpen: function (elem) {
 					var nextElem = $(elem).next(), ul = nextElem.find('ul');
