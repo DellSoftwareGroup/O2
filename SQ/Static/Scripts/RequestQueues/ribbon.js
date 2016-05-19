@@ -6,12 +6,13 @@ var ribbonListener = function () {
 
 	/* Private Variables */
 	var ribbonReqObj = {};
+	var isDoneLoading = false; // it gets set by kendo Grid on Databound
 
 	/* -----> Private Methods <-----*/
-
 	function rebuildRibbonState($rbWrapper) {
 		var $filter = $($rbWrapper).find('[data-isFilter=true]');
 		ribbonReqObj = {};
+		isDoneLoading = false;
 		return filtersCollection($filter);
 
 	}
@@ -228,6 +229,22 @@ var ribbonListener = function () {
 		bindViewChanges()
 	}
 
+	function isFilterSecMultSelect(test) {
+		var $multiselect = $('#filters-section').find('select[multiple="multiple"]'), isFilter = false;
+
+		$multiselect.each(function () {
+			var title = $(this).data('title');
+			if (test === title) {
+				isFilter = true;
+			}
+		})
+		return isFilter;
+	}
+
+	function onCloseMultiSelectFilter($clicked) {
+		!!isFilterSecMultSelect($clicked) && rebuildRibbonState('.sq-top-ribbon');
+	}
+
 
 	/* -----> IS Interactions <-----*/
 
@@ -411,12 +428,32 @@ var ribbonListener = function () {
 		return ribbonReqObj;
 	}
 
+
 	// add listener to filters, triggers IS function
 	function filterListener($rbWrapper) {
-		var isTimerRunning = false, ifMultipleClicks = "";
+		var isTimerRunning = false, ifMultipleClicks = "", isLoop = 0;
 
 		// on select change event
 		$('.sq-top-ribbon').on('change', 'select', function(event) {
+
+			// test if trigger is multiselect from filter section
+			var $target = $(event.target);
+			var filterRibonTriggered = $target.data('trigger');
+			if (isFilterSecMultSelect($target.data('title'))) {
+				if (filterRibonTriggered !== 'dynamic') {
+					return;
+				} else {
+					if (isLoop > 0) {
+						isLoop = 0;
+						return;
+					}
+					$target.data('trigger', '');
+					isLoop++;
+				}
+			}
+
+
+
 			if (isTimerRunning) {
 				clearTimeout(ifMultipleClicks);
 			}
@@ -430,6 +467,7 @@ var ribbonListener = function () {
 			}, 500);
 
 		});
+
 
 		// on click event for li with now select
 		$('#agile-status').on('click', 'a', function(e) {
@@ -468,9 +506,12 @@ var ribbonListener = function () {
 
 	/* -----> API -- */
 	return {
+		isDoneLoading: isDoneLoading,
 		init: init,
 		rebuildRibbonState: rebuildRibbonState,
+		onCloseMultiFilter: onCloseMultiSelectFilter,
 		passFilterStateObj: passFilterStateObj,
+		isFilterSecMultSelect: isFilterSecMultSelect,
 		getISobj: getISobj
 	}
 
@@ -509,16 +550,32 @@ var ribbonWidgets = function () {
 			$('.filter-collector').append('<ul><li>Filters:</li></ul>');
 			var filterHtml = '', activeArr = [];
 			$.each(activeFilters, function (filter, options) {
-				filterHtml = String()
-						+ '<ul>'
-						+ '<li>' + filter + '<a href="#"> X</a></li>';
-				if (Array.isArray(options)) {
-					options.forEach(function (option) {
-						filterHtml = filterHtml + '<li><span>' + option.text + '</span><a href="#"> X</a></li>';
-					});
+
+				// is a multiselect from Filters area
+				// do not add cross and anchor to options
+				if (ribbonListener.isFilterSecMultSelect(filter)) {
+					filterHtml = String()
+							+ '<ul>'
+							+ '<li>' + filter + '<a href="#"> X</a></li>';
+					if (Array.isArray(options)) {
+						options.forEach(function (option) {
+							filterHtml = filterHtml + '<li><span>' + option.text + '</span></li>';
+						});
+					}
+					filterHtml = filterHtml + '</ul>'
+					activeArr.push(filterHtml);
+				} else {  // normal filters (not from filter section) have close anchor
+					filterHtml = String()
+							+ '<ul>'
+							+ '<li>' + filter + '<a href="#"> X</a></li>';
+					if (Array.isArray(options)) {
+						options.forEach(function (option) {
+							filterHtml = filterHtml + '<li><span>' + option.text + '</span><a href="#"> X</a></li>';
+						});
+					}
+					filterHtml = filterHtml + '</ul>'
+					activeArr.push(filterHtml);
 				}
-				filterHtml = filterHtml + '</ul>'
-				activeArr.push(filterHtml);
 			});
 			var cleanFilters = activeArr.join(' ');
 			$('.filter-collector').append(cleanFilters);
@@ -531,6 +588,7 @@ var ribbonWidgets = function () {
 			function updateMultiSelect(filterType, option) {
 				var updatedValues = [];
 				if (option === undefined) {  // Process for removing whole filter
+					$(filterType).data('trigger', 'dynamic');
 					$(filterType).multipleSelect('setSelects', []);
 
 				} else { // Process to remove single option
@@ -669,7 +727,12 @@ var ribbonWidgets = function () {
 
 			$('.filter-collector').on('click', 'a', function (e) {
 				e.preventDefault();
+
+				// Prevent loop between ribbon and filter collection area
+
+
 				var filterType = findFilterTitle($(this));
+
 
 				// if clicked on grouping filter
 				if ($(this).siblings('span').length > 0) {
