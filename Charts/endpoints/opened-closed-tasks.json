@@ -10,12 +10,7 @@
     "EventContent" : 15,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Feb",
@@ -28,12 +23,7 @@
     "EventContent" : 15,
     "ListPull": 20,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Mar",
@@ -46,12 +36,7 @@
     "EventContent" : 10,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Apr",
@@ -64,12 +49,7 @@
     "EventContent" : 20,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 20,
-    "NewTraining" : 29,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "May",
@@ -82,12 +62,7 @@
     "EventContent" : 10,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 8,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Jun",
@@ -100,12 +75,7 @@
     "EventContent" : 10,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 25,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Jul",
@@ -118,12 +88,7 @@
     "EventContent" : 2,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 25,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Aug",
@@ -136,12 +101,7 @@
     "EventContent" : 15,
     "ListPull": 29,
     "MediaPlan": 17,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Sep",
@@ -154,12 +114,7 @@
     "EventContent" : 15,
     "ListPull": 19,
     "MediaPlan": 27,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 20
+    "ReportingSupport": 15
   },
   {
     "time": "Oct",
@@ -172,12 +127,7 @@
     "EventContent" : 10,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 25,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 20,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 25
   },
   {
     "time": "Nov",
@@ -190,12 +140,7 @@
     "EventContent" : 15,
     "ListPull": 19,
     "MediaPlan": 7,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   },
   {
     "time": "Dec",
@@ -208,11 +153,6 @@
     "EventContent" : 15,
     "ListPull": 19,
     "MediaPlan": 27,
-    "ReportingSupport": 15,
-    "InfographicCreative" : 30,
-    "OnsiteSearch" : 10,
-    "OptimizePage" : 18,
-    "NewTraining" : 9,
-    "MediaLayout" : 19
+    "ReportingSupport": 15
   }
 ]
