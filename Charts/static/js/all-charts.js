@@ -3,7 +3,7 @@ var dataSource = new kendo.data.DataSource({
         read: {
           url: function () {
             /*return "../../Charts/endpoints/sla-variance-drill-down-grey.json";*/
-           /* return "../../Charts/endpoints/sla-variance-drill-down-red.json";*/
+            /* return "../../Charts/endpoints/sla-variance-drill-down-red.json";*/
             return "../../Charts/endpoints/sla-variance-drill-down-orange.json";
           },
           dataType: "json"
@@ -223,7 +223,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color:"white"
+        color: "white"
       }
     }, {
       name: "late",
@@ -464,12 +464,12 @@ function createChart() {
       data: [{
         category: "Started early",
         value: 58,
-        tasks:145,
+        tasks: 145,
         color: "#69a2d6"
       }, {
         category: "Ended late",
         value: 42,
-        tasks:105,
+        tasks: 105,
         color: "#E6693E"
       }]
     }],
@@ -596,12 +596,12 @@ function createChart() {
       data: [{
         category: "Started late",
         value: 59,
-        tasks:215,
+        tasks: 215,
         color: "#69a2d6"
       }, {
         category: "Ended late",
         value: 41,
-        tasks:150,
+        tasks: 150,
         color: "#9d9d9d"
       }]
     }],
@@ -637,12 +637,12 @@ function createChart() {
       data: [{
         category: "Started early",
         value: 70,
-        tasks:250,
+        tasks: 250,
         color: "#69a2d6"
       }, {
         category: "Ended late",
         value: 30,
-        tasks:105,
+        tasks: 105,
         color: "#9d9d9d"
       }]
     }],
@@ -666,7 +666,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         format: "{2:N0}",
-        color:"black"
+        color: "black"
       }
     },
     chartArea: {
@@ -708,9 +708,9 @@ function createChart() {
     },
     tooltip: {
       visible: true,
-      template:"SLA #=dataItem.sla # : #=dataItem.number # Requests"
+      template: "SLA #=dataItem.sla # : #=dataItem.number # Requests"
     },
-    seriesClick: function(e) {
+    seriesClick: function (e) {
       console.log("category:" + e.dataItem.category + "  & SLA: " + e.dataItem.sla);
     }
   });
@@ -738,15 +738,15 @@ function createChart() {
     },
     series: [{
       field: "planned",
-      name:"Planned",
-      color:"#69a2d6"
+      name: "Planned",
+      color: "#69a2d6"
     }, {
       field: "closed",
       name: "Closed",
-      color:"#78C466"
+      color: "#78C466"
     }],
     categoryAxis: {
-      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
+      categories: ["Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4"],
       crosshair: {
         visible: true
       }
@@ -787,18 +787,18 @@ function createChart() {
     },
     series: [{
       field: "planned",
-      name:"Planned",
-      color:"#579AD6"
+      name: "Planned",
+      color: "#579AD6"
     }, {
       field: "closed",
       name: "Closed",
-      color:"#78C466"
-    },{
-      xField:"week"
+      color: "#78C466"
+    }, {
+      xField: "week"
     }
     ],
     categoryAxis: {
-      categories:["Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4","Week1","Week2","Week3","Week4"],
+      categories: ["Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4"],
       crosshair: {
         visible: true
       }
@@ -851,7 +851,7 @@ function createChart() {
       }, {
         name: "Reporting support",
         stack: "Opened",
-        data: [10, 10, null , 10, 20],
+        data: [10, 10, null, 10, 20],
         color: "#F7C773"
       }],
     valueAxis: {
@@ -904,34 +904,34 @@ function createChart() {
     }, {
       field: "CreateLogo",
       name: "Create Logo"
-    },{
+    }, {
       field: "EmailSupport",
       name: "Email Support"
-    },{
+    }, {
       field: "EventContent",
       name: "Event Content"
-    },{
+    }, {
       field: "ListPull",
       name: "List Pull"
-    },{
+    }, {
       field: "MediaPlan",
       name: "Media Plan"
-    },{
+    }, {
       field: "ReportingSupport",
       name: "Reporting Support"
-    },{
+    }, {
       field: "InfographicCreative",
       name: "Infographic Creative"
-    },{
+    }, {
       field: "OnsiteSearch",
       name: "Onsite Search"
-    },{
+    }, {
       field: "OptimizePage",
       name: "Optimize Page"
-    },{
+    }, {
       field: "NewTraining",
       name: "New Training"
-    },{
+    }, {
       field: "MediaLayout",
       name: "Media Layout"
     }],
@@ -947,9 +947,7 @@ function createChart() {
     valueAxis: {
       Max: 100,
       majorUnit: 20,
-      labels: {
-
-      },
+      labels: {},
       minorGridLines: {
         visible: true
       }
@@ -958,6 +956,117 @@ function createChart() {
       visible: true,
       shared: true,
       format: "N0"
+    }
+  });
+
+
+  /*Rupert*/
+  $("#planned-data-protection").kendoChart({
+    title: {
+      /*text: "Number of Requests "*/
+    },
+    legend: {
+      visible: true,
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "column",
+      labels: {
+        visible: true,
+        background: "transparent",
+        position: "center",
+        color: "white"
+      }
+    },
+    series: [{
+      overlay: {
+        gradient: "none"
+      },
+      name: "Planned In Sprint",
+      stack: "Complete",
+      data: [100, 140, 80]
+    }, {
+      overlay: {
+        gradient: "none"
+      },
+      name: "Planned Outside of Sprint",
+      stack: "Open",
+      data: [50, 20, 30]
+    }],
+    seriesColors: ["#78C466", "#FF9900"],
+    valueAxis: {
+      Max: 160,
+      majorUnit: 5,
+      line: {
+        visible: false
+      },
+      labels: {
+        step: 2
+      }
+    },
+    categoryAxis: {
+      categories: ["Sprint 23", "Sprint 40", "Sprint 57"],
+      majorGridLines: {
+        visible: false
+      }
+    },
+    tooltip: {
+      visible: true,
+      template: "#= series.name #"
+    }
+  });
+  $("#planned-security").kendoChart({
+    title: {
+      /*text: "Number of Requests "*/
+    },
+    legend: {
+      visible: true,
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "column",
+      labels: {
+        visible: true,
+        background: "transparent",
+        position: "center",
+        color: "white"
+      }
+    },
+    series: [{
+      overlay: {
+        gradient: "none"
+      },
+      name: "Planned In Sprint",
+      stack: "Open",
+      data: [100, 60, 80]
+    }, {
+      overlay: {
+        gradient: "none"
+      },
+      name: "Planned Outside of Sprint",
+      stack: "Complete",
+      data: [80, 14, 50]
+    }],
+    seriesColors: ["#78C466", "#FF9900"],
+    valueAxis: {
+      Max: 160,
+      majorUnit: 5,
+      line: {
+        visible: false
+      },
+      labels: {
+        step: 2
+      }
+    },
+    categoryAxis: {
+      categories: ["Sprint 23", "Sprint 40", "Sprint 57"],
+      majorGridLines: {
+        visible: false
+      }
+    },
+    tooltip: {
+      visible: true,
+      template: "#= series.name #"
     }
   });
 }
@@ -979,7 +1088,7 @@ function createSparklines() {
   });
 
   $("#data-protection-closed").kendoSparkline({
-    title:{
+    title: {
       text: "Closed Requests"
     },
     type: "column",
@@ -995,8 +1104,8 @@ function createSparklines() {
   });
 
   $("#endpoints-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1011,8 +1120,8 @@ function createSparklines() {
 
 
   $("#endpoints-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
@@ -1026,8 +1135,8 @@ function createSparklines() {
     }
   });
   $("#databases-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1042,8 +1151,8 @@ function createSparklines() {
 
 
   $("#databases-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
@@ -1058,8 +1167,8 @@ function createSparklines() {
   });
 
   $("#security-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1074,8 +1183,8 @@ function createSparklines() {
 
 
   $("#security-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
@@ -1090,8 +1199,8 @@ function createSparklines() {
   });
 
   $("#platforms-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1106,8 +1215,8 @@ function createSparklines() {
 
 
   $("#platforms-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
@@ -1122,8 +1231,8 @@ function createSparklines() {
   });
 
   $("#windows-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1138,8 +1247,8 @@ function createSparklines() {
 
 
   $("#windows-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
@@ -1154,8 +1263,8 @@ function createSparklines() {
   });
 
   $("#none-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1170,8 +1279,8 @@ function createSparklines() {
 
 
   $("#none-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
@@ -1186,8 +1295,8 @@ function createSparklines() {
   });
 
   $("#sim-opened").kendoSparkline({
-    title:{
-      text:"Opened Requests"
+    title: {
+      text: "Opened Requests"
     },
     seriesColors: ["#579AD6"],
     data: [
@@ -1202,8 +1311,8 @@ function createSparklines() {
 
 
   $("#sim-closed").kendoSparkline({
-    title:{
-      text:"Closed Requests"
+    title: {
+      text: "Closed Requests"
     },
     type: "column",
     seriesColors: ["#78C466"],
