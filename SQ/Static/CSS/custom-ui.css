@@ -3020,13 +3020,6 @@ input#searchById {
       float: left;
       clear: both;
       width: 100%; }
-      #groups .task-group > div .comment-box h4 {
-        padding: 2px 10px 4px 10px;
-        border: 1px solid #ababab; }
-        #groups .task-group > div .comment-box h4.request-label {
-          background-color: #cde6f2; }
-        #groups .task-group > div .comment-box h4.task-label {
-          background-color: #faf8cb; }
       #groups .task-group > div .comment-box > div {
         background-color: #eee;
         float: left;
@@ -3059,15 +3052,10 @@ input#searchById {
         #groups .task-group > div .comment-box > div div:last-child .notify > div > div {
           margin-right: 10px;
           display: inline-block; }
-        #groups .task-group > div .comment-box > div.alert {
-          padding: 10px 35px 0 40px;
-          border-radius: 1px;
-          color: #444;
-          text-shadow: none;
-          background: #ffffc9;
-          position: relative;
-          margin-bottom: 0;
-          border: none; }
+        #groups .task-group > div .comment-box > div.box-alert {
+          background-color: #fff;
+          border: none;
+          padding: 15px; }
       #groups .task-group > div .comment-box .user-info {
         padding: 10px;
         background-color: #e5f2f8;
