@@ -2722,9 +2722,16 @@ ul {
 
 @media (min-width: 1570px) {
   .sq-top-ribbon > ul > li {
-    padding: 5px 25px; }
+    padding: 5px 23px;
+  }
     .sq-top-ribbon > ul > li > ul > li {
-      margin-right: 7px; } }
+      margin-right: 7px;
+    }
+
+  .sq-top-ribbon #agile-status ul > li {
+    width: 92px;
+  }
+}
 /*filters collector */
 .filter-collector {
   float: left;

@@ -105,7 +105,6 @@ $(function () {
 				allSelected: title,
 				maxHeight: 240,
 				onClose: function () {
-					console.log('test');
 					var $target = this.title;
 
 					ribbonListener.onCloseMultiFilter($target);

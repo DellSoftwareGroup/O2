@@ -541,9 +541,14 @@
 @media(min-width: $screen-lg-min) {
   .sq-top-ribbon {
     > ul > li {
-      padding: 5px 25px;
+      padding: 5px 23px;
       > ul > li {
         margin-right: 7px;
+      }
+    }
+    #agile-status {
+      ul > li {
+        width: 92px;
       }
     }
   }
