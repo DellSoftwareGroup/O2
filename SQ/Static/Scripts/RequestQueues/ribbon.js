@@ -498,7 +498,6 @@ var ribbonListener = function () {
 		filtersCollection($filter);
 		filterListener($rbWrapper);
 		viewsSectionLogic();
-		ribbonWidgets.filterCollectorModule();// filters under ribbon - comes from custom-ui.js
 
 		//console.log(ribbonReqObj); // test object
 		//console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
@@ -520,6 +519,7 @@ var ribbonListener = function () {
 var ribbonWidgets = function () {
 
 	function filterCollectorModule() {
+
 		var filterObj = ribbonListener.passFilterStateObj();
 
 		// Clear filter collector area
@@ -551,31 +551,18 @@ var ribbonWidgets = function () {
 			var filterHtml = '', activeArr = [];
 			$.each(activeFilters, function (filter, options) {
 
-				// is a multiselect from Filters area
+				// if it is a multiselect from Filters area
 				// do not add cross and anchor to options
-				if (ribbonListener.isFilterSecMultSelect(filter)) {
-					filterHtml = String()
-							+ '<ul>'
-							+ '<li>' + filter + '<a href="#"> X</a></li>';
-					if (Array.isArray(options)) {
-						options.forEach(function (option) {
-							filterHtml = filterHtml + '<li><span>' + option.text + '</span></li>';
-						});
-					}
-					filterHtml = filterHtml + '</ul>'
-					activeArr.push(filterHtml);
-				} else {  // normal filters (not from filter section) have close anchor
-					filterHtml = String()
-							+ '<ul>'
-							+ '<li>' + filter + '<a href="#"> X</a></li>';
-					if (Array.isArray(options)) {
-						options.forEach(function (option) {
-							filterHtml = filterHtml + '<li><span>' + option.text + '</span><a href="#"> X</a></li>';
-						});
-					}
-					filterHtml = filterHtml + '</ul>'
-					activeArr.push(filterHtml);
+				filterHtml = String()
+						+ '<ul>'
+						+ '<li>' + filter + '<a href="#"> X</a></li>';
+				if (Array.isArray(options)) {
+					options.forEach(function (option) {
+						filterHtml = filterHtml + '<li><span>' + option.text + '</span></li>';
+					});
 				}
+				filterHtml = filterHtml + '</ul>'
+				activeArr.push(filterHtml);
 			});
 			var cleanFilters = activeArr.join(' ');
 			$('.filter-collector').append(cleanFilters);
@@ -606,7 +593,7 @@ var ribbonWidgets = function () {
 			}
 
 			function updateDefaultSelect(filterType) {
-				$(filterType).val('0'); // default to "All Sprints" -- TODO: need to revise when values are set from IS data.
+				$('#dp-sprint-dd').val(''); // default to "All Sprints" --
 				ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
 			}
 
@@ -732,14 +719,14 @@ var ribbonWidgets = function () {
 
 
 				var filterType = findFilterTitle($(this));
-
+				var $dataTitle = $('.sq-top-ribbon').find('[data-title="' + filterType + '"]'); // needed as there may be additional data-title with same value
 
 				// if clicked on grouping filter
 				if ($(this).siblings('span').length > 0) {
 					var optionTxt = findOptionTxt($(this));
-					whichFilterType($('[data-title="' + filterType + '"]'), optionTxt); // determine which filter type and remove option
+					whichFilterType($dataTitle, optionTxt); // determine which filter type and remove option
 				} else {
-					whichFilterType($('[data-title="' + filterType + '"]')); // determine and remove whole filter type
+					whichFilterType($dataTitle); // determine and remove whole filter type
 				}
 
 			});
