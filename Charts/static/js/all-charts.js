@@ -199,23 +199,23 @@ function createChart() {
       data: [{
         category: "-1",
         value: 200,
-        color: "#79c4e4"
+        color: "#FCFAE2"
       }, {
         category: "-2 to -3",
         value: 125,
-        color: "#3aa3cf"
+        color: "#FCF3AA"
       }, {
         category: "-4 to -5",
         value: 150,
-        color: "#0093D1"
+        color: "#FCEC73"
       }, {
         category: "-6 to -7 to -8",
         value: 120,
-        color: "#006495"
+        color: "#FCE53B"
       }, {
         category: "-8+",
         value: 100,
-        color: "#004C70"
+        color: "#FCDF04"
       }],
       labels: {
         visible: true,
@@ -223,7 +223,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "white"
+        color: "black"
       }
     }, {
       name: "late",
@@ -502,23 +502,23 @@ function createChart() {
       data: [{
         category: "-1",
         value: 50,
-        color: "#78C466"
+        color: "#D2F3CA"
       }, {
         category: "-2 to -3",
         value: 25,
-        color: "#5FAA4D"
+        color: "#AFDAA4"
       }, {
         category: "-4 to -5",
         value: 10,
-        color: "#479035"
+        color: "#8CC17F"
       }, {
         category: "-6 to -7 to -8",
         value: 10,
-        color: "#2E761D"
+        color: "#69A85A"
       }, {
         category: "-8+",
         value: 10,
-        color: "#165D05"
+        color: "#479035"
       }]
       ,
       labels: {
@@ -527,7 +527,7 @@ function createChart() {
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "white"
+        color: "black"
       }
     }, {
       name: "Started late",
@@ -714,106 +714,6 @@ function createChart() {
       console.log("category:" + e.dataItem.category + "  & SLA: " + e.dataItem.sla);
     }
   });
-  $("#planned-closed-data-protection").kendoChart({
-    dataSource: {
-      transport: {
-        read: {
-          url: "../../Charts/endpoints/data-protection.json",
-          dataType: "json"
-        }
-      }/*,
-       sort: {
-       field: "year",
-       dir: "asc"
-       }*/
-    },
-    title: {
-      text: "Planned/Closed requests by Data Protection"
-    },
-    legend: {
-      position: "bottom"
-    },
-    seriesDefaults: {
-      type: "line"
-    },
-    series: [{
-      field: "planned",
-      name: "Planned",
-      color: "#69a2d6"
-    }, {
-      field: "closed",
-      name: "Closed",
-      color: "#78C466"
-    }],
-    categoryAxis: {
-      categories: ["Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4"],
-      crosshair: {
-        visible: true
-      }
-    },
-    valueAxis: {
-      Max: 50,
-      majorUnit: 5
-    },
-    tooltip: {
-      visible: true,
-      /*shared: true*/
-      template: "<strong>Sprint #= dataItem.sprint#</strong> <br> #= series.name #: #= value #"
-      /*sharedTemplate:kendo.template($("#template").html())*/
-      /*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*/
-    }
-  });
-  $("#planned-closed-security").kendoChart({
-    dataSource: {
-      transport: {
-        read: {
-          url: "../../Charts/endpoints/data-protection.json",
-          dataType: "json"
-        }
-      }/*,
-       sort: {
-       field: "year",
-       dir: "asc"
-       }*/
-    },
-    title: {
-      text: "Planned/Closed requests by Security"
-    },
-    legend: {
-      position: "bottom"
-    },
-    seriesDefaults: {
-      type: "line"
-    },
-    series: [{
-      field: "planned",
-      name: "Planned",
-      color: "#579AD6"
-    }, {
-      field: "closed",
-      name: "Closed",
-      color: "#78C466"
-    }, {
-      xField: "week"
-    }
-    ],
-    categoryAxis: {
-      categories: ["Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4"],
-      crosshair: {
-        visible: true
-      }
-    },
-    valueAxis: {
-      Max: 50,
-      majorUnit: 5
-    },
-    tooltip: {
-      visible: true,
-      /*shared: true*/
-      template: "<strong>Sprint #= dataItem.sprint#</strong> <br> #= series.name #: #= value #"
-      /*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*/
-    }
-  });
 
   /*tasks*/
   $("#opened-closed-tasks-by-owner").kendoChart({
@@ -871,94 +771,274 @@ function createChart() {
       template: "#= series.name #"
     }
   });
-  $("#15-open-closed-tickets-per-task-type").kendoChart({
-    dataSource: {
-      transport: {
-        read: {
-          url: "../../Charts/endpoints/opened-closed-tasks.json",
-          dataType: "json"
-        }
-      }
-    },
+  /*$("#15-open-closed-tickets-per-task-type").kendoChart({
+   dataSource: {
+   transport: {
+   read: {
+   url: "../../Charts/endpoints/opened-closed-tasks.json",
+   dataType: "json"
+   }
+   }
+   },
+   title: {
+   text: ""
+   },
+   legend: {
+   visible: false
+   },
+   seriesDefaults: {
+   type: "column"
+   },
+   series: [{
+   field: "HPGCreative",
+   name: "HPG Creative"
+   }, {
+   field: "HPGContent",
+   name: "HPG Content"
+   }, {
+   field: "AddTags",
+   name: "Add Tags"
+   }, {
+   field: "AnimatedVideo",
+   name: "Animated Video"
+   }, {
+   field: "CreateLogo",
+   name: "Create Logo"
+   }, {
+   field: "EmailSupport",
+   name: "Email Support"
+   }, {
+   field: "EventContent",
+   name: "Event Content"
+   }, {
+   field: "ListPull",
+   name: "List Pull"
+   }, {
+   field: "MediaPlan",
+   name: "Media Plan"
+   }, {
+   field: "ReportingSupport",
+   name: "Reporting Support"
+   }, {
+   field: "InfographicCreative",
+   name: "Infographic Creative"
+   }, {
+   field: "OnsiteSearch",
+   name: "Onsite Search"
+   }, {
+   field: "OptimizePage",
+   name: "Optimize Page"
+   }, {
+   field: "NewTraining",
+   name: "New Training"
+   }, {
+   field: "MediaLayout",
+   name: "Media Layout"
+   }],
+   categoryAxis: {
+   field: "time",
+   labels: {
+   /!*rotation: -90*!/
+   },
+   crosshair: {
+   visible: true
+   }
+   },
+   valueAxis: {
+   Max: 100,
+   majorUnit: 20,
+   labels: {},
+   minorGridLines: {
+   visible: true
+   }
+   },
+   tooltip: {
+   visible: true,
+   shared: true,
+   format: "N0"
+   }
+   });*/
+
+  $("#10-open-tickets-per-task-type").kendoChart({
     title: {
-      text: ""
+      text: "Number of comments by task type"
     },
     legend: {
-      visible: false
+      visible: true,
+      position:"bottom"
     },
     seriesDefaults: {
-      type: "line"
-    },
-    series: [{
-      field: "HPGCreative",
-      name: "HPG Creative"
-    }, {
-      field: "HPGContent",
-      name: "HPG Content"
-    }, {
-      field: "AddTags",
-      name: "Add Tags"
-    }, {
-      field: "AnimatedVideo",
-      name: "Animated Video"
-    }, {
-      field: "CreateLogo",
-      name: "Create Logo"
-    }, {
-      field: "EmailSupport",
-      name: "Email Support"
-    }, {
-      field: "EventContent",
-      name: "Event Content"
-    }, {
-      field: "ListPull",
-      name: "List Pull"
-    }, {
-      field: "MediaPlan",
-      name: "Media Plan"
-    }, {
-      field: "ReportingSupport",
-      name: "Reporting Support"
-    }, {
-      field: "InfographicCreative",
-      name: "Infographic Creative"
-    }, {
-      field: "OnsiteSearch",
-      name: "Onsite Search"
-    }, {
-      field: "OptimizePage",
-      name: "Optimize Page"
-    }, {
-      field: "NewTraining",
-      name: "New Training"
-    }, {
-      field: "MediaLayout",
-      name: "Media Layout"
-    }],
-    categoryAxis: {
-      field: "time",
-      labels: {
-        /*rotation: -90*/
+      overlay: {
+        gradient: "none"
       },
-      crosshair: {
-        visible: true
+      type: "column",
+      labels: {
+        visible: false,
+        background: "transparent",
+        position: "center",
+        color: "white"
       }
     },
+    series: [{
+      name: "HPG Creative",
+      stack: "open tickets",
+      data: [4, 8, 6, 7, 3, 10, 20, 8, 10, 10, 6, 10],
+      color: "#004C70"
+    }, {
+      name: "HPG Content",
+      stack: "open tickets",
+      data: [7, 9, 13, 8, 11, 35, 20, 29, 21, 16, 13, 20],
+      color: "#467cac"
+    }, {
+      name: "Add Tags",
+      stack: "open tickets",
+      data: [10, 10, 20, 10, 20, 60, 20, 50, 32, 23, 20, 30],
+      color: "#4d87bb"
+    }, {
+      name: "Animated Video",
+      stack: "open tickets",
+      data: [6, 5, 50, 10, 5, 16, 10, 5, 12, 23, 20, 15],
+      color: "#5290c8"
+    }, {
+      name: "Create Logo",
+      stack: "open tickets",
+      data: [10, 0, 50, 10, 5, 6, 20, 5, 32, 23, 20, 30],
+      color: "#589AD6"
+    },{
+      name: "Email Support",
+      stack: "open tickets",
+      data: [4, 8, 6, 7, 3, 10, 20, 8, 20, 40, 6, 10],
+      color: "#5da2e0"
+    }, {
+      name: "Event Content",
+      stack: "open tickets",
+      data: [7, 9, 13, 8, 11, 35, 20, 29, 21, 16, 13, 20],
+      color: "#60a7e7"
+    }, {
+      name: "List Pull",
+      stack: "open tickets",
+      data: [10, 10, 20, 10, 20, 60, 20, 50, 32, 23, 20, 30],
+      color: "#63acee"
+    }, {
+      name: "Media Plan",
+      stack: "open tickets",
+      data: [6, 5, 50, 10, 5, 16, 10, 5, 12, 23, 20, 15],
+      color: "#66b1f5"
+    }, {
+      name: "Reporting Support",
+      stack: "open tickets",
+      data: [10, 0, 50, 10, 5, 6, 20, 5, 32, 23, 20, 30],
+      color: "#6bb9ff"
+    }],
     valueAxis: {
-      Max: 100,
-      majorUnit: 20,
-      labels: {},
-      minorGridLines: {
-        visible: true
+      Max: 200,
+      Min: 10,
+      step: 10,
+      line: {
+        visible: false
+      }
+    },
+    categoryAxis: {
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      majorGridLines: {
+        visible: false
       }
     },
     tooltip: {
       visible: true,
-      shared: true,
-      format: "N0"
+      template: "#= series.name #: #= value #"
     }
   });
-
+  $("#10-close-tickets-per-task-type").kendoChart({
+    title: {
+      text: "Number of comments by task type"
+    },
+    legend: {
+      visible: true,
+      position:"bottom"
+    },
+    seriesDefaults: {
+      overlay: {
+        gradient: "none"
+      },
+      type: "column",
+      labels: {
+        visible: false,
+        background: "transparent",
+        position: "center",
+        color: "white"
+      }
+    },
+    series: [{
+      name: "HPG Creative",
+      stack: "close tickets",
+      data: [4, 8, 6, 7, 3, 10, 20, 8, 10, 10, 6, 10],
+      color: "#175D05"
+    }, {
+      name: "HPG Content",
+      stack: "close tickets",
+      data: [7, 9, 13, 8, 11, 35, 20, 29, 21, 16, 13, 20],
+      color: "#1a6906"
+    }, {
+      name: "Add Tags",
+      stack: "close tickets",
+      data: [10, 10, 20, 10, 20, 60, 20, 50, 32, 23, 20, 30],
+      color: "#1f7a08"
+    }, {
+      name: "Animated Video",
+      stack: "close tickets",
+      data: [6, 5, 50, 10, 5, 16, 10, 5, 12, 23, 20, 15],
+      color: "#228608"
+    }, {
+      name: "Create Logo",
+      stack: "close tickets",
+      data: [10, 0, 50, 10, 5, 6, 20, 5, 32, 23, 20, 30],
+      color: "#26930a"
+    },{
+      name: "Email Support",
+      stack: "close tickets",
+      data: [4, 8, 6, 7, 3, 10, 20, 8, 20, 40, 6, 10],
+      color: "#2aa20b"
+    }, {
+      name: "Event Content",
+      stack: "close tickets",
+      data: [7, 9, 13, 8, 11, 35, 20, 29, 21, 16, 13, 20],
+      color: "#2fb50c"
+    }, {
+      name: "List Pull",
+      stack: "close tickets",
+      data: [10, 10, 20, 10, 20, 60, 20, 50, 32, 23, 20, 30],
+      color: "#43bb24"
+    }, {
+      name: "Media Plan",
+      stack: "close tickets",
+      data: [6, 5, 50, 10, 5, 16, 10, 5, 12, 23, 20, 15],
+      color: "#5dd93d"
+    }, {
+      name: "Reporting Support",
+      stack: "close tickets",
+      data: [10, 0, 50, 10, 5, 6, 20, 5, 32, 23, 20, 30],
+      color: "#7df75d"
+    }],
+    valueAxis: {
+      Max: 200,
+      Min: 10,
+      step: 10,
+      line: {
+        visible: false
+      }
+    },
+    categoryAxis: {
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      majorGridLines: {
+        visible: false
+      }
+    },
+    tooltip: {
+      visible: true,
+      template: "#= series.name #: #= value #"
+    }
+  });
 
   /*Rupert*/
   $("#planned-data-protection").kendoChart({
@@ -1067,6 +1147,170 @@ function createChart() {
     tooltip: {
       visible: true,
       template: "#= series.name #"
+    }
+  });
+
+  /*$("#planned-closed-data-protection").kendoChart({
+    dataSource: {
+      transport: {
+        read: {
+          url: "../../Charts/endpoints/data-protection.json",
+          dataType: "json"
+        }
+      }/!*,
+       sort: {
+       field: "year",
+       dir: "asc"
+       }*!/
+    },
+    title: {
+      text: "Planned/Closed requests by Data Protection"
+    },
+    legend: {
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      field: "planned",
+      name: "Planned",
+      color: "#69a2d6"
+    }, {
+      field: "closed",
+      name: "Closed",
+      color: "#78C466"
+    }],
+    categoryAxis: {
+      categories: ["4< Weeks", "3< Weeks", "2< Weeks", "1< Week", "1> Week", "Weeks >2", "Weeks 3>", "Weeks 4>"],
+      crosshair: {
+        visible: true
+      }
+    },
+    valueAxis: {
+      Max: 50,
+      majorUnit: 5
+    },
+    tooltip: {
+      visible: true,
+      /!*shared: true*!/
+      template: "<strong>Sprint #= dataItem.sprint#</strong> <br> #= series.name #: #= value #"
+      /!*sharedTemplate:kendo.template($("#template").html())*!/
+      /!*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*!/
+    }
+  });*/
+  $("#planned-closed-data-protection").kendoChart({
+    title: {
+      /*text: "Gross domestic product growth \n /GDP annual %/"*/
+    },
+    legend: {
+      visible: false,
+      position: "bottom"
+    },
+    chartArea: {
+      background: ""
+    },
+    seriesDefaults: {
+      type: "line",
+      style: "smooth"
+    },
+    series: [{
+      name: "Sprint 23 - Planned",
+      data: [5, 7, 9 , 15 , 25, 20, 15, 10],
+      dashType:"solid"
+    },{
+      name: "Sprint 23 - Closed",
+      data: [5, 6, 7, 14,  20, 15, 13, 8],
+      dashType:"longdash"
+    },{
+      name: "Sprint 24 - Planned",
+      data: [14, 16, 8, 10, 15, 12, 8, 6],
+      dashType:"solid"
+    },{
+      name: "Sprint 24 - Closed",
+      data: [13, 16, 5, 10,  13, 10, 15, 4],
+      dashType:"longdash"
+    },{
+      name: "Sprint 25 - Planned",
+      data: [28, 30, 35, 40,  35, 10, 5, 1],
+      dashType:"solid"
+    },{
+      name: "Sprint 24 - Closed",
+      data: [25, 16, 25, 50,30, 8, 15, 20],
+      dashType:"longdash"
+    }],
+    seriesColors: ["#006495","#006495","#FF9900", "#FF9900","#2e761d","#2e761d"],
+    valueAxis: {
+      Max: 50,
+      majorUnit: 5,
+      line: {
+        visible: true
+      }
+    },
+    categoryAxis: {
+      categories: ["4< Weeks", "3< Weeks", "2< Weeks", "1< Week", "Week 0", "1> Week", "2> Weeks", "3> Weeks", "4> Weeks"],
+      majorGridLines: {
+        visible: false
+      },
+      labels: {
+        rotation: "45"
+      },
+      axisCrossingValue: 5
+    },
+    tooltip: {
+      visible: true,
+      template: "#= series.name #: #= value #"
+    }
+  });
+  $("#planned-closed-security").kendoChart({
+    dataSource: {
+      transport: {
+        read: {
+          url: "../../Charts/endpoints/data-protection.json",
+          dataType: "json"
+        }
+      }/*,
+       sort: {
+       field: "year",
+       dir: "asc"
+       }*/
+    },
+    title: {
+      text: "Planned/Closed requests by Security"
+    },
+    legend: {
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      field: "planned",
+      name: "Planned",
+      color: "#579AD6"
+    }, {
+      field: "closed",
+      name: "Closed",
+      color: "#78C466"
+    }, {
+      xField: "week"
+    }
+    ],
+    categoryAxis: {
+      categories: ["Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4", "Week1", "Week2", "Week3", "Week4"],
+      crosshair: {
+        visible: true
+      }
+    },
+    valueAxis: {
+      Max: 50,
+      majorUnit: 5
+    },
+    tooltip: {
+      visible: true,
+      /*shared: true*/
+      template: "<strong>Sprint #= dataItem.sprint#</strong> <br> #= series.name #: #= value #"
+      /*template:"<strong>Sprint #= dataItem.sprint#</strong> <br> Planned: #=dataItem.planned # <br> Closed: #=dataItem.closed #"*/
     }
   });
 }

@@ -5,7 +5,7 @@
     "range": 1,
     "number": 15,
     "category": "Development",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -14,7 +14,7 @@
     "range": 2,
     "number": 10,
     "category": "Development",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -23,7 +23,7 @@
     "range": 3,
     "number": 20,
     "category": "Development",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -32,7 +32,7 @@
     "range": 4,
     "number": 20,
     "category": "Development",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -41,7 +41,7 @@
     "range": 5,
     "number": 5,
     "category": "Development",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -50,8 +50,8 @@
     "range": 6,
     "number": 20,
     "category": "Development",
-    "color": "#a9d2e3",
-    "textColor": "#a9d2e3"
+    "color": "#fbfaf2",
+    "textColor": "#fbfaf2"
   },
   {
     "sla": "+1",
@@ -104,7 +104,7 @@
     "range": 4,
     "number": 20,
     "category": "Web page - HPG",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor":"white"
   },
   {
@@ -113,7 +113,7 @@
     "range": 6,
     "number": 0,
     "category": "Web page - HPG",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -131,7 +131,7 @@
     "range": 1,
     "number": 25,
     "category": "Ad copy",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -140,7 +140,7 @@
     "range": 2,
     "number": 10,
     "category": "Ad copy",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -149,7 +149,7 @@
     "range": 3,
     "number": 50,
     "category": "Ad copy",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -158,7 +158,7 @@
     "range": 4,
     "number": 20,
     "category": "Ad copy",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -167,7 +167,7 @@
     "range": 5,
     "number": 5,
     "category": "Ad copy",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -176,7 +176,7 @@
     "range": 6,
     "number": 20,
     "category": "Ad copy",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -230,7 +230,7 @@
     "range": 1,
     "number": 25,
     "category": "Analytics",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -239,7 +239,7 @@
     "range": 2,
     "number": 10,
     "category": "Analytics",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -248,7 +248,7 @@
     "range": 3,
     "number": 50,
     "category": "Analytics",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -257,7 +257,7 @@
     "range": 4,
     "number": 20,
     "category": "Analytics",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -266,7 +266,7 @@
     "range": 5,
     "number": 5,
     "category": "Analytics",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -275,7 +275,7 @@
     "range": 6,
     "number": 20,
     "category": "Analytics",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -329,7 +329,7 @@
     "range": 1,
     "number": 25,
     "category": "EBook - Support",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -338,7 +338,7 @@
     "range": 2,
     "number": 10,
     "category": "EBook - Support",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -347,7 +347,7 @@
     "range": 3,
     "number": 50,
     "category": "EBook - Support",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -356,7 +356,7 @@
     "range": 4,
     "number": 20,
     "category": "EBook - Support",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -365,7 +365,7 @@
     "range": 5,
     "number": 5,
     "category": "EBook - Support",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -374,7 +374,7 @@
     "range": 6,
     "number": 20,
     "category": "EBook - Support",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -428,7 +428,7 @@
     "range": 1,
     "number": 25,
     "category": "Edit Solution",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -437,7 +437,7 @@
     "range": 2,
     "number": 10,
     "category": "Edit Solution",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -446,7 +446,7 @@
     "range": 3,
     "number": 50,
     "category": "Edit Solution",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -455,7 +455,7 @@
     "range": 4,
     "number": 20,
     "category": "Edit Solution",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -464,7 +464,7 @@
     "range": 5,
     "number": 5,
     "category": "Edit Solution",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -473,7 +473,7 @@
     "range": 6,
     "number": 20,
     "category": "Edit Solution",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -527,7 +527,7 @@
     "range": 1,
     "number": 25,
     "category": "Infographic",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -536,7 +536,7 @@
     "range": 2,
     "number": 10,
     "category": "Infographic",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -545,7 +545,7 @@
     "range": 3,
     "number": 50,
     "category": "Infographic",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -554,7 +554,7 @@
     "range": 4,
     "number": 20,
     "category": "Infographic",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -563,7 +563,7 @@
     "range": 5,
     "number": 5,
     "category": "Infographic",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -572,7 +572,7 @@
     "range": 6,
     "number": 20,
     "category": "Infographic",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -626,7 +626,7 @@
     "range": 1,
     "number": 25,
     "category": "Home Page Banner",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -635,7 +635,7 @@
     "range": 2,
     "number": 10,
     "category": "Home Page Banner",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -644,7 +644,7 @@
     "range": 3,
     "number": 50,
     "category": "Home Page Banner",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -653,7 +653,7 @@
     "range": 4,
     "number": 20,
     "category": "Home Page Banner",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -662,7 +662,7 @@
     "range": 5,
     "number": 5,
     "category": "Home Page Banner",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -671,7 +671,7 @@
     "range": 6,
     "number": 20,
     "category": "Home Page Banner",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -725,7 +725,7 @@
     "range": 1,
     "number": 25,
     "category": "New Product",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -734,7 +734,7 @@
     "range": 2,
     "number": 10,
     "category": "New Product",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -743,7 +743,7 @@
     "range": 3,
     "number": 50,
     "category": "New Product",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -752,7 +752,7 @@
     "range": 4,
     "number": 20,
     "category": "New Product",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -761,7 +761,7 @@
     "range": 5,
     "number": 5,
     "category": "New Product",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -770,7 +770,7 @@
     "range": 6,
     "number": 20,
     "category": "New Product",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
@@ -824,7 +824,7 @@
     "range": 1,
     "number": 25,
     "category": "Onsite Search",
-    "color": "#004C70",
+    "color": "#FCDF04",
     "textColor": "white"
   },
   {
@@ -833,7 +833,7 @@
     "range": 2,
     "number": 10,
     "category": "Onsite Search",
-    "color": "#006495",
+    "color": "#FCE53B",
     "textColor": "white"
   },
   {
@@ -842,7 +842,7 @@
     "range": 3,
     "number": 50,
     "category": "Onsite Search",
-    "color": "#0093D1",
+    "color": "#FCEC73",
     "textColor": "white"
   },
   {
@@ -851,7 +851,7 @@
     "range": 4,
     "number": 20,
     "category": "Onsite Search",
-    "color": "#3aa3cf",
+    "color": "#FCF3AA",
     "textColor": "white"
   },
   {
@@ -860,7 +860,7 @@
     "range": 5,
     "number": 5,
     "category": "Onsite Search",
-    "color": "#79c4e4",
+    "color": "#FCFAE2",
     "textColor": "white"
   },
   {
@@ -869,7 +869,7 @@
     "range": 6,
     "number": 20,
     "category": "Onsite Search",
-    "color": "#a9d2e3",
+    "color": "#fbfaf2",
     "textColor": "white"
   },
   {
