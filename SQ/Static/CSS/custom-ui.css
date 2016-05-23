@@ -1917,6 +1917,11 @@ ul {
         top: 10px;
         right: 19px; }
 
+/* grid headers */
+.results-data .table-group-headings th:last-child {
+  color: #00447c !important;
+}
+
 /*nav start*/
 .nav {
   position: relative;
@@ -2727,7 +2732,6 @@ ul {
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px;
     }
-
   .sq-top-ribbon #agile-status ul > li {
     width: 92px;
   }
@@ -2924,6 +2928,12 @@ input#searchById {
 
 #tabstrip-modal .modal-top-area {
   padding-right: 4px; }
+
+/* More filters popop */
+#project-text,
+.sq-ribbon-filter-text.campaign-input {
+  background-color: #fff;
+}
 
 @media (min-width: 768px) {
   .modal-dialog {

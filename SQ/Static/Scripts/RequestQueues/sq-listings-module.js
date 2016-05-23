@@ -294,8 +294,7 @@ var singleQueueTables = (function ($) {
 			}
 
 		}
-
-
+		
 		/* Public Method */
 		var init = function () {
 
