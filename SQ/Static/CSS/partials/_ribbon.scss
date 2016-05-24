@@ -60,13 +60,13 @@
         margin-right: 7px;
         font-size: 12.66px;
         &.active-item-bg {
-          background-color: #eee;
+          background-color: #E5F3FA;
           border-radius: 3px;
           &:hover a {
             color: #444;
           }
           select {
-            background-color: #eee;
+            background-color: transparent;
             &#priority-dd, &#region-dd, &#route-to-market-dd {
               background-color: #fff;
             }
@@ -75,7 +75,7 @@
             background-position: 4px 0;
           }
           .ms-choice {
-            background-color: #eee;
+            background-color: transparent;
           }
         }
         &:hover {

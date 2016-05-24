@@ -2397,18 +2397,20 @@ ul {
         font-size: 12.66px;
         /*icons*/ }
         .sq-top-ribbon > ul > li > ul > li.active-item-bg {
-          background-color: #eee;
+          background-color: #E5F3FA;
           border-radius: 3px; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg:hover a {
             color: #444; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg select {
-            background-color: #eee; }
+            background-color: transparent;
+          }
             .sq-top-ribbon > ul > li > ul > li.active-item-bg select#priority-dd, .sq-top-ribbon > ul > li > ul > li.active-item-bg select#region-dd, .sq-top-ribbon > ul > li > ul > li.active-item-bg select#route-to-market-dd {
               background-color: #fff; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg #my-work-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #requester-icon {
             background-position: 4px 0; }
           .sq-top-ribbon > ul > li > ul > li.active-item-bg .ms-choice {
-            background-color: #eee; }
+            background-color: transparent;
+          }
         .sq-top-ribbon > ul > li > ul > li:hover {
           cursor: pointer; }
           .sq-top-ribbon > ul > li > ul > li:hover a {
