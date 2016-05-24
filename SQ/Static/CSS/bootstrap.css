@@ -6544,7 +6544,8 @@ body {
   border-top: 1px solid #aaaaaa; }
 
 .border-b-grey {
-  border-bottom: 1px solid #cccccc; }
+  border-bottom: 1px solid #cccccc !important;
+}
 
 .border-tb-grey {
   border-top: 1px solid #cccccc;
