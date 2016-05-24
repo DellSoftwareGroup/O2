@@ -830,6 +830,12 @@ input#searchById {
   padding-right: 4px;
 }
 
+/* More filters popop */
+#project-text,
+.sq-ribbon-filter-text.campaign-input {
+  background-color: #fff;
+}
+
 @media(min-width: 768px) {
   .modal-dialog {
     width: 535px;

@@ -121,6 +121,11 @@ ul {
   }
 }
 
+/* grid headers */
+.results-data .table-group-headings th:last-child {
+  color: #00447c !important
+}
+
 /*nav start*/
 .nav {
   position: relative;
