@@ -3,8 +3,8 @@ var dataSource = new kendo.data.DataSource({
         read: {
           url: function () {
             /*return "../../Charts/endpoints/sla-variance-drill-down-grey.json";*/
-            /* return "../../Charts/endpoints/sla-variance-drill-down-red.json";*/
-            return "../../Charts/endpoints/sla-variance-drill-down-orange.json";
+             return "../../Charts/endpoints/sla-variance-drill-down-red.json";
+           /* return "../../Charts/endpoints/sla-variance-drill-down-orange.json";*/
           },
           dataType: "json"
         }
@@ -17,8 +17,8 @@ var dataSource = new kendo.data.DataSource({
     valueArrayY = new Array();
 $.ajax({
   /*url: "../../Charts/endpoints/sla-variance-drill-down-grey.json"*/
-  /*url: "../../Charts/endpoints/sla-variance-drill-down-red.json"*/
-  url: "../../Charts/endpoints/sla-variance-drill-down-orange.json"
+  url: "../../Charts/endpoints/sla-variance-drill-down-red.json"
+ /* url: "../../Charts/endpoints/sla-variance-drill-down-orange.json"*/
 }).done(function (response) {
   var i = 1, j = 1;
   $.each(response, function (key, val) {
@@ -199,27 +199,27 @@ function createChart() {
       data: [{
         category: "-1",
         value: 200,
-        color: "#FCFAE2"
+        color: "#D2F3CA"
       }, {
         category: "-2 to -3",
         value: 125,
-        color: "#FCF3AA"
+        color: "#B7E0AE"
       }, {
         category: "-4 to -5",
         value: 150,
-        color: "#FCEC73"
+        color:"#9DCD92"
       }, {
         category: "-6 to -7 to -8",
         value: 120,
-        color: "#FCE53B"
+        color: "#83BA76"
       }, {
         category: "-8+",
         value: 100,
-        color: "#FCDF04"
+        color: "#69A85A"
       }],
       labels: {
         visible: true,
-        font: "14px Arial,Helvetica,sans-serif",
+        font: "bold 14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         template: "#= value #",
@@ -233,27 +233,27 @@ function createChart() {
       data: [{
         category: "+1",
         value: 200,
-        color: "#F6C7B6"
+        color: "#F5DFD7"
       }, {
         category: "+2 to +3",
         value: 175,
-        color: "#F3B49F"
+        color: "#F1C1B0"
       }, {
         category: "+4 to +5",
         value: 50,
-        color: "#EC8F6E"
+        color: "#EDA48A"
       }, {
         category: "+6 to +7 to +8",
         value: 140,
-        color: "#E6693E"
+        color: "#E98664"
       }, {
         category: "8+",
         value: 40,
-        color: "#E0440E"
+        color: "#E6693E"
       }],
       labels: {
         visible: true,
-        font: "14px Arial,Helvetica,sans-serif",
+        font: "bold 14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         template: "#= value #"
@@ -329,32 +329,32 @@ function createChart() {
       data: [{
         category: "-1",
         value: 50,
-        color: "#BDAEC6"
+        color: "#D2F3CA"
       }, {
         category: "-2 to -3",
         value: 25,
-        color: "#a371a9"
+        color: "#B7E0AE"
       }, {
         category: "-4 to -5",
         value: 10,
-        color: "#9c3ea7"
+        color: "#9DCD92"
       }, {
         category: "-6 to -7 to -8",
         value: 10,
-        color: "#732C7B"
+        color: "#83BA76"
       }, {
         category: "-8+",
         value: 10,
-        color: "#421C52"
+        color: "#69A85A"
       }]
       ,
       labels: {
         visible: true,
-        font: "14px Arial,Helvetica,sans-serif",
+        font: "bold 14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "white"
+        color: "black"
       }
     }, {
       name: "Started late",
@@ -364,31 +364,31 @@ function createChart() {
       data: [{
         category: "+1",
         value: 75,
-        color: "#aaaaaa"
+        color: "#F5DFD7"
       }, {
         category: "+2 to +3",
         value: 50,
-        color: "#9d9d9d"
+        color: "#F1C1B0"
       }, {
         category: "+4 to +5",
         value: 20,
-        color: "#858484"
+        color: "#EDA48A"
       }, {
         category: "+6 to +7 to +8",
         value: 40,
-        color: "#676666"
+        color: "#E98664"
       }, {
         category: "8+",
         value: 20,
-        color: "#444444"
+        color: "#E6693E"
       }],
       labels: {
         visible: true,
-        font: "14px Arial,Helvetica,sans-serif",
+        font: "bold 14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "white"
+        color: "black"
       }
     }],
     tooltip: {
@@ -506,24 +506,24 @@ function createChart() {
       }, {
         category: "-2 to -3",
         value: 25,
-        color: "#AFDAA4"
+        color: "#B7E0AE"
       }, {
         category: "-4 to -5",
         value: 10,
-        color: "#8CC17F"
+        color: "#9DCD92"
       }, {
         category: "-6 to -7 to -8",
         value: 10,
-        color: "#69A85A"
+        color: "#83BA76"
       }, {
         category: "-8+",
         value: 10,
-        color: "#479035"
+        color: "#69A85A"
       }]
       ,
       labels: {
         visible: true,
-        font: "14px Arial,Helvetica,sans-serif",
+        font: "bold 14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         template: "#= value #",
@@ -537,31 +537,31 @@ function createChart() {
       data: [{
         category: "+1",
         value: 65,
-        color: "#FFEBCC"
+        color: "#F5DFD7"
       }, {
         category: "+2 to +3",
         value: 70,
-        color: "#FFD799"
+        color: "#F1C1B0"
       }, {
         category: "+4 to +5",
         value: 30,
-        color: "#FFC266"
+        color: "#EDA48A"
       }, {
         category: "+6 to +7 to +8",
         value: 20,
-        color: "#FFAE33"
+        color: "#E98664"
       }, {
         category: "8+",
         value: 30,
-        color: "#FF9900"
+        color: "#E6693E"
       }],
       labels: {
         visible: true,
-        font: "14px Arial,Helvetica,sans-serif",
+        font: "bold 14px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         template: "#= value #",
-        color: "#444444"
+        color: "black"
       }
     }],
     tooltip: {
@@ -663,6 +663,7 @@ function createChart() {
       type: "bubble",
       labels: {
         visible: true,
+        font: "bold 13px Arial,Helvetica,sans-serif",
         background: "transparent",
         position: "center",
         format: "{2:N0}",
@@ -704,7 +705,13 @@ function createChart() {
       },
       axisCrossingValues: 6,
       majorUnit: 1,
-      max: 12
+      max: 12,
+      plotBands: [{
+        from: 10,
+        to: 12,
+        color: "#E5F3FA",
+        opacity:"0.8"
+      }]
     },
     tooltip: {
       visible: true,
@@ -725,6 +732,9 @@ function createChart() {
     },
     seriesDefaults: {
       type: "bar",
+      overlay:{
+        gradient:"none"
+      },
       labels: {
         visible: true,
         background: "transparent",
@@ -732,27 +742,37 @@ function createChart() {
         color: "black"
       }
     },
-    series: [{
+    series: [/*{
       name: "Closed",
       stack: "Closed",
       data: [4, 8, 6, 7, 3],
       color: "#4caf50"
-    },
+    },*/
       {
-        name: "HPG Creative",
+        name: "Backlog",
         stack: "Opened",
-        data: [5, 10, 2, 5, 6],
-        color: "#C9C9C9"
+        data: [5, 10, 15, 20, 26],
+        color: "#FFEBCC"
       }, {
-        name: "HPG Content",
+        name: "In progress",
         stack: "Opened",
-        data: [7, 10, 11, 7, 13],
-        color: "#C7885C"
+        data: [7, 10, 11, 17, 23],
+        color: "#FFD9A0"
       }, {
-        name: "Reporting support",
+        name: "Ready on stage",
         stack: "Opened",
-        data: [10, 10, null, 10, 20],
-        color: "#F7C773"
+        data: [10, 10, 15, 20, 25],
+        color: "#FFBC57"
+      },{
+        name: "Ready to post live",
+        stack: "Opened",
+        data: [10, 10, 12, 15, 22],
+        color: "#FFAA2B"
+      },{
+        name: "Ready on stage",
+        stack: "Opened",
+        data: [10, 14, 15 , 17, 19],
+        color: "#FF9900"
       }],
     valueAxis: {
       Max: 200,
@@ -1204,8 +1224,11 @@ function createChart() {
       /*text: "Gross domestic product growth \n /GDP annual %/"*/
     },
     legend: {
-      visible: false,
-      position: "bottom"
+      visible: true,
+      position: "bottom",
+      margin:{
+        top:10
+      }
     },
     chartArea: {
       background: ""
@@ -1216,30 +1239,30 @@ function createChart() {
     },
     series: [{
       name: "Sprint 23 - Planned",
-      data: [5, 7, 9 , 15 , 25, 20, 15, 10],
+      data: [5, 7, 9 , 15 , 25, 10, 5, 3, 1],
       dashType:"solid"
     },{
       name: "Sprint 23 - Closed",
-      data: [5, 6, 7, 14,  20, 15, 13, 8],
+      data: [null, null, null, null,10, 20, 25, 13, 20],
       dashType:"longdash"
     },{
       name: "Sprint 24 - Planned",
-      data: [14, 16, 8, 10, 15, 12, 8, 6],
+      data: [14, 16, 8, 10, 35, 25, 12, 8, 3],
       dashType:"solid"
     },{
       name: "Sprint 24 - Closed",
-      data: [13, 16, 5, 10,  13, 10, 15, 4],
+      data: [null, null, null, null,20, 28, 30, 13, 20],
       dashType:"longdash"
     },{
       name: "Sprint 25 - Planned",
-      data: [28, 30, 35, 40,  35, 10, 5, 1],
+      data: [28, 30, 35, 40,41,35, 10, 5, 1],
       dashType:"solid"
     },{
-      name: "Sprint 24 - Closed",
-      data: [25, 16, 25, 50,30, 8, 15, 20],
+      name: "Sprint 25 - Closed",
+      data: [null, null, null, null,23, 38, 27, 10, 21],
       dashType:"longdash"
     }],
-    seriesColors: ["#006495","#006495","#FF9900", "#FF9900","#2e761d","#2e761d"],
+    seriesColors: ["#006495","#006495","#FF9900", "#FF9900","#732C7B","#732C7B"],
     valueAxis: {
       Max: 50,
       majorUnit: 5,
@@ -1250,12 +1273,12 @@ function createChart() {
     categoryAxis: {
       categories: ["4< Weeks", "3< Weeks", "2< Weeks", "1< Week", "Week 0", "1> Week", "2> Weeks", "3> Weeks", "4> Weeks"],
       majorGridLines: {
-        visible: false
+        visible: true
       },
+      justified:true,
       labels: {
-        rotation: "45"
       },
-      axisCrossingValue: 5
+      axisCrossingValue: 4
     },
     tooltip: {
       visible: true,
