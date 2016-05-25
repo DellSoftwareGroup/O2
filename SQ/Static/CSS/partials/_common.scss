@@ -673,13 +673,12 @@ ul {
   }
 }
 
-.asterick {
-	&:after {
-		content: "*";
-		display: inline;
-		vertical-align: super;
-	}
-	p {
-		float: left;
+.asterick-first-p {
+	> p:first-child {
+		&:after {
+			content: "*";
+			display: inline;
+			vertical-align: super;
+		}
 	}
 }

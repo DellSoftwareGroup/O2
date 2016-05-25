@@ -32,10 +32,10 @@
 				background-color: #D74324;
 			}
 		}
-		#planned-date {
+		/*#planned-date {
 			margin-left: 13px;
 			margin-right: 77px;
-		}
+		}*/
 	}
 }
 
@@ -131,6 +131,7 @@
 				clear: both;
 				width: 100%;
 				> div {
+					background-color: #eee;
 					float: left;
 					padding: 15px 0;
 					border-top: 1px solid #a9a9a9;
@@ -183,6 +184,7 @@
 						}
 					}
 					&.box-alert {
+						background-color: #fff;
 						border: none;
 						padding: 15px;
 					}
@@ -384,6 +386,12 @@
 			width: 121px;
 		}
 	}
+	/*.task-col {
+		width: 150px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}*/
 }
 
 @media(max-width: 1570px) {
@@ -407,10 +415,17 @@
 
 /* add task popover */
 .table-in-k-windo {
-	max-height: 100px;
+	height: 181px;
 	border: 1px solid #ccc;
-	padding: 4px;
-	overflow-y: scroll
+	overflow-y: auto;
+
+	tr {
+		&:first-of-type {
+			td {
+				border-top: 0;
+			}
+		}
+	}
 }
 
 .k-widget.k-window.k-window-titleless {
@@ -443,17 +458,6 @@
 .task-triggers a {
 	display: inline-block;
 	vertical-align: middle;
-}
-
-.reject-task {
-	width: 500px;
-
-	label {
-		width: 142px;
-	}
-	a {
-		margin-right: 10px;
-	}
 }
 
 .task-search {
