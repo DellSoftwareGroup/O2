@@ -6,6 +6,10 @@
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px;
+  visibility: hidden;
+  &.initialized {
+    visibility: visible;
+  }
   > ul > li {
 	  list-style: none;
     float: left;
@@ -522,7 +526,6 @@
     border-radius: 0;
   }
   .sub-nav {
-
     .ms-drop {
       z-index: 999999;
     }

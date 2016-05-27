@@ -309,16 +309,20 @@ ul {
 /*Naveen - view view section styles*/
 #views-selector {
   margin-left: 0;
-  ul {
-    li {
+  a {
+    overflow: hidden;
+  }
+  > ul {
+    > li {
       margin-right: 10px;
       display: inline-block;
       float: left;
       padding-bottom: 0;
       a {
-        display: inline-block;
+        display: block;
         color: #444;
-        padding: 5px 8px 0 8px;
+        padding: 5px 8px;
+        overflow: hidden;
         &:hover {
           color: #3399cc;
         }
@@ -350,6 +354,37 @@ ul {
       background-position: -583px -114px;
     }
   }
+  .btn-transparent {
+    background-color: transparent;
+    .icon-bar-container {
+      width: 22px;
+      height: 10px;
+      display: inline-block;
+    }
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      background: #333;
+      margin-bottom: 2px;
+    }
+    &:hover {
+      .icon-bar {
+        background: #007db8;
+      }
+    }
+  }
+  .btn-group {
+    &.open {
+      .dropdown-toggle {
+        @include box-shadow(none);
+      }
+    }
+    .btn:active, .btn.active {
+      @include box-shadow(none);
+    }
+  }
 }
 
 #list-icon {
@@ -364,8 +399,7 @@ ul {
   background-position: -583px -70px;
 }
 
-#views-selector {
-
+/*#views-selector {
   .k-multiselect.k-header {
     width: 119px !important;
     background-image: none;
@@ -390,8 +424,7 @@ ul {
     padding: 0;
     margin: 0;
   }
-
-}
+}*/
 
 /* Ribbon Popover */
 
@@ -559,17 +592,13 @@ ul {
   border: 1px solid #ccc;
   border-radius: 5px;
 
+  table {
+    border: 0;
+  }
+
   > div {
     max-height: 170px;
     overflow-y: auto;
-  }
-
-  .table > tbody + tbody,
-  tbody > tr > td {
-    border-top: 0 !important;
-  }
-  .smllWidgetTable {
-    border-bottom: 0 !important;
   }
 }
 

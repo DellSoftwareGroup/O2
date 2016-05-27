@@ -239,13 +239,13 @@ dl.collapsible dt:nth-of-type(2n+1) {
   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); }
 
-.k-dropdown-wrap.k-state-focused, .k-multiselect.k-header.k-state-focused {
-  width: 290px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 1px 0px inset, rgba(0, 124, 185, 0.5451) 0px 0px 7.26411px 0px;
-  box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 1px 0px inset, rgba(0, 124, 185, 0.5451) 0px 0px 7.26411px 0px;
-  border: 1px solid #1384ba !important;
-  border-radius: 1px; }
-
+/*.k-dropdown-wrap.k-state-focused, .k-multiselect.k-header.k-state-focused {
+	width: 290px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, rgba(0, 124, 185, 0.545098) 0px 0px 7.26410579681397px 0px;
+	box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, rgba(0, 124, 185, 0.545098) 0px 0px 7.26410579681397px 0px;
+	border: 1px solid rgb(19, 132, 186) !important;
+	border-radius: 1px;
+}*/
 .k-multiselect.k-header.k-state-focused .k-multiselect-wrap {
   border: none !important; }
 
@@ -964,7 +964,8 @@ p.data {
 .data-heading {
   /*margin: 20px auto;*/
   clear: both;
-  overflow: hidden; }
+  /*overflow: hidden;*/
+}
   .data-heading h3 {
     color: #444;
     font-size: 18px;
@@ -2074,34 +2075,82 @@ ul {
 /*Naveen - view view section styles*/
 #views-selector {
   margin-left: 0; }
-  #views-selector ul li {
+
+#views-selector a {
+  overflow: hidden;
+}
+
+#views-selector > ul > li {
     margin-right: 10px;
     display: inline-block;
     float: left;
     padding-bottom: 0; }
-    #views-selector ul li a {
-      display: inline-block;
+
+#views-selector > ul > li a {
+  display: block;
       color: #444;
-      padding: 5px 8px 0 8px; }
-      #views-selector ul li a:hover {
+  padding: 5px 8px;
+  overflow: hidden;
+}
+
+#views-selector > ul > li a:hover {
         color: #3399cc; }
-      #views-selector ul li a span.sq-btn-icon {
+
+#views-selector > ul > li a span.sq-btn-icon {
         margin-right: 10px;
         width: 20px;
         height: 24px;
         float: left; }
-      #views-selector ul li a span:last-child {
+
+#views-selector > ul > li a span:last-child {
         display: block;
         float: right;
         line-height: 24px; }
-  #views-selector ul li:hover #list-icon {
+
+#views-selector > ul li:hover #list-icon {
     background-position: -663px -113px; }
-  #views-selector ul li.active {
+
+#views-selector > ul li.active {
     background-color: #e8e8e6; }
-  #views-selector ul li:hover #calendar-icon {
+
+#views-selector > ul li:hover #calendar-icon {
     background-position: -720px -114px; }
-  #views-selector ul li:hover #chart-icon {
+
+#views-selector > ul li:hover #chart-icon {
     background-position: -583px -114px; }
+
+#views-selector .btn-transparent {
+  background-color: transparent;
+}
+
+#views-selector .btn-transparent .icon-bar-container {
+  width: 22px;
+  height: 10px;
+  display: inline-block;
+}
+
+#views-selector .btn-transparent .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: #333;
+  margin-bottom: 2px;
+}
+
+#views-selector .btn-transparent:hover .icon-bar {
+  background: #007db8;
+}
+
+#views-selector .btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#views-selector .btn-group .btn:active, #views-selector .btn-group .btn.active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
 #list-icon {
   background-position: -663px -70px; }
@@ -2112,27 +2161,32 @@ ul {
 #chart-icon {
   background-position: -583px -70px; }
 
-#views-selector .k-multiselect.k-header {
-  width: 119px !important;
-  background-image: none;
-  background-color: #fff;
-  border: 1px solid #ccc !important;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
-#views-selector .k-input, #views-selector .k-textbox > input, #views-selector .k-multiselect-wrap {
-  background-color: #fff;
-  color: #444;
-  font-size: 20px;
-  font-weight: bold; }
-#views-selector .k-widget, #views-selector .k-widget * {
-  -moz-background-clip: border-box;
-  -webkit-background-clip: border-box;
-  background-clip: border-box; }
-#views-selector select.k-input {
-  width: 119px;
-  padding: 0;
-  margin: 0; }
-
+/*#views-selector {
+  .k-multiselect.k-header {
+    width: 119px !important;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid #ccc !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+  .k-input, .k-textbox > input, .k-multiselect-wrap {
+    background-color: #fff;
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .k-widget, .k-widget * {
+    -moz-background-clip: border-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+  }
+  select.k-input {
+    width: 119px;
+    padding: 0;
+    margin: 0;
+  }
+}*/
 /* Ribbon Popover */
 .custom-popover {
   min-width: 400px; }
@@ -2262,14 +2316,13 @@ ul {
 .table-body-scroll {
   border: 1px solid #ccc;
   border-radius: 5px; }
+
+.table-body-scroll table {
+  border: 0;
+}
   .table-body-scroll > div {
     max-height: 170px;
     overflow-y: auto; }
-  .table-body-scroll .table > tbody + tbody,
-  .table-body-scroll tbody > tr > td {
-    border-top: 0 !important; }
-  .table-body-scroll .smllWidgetTable {
-    border-bottom: 0 !important; }
 
 #addFollowers #smllWidgetTable th, #addFollowers .smllWidgetTable th {
   padding-left: 0; }
@@ -2348,7 +2401,13 @@ ul {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  visibility: hidden;
+}
+
+.sq-top-ribbon.initialized {
+  visibility: visible;
+}
   .sq-top-ribbon > ul > li {
     list-style: none;
     float: left;
@@ -3388,6 +3447,23 @@ input#searchById {
 
 .k-datepicker {
   width: 110px !important; }
+
+.k-window .k-header {
+  background: none;
+  border-bottom: 0;
+}
+
+/* Override for kendo.requestqueues.css */
+#results-data-fullcalendar-filter .k-multiselect-wrap {
+  width: auto;
+  box-shadow: none;
+}
+
+#results-data-fullcalendar-filter .k-multiselect.k-header {
+  width: auto !important;
+  min-width: 200px;
+  padding: 5px;
+}
 
 .browser-warning {
   display: none; }
