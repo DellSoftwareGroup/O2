@@ -2912,6 +2912,9 @@ input#searchById {
   height: 22px; }
 
 /* style for Add new request modal */
+.modal-nav h3 {
+  font-size: 23px;
+}
 .modal-nav h3, .modal-nav li {
   margin: 0;
   padding: 0;
