@@ -325,6 +325,7 @@ ul {
         overflow: hidden;
         &:hover {
           color: #3399cc;
+          text-decoration: none;
         }
         span {
           &.sq-btn-icon {
@@ -333,9 +334,7 @@ ul {
             height: 24px;
             float: left;
           }
-          &:last-child {
-            display: block;
-            float: right;
+          &.title {
             line-height: 24px;
           }
         }
@@ -376,13 +375,25 @@ ul {
     }
   }
   .btn-group {
+    padding-top: 1px;
     &.open {
       .dropdown-toggle {
         @include box-shadow(none);
       }
     }
+    .btn {
+      &:first-of-type {
+        padding-right: 0;
+      }
+    }
     .btn:active, .btn.active {
       @include box-shadow(none);
+    }
+    li {
+      padding-bottom: 0;
+    }
+    .title {
+      line-height: 1em;
     }
   }
 }

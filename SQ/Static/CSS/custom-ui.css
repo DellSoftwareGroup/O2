@@ -2094,7 +2094,9 @@ ul {
 }
 
 #views-selector > ul > li a:hover {
-        color: #3399cc; }
+  color: #3399cc;
+  text-decoration: none;
+}
 
 #views-selector > ul > li a span.sq-btn-icon {
         margin-right: 10px;
@@ -2102,9 +2104,7 @@ ul {
         height: 24px;
         float: left; }
 
-#views-selector > ul > li a span:last-child {
-        display: block;
-        float: right;
+#views-selector > ul > li a span.title {
         line-height: 24px; }
 
 #views-selector > ul li:hover #list-icon {
@@ -2142,14 +2142,30 @@ ul {
   background: #007db8;
 }
 
+#views-selector .btn-group {
+  padding-top: 1px;
+}
+
 #views-selector .btn-group.open .dropdown-toggle {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
+#views-selector .btn-group .btn:first-of-type {
+  padding-right: 0;
+}
+
 #views-selector .btn-group .btn:active, #views-selector .btn-group .btn.active {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+#views-selector .btn-group li {
+  padding-bottom: 0;
+}
+
+#views-selector .btn-group .title {
+  line-height: 1em;
 }
 
 #list-icon {
@@ -3458,7 +3474,6 @@ input#searchById {
   width: auto;
   box-shadow: none;
 }
-
 #results-data-fullcalendar-filter .k-multiselect.k-header {
   width: auto !important;
   min-width: 200px;
