@@ -6,7 +6,8 @@
     "number": 15,
     "category": "Development",
     "color": "#69A85A",
-    "textColor": "white"
+    "textColor": "white",
+    "legendLabel":"Completed 8 or more days "
   },
   {
     "sla": "-6 to -8",

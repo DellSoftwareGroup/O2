@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    .container{
+      width:1170px !important;
+    }
+  </style>
+  <title></title>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
+  <link rel="stylesheet" href="../../../SQ/Static/CSS/bootstrap.min.css">
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/jquery.min.js"></script>
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/kendo.all.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="demo-section k-content wide">
+    <div class="container mt-40">
+      <div class="row mb-40">
+        <div class="between-owner-requester"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function createChart() {
+    $(".between-owner-requester").kendoChart({
+      dataSource: {
+        data: [{
+          backlog: 5,
+          inProgress: 7,
+          readyOnStage: 10,
+          readyToPostLive: 10,
+          closed: 5
+        }, {
+          backlog: 10,
+          inProgress: 10,
+          readyOnStage: 10,
+          readyToPostLive: 10,
+          closed: 5
+        }, {
+          backlog: 15,
+          inProgress: 11,
+          readyOnStage: 15,
+          readyToPostLive: 12,
+          closed: 20
+        }, {
+          backlog: 20,
+          inProgress: 17,
+          readyOnStage: 20,
+          readyToPostLive: 15,
+          closed: 25
+        }]
+      },
+      seriesDefaults: {
+        type: "bar",
+        stack: true,
+        overlay: {
+          gradient: "none"
+        },
+        labels: {
+          visible: true,
+          background: "transparent",
+          position: "center",
+          color: "black",
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      series: [{
+        field: "backlog",
+        name: "Backlog"
+      }, {
+        field: "inProgress",
+        name: "In progress"
+      }, {
+        field: "readyOnStage",
+        name: "Ready on stage"
+      }, {
+        field: "readyToPostLive",
+        name: "Ready to post live"
+      }, {
+        field: "closed",
+        name: "Closed"
+      }],
+      seriesColors: ["#BFD8EF", "#A5C8E8", "#8BB9E2", "#71A9DC", "#78C466"],
+      categoryAxis: {
+        categories: ["Elnaz & Carol", "Edward & Gopal", "Diana & Aly", "BJ & Gopal"],
+        majorGridLines: {
+          visible: false
+        },
+        labels: {
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      valueAxis: {
+        labels: {
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      legend: {
+        visible: true,
+        background: "#eeeeee",
+        position: "right",
+        orientation: "vertical",
+        margin: {
+          left: 30,
+          top: -200
+        },
+        padding: {
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
+        },
+        labels: {
+          font: "14px Arial,Helvetica,sans-serif",
+          padding: {
+            top: 8,
+            bottom: 8
+          }
+        }
+      },
+      tooltip: {
+        visible: true,
+        template: "#= series.name #: #= value #"
+      },
+      legendItemClick: function (e) {
+        setTotalLabel(e.sender, e.seriesIndex);
+      },
+      dataBound: function (e) {
+        setTotalLabel(e.sender);
+      }
+    })
+  }
+
+  function setTotalLabel(chart, toggledSeriesIndex) {
+    var series = chart.options.series;
+    var lastSeries = {};
+    var fields = [];
+
+    for (var i = 0; i < series.length; i++) {
+      var visible = series[i].visible;
+
+      // We're about to toggle the visibility of the clicked series
+      if (i === toggledSeriesIndex) {
+        visible = !visible;
+      }
+
+      if (visible) {
+        fields.push("dataItem." + series[i].field);
+        lastSeries = series[i];
+      }
+
+      // Clean-up existing labels
+      series[i].labels = {};
+    }
+
+    lastSeries.labels = {
+      font: "bold 12px Arial,Helvetica,sans-serif",
+      visible: true,
+      template: "#=" + fields.join("+") + "#"
+    };
+  }
+
+  $(function () {
+    createChart();
+  });
+  $(document).bind("kendo:skinChange", createChart);
+</script>
+</body>
+</html>

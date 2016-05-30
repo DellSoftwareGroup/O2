@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    .container{
+      width:1170px !important;
+    }
+  </style>
+  <title></title>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
+  <link rel="stylesheet" href="../../../SQ/Static/CSS/bootstrap.min.css">
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/jquery.min.js"></script>
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/kendo.all.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="demo-section k-content wide">
+    <div class="container">
+      <div class="row mb-40">
+        <h1>Accepted Requests & Done Requests</h1>
+        <div class="chart-overall-opened-closed"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function createChart() {
+    $(".chart-overall-opened-closed").kendoChart({
+      title: {
+        text: "Number of Requests "
+      },
+      legend: {
+        visible: true,
+        position: "bottom"
+      },
+      seriesDefaults: {
+        type: "column",
+        labels: {
+          visible: true,
+          background: "transparent",
+          position: "center",
+          color: "white",
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      series: [{
+        overlay: {
+          gradient: "none"
+        },
+        name: "Opened Requests",
+        stack: "Open",
+        data: [120, 160, 80, 90, 140, 110, 65, 140, 100, 80, 130, 85]
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Closed Requests",
+        stack: "Complete",
+        data: [100, 140, 80, 90, 120, 100, 60, 140, 100, 60, 110, 85]
+      }],
+      seriesColors: ["#579AD6", "#78C466"],
+      valueAxis: {
+        Max: 160,
+        majorUnit: 5,
+        line: {
+          visible: false
+        },
+        labels: {
+          step: 2,
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      categoryAxis: {
+        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        majorGridLines: {
+          visible: false
+        },
+        labels: {
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      tooltip: {
+        visible: true,
+        template: "#= series.name #"
+      }
+    });
+  }
+  $(function () {
+    createChart();
+  });
+  $(document).bind("kendo:skinChange", createChart);
+</script>
+</body>
+</html>
