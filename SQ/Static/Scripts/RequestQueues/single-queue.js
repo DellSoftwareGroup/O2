@@ -28,6 +28,11 @@ $(function () {
 	var filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
 			filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
+	// prevent propagation on multi-select under sub nav
+	$('#sq-filters').on('click', '.ms-drop input, .ms-drop label', function (e) {
+		e.stopPropagation();
+	})
+
 	$('#sq-filters').on('click', function (e) {
 		//Do not toggle if clicking anywhere in the dropdown.
 		if ($(e.target).parents('.sub-nav-wrapper').length) {
