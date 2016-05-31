@@ -32,21 +32,61 @@ var globalModules = function () {
 	// Public methods
 	var addNewRequestModal = function () {
 		var content;
+
 		getModalData = function () {
 			var jqxhr = $.ajax("/sq/genericcontent/getcontent/?id=1")
 					.done(function (data) {
 						content = data;
 					});
 		};
+
 		returnData = function () {
 			return content;
 		};
+
+		centerModal = function () {
+			return ($(window).width() / 2) - 555;
+		}
+
+		initKendoWindow = function () {
+			$("#addReqModal").kendoWindow({
+				autoFocus: true,
+				visible: false,
+				modal: true,
+				position: {
+					top: "10%",
+					left: centerModal()
+				},
+				width: 1068,
+				minWidth: 400,
+				title: false,
+				scrollable: false,
+				open: function () {
+					var content = globalModules.addNewRequesModal.returnData();
+
+					// var modalContent = $.parseHTML(content.FieldDesc_1);
+					//$('#tabstrip-modal').find('.editable-content').append(modalContent[0].data);
+					$('#tabstrip-modal').find('.editable-content').append(content.FieldDesc_1);
+
+					globalModules.addNewRequesModal.init();
+
+				}
+			});
+		}
+
 		init = function () {
+
+			initKendoWindow();
+
+			// close modal button gets initialized
 			$('.cancel-window').on('click', function () {
 				$addReqModal.close();
 			})
 
-			$('#expandable-control').on('click', function () {
+			// expand all functionality gets initialized
+			// Off was needed to fix issue of double triggering click event
+			$('body').off('click', '#expandable-control').on('click', '#expandable-control', function () {
+				console.log('hit');
 				if ($(this).data('expandables-state') == 'closed') {
 					$('.collapsed').trigger('click');
 					$(this).data('expandables-state', 'open')
@@ -56,6 +96,22 @@ var globalModules = function () {
 					$(this).data('expandables-state', 'closed')
 							.html('Expand All <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>')
 				}
+			});
+
+			var $addReqModal = $("#addReqModal").data("kendoWindow"),
+					$modalParent = $('#tabstrip-modal');
+
+			$('#add-request').on('click', function (e) {
+				e.preventDefault();
+				if ($modalParent.find('.editable-content').children().length > 0) {
+					$modalParent.find('.editable-content').children().remove();
+				}
+				$addReqModal.open();
+			});
+
+			$('#myTabs a').click(function (e) {
+				e.preventDefault();
+				$(this).tab('show');
 			});
 		}
 
@@ -557,7 +613,6 @@ var globalModules = function () {
 				buildModal.show();
 				buildModal.preventEventPropagation();
 				buildModal.afterModalLoad(function () {
-
 					// when serching by ID
 					$('#projectSelectFirst').on('change', function (e) {
 						if ($(this).val() == 'ProjId') {
@@ -587,14 +642,10 @@ var globalModules = function () {
 							initOwnerReqAutoComp($('#projectSelectSecond').val());
 							ownerOrRequester = 'durty';
 						}
-					});
-
-					// when owner or requested field is cleared we need to show all
-					// trigger autocomplete when focus on owner/requester input
-					$('#ownerOrRequester').on('blur', function () {
-						if ($('#ownerOrRequester').val() == '') { //  chech if name has been clear
+					}).keyup(function () {
+						if (!this.value) {
 							subFilter.alias = null;  // clear name from reference obj
-							initOwnerReqAutoComp($('#projectSelectSecond').val()); // initialize process
+							refreshModal('li.k-item.k-state-hover', 'All', '#nameOrID'); // show all options
 							ownerOrRequester = 'durty';
 						}
 
@@ -644,7 +695,7 @@ var globalModules = function () {
 
 			// Kendo Data processing
 			function initProjectAutoComplete(projectFilter) {
-				console.log('hit');
+
 				// search by Title
 				var projectDataSource = new kendo.data.DataSource({
 					serverFiltering: true,
@@ -678,7 +729,14 @@ var globalModules = function () {
 					},
 					change: function (e) {
 						var filtered = [], resultsTally = [];
-						var view = projectDataSource.view();
+						var view = projectDataSource.view(), resultsFound = view.length;
+
+						// Check if no results --> show 0 results and stop spinner
+						if (!resultsFound) {
+							appendToResults('.projectFilterResults', resultsFound);
+							$('.modal-results span').removeClass('custom-loading');
+							return;
+						}
 
 						// no subfilter modified
 						if ((subFilter.alias == null || subFilter.alias.indexOf('All') != -1) && subFilter.status == null) {
@@ -858,9 +916,9 @@ var globalModules = function () {
 					$('.projectFilterResults').data('no-result-processed',false);
 					$(target).append(optionTmpl);
 				}
-				$('.modal-results span').removeClass('custom-loading');
+				// check if loading class is loading if true turn it off
+				($('.modal-results span').hasClass('custom-loading')) && $('.modal-results span').removeClass('custom-loading');
 			}
-
 
 			return {
 				runProjectModal: runProjectModal,
@@ -1473,6 +1531,7 @@ $(function () {
 	}
 
 	globalModules.addNewRequesModal.getModalData();
+	globalModules.addNewRequesModal.init();
 	globalModules.rightRailWidgets.init();
 
 });

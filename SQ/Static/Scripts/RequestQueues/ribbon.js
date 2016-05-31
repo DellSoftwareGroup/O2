@@ -437,6 +437,7 @@ var ribbonListener = function () {
 		$('.sq-top-ribbon').on('change', 'select', function(event) {
 
 			// test if trigger is multiselect from filter section
+			event.preventDefault();
 			var $target = $(event.target);
 			var filterRibonTriggered = $target.data('trigger');
 			if (isFilterSecMultSelect($target.data('title'))) {
