@@ -23,7 +23,6 @@ var singleQueueTables = (function ($) {
 
 		// TODO: temp function should be removed by Eder (Styles to match mocks)
 		function tempStyles() {
-
 			// urgent, new and legacy labels
 			var taggedCol = $('.title-col'),
 					label = ['<span class="icon urgent">Urgent</span>',
@@ -336,7 +335,7 @@ var singleQueueTables = (function ($) {
 			var summaryIndx = 11, summaryStartCol = ".group-col";
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles();
+			//commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			// modalTable.init(); --> Kendo window
 			ListingPopOver.init();
@@ -355,7 +354,7 @@ var singleQueueTables = (function ($) {
 			var summaryIndx = 9, summaryStartCol = ".sprint-col";
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles();
+			//commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			ownerColorTag();
 		},

@@ -60,15 +60,15 @@ iframe {
   width: 370px;
   padding: 0; }
 
-#search-radio-container {
-  font-size: 12px; }
-
-#search-radio-container input {
-  margin-left: 10px; }
-
-#search-radio-container input.first {
-  margin-left: 0; }
-
+/*#search-radio-container {
+  font-size: 12px;
+  input {
+    margin-left: 10px;
+  }
+  input.first {
+    margin-left: 0;
+  }
+}*/
 .button-wrapper {
   width: 64px;
   height: 19px;
@@ -89,6 +89,55 @@ iframe {
 
 a.button {
   padding: 2px 10px; }
+
+#top-head {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+#top-head > div {
+  display: inline-block;
+}
+
+#top-head #search-container {
+  margin-top: 15px;
+}
+
+#top-head #search-container #search-query-container {
+  display: block;
+  float: right;
+}
+
+#top-head #search-container #search-query-container #search-query {
+  width: 234px;
+  height: 30px;
+  border: none;
+  border-top-color: #bbb;
+  border-width: 1px;
+  border-bottom-color: #e6e6e6;
+  border-left-color: #e6e6e6;
+  border-right-color: #e6e6e6;
+  border-style: solid;
+  border-radius: 2px;
+  margin-right: 0;
+}
+
+#top-head #search-container #search-query-container > input {
+  padding-left: 4px;
+}
+
+#top-head #search-container #search-query-container #top-search-btn {
+  background-position: 0 -127px;
+  cursor: pointer;
+  clear: both;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  float: right;
+  top: 10px;
+  right: 19px;
+}
 
 /* Tabs */
 #tabs {
@@ -470,7 +519,8 @@ p.data {
   color: #444 !important; }
 
 .k-grid td, .k-grid th {
-  padding: 10px !important; }
+  padding: 5px !important;
+}
 
 #user-search-wrapper td {
   padding-bottom: 5px;
@@ -1005,8 +1055,9 @@ p.data {
   font-weight: bold; }
 
 .data-footer {
-  /*width: 1540px;*/
-  margin: 20px auto; }
+  margin: 20px auto;
+  overflow: hidden;
+}
 
 /* Below styles where commented out as they target direct tags and therefore
 will impact all tags:
@@ -1490,8 +1541,9 @@ tbody tr:first-child .tooltip:hover:after {
   margin-bottom: 20px; }
 
 .results-data {
-  margin-left: 0 !important;
-  margin-bottom: 20px; }
+  /*margin-left: 0 !important;*/
+  margin-bottom: 50px;
+}
 
 .rq-top-ribbon > ul > li:first-child, #rq-ribbon-search-item {
   box-sizing: border-box; }
@@ -1881,43 +1933,6 @@ ul {
   padding-right: 10px;
   position: absolute; }
 
-/*top header*/
-#top-head {
-  position: relative;
-  float: left;
-  width: 100%; }
-  #top-head > div {
-    display: inline-block; }
-  #top-head #search-container {
-    margin-top: 15px; }
-    #top-head #search-container #search-query-container {
-      display: block;
-      float: right; }
-      #top-head #search-container #search-query-container #search-query {
-        width: 234px;
-        height: 30px;
-        border: none;
-        border-top-color: #bbb;
-        border-width: 1px;
-        border-bottom-color: #e6e6e6;
-        border-left-color: #e6e6e6;
-        border-right-color: #e6e6e6;
-        border-style: solid;
-        border-radius: 2px;
-        margin-right: 0; }
-      #top-head #search-container #search-query-container > input {
-        padding-left: 4px; }
-      #top-head #search-container #search-query-container #top-search-btn {
-        background-position: 0 -127px;
-        cursor: pointer;
-        clear: both;
-        position: relative;
-        width: 13px;
-        height: 13px;
-        float: right;
-        top: 10px;
-        right: 19px; }
-
 /* grid headers */
 .results-data .table-group-headings th:last-child {
   color: #00447c !important;
@@ -2235,9 +2250,10 @@ ul {
   float: right !important; }
 
 /* Prevent text from wrapping */
-.nowrap {
-  white-space: nowrap !important; }
-
+/* Already defined in bootstrap.css */
+/*.nowrap {
+  white-space: nowrap !important;
+}*/
 /* Followers Grid */
 #newFollowers th {
   background-color: transparent;
@@ -2297,11 +2313,13 @@ ul {
 .button-wrapper > a:hover {
   text-decoration: none; }
 
-#search-radio-container label {
-  vertical-align: top;
-  margin-top: 4px;
-  display: inline-block; }
-
+/*#search-radio-container {
+	label {
+		vertical-align: top;
+		margin-top: 4px;
+		display: inline-block;
+	}
+}*/
 /* sidebar widgets */
 .smllWidgetTable {
   width: 100%;
@@ -3414,6 +3432,11 @@ input#searchById {
 .form-control.date-picker {
   box-sizing: border-box;
   width: 100px; }
+
+.form-control.k-multiselect {
+  min-height: 34px;
+  height: auto;
+}
 .form-control > .k-picker-wrap {
   border: 0; }
 

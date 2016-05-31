@@ -152,8 +152,8 @@
 }
 
 .data-footer {
-	/*width: 1540px;*/
   margin: 20px auto;
+	overflow: hidden;
 }
 
 /* Below styles where commented out as they target direct tags and therefore
@@ -767,8 +767,8 @@ tbody tr:first-child .tooltip:hover:after {
 }
 
 .results-data {
-  margin-left: 0 !important;
-	margin-bottom: 20px;
+	/*margin-left: 0 !important;*/
+	margin-bottom: 50px;
 }
 
 .rq-top-ribbon > ul > li:first-child, #rq-ribbon-search-item {

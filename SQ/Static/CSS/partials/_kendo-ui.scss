@@ -16,6 +16,10 @@
 		box-sizing: border-box;
 		width: 100px;
 	}
+	&.k-multiselect {
+		min-height: 34px;
+		height: auto;
+	}
 	> .k-picker-wrap {
 		border: 0;
 	}
