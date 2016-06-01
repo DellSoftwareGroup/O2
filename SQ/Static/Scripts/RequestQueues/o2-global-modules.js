@@ -657,11 +657,9 @@ var globalModules = function () {
 
 					// when status is selected
 					$('#projectSelectThird').on('change', function () {
-
 						subFilter.status = $(this).val() == '' ? null : $(this).val();
 						subFilter.refresh = true;
 						initProjectAutoComplete('#nameOrID');
-						;
 					});
 
 					// reset
@@ -671,7 +669,6 @@ var globalModules = function () {
 							$('#projectSelectFirst').val('ProjName').change();
 						}
 						resetProjModal();
-
 					});
 
 					// when clicked select button
