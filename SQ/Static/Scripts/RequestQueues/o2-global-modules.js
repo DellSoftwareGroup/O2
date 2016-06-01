@@ -33,8 +33,15 @@ var globalModules = function () {
 	var addNewRequestModal = function () {
 		var content;
 
-		getModalData = function () {
-			var jqxhr = $.ajax("/sq/genericcontent/getcontent/?id=1")
+		endPointMap = {
+			listing: '/sq/genericcontent/getcontent/?id=1',
+			request: '/sq/genericcontent/getcontent/?id=5',
+			project: '/sq/genericcontent/getcontent/?id=10',
+			active: ''
+		};
+
+		getModalData = function ($location) {
+			var jqxhr = $.ajax(endPointMap[$location])
 					.done(function (data) {
 						content = data;
 					});
@@ -45,8 +52,8 @@ var globalModules = function () {
 		};
 
 		centerModal = function () {
-			return ($(window).width() / 2) - 555;
-		};
+			return ($(window).width() / 2) - 620; // 620 is have of modal width;
+		}
 
 		initKendoWindow = function () {
 			$("#addReqModal").kendoWindow({
@@ -57,7 +64,7 @@ var globalModules = function () {
 					top: "10%",
 					left: centerModal()
 				},
-				width: 1068,
+				width: 1268,
 				minWidth: 400,
 				title: false,
 				scrollable: false,
@@ -68,20 +75,26 @@ var globalModules = function () {
 					//$('#tabstrip-modal').find('.editable-content').append(modalContent[0].data);
 					$('#tabstrip-modal').find('.editable-content').append(content.FieldDesc_1);
 
-					globalModules.addNewRequesModal.init();
+					// globalModules.addNewRequesModal.init();
 
 				}
 			});
 		};
 
-		init = function () {
+		init = function ($location) {
 
+			if (typeof $location !== "undefined") {
+				endPointMap.active = $location;
+			}
+
+			getModalData($location);
 			initKendoWindow();
 
 			// close modal button gets initialized
 			$('.cancel-window').on('click', function () {
 				$addReqModal.close();
-			});
+				init(endPointMap.active); // need recursion to rebuild data when modal is closed;
+			})
 
 			// expand all functionality gets initialized
 			// Off was needed to fix issue of double triggering click event
@@ -235,18 +248,27 @@ var globalModules = function () {
 			}
 
 			// find which modal (campaign or project : may grow later)
-			var $modalName = $('.custom-modal form').data('modalname');
+			var $modalName = $('.custom-modal form').data('modalname'),
+					$modalTrigger = $('[data-custom-modal-name="' + $modalName + '"]'),
+					$modalTarget = $('[data-modal-target="' + $modalName + '"]');
 
 			// attach values
-			if ($('[data-modal-target]').is('div')) {
-				$('[data-modal-target=' + $modalName + ']')
+			if ($modalTarget.is('div')) {
+				$modalTarget
 						.html(option.name)
 						.attr('filterId', option.val)
-			} else if ($('[data-modal-target]').is('input')) {
-				$('[data-modal-target=' + $modalName + ']')
+			} else if ($modalTarget.is('input')) {
+				$modalTarget
 						.val(option.name)
 						.attr('filterId', option.val)
 						.triggerHandler('change');
+			}
+
+			// When project id is required to be passed as an input value
+			// not being used at the moment
+			var requiresId = $modalTrigger.data('custom-modal-id');
+			if (!!requiresId) {
+				$('[data-modal-id-target="' + requiresId + '"]').val(option.val).trigger('change');
 			}
 
 			if (typeof callback == 'function') {
@@ -481,7 +503,7 @@ var globalModules = function () {
 		var projectModal = function () {
 
 			// Project Modal
-			function runProjectModal(zIndex) {
+			function runProjectModal(zIndex, modalName) {
 				var projectInfo = {zIndex: zIndex}, projFiltersPreData = {}, ownerOrRequester = 'clean';
 				subFilter.refresh = true; // unload refresh
 
@@ -568,10 +590,11 @@ var globalModules = function () {
 					removeInputKendoStyles('#ownerOrRequester');
 				}
 
+				modalName = modalName || 'project'
 				var InputByIdStyles = "display:none; position: absolute; left:0; top: 0;";
 				projectInfo.content = String()
 						+ '<div>'
-						+ '<form class="form-horizontal" data-modalName="project">'
+						+ '<form class="form-horizontal" data-modalName="' + modalName + '">'
 						+ '<div class="form-inline firstProjFilter mb-10" >'
 						+ '<select class="form-control mr-10" id="projectSelectFirst">'
 						+ '<option value="ProjName">Project Name</option>'
@@ -934,12 +957,14 @@ var globalModules = function () {
 
 			$('[data-custom-modal=project]').on('click', function (e) {
 				e.preventDefault();
+				var modalName = $(this).data('custom-modal-name');
+				if ($('[data-custom-modal-name]'))
 
 				//If this used in a modal, pass the new z-index to the project modal.
 				var kWindow = $(this).parents('.k-window');
 
 				if (kWindow.length && kWindow.css('zIndex')) {
-					projectModal.runProjectModal(parseInt(kWindow.css('zIndex')) + 1);
+					projectModal.runProjectModal(parseInt(kWindow.css('zIndex')) + 1, modalName);
 				}
 				else {
 					projectModal.runProjectModal();
@@ -1537,9 +1562,6 @@ $(function () {
 	if (typeof endPoints === 'object') {
 		globalModules.popupModule.usersPopoverInit();
 	}
-
-	globalModules.addNewRequesModal.getModalData();
-	globalModules.addNewRequesModal.init();
 	globalModules.rightRailWidgets.init();
 
 });
