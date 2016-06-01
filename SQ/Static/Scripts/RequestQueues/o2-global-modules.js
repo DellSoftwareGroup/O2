@@ -46,7 +46,7 @@ var globalModules = function () {
 
 		centerModal = function () {
 			return ($(window).width() / 2) - 555;
-		}
+		};
 
 		initKendoWindow = function () {
 			$("#addReqModal").kendoWindow({
@@ -72,7 +72,7 @@ var globalModules = function () {
 
 				}
 			});
-		}
+		};
 
 		init = function () {
 
@@ -81,7 +81,7 @@ var globalModules = function () {
 			// close modal button gets initialized
 			$('.cancel-window').on('click', function () {
 				$addReqModal.close();
-			})
+			});
 
 			// expand all functionality gets initialized
 			// Off was needed to fix issue of double triggering click event
@@ -113,7 +113,7 @@ var globalModules = function () {
 				e.preventDefault();
 				$(this).tab('show');
 			});
-		}
+		};
 
 		return {
 			getModalData: getModalData,
@@ -127,7 +127,7 @@ var globalModules = function () {
 		function ModalHtmlBuilder(modalInfo) {
 
 			this.modal = String()
-					+ '<div class="modal fade custom-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'
+				+ '<div class="modal fade custom-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: ' + modalInfo.zIndex + '">'
 					+ '<div class="modal-dialog" role="document">'
 					+ '<div class="modal-content">'
 					+ '<div class="modal-header">'
@@ -159,9 +159,13 @@ var globalModules = function () {
 
 			this.afterModalLoad = function (process) {
 				$('#myModal').on('shown.bs.modal', function (e) {
+					if ($('#myModal').next().hasClass('modal-backdrop')) {
+						$('#myModal').next().css('z-index', modalInfo.zIndex - 1);
+					}
+
 					process();
 				})
-			}
+			};
 
 			this.destroyListener = function () {
 				$('#myModal').on('hidden.bs.modal', function (e) {
@@ -169,7 +173,7 @@ var globalModules = function () {
 					subFilter.key = '';
 					subFilter.alias = null; // !important to show all results if modal is open again
 				})
-			}
+			};
 		}
 
 
@@ -477,8 +481,8 @@ var globalModules = function () {
 		var projectModal = function () {
 
 			// Project Modal
-			function runProjectModal() {
-				var projectInfo = {}, projFiltersPreData = {}, ownerOrRequester = 'clean';
+			function runProjectModal(zIndex) {
+				var projectInfo = {zIndex: zIndex}, projFiltersPreData = {}, ownerOrRequester = 'clean';
 				subFilter.refresh = true; // unload refresh
 
 				// Internal methods
@@ -629,7 +633,7 @@ var globalModules = function () {
 							resetProjModal();
 							initProjectAutoComplete('#nameOrID');
 						}
-					})
+					});
 
 					// trigger autocomplete when change of owner / requester
 					$('#projectSelectSecond').on('change', function () {
@@ -766,7 +770,6 @@ var globalModules = function () {
 							});
 
 						}
-						;
 
 						// filter status
 						if (subFilter.status !== null) {
@@ -787,7 +790,6 @@ var globalModules = function () {
 							}// end of filtering if owner or requester + status
 
 						}
-						;
 
 						if (resultsTally.length === 0) {
 							appendToResults('.projectFilterResults', 0);
@@ -935,7 +937,16 @@ var globalModules = function () {
 
 			$('[data-custom-modal=project]').on('click', function (e) {
 				e.preventDefault();
-				projectModal.runProjectModal();
+
+				//If this used in a modal, pass the new z-index to the project modal.
+				var kWindow = $(this).parents('.k-window');
+
+				if (kWindow.length && kWindow.css('zIndex')) {
+					projectModal.runProjectModal(parseInt(kWindow.css('zIndex')) + 1);
+				}
+				else {
+					projectModal.runProjectModal();
+				}
 			});
 		}
 
@@ -1009,8 +1020,8 @@ var globalModules = function () {
 		var settings = {
 			selectedTarget: null,
 			trigger: null,
-			activate: false, // It can be used to activate popover without the external use of init()
-		}
+			activate: false // It can be used to activate popover without the external use of init()
+		};
 
 		// public function sets input and target areas
 		function customSettings(thisSettings) {
