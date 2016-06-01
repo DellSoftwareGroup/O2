@@ -139,7 +139,7 @@ var ribbonListener = function () {
 
 	function handleDynamicSelect(fromPopup, filterType) {
 		var filterTitle = $(fromPopup).find('[data-title]').data('title'),
-				$dynamicSelectElem = $(fromPopup).find('.dynamic-select');
+				$dynamicSelectElem = $(fromPopup).siblings('.dynamic-select');
 
 		// add filter to object
 		if (filterTitle !== null || filterTitle !== undefined) {
@@ -602,11 +602,11 @@ var ribbonWidgets = function () {
 				var $filterWrap = $(filterType).parent('a');
 
 				if (option === undefined) {
-					$filterWrap.find('select').html(''); // Remove all options
+					$filterWrap.siblings('select').html(''); // Remove all options
 					ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
 					$(filterType).text($(filterType).data('title'));
 				} else {
-					$filterWrap.find('select option').each(function () {
+					$filterWrap.siblings('select option').each(function () {
 						if ($(this).text() == option) {
 							$(this).remove();
 							ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // Remove only clicked option
@@ -713,7 +713,7 @@ var ribbonWidgets = function () {
 
 			// Register Events and trigger responses
 
-			$('.filter-collector').on('click', 'a', function (e) {
+			$('.filter-collector').off('click', 'a').on('click', 'a', function (e) {
 				e.preventDefault();
 
 				// Prevent loop between ribbon and filter collection area
