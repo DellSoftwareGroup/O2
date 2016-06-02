@@ -303,18 +303,18 @@ var globalScripts = (function ($) {
       /*keep border bottom only when they are collapsed*/
       $('.panel-group-collapsible').each(function () {
         if ($(this).find('.panel-title > a').hasClass('collapsed')) {
-          $(this).css('border-bottom', '1px solid #aaa');
+	        $(this).addClass('border-b-grey');
         }
       });
       $('.panel .table-responsive').on('hidden.bs.collapse', function (e) {
         /*prevent toggling border by Notified collapsibles in comments */
         if (!$(e.target).attr('id').match('^Notified')) {
-          $(this).parent().parent().css('border-bottom', '1px solid #aaa');
+	        $(this).parent().parent().addClass('border-b-grey');
         }
       }).on('shown.bs.collapse', function (e) {
         /*prevent toggling border by Notified collapsibles in comments */
         if (!$(e.target).attr('id').match('^Notified')) {
-          $(this).parent().parent().attr('style', '');
+	        $(this).parent().parent().removeClass('border-b-grey');
         }
       });
     };

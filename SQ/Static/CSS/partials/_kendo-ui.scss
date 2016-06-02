@@ -85,3 +85,27 @@
 .k-datepicker {
 	width: 110px !important;
 }
+
+.k-window {
+	.k-header {
+		background: none;
+		border-bottom: 0;
+	}
+}
+
+/* Override for kendo.requestqueues.css */
+
+#results-data-fullcalendar-filter {
+	.k-multiselect-wrap {
+		width: auto;
+		box-shadow: none;
+	}
+
+	.k-multiselect {
+		&.k-header {
+			width: auto !important;
+			min-width: 200px;
+			padding: 5px;
+		}
+	}
+}

@@ -271,7 +271,7 @@ input[type="search"] {
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
-  margin-left: 10px; // space out consecutive inline controls
+  margin-left: 15px; // space out consecutive inline controls
 }
 
 // Apply same disabled cursor tweak as for inputs

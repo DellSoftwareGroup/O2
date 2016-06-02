@@ -161,6 +161,12 @@ $(function () {
 			if ($.inArray(id, ['dp-team-dd', 'dp-mywork-dd']) > -1) {
 				obj.width = 80;
 			}
+			else if (id == 'dp-sprint-dd') {
+				$.extend(obj, {
+					width: 60,
+					selectAll: false
+				});
+			}
 			else if ($.inArray(id, ['priority-dd', 'region-dd', 'route-to-market-dd']) > -1) {
 				obj.width = 223;
 			}
@@ -244,6 +250,8 @@ $(function () {
 		(key >= 48 && key <= 57) ||
 		(key >= 96 && key <= 105));
 	});
+
+	$('.sq-top-ribbon').addClass('initialized');
 });
 
 $(window).load(function () {

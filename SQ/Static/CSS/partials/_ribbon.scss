@@ -6,6 +6,10 @@
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px;
+  visibility: hidden;
+  &.initialized {
+    visibility: visible;
+  }
   > ul > li {
 	  list-style: none;
     float: left;
@@ -60,13 +64,13 @@
         margin-right: 7px;
         font-size: 12.66px;
         &.active-item-bg {
-          background-color: #eee;
+          background-color: #E5F3FA;
           border-radius: 3px;
           &:hover a {
             color: #444;
           }
           select {
-            background-color: #eee;
+            background-color: transparent;
             &#priority-dd, &#region-dd, &#route-to-market-dd {
               background-color: #fff;
             }
@@ -75,7 +79,7 @@
             background-position: 4px 0;
           }
           .ms-choice {
-            background-color: #eee;
+            background-color: transparent;
           }
         }
         &:hover {
@@ -522,7 +526,6 @@
     border-radius: 0;
   }
   .sub-nav {
-
     .ms-drop {
       z-index: 999999;
     }
@@ -699,6 +702,9 @@ input#searchById {
 
 /* style for Add new request modal */
 .modal-nav {
+	h3 {
+		font-size: 23px;
+	}
   h3, li {
     margin: 0;
     padding: 0;
