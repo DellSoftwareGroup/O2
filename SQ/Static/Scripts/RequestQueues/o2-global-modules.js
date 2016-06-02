@@ -36,7 +36,7 @@ var globalModules = function () {
 		endPointMap = {
 			listing: '/sq/genericcontent/getcontent/?id=1',
 			request: '/sq/genericcontent/getcontent/?id=5',
-			project: '/sq/genericcontent/getcontent/?id=10',
+			project: '/sq/genericcontent/getcontent/?id=22',
 			active: ''
 		};
 
@@ -116,6 +116,7 @@ var globalModules = function () {
 
 			$('#add-request').on('click', function (e) {
 				e.preventDefault();
+				e.stopPropagation();
 				if ($modalParent.find('.editable-content').children().length > 0) {
 					$modalParent.find('.editable-content').children().remove();
 				}
