@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <head>
-  <style>
-    .container{
-      width:1170px !important;
-    }
-  </style>
   <title></title>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
@@ -31,7 +26,26 @@
       },
       legend: {
         visible: true,
-        position: "bottom"
+        background: "#eeeeee",
+        position: "right",
+        orientation: "vertical",
+        margin: {
+          left: 30,
+          top: -245
+        },
+        padding: {
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
+        },
+        labels: {
+          font: "14px Arial,Helvetica,sans-serif",
+          padding: {
+            top: 8,
+            bottom: 8
+          }
+        }
       },
       seriesDefaults: {
         type: "column",
@@ -47,18 +61,25 @@
         overlay: {
           gradient: "none"
         },
-        name: "Accepted Requests",
-        stack: "Open",
-        data: [120, 160, 80, 90, 140, 110, 65, 140, 100, 80, 130, 85]
+        name: "Backlog",
+        stack: "Accepted Requests",
+        data: [50, 60, 30, 40, 40, 10, 5, 10, 20, 35, 30, 45]
+      },{
+        overlay: {
+          gradient: "none"
+        },
+        name: "Started",
+        stack: "Accepted Requests",
+        data: [30, 20, 50, 20, 40, 40, 25, 30, 10, 35, 60, 35]
       }, {
         overlay: {
           gradient: "none"
         },
         name: "Done Requests",
         stack: "Complete",
-        data: [100, 140, 80, 90, 120, 100, 60, 140, 100, 60, 110, 85]
+        data: [75, 80, 80, 50, 70, 50, 20, 40, 30, 60, 90, 75]
       }],
-      seriesColors: ["#579AD6", "#78C466"],
+      seriesColors: ["#579AD6","#0974d3", "#78C466"],
       valueAxis: {
         Max: 160,
         majorUnit: 5,
@@ -81,7 +102,7 @@
       },
       tooltip: {
         visible: true,
-        template: "#= series.name #"
+        template: "#= series.name # Requests"
       }
     });
   }

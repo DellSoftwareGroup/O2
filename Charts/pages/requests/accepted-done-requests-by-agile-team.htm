@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <head>
   <style>
-    .container{
-      width:1170px !important;
+    .box {
+      border: 1px solid #737373;
+      background-color: #eee;
+      padding: 15px;
+    }
+
+    .spark span > span {
+      width: 353px;
+      height: 100px;
     }
   </style>
   <title></title>
@@ -17,15 +24,122 @@
   <div class="demo-section k-content wide">
     <div class="container">
       <div class="row mb-40">
-        <h1>15 Top Opened&Closed Tickets - Per Task Types</h1>
-        <div class="col-xs-12">
-          <div class="demo-section k-content wide">
-            <div id="10-open-tickets-per-task-type" style="height:370px"></div>
+        <div class="row mb-30">
+          <h1>Total Accepted & Done Requests by Agile Team</h1>
+
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="data-protection-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="data-protection-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Data Protection</h4>
+            </div>
+          </div>
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="endpoints-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="endpoints-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Endpoints</h4>
+            </div>
+          </div>
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="databases-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="databases-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Databases</h4>
+            </div>
+          </div>
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="security-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="security-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Security</h4>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12">
-          <div class="demo-section k-content wide">
-            <div id="10-close-tickets-per-task-type"></div>
+        <div class="row mb-30">
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="platforms-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="platforms-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Platforms</h4>
+            </div>
+          </div>
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="windows-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="windows-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Windows</h4>
+            </div>
+          </div>
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="sim-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="sim-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">SIM</h4>
+            </div>
+          </div>
+          <div class="col-xs-3 pl-0">
+            <div class="box">
+              <div class="spark">
+                <div class="col-xs-12 ph-0 mb-20">
+                  <span id="none-opened"></span>
+                </div>
+                <div class="col-xs-12 ph-0">
+                  <span id="none-closed"></span>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <h4 class="center-block text-center mb-0 mt-20">Not Assigned</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -37,7 +151,7 @@
     // binding to array
     $("#data-protection-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -46,13 +160,13 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
     $("#data-protection-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -62,12 +176,12 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
     $("#planned-sparkline").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -77,13 +191,13 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 
     $("#endpoints-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -92,14 +206,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#endpoints-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -109,12 +223,12 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "closed : {0}"
+        format: "Done : {0}"
       }
     });
     $("#databases-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -123,14 +237,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#databases-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -140,13 +254,13 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 
     $("#security-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -155,14 +269,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#security-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -172,13 +286,13 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 
     $("#platforms-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -187,14 +301,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#platforms-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -204,13 +318,13 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 
     $("#windows-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -219,14 +333,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#windows-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -236,13 +350,13 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 
     $("#none-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -251,14 +365,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#none-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -268,13 +382,13 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 
     $("#sim-opened").kendoSparkline({
       title: {
-        text: "Opened Requests"
+        text: "Accepted Requests"
       },
       seriesColors: ["#579AD6"],
       data: [
@@ -283,14 +397,14 @@
       color: "#579AD6",
       tooltip: {
         visible: true,
-        format: "Opened : {0}"
+        format: "Accepted : {0}"
       }
     });
 
 
     $("#sim-closed").kendoSparkline({
       title: {
-        text: "Closed Requests"
+        text: "Done Requests"
       },
       type: "column",
       seriesColors: ["#78C466"],
@@ -300,7 +414,7 @@
       color: "#78C466",
       tooltip: {
         visible: true,
-        format: "Closed : {0}"
+        format: "Done : {0}"
       }
     });
 

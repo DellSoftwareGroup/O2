@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <head>
   <style>
-    .container{
-      width:1170px !important;
-    }
   </style>
   <title></title>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
@@ -31,7 +28,26 @@
       },
       legend: {
         visible: true,
-        position: "bottom"
+        background: "#eeeeee",
+        position: "right",
+        orientation: "vertical",
+        margin: {
+          left: 30,
+          top: -273
+        },
+        padding: {
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
+        },
+        labels: {
+          font: "14px Arial,Helvetica,sans-serif",
+          padding: {
+            top: 8,
+            bottom: 8
+          }
+        }
       },
       seriesDefaults: {
         type: "column",

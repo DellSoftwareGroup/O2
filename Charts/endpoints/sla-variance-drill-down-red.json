@@ -1,106 +1,116 @@
 [
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 1,
     "range": 1,
     "number": 15,
     "category": "Development",
     "color": "#69A85A",
     "textColor": "white",
-    "legendLabel":"Completed 8 or more days "
+    "tooltipText":"Done 11 days or less ahead of SLA"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 1,
     "range": 2,
     "number": 10,
     "category": "Development",
     "color": "#83BA76",
-    "textColor": "white"
+    "textColor": "white",
+    "tooltipText":"Done 6-10 days ahead of SLA"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 1,
     "range": 3,
     "number": 20,
     "category": "Development",
     "color": "#9DCD92",
-    "textColor": "white"
+    "textColor": "white",
+    "tooltipText":"Done 4-5 days ahead of SLA"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 1,
     "range": 4,
     "number": 20,
     "category": "Development",
     "color": "#B7E0AE",
-    "textColor": "white"
+    "textColor": "white",
+    "tooltipText":"Done 2-3 days ahead of SLA"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 1,
     "range": 5,
     "number": 5,
     "category": "Development",
     "color": "#D2F3CA",
-    "textColor": "white"
+    "textColor": "white",
+    "tooltipText":"Done 1 day ahead of SLA"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 1,
     "range": 6,
     "number": 20,
     "category": "Development",
     "color": "#e1f3dc",
-    "textColor": "#e1f3dc"
+    "textColor": "#e1f3dc",
+    "tooltipText":"Done on SLA"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 1,
     "range": 7,
     "number": 60,
     "category": "Development",
     "color": "#F5DFD7",
-    "textColor": "#444444"
+    "textColor": "#444444",
+    "tooltipText":"Done 1 day after SLA"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 1,
     "range": 8,
     "number": 60,
     "category": "Development",
     "color": "#F1C1B0",
-    "textColor": "#444444"
+    "textColor": "#444444",
+    "tooltipText":"Done 2-3 days after SLA"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 1,
     "range": 9,
     "number": 100,
     "category": "Development",
     "color": "#EDA48A",
-    "textColor": "#444444"
+    "textColor": "#444444",
+    "tooltipText":"Done 4-5 days after SLA"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 1,
     "range": 10,
     "number": 25,
     "category": "Development",
     "color": "#E98664",
-    "textColor": "#444444"
+    "textColor": "#444444",
+    "tooltipText":"Done 6-10 days after SLA"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 1,
     "range": 11,
     "number": 12,
     "category": "Development",
     "color": "#E6693E",
-    "textColor": "#444444"
+    "textColor": "#444444",
+    "tooltipText":"Done 11 days or more after SLA"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 2,
     "range": 4,
     "number": 20,
@@ -109,7 +119,7 @@
     "textColor":"white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 2,
     "range": 6,
     "number": 0,
@@ -118,7 +128,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 2,
     "range": 9,
     "number": 10,
@@ -127,7 +137,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 3,
     "range": 1,
     "number": 25,
@@ -136,7 +146,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 3,
     "range": 2,
     "number": 10,
@@ -145,7 +155,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 3,
     "range": 3,
     "number": 50,
@@ -154,7 +164,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 3,
     "range": 4,
     "number": 20,
@@ -163,7 +173,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 3,
     "range": 5,
     "number": 5,
@@ -172,7 +182,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 3,
     "range": 6,
     "number": 20,
@@ -181,7 +191,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 3,
     "range": 7,
     "number": 20,
@@ -190,7 +200,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 3,
     "range": 8,
     "number": 60,
@@ -199,7 +209,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 3,
     "range": 9,
     "number": 26,
@@ -208,7 +218,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 3,
     "range": 10,
     "number": 25,
@@ -217,7 +227,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 3,
     "range": 11,
     "number": 12,
@@ -226,7 +236,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 4,
     "range": 1,
     "number": 25,
@@ -235,7 +245,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 4,
     "range": 2,
     "number": 10,
@@ -244,7 +254,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 4,
     "range": 3,
     "number": 50,
@@ -253,7 +263,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 4,
     "range": 4,
     "number": 20,
@@ -262,7 +272,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 4,
     "range": 5,
     "number": 5,
@@ -271,7 +281,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 4,
     "range": 6,
     "number": 20,
@@ -280,7 +290,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 4,
     "range": 7,
     "number": 0,
@@ -289,7 +299,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 4,
     "range": 8,
     "number": 60,
@@ -298,7 +308,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 4,
     "range": 9,
     "number": 26,
@@ -307,7 +317,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 4,
     "range": 10,
     "number": 25,
@@ -316,7 +326,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 4,
     "range": 11,
     "number": 15,
@@ -325,7 +335,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 5,
     "range": 1,
     "number": 25,
@@ -334,7 +344,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 5,
     "range": 2,
     "number": 10,
@@ -343,7 +353,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 5,
     "range": 3,
     "number": 50,
@@ -352,7 +362,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 5,
     "range": 4,
     "number": 20,
@@ -361,7 +371,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 5,
     "range": 5,
     "number": 5,
@@ -370,7 +380,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 5,
     "range": 6,
     "number": 20,
@@ -379,7 +389,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 5,
     "range": 7,
     "number": 0,
@@ -388,7 +398,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 5,
     "range": 8,
     "number": 60,
@@ -397,7 +407,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 5,
     "range": 9,
     "number": 26,
@@ -406,7 +416,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 5,
     "range": 10,
     "number": 25,
@@ -415,7 +425,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 5,
     "range": 11,
     "number": 15,
@@ -424,7 +434,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 6,
     "range": 1,
     "number": 25,
@@ -433,7 +443,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 6,
     "range": 2,
     "number": 10,
@@ -442,7 +452,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 6,
     "range": 3,
     "number": 50,
@@ -451,7 +461,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 6,
     "range": 4,
     "number": 20,
@@ -460,7 +470,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 6,
     "range": 5,
     "number": 5,
@@ -469,7 +479,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 6,
     "range": 6,
     "number": 20,
@@ -478,7 +488,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 6,
     "range": 7,
     "number": 0,
@@ -487,7 +497,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 6,
     "range": 8,
     "number": 60,
@@ -496,7 +506,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 6,
     "range": 9,
     "number": 26,
@@ -505,7 +515,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 6,
     "range": 10,
     "number": 25,
@@ -514,7 +524,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 6,
     "range": 11,
     "number": 15,
@@ -523,7 +533,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 7,
     "range": 1,
     "number": 25,
@@ -532,7 +542,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 7,
     "range": 2,
     "number": 10,
@@ -541,7 +551,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 7,
     "range": 3,
     "number": 50,
@@ -550,7 +560,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 7,
     "range": 4,
     "number": 20,
@@ -559,7 +569,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 7,
     "range": 5,
     "number": 5,
@@ -568,7 +578,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 7,
     "range": 6,
     "number": 20,
@@ -577,7 +587,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 7,
     "range": 7,
     "number": 0,
@@ -586,7 +596,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 7,
     "range": 8,
     "number": 60,
@@ -595,7 +605,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 7,
     "range": 9,
     "number": 26,
@@ -604,7 +614,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 7,
     "range": 10,
     "number": 25,
@@ -613,7 +623,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 7,
     "range": 11,
     "number": 15,
@@ -622,7 +632,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 8,
     "range": 1,
     "number": 25,
@@ -631,7 +641,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 8,
     "range": 2,
     "number": 10,
@@ -640,7 +650,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 8,
     "range": 3,
     "number": 50,
@@ -649,7 +659,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 8,
     "range": 4,
     "number": 20,
@@ -658,7 +668,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 8,
     "range": 5,
     "number": 5,
@@ -667,7 +677,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 8,
     "range": 6,
     "number": 20,
@@ -676,7 +686,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 8,
     "range": 7,
     "number": 0,
@@ -685,7 +695,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 8,
     "range": 8,
     "number": 60,
@@ -694,7 +704,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 8,
     "range": 9,
     "number": 26,
@@ -703,7 +713,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 8,
     "range": 10,
     "number": 25,
@@ -712,7 +722,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 8,
     "range": 11,
     "number": 15,
@@ -721,7 +731,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 9,
     "range": 1,
     "number": 25,
@@ -730,7 +740,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 9,
     "range": 2,
     "number": 10,
@@ -739,7 +749,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 9,
     "range": 3,
     "number": 50,
@@ -748,7 +758,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 9,
     "range": 4,
     "number": 20,
@@ -757,7 +767,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 9,
     "range": 5,
     "number": 5,
@@ -766,7 +776,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 9,
     "range": 6,
     "number": 20,
@@ -775,7 +785,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 9,
     "range": 7,
     "number": 0,
@@ -784,7 +794,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 9,
     "range": 8,
     "number": 60,
@@ -793,7 +803,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 9,
     "range": 9,
     "number": 26,
@@ -802,7 +812,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 9,
     "range": 10,
     "number": 25,
@@ -811,7 +821,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 9,
     "range": 11,
     "number": 15,
@@ -820,7 +830,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "-8 or less",
+    "name": "-11 or less",
     "standing": 10,
     "range": 1,
     "number": 25,
@@ -829,7 +839,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-6 to -8",
+    "name": "-6 to -10",
     "standing": 10,
     "range": 2,
     "number": 10,
@@ -838,7 +848,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-4 to -5",
+    "name": "-4 to -5",
     "standing": 10,
     "range": 3,
     "number": 50,
@@ -847,7 +857,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-2 to -3",
+    "name": "-2 to -3",
     "standing": 10,
     "range": 4,
     "number": 20,
@@ -856,7 +866,7 @@
     "textColor": "white"
   },
   {
-    "sla": "-1",
+    "name": "-1",
     "standing": 10,
     "range": 5,
     "number": 5,
@@ -865,7 +875,7 @@
     "textColor": "white"
   },
   {
-    "sla": "0",
+    "name": "0",
     "standing": 10,
     "range": 6,
     "number": 20,
@@ -874,7 +884,7 @@
     "textColor": "white"
   },
   {
-    "sla": "+1",
+    "name": "+1",
     "standing": 10,
     "range": 7,
     "number": 0,
@@ -883,7 +893,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+2 to +3",
+    "name": "+2 to +3",
     "standing": 10,
     "range": 8,
     "number": 60,
@@ -892,7 +902,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+4 to +5",
+    "name": "+4 to +5",
     "standing": 10,
     "range": 9,
     "number": 26,
@@ -901,7 +911,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+6 to +8",
+    "name": "+6 to +10",
     "standing": 10,
     "range": 10,
     "number": 25,
@@ -910,7 +920,7 @@
     "textColor": "#444444"
   },
   {
-    "sla": "+8 or more",
+    "name": "+11 or more",
     "standing": 10,
     "range": 11,
     "number": 15,

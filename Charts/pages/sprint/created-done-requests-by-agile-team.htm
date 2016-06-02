@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
   <style>
-    .container{
-      width:1170px !important;
-    }
+    /*.container {
+      width: 1170px !important;
+    }*/
   </style>
   <title></title>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
@@ -18,13 +18,14 @@
     <div class="container">
       <div class="row mb-40">
         <h1>Created & Done Requests by Data Protection </h1>
-        <div class="col-xs-6">
+
+        <div class="col-xs-12">
           <div id="planned-closed-data-protection"></div>
         </div>
       </div>
       <div class="row mt-30">
-        <div class="col-xs-6 mt-30">
-          <div id="planned-data-protection" style="height:200px"></div>
+        <div class="col-xs-12 mt-30">
+          <div id="planned-data-protection" style="height:200px;"></div>
         </div>
       </div>
     </div>
@@ -33,22 +34,66 @@
 <script>
   function createChart() {
     $("#planned-closed-data-protection").kendoChart({
-      title: {
-        /*text: "Gross domestic product growth \n /GDP annual %/"*/
-      },
       legend: {
         visible: true,
-        position: "bottom",
+        background: "#eeeeee",
+        position: "right",
+        orientation: "vertical",
+        margin: {
+          left: 30,
+          top: -273
+        },
         padding: {
-          right: 10,
-          left: 5,
-          top: 10
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
         },
         labels: {
-          font: "12px Arial,Helvetica,sans-serif",
-          margin: {
-            top: 5,
-            bottom: 5
+          font: "14px Arial,Helvetica,sans-serif"
+        },
+        item: {
+          visual: function (e) {
+            var color = e.options.markers.background;
+            var labelColor = e.options.labels.color;
+            var rect = new kendo.geometry.Rect([0, 0], [150, 50]);
+            var layout = new kendo.drawing.Layout(rect, {
+              spacing: 10,
+              alignItems: "center"
+            });
+
+
+            if (e.series.name.indexOf('Closed') > 0) {
+              var marker = new kendo.drawing.Path({
+                fill: {
+                  color: color
+                },
+                stroke: {
+                  color: color
+                }
+              }).moveTo(10, 0).lineTo(20, 0).lineTo(20, 10).lineTo(10, 10).close();
+            } else {
+              var marker = new kendo.drawing.Path({
+                fill: {
+                  color: color
+                },
+                stroke: {
+                  color: color
+                }
+              }).moveTo(10, 0).lineTo(15, 10).lineTo(5, 10).close();
+            }
+
+            var label = new kendo.drawing.Text(e.series.name, [0, 0], {
+              fill: {
+                color: labelColor
+              },
+              font: "14px Arial,Helvetica,sans-serif"
+            });
+
+            layout.append(marker, label);
+            layout.reflow();
+
+            return layout;
           }
         }
       },
@@ -62,27 +107,45 @@
       series: [{
         name: "Sprint 23 - Planned",
         data: [5, 7, 9, 15, 25, 10, 5, 3, 1],
-        dashType: "longdash"
+        dashType: "longdash",
+        markers:{
+          type:"triangle"
+        }
       }, {
         name: "Sprint 23 - Closed",
         data: [null, null, null, null, 10, 20, 25, 13, 20],
-        dashType: "solid"
+        dashType: "solid",
+        markers:{
+          type:"square"
+        }
       }, {
         name: "Sprint 24 - Planned",
         data: [14, 16, 8, 10, 35, 25, 12, 8, 3],
-        dashType: "longdash"
+        dashType: "longdash",
+        markers:{
+          type:"triangle"
+        }
       }, {
         name: "Sprint 24 - Closed",
         data: [null, null, null, null, 20, 28, 30, 13, 20],
-        dashType: "solid"
+        dashType: "solid",
+        markers:{
+          type:"square"
+        }
       }, {
         name: "Sprint 25 - Planned",
         data: [28, 30, 35, 40, 41, 35, 10, 5, 1],
-        dashType: "longdash"
+        dashType: "longdash",
+        markers:{
+          type:"triangle"
+        }
       }, {
         name: "Sprint 25 - Closed",
         data: [null, null, null, null, 23, 38, 27, 10, 21],
-        dashType: "solid"
+        dashType: "solid",
+        markers:{
+          type:"square"
+        }
       }],
       seriesColors: ["#006495", "#006495", "#FF9900", "#FF9900", "#732C7B", "#732C7B"],
       valueAxis: {
@@ -113,14 +176,24 @@
       }
     });
     $("#planned-data-protection").kendoChart({
-      /*title: {
-       text: "Number of comments by task type"
-       },*/
       legend: {
         visible: true,
-        background: "#ffffff",
-        position: "bottom",
+        background: "#eeeeee",
+        position: "right",
+        /*orientation: "vertical",*/
+        width:100,
+        margin: {
+          left: 30
+          /*top: -273*/
+        },
+        padding: {
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
+        },
         labels: {
+          font: "14px Arial,Helvetica,sans-serif",
           padding: {
             top: 8,
             bottom: 8
@@ -133,15 +206,15 @@
         },
         type: "column",
         labels: {
-          visible: false,
+          visible: true,
           font: "bold 14px Arial,Helvetica,sans-serif",
           background: "transparent",
           position: "center",
-          color: "white"
+          color: "black"
         }
       },
       series: [{
-        name: "Planned Before The Sprint",
+        name: "Planned Before Sprint",
         stack: "open tickets",
         data: [25, 18, 20],
         /*color: "#467cac"*/
@@ -151,7 +224,7 @@
         stack: "open tickets",
         data: [7, 12, 13],
         /*color: "#004C70"*/
-        color: "#ec8f6e"
+        color: "#e0450f"
       }],
       valueAxis: {
         Max: 200,
@@ -179,6 +252,7 @@
       }
     });
   }
+
   $(function () {
     createChart();
   });

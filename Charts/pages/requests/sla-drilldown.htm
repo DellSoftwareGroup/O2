@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <head>
-  <style>
-    .container{
-      width:1170px !important;
-    }
-  </style>
   <title></title>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
@@ -18,7 +13,7 @@
     <div class="container mt-40">
       <div class="row mb-40">
         <di class="col-xs-12">
-          <div id="sla-variance-dd"></div>
+          <div id="sla-variance-dd" style="height:600px"></div>
         </di>
       </div>
     </div>
@@ -47,7 +42,7 @@
     $.each(response, function (key, val) {
       if (!isInArray(val.category, valueArrayX)) {
         valueArrayX[i] = val.category;
-        console.log(val.category);
+        /*console.log(val.category);*/
         i++;
       }
 
@@ -58,8 +53,8 @@
      });*/
 
     $.each(response, function (key, val) {
-      if (!isInArray(val.sla, valueArrayY)) {
-        valueArrayY[j] = val.sla;
+      if (!isInArray(val.name, valueArrayY)) {
+        valueArrayY[j] = val.name;
         j++;
       }
     });
@@ -78,6 +73,7 @@
   }
 
   function changeYLabels(value) {
+    console.log(value);
     return valueArrayY[value] == undefined ? "" : valueArrayY[value];
   }
 
@@ -118,7 +114,8 @@
       xAxis: {
         labels: {
           template: "#= changeXLabels(value) #",
-          font: "bold 12px Arial,Helvetica,sans-serif"
+          font: "bold 12px Arial,Helvetica,sans-serif",
+          rotation: -45
         },
         majorUnit: 1,
         max: 11,
@@ -136,24 +133,19 @@
           template: "#= changeYLabels(value) #",
           font: "bold 12px Arial,Helvetica,sans-serif"
         },
-        axisCrossingValues: 6,
+        /*axisCrossingValues: 6,*/
         majorUnit: 1,
         max: 12,
         plotBands: [{
-          from: 10,
-          to: 12,
-          color: "#f1ca3a",
-          opacity: "0.2"
-        }, {
-          from: 10,
-          to: 10.03,
-          color: "#f1ca3a",
-          opacity: "1"
+          from: 4,
+          to: 8,
+          color: "#E5F3FA",
+          opacity: 0.8
         }]
       },
       tooltip: {
         visible: true,
-        template: "SLA #=dataItem.sla # : #=dataItem.number # Requests"
+        template: "#=dataItem.tooltipText #"
       },
       seriesClick: function (e) {
         console.log("category:" + e.dataItem.category + "  & SLA: " + e.dataItem.sla);

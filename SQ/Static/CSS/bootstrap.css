@@ -2701,8 +2701,7 @@ input[type="search"] {
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
-  margin-left: 15px;
-}
+  margin-left: 15px; }
 
 input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] input[type="radio"],
 input[type="checkbox"][disabled],
@@ -6545,8 +6544,7 @@ body {
   border-top: 1px solid #aaaaaa; }
 
 .border-b-grey {
-  border-bottom: 1px solid #cccccc !important;
-}
+  border-bottom: 1px solid #cccccc !important; }
 
 .border-tb-grey {
   border-top: 1px solid #cccccc;
