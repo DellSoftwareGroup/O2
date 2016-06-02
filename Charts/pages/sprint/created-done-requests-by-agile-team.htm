@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <style>
-    /*.container {
+   /* .container {
       width: 1170px !important;
     }*/
   </style>
@@ -33,6 +33,7 @@
 </div>
 <script>
   function createChart() {
+    var drawing = kendo.drawing;
     $("#planned-closed-data-protection").kendoChart({
       legend: {
         visible: true,
@@ -41,11 +42,11 @@
         orientation: "vertical",
         margin: {
           left: 30,
-          top: -273
+          top: -150
         },
         padding: {
-          top: 15,
-          bottom: 15,
+          top: 20,
+          bottom: 10,
           left: 30,
           right: 30
         },
@@ -56,7 +57,7 @@
           visual: function (e) {
             var color = e.options.markers.background;
             var labelColor = e.options.labels.color;
-            var rect = new kendo.geometry.Rect([0, 0], [150, 50]);
+            var rect = new kendo.geometry.Rect([0, 0], [150, 32]);
             var layout = new kendo.drawing.Layout(rect, {
               spacing: 10,
               alignItems: "center"
@@ -90,10 +91,23 @@
               font: "14px Arial,Helvetica,sans-serif"
             });
 
+            var overlay = drawing.Path.fromRect(rect, {
+              fill: {
+                color: "#fff",
+                opacity: 0
+              },
+              stroke: {
+                color: "none"
+              },
+              cursor: "pointer"
+            });
+
             layout.append(marker, label);
             layout.reflow();
 
-            return layout;
+            var group = new drawing.Group().append(layout, overlay);
+
+            return group;
           }
         }
       },
@@ -183,7 +197,7 @@
         /*orientation: "vertical",*/
         width:100,
         margin: {
-          left: 30
+          left: 50
           /*top: -273*/
         },
         padding: {
