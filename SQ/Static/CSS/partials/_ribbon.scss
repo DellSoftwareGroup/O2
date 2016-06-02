@@ -6,9 +6,9 @@
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px;
-  visibility: hidden;
+  display: none;
   &.initialized {
-    visibility: visible;
+    display: block;
   }
   > ul > li {
 	  list-style: none;

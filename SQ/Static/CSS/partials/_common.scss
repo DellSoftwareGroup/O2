@@ -672,6 +672,14 @@ ul {
   }
 }
 
+.asterick {
+	&:after {
+		content: "*";
+		display: inline;
+		vertical-align: super;
+	}
+}
+
 .asterick-first-p {
 	> p:first-child {
 		&:after {
