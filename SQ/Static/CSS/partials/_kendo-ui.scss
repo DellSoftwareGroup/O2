@@ -91,7 +91,8 @@
 }
 
 .k-window {
-	.k-header {
+	/*Remove background color and bottom border on kendo window modals*/
+	>.k-header {
 		background: none;
 		border-bottom: 0;
 	}

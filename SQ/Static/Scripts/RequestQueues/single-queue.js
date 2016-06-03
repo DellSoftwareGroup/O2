@@ -184,11 +184,11 @@ $(function () {
 	});
 
 	/*date picker*/
-	$(".date-picker").kendoDatePicker({
+	/*$(".date-picker").kendoDatePicker({
 		"format": "MM/dd/yyyy",
 		"min": new Date(1900, 0, 1, 0, 0, 0, 0),
 		"max": new Date(2099, 11, 31, 0, 0, 0, 0)
-	});
+	});*/
 
 	/*popover*/
 	$('.toggle-popover').popover({
