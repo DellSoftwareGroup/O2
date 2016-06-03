@@ -35,7 +35,7 @@ var globalModules = function () {
 
 		endPointMap = {
 			listing: '/sq/genericcontent/getcontent/?id=1',
-			request: '/sq/genericcontent/getcontent/?id=5',
+			request: '/sq/genericcontent/getcontent/?id=5', // not in use currently!
 			project: '/sq/genericcontent/getcontent/?id=22',
 			active: ''
 		};
@@ -44,8 +44,10 @@ var globalModules = function () {
 			var jqxhr = $.ajax(endPointMap[$location])
 					.done(function (data) {
 						content = data;
+						return data;
 					});
 		};
+
 
 		returnData = function () {
 			return content;
@@ -55,7 +57,7 @@ var globalModules = function () {
 			return ($(window).width() / 2) - 620; // 620 is have of modal width;
 		}
 
-		initKendoWindow = function () {
+		initKendoWindow = function ($location) {
 			$("#addReqModal").kendoWindow({
 				autoFocus: true,
 				visible: false,
@@ -74,9 +76,7 @@ var globalModules = function () {
 					// var modalContent = $.parseHTML(content.FieldDesc_1);
 					//$('#tabstrip-modal').find('.editable-content').append(modalContent[0].data);
 					$('#tabstrip-modal').find('.editable-content').append(content.FieldDesc_1);
-
-					// globalModules.addNewRequesModal.init();
-
+					
 				}
 			});
 		};
@@ -88,7 +88,7 @@ var globalModules = function () {
 			}
 
 			getModalData($location);
-			initKendoWindow();
+			initKendoWindow($location);
 
 			// close modal button gets initialized
 			$('.cancel-window').on('click', function () {
