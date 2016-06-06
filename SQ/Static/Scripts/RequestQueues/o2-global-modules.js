@@ -172,13 +172,15 @@ var globalModules = function () {
 			};
 
 			this.afterModalLoad = function (process) {
-				$('#myModal').on('shown.bs.modal', function (e) {
-					if ($('#myModal').next().hasClass('modal-backdrop')) {
-						$('#myModal').next().css('z-index', modalInfo.zIndex - 1);
+				var modal = $('#myModal');
+
+				modal.on('shown.bs.modal', function (e) {
+					if (modal.next().hasClass('modal-backdrop')) {
+						modal.next().css('z-index', modalInfo.zIndex - 1);
 					}
 
 					process();
-				})
+				});
 			};
 
 			this.destroyListener = function () {
@@ -308,10 +310,8 @@ var globalModules = function () {
 				var buildModal = new ModalHtmlBuilder(campaignInfo);
 
 				buildModal.initModal();
-				buildModal.show();
-				buildModal.preventEventPropagation();
 				buildModal.afterModalLoad(function () {
-					var selectedOption = {}
+					var selectedOption = {};
 					// campaign select dropdown
 					$('.campFilterResults').change(function (e) {
 						selectedOption = {
@@ -322,15 +322,14 @@ var globalModules = function () {
 
 					// bind select btn event
 					$('.custom-modal .select-btn').click(function () {
-
 						// checks if ribbon exist
 						if ($('.sq-top-ribbon').length > 0) {
 							var callback = ribbonWidgets.moreFiltersPopover.onModalInputchange;
 							exportSelectedToPopover(this, selectedOption, callback);
-						} else {
+						}
+						else {
 							exportSelectedToPopover(this, selectedOption);
 						}
-
 					});
 
 					// bind reset btn event
@@ -360,6 +359,8 @@ var globalModules = function () {
 						refreshModal(selectElm, option, '#campaignFilter');
 					});
 				});
+				buildModal.show();
+				buildModal.preventEventPropagation();
 
 				buildModal.destroyListener();
 
@@ -637,16 +638,14 @@ var globalModules = function () {
 				var buildModal = new ModalHtmlBuilder(projectInfo);
 
 				buildModal.initModal();
-				buildModal.show();
-				buildModal.preventEventPropagation();
 				buildModal.afterModalLoad(function () {
 					// when serching by ID
 					$('#projectSelectFirst').on('change', function (e) {
 						if ($(this).val() == 'ProjId') {
 							$.when(
-									$('#searchById').css('display', 'inline-block')
+								$('#searchById').css('display', 'inline-block')
 							).then(
-									$('.secondProjFilter, .thirdProjFilter').hide('slow')
+								$('.secondProjFilter, .thirdProjFilter').hide('slow')
 							);
 							resetProjModal();
 							initSearchById('#searchById');
@@ -711,6 +710,8 @@ var globalModules = function () {
 
 					});
 				});
+				buildModal.show();
+				buildModal.preventEventPropagation();
 				
 				buildModal.destroyListener();
 
