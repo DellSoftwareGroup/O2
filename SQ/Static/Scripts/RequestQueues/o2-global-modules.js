@@ -190,7 +190,6 @@ var globalModules = function () {
 			};
 		}
 
-
 		// Module variables
 		var subFilter = {
 			alias: null,
@@ -558,7 +557,6 @@ var globalModules = function () {
 							console.error(error);
 						}
 					});
-
 				}());
 
 				function initOwnerReqAutoComp(selected) {
@@ -591,7 +589,8 @@ var globalModules = function () {
 					removeInputKendoStyles('#ownerOrRequester');
 				}
 
-				modalName = modalName || 'project'
+				modalName = modalName || 'project';
+
 				var InputByIdStyles = "display:none; position: absolute; left:0; top: 0;";
 				projectInfo.content = String()
 						+ '<div>'
@@ -651,7 +650,8 @@ var globalModules = function () {
 							);
 							resetProjModal();
 							initSearchById('#searchById');
-						} else {
+						}
+						else {
 							$('#searchById').css('display', 'none');
 							$('.secondProjFilter, .thirdProjFilter').show('slow');
 							resetProjModal();
@@ -710,9 +710,8 @@ var globalModules = function () {
 						}
 
 					});
-
-
 				});
+				
 				buildModal.destroyListener();
 
 				initProjectAutoComplete('#nameOrID');
@@ -720,6 +719,11 @@ var globalModules = function () {
 
 			// Kendo Data processing
 			function initProjectAutoComplete(projectFilter) {
+				var projAutocomplete = $(projectFilter).data("kendoAutoComplete");
+
+				if(projAutocomplete) {
+					projAutocomplete.destroy();
+				}
 
 				// search by Title
 				var projectDataSource = new kendo.data.DataSource({
@@ -728,7 +732,7 @@ var globalModules = function () {
 						read: function (options) {
 							if (typeof options.data.filter != 'undefined') {
 								subFilter.key = options.data.filter.filters[0].value;
-								console.log(subFilter.key);
+								//console.log(subFilter.key);
 								$.ajax({
 									url: endPoints.projects + "?name=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
@@ -834,7 +838,7 @@ var globalModules = function () {
 				removeInputKendoStyles(projectFilter);
 
 				// After dom interactions
-				var projAutocomplete = $(projectFilter).data("kendoAutoComplete");
+				projAutocomplete = $(projectFilter).data("kendoAutoComplete");
 
 				if (subFilter.refresh == true) {
 					projAutocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
@@ -959,7 +963,6 @@ var globalModules = function () {
 			$('[data-custom-modal=project]').on('click', function (e) {
 				e.preventDefault();
 				var modalName = $(this).data('custom-modal-name');
-				if ($('[data-custom-modal-name]'))
 
 				//If this used in a modal, pass the new z-index to the project modal.
 				var kWindow = $(this).parents('.k-window');
@@ -1031,7 +1034,7 @@ var globalModules = function () {
 				$('.popoverMS').on('shown.bs.popover', function () {
 					fx();
 				})
-			}
+			};
 
 			return {
 				content: this.msPopoverContent,
