@@ -1173,16 +1173,9 @@ tbody tr:first-child .tooltip:hover:after {
 .data-heading h3, .data-heading > div {
   display: inline-block; }
 
-.pagination.pagination-centered {
-  margin: auto;
-  text-align: center; }
-
-.paging {
-  float: right; }
-
 .pagination {
-  /*height: 42px;*/
-  margin: 18px 0; }
+  margin: 18px 0;
+  float: right; }
   .pagination ul {
     display: inline-block;
     overflow: hidden;
@@ -1191,60 +1184,68 @@ tbody tr:first-child .tooltip:hover:after {
     .pagination ul li {
       list-style-type: none;
       float: left; }
-  .pagination > div {
-    display: inline-block;
-    background: url("../Content/Img/shared/vertical-pipe.png") 100% 0 repeat-y;
-    padding: 12px 20px 0;
-    margin: 2px 0;
-    vertical-align: top;
-    height: 26px;
-    line-height: 13px; }
-    .pagination > div:last-child {
-      background: 0; }
+  .pagination > a, .pagination > ul {
+    display: inline-block !important;
+    vertical-align: middle; }
   .pagination li {
     list-style: none outside none !important;
     float: left;
+    padding: 0;
     margin-right: 4px;
     min-width: 17px;
     height: 16px;
     text-align: center;
-    padding: 0 3px 0 2px;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px; }
+    .pagination li:last-child {
+      margin-right: 0; }
+    .pagination li.active {
+      background-color: #999; }
+      .pagination li.active a, .pagination li.active strong {
+        color: #fff; }
+    .pagination li a, .pagination li span {
+      padding: 0 5px; }
+    .pagination li .k-state-selected {
+      background-color: #E5F3FA; }
+    .pagination li .k-pager-nav {
+      padding: 0; }
   .pagination a, .pagination strong {
     display: block;
     font-size: 14px !important;
     line-height: 16px; }
-  .pagination a:visited {
-    color: #39c; }
-  .pagination li:last-child {
-    margin-right: 0; }
-  .pagination li.active {
-    background-color: #999; }
-    .pagination li.active a, .pagination li.active strong {
-      color: #fff; }
-  .pagination .prev, .pagination .next {
+    .pagination a:visited, .pagination strong:visited {
+      color: #39c; }
+  .pagination.pagination-centered {
+    margin: auto;
+    text-align: center; }
+  .pagination .k-pager-nav {
+    padding: 0 10px; }
+    .pagination .k-pager-nav:hover .k-i-arrow-w {
+      background-position: -5px -23px; }
+    .pagination .k-pager-nav:hover .k-i-arrow-e {
+      background-position: -105px -23px; }
+  .pagination .k-icon {
     width: 9px;
     height: 14px;
     display: inline-block;
     background: url("//software.dell.com/images/shared/sprites.png") 0 0 no-repeat;
     vertical-align: top;
     margin-top: 1px; }
-  .pagination .prev {
+  .pagination .k-i-arrow-w {
     background-position: -25px -23px; }
-    .pagination .prev:hover {
-      background-position: -5px -23px; }
+  .pagination .k-i-arrow-e {
+    background-position: -85px -23px; }
   .pagination .inactive a.prev {
     background-position: -45px -23px; }
-  .pagination .next {
-    background-position: -85px -23px; }
-    .pagination .next:hover {
-      background-position: -105px -23px; }
   .pagination .inactive a.next {
     background-position: -65px -23px; }
   .pagination .sortby {
     margin-top: -5px; }
+  .pagination .k-pager-first, .pagination .k-pager-last {
+    display: none !important; }
+  .pagination .k-pager-info {
+    float: left; }
 
 /* exported from collective.min.css .pagination */
 /* links */
