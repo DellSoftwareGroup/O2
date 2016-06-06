@@ -16,6 +16,10 @@
 		box-sizing: border-box;
 		width: 100px;
 	}
+	&.k-multiselect {
+		min-height: 34px;
+		height: auto;
+	}
 	> .k-picker-wrap {
 		border: 0;
 	}
@@ -26,6 +30,11 @@
 		padding: 7px;
 		cursor: pointer;
 	}
+}
+
+.k-list-scroller {
+	max-height: 200px !important;
+	overflow-y: auto;
 }
 
 /*Kendo UI datepicker*/
@@ -87,7 +96,8 @@
 }
 
 .k-window {
-	.k-header {
+	/*Remove background color and bottom border on kendo window modals*/
+	>.k-header {
 		background: none;
 		border-bottom: 0;
 	}

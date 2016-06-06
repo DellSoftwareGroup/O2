@@ -1,7 +1,3 @@
-/**
- * Created by jleon on 3/11/2016.
- */
-
 var globalModules = function () {
 
 	// helps to populate html templates
@@ -32,21 +28,74 @@ var globalModules = function () {
 	// Public methods
 	var addNewRequestModal = function () {
 		var content;
-		getModalData = function () {
-			var jqxhr = $.ajax("/sq/genericcontent/getcontent/?id=1")
+
+		endPointMap = {
+			listing: '/sq/genericcontent/getcontent/?id=1',
+			request: '/sq/genericcontent/getcontent/?id=5', // not in use currently!
+			project: '/sq/genericcontent/getcontent/?id=22',
+			active: ''
+		};
+
+		getModalData = function ($location) {
+			var jqxhr = $.ajax(endPointMap[$location])
 					.done(function (data) {
 						content = data;
+						return data;
 					});
 		};
+
+
 		returnData = function () {
 			return content;
 		};
-		init = function () {
+
+		centerModal = function () {
+			return ($(window).width() / 2) - 620; // 620 is have of modal width;
+		};
+
+		initKendoWindow = function ($location) {
+			$("#addReqModal").kendoWindow({
+				autoFocus: true,
+				visible: false,
+				modal: true,
+				position: {
+					top: "10%",
+					left: centerModal()
+				},
+				width: 1268,
+				minWidth: 400,
+				title: false,
+				scrollable: false,
+				open: function () {
+					var content = globalModules.addNewRequesModal.returnData();
+
+					// var modalContent = $.parseHTML(content.FieldDesc_1);
+					//$('#tabstrip-modal').find('.editable-content').append(modalContent[0].data);
+					$('#tabstrip-modal').find('.editable-content').append(content.FieldDesc_1);
+					
+				}
+			});
+		};
+
+		init = function ($location) {
+
+			if (typeof $location !== "undefined") {
+				endPointMap.active = $location;
+			}
+
+			getModalData($location);
+			initKendoWindow($location);
+
+			// close modal button gets initialized
 			$('.cancel-window').on('click', function () {
 				$addReqModal.close();
+				init(endPointMap.active); // need recursion to rebuild data when modal is closed;
 			})
 
-			$('#expandable-control').on('click', function () {
+			// expand all functionality gets initialized
+			// Off was needed to fix issue of double triggering click event
+			$('body').off('click', '#expandable-control').on('click', '#expandable-control', function () {
+				//console.log('hit');
 				if ($(this).data('expandables-state') == 'closed') {
 					$('.collapsed').trigger('click');
 					$(this).data('expandables-state', 'open')
@@ -57,7 +106,24 @@ var globalModules = function () {
 							.html('Expand All <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>')
 				}
 			});
-		}
+
+			var $addReqModal = $("#addReqModal").data("kendoWindow"),
+					$modalParent = $('#tabstrip-modal');
+
+			$('#add-request').on('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				if ($modalParent.find('.editable-content').children().length > 0) {
+					$modalParent.find('.editable-content').children().remove();
+				}
+				$addReqModal.open();
+			});
+
+			$('#myTabs a').click(function (e) {
+				e.preventDefault();
+				$(this).tab('show');
+			});
+		};
 
 		return {
 			getModalData: getModalData,
@@ -71,7 +137,7 @@ var globalModules = function () {
 		function ModalHtmlBuilder(modalInfo) {
 
 			this.modal = String()
-					+ '<div class="modal fade custom-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'
+				+ '<div class="modal fade custom-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: ' + modalInfo.zIndex + '">'
 					+ '<div class="modal-dialog" role="document">'
 					+ '<div class="modal-content">'
 					+ '<div class="modal-header">'
@@ -102,10 +168,16 @@ var globalModules = function () {
 			};
 
 			this.afterModalLoad = function (process) {
-				$('#myModal').on('shown.bs.modal', function (e) {
+				var modal = $('#myModal');
+
+				modal.on('shown.bs.modal', function (e) {
+					if (modal.next().hasClass('modal-backdrop')) {
+						modal.next().css('z-index', modalInfo.zIndex - 1);
+					}
+
 					process();
-				})
-			}
+				});
+			};
 
 			this.destroyListener = function () {
 				$('#myModal').on('hidden.bs.modal', function (e) {
@@ -113,9 +185,8 @@ var globalModules = function () {
 					subFilter.key = '';
 					subFilter.alias = null; // !important to show all results if modal is open again
 				})
-			}
+			};
 		}
-
 
 		// Module variables
 		var subFilter = {
@@ -170,23 +241,32 @@ var globalModules = function () {
 		function exportSelectedToPopover(target, option, callback) {
 
 			if ($.isEmptyObject(option)) {
-				alert('Please make a selection')
-				return
+				alert('Please make a selection');
+				return;
 			}
 
 			// find which modal (campaign or project : may grow later)
-			var $modalName = $('.custom-modal form').data('modalname');
+			var $modalName = $('.custom-modal form').data('modalname'),
+					$modalTrigger = $('[data-custom-modal-name="' + $modalName + '"]'),
+					$modalTarget = $('[data-modal-target="' + $modalName + '"]');
 
 			// attach values
-			if ($('[data-modal-target]').is('div')) {
-				$('[data-modal-target=' + $modalName + ']')
+			if ($modalTarget.is('div')) {
+				$modalTarget
 						.html(option.name)
 						.attr('filterId', option.val)
-			} else if ($('[data-modal-target]').is('input')) {
-				$('[data-modal-target=' + $modalName + ']')
+			} else if ($modalTarget.is('input')) {
+				$modalTarget
 						.val(option.name)
 						.attr('filterId', option.val)
 						.triggerHandler('change');
+			}
+
+			// When project id is required to be passed as an input value
+			// not being used at the moment
+			var requiresId = $modalTrigger.data('custom-modal-id');
+			if (!!requiresId) {
+				$('[data-modal-id-target="' + requiresId + '"]').val(option.val).trigger('change');
 			}
 
 			if (typeof callback == 'function') {
@@ -226,10 +306,8 @@ var globalModules = function () {
 				var buildModal = new ModalHtmlBuilder(campaignInfo);
 
 				buildModal.initModal();
-				buildModal.show();
-				buildModal.preventEventPropagation();
 				buildModal.afterModalLoad(function () {
-					var selectedOption = {}
+					var selectedOption = {};
 					// campaign select dropdown
 					$('.campFilterResults').change(function (e) {
 						selectedOption = {
@@ -240,15 +318,14 @@ var globalModules = function () {
 
 					// bind select btn event
 					$('.custom-modal .select-btn').click(function () {
-
 						// checks if ribbon exist
 						if ($('.sq-top-ribbon').length > 0) {
 							var callback = ribbonWidgets.moreFiltersPopover.onModalInputchange;
 							exportSelectedToPopover(this, selectedOption, callback);
-						} else {
+						}
+						else {
 							exportSelectedToPopover(this, selectedOption);
 						}
-
 					});
 
 					// bind reset btn event
@@ -278,6 +355,8 @@ var globalModules = function () {
 						refreshModal(selectElm, option, '#campaignFilter');
 					});
 				});
+				buildModal.show();
+				buildModal.preventEventPropagation();
 
 				buildModal.destroyListener();
 
@@ -421,8 +500,8 @@ var globalModules = function () {
 		var projectModal = function () {
 
 			// Project Modal
-			function runProjectModal() {
-				var projectInfo = {}, projFiltersPreData = {}, ownerOrRequester = 'clean';
+			function runProjectModal(zIndex, modalName) {
+				var projectInfo = {zIndex: zIndex}, projFiltersPreData = {}, ownerOrRequester = 'clean';
 				subFilter.refresh = true; // unload refresh
 
 				// Internal methods
@@ -475,13 +554,12 @@ var globalModules = function () {
 							console.error(error);
 						}
 					});
-
 				}());
 
 				function initOwnerReqAutoComp(selected) {
 
 					subFilter.isOwnerOrRequester = selected;
-					var dataSource = (selected == 'ProjOwner') ? projFiltersPreData.owners : projFiltersPreData.requestors
+					var dataSource = (selected == 'ProjOwner') ? projFiltersPreData.owners : projFiltersPreData.requestors;
 
 					$('#ownerOrRequester').kendoAutoComplete({
 						filter: "contains",
@@ -508,10 +586,12 @@ var globalModules = function () {
 					removeInputKendoStyles('#ownerOrRequester');
 				}
 
+				modalName = modalName || 'project';
+
 				var InputByIdStyles = "display:none; position: absolute; left:0; top: 0;";
 				projectInfo.content = String()
 						+ '<div>'
-						+ '<form class="form-horizontal" data-modalName="project">'
+						+ '<form class="form-horizontal" data-modalName="' + modalName + '">'
 						+ '<div class="form-inline firstProjFilter mb-10" >'
 						+ '<select class="form-control mr-10" id="projectSelectFirst">'
 						+ '<option value="ProjName">Project Name</option>'
@@ -554,27 +634,25 @@ var globalModules = function () {
 				var buildModal = new ModalHtmlBuilder(projectInfo);
 
 				buildModal.initModal();
-				buildModal.show();
-				buildModal.preventEventPropagation();
 				buildModal.afterModalLoad(function () {
-
 					// when serching by ID
 					$('#projectSelectFirst').on('change', function (e) {
 						if ($(this).val() == 'ProjId') {
 							$.when(
-									$('#searchById').css('display', 'inline-block')
+								$('#searchById').css('display', 'inline-block')
 							).then(
-									$('.secondProjFilter, .thirdProjFilter').hide('slow')
+								$('.secondProjFilter, .thirdProjFilter').hide('slow')
 							);
 							resetProjModal();
 							initSearchById('#searchById');
-						} else {
+						}
+						else {
 							$('#searchById').css('display', 'none');
 							$('.secondProjFilter, .thirdProjFilter').show('slow');
 							resetProjModal();
 							initProjectAutoComplete('#nameOrID');
 						}
-					})
+					});
 
 					// trigger autocomplete when change of owner / requester
 					$('#projectSelectSecond').on('change', function () {
@@ -587,14 +665,10 @@ var globalModules = function () {
 							initOwnerReqAutoComp($('#projectSelectSecond').val());
 							ownerOrRequester = 'durty';
 						}
-					});
-
-					// when owner or requested field is cleared we need to show all
-					// trigger autocomplete when focus on owner/requester input
-					$('#ownerOrRequester').on('blur', function () {
-						if ($('#ownerOrRequester').val() == '') { //  chech if name has been clear
+					}).keyup(function () {
+						if (!this.value) {
 							subFilter.alias = null;  // clear name from reference obj
-							initOwnerReqAutoComp($('#projectSelectSecond').val()); // initialize process
+							refreshModal('li.k-item.k-state-hover', 'All', '#nameOrID'); // show all options
 							ownerOrRequester = 'durty';
 						}
 
@@ -602,11 +676,9 @@ var globalModules = function () {
 
 					// when status is selected
 					$('#projectSelectThird').on('change', function () {
-
 						subFilter.status = $(this).val() == '' ? null : $(this).val();
 						subFilter.refresh = true;
 						initProjectAutoComplete('#nameOrID');
-						;
 					});
 
 					// reset
@@ -616,27 +688,32 @@ var globalModules = function () {
 							$('#projectSelectFirst').val('ProjName').change();
 						}
 						resetProjModal();
-
 					});
 
 					// when clicked select button
 					$('.select-btn').on('click', function () {
-						var exportSelected = {};
-						exportSelected.name = $('.projectFilterResults').find('option:selected').data('name');
-						exportSelected.val = $('.projectFilterResults').find('option:selected').val();
+						var projectFilterResult = $('.projectFilterResults').find('option:selected'), exportSelected = {};
+
+						if(projectFilterResult.length) {
+							exportSelected = {
+								name: projectFilterResult.data('name'),
+								val: projectFilterResult.val()
+							};
+						}
 
 						// checks if ribbon exist
 						if ($('.sq-top-ribbon').length > 0) {
 							var callback = ribbonWidgets.moreFiltersPopover.onModalInputchange;
 							exportSelectedToPopover(null, exportSelected, callback);
-						} else {
+						}
+						else {
 							exportSelectedToPopover(null, exportSelected);
 						}
-
 					});
-
-
 				});
+				buildModal.show();
+				buildModal.preventEventPropagation();
+				
 				buildModal.destroyListener();
 
 				initProjectAutoComplete('#nameOrID');
@@ -644,7 +721,12 @@ var globalModules = function () {
 
 			// Kendo Data processing
 			function initProjectAutoComplete(projectFilter) {
-				console.log('hit');
+				var projAutocomplete = $(projectFilter).data("kendoAutoComplete");
+
+				if(projAutocomplete) {
+					projAutocomplete.destroy();
+				}
+
 				// search by Title
 				var projectDataSource = new kendo.data.DataSource({
 					serverFiltering: true,
@@ -652,7 +734,7 @@ var globalModules = function () {
 						read: function (options) {
 							if (typeof options.data.filter != 'undefined') {
 								subFilter.key = options.data.filter.filters[0].value;
-								console.log(subFilter.key);
+								//console.log(subFilter.key);
 								$.ajax({
 									url: endPoints.projects + "?name=" + options.data.filter.filters[0].value,
 									dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
@@ -678,7 +760,14 @@ var globalModules = function () {
 					},
 					change: function (e) {
 						var filtered = [], resultsTally = [];
-						var view = projectDataSource.view();
+						var view = projectDataSource.view(), resultsFound = view.length;
+
+						// Check if no results --> show 0 results and stop spinner
+						if (!resultsFound) {
+							appendToResults('.projectFilterResults', resultsFound);
+							$('.modal-results span').removeClass('custom-loading');
+							return;
+						}
 
 						// no subfilter modified
 						if ((subFilter.alias == null || subFilter.alias.indexOf('All') != -1) && subFilter.status == null) {
@@ -708,7 +797,6 @@ var globalModules = function () {
 							});
 
 						}
-						;
 
 						// filter status
 						if (subFilter.status !== null) {
@@ -729,7 +817,6 @@ var globalModules = function () {
 							}// end of filtering if owner or requester + status
 
 						}
-						;
 
 						if (resultsTally.length === 0) {
 							appendToResults('.projectFilterResults', 0);
@@ -753,7 +840,7 @@ var globalModules = function () {
 				removeInputKendoStyles(projectFilter);
 
 				// After dom interactions
-				var projAutocomplete = $(projectFilter).data("kendoAutoComplete");
+				projAutocomplete = $(projectFilter).data("kendoAutoComplete");
 
 				if (subFilter.refresh == true) {
 					projAutocomplete.search(subFilter.key); // kendo .search() method is the only way to dynamically trigget change event!
@@ -858,9 +945,9 @@ var globalModules = function () {
 					$('.projectFilterResults').data('no-result-processed',false);
 					$(target).append(optionTmpl);
 				}
-				$('.modal-results span').removeClass('custom-loading');
+				// check if loading class is loading if true turn it off
+				($('.modal-results span').hasClass('custom-loading')) && $('.modal-results span').removeClass('custom-loading');
 			}
-
 
 			return {
 				runProjectModal: runProjectModal,
@@ -877,7 +964,17 @@ var globalModules = function () {
 
 			$('[data-custom-modal=project]').on('click', function (e) {
 				e.preventDefault();
-				projectModal.runProjectModal();
+				var modalName = $(this).data('custom-modal-name');
+
+				//If this used in a modal, pass the new z-index to the project modal.
+				var kWindow = $(this).parents('.k-window');
+
+				if (kWindow.length && kWindow.css('zIndex')) {
+					projectModal.runProjectModal(parseInt(kWindow.css('zIndex')) + 1, modalName);
+				}
+				else {
+					projectModal.runProjectModal();
+				}
 			});
 		}
 
@@ -939,7 +1036,7 @@ var globalModules = function () {
 				$('.popoverMS').on('shown.bs.popover', function () {
 					fx();
 				})
-			}
+			};
 
 			return {
 				content: this.msPopoverContent,
@@ -951,8 +1048,8 @@ var globalModules = function () {
 		var settings = {
 			selectedTarget: null,
 			trigger: null,
-			activate: false, // It can be used to activate popover without the external use of init()
-		}
+			activate: false // It can be used to activate popover without the external use of init()
+		};
 
 		// public function sets input and target areas
 		function customSettings(thisSettings) {
@@ -976,23 +1073,23 @@ var globalModules = function () {
 				var email = '';
 				if (Array.isArray(resultsData)) {
 					resultsData.forEach(function (result) {
-						if (result.Alias == option.value) {
+						if (result.User_ID == option.value) {
 							email = result.Email;
 							name = result.DisplayName;
+							return;
 						}
 					});
 				}
-				;
 				// build option
 
 				if (doReturn) { // non ribbon popovers
 					optionObj = {};
-					optionObj.elias = option.value;
+					optionObj.User_ID = option.value;
 					optionObj.email = email;
 					optionObj.name = name;
 					return optionObj
 				} else {
-					$(wrapper).siblings(selectedTarget).append('<option value="' + option.value + '" data-email="' + email + '">' + option.text + '</option>');
+					$(wrapper).siblings(selectedTarget).append('<option value="' + option.value + '" data-name="' + name + '">' + option.text + '</option>');
 				}
 			};
 			this.optionsCount = function () {
@@ -1031,9 +1128,7 @@ var globalModules = function () {
 		/* ------> Private Functions <------- */
 		// initiate kendo multiselect
 		function initKendoMultiSelect() {
-
 			var userDataSource = new kendo.data.DataSource({
-				//type: 'odata',
 				serverFiltering: true,
 				transport: {
 					read: function (options) {
@@ -1066,7 +1161,7 @@ var globalModules = function () {
 				minLength: 3,
 				dataSource: userDataSource,
 				dataTextField: "DisplayName",
-				dataValueField: "Alias"
+				dataValueField: "User_ID"
 			});
 		}
 
@@ -1075,10 +1170,10 @@ var globalModules = function () {
 			var $dynamicSelect = $(target).siblings(selectedTarget);
 
 			if ($dynamicSelect.length > 0) { // check if dynamic select has been created
-
 				if ($dynamicSelect.find('option').length > 0) { // if options are existing show
 					$('.taglist-parent').show();
 				}
+
 				$dynamicSelect.find('option').each(function () {
 					var name = $(this).text();
 					var temp = String()
@@ -1089,8 +1184,7 @@ var globalModules = function () {
 					$('#popoverInput_taglist_prev').append(temp);
 				})
 			}
-			$(this).find('')
-		};
+		}
 
 		function removePrevOptions(target, option) {
 			var $dynamicSelect = $(target).siblings(selectedTarget),
@@ -1120,14 +1214,14 @@ var globalModules = function () {
 				}
 			});
 			return ckFilter;
-		};
+		}
 
 		function closePopup(whichOne) {
 
 			closeThis = (typeof whichOne == 'undefined') ? popupTrigger : whichOne;
 			$(closeThis).popover('destroy');
 
-		};
+		}
 
 		function saveSelected() {
 			var $selctWrapper = $(targetInput).closest('li').find(popupTrigger),
@@ -1143,7 +1237,7 @@ var globalModules = function () {
 				buildNewSelect.addCountToLabel();
 			}
 			closePopup();
-		};
+		}
 
 		function onCloseBtn(thisPopover) {
 			$('body').on('click', '.close', function () {
@@ -1194,18 +1288,17 @@ var globalModules = function () {
 		function ribbonPopoverInit() {
 			// initiate popover
 			$(popupTrigger).on('click', function () {
-
 				var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
 				buildHtml.afterLoad(function () {
 					$('body').on('click.popover', function (e) {
 						closeOnBodyClick(e)
-					})
+					});
 				}); // add interactions after popover is shown
 				$(this).popover({
 					html: true,
 					placement: 'left',
 					content: buildHtml.content,
-					template: buildHtml.tmpl,
+					template: buildHtml.tmpl
 				});
 				$(this).popover("show");
 
@@ -1350,8 +1443,7 @@ var globalModules = function () {
 	}(); // */end of popupModule module
 
 	var followersGrid = function () {
-		var followersIS = {};
-		followerUpdates = {};
+		var followersIS = {}, followerUpdates = {};
 
 		function getFollowers(newFollowers) {
 			followerUpdates = newFollowers;
@@ -1471,8 +1563,6 @@ $(function () {
 	if (typeof endPoints === 'object') {
 		globalModules.popupModule.usersPopoverInit();
 	}
-
-	globalModules.addNewRequesModal.getModalData();
 	globalModules.rightRailWidgets.init();
 
 });

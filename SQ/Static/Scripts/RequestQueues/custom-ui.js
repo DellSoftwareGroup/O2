@@ -331,13 +331,10 @@ var globalScripts = (function ($) {
 
 }(jQuery));
 
-
 $(function () {
   // initialize editRequest scripts
   !!$('#editRequesTmpl').length && globalScripts.editRequestTmpl.init();
 
-
   // initialize addRequest scripts
   !!$('#addRequestTmpl').length && globalScripts.addRequestTmpl.init();
-
 });

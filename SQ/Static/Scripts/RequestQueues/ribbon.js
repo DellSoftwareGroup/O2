@@ -2,6 +2,280 @@
  console.log('from IS form: ', obj);
  }*/
 
+var initRibbon = function () {
+
+	/* utility functions */
+	function splitCamelCase(word) {
+		return word
+		// insert a space before all caps
+				.replace(/([A-Z])/g, ' $1')
+				// uppercase the first character
+				.replace(/^./, function (str) {
+					return str.toUpperCase();
+				});
+	}
+
+	function getOption(word) {
+		var obj = {};
+		var rem = word.split(' ');
+		obj.option = rem.pop();
+		obj.title = rem.join(' ');
+		return obj;
+	}
+
+	function getFilterInfo(filterType) {
+		var whichFilter = $(filterType).data('title');
+		whichFilter = $.trim(whichFilter);
+		return filtersMap[whichFilter];
+	}
+
+	function optionsCount($thisSelect) {
+		var count = $thisSelect.find('option').length;
+		return count;
+	};
+
+	// private variables
+	var lastActiveFilters = {}, $filters = [], filtersMap = {}, activeFilters = {};
+
+
+	function findActiveFilters(lastFiltersObj) {
+		if (!$.isEmptyObject(lastFiltersObj)) {
+			lastActiveFilters = $.parseJSON(lastFiltersObj);
+			// lastActiveFilters = lastFiltersObj;
+			this.init();
+		} else {
+			console.warn('No ribbon cookie information found!')
+			return;
+		}
+	}
+
+	function processActiveFilters() {
+
+		function getFilterTitle() {
+			var filterTitles = [];
+			$.each(lastActiveFilters, function (prop, val) {
+				var title = splitCamelCase(prop);
+				title = $.trim(title);
+				if (title.indexOf('Request Status') > -1) {
+					var info = getOption(title);
+					title = info.title;
+					if (title in filtersMap) {
+						var arr = filtersMap[title]['option'];
+						arr.push(info.option);
+						val = arr;
+						original : prop
+					} else {
+						arr = [];
+						arr.push(info.option);
+						val = arr;
+						title = info.title;
+					}
+				}
+				if (filterTitles.length == 0) {
+					filterTitles.push(title)
+				} else {
+					var titleExist = false;
+					filterTitles.forEach(function (eTitle) {
+						if (eTitle == title) {
+							titleExist = true;
+						}
+					});
+					!titleExist && filterTitles.push(title);
+				}
+
+				filtersMap[title] = {
+					option: val,
+					original: prop
+				}
+
+			})
+			return filterTitles;
+		}
+
+		// query filters and make collection
+		var collectFilters = function () {
+			/*
+			 * The best way I can think of to make sure that I am matching the right
+			 * filters with the values passed by IS function is to dynamically call
+			 * all the actual filters in the ribbon area and then map and match them
+			 * with the processed filter titles
+			 * */
+			var cookiedFiltersArr = getFilterTitle();
+			var actualRibbonFilterArr = actualRibbonFilters();
+			var activeRibbonFiltersArr = activeRibbonFilters();
+			$filters = jqCollection();
+			console.log($filters);
+
+			/* Private methods */
+			function actualRibbonFilters() {
+				var $allFilters = $('.sq-top-ribbon').find('[data-isFilter=true]');
+				var allFiltersTitles = [];
+				$allFilters.each(function () {
+
+					// has data tile
+					if ($(this).data('title') !== undefined) {
+						var thisTitle = $(this).data('title');
+						allFiltersTitles.push(thisTitle);
+					}
+				});
+				// has children with data tile
+				var dynamicFilters = $allFilters.find('[data-title]');
+				dynamicFilters.each(function () {
+					var thisTitle = $(this).data('title');
+					if (typeof thisTitle != 'undefined') {
+						allFiltersTitles.push(thisTitle);
+					}
+				});
+				// has parent with data tile
+				var parentFilter = $allFilters.parents('[data-title]');
+				parentFilter.each(function () {
+					var thisTitle = $(this).data('title');
+					if (typeof thisTitle != 'undefined') {
+						allFiltersTitles.push(thisTitle);
+					}
+				});
+				return allFiltersTitles;
+
+			}
+
+			function activeRibbonFilters() {
+				var matchedTitles = [];
+				actualRibbonFilterArr.forEach(function (current) {
+					cookiedFiltersArr.forEach(function (cookied) {
+						(cookied.indexOf(current) > -1) ? matchedTitles.push(current) : 'not a match';
+					})
+				});
+				return matchedTitles;
+			}
+
+			function jqCollection() {
+				var $filterCollection = [];
+				activeRibbonFiltersArr.forEach(function (item) {
+					var $thisFilter = $('.sq-top-ribbon [data-title = "' + item + '"]');
+					$filterCollection.push($thisFilter);
+				});
+				return $filterCollection;
+			}
+
+			return {}
+		}();
+
+		// determine each kind of filter and route to right set method
+		function typeOfFilter() {
+			$filters.forEach(function (filterType) {
+
+				// If multiSelect filter typ
+				if ($(filterType).attr('multiple')) { // check for multiselect
+					var filterInfo = getFilterInfo(filterType);
+					setMultiSelects($(filterType), filterInfo.option);
+				}
+				// If no dropdown or input text filter (e.g Request Status)
+				else if ($(filterType).data('title') == "Request Status") {
+					var filterInfo = getFilterInfo(filterType);
+					setSimpleNoSelectFilters($(filterType), filterInfo.option);
+				}
+
+				// from popover "Dynamic"
+				else if ($(filterType).parent('a').attr('data-dynamic') === 'true') {
+					var filterInfo = getFilterInfo(filterType);
+					setDynamicFilters($(filterType), filterInfo.option);
+				}
+			});
+
+			// collectFilters.$filters.forEach(function(filter){
+			// console.log(filter);
+			//})
+		}
+
+		function setMultiSelects(multiSelct, option) {
+			console.log(multiSelct);
+			var options = $(multiSelct).find('option');
+			var optionValues = [], updatedValues = [];
+			$(options).each(function () {
+				var val = $(this).val();
+				optionValues.push(val);
+			})
+			optionValues.forEach(function (optionTxt, index) {
+				if ($.isArray(option)) {
+					option.filter(function (val) {
+						if (val == optionTxt) {
+							updatedValues.push(index);
+						}
+					})
+				} else {
+					if (option == optionTxt) {
+						updatedValues.push(index);
+					}
+				}
+
+			})
+			$(multiSelct).data('trigger', 'dynamic');
+			updatedValues.forEach(function (i, index) {
+				$(multiSelct).off('change')
+						.multipleSelect('setSelects', [i]);
+				addSelectedClass(multiSelct, i); //!important - class is not added when select is triggered programatically
+			})
+
+		}
+
+		function setSimpleNoSelectFilters(multiSelct, options) {
+			$(multiSelct).find('li').each(function () {
+				var $li = $(this)
+				$li.removeClass('active-item-bg'); // there are some of this filters have class from source code;
+				options.forEach(function (option) {
+					if (!!$li.find('a[title="' + option + '"]').length) {
+						$li.addClass('active-item-bg');
+					}
+				})
+			})
+		}
+
+		function setDynamicFilters(multiSelct, options) {
+			var $li = $(multiSelct).closest('li');
+			var $select = $li.find('select');
+			options.forEach(function (option) {
+				$select.append('<option value="' + option.value + '" data-name="' + option.name + '">' + option.name + '</option>');
+			})
+
+			// add count to label
+			var tagTxt = tagTxt + ' (' + optionsCount($select) + ')';
+			$li.find('span[data-title]').text(tagTxt);
+		}
+
+		function setStandardTextBox() {
+		}
+
+		function addSelectedClass(multiSelect, index) {
+			var parentTag = multiSelect.closest('li');
+			var $li = multiSelect.next().find('.ms-drop li').eq(index);
+			$li.addClass('selected');
+			$li.find('input').prop('checked', true);
+			if ($li.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
+				parentTag.addClass('active-item-bg');
+			}
+		}
+
+		return {
+			typeOfFilter: typeOfFilter
+		}
+	}
+
+	function init() {
+		activeFilters = processActiveFilters();
+		activeFilters.typeOfFilter();
+		console.log('initRibbon');
+	} // end of init
+
+
+	// call ribbonListener
+
+
+	return {
+		init: init,
+		findActiveFilters: findActiveFilters
+	}
+}();
+
 var ribbonListener = function () {
 
 	/* Private Variables */
@@ -139,7 +413,7 @@ var ribbonListener = function () {
 
 	function handleDynamicSelect(fromPopup, filterType) {
 		var filterTitle = $(fromPopup).find('[data-title]').data('title'),
-				$dynamicSelectElem = $(fromPopup).find('.dynamic-select');
+				$dynamicSelectElem = $(fromPopup).siblings('.dynamic-select');
 
 		// add filter to object
 		if (filterTitle !== null || filterTitle !== undefined) {
@@ -152,7 +426,7 @@ var ribbonListener = function () {
 				var option = {};
 				option.text = $option.text();
 				option.value = $option.attr('value');
-				option.email = $option.data('email');
+				option.name = $option.data('name');
 				option.type = filterType;
 				option.isSelected = true;
 
@@ -279,14 +553,13 @@ var ribbonListener = function () {
 				return this.charAt(0).toUpperCase() + this.slice(1);
 			}
 
-		}
-
+		};
 
 		function ISobjBuilder() {
-
 			this.addProperty = function (propertyName, values) {
 				ISribbonObj[propertyName] = values;
-			}
+			};
+
 			this.fixedPropertyName = function (title, option) {
 				var fixedTitle = '';
 				if (typeof option !== "undefined") {
@@ -325,7 +598,7 @@ var ribbonListener = function () {
 							} else if (option.type === 'userType') { // there could not be other case but we are checking for undefined.
 								optObj = {
 									value: option.value,
-									email: option.email
+									name: option.name
 								};
 								objValue.push(optObj);
 							}
@@ -419,7 +692,7 @@ var ribbonListener = function () {
 				handleNoSelectFilters($(this), 'boolean');
 
 			}
-		})
+		});
 		ribbonWidgets.filterCollectorModule();
 
 		// Will trigger IS function passed as argument in the init
@@ -437,6 +710,7 @@ var ribbonListener = function () {
 		$('.sq-top-ribbon').on('change', 'select', function(event) {
 
 			// test if trigger is multiselect from filter section
+			event.preventDefault();
 			var $target = $(event.target);
 			var filterRibonTriggered = $target.data('trigger');
 			if (isFilterSecMultSelect($target.data('title'))) {
@@ -601,11 +875,11 @@ var ribbonWidgets = function () {
 				var $filterWrap = $(filterType).parent('a');
 
 				if (option === undefined) {
-					$filterWrap.find('select').html(''); // Remove all options
+					$filterWrap.siblings('select').html(''); // Remove all options
 					ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
 					$(filterType).text($(filterType).data('title'));
 				} else {
-					$filterWrap.find('select option').each(function () {
+					$filterWrap.siblings('select option').each(function () {
 						if ($(this).text() == option) {
 							$(this).remove();
 							ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // Remove only clicked option
@@ -712,7 +986,7 @@ var ribbonWidgets = function () {
 
 			// Register Events and trigger responses
 
-			$('.filter-collector').on('click', 'a', function (e) {
+			$('.filter-collector').off('click', 'a').on('click', 'a', function (e) {
 				e.preventDefault();
 
 				// Prevent loop between ribbon and filter collection area
@@ -782,6 +1056,24 @@ var ribbonWidgets = function () {
 	}
 
 }();
+
+$(function () {
+	var testingAObj = {
+		"AllTeams": ["df7210fc-248c-4ca9-91e8-9eba4c9a534b"],
+		"Sprint": ["7f78ec0d-e945-4e5b-8701-a7f2f253eb77"],
+		"RequestStatusIdea": true,
+		"RequestStatusStarted": true,
+		"Portfolio": ["8f2aee01-80f2-44c1-bea8-c78a4838d89a"],
+		"Owner": [{"value": "4c927813-4e7e-411a-b0b3-908443f27575", "name": "Jorge Alfaro"}],
+		"Regions": ["66d97431-d2a2-4b13-a551-9a5350b8ef2e"],
+		"ParentCampaign": ["582"],
+		"Project": ["551"]
+	};
+	// initRibbon.findActiveFilters(testingAObj);
+
+	initRibbon.findActiveFilters(GetLastFilterSettings());
+	// initRibbon.init();
+})
 
 
 

@@ -6,9 +6,9 @@
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px;
-  visibility: hidden;
+  display: none;
   &.initialized {
-    visibility: visible;
+    display: block;
   }
   > ul > li {
 	  list-style: none;
@@ -274,7 +274,7 @@
               #more-filters {
                 position: relative;
                 .arrow {
-                  left: 106px;
+                  left: 114px;
                   top: 6px;
                 }
               }
@@ -416,6 +416,9 @@
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
+        }
+        &:last-child {
+          min-width: 135px;
         }
       }
     }
@@ -847,4 +850,5 @@ input#searchById {
     width: 535px;
   }
 }
+
 

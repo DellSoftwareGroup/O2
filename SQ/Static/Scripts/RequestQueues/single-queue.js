@@ -28,6 +28,11 @@ $(function () {
 	var filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
 			filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
+	// prevent propagation on multi-select under sub nav
+	$('#sq-filters').on('click', '.ms-drop input, .ms-drop label', function (e) {
+		e.stopPropagation();
+	});
+
 	$('#sq-filters').on('click', function (e) {
 		//Do not toggle if clicking anywhere in the dropdown.
 		if ($(e.target).parents('.sub-nav-wrapper').length) {
@@ -179,11 +184,11 @@ $(function () {
 	});
 
 	/*date picker*/
-	$(".date-picker").kendoDatePicker({
+	/*$(".date-picker").kendoDatePicker({
 		"format": "MM/dd/yyyy",
 		"min": new Date(1900, 0, 1, 0, 0, 0, 0),
 		"max": new Date(2099, 11, 31, 0, 0, 0, 0)
-	});
+	});*/
 
 	/*popover*/
 	$('.toggle-popover').popover({

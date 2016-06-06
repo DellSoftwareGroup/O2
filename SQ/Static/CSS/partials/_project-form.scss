@@ -299,12 +299,14 @@ p.data {
 }
 
 .k-grid td, .k-grid th {
-	padding: 10px !important;
+	padding: 5px !important;
 }
 
-#user-search-wrapper td {
-	padding-bottom: 5px;
-	background-color: #FFFFFF !important;
+#user-search-wrapper {
+	td {
+		padding-bottom: 5px;
+		background-color: #FFFFFF !important;
+	}
 }
 
 .arrow {

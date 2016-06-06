@@ -152,8 +152,8 @@
 }
 
 .data-footer {
-	/*width: 1540px;*/
   margin: 20px auto;
+	overflow: hidden;
 }
 
 /* Below styles where commented out as they target direct tags and therefore
@@ -305,18 +305,9 @@ tbody tr:first-child .tooltip:hover:after {
   }
 }
 
-.pagination.pagination-centered {
-  margin: auto;
-  text-align: center;
-}
-
-.paging {
-  float: right;
-}
-
 .pagination {
-	/*height: 42px;*/
 	margin: 18px 0;
+  float: right;
   ul {
     display: inline-block;
     li {
@@ -327,39 +318,21 @@ tbody tr:first-child .tooltip:hover:after {
     margin: -1px 0 0 0 !important;
     display: inline-block;
   }
-  > div {
-    display: inline-block;
-    background: url("../Content/Img/shared/vertical-pipe.png") 100% 0 repeat-y;
-    padding: 12px 20px 0;
-    margin: 2px 0;
-    vertical-align: top;
-    height: 26px;
-    line-height: 13px;
-    &:last-child {
-      background: 0;
-    }
+  > a, > ul {
+    display: inline-block !important;
+    vertical-align: middle;
   }
   li {
     list-style: none outside none !important;
     float: left;
+    padding: 0;
     margin-right: 4px;
     min-width: 17px;
     height: 16px;
     text-align: center;
-    padding: 0 3px 0 2px;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-  }
-  a, strong {
-    display: block;
-    font-size: 14px !important;
-    line-height: 16px;
-  }
-  a:visited {
-    color: #39c;
-  }
-  li {
     &:last-child {
       margin-right: 0;
     }
@@ -369,8 +342,40 @@ tbody tr:first-child .tooltip:hover:after {
         color: #fff;
       }
     }
+    a, span {
+      padding: 0 5px;
+    }
+    .k-state-selected {
+      background-color: #E5F3FA;
+    }
+    .k-pager-nav {
+      padding: 0;
+    }
   }
-  .prev, .next {
+  a, strong {
+    display: block;
+    font-size: 14px !important;
+    line-height: 16px;
+    &:visited {
+      color: #39c;
+    }
+  }
+  &.pagination-centered {
+    margin: auto;
+    text-align: center;
+  }
+  .k-pager-nav {
+    padding: 0 10px;
+    &:hover {
+      .k-i-arrow-w {
+        background-position: -5px -23px;
+      }
+      .k-i-arrow-e {
+        background-position: -105px -23px;
+      }
+    }
+  }
+  .k-icon {
     width: 9px;
     height: 14px;
     display: inline-block;
@@ -378,26 +383,28 @@ tbody tr:first-child .tooltip:hover:after {
     vertical-align: top;
     margin-top: 1px;
   }
-  .prev {
+  .k-i-arrow-w {
     background-position: -25px -23px;
-    &:hover {
-      background-position: -5px -23px;
-    }
   }
-  .inactive a.prev {
-    background-position: -45px -23px;
-  }
-  .next {
+  .k-i-arrow-e {
     background-position: -85px -23px;
-    &:hover {
-      background-position: -105px -23px;
-    }
   }
-  .inactive a.next {
-    background-position: -65px -23px;
+  .inactive {
+    a.prev {
+      background-position: -45px -23px;
+    }
+    a.next {
+      background-position: -65px -23px;
+    }
   }
   .sortby {
     margin-top: -5px;
+  }
+  .k-pager-first, .k-pager-last {
+    display: none !important;
+  }
+  .k-pager-info {
+    float: left;
   }
 }
 
@@ -767,8 +774,8 @@ tbody tr:first-child .tooltip:hover:after {
 }
 
 .results-data {
-  margin-left: 0 !important;
-	margin-bottom: 20px;
+	/*margin-left: 0 !important;*/
+	margin-bottom: 50px;
 }
 
 .rq-top-ribbon > ul > li:first-child, #rq-ribbon-search-item {
