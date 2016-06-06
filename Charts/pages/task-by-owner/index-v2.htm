@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
+  <link rel="stylesheet" href="../../../SQ/Static/CSS/bootstrap.min.css">
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/jquery.min.js"></script>
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/kendo.all.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="demo-section k-content wide">
+    <div class="container">
+      <div class="row mb-40">
+        <h1>Accepted Requests & Done Requests</h1>
+        <div class="chart-overall-opened-closed"></div>
+        <div class="text-center mt-10">
+          <p class="center-block"><strong>Owners</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function createChart() {
+    $(".chart-overall-opened-closed").kendoChart({
+      title: {
+        /*text: "Number of Requests "*/
+      },
+      legend: {
+        visible: false,
+        background: "#eeeeee",
+        position: "right",
+        orientation: "vertical",
+        margin: {
+          left: 30,
+          top: -210
+        },
+        padding: {
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
+        },
+        labels: {
+          font: "14px Arial,Helvetica,sans-serif",
+          padding: {
+            top: 8,
+            bottom: 8
+          }
+        }
+      },
+      seriesDefaults: {
+        type: "column",
+        labels: {
+          visible: true,
+          background: "transparent",
+          position: "center",
+          color: "black",
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      series: [{
+        overlay: {
+          gradient: "none"
+        },
+        name: "In Progress",
+        stack: "Tasks",
+        data: [10, 12, 15, 10, 10, 12, 15, 10, 10, 12, 15, 10, 15, 10, 10],
+        tooltipText: "In Progress",
+        axis: "one"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Ready to Post Live",
+        stack: "Tasks",
+        data: [5, 6, 10, 5, 5, 6, 10, 5, 5, 6, 10, 5, 10, 5, 5],
+        tooltipText: "Ready to Post Live",
+        axis: "one"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Done",
+        stack: "Tasks",
+        data: [5, 6, 10, 5, 5, 6, 10, 5, 5, 6, 10, 5, 10, 5, 5],
+        tooltipText: "Done",
+        axis: "one"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Days",
+        stack: "SLA",
+        data: [15, 10, 7, 4, 15, 10, 7, 4, 15, 10, 7, 4, 7, 4, 4],
+        tooltipText: "Days",
+        axis: "two"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Days",
+        stack: "SLA",
+        data: [5, 5, 3, 4, 5, 5, 3, 4, 5, 5, 3, 4, 3, 4, 4],
+        tooltipText: "Days",
+        axis: "two"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Days",
+        stack: "SLA",
+        data: [5, 5, 3, 3, 5, 5, 3, 3, 5, 5, 3, 3, 3, 3, 3],
+        tooltipText: "Days",
+        axis: "two"
+      }],
+      seriesColors: ["#579AD6", "#90BCE4", "#C9DFF2", "#69a75a", "#9dcd93", "#d3f3ca"],
+      valueAxis: [{
+        title: {
+          text: "# of Tasks by Status",
+          font:"bold 14px Arial,Helvetica,sans-serif"
+        },
+        name: "one",
+        Max: 160,
+        majorUnit: 5,
+        /*line: {
+         visible: false
+         },*/
+        labels: {
+          step: 1,
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        },
+        color: "#006495"
+      }, {
+        title: {
+          text: "# of Days per Task Status ",
+          font:"bold 14px Arial,Helvetica,sans-serif"
+        },
+        name: "two",
+        Max: 160,
+        majorUnit: 5,
+        /*line: {
+         visible: false
+         },*/
+        labels: {
+          step: 1,
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        },
+        color: "#175d05"
+      }],
+      categoryAxis: {
+        categories: ["Elnaz", "Edward", "Diana", "BJ", "Cindy", "Diane", "Olu", "Jorge", "Lalit", "Naveen", "Ryan", "Beata",
+          "Robbie", "Carol", "Aly"],
+        majorGridLines: {
+          visible: false
+        },
+        labels: {
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        },
+
+        axisCrossingValues: [0, 16]
+      },
+      tooltip: {
+        visible: true,
+        template: "#= series.tooltipText # : #= value #"
+      },
+      legendItemClick: function (e) {
+        setTotalLabel(e.sender, e.seriesIndex);
+      },
+      dataBound: function (e) {
+        setTotalLabel(e.sender);
+      }
+    });
+  }
+  function setTotalLabel(chart, toggledSeriesIndex) {
+    var series = chart.options.series;
+    var lastSeries = {};
+    var fields = [];
+
+    for (var i = 0; i < series.length; i++) {
+      var visible = series[i].visible;
+
+      // We're about to toggle the visibility of the clicked series
+      if (i === toggledSeriesIndex) {
+        visible = !visible;
+      }
+
+      if (visible) {
+        fields.push("dataItem." + series[i].field);
+        lastSeries = series[i];
+      }
+
+      // Clean-up existing labels
+      series[i].labels = {};
+    }
+
+    lastSeries.labels = {
+      font: "bold 12px Arial,Helvetica,sans-serif",
+      visible: true,
+      template: "#=" + fields.join("+") + "#"
+    };
+  }
+  $(function () {
+    createChart();
+  });
+  $(document).bind("kendo:skinChange", createChart);
+</script>
+</body>
+</html>

@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <head>
   <title></title>
+  <style>
+    .dd-label {
+      color: #000;
+      position: absolute;
+      top:300px;
+      float: left;
+      -ms-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      -ms-transform-origin: 0 0;
+      transform-origin: 0 0;
+      white-space: nowrap;
+    }
+
+  </style>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
   <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
   <link rel="stylesheet" href="../../../SQ/Static/CSS/bootstrap.min.css">
@@ -12,8 +28,16 @@
   <div class="demo-section k-content wide">
     <div class="container mt-40">
       <div class="row mb-40">
-        <di class="col-xs-12">
-          <div id="sla-variance-dd" style="height:600px"></div>
+        <di class="col-xs-12" style="border:1px solid #737373">
+          <p class="dd-label"><strong>Number of Days</strong></p>
+
+          <div id="sla-variance-dd" style="height:600px; width:1530px; float:right ">
+
+          </div>
+          <div class="text-center mt-10">
+            <p class="center-block"><strong>Request Types</strong></p>
+          </div>
+
         </di>
       </div>
     </div>
