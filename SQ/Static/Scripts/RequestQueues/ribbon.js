@@ -284,7 +284,6 @@ var ribbonListener = function () {
 
 	/* -----> Private Methods <-----*/
 	function rebuildRibbonState($rbWrapper) {
-		console.log('rbRbnSt');
 		var $filter = $($rbWrapper).find('[data-isFilter=true]');
 		ribbonReqObj = {};
 		isDoneLoading = false;
@@ -554,14 +553,13 @@ var ribbonListener = function () {
 				return this.charAt(0).toUpperCase() + this.slice(1);
 			}
 
-		}
-
+		};
 
 		function ISobjBuilder() {
-
 			this.addProperty = function (propertyName, values) {
 				ISribbonObj[propertyName] = values;
-			}
+			};
+
 			this.fixedPropertyName = function (title, option) {
 				var fixedTitle = '';
 				if (typeof option !== "undefined") {
@@ -675,7 +673,6 @@ var ribbonListener = function () {
 
 	// create ribbonReqObj   filters object
 	function filtersCollection($filter) {
-		console.log('fltColl');
 		// Iterate filters by type:
 		$filter.each(function () {
 			// Filter Types
@@ -695,7 +692,7 @@ var ribbonListener = function () {
 				handleNoSelectFilters($(this), 'boolean');
 
 			}
-		})
+		});
 		ribbonWidgets.filterCollectorModule();
 
 		// Will trigger IS function passed as argument in the init

@@ -3319,6 +3319,10 @@ input#searchById {
   padding: 7px;
   cursor: pointer; }
 
+.k-list-scroller {
+  max-height: 200px !important;
+  overflow-y: auto; }
+
 /*Kendo UI datepicker*/
 .date-picker {
   width: 100%; }
@@ -3382,24 +3386,16 @@ input#searchById {
 
 .browser-warning {
   display: none; }
-
-.message {
-  display: inline-block;
-  margin: 0 auto 15px; }
-
-.message a {
-  font-weight: bold; }
-
-.close-msg {
-  position: absolute;
-  right: 20px;
-  display: block;
-  top: 12px;
-  cursor: pointer; }
-
-.icon-ui-closecircle::before {
-  content: "";
-  box-sizing: border-box; }
+  .browser-warning .message {
+    display: inline-block; }
+    .browser-warning .message a {
+      font-weight: bold; }
+  .browser-warning .close-msg {
+    position: absolute;
+    right: 20px;
+    display: block;
+    top: 12px;
+    cursor: pointer; }
 
 .form-horizontal .form-group .control-text {
   padding-top: 7px;
