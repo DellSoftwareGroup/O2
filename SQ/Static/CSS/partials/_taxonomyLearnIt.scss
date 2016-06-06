@@ -1,0 +1,128 @@
+
+.learnIt h2 {
+  width: 200px !important;
+}
+
+.learnIt, .learnItEdit {
+  .filter-collector {
+    float: left;
+    margin-bottom: 20px;
+    padding-left: 0;
+
+    li {
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+    }
+    li:first-child {
+      margin-left: 10px;
+    }
+    li a {
+      color: #3399CC;
+      font-weight: bold;
+    }
+    li a:hover {
+      text-decoration: none;
+    }
+    li span {
+      color: #999;
+      font-size: 14px;
+    }
+  }
+  .view_products {
+    padding: 0px 5px;
+    cursor: pointer;
+  }
+  .buttons button {
+    margin-right: 10px;
+  }
+
+  .k-treeview .k-in.k-state-hover,
+  .k-treeview .k-in.k-state-selected,
+  .k-treeview .k-in.k-state-focus {
+    background-color: #fff;
+    border-style: none;
+    border-width: 0;
+    padding: 2px 4px 2px 3px;
+  }
+  .container-buttons {
+    margin-left: 40px;
+  }
+}
+
+.custom-treeviewnode a {
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.learnItEdit {
+
+  h2 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-bottom: 1px #ccc solid;
+  }
+  .small-text {
+    font-size: 12px;
+  }
+  label.control-label {
+    font-weight: normal;
+    padding-top: 0 !important;
+    width: 200px;
+  }
+  .custom-treeviewnode {
+
+    span {
+      font-size: 17px;
+    }
+  }
+}
+
+.add-level {
+  padding: 20px !important;
+  overflow: hidden !important;
+
+  .arrowleft-btn-icon {
+    background-image: url('../../Static/Content/Img/blue-carousel-arrow-left.png');
+    background-size: 13px 10px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: block;
+    margin: 0px;
+    height: 15px;
+    width: 15px;
+    margin-top: 5px;
+  }
+
+  .arrowright-btn-icon {
+    background-image: url('../../Static/Content/Img/blue-carousel-arrow-right.png');
+    background-size: 13px 10px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: block;
+    margin: 0px;
+    height: 15px;
+    width: 15px;
+    margin-top: 5px;
+  }
+
+}
+
+.multy-select {
+
+  label, select {
+    margin-left: 5px;
+    max-width: 97%;
+    box-sizing: border-box;
+  }
+
+  .btn-default {
+    padding: 3px;
+  }
+}
+
+.tree-footer {
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}

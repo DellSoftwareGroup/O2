@@ -3413,3 +3413,101 @@ input#searchById {
 
 .ie9 #add-link-form {
   padding: 8px 0; }
+
+.learnIt h2 {
+  width: 200px !important;
+}
+
+.learnIt .view_products, .learnItEdit .view_products {
+  padding: 0px 5px;
+  cursor: pointer;
+}
+
+.learnIt .buttons button, .learnItEdit .buttons button {
+  margin-right: 10px;
+}
+
+.learnIt .k-treeview .k-in.k-state-hover,
+.learnIt .k-treeview .k-in.k-state-selected,
+.learnIt .k-treeview .k-in.k-state-focus, .learnItEdit .k-treeview .k-in.k-state-hover,
+.learnItEdit .k-treeview .k-in.k-state-selected,
+.learnItEdit .k-treeview .k-in.k-state-focus {
+  background-color: #fff;
+  border-style: none;
+  border-width: 0;
+  padding: 2px 4px 2px 3px;
+}
+
+.learnIt .container-buttons, .learnItEdit .container-buttons {
+  margin-left: 40px;
+}
+
+.custom-treeviewnode a {
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.learnItEdit h2 {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  border-bottom: 1px #ccc solid;
+}
+
+.learnItEdit .small-text {
+  font-size: 12px;
+}
+
+.learnItEdit label.control-label {
+  font-weight: normal;
+  padding-top: 0 !important;
+  width: 200px;
+}
+
+.learnItEdit .custom-treeviewnode span {
+  font-size: 17px;
+}
+
+.add-level {
+  padding: 20px !important;
+  overflow: hidden !important;
+}
+
+.add-level .arrowleft-btn-icon {
+  background-image: url("../../Static/Content/Img/blue-carousel-arrow-left.png");
+  background-size: 13px 10px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: block;
+  margin: 0px;
+  height: 15px;
+  width: 15px;
+  margin-top: 5px;
+}
+
+.add-level .arrowright-btn-icon {
+  background-image: url("../../Static/Content/Img/blue-carousel-arrow-right.png");
+  background-size: 13px 10px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: block;
+  margin: 0px;
+  height: 15px;
+  width: 15px;
+  margin-top: 5px;
+}
+
+.multy-select label, .multy-select select {
+  margin-left: 5px;
+  max-width: 97%;
+  box-sizing: border-box;
+}
+
+.multy-select .btn-default {
+  padding: 3px;
+}
+
+.tree-footer {
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
