@@ -31,7 +31,7 @@ $(function () {
 	// prevent propagation on multi-select under sub nav
 	$('#sq-filters').on('click', '.ms-drop input, .ms-drop label', function (e) {
 		e.stopPropagation();
-	})
+	});
 
 	$('#sq-filters').on('click', function (e) {
 		//Do not toggle if clicking anywhere in the dropdown.

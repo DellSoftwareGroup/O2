@@ -51,7 +51,7 @@ var globalModules = function () {
 
 		centerModal = function () {
 			return ($(window).width() / 2) - 620; // 620 is have of modal width;
-		}
+		};
 
 		initKendoWindow = function ($location) {
 			$("#addReqModal").kendoWindow({
@@ -559,7 +559,7 @@ var globalModules = function () {
 				function initOwnerReqAutoComp(selected) {
 
 					subFilter.isOwnerOrRequester = selected;
-					var dataSource = (selected == 'ProjOwner') ? projFiltersPreData.owners : projFiltersPreData.requestors
+					var dataSource = (selected == 'ProjOwner') ? projFiltersPreData.owners : projFiltersPreData.requestors;
 
 					$('#ownerOrRequester').kendoAutoComplete({
 						filter: "contains",
@@ -1128,9 +1128,7 @@ var globalModules = function () {
 		/* ------> Private Functions <------- */
 		// initiate kendo multiselect
 		function initKendoMultiSelect() {
-
 			var userDataSource = new kendo.data.DataSource({
-				//type: 'odata',
 				serverFiltering: true,
 				transport: {
 					read: function (options) {
@@ -1172,10 +1170,10 @@ var globalModules = function () {
 			var $dynamicSelect = $(target).siblings(selectedTarget);
 
 			if ($dynamicSelect.length > 0) { // check if dynamic select has been created
-
 				if ($dynamicSelect.find('option').length > 0) { // if options are existing show
 					$('.taglist-parent').show();
 				}
+
 				$dynamicSelect.find('option').each(function () {
 					var name = $(this).text();
 					var temp = String()
@@ -1186,8 +1184,7 @@ var globalModules = function () {
 					$('#popoverInput_taglist_prev').append(temp);
 				})
 			}
-			$(this).find('')
-		};
+		}
 
 		function removePrevOptions(target, option) {
 			var $dynamicSelect = $(target).siblings(selectedTarget),
@@ -1217,14 +1214,14 @@ var globalModules = function () {
 				}
 			});
 			return ckFilter;
-		};
+		}
 
 		function closePopup(whichOne) {
 
 			closeThis = (typeof whichOne == 'undefined') ? popupTrigger : whichOne;
 			$(closeThis).popover('destroy');
 
-		};
+		}
 
 		function saveSelected() {
 			var $selctWrapper = $(targetInput).closest('li').find(popupTrigger),
@@ -1240,7 +1237,7 @@ var globalModules = function () {
 				buildNewSelect.addCountToLabel();
 			}
 			closePopup();
-		};
+		}
 
 		function onCloseBtn(thisPopover) {
 			$('body').on('click', '.close', function () {
@@ -1291,18 +1288,17 @@ var globalModules = function () {
 		function ribbonPopoverInit() {
 			// initiate popover
 			$(popupTrigger).on('click', function () {
-
 				var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
 				buildHtml.afterLoad(function () {
 					$('body').on('click.popover', function (e) {
 						closeOnBodyClick(e)
-					})
+					});
 				}); // add interactions after popover is shown
 				$(this).popover({
 					html: true,
 					placement: 'left',
 					content: buildHtml.content,
-					template: buildHtml.tmpl,
+					template: buildHtml.tmpl
 				});
 				$(this).popover("show");
 

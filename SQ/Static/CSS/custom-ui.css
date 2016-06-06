@@ -3319,6 +3319,10 @@ input#searchById {
   padding: 7px;
   cursor: pointer; }
 
+.k-list-scroller {
+  max-height: 200px !important;
+  overflow-y: auto; }
+
 /*Kendo UI datepicker*/
 .date-picker {
   width: 100%; }
