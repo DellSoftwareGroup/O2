@@ -1068,23 +1068,23 @@ var globalModules = function () {
 				var email = '';
 				if (Array.isArray(resultsData)) {
 					resultsData.forEach(function (result) {
-						if (result.Alias == option.value) {
+						if (result.User_ID == option.value) {
 							email = result.Email;
 							name = result.DisplayName;
+							return;
 						}
 					});
 				}
-				;
 				// build option
 
 				if (doReturn) { // non ribbon popovers
 					optionObj = {};
-					optionObj.elias = option.value;
+					optionObj.User_ID = option.value;
 					optionObj.email = email;
 					optionObj.name = name;
 					return optionObj
 				} else {
-					$(wrapper).siblings(selectedTarget).append('<option value="' + option.value + '" data-email="' + email + '">' + option.text + '</option>');
+					$(wrapper).siblings(selectedTarget).append('<option value="' + option.value + '" data-name="' + name + '">' + option.text + '</option>');
 				}
 			};
 			this.optionsCount = function () {
@@ -1158,7 +1158,7 @@ var globalModules = function () {
 				minLength: 3,
 				dataSource: userDataSource,
 				dataTextField: "DisplayName",
-				dataValueField: "Alias"
+				dataValueField: "User_ID"
 			});
 		}
 
