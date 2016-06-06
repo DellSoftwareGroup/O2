@@ -99,7 +99,7 @@ var globalModules = function () {
 			// expand all functionality gets initialized
 			// Off was needed to fix issue of double triggering click event
 			$('body').off('click', '#expandable-control').on('click', '#expandable-control', function () {
-				console.log('hit');
+				//console.log('hit');
 				if ($(this).data('expandables-state') == 'closed') {
 					$('.collapsed').trigger('click');
 					$(this).data('expandables-state', 'open')
