@@ -1,7 +1,3 @@
-/**
- * Created by jleon on 3/11/2016.
- */
-
 var globalModules = function () {
 
 	// helps to populate html templates
@@ -245,8 +241,8 @@ var globalModules = function () {
 		function exportSelectedToPopover(target, option, callback) {
 
 			if ($.isEmptyObject(option)) {
-				alert('Please make a selection')
-				return
+				alert('Please make a selection');
+				return;
 			}
 
 			// find which modal (campaign or project : may grow later)
@@ -696,18 +692,23 @@ var globalModules = function () {
 
 					// when clicked select button
 					$('.select-btn').on('click', function () {
-						var exportSelected = {};
-						exportSelected.name = $('.projectFilterResults').find('option:selected').data('name');
-						exportSelected.val = $('.projectFilterResults').find('option:selected').val();
+						var projectFilterResult = $('.projectFilterResults').find('option:selected'), exportSelected = {};
+
+						if(projectFilterResult.length) {
+							exportSelected = {
+								name: projectFilterResult.data('name'),
+								val: projectFilterResult.val()
+							};
+						}
 
 						// checks if ribbon exist
 						if ($('.sq-top-ribbon').length > 0) {
 							var callback = ribbonWidgets.moreFiltersPopover.onModalInputchange;
 							exportSelectedToPopover(null, exportSelected, callback);
-						} else {
+						}
+						else {
 							exportSelectedToPopover(null, exportSelected);
 						}
-
 					});
 				});
 				buildModal.show();
@@ -1446,8 +1447,7 @@ var globalModules = function () {
 	}(); // */end of popupModule module
 
 	var followersGrid = function () {
-		var followersIS = {};
-		followerUpdates = {};
+		var followersIS = {}, followerUpdates = {};
 
 		function getFollowers(newFollowers) {
 			followerUpdates = newFollowers;
