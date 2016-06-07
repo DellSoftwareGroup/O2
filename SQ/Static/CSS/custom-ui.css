@@ -2736,8 +2736,6 @@ ul {
         top: 0px; }
     .sq-top-ribbon > ul > li select, .sq-top-ribbon > ul > li input {
       font-size: 12.6667px; }
-    .sq-top-ribbon > ul > li.disabled {
-      background-color: #555555; }
   .sq-top-ribbon .ms-parent {
     margin-top: 0; }
   .sq-top-ribbon .ms-choice {

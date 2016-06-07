@@ -1074,10 +1074,6 @@ $(function () {
 		filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
 		filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
-	ribbon.on('click', 'li.disabled', function(e) {
-		e.stopImmediatePropagation();
-	});
-
 	$('body').on('click', function (e) {
 		$('#sq-filters').removeClass('add-bg');
 		$('.sub-nav').hide();
