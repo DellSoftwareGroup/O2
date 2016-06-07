@@ -2736,6 +2736,8 @@ ul {
         top: 0px; }
     .sq-top-ribbon > ul > li select, .sq-top-ribbon > ul > li input {
       font-size: 12.6667px; }
+    .sq-top-ribbon > ul > li.disabled {
+      background-color: #555555; }
   .sq-top-ribbon .ms-parent {
     margin-top: 0; }
   .sq-top-ribbon .ms-choice {
@@ -3415,18 +3417,31 @@ input#searchById {
   padding: 8px 0; }
 
 .learnIt h2 {
-  width: 200px !important;
-}
+  width: 200px !important; }
 
+.learnIt .filter-collector, .learnItEdit .filter-collector {
+  float: left;
+  margin-bottom: 20px;
+  padding-left: 0; }
+  .learnIt .filter-collector li, .learnItEdit .filter-collector li {
+    display: inline-block;
+    float: left;
+    margin-right: 10px; }
+  .learnIt .filter-collector li:first-child, .learnItEdit .filter-collector li:first-child {
+    margin-left: 10px; }
+  .learnIt .filter-collector li a, .learnItEdit .filter-collector li a {
+    color: #3399CC;
+    font-weight: bold; }
+  .learnIt .filter-collector li a:hover, .learnItEdit .filter-collector li a:hover {
+    text-decoration: none; }
+  .learnIt .filter-collector li span, .learnItEdit .filter-collector li span {
+    color: #999;
+    font-size: 14px; }
 .learnIt .view_products, .learnItEdit .view_products {
   padding: 0px 5px;
-  cursor: pointer;
-}
-
+  cursor: pointer; }
 .learnIt .buttons button, .learnItEdit .buttons button {
-  margin-right: 10px;
-}
-
+  margin-right: 10px; }
 .learnIt .k-treeview .k-in.k-state-hover,
 .learnIt .k-treeview .k-in.k-state-selected,
 .learnIt .k-treeview .k-in.k-state-focus, .learnItEdit .k-treeview .k-in.k-state-hover,
@@ -3435,79 +3450,59 @@ input#searchById {
   background-color: #fff;
   border-style: none;
   border-width: 0;
-  padding: 2px 4px 2px 3px;
-}
-
+  padding: 2px 4px 2px 3px; }
 .learnIt .container-buttons, .learnItEdit .container-buttons {
-  margin-left: 40px;
-}
+  margin-left: 40px; }
 
 .custom-treeviewnode a {
   margin-left: 5px;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .learnItEdit h2 {
   margin-bottom: 10px;
   padding-bottom: 5px;
   padding-left: 20px;
-  border-bottom: 1px #ccc solid;
-}
-
+  border-bottom: 1px #ccc solid; }
 .learnItEdit .small-text {
-  font-size: 12px;
-}
-
+  font-size: 12px; }
 .learnItEdit label.control-label {
   font-weight: normal;
   padding-top: 0 !important;
-  width: 200px;
-}
-
+  width: 200px; }
 .learnItEdit .custom-treeviewnode span {
-  font-size: 17px;
-}
+  font-size: 17px; }
 
 .add-level {
   padding: 20px !important;
-  overflow: hidden !important;
-}
-
-.add-level .arrowleft-btn-icon {
-  background-image: url("../../Static/Content/Img/blue-carousel-arrow-left.png");
-  background-size: 13px 10px;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  display: block;
-  margin: 0px;
-  height: 15px;
-  width: 15px;
-  margin-top: 5px;
-}
-
-.add-level .arrowright-btn-icon {
-  background-image: url("../../Static/Content/Img/blue-carousel-arrow-right.png");
-  background-size: 13px 10px;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  display: block;
-  margin: 0px;
-  height: 15px;
-  width: 15px;
-  margin-top: 5px;
-}
+  overflow: hidden !important; }
+  .add-level .arrowleft-btn-icon {
+    background-image: url("../../Static/Content/Img/blue-carousel-arrow-left.png");
+    background-size: 13px 10px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: block;
+    margin: 0px;
+    height: 15px;
+    width: 15px;
+    margin-top: 5px; }
+  .add-level .arrowright-btn-icon {
+    background-image: url("../../Static/Content/Img/blue-carousel-arrow-right.png");
+    background-size: 13px 10px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    display: block;
+    margin: 0px;
+    height: 15px;
+    width: 15px;
+    margin-top: 5px; }
 
 .multy-select label, .multy-select select {
   margin-left: 5px;
   max-width: 97%;
-  box-sizing: border-box;
-}
-
+  box-sizing: border-box; }
 .multy-select .btn-default {
-  padding: 3px;
-}
+  padding: 3px; }
 
 .tree-footer {
   padding-top: 20px;
-  border-top: 1px solid #eee;
-}
+  border-top: 1px solid #eee; }

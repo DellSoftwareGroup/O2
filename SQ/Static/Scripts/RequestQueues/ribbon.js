@@ -1074,6 +1074,10 @@ $(function () {
 		filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
 		filterSubNav = filterSubNavWrapper.find('.sub-nav');
 
+	ribbon.on('click', 'li.disabled', function(e) {
+		e.stopImmediatePropagation();
+	});
+
 	$('body').on('click', function (e) {
 		$('#sq-filters').removeClass('add-bg');
 		$('.sub-nav').hide();
@@ -1226,4 +1230,18 @@ function toggleActiveItem(elem) {
 	if ($(elem).attr('id') == 'sq-filters-item') {
 		$(elem).find('#sq-filters').removeClass('add-bg');
 	}
+}
+
+function doSearch() {
+	var query = $('#search-query').val(), GridType = $('#GridType').val();
+
+	$('#GridRequest').kendoGrid(GridConfiguration($('#GridType').val() + 'Search', {searchstring: query}));
+
+	var ribbonLis = $('.sq-top-ribbon').find('> ul').find('> li');
+
+	ribbonLis.each(function(i) {
+		if(i) {
+			$(this).addClass('disabled');
+		}
+	});
 }
