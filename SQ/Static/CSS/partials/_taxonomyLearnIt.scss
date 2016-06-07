@@ -41,13 +41,21 @@
   .k-treeview .k-in.k-state-selected,
   .k-treeview .k-in.k-state-focus {
     background-color: #fff;
-    border-style: none;
-    border-width: 0;
-    padding: 2px 4px 2px 3px;
+    margin: 1px 0 1px .16666em;;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
   }
   .container-buttons {
     margin-left: 40px;
   }
+
 }
 
 .custom-treeviewnode a {
@@ -107,14 +115,39 @@
     margin-top: 5px;
   }
 
+  .k-autocomplete .k-input {
+    text-indent: .33em;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: white;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
 }
 
 .multy-select {
 
   label, select {
     margin-left: 5px;
-    max-width: 97%;
+    max-width: 97%; /* Kendo issue with select scrollbar on modal */
     box-sizing: border-box;
+  }
+
+  select[multiple] {
+    min-height: 160px;
   }
 
   .btn-default {
@@ -122,7 +155,3 @@
   }
 }
 
-.tree-footer {
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-}
