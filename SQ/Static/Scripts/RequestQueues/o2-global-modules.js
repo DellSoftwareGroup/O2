@@ -278,8 +278,24 @@ var globalModules = function () {
 
 		// main sub-modules
 		var campaignModal = function () {
+			var campaignCreatorNames = [];
 
 			function runCampaignModal() {
+				var promise = $.Deferred();
+
+				if (!campaignCreatorNames.length) {
+					promise = getCampaignCreatorNames();
+				}
+				else {
+					promise.resolve();
+				}
+
+				promise.done(function() {
+					initCampaignModel();
+				});
+			}
+
+			function initCampaignModel() {
 				var campaignInfo = {};
 
 				campaignInfo.content = String()
@@ -365,8 +381,8 @@ var globalModules = function () {
 				removeInputKendoStyles("#campaignFilter");
 			}
 
-			var campaignCreatorNames = function () {
-				$.ajax({
+			function getCampaignCreatorNames() {
+				return $.ajax({
 					url: endPoints.campaigns,
 					dataType: 'json',
 					success: function (data) {
@@ -377,8 +393,7 @@ var globalModules = function () {
 				}).done(function (data) {
 					campaignCreatorNames = groupByCreatorName(data);
 				});
-
-			}();
+			}
 
 			function showNoResultsAlert() {
 				$('.camp-no-result').removeClass('hide');
