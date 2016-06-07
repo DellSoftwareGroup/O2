@@ -266,9 +266,7 @@ var initRibbon = function () {
 		console.log('initRibbon');
 	} // end of init
 
-
 	// call ribbonListener
-
 
 	return {
 		init: init,
@@ -1058,7 +1056,7 @@ var ribbonWidgets = function () {
 }();
 
 $(function () {
-	var testingAObj = {
+	/*var testingAObj = {
 		"AllTeams": ["df7210fc-248c-4ca9-91e8-9eba4c9a534b"],
 		"Sprint": ["7f78ec0d-e945-4e5b-8701-a7f2f253eb77"],
 		"RequestStatusIdea": true,
@@ -1069,16 +1067,181 @@ $(function () {
 		"ParentCampaign": ["582"],
 		"Project": ["551"]
 	};
-	// initRibbon.findActiveFilters(testingAObj);
+	initRibbon.findActiveFilters(testingAObj);*/
 
+	var ribbon = $('.sq-top-ribbon'),
+		ribbonItem = ribbon.find('> ul > li > ul > li'),
+		filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
+		filterSubNav = filterSubNavWrapper.find('.sub-nav');
+
+	ribbon.on('click', 'li.disabled', function(e) {
+		e.stopImmediatePropagation();
+	});
+
+	$('body').on('click', function (e) {
+		$('#sq-filters').removeClass('add-bg');
+		$('.sub-nav').hide();
+
+		/*close any open popover when click elsewhere*/
+		if ($(e.target).parent().find('.toggle-popover').length > 0) {
+			$('.toggle-popover').popover('hide');
+		}
+	});
+	
+	// prevent propagation on multi-select under sub nav
+	$('#sq-filters')
+		.on('click', '.ms-drop input, .ms-drop label', function (e) {
+		e.stopPropagation();
+	})
+		.on('click', function (e) {
+		//Do not toggle if clicking anywhere in the dropdown.
+		if ($(e.target).parents('.sub-nav-wrapper').length) {
+			return false;
+		}
+
+		e.stopPropagation();
+		e.preventDefault();
+		filterSubNav.toggle();
+		$(this).toggleClass('add-bg');
+
+		$(this).find('.sub-nav-wrapper').css('marginLeft', '');
+
+		if ($('#sq-filters-item').hasClass('active-item-bg')) {
+			$(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
+		}
+
+		if (filterSubNav.is(':visible')) {
+			filterSubNavWrapper.css('height', '445px');
+		}
+		else {
+			filterSubNavWrapper.css('height', '0');
+		}
+	});
+
+	(ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function (e) {
+		e.stopPropagation();
+	});
+
+	//Initialize multiple select for ribbon area
+	ribbon.find('select').each(function() {
+		if ($(this).attr('multiple') == 'multiple') {
+			var id = $(this).attr('id'), title = $(this).data('title'), obj = {
+				placeholder: title,
+				minimumCountSelected: 0,
+				countSelected: title,
+				selectAllText: $(this).data('select-all-text'),
+				allSelected: title,
+				maxHeight: 240,
+				onClose: function () {
+					var $target = this.title;
+
+					ribbonListener.onCloseMultiFilter($target);
+				},
+				onOpen: function (elem) {
+					var nextElem = $(elem).next(), ul = nextElem.find('ul');
+
+					if(!nextElem.find('.btn').length) {
+						nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
+
+						nextElem.on('click', '.btn-default', function() {
+							$(elem).parent().prev().multipleSelect('uncheckAll');
+						});
+
+						nextElem.on('click', '.btn-primary', function() {
+							$('body').trigger('click');
+						});
+					}
+
+					//fix for bg toggle issue when multiple select clicked
+					ribbonItem.off('click');
+
+					/*width/height fix imported from DSG*/
+					if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
+						ul.css('width', ul.outerWidth() + $.position.scrollbarWidth());
+						ul.data('width-fixed', true);
+					}
+
+					//Check if dropdown needs to be reversed.
+					nextElem.css('right', 'auto');
+
+					if (nextElem.offset().left + nextElem.find('ul').outerWidth(true) > $('body').width()) {
+						nextElem.css('right', 0);
+					}
+					else {
+						nextElem.css('right', 'auto');
+					}
+
+					/*check if dropdown needs to be on top*/
+					/*reset*/
+					nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
+
+					if ($('.table-responsive').length > 0) { // added if statement to prevent 'top' undefined error when .table-responsive is not being used
+						if ($(elem).parents('.table-responsive').offset().top + $(elem).parents('.table-responsive').outerHeight(true) < nextElem.offset().top + nextElem.find('ul').outerHeight(true)) {
+							nextElem.css({'top': ' -90px', 'box-shadow': '0 -4px 5px rgba(0,0,0,0.15)'});
+						}
+						else {
+							nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
+						}
+					} else {
+						nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
+					}
+
+					var selectTagElem = $(elem).parent().prev().get(0);
+
+					//Close all other multiselect dropdown
+					ribbon.find('select').each(function() {
+						if (selectTagElem != this && $(this).attr('multiple') == 'multiple') {
+							var elem = $(this).next();
+
+							elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
+						}
+					});
+				}
+			};
+
+			if ($.inArray(id, ['dp-team-dd', 'dp-mywork-dd']) > -1) {
+				obj.width = 80;
+			}
+			else if (id == 'dp-sprint-dd') {
+				$.extend(obj, {
+					width: 60,
+					selectAll: false
+				});
+			}
+			else if ($.inArray(id, ['priority-dd', 'region-dd', 'route-to-market-dd']) > -1) {
+				obj.width = 223;
+			}
+			else if ($(this).parents('#filters-section').length) {
+				obj.width = 100;
+			}
+
+			$(this).multipleSelect(obj);
+		}
+	});
+	
 	initRibbon.findActiveFilters(GetLastFilterSettings());
 	// initRibbon.init();
-})
+	
+	ribbon.addClass('initialized');
+});
 
+function toggleActiveItem(elem) {
+	$(elem).toggleClass('active-item-bg').end().removeClass('disable-hover');
+	if ($(elem).attr('id') == 'sq-filters-item') {
+		$(elem).find('#sq-filters').removeClass('add-bg');
+	}
+}
 
+function doSearch() {
+	var query = $('#search-query').val(), GridType = $('#GridType').val();
 
+	$('#GridRequest').kendoGrid(GridConfiguration($('#GridType').val() + 'Search', {searchstring: query}));
 
+	var ribbonLis = $('.sq-top-ribbon').find('> ul').find('> li');
 
-
-
-
+	ribbonLis.each(function(i) {
+		if(i) {
+			$(this).addClass('disabled');
+		}
+	});
+}
