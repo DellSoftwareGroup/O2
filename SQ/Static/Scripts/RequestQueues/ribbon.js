@@ -104,7 +104,6 @@ var initRibbon = function () {
 			var actualRibbonFilterArr = actualRibbonFilters();
 			var activeRibbonFiltersArr = activeRibbonFilters();
 			$filters = jqCollection();
-			console.log($filters);
 
 			/* Private methods */
 			function actualRibbonFilters() {
@@ -188,7 +187,6 @@ var initRibbon = function () {
 		}
 
 		function setMultiSelects(multiSelct, option) {
-			console.log(multiSelct);
 			var options = $(multiSelct).find('option');
 			var optionValues = [], updatedValues = [];
 			$(options).each(function () {
@@ -211,8 +209,8 @@ var initRibbon = function () {
 			})
 			$(multiSelct).data('trigger', 'dynamic');
 			updatedValues.forEach(function (i, index) {
-				$(multiSelct).off('change')
-						.multipleSelect('setSelects', [i]);
+				i = i + 1; // "all" option is not accounted as option;
+				// $(multiSelct).off('change').multipleSelect('setSelects', [i]);
 				addSelectedClass(multiSelct, i); //!important - class is not added when select is triggered programatically
 			})
 
@@ -247,10 +245,11 @@ var initRibbon = function () {
 
 		function addSelectedClass(multiSelect, index) {
 			var parentTag = multiSelect.closest('li');
-			var $li = multiSelect.next().find('.ms-drop li').eq(index);
-			$li.addClass('selected');
-			$li.find('input').prop('checked', true);
-			if ($li.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
+			var $li = multiSelect.next().find('.ms-drop li');
+			var $liSelected = $li.eq(index);
+			$liSelected.addClass('selected');
+			$liSelected.find('input').prop('checked', true);
+			if ($liSelected.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
 				parentTag.addClass('active-item-bg');
 			}
 		}
@@ -263,7 +262,6 @@ var initRibbon = function () {
 	function init() {
 		activeFilters = processActiveFilters();
 		activeFilters.typeOfFilter();
-		console.log('initRibbon');
 	} // end of init
 
 	// call ribbonListener
