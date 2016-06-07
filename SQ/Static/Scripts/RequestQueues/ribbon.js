@@ -32,7 +32,7 @@ var initRibbon = function () {
 	function optionsCount($thisSelect) {
 		var count = $thisSelect.find('option').length;
 		return count;
-	};
+	}
 
 	// private variables
 	var lastActiveFilters = {}, $filters = [], filtersMap = {}, activeFilters = {};
@@ -284,7 +284,6 @@ var ribbonListener = function () {
 		ribbonReqObj = {};
 		isDoneLoading = false;
 		return filtersCollection($filter);
-
 	}
 
 	// Internal methods to handle filters by type:
@@ -507,14 +506,14 @@ var ribbonListener = function () {
 			if (test === title) {
 				isFilter = true;
 			}
-		})
+		});
+
 		return isFilter;
 	}
 
 	function onCloseMultiSelectFilter($clicked) {
 		!!isFilterSecMultSelect($clicked) && rebuildRibbonState('.sq-top-ribbon');
 	}
-
 
 	/* -----> IS Interactions <-----*/
 
@@ -540,7 +539,6 @@ var ribbonListener = function () {
 
 	// function converts object to meet IS requirements
 	function getISobj(uiObj) {
-
 		var ISribbonObj = {}, obj = (uiObj == undefined) ? ribbonReqObj : uiObj;
 
 		// Extend String - Capitalize method
@@ -693,10 +691,9 @@ var ribbonListener = function () {
 
 		// Will trigger IS function passed as argument in the init
 		initISfunc.run();
-		// console.log(getISobj(ribbonReqObj));
+
 		return ribbonReqObj;
 	}
-
 
 	// add listener to filters, triggers IS function
 	function filterListener($rbWrapper) {
@@ -1127,11 +1124,17 @@ $(function () {
 				allSelected: title,
 				maxHeight: 240,
 				onClose: function () {
-					var $target = this.title;
+					var $target = this.title, currentValues = this.target.multipleSelect('getSelects');
 
-					ribbonListener.onCloseMultiFilter($target);
+					//Check if the value has changed. If changed, call onCloseMultiFilter method.
+					if($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
+						ribbonListener.onCloseMultiFilter($target);
+					}
 				},
 				onOpen: function (elem) {
+					this.target = $(elem).parent().prev();
+					this.previousValues = this.target.multipleSelect('getSelects');
+
 					var nextElem = $(elem).next(), ul = nextElem.find('ul');
 
 					if(!nextElem.find('.btn').length) {

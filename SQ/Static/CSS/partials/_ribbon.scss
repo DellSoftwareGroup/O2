@@ -527,8 +527,9 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    min-width: 153px;
   }
-  .sub-nav {
+  .sub-nav { /*More Filters*/
     .ms-drop {
       z-index: 999999;
     }
