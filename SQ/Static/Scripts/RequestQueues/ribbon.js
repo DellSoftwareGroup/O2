@@ -251,6 +251,7 @@ var initRibbon = function () {
 			var tagTxt = $li.find('span[data-title]').data('title');
 			tagTxt = tagTxt + ' (' + optionsCount($select) + ')';
 			$li.find('span[data-title]').text(tagTxt);
+			$li.addClass('active-item-bg')
 		}
 
 		/*function setStandardTextBox() {}*/
