@@ -61,9 +61,33 @@
 
 }
 
-.learnIt h2 {
-  width: 200px !important;
-  border-bottom: 0;
+.learnIt {
+
+  h2 {
+    width: 200px !important;
+    border-bottom: 0;
+  }
+  tbody {
+    tr, tr:nth-child(even) {
+      background: #fff;
+    }
+    th, td {
+      font-size: 16px;
+
+      span {
+        font-size: 16px;
+      }
+    }
+    .fieldvalueBusinessGroupName {
+      font-size: 12px;
+    }
+  }
+  thead {
+    th {
+      font-weight: bold !important;
+    }
+  }
+
 }
 
 

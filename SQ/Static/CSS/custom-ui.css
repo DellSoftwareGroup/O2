@@ -3485,6 +3485,26 @@ input#searchById {
   border-bottom: 0;
 }
 
+.learnIt tbody tr, .learnIt tbody tr:nth-child(even) {
+  background: #fff;
+}
+
+.learnIt tbody th, .learnIt tbody td {
+  font-size: 16px;
+}
+
+.learnIt tbody th span, .learnIt tbody td span {
+  font-size: 16px;
+}
+
+.learnIt tbody .fieldvalueBusinessGroupName {
+  font-size: 12px;
+}
+
+.learnIt thead th {
+  font-weight: bold !important;
+}
+
 .custom-treeviewnode a {
   margin-left: 5px;
   text-decoration: underline; }
