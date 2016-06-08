@@ -129,6 +129,9 @@ var initRibbon = function () {
 				dynamicFilters.each(function () {
 					var thisTitle = $(this).data('title');
 					if (typeof thisTitle != 'undefined') {
+						allFiltersTitles = allFiltersTitles.filter(function (exFil) {
+							return exFil != thisTitle;
+						})
 						allFiltersTitles.push(thisTitle);
 					}
 				});
