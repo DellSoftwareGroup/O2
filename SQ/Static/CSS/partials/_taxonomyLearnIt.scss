@@ -1,9 +1,12 @@
 
-.learnIt h2 {
-  width: 200px !important;
-}
-
 .learnIt, .learnItEdit {
+
+  h2 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-bottom: 1px #ccc solid;
+  }
   .filter-collector {
     float: left;
     margin-bottom: 20px;
@@ -58,6 +61,12 @@
 
 }
 
+.learnIt h2 {
+  width: 200px !important;
+  border-bottom: 0;
+}
+
+
 .custom-treeviewnode a {
   margin-left: 5px;
   text-decoration: underline;
@@ -65,12 +74,6 @@
 
 .learnItEdit {
 
-  h2 {
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    border-bottom: 1px #ccc solid;
-  }
   .small-text {
     font-size: 12px;
   }

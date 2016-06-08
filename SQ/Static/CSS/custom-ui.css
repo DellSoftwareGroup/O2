@@ -3432,9 +3432,12 @@ input#searchById {
 .ie9 #add-link-form {
   padding: 8px 0; }
 
-.learnIt h2 {
-  width: 200px !important; }
-
+.learnIt h2, .learnItEdit h2 {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  border-bottom: 1px #ccc solid;
+}
 .learnIt .filter-collector, .learnItEdit .filter-collector {
   float: left;
   margin-bottom: 20px;
@@ -3477,15 +3480,15 @@ input#searchById {
 .learnIt .container-buttons, .learnItEdit .container-buttons {
   margin-left: 40px; }
 
+.learnIt h2 {
+  width: 200px !important;
+  border-bottom: 0;
+}
+
 .custom-treeviewnode a {
   margin-left: 5px;
   text-decoration: underline; }
 
-.learnItEdit h2 {
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  border-bottom: 1px #ccc solid; }
 .learnItEdit .small-text {
   font-size: 12px; }
 .learnItEdit label.control-label {

@@ -245,7 +245,8 @@ var initRibbon = function () {
 			});
 
 			// add count to label
-			var tagTxt = tagTxt + ' (' + optionsCount($select) + ')';
+			var tagTxt = $li.find('span[data-title]').data('title');
+			tagTxt = tagTxt + ' (' + optionsCount($select) + ')';
 			$li.find('span[data-title]').text(tagTxt);
 		}
 
