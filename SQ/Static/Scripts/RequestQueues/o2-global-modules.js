@@ -1302,23 +1302,27 @@ var globalModules = function () {
 		 -----------------------------------------*/
 		function ribbonPopoverInit() {
 			// initiate popover
-			$(popupTrigger).on('click', function () {
-				var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
-				buildHtml.afterLoad(function () {
-					$('body').on('click.popover', function (e) {
-						closeOnBodyClick(e)
-					});
-				}); // add interactions after popover is shown
-				$(this).popover({
-					html: true,
-					placement: 'left',
-					content: buildHtml.content,
-					template: buildHtml.tmpl
-				});
-				$(this).popover("show");
+			$(popupTrigger).on('click', function (e) {
+				e.preventDefault();
 
-				initKendoMultiSelect();
-				addPrevSelectionsToPopover(this);
+				if(!$(this).parents('.disabled').length) {
+					var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
+					buildHtml.afterLoad(function () {
+						$('body').on('click.popover', function (e) {
+							closeOnBodyClick(e)
+						});
+					}); // add interactions after popover is shown
+					$(this).popover({
+						html: true,
+						placement: 'left',
+						content: buildHtml.content,
+						template: buildHtml.tmpl
+					});
+					$(this).popover("show");
+
+					initKendoMultiSelect();
+					addPrevSelectionsToPopover(this);
+				}
 			});
 
 			// close popover

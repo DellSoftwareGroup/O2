@@ -63,25 +63,6 @@
         padding: 6px;
         margin-right: 7px;
         font-size: 12.66px;
-        &.active-item-bg {
-          background-color: #E5F3FA;
-          border-radius: 3px;
-          &:hover a {
-            color: #444;
-          }
-          select {
-            background-color: transparent;
-            &#priority-dd, &#region-dd, &#route-to-market-dd {
-              background-color: #fff;
-            }
-          }
-          #my-work-icon, #requester-icon {
-            background-position: 4px 0;
-          }
-          .ms-choice {
-            background-color: transparent;
-          }
-        }
         &:hover {
           cursor: pointer;
           a {
@@ -195,59 +176,6 @@
         #owner-icon {
           background-position: -507px -80px;
           width: 16px;
-        }
-        &:hover, &.active-item-bg {
-          #my-work-icon, #requester-icon {
-            background-position: 4px 0;
-          }
-          #dp-Team-icon {
-            background-position: -65px 2px;
-          }
-          #jan-fy-icon {
-            background-position: -164px -1px;
-          }
-          #backlog-icon {
-            background-position: -257px -34px;
-          }
-          #started-icon {
-            background-position: -722px -37px;
-          }
-          #idea-icon {
-            background-position: -312px -38px;
-          }
-          #council-icon {
-            background-position: -359px -38px;
-          }
-          #done-icon {
-            background-position: -412px -38px;
-          }
-          #cancelled-icon {
-            background-position: -470px -38px;
-          }
-          #filters-icon {
-            background-position: -549px -39px;
-          }
-          #department-icon {
-            background-position: -853px -34px;
-          }
-          #request-type-icon {
-            background-position: -257px -118px;
-          }
-          #task-type-icon {
-            background-position: -320px -80px;
-          }
-          #portfolio-icon {
-            background-position: -166px -121px;
-          }
-          #task-status-icon {
-            background-position: -444px -118px;
-          }
-          #owner-icon {
-            background-position: -507px -118px;
-          }
-          a {
-            color: #444;
-          }
         }
         &#sq-filters-item {
           /*width: 158px;*/
@@ -363,6 +291,79 @@
         }
       }
     }
+	  &:not(.disabled) {
+		  li {
+			  &:hover, &.active-item-bg {
+				  #my-work-icon, #requester-icon {
+					  background-position: 4px 0;
+				  }
+				  #dp-Team-icon {
+					  background-position: -65px 2px;
+				  }
+				  #jan-fy-icon {
+					  background-position: -164px -1px;
+				  }
+				  #backlog-icon {
+					  background-position: -257px -34px;
+				  }
+				  #started-icon {
+					  background-position: -722px -37px;
+				  }
+				  #idea-icon {
+					  background-position: -312px -38px;
+				  }
+				  #council-icon {
+					  background-position: -359px -38px;
+				  }
+				  #done-icon {
+					  background-position: -412px -38px;
+				  }
+				  #cancelled-icon {
+					  background-position: -470px -38px;
+				  }
+				  #filters-icon {
+					  background-position: -549px -39px;
+				  }
+				  #department-icon {
+					  background-position: -853px -34px;
+				  }
+				  #request-type-icon {
+					  background-position: -257px -118px;
+				  }
+				  #task-type-icon {
+					  background-position: -320px -80px;
+				  }
+				  #portfolio-icon {
+					  background-position: -166px -121px;
+				  }
+				  #task-status-icon {
+					  background-position: -444px -118px;
+				  }
+				  #owner-icon {
+					  background-position: -507px -118px;
+				  }
+				  a {
+					  color: #444;
+				  }
+			  }
+		  }
+		  .active-item-bg {
+			  background-color: #E5F3FA;
+			  border-radius: 3px;
+			  select {
+				  background-color: transparent;
+				  &#priority-dd, &#region-dd, &#route-to-market-dd {
+					  background-color: #fff;
+				  }
+			  }
+			  #my-work-icon, #requester-icon {
+				  background-position: 4px 0;
+			  }
+			  .ms-choice {
+				  background-color: transparent;
+			  }
+		  }
+	  }
     &:first-child {
       > span:last-child {
 	      margin-top: 13px;
@@ -543,6 +544,29 @@
   .sq-btn-icon + span {
     margin-left: 5px;
   }
+	.disabled {
+		a {
+			color: #ccc !important;
+		}
+		.ms-choice {
+			&.disabled {
+				background-color: transparent;
+				>span {
+					&.placeholder {
+						color: #ccc !important;
+					}
+				}
+			}
+		}
+		.active-item-bg {
+			background-color: rgba(204,204,204,0.5);
+		}
+		&:hover {
+			a {
+				color: #ccc;
+			}
+		}
+	}
 }
 
 @media(min-width: $screen-lg-min) {
@@ -562,7 +586,7 @@
 }
 
 /*filters collector */
-.filter-collector {
+.filter-collector, .search-filter-collector {
   float: left;
   clear: both;
   &:last-child {
@@ -591,6 +615,10 @@
     }
   }
 
+}
+
+.search-filter-collector {
+	display: none;
 }
 
 /* ribbon modal */

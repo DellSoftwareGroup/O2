@@ -734,15 +734,16 @@ var ribbonListener = function () {
 			}, 500);
 
 		});
-
-
+		
 		// on click event for li with now select
 		$('#agile-status').on('click', 'a', function(e) {
 			e.preventDefault();
-			toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
-			// rebuild ribbonReqObj   filters state
-			rebuildRibbonState($rbWrapper);
 
+			if(!$('#agile-status').hasClass('disabled')) {
+				toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
+				// rebuild ribbonReqObj   filters state
+				rebuildRibbonState($rbWrapper);
+			}
 		});
 
 		// manual change of sprints IS returns only "[ALL]" so we manually maintain it.
@@ -788,9 +789,10 @@ var ribbonWidgets = function () {
 	function filterCollectorModule() {
 
 		var filterObj = ribbonListener.passFilterStateObj();
+		var filterCollectorElem = $('.filter-collector');
 
 		// Clear filter collector area
-		$('.filter-collector').html('');
+		filterCollectorElem.html('');
 
 		function findActiveFilters() {
 			var activeFilters = {};
@@ -814,7 +816,7 @@ var ribbonWidgets = function () {
 
 		function buildTmpl(activeFilters) {
 			// append filter tag:
-			$('.filter-collector').append('<ul><li>Filters:</li></ul>');
+			filterCollectorElem.append('<ul><li>Filters:</li></ul>');
 			var filterHtml = '', activeArr = [];
 			$.each(activeFilters, function (filter, options) {
 
@@ -832,12 +834,11 @@ var ribbonWidgets = function () {
 				activeArr.push(filterHtml);
 			});
 			var cleanFilters = activeArr.join(' ');
-			$('.filter-collector').append(cleanFilters);
+			filterCollectorElem.append(cleanFilters);
 		}
 
 		// Remove Filters
 		function setXTrigger() {
-
 			// helping functions
 			function updateMultiSelect(filterType, option) {
 				var updatedValues = [];
@@ -1000,8 +1001,7 @@ var ribbonWidgets = function () {
 		}
 
 		buildTmpl(findActiveFilters());
-		setXTrigger()
-
+		setXTrigger();
 	}
 
 	var moreFiltersPopover = function () {
@@ -1051,19 +1051,6 @@ var ribbonWidgets = function () {
 }();
 
 $(function () {
-	/*var testingAObj = {
-		"AllTeams": ["df7210fc-248c-4ca9-91e8-9eba4c9a534b"],
-		"Sprint": ["7f78ec0d-e945-4e5b-8701-a7f2f253eb77"],
-		"RequestStatusIdea": true,
-		"RequestStatusStarted": true,
-		"Portfolio": ["8f2aee01-80f2-44c1-bea8-c78a4838d89a"],
-		"Owner": [{"value": "4c927813-4e7e-411a-b0b3-908443f27575", "name": "Jorge Alfaro"}],
-		"Regions": ["66d97431-d2a2-4b13-a551-9a5350b8ef2e"],
-		"ParentCampaign": ["582"],
-		"Project": ["551"]
-	};
-	initRibbon.findActiveFilters(testingAObj);*/
-
 	var ribbon = $('.sq-top-ribbon'),
 		ribbonItem = ribbon.find('> ul > li > ul > li'),
 		filterSubNavWrapper = $('#sq-filters .sub-nav-wrapper'),
@@ -1081,33 +1068,36 @@ $(function () {
 	
 	// prevent propagation on multi-select under sub nav
 	$('#sq-filters')
-		.on('click', '.ms-drop input, .ms-drop label', function (e) {
-		e.stopPropagation();
-	})
-		.on('click', function (e) {
-		//Do not toggle if clicking anywhere in the dropdown.
-		if ($(e.target).parents('.sub-nav-wrapper').length) {
-			return false;
-		}
+		.on('click', '.ms-drop input, .ms-drop label', function(e) {
+			e.stopPropagation();
+		})
+		.on('click', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
 
-		e.stopPropagation();
-		e.preventDefault();
-		filterSubNav.toggle();
-		$(this).toggleClass('add-bg');
+			if(!$(this).parents('.disabled').length) {
+				//Do not toggle if clicking anywhere in the dropdown.
+				if ($(e.target).parents('.sub-nav-wrapper').length) {
+					return false;
+				}
 
-		$(this).find('.sub-nav-wrapper').css('marginLeft', '');
+				filterSubNav.toggle();
+				$(this).toggleClass('add-bg');
 
-		if ($('#sq-filters-item').hasClass('active-item-bg')) {
-			$(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
-		}
+				$(this).find('.sub-nav-wrapper').css('marginLeft', '');
 
-		if (filterSubNav.is(':visible')) {
-			filterSubNavWrapper.css('height', '445px');
-		}
-		else {
-			filterSubNavWrapper.css('height', '0');
-		}
-	});
+				if ($('#sq-filters-item').hasClass('active-item-bg')) {
+					$(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
+				}
+
+				if (filterSubNav.is(':visible')) {
+					filterSubNavWrapper.css('height', '445px');
+				}
+				else {
+					filterSubNavWrapper.css('height', '0');
+				}
+			}
+		});
 
 	(ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function (e) {
 		e.stopPropagation();
@@ -1217,8 +1207,7 @@ $(function () {
 	});
 	
 	initRibbon.findActiveFilters(GetLastFilterSettings());
-	// initRibbon.init();
-	
+
 	ribbon.addClass('initialized');
 });
 
@@ -1230,15 +1219,62 @@ function toggleActiveItem(elem) {
 }
 
 function doSearch() {
-	var query = $('#search-query').val(), GridType = $('#GridType').val();
+	var GridType = $('#GridType').val(), searchFilterElem = $('.search-filter-collector'), ribbon = $('.sq-top-ribbon');
+
+	query = $('#search-query').val().trim();
+
+	if(query == '') {
+		return;
+	}
+
+	$('#search-query').val('');
 
 	$('#GridRequest').kendoGrid(GridConfiguration($('#GridType').val() + 'Search', {searchstring: query}));
 
-	var ribbonLis = $('.sq-top-ribbon').find('> ul').find('> li');
+	var ribbonLis = ribbon.find('> ul').find('> li');
 
-	ribbonLis.each(function(i) {
-		if(i) {
-			$(this).addClass('disabled');
-		}
-	});
+	filterStatus(false);
+
+	$('.filter-collector').hide();
+	searchFilterElem.find('span').text(query).end().show();
+	
+	if(!searchFilterElem.data('initialize')) {
+		searchFilterElem.on('click', 'a', function(e) {
+			e.preventDefault();
+
+			query = '';
+			filterStatus(true);
+
+			$('.filter-collector').show();
+			searchFilterElem.hide();
+
+			ReloadGrid(0);
+		});
+
+		searchFilterElem.data('initialize', true);
+	}
+
+	function filterStatus(enable) {
+		ribbonLis.each(function(i) {
+			if(i) {
+				if(enable) {
+					$(this).removeClass('disabled');
+				}
+				else {
+					$(this).addClass('disabled');
+				}
+			}
+		});
+
+		ribbon.find('select').each(function() {
+			if($(this).attr('multiple') == 'multiple') {
+				if(enable) {
+					$(this).multipleSelect('enable');
+				}
+				else {
+					$(this).multipleSelect('disable');
+				}
+			}
+		});
+	}
 }

@@ -2441,19 +2441,6 @@ ul {
         margin-right: 7px;
         font-size: 12.66px;
         /*icons*/ }
-        .sq-top-ribbon > ul > li > ul > li.active-item-bg {
-          background-color: #E5F3FA;
-          border-radius: 3px; }
-          .sq-top-ribbon > ul > li > ul > li.active-item-bg:hover a {
-            color: #444; }
-          .sq-top-ribbon > ul > li > ul > li.active-item-bg select {
-            background-color: transparent; }
-            .sq-top-ribbon > ul > li > ul > li.active-item-bg select#priority-dd, .sq-top-ribbon > ul > li > ul > li.active-item-bg select#region-dd, .sq-top-ribbon > ul > li > ul > li.active-item-bg select#route-to-market-dd {
-              background-color: #fff; }
-          .sq-top-ribbon > ul > li > ul > li.active-item-bg #my-work-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #requester-icon {
-            background-position: 4px 0; }
-          .sq-top-ribbon > ul > li > ul > li.active-item-bg .ms-choice {
-            background-color: transparent; }
         .sq-top-ribbon > ul > li > ul > li:hover {
           cursor: pointer; }
           .sq-top-ribbon > ul > li > ul > li:hover a {
@@ -2538,40 +2525,6 @@ ul {
         .sq-top-ribbon > ul > li > ul > li #owner-icon {
           background-position: -507px -80px;
           width: 16px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #my-work-icon, .sq-top-ribbon > ul > li > ul > li:hover #requester-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #my-work-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #requester-icon {
-          background-position: 4px 0; }
-        .sq-top-ribbon > ul > li > ul > li:hover #dp-Team-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #dp-Team-icon {
-          background-position: -65px 2px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #jan-fy-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #jan-fy-icon {
-          background-position: -164px -1px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #backlog-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #backlog-icon {
-          background-position: -257px -34px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #started-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #started-icon {
-          background-position: -722px -37px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #idea-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #idea-icon {
-          background-position: -312px -38px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #council-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #council-icon {
-          background-position: -359px -38px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #done-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #done-icon {
-          background-position: -412px -38px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #cancelled-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #cancelled-icon {
-          background-position: -470px -38px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #filters-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #filters-icon {
-          background-position: -549px -39px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #department-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #department-icon {
-          background-position: -853px -34px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #request-type-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #request-type-icon {
-          background-position: -257px -118px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #task-type-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #task-type-icon {
-          background-position: -320px -80px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #portfolio-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #portfolio-icon {
-          background-position: -166px -121px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #task-status-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #task-status-icon {
-          background-position: -444px -118px; }
-        .sq-top-ribbon > ul > li > ul > li:hover #owner-icon, .sq-top-ribbon > ul > li > ul > li.active-item-bg #owner-icon {
-          background-position: -507px -118px; }
-        .sq-top-ribbon > ul > li > ul > li:hover a, .sq-top-ribbon > ul > li > ul > li.active-item-bg a {
-          color: #444; }
         .sq-top-ribbon > ul > li > ul > li#sq-filters-item {
           /*width: 158px;*/ }
           .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters:hover > span:last-child {
@@ -2654,6 +2607,51 @@ ul {
             position: relative;
             z-index: 99999;
             /*fix for ie9*/ }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover #requester-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #requester-icon {
+      background-position: 4px 0; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #dp-Team-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #dp-Team-icon {
+      background-position: -65px 2px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #jan-fy-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #jan-fy-icon {
+      background-position: -164px -1px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #backlog-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #backlog-icon {
+      background-position: -257px -34px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #started-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #started-icon {
+      background-position: -722px -37px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #idea-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #idea-icon {
+      background-position: -312px -38px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #council-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #council-icon {
+      background-position: -359px -38px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #done-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #done-icon {
+      background-position: -412px -38px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #cancelled-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #cancelled-icon {
+      background-position: -470px -38px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #filters-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #filters-icon {
+      background-position: -549px -39px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #department-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #department-icon {
+      background-position: -853px -34px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #request-type-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #request-type-icon {
+      background-position: -257px -118px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #task-type-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #task-type-icon {
+      background-position: -320px -80px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #portfolio-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #portfolio-icon {
+      background-position: -166px -121px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #task-status-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #task-status-icon {
+      background-position: -444px -118px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover #owner-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #owner-icon {
+      background-position: -507px -118px; }
+    .sq-top-ribbon > ul > li:not(.disabled) li:hover a, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg a {
+      color: #444; }
+    .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg {
+      background-color: #E5F3FA;
+      border-radius: 3px; }
+      .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg select {
+        background-color: transparent; }
+        .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg select#priority-dd, .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg select#region-dd, .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg select#route-to-market-dd {
+          background-color: #fff; }
+      .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg #my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg #requester-icon {
+        background-position: 4px 0; }
+      .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg .ms-choice {
+        background-color: transparent; }
     .sq-top-ribbon > ul > li:first-child > span:last-child {
       margin-top: 13px; }
     .sq-top-ribbon > ul > li:last-child {
@@ -2774,6 +2772,16 @@ ul {
     width: 15% !important; }
   .sq-top-ribbon .sq-btn-icon + span {
     margin-left: 5px; }
+  .sq-top-ribbon .disabled a {
+    color: #ccc !important; }
+  .sq-top-ribbon .disabled .ms-choice.disabled {
+    background-color: transparent; }
+    .sq-top-ribbon .disabled .ms-choice.disabled > span.placeholder {
+      color: #ccc !important; }
+  .sq-top-ribbon .disabled .active-item-bg {
+    background-color: rgba(204, 204, 204, 0.5); }
+  .sq-top-ribbon .disabled:hover a {
+    color: #ccc; }
 
 @media (min-width: 1570px) {
   .sq-top-ribbon > ul > li {
@@ -2783,27 +2791,30 @@ ul {
   .sq-top-ribbon #agile-status ul > li {
     width: 92px; } }
 /*filters collector */
-.filter-collector {
+.filter-collector, .search-filter-collector {
   float: left;
   clear: both; }
-  .filter-collector:last-child {
+  .filter-collector:last-child, .search-filter-collector:last-child {
     margin-bottom: 10px; }
-  .filter-collector ul {
+  .filter-collector ul, .search-filter-collector ul {
     display: inline; }
-    .filter-collector ul li {
+    .filter-collector ul li, .search-filter-collector ul li {
       display: inline-block;
       float: left;
       margin-right: 12px; }
-      .filter-collector ul li:first-child {
+      .filter-collector ul li:first-child, .search-filter-collector ul li:first-child {
         margin-left: 10px; }
-      .filter-collector ul li a {
+      .filter-collector ul li a, .search-filter-collector ul li a {
         color: #3399CC;
         font-weight: bold; }
-        .filter-collector ul li a:hover {
+        .filter-collector ul li a:hover, .search-filter-collector ul li a:hover {
           text-decoration: none; }
-      .filter-collector ul li span {
+      .filter-collector ul li span, .search-filter-collector ul li span {
         color: #999;
         font-size: 14px; }
+
+.search-filter-collector {
+  display: none; }
 
 /* ribbon modal */
 .custom-modal .modal-body form {
