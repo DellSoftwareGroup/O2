@@ -182,3 +182,31 @@
   }
 }
 
+.results-data {
+  table {
+    thead {
+      tr {
+        th:first-child,
+        th:last-child {
+          border-radius: 0 !important;
+        }
+      }
+    }
+  }
+
+}
+
+#results-data-list {
+  .results-data {
+    margin-bottom: 20px;
+  }
+  #topPager {
+    height: 44px !important;
+    padding-top: 0;
+  }
+  .data-heading {
+    margin: 0;
+  }
+}
+
+

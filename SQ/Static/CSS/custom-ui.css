@@ -3484,11 +3484,9 @@ input#searchById {
   width: 200px !important;
   border-bottom: 0;
 }
-
 .learnIt tbody tr, .learnIt tbody tr:nth-child(even) {
   background: #fff;
 }
-
 .learnIt tbody th, .learnIt tbody td {
   font-size: 16px;
 }
@@ -3496,11 +3494,9 @@ input#searchById {
 .learnIt tbody th span, .learnIt tbody td span {
   font-size: 16px;
 }
-
 .learnIt tbody .fieldvalueBusinessGroupName {
   font-size: 12px;
 }
-
 .learnIt thead th {
   font-weight: bold !important;
 }
@@ -3570,3 +3566,21 @@ input#searchById {
   min-height: 160px; }
 .multy-select .btn-default {
   padding: 3px; }
+
+.results-data table thead tr th:first-child,
+.results-data table thead tr th:last-child {
+  border-radius: 0 !important;
+}
+
+#results-data-list .results-data {
+  margin-bottom: 20px;
+}
+
+#results-data-list #topPager {
+  height: 44px !important;
+  padding-top: 0;
+}
+
+#results-data-list .data-heading {
+  margin: 0;
+}
