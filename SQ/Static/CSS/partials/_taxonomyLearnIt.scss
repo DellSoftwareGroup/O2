@@ -112,6 +112,10 @@
       font-size: 17px;
     }
   }
+  #data_BusinessGroupId,
+  #data_LearnTaxonomyId {
+    max-width: 60%; /* change requested by Diane -6/912 */
+  }
 }
 
 .add-level {
@@ -209,4 +213,14 @@
   }
 }
 
-
+/* dynamic kendo window delete taxonomy */
+[kendo-window="winDeleteLevel"] {
+  .buttons > div {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}

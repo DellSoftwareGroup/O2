@@ -429,8 +429,11 @@ tbody tr:first-child .tooltip:hover:after {
   color: #fff !important;
 }
 
-#row-save button {
-  margin-right: 10px;
+#row-save {
+
+  button, input {
+    margin-right: 5px;
+  }
 }
 
 .outside-sprint {

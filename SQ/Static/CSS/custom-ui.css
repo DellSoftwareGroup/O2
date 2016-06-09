@@ -1260,8 +1260,9 @@ tbody tr:first-child .tooltip:hover:after {
 .wide-blue-button a, .button-wrapper a {
   color: #fff !important; }
 
-#row-save button {
-  margin-right: 10px; }
+#row-save button, #row-save input {
+  margin-right: 5px;
+}
 
 .outside-sprint {
   background: url(../Content/Img/icon-warning.png) no-repeat right center;
@@ -3506,6 +3507,12 @@ input#searchById {
 .learnItEdit .custom-treeviewnode span {
   font-size: 17px; }
 
+.learnItEdit #data_BusinessGroupId,
+.learnItEdit #data_LearnTaxonomyId {
+  max-width: 60%;
+  /* change requested by Diane -6/912 */
+}
+
 .add-level {
   padding: 20px !important;
   overflow: hidden !important; }
@@ -3570,3 +3577,14 @@ input#searchById {
   padding-top: 0; }
 #results-data-list .data-heading {
   margin: 0; }
+
+/* dynamic kendo window delete taxonomy */
+[kendo-window="winDeleteLevel"] .buttons > div {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+[kendo-window="winDeleteLevel"] .row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
