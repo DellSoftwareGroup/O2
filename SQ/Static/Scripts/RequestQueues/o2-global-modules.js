@@ -1215,7 +1215,7 @@ var globalModules = function () {
 				$('.taglist-parent').hide('slow');
 			}
 			// re-adjust tag count
-			cleanTag.addCountToLabel();
+			//cleanTag.addCountToLabel();
 		}
 
 		/* ------> Utility Functions <------- */
@@ -1249,7 +1249,7 @@ var globalModules = function () {
 				$(targetInput).find('option:selected').each(function () {
 					buildNewSelect.createOption(this);
 				});
-				buildNewSelect.addCountToLabel();
+				//buildNewSelect.addCountToLabel();
 			}
 			closePopup();
 		}

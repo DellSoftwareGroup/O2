@@ -181,30 +181,32 @@
           /*width: 158px;*/
           > div {
             #sq-filters {
+	            .arrow {
+		            position: absolute;
+		            top: -3px;
+		            right: -8px;
+		            width: 22px;
+		            height: 20px;
+		            background: url("/sq/static/images/multiple-select.png") left top no-repeat;
+	            }
               &:hover > span:last-child {
                 display: none;
               }
-              a:hover, .activate-bg, &.add-bg {
+              a:hover, .activate-bg {
                 #filters-icon {
                   background-position: -549px -39px;
                 }
               }
-              &.add-bg {
-                background-color: #eee;
-                border-radius: 5px;
-                height: 27px;
-                width: 39px;
-                box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-                padding: 7px 10px 0 10px;
-                margin-left: -10px;
-                margin-top: -7px;
-              }
+	            &.open {
+		            .arrow {
+			            background-position: right top;
+		            }
+		            .sub-nav-wrapper {
+			            display: block;
+		            }
+	            }
               #more-filters {
                 position: relative;
-                .arrow {
-                  left: 114px;
-                  top: 6px;
-                }
               }
             }
             > div {
@@ -442,11 +444,11 @@
     }
     .sub-nav-wrapper {
       width: 250px;
-      height: 0;
-      overflow: hidden;
+      height: 205px;
       margin-left: -11px;
       position: absolute;
       top: 24px;
+	    display: none;
     }
     .sub-nav {
       background-color: #eee;
@@ -455,10 +457,9 @@
       border-bottom-left-radius: 5px;
       padding: 15px 10px 10px 10px;
       width: 246px;
-      display: none;
       position: relative;
       z-index: 1;
-      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
       select, .sq-ribbon-filter-text, .ms-parent {
         display: block;
         box-sizing: content-box;
@@ -589,6 +590,9 @@
 .filter-collector, .search-filter-collector {
   float: left;
   clear: both;
+  > span {
+    float: left;
+  }
   &:last-child {
     margin-bottom: 10px;
   }
@@ -597,7 +601,7 @@
     li {
       display: inline-block;
       float: left;
-      margin-right: 12px;
+      margin: 1px 12px 0 0;
       &:first-child {
         margin-left: 10px;
       }
@@ -614,7 +618,6 @@
       }
     }
   }
-
 }
 
 .search-filter-collector {

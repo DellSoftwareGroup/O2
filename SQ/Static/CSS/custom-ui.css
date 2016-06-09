@@ -2527,24 +2527,23 @@ ul {
           width: 16px; }
         .sq-top-ribbon > ul > li > ul > li#sq-filters-item {
           /*width: 158px;*/ }
+          .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters .arrow {
+            position: absolute;
+            top: -3px;
+            right: -8px;
+            width: 22px;
+            height: 20px;
+            background: url("/sq/static/images/multiple-select.png") left top no-repeat; }
           .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters:hover > span:last-child {
             display: none; }
-          .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters a:hover #filters-icon, .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters .activate-bg #filters-icon, .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters.add-bg #filters-icon {
+          .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters a:hover #filters-icon, .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters .activate-bg #filters-icon {
             background-position: -549px -39px; }
-          .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters.add-bg {
-            background-color: #eee;
-            border-radius: 5px;
-            height: 27px;
-            width: 39px;
-            box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-            padding: 7px 10px 0 10px;
-            margin-left: -10px;
-            margin-top: -7px; }
+          .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters.open .arrow {
+            background-position: right top; }
+          .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters.open .sub-nav-wrapper {
+            display: block; }
           .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters #more-filters {
             position: relative; }
-            .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div #sq-filters #more-filters .arrow {
-              left: 114px;
-              top: 6px; }
           .sq-top-ribbon > ul > li > ul > li#sq-filters-item > div > div {
             padding: 0; }
           .sq-top-ribbon > ul > li > ul > li#sq-filters-item > span:last-child {
@@ -2697,11 +2696,11 @@ ul {
       clear: both; }
     .sq-top-ribbon > ul > li .sub-nav-wrapper {
       width: 250px;
-      height: 0;
-      overflow: hidden;
+      height: 205px;
       margin-left: -11px;
       position: absolute;
-      top: 24px; }
+      top: 24px;
+      display: none; }
     .sq-top-ribbon > ul > li .sub-nav {
       background-color: #eee;
       border-top-right-radius: 5px;
@@ -2709,10 +2708,9 @@ ul {
       border-bottom-left-radius: 5px;
       padding: 15px 10px 10px 10px;
       width: 246px;
-      display: none;
       position: relative;
       z-index: 1;
-      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
       /* multiselect fields */ }
       .sq-top-ribbon > ul > li .sub-nav select, .sq-top-ribbon > ul > li .sub-nav .sq-ribbon-filter-text, .sq-top-ribbon > ul > li .sub-nav .ms-parent {
         display: block;
@@ -2794,6 +2792,8 @@ ul {
 .filter-collector, .search-filter-collector {
   float: left;
   clear: both; }
+  .filter-collector > span, .search-filter-collector > span {
+    float: left; }
   .filter-collector:last-child, .search-filter-collector:last-child {
     margin-bottom: 10px; }
   .filter-collector ul, .search-filter-collector ul {
@@ -2801,7 +2801,7 @@ ul {
     .filter-collector ul li, .search-filter-collector ul li {
       display: inline-block;
       float: left;
-      margin-right: 12px; }
+      margin: 1px 12px 0 0; }
       .filter-collector ul li:first-child, .search-filter-collector ul li:first-child {
         margin-left: 10px; }
       .filter-collector ul li a, .search-filter-collector ul li a {
@@ -3436,8 +3436,7 @@ input#searchById {
   margin-bottom: 10px;
   padding-bottom: 5px;
   padding-left: 20px;
-  border-bottom: 1px #ccc solid;
-}
+  border-bottom: 1px #ccc solid; }
 .learnIt .filter-collector, .learnItEdit .filter-collector {
   float: left;
   margin-bottom: 20px;
@@ -3482,24 +3481,17 @@ input#searchById {
 
 .learnIt h2 {
   width: 200px !important;
-  border-bottom: 0;
-}
+  border-bottom: 0; }
 .learnIt tbody tr, .learnIt tbody tr:nth-child(even) {
-  background: #fff;
-}
+  background: #fff; }
 .learnIt tbody th, .learnIt tbody td {
-  font-size: 16px;
-}
-
-.learnIt tbody th span, .learnIt tbody td span {
-  font-size: 16px;
-}
+  font-size: 16px; }
+  .learnIt tbody th span, .learnIt tbody td span {
+    font-size: 16px; }
 .learnIt tbody .fieldvalueBusinessGroupName {
-  font-size: 12px;
-}
+  font-size: 12px; }
 .learnIt thead th {
-  font-weight: bold !important;
-}
+  font-weight: bold !important; }
 
 .custom-treeviewnode a {
   margin-left: 5px;
@@ -3569,18 +3561,12 @@ input#searchById {
 
 .results-data table thead tr th:first-child,
 .results-data table thead tr th:last-child {
-  border-radius: 0 !important;
-}
+  border-radius: 0 !important; }
 
 #results-data-list .results-data {
-  margin-bottom: 20px;
-}
-
+  margin-bottom: 20px; }
 #results-data-list #topPager {
   height: 44px !important;
-  padding-top: 0;
-}
-
+  padding-top: 0; }
 #results-data-list .data-heading {
-  margin: 0;
-}
+  margin: 0; }

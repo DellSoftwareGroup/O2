@@ -33,9 +33,9 @@ var initRibbon = function () {
 		return filtersMap[whichFilter];
 	}
 
-	function optionsCount($thisSelect) {
+	/*function optionsCount($thisSelect) {
 		return $thisSelect.find('option').length;
-	}
+	}*/
 
 	// private variables
 	var $filters = [], filtersMap = {}, activeFilters = {};
@@ -112,10 +112,26 @@ var initRibbon = function () {
 			$filters.forEach(function (filterType) {
 				var filterTypeElem = $(filterType), filterInfo = getFilterInfo(filterType);
 
+				if(filterTypeElem.parents('#sq-filters-item').length) {
+					$('#sq-filters-item').removeClass('active-item-bg');
+				}
+				else {
+					filterTypeElem.parents('li').removeClass('active-item-bg');
+				}
+
 				// If multiSelect filter typ
 				if (filterTypeElem.attr('multiple')) { // check for multiselect
 					//setMultiSelects($(filterType), filterInfo.option);
 					$(filterType).multipleSelect('setSelects', filterInfo.option);
+
+					if(filterInfo.option.length) {
+						if($(filterType).parents('#sq-filters-item').length) {
+							$('#sq-filters-item').addClass('active-item-bg');
+						}
+						else {
+							$(filterType).parents('li').addClass('active-item-bg');
+						}
+					}
 				}
 
 				// If no dropdown or input text filter (e.g Request Status)
@@ -169,7 +185,9 @@ var initRibbon = function () {
 		function setSimpleNoSelectFilters(multiSelct, options) {
 			$(multiSelct).find('li').each(function () {
 				var $li = $(this);
-				$li.removeClass('active-item-bg'); // there are some of this filters have class from source code;
+
+				//$li.removeClass('active-item-bg'); // there are some of this filters have class from source code;
+
 				options.forEach(function (option) {
 					if (!!$li.find('a[title="' + option + '"]').length) {
 						$li.addClass('active-item-bg');
@@ -179,17 +197,15 @@ var initRibbon = function () {
 		}
 
 		function setDynamicFilters(multiSelct, options) {
-			var $li = $(multiSelct).closest('li');
-			var $select = $li.find('select');
-			options.forEach(function (option) {
-				$select.append('<option value="' + option.value + '" data-name="' + option.name + '">' + option.name + '</option>');
-			});
+			var $li = $(multiSelct).closest('li'), $select = $li.find('select');
 
-			// add count to label
-			var tagTxt = $li.find('span[data-title]').data('title');
-			tagTxt = tagTxt + ' (' + optionsCount($select) + ')';
-			$li.find('span[data-title]').text(tagTxt);
-			$li.addClass('active-item-bg')
+			if(options.length) {
+				options.forEach(function (option) {
+					$select.append('<option value="' + option.value + '" data-name="' + option.name + '">' + option.name + '</option>');
+				});
+
+				$li.addClass('active-item-bg');
+			}
 		}
 
 		/*function addSelectedClass(multiSelect, index) {
@@ -235,7 +251,7 @@ var ribbonListener = function () {
 
 	// Internal methods to handle filters by type:
 	function handleMultiSelect($multiSelect, filterType) {
-		var hasActive = false, parentTag = $multiSelect.closest('li');
+		var parentTag = $multiSelect.closest('li');
 
 		if ($multiSelect.data('title') !== null || $multiSelect.data('title') !== undefined) {
 			ribbonReqObj[$multiSelect.data('title')] = [];
@@ -249,16 +265,17 @@ var ribbonListener = function () {
 
 			option.isSelected = function () {
 				if ($li.hasClass('selected')) {
-
-					if ($li.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
+					if ($li.parents('.sub-nav').length) { // prevent "More Filter" issue with bg.
+						$('#sq-filters-item').addClass('active-item-bg');
+					}
+					else {
 						parentTag.addClass('active-item-bg');
 					}
 
-					hasActive = true;
-					return true
+					return true;
 				}
 				else {
-					return false
+					return false;
 				}
 			}();// end of is selected
 
@@ -270,9 +287,6 @@ var ribbonListener = function () {
 
 			ribbonReqObj  [$multiSelect.data('title')].push(option);
 		});
-		if (!hasActive) { // if no active options remove active bg class
-			parentTag.removeClass('active-item-bg');
-		}
 	}
 
 	function handleDefaultSelect(defaultSelect, filterType) {
@@ -304,8 +318,7 @@ var ribbonListener = function () {
 	}
 
 	function handleValueFromModal(whichModal, filtertype) {
-		var $thisModal = $(whichModal);
-		var option = {};
+		var $thisModal = $(whichModal), option = {};
 
 		ribbonReqObj[$thisModal.data('title')] = [];
 
@@ -313,6 +326,15 @@ var ribbonListener = function () {
 		option.text = $thisModal.find('div:first-child').text();
 		option.isSelected = (typeof option.value != 'undefined' && option.value != '');
 		option.type = filtertype;
+
+		if(option.isSelected) {
+			if ($thisModal.parents('.sub-nav').length) { // prevent "More Filter" issue with bg.
+				$('#sq-filters-item').addClass('active-item-bg');
+			}
+			else {
+				$thisModal.parents('li').addClass('active-item-bg');
+			}
+		}
 
 		ribbonReqObj[$thisModal.data('title')].push(option);
 	}
@@ -384,7 +406,7 @@ var ribbonListener = function () {
 				});
 			}
 			else {
-				$(fromPopup).parent().removeClass('active-item-bg');
+				//$(fromPopup).parent().removeClass('active-item-bg');
 			}
 		}
 	}
@@ -395,7 +417,7 @@ var ribbonListener = function () {
 
 		function bindViewChanges() {
 			$('#views').on('change.views', $checkBoxes, function (e) {
-				e.preventDefault()
+				e.preventDefault();
 				var $selected = $(e.target);
 
 				if ($selected.is('select')) {
@@ -433,10 +455,12 @@ var ribbonListener = function () {
 		function clearOppositeView(title) {
 			if (title == undefined) {
 				return;
-			} else {
-				var oppositeView = (title == 'My Work') ? 'All Teams' : 'My Work';
-				var $selectOff = $('#views').find('select[data-title="' + oppositeView + '"]');
-				$selectOff.data('trigger', 'dynamic')
+			}
+			else {
+				var oppositeView = (title == 'My Work') ? 'All Teams' : 'My Work',
+					$selectOff = $('#views').find('select[data-title="' + oppositeView + '"]');
+
+				$selectOff.data('trigger', 'dynamic');
 				// $('#views').off('.views'); // need to unbind original .on to prevent cycle
 				views.active = title;
 				$('#views').off('.views'); // turn off bind to prevent a infinite change cycle
@@ -448,9 +472,9 @@ var ribbonListener = function () {
 		}
 
 		function getView(target) {
-					var title = $(target).data('title');
-					$(target).parent('li').addClass('active-item-bg')
-					return title;
+			var title = $(target).data('title');
+			$(target).parent('li').addClass('active-item-bg');
+			return title;
 		} // finds clicked filter by title
 
 		// bind view selects
@@ -615,7 +639,7 @@ var ribbonListener = function () {
 			buildObj(obj);
 
 			var IsObj = JSON.stringify(ISribbonObj);
-			// console.log('ISobj: ', IsObj)
+
 			return IsObj;
 		}
 
@@ -625,6 +649,15 @@ var ribbonListener = function () {
 
 	// create ribbonReqObj   filters object
 	function filtersCollection($filter) {
+		$filter.each(function() {
+			if($(this).parents('#sq-filters-item').length) {
+				$('#sq-filters-item').removeClass('active-item-bg');
+			}
+			else {
+				$(this).parents('li').removeClass('active-item-bg');
+			}
+		});
+
 		// Iterate filters by type:
 		$filter.each(function () {
 			// Filter Types
@@ -647,7 +680,7 @@ var ribbonListener = function () {
 
 		ribbonWidgets.filterCollectorModule();
 
-		$.cookie("SQFilterSettings", ribbonListener.getISobj(), { expires: 365, path: '/' });
+		$.cookie("SQFilterSettings", ribbonListener.getISobj(), {path:'/'});
 
 		// Will trigger IS function passed as argument in the init
 		initISfunc.run();
@@ -720,9 +753,6 @@ var ribbonListener = function () {
 		filtersCollection($filter);
 		filterListener(ribbonElem);
 		viewsSectionLogic();
-
-		//console.log(ribbonReqObj); // test object
-		//console.log('ISobj: ', getISobj(ribbonReqObj)); // test obj passed to IS
 	}
 
 	/* -----> API -- */
@@ -769,10 +799,12 @@ var ribbonWidgets = function () {
 
 		function buildTmpl(activeFilters) {
 			// append filter tag:
-			filterCollectorElem.append('<ul><li>Filters:</li></ul>');
+			//filterCollectorElem.append('<ul><li class="h3" style="font-weight: 700;">Filters:</li></ul>');
+			filterCollectorElem.append('<span class="h3">Filters:</span>');
+			filterCollectorElem.append('<ul><li>Clear All Filters <a href="#" data-action="clear-cookie"> X</a></li></ul>');
 			var filterHtml = '', activeArr = [];
-			$.each(activeFilters, function (filter, options) {
 
+			$.each(activeFilters, function (filter, options) {
 				// if it is a multiselect from Filters area
 				// do not add cross and anchor to options
 				filterHtml = String()
@@ -821,7 +853,7 @@ var ribbonWidgets = function () {
 				var $filterWrap = $(filterType).parent('a');
 
 				if (option === undefined) {
-					$filterWrap.parent().removeClass('active-item-bg');
+					//$filterWrap.parent().removeClass('active-item-bg');
 					$filterWrap.siblings('select').html(''); // Remove all options
 					$(filterType).text($(filterType).data('title'));
 				}
@@ -830,7 +862,7 @@ var ribbonWidgets = function () {
 					$filterWrap.siblings('select option').each(function () {
 						if ($(this).text() == option) {
 							$(this).remove();
-							editCountToLabel(filterType);
+							//editCountToLabel(filterType);
 						}
 					})
 				}
@@ -844,16 +876,16 @@ var ribbonWidgets = function () {
 
 			function updateNoSelectFilters(filterType, option) {
 				if (option == undefined) {
-					$(filterType).find('li').each(function () {
+					/*$(filterType).find('li').each(function () {
 						$(this).hasClass('active-item-bg') ? $(this).removeClass('active-item-bg') : false; // Clear all items
-					});
+					});*/
 				}
 				else {
-					$(filterType).find('li').each(function () {
+					/*$(filterType).find('li').each(function () {
 						if ($(this).find('a span:last-child').text() == option) {
 							$(this).removeClass('active-item-bg'); // clear only option clicked
 						}
-					})
+					});*/
 				}
 			}
 
@@ -892,7 +924,7 @@ var ribbonWidgets = function () {
 
 					// check if options container is not empty when options are removed
 					if (optionCount !== 0) {
-						tagTxt = tagTxt + ' (' + optionCount + ')';
+						//tagTxt = tagTxt + ' (' + optionCount + ')';
 						$(filterType).text(tagTxt);
 					}
 					else {
@@ -900,13 +932,20 @@ var ribbonWidgets = function () {
 					}
 				}
 				else {
-					tagTxt = tagTxt + ' (' + optionCount + ')';
+					//tagTxt = tagTxt + ' (' + optionCount + ')';
 					$(filterType).text(tagTxt);
 				}
 
 			}
 
 			function whichFilterType(filterType, option) {
+				if($(filterType).parents('#sq-filters-item').length) {
+					$('#sq-filters-item').removeClass('active-item-bg');
+				}
+				else {
+					$(filterType).parents('li').removeClass('active-item-bg');
+				}
+
 				// which type of fiter is it
 				if ($(filterType).attr('multiple')) { // check for multiselect
 					updateMultiSelect($(filterType), option);
@@ -932,6 +971,13 @@ var ribbonWidgets = function () {
 				filterCollectorElem.on('click', 'a', function (e) {
 					e.preventDefault();
 
+					if($(this).data('action') == 'clear-cookie') {
+						initRibbon.findActiveFilters(ribbonWidgets.userPreferences());
+						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
+
+						return;
+					}
+
 					// Prevent loop between ribbon and filter collection area
 
 					var filterType = findFilterTitle($(this)),
@@ -953,6 +999,31 @@ var ribbonWidgets = function () {
 
 		buildTmpl(findActiveFilters());
 		setXTrigger();
+	}
+
+	function getUserPreferences() {
+		var obj = {};
+
+		if (UserPreferences.MyWorkList != null) {
+			if(UserPreferences.RQL_ViewPreference == 'All Team') {
+				obj.AllTeams = UserPreferences.MyWorkList;
+			}
+			else {
+				obj.MyWork = UserPreferences.MyWorkList;
+			}
+		}
+
+		if (UserPreferences.DepartmentList != null) {
+			obj.Departments = UserPreferences.DepartmentList;
+		}
+
+		if (UserPreferences.RequestStatusList != null) {
+			$.each(UserPreferences.RequestStatusList, function(indx, val) {
+				obj['RequestStatus' + requestStatuses[val].charAt(0).toUpperCase() + requestStatuses[val].substr(1)] = true;
+			});
+		}
+
+		return obj;
 	}
 
 	var moreFiltersPopover = function () {
@@ -995,7 +1066,8 @@ var ribbonWidgets = function () {
 
 	return {
 		filterCollectorModule: filterCollectorModule,
-		moreFiltersPopover: moreFiltersPopover
+		moreFiltersPopover: moreFiltersPopover,
+		userPreferences: getUserPreferences
 	}
 
 }();
@@ -1004,13 +1076,10 @@ $(function () {
 	ribbonElem = $('.sq-top-ribbon');
 	moreFiltersElem = $('#sq-filters');
 
-	var ribbonItem = ribbonElem.find('> ul > li > ul > li'),
-		filterSubNavWrapper = moreFiltersElem.find('.sub-nav-wrapper'),
-		filterSubNav = filterSubNavWrapper.find('.sub-nav');
+	var ribbonItem = ribbonElem.find('> ul > li > ul > li');
 
 	$('body').on('click', function (e) {
-		moreFiltersElem.removeClass('add-bg');
-		$('.sub-nav').hide();
+		moreFiltersElem.removeClass('open');
 
 		/*close any open popover when click elsewhere*/
 		if ($(e.target).parent().find('.toggle-popover').length > 0) {
@@ -1033,27 +1102,9 @@ $(function () {
 					return false;
 				}
 
-				filterSubNav.toggle();
-				$(this).toggleClass('add-bg');
-
-				$(this).find('.sub-nav-wrapper').css('marginLeft', '');
-
-				if ($('#sq-filters-item').hasClass('active-item-bg')) {
-					$(this).removeClass('add-bg').find('.sub-nav-wrapper').css('marginLeft', '-6px');
-				}
-
-				if (filterSubNav.is(':visible')) {
-					filterSubNavWrapper.css('height', '445px');
-				}
-				else {
-					filterSubNavWrapper.css('height', '0');
-				}
+				$(this).toggleClass('open');
 			}
 		});
-
-	/*(ribbonItem.children(), filterSubNav, $('.sub-nav .ms-parent').children(), $('.sq-top-ribbon select')).on('click', function (e) {
-		e.stopPropagation();
-	});*/
 
 	//Initialize multiple select for ribbon area
 	ribbonElem.find('select').each(function() {
@@ -1164,27 +1215,11 @@ $(function () {
 		var sessionFilterSettings = $.cookie("SQFilterSettings");
 
 		if(sessionFilterSettings) {
-			sessionFilterSettings = $.parseJSON(sessionFilterSettings);
+			initRibbon.findActiveFilters($.parseJSON(sessionFilterSettings));
 		}
 		else {
-			sessionFilterSettings = {};
-
-			if (UserPreferences.MyWorkList != null) {
-				sessionFilterSettings.MyWork = UserPreferences.MyWorkList;
-			}
-
-			if (UserPreferences.DepartmentList != null) {
-				sessionFilterSettings.Departments = UserPreferences.DepartmentList;
-			}
-
-			if (UserPreferences.RequestStatusList != null) {
-				$.each(UserPreferences.RequestStatusList, function(indx, val) {
-					sessionFilterSettings['RequestStatus' + requestStatuses[val].charAt(0).toUpperCase() + requestStatuses[val].substr(1)] = true;
-				});
-			}
+			initRibbon.findActiveFilters(ribbonWidgets.userPreferences());
 		}
-
-		initRibbon.findActiveFilters(sessionFilterSettings);
 	})();
 
 	ribbonElem.addClass('initialized');
