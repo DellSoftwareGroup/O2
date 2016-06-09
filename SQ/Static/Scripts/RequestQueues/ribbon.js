@@ -365,19 +365,27 @@ var ribbonListener = function () {
 		if (filterTitle !== null || filterTitle !== undefined) {
 			ribbonReqObj[filterTitle] = [];
 		}
+
 		// check if select exist
 		if ($dynamicSelectElem.length > 0) {
-			$dynamicSelectElem.find('option').each(function () {
-				var $option = $(this);
-				var option = {};
-				option.text = $option.text();
-				option.value = $option.attr('value');
-				option.name = $option.data('name');
-				option.type = filterType;
-				option.isSelected = true;
+			if($dynamicSelectElem.find('option').length) {
+				$(fromPopup).parent().addClass('active-item-bg');
 
-				ribbonReqObj[filterTitle].push(option);
-			});
+				$dynamicSelectElem.find('option').each(function () {
+					var $option = $(this), option = {};
+
+					option.text = $option.text();
+					option.value = $option.attr('value');
+					option.name = $option.data('name');
+					option.type = filterType;
+					option.isSelected = true;
+
+					ribbonReqObj[filterTitle].push(option);
+				});
+			}
+			else {
+				$(fromPopup).parent().removeClass('active-item-bg');
+			}
 		}
 	}
 
@@ -434,7 +442,7 @@ var ribbonListener = function () {
 				$('#views').off('.views'); // turn off bind to prevent a infinite change cycle
 				$selectOff.multipleSelect('setSelects', []);
 				$selectOff.parent('li').removeClass('active-item-bg');
-				bindViewChanges() //turn on binding again
+				bindViewChanges(); //turn on binding again
 			}
 
 		}
@@ -622,21 +630,21 @@ var ribbonListener = function () {
 			// Filter Types
 			if ($(this).attr('multiple')) { // check for multiselect
 				handleMultiSelect($(this), 'array-list');
-
-			} else if ($(this).attr('data-select') === "default") { // check for default select elem
+			}
+			else if ($(this).attr('data-select') === "default") { // check for default select elem
 				handleDefaultSelect($(this), 'array-list');
-
-			} else if ($(this).attr('data-dynamic') === "true") {
+			}
+			else if ($(this).attr('data-dynamic') === "true") {
 				handleDynamicSelect($(this), 'userType');
-
-			} else if ($(this).attr('filter-type') === 'from-modal') {
+			}
+			else if ($(this).attr('filter-type') === 'from-modal') {
 				handleValueFromModal($(this), 'array-list'); // Array-list is set as it will be process as an arrary for ISobj
-
-			} else if ($(this).find('select').length == 0) {  //check for filter options without select elem
+			}
+			else if ($(this).find('select').length == 0) {  //check for filter options without select elem
 				handleNoSelectFilters($(this), 'boolean');
-
 			}
 		});
+
 		ribbonWidgets.filterCollectorModule();
 
 		$.cookie("SQFilterSettings", ribbonListener.getISobj(), { expires: 365, path: '/' });
@@ -813,10 +821,12 @@ var ribbonWidgets = function () {
 				var $filterWrap = $(filterType).parent('a');
 
 				if (option === undefined) {
+					$filterWrap.parent().removeClass('active-item-bg');
 					$filterWrap.siblings('select').html(''); // Remove all options
 					$(filterType).text($(filterType).data('title'));
 				}
 				else {
+					$filterWrap.parent().addClass('active-item-bg');
 					$filterWrap.siblings('select option').each(function () {
 						if ($(this).text() == option) {
 							$(this).remove();

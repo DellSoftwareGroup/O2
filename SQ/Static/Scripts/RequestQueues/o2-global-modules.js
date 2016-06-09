@@ -1334,7 +1334,7 @@ var globalModules = function () {
 			// handle select
 			$('#filters-section').on('click', '.saveSelected', function () {
 				saveSelected();
-				ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // method from ribbon.js
+				ribbonListener.rebuildRibbonState('.sq-top-ribbon'); // method from ribbon.js
 			});
 
 			// remove previous selection
@@ -1348,7 +1348,7 @@ var globalModules = function () {
 
 				// remove it from popover
 				thisOption.remove();
-				ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
+				ribbonListener.rebuildRibbonState('.sq-top-ribbon');
 			});
 
 			onCloseBtn();
