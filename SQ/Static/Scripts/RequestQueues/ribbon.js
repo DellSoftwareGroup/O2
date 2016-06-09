@@ -1209,7 +1209,16 @@ function doSearch() {
 
 	searchField.val('');
 
-	$('#GridRequest').kendoGrid(GridConfiguration($('#GridType').val() + 'Search', {searchstring: query}));
+	if(GridViewType == 'calendar') {
+		ReloadCalendar();
+	}
+	else if(GridViewType == 'list' || GridViewType == 'list-edit') {
+		ReloadGrid(0);
+	}
+	else if(GridViewType == 'list-edit-legacy') {
+		//$("#GridRequestLegacyEdit").data("kendoGrid").refresh();
+		ReloadLegacyRequestsGrid();
+	}
 
 	var ribbonLis = ribbonElem.find('> ul').find('> li');
 
@@ -1228,7 +1237,15 @@ function doSearch() {
 			$('.filter-collector').show();
 			searchFilterElem.hide();
 
-			ReloadGrid(0);
+			if(GridViewType == 'calendar') {
+				ReloadCalendar();
+			}
+			else if(GridViewType == 'list' || GridViewType == 'list-edit') {
+				ReloadGrid(0);
+			}
+			else if(GridViewType == 'list-edit-legacy') {
+				ReloadLegacyRequestsGrid();
+			}
 		});
 
 		searchFilterElem.data('initialize', true);
