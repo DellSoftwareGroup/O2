@@ -50,7 +50,7 @@ var globalModules = function () {
 		};
 
 		centerModal = function () {
-			return ($(window).width() / 2) - 620; // 620 is have of modal width;
+			return ($(window).width() / 2) - ((1268+42)/2); // 620 is have of modal width;
 		};
 
 		initKendoWindow = function ($location) {

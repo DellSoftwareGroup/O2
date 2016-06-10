@@ -77,11 +77,6 @@ ul {
   position: absolute;
 }
 
-/* grid headers */
-.results-data .table-group-headings th:last-child {
-  color: #00447c !important
-}
-
 /*nav start*/
 .nav {
   position: relative;
@@ -264,7 +259,6 @@ ul {
 
 /*Naveen - view view section styles*/
 #views-selector {
-  margin-left: 0;
   a {
     overflow: hidden;
   }

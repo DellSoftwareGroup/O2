@@ -1163,7 +1163,9 @@ $(function () {
 	moreFiltersElem = $('#sq-filters');
 
 	//Remove [All] option under sprint
-	$('#dp-sprint-dd').find('option:eq(0)').remove();
+	if($('#dp-sprint-dd').find('option:eq(0)').val() == '') {
+		$('#dp-sprint-dd').find('option:eq(0)').remove();
+	}
 
 	var ribbonItem = ribbonElem.find('> ul > li > ul > li');
 
