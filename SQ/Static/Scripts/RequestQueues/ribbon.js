@@ -1072,9 +1072,98 @@ var ribbonWidgets = function () {
 
 }();
 
+function toggleActiveItem(elem) {
+	$(elem).toggleClass('active-item-bg').end().removeClass('disable-hover');
+
+	if ($(elem).attr('id') == 'sq-filters-item') {
+		moreFiltersElem.removeClass('add-bg');
+	}
+}
+
+function doSearch() {
+	var GridType = $('#GridType').val(), searchFilterElem = $('.search-filter-collector'), searchField = $('#search-query');
+
+	query = searchField.val().trim();
+
+	if(query == '') {
+		return;
+	}
+
+	searchField.val('');
+
+	if(GridViewType == 'calendar') {
+		ReloadCalendar();
+	}
+	else if(GridViewType == 'list' || GridViewType == 'list-edit') {
+		ReloadGrid(0);
+	}
+	else if(GridViewType == 'list-edit-legacy') {
+		//$("#GridRequestLegacyEdit").data("kendoGrid").refresh();
+		ReloadLegacyRequestsGrid();
+	}
+
+	var ribbonLis = ribbonElem.find('> ul').find('> li');
+
+	filterStatus(false);
+
+	$('.filter-collector').hide();
+	searchFilterElem.find('span').text(query).end().show();
+	
+	if(!searchFilterElem.data('initialize')) {
+		searchFilterElem.on('click', 'a', function(e) {
+			e.preventDefault();
+
+			query = '';
+			filterStatus(true);
+
+			$('.filter-collector').show();
+			searchFilterElem.hide();
+
+			if(GridViewType == 'calendar') {
+				ReloadCalendar();
+			}
+			else if(GridViewType == 'list' || GridViewType == 'list-edit') {
+				ReloadGrid(0);
+			}
+			else if(GridViewType == 'list-edit-legacy') {
+				ReloadLegacyRequestsGrid();
+			}
+		});
+
+		searchFilterElem.data('initialize', true);
+	}
+
+	function filterStatus(enable) {
+		ribbonLis.each(function(i) {
+			if(i) {
+				if(enable) {
+					$(this).removeClass('disabled');
+				}
+				else {
+					$(this).addClass('disabled');
+				}
+			}
+		});
+
+		ribbonElem.find('select').each(function() {
+			if($(this).attr('multiple') == 'multiple') {
+				if(enable) {
+					$(this).multipleSelect('enable');
+				}
+				else {
+					$(this).multipleSelect('disable');
+				}
+			}
+		});
+	}
+}
+
 $(function () {
 	ribbonElem = $('.sq-top-ribbon');
 	moreFiltersElem = $('#sq-filters');
+
+	//Remove [All] option under sprint
+	$('#dp-sprint-dd').find('option:eq(0)').remove();
 
 	var ribbonItem = ribbonElem.find('> ul > li > ul > li');
 
@@ -1086,7 +1175,7 @@ $(function () {
 			$('.toggle-popover').popover('hide');
 		}
 	});
-	
+
 	// prevent propagation on multi-select under sub nav
 	moreFiltersElem
 		.on('click', '.ms-drop input, .ms-drop label', function(e) {
@@ -1224,89 +1313,3 @@ $(function () {
 
 	ribbonElem.addClass('initialized');
 });
-
-function toggleActiveItem(elem) {
-	$(elem).toggleClass('active-item-bg').end().removeClass('disable-hover');
-
-	if ($(elem).attr('id') == 'sq-filters-item') {
-		moreFiltersElem.removeClass('add-bg');
-	}
-}
-
-function doSearch() {
-	var GridType = $('#GridType').val(), searchFilterElem = $('.search-filter-collector'), searchField = $('#search-query');
-
-	query = searchField.val().trim();
-
-	if(query == '') {
-		return;
-	}
-
-	searchField.val('');
-
-	if(GridViewType == 'calendar') {
-		ReloadCalendar();
-	}
-	else if(GridViewType == 'list' || GridViewType == 'list-edit') {
-		ReloadGrid(0);
-	}
-	else if(GridViewType == 'list-edit-legacy') {
-		//$("#GridRequestLegacyEdit").data("kendoGrid").refresh();
-		ReloadLegacyRequestsGrid();
-	}
-
-	var ribbonLis = ribbonElem.find('> ul').find('> li');
-
-	filterStatus(false);
-
-	$('.filter-collector').hide();
-	searchFilterElem.find('span').text(query).end().show();
-	
-	if(!searchFilterElem.data('initialize')) {
-		searchFilterElem.on('click', 'a', function(e) {
-			e.preventDefault();
-
-			query = '';
-			filterStatus(true);
-
-			$('.filter-collector').show();
-			searchFilterElem.hide();
-
-			if(GridViewType == 'calendar') {
-				ReloadCalendar();
-			}
-			else if(GridViewType == 'list' || GridViewType == 'list-edit') {
-				ReloadGrid(0);
-			}
-			else if(GridViewType == 'list-edit-legacy') {
-				ReloadLegacyRequestsGrid();
-			}
-		});
-
-		searchFilterElem.data('initialize', true);
-	}
-
-	function filterStatus(enable) {
-		ribbonLis.each(function(i) {
-			if(i) {
-				if(enable) {
-					$(this).removeClass('disabled');
-				}
-				else {
-					$(this).addClass('disabled');
-				}
-			}
-		});
-
-		ribbonElem.find('select').each(function() {
-			if($(this).attr('multiple') == 'multiple') {
-				if(enable) {
-					$(this).multipleSelect('enable');
-				}
-				else {
-					$(this).multipleSelect('disable');
-				}
-			}
-		});
-	}
-}

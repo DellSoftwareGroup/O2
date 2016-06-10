@@ -1136,39 +1136,43 @@ td:nth-child(3) a {
   color: #ce1126; }
 
 /* tooltip styles */
-.tooltip {
+/*.tooltip {
   display: inline;
-  position: relative; }
-  .tooltip:hover:after {
-    background: #fff;
-    /* background: rgba(256,256,256,.8); */
-    border-radius: 5px;
-    bottom: 26px;
-    color: #444;
-    content: attr(data-tooltip);
-    left: 20%;
-    padding: 10px;
-    position: absolute;
-    z-index: 9998;
-    width: 180px;
-    border: 1px #ccc solid;
-    box-shadow: 1px 1px 5px #ccc; }
-  .tooltip:hover:before {
-    /* arrow at the bottom */
-    border: solid;
-    border-color: #aaa transparent;
-    border-width: 8px 8px 0px 8px;
-    bottom: 19px;
-    content: "";
-    left: 80%;
-    position: absolute;
-    z-index: 9999; }
-
+  position: relative;
+  &:hover {
+    &:after {
+      background: #fff;
+      !* background: rgba(256,256,256,.8); *!
+      border-radius: 5px;
+      bottom: 26px;
+      color: #444;
+      content: attr(data-tooltip);
+      left: 20%;
+      padding: 10px;
+      position: absolute;
+      z-index: 9998;
+      width: 180px;
+      border: 1px #ccc solid;
+      box-shadow: 1px 1px 5px #ccc;
+    }
+    &:before {
+      !* arrow at the bottom *!
+      border: solid;
+      border-color: #aaa transparent;
+      border-width: 8px 8px 0px 8px;
+      bottom: 19px;
+      content: "";
+      left: 80%;
+      position: absolute;
+      z-index: 9999;
+    }
+  }
+}*/
 /* special positioning for first alert */
-tbody tr:first-child .tooltip:hover:after {
+/*tbody tr:first-child .tooltip:hover:after {
   top: -50px;
-  padding: 5px; }
-
+  padding: 5px;
+}*/
 /* pagination styles */
 .data-heading h3, .data-heading > div {
   display: inline-block; }
@@ -1261,8 +1265,7 @@ tbody tr:first-child .tooltip:hover:after {
   color: #fff !important; }
 
 #row-save button, #row-save input {
-  margin-right: 5px;
-}
+  margin-right: 5px; }
 
 .outside-sprint {
   background: url(../Content/Img/icon-warning.png) no-repeat right center;
@@ -3506,12 +3509,10 @@ input#searchById {
   width: 200px; }
 .learnItEdit .custom-treeviewnode span {
   font-size: 17px; }
-
 .learnItEdit #data_BusinessGroupId,
 .learnItEdit #data_LearnTaxonomyId {
   max-width: 60%;
-  /* change requested by Diane -6/912 */
-}
+  /* change requested by Diane -6/912 */ }
 
 .add-level {
   padding: 20px !important;
@@ -3581,10 +3582,7 @@ input#searchById {
 /* dynamic kendo window delete taxonomy */
 [kendo-window="winDeleteLevel"] .buttons > div {
   margin-bottom: 20px;
-  margin-top: 20px;
-}
-
+  margin-top: 20px; }
 [kendo-window="winDeleteLevel"] .row {
   margin-left: 0px !important;
-  margin-right: 0px !important;
-}
+  margin-right: 0px !important; }

@@ -257,13 +257,13 @@ td:nth-child(3) a {
 
 /* tooltip styles */
 
-.tooltip {
+/*.tooltip {
   display: inline;
   position: relative;
   &:hover {
     &:after {
       background: #fff;
-      /* background: rgba(256,256,256,.8); */
+      !* background: rgba(256,256,256,.8); *!
       border-radius: 5px;
       bottom: 26px;
       color: #444;
@@ -277,7 +277,7 @@ td:nth-child(3) a {
       box-shadow: 1px 1px 5px #ccc;
     }
     &:before {
-      /* arrow at the bottom */
+      !* arrow at the bottom *!
       border: solid;
       border-color: #aaa transparent;
       border-width: 8px 8px 0px 8px;
@@ -288,14 +288,14 @@ td:nth-child(3) a {
       z-index: 9999;
     }
   }
-}
+}*/
 
 /* special positioning for first alert */
 
-tbody tr:first-child .tooltip:hover:after {
+/*tbody tr:first-child .tooltip:hover:after {
   top: -50px;
   padding: 5px;
-}
+}*/
 
 /* pagination styles */
 

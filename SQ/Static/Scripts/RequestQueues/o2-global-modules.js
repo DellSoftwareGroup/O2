@@ -90,7 +90,7 @@ var globalModules = function () {
 			$('.cancel-window').on('click', function () {
 				$addReqModal.close();
 				init(endPointMap.active); // need recursion to rebuild data when modal is closed;
-			})
+			});
 
 			// expand all functionality gets initialized
 			// Off was needed to fix issue of double triggering click event
@@ -113,9 +113,11 @@ var globalModules = function () {
 			$('#add-request').on('click', function (e) {
 				e.preventDefault();
 				e.stopPropagation();
+
 				if ($modalParent.find('.editable-content').children().length > 0) {
 					$modalParent.find('.editable-content').children().remove();
 				}
+
 				$addReqModal.open();
 			});
 
