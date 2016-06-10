@@ -3485,17 +3485,21 @@ input#searchById {
 
 .learnIt h2 {
   width: 200px !important;
-  border-bottom: 0; }
+  border-bottom: 0;
+  margin-top: 0;
+}
 .learnIt tbody tr, .learnIt tbody tr:nth-child(even) {
   background: #fff; }
 .learnIt tbody th, .learnIt tbody td {
   font-size: 16px; }
   .learnIt tbody th span, .learnIt tbody td span {
     font-size: 16px; }
-.learnIt tbody .fieldvalueBusinessGroupName {
-  font-size: 12px; }
 .learnIt thead th {
   font-weight: bold !important; }
+
+.learnIt .filters-on div:last-child {
+  margin-bottom: 0;
+}
 
 .custom-treeviewnode a {
   margin-left: 5px;
@@ -3582,7 +3586,12 @@ input#searchById {
 /* dynamic kendo window delete taxonomy */
 [kendo-window="winDeleteLevel"] .buttons > div {
   margin-bottom: 20px;
+<<<<<<< HEAD
   margin-top: 20px; }
+=======
+  margin-top: 20px;
+}
+>>>>>>> origin/SQ-server
 [kendo-window="winDeleteLevel"] .row {
   margin-left: 0px !important;
   margin-right: 0px !important; }
