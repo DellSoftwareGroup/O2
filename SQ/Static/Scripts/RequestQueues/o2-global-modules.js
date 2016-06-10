@@ -642,7 +642,7 @@ var globalModules = function () {
 						+ '</div>'
 						+ '<div class="modal-results" style="position:relative">'
 						+ '<select class="projectFilterResults form-control" size="12" style="width:490px;"></select>'
-						+ '<i>Click on campaign and hit select button</i>'
+						+ '<i>Click on project and hit select button</i>'
 						+ '<span class="k-icon k-loading" style="display: none"></span>'
 						+ '</div>'
 						+ '</form><div class="pro-no-result text-red mt-10 hide">0 Projects found!</div></div>';
