@@ -13,6 +13,7 @@
     <div class="container">
       <div class="row mb-40">
         <h1>Accepted Requests & Done Requests</h1>
+
         <div class="chart-overall-opened-closed"></div>
       </div>
     </div>
@@ -57,29 +58,30 @@
           font: "bold 12px Arial,Helvetica,sans-serif"
         }
       },
-      series: [{
-        overlay: {
-          gradient: "none"
-        },
-        name: "Backlog",
-        stack: "Accepted Requests",
-        data: [50, 60, 30, 40, 40, 10, 5, 10, 20, 35, 30, 45]
-      },{
-        overlay: {
-          gradient: "none"
-        },
-        name: "Started",
-        stack: "Accepted Requests",
-        data: [30, 20, 50, 20, 40, 40, 25, 30, 10, 35, 60, 35]
-      }, {
-        overlay: {
-          gradient: "none"
-        },
-        name: "Done Requests",
-        stack: "Complete",
-        data: [75, 80, 80, 50, 70, 50, 20, 40, 30, 60, 90, 75]
-      }],
-      seriesColors: ["#579AD6","#0974d3", "#78C466"],
+      series: [
+        {
+          overlay: {
+            gradient: "none"
+          },
+          name: "Started",
+          stack: "Accepted Requests",
+          data: [30, 20, 50, 20, 40, 40, 25, 30, 10, 35, 60, 35]
+        }, {
+          overlay: {
+            gradient: "none"
+          },
+          name: "Backlog",
+          stack: "Accepted Requests",
+          data: [50, 60, 30, 40, 40, 10, 5, 10, 20, 35, 30, 45]
+        }, {
+          overlay: {
+            gradient: "none"
+          },
+          name: "Done Requests",
+          stack: "Complete",
+          data: [75, 80, 80, 50, 70, 50, 20, 40, 30, 60, 90, 75]
+        }],
+      seriesColors: ["#0974d3","#579AD6","#78C466"],
       valueAxis: {
         Max: 160,
         majorUnit: 5,

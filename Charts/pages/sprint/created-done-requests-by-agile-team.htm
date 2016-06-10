@@ -57,29 +57,31 @@
           visual: function (e) {
             var color = e.options.markers.background;
             var labelColor = e.options.labels.color;
-            var rect = new kendo.geometry.Rect([0, 0], [150, 32]);
+            var rect = new kendo.geometry.Rect([0, 0], [190, 32]);
             var layout = new kendo.drawing.Layout(rect, {
               spacing: 10,
               alignItems: "center"
             });
 
 
-            if (e.series.name.indexOf('Closed') > 0) {
+            if (e.series.name.indexOf('Done') > 0) {
               var marker = new kendo.drawing.Path({
                 fill: {
-                  color: color
+                  color: '#eeeeee'
                 },
                 stroke: {
-                  color: color
+                  color: color,
+                  width:2
                 }
               }).moveTo(10, 0).lineTo(20, 0).lineTo(20, 10).lineTo(10, 10).close();
             } else {
               var marker = new kendo.drawing.Path({
                 fill: {
-                  color: color
+                  color: '#eeeeee'
                 },
                 stroke: {
-                  color: color
+                  color: color,
+                  width:2
                 }
               }).moveTo(10, 0).lineTo(15, 10).lineTo(5, 10).close();
             }
@@ -119,42 +121,42 @@
         style: "smooth"
       },
       series: [{
-        name: "Sprint 23 - Planned",
+        name: "13 - FEB FY17 - Created",
         data: [5, 7, 9, 15, 25, 10, 5, 3, 1],
         dashType: "longdash",
         markers:{
           type:"triangle"
         }
       }, {
-        name: "Sprint 23 - Closed",
+        name: "13 - FEB FY17 - Done",
         data: [null, null, null, null, 10, 20, 25, 13, 20],
         dashType: "solid",
         markers:{
           type:"square"
         }
       }, {
-        name: "Sprint 24 - Planned",
+        name: "14 - MAR FY17 - Created",
         data: [14, 16, 8, 10, 35, 25, 12, 8, 3],
         dashType: "longdash",
         markers:{
           type:"triangle"
         }
       }, {
-        name: "Sprint 24 - Closed",
+        name: "14 - MAR FY17 - Done",
         data: [null, null, null, null, 20, 28, 30, 13, 20],
         dashType: "solid",
         markers:{
           type:"square"
         }
       }, {
-        name: "Sprint 25 - Planned",
+        name: "15 - APR FY17 - Created",
         data: [28, 30, 35, 40, 41, 35, 10, 5, 1],
         dashType: "longdash",
         markers:{
           type:"triangle"
         }
       }, {
-        name: "Sprint 25 - Closed",
+        name: "15 - APR FY17 - Done",
         data: [null, null, null, null, 23, 38, 27, 10, 21],
         dashType: "solid",
         markers:{
@@ -195,7 +197,6 @@
         background: "#eeeeee",
         position: "right",
         /*orientation: "vertical",*/
-        width:100,
         margin: {
           left: 50
           /*top: -273*/
@@ -228,13 +229,13 @@
         }
       },
       series: [{
-        name: "Planned Before Sprint",
+        name: "Created Before Sprint",
         stack: "open tickets",
         data: [25, 18, 20],
         /*color: "#467cac"*/
         color: "#ffbd5c "
       }, {
-        name: "Planned In Sprint",
+        name: "Created In Sprint",
         stack: "open tickets",
         data: [7, 12, 13],
         /*color: "#004C70"*/
