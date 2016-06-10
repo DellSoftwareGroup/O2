@@ -311,19 +311,6 @@ ul {
   }
   .btn-transparent {
     background-color: transparent;
-    .icon-bar-container {
-      width: 22px;
-      height: 10px;
-      display: inline-block;
-    }
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      border-radius: 1px;
-      background: #333;
-      margin-bottom: 2px;
-    }
     &:hover {
       .icon-bar {
         background: #007db8;
@@ -337,11 +324,15 @@ ul {
         @include box-shadow(none);
       }
     }
-    .btn {
-      &:first-of-type {
-        padding-right: 0;
-      }
-    }
+	  > a {
+		  padding-right: 0;
+	  }
+	  button {
+		  &.btn {
+			  padding-top: 5px;
+			  padding-bottom: 5px;
+		  }
+	  }
     .btn:active, .btn.active {
       @include box-shadow(none);
     }
@@ -352,6 +343,19 @@ ul {
       line-height: 1em;
     }
   }
+	.icon-bar-container {
+		width: 22px;
+		height: 10px;
+		display: inline-block;
+		.icon-bar {
+			display: block;
+			width: 22px;
+			height: 2px;
+			border-radius: 1px;
+			background: #333;
+			margin-bottom: 2px;
+		}
+	}
 }
 
 #list-icon {

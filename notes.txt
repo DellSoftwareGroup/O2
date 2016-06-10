@@ -1,0 +1,4 @@
+Single Queue
+
+Akamai Storage Location
+\\alvqsww02\WWWROOT\stage.software.dell.com\hidden\scripts

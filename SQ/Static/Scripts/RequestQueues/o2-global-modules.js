@@ -90,7 +90,7 @@ var globalModules = function () {
 			$('.cancel-window').on('click', function () {
 				$addReqModal.close();
 				init(endPointMap.active); // need recursion to rebuild data when modal is closed;
-			})
+			});
 
 			// expand all functionality gets initialized
 			// Off was needed to fix issue of double triggering click event
@@ -113,9 +113,11 @@ var globalModules = function () {
 			$('#add-request').on('click', function (e) {
 				e.preventDefault();
 				e.stopPropagation();
+
 				if ($modalParent.find('.editable-content').children().length > 0) {
 					$modalParent.find('.editable-content').children().remove();
 				}
+
 				$addReqModal.open();
 			});
 
@@ -278,8 +280,24 @@ var globalModules = function () {
 
 		// main sub-modules
 		var campaignModal = function () {
+			var campaignCreatorNames = [];
 
 			function runCampaignModal() {
+				var promise = $.Deferred();
+
+				if (!campaignCreatorNames.length) {
+					promise = getCampaignCreatorNames();
+				}
+				else {
+					promise.resolve();
+				}
+
+				promise.done(function() {
+					initCampaignModel();
+				});
+			}
+
+			function initCampaignModel() {
 				var campaignInfo = {};
 
 				campaignInfo.content = String()
@@ -365,8 +383,8 @@ var globalModules = function () {
 				removeInputKendoStyles("#campaignFilter");
 			}
 
-			var campaignCreatorNames = function () {
-				$.ajax({
+			function getCampaignCreatorNames() {
+				return $.ajax({
 					url: endPoints.campaigns,
 					dataType: 'json',
 					success: function (data) {
@@ -377,8 +395,7 @@ var globalModules = function () {
 				}).done(function (data) {
 					campaignCreatorNames = groupByCreatorName(data);
 				});
-
-			}();
+			}
 
 			function showNoResultsAlert() {
 				$('.camp-no-result').removeClass('hide');
@@ -1200,7 +1217,7 @@ var globalModules = function () {
 				$('.taglist-parent').hide('slow');
 			}
 			// re-adjust tag count
-			cleanTag.addCountToLabel();
+			//cleanTag.addCountToLabel();
 		}
 
 		/* ------> Utility Functions <------- */
@@ -1234,7 +1251,7 @@ var globalModules = function () {
 				$(targetInput).find('option:selected').each(function () {
 					buildNewSelect.createOption(this);
 				});
-				buildNewSelect.addCountToLabel();
+				//buildNewSelect.addCountToLabel();
 			}
 			closePopup();
 		}
@@ -1287,23 +1304,27 @@ var globalModules = function () {
 		 -----------------------------------------*/
 		function ribbonPopoverInit() {
 			// initiate popover
-			$(popupTrigger).on('click', function () {
-				var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
-				buildHtml.afterLoad(function () {
-					$('body').on('click.popover', function (e) {
-						closeOnBodyClick(e)
-					});
-				}); // add interactions after popover is shown
-				$(this).popover({
-					html: true,
-					placement: 'left',
-					content: buildHtml.content,
-					template: buildHtml.tmpl
-				});
-				$(this).popover("show");
+			$(popupTrigger).on('click', function (e) {
+				e.preventDefault();
 
-				initKendoMultiSelect();
-				addPrevSelectionsToPopover(this);
+				if(!$(this).parents('.disabled').length) {
+					var buildHtml = new PopoverHtmlBuilder(whichFilter(this));
+					buildHtml.afterLoad(function () {
+						$('body').on('click.popover', function (e) {
+							closeOnBodyClick(e)
+						});
+					}); // add interactions after popover is shown
+					$(this).popover({
+						html: true,
+						placement: 'left',
+						content: buildHtml.content,
+						template: buildHtml.tmpl
+					});
+					$(this).popover("show");
+
+					initKendoMultiSelect();
+					addPrevSelectionsToPopover(this);
+				}
 			});
 
 			// close popover
@@ -1315,7 +1336,7 @@ var globalModules = function () {
 			// handle select
 			$('#filters-section').on('click', '.saveSelected', function () {
 				saveSelected();
-				ribbonListener.rebuildRibbonState($('.sq-top-ribbon')); // method from ribbon.js
+				ribbonListener.rebuildRibbonState('.sq-top-ribbon'); // method from ribbon.js
 			});
 
 			// remove previous selection
@@ -1329,7 +1350,7 @@ var globalModules = function () {
 
 				// remove it from popover
 				thisOption.remove();
-				ribbonListener.rebuildRibbonState($('.sq-top-ribbon'));
+				ribbonListener.rebuildRibbonState('.sq-top-ribbon');
 			});
 
 			onCloseBtn();

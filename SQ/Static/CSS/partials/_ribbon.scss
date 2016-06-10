@@ -63,25 +63,6 @@
         padding: 6px;
         margin-right: 7px;
         font-size: 12.66px;
-        &.active-item-bg {
-          background-color: #E5F3FA;
-          border-radius: 3px;
-          &:hover a {
-            color: #444;
-          }
-          select {
-            background-color: transparent;
-            &#priority-dd, &#region-dd, &#route-to-market-dd {
-              background-color: #fff;
-            }
-          }
-          #my-work-icon, #requester-icon {
-            background-position: 4px 0;
-          }
-          .ms-choice {
-            background-color: transparent;
-          }
-        }
         &:hover {
           cursor: pointer;
           a {
@@ -196,87 +177,36 @@
           background-position: -507px -80px;
           width: 16px;
         }
-        &:hover, &.active-item-bg {
-          #my-work-icon, #requester-icon {
-            background-position: 4px 0;
-          }
-          #dp-Team-icon {
-            background-position: -65px 2px;
-          }
-          #jan-fy-icon {
-            background-position: -164px -1px;
-          }
-          #backlog-icon {
-            background-position: -257px -34px;
-          }
-          #started-icon {
-            background-position: -722px -37px;
-          }
-          #idea-icon {
-            background-position: -312px -38px;
-          }
-          #council-icon {
-            background-position: -359px -38px;
-          }
-          #done-icon {
-            background-position: -412px -38px;
-          }
-          #cancelled-icon {
-            background-position: -470px -38px;
-          }
-          #filters-icon {
-            background-position: -549px -39px;
-          }
-          #department-icon {
-            background-position: -853px -34px;
-          }
-          #request-type-icon {
-            background-position: -257px -118px;
-          }
-          #task-type-icon {
-            background-position: -320px -80px;
-          }
-          #portfolio-icon {
-            background-position: -166px -121px;
-          }
-          #task-status-icon {
-            background-position: -444px -118px;
-          }
-          #owner-icon {
-            background-position: -507px -118px;
-          }
-          a {
-            color: #444;
-          }
-        }
         &#sq-filters-item {
           /*width: 158px;*/
           > div {
             #sq-filters {
+	            .arrow {
+		            position: absolute;
+		            top: -3px;
+		            right: -8px;
+		            width: 22px;
+		            height: 20px;
+		            background: url("/sq/static/images/multiple-select.png") left top no-repeat;
+	            }
               &:hover > span:last-child {
                 display: none;
               }
-              a:hover, .activate-bg, &.add-bg {
+              a:hover, .activate-bg {
                 #filters-icon {
                   background-position: -549px -39px;
                 }
               }
-              &.add-bg {
-                background-color: #eee;
-                border-radius: 5px;
-                height: 27px;
-                width: 39px;
-                box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-                padding: 7px 10px 0 10px;
-                margin-left: -10px;
-                margin-top: -7px;
-              }
+	            &.open {
+		            .arrow {
+			            background-position: right top;
+		            }
+		            .sub-nav-wrapper {
+			            display: block;
+		            }
+	            }
               #more-filters {
                 position: relative;
-                .arrow {
-                  left: 114px;
-                  top: 6px;
-                }
               }
             }
             > div {
@@ -363,6 +293,79 @@
         }
       }
     }
+	  &:not(.disabled) {
+		  li {
+			  &:hover, &.active-item-bg {
+				  #my-work-icon, #requester-icon {
+					  background-position: 4px 0;
+				  }
+				  #dp-Team-icon {
+					  background-position: -65px 2px;
+				  }
+				  #jan-fy-icon {
+					  background-position: -164px -1px;
+				  }
+				  #backlog-icon {
+					  background-position: -257px -34px;
+				  }
+				  #started-icon {
+					  background-position: -722px -37px;
+				  }
+				  #idea-icon {
+					  background-position: -312px -38px;
+				  }
+				  #council-icon {
+					  background-position: -359px -38px;
+				  }
+				  #done-icon {
+					  background-position: -412px -38px;
+				  }
+				  #cancelled-icon {
+					  background-position: -470px -38px;
+				  }
+				  #filters-icon {
+					  background-position: -549px -39px;
+				  }
+				  #department-icon {
+					  background-position: -853px -34px;
+				  }
+				  #request-type-icon {
+					  background-position: -257px -118px;
+				  }
+				  #task-type-icon {
+					  background-position: -320px -80px;
+				  }
+				  #portfolio-icon {
+					  background-position: -166px -121px;
+				  }
+				  #task-status-icon {
+					  background-position: -444px -118px;
+				  }
+				  #owner-icon {
+					  background-position: -507px -118px;
+				  }
+				  a {
+					  color: #444;
+				  }
+			  }
+		  }
+		  .active-item-bg {
+			  background-color: #E5F3FA;
+			  border-radius: 3px;
+			  select {
+				  background-color: transparent;
+				  &#priority-dd, &#region-dd, &#route-to-market-dd {
+					  background-color: #fff;
+				  }
+			  }
+			  #my-work-icon, #requester-icon {
+				  background-position: 4px 0;
+			  }
+			  .ms-choice {
+				  background-color: transparent;
+			  }
+		  }
+	  }
     &:first-child {
       > span:last-child {
 	      margin-top: 13px;
@@ -441,11 +444,11 @@
     }
     .sub-nav-wrapper {
       width: 250px;
-      height: 0;
-      overflow: hidden;
+      height: 205px;
       margin-left: -11px;
       position: absolute;
       top: 24px;
+	    display: none;
     }
     .sub-nav {
       background-color: #eee;
@@ -454,10 +457,9 @@
       border-bottom-left-radius: 5px;
       padding: 15px 10px 10px 10px;
       width: 246px;
-      display: none;
       position: relative;
       z-index: 1;
-      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
       select, .sq-ribbon-filter-text, .ms-parent {
         display: block;
         box-sizing: content-box;
@@ -527,8 +529,9 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    min-width: 153px;
   }
-  .sub-nav {
+  .sub-nav { /*More Filters*/
     .ms-drop {
       z-index: 999999;
     }
@@ -542,6 +545,29 @@
   .sq-btn-icon + span {
     margin-left: 5px;
   }
+	.disabled {
+		a {
+			color: #ccc !important;
+		}
+		.ms-choice {
+			&.disabled {
+				background-color: transparent;
+				>span {
+					&.placeholder {
+						color: #ccc !important;
+					}
+				}
+			}
+		}
+		.active-item-bg {
+			background-color: rgba(204,204,204,0.5);
+		}
+		&:hover {
+			a {
+				color: #ccc;
+			}
+		}
+	}
 }
 
 @media(min-width: $screen-lg-min) {
@@ -561,9 +587,12 @@
 }
 
 /*filters collector */
-.filter-collector {
+.filter-collector, .search-filter-collector {
   float: left;
   clear: both;
+  > span {
+    float: left;
+  }
   &:last-child {
     margin-bottom: 10px;
   }
@@ -572,7 +601,7 @@
     li {
       display: inline-block;
       float: left;
-      margin-right: 12px;
+      margin: 1px 12px 0 0;
       &:first-child {
         margin-left: 10px;
       }
@@ -589,7 +618,10 @@
       }
     }
   }
+}
 
+.search-filter-collector {
+	display: none;
 }
 
 /* ribbon modal */

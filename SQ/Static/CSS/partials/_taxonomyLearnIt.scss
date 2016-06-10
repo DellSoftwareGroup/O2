@@ -1,9 +1,12 @@
 
-.learnIt h2 {
-  width: 200px !important;
-}
-
 .learnIt, .learnItEdit {
+
+  h2 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-bottom: 1px #ccc solid;
+  }
   .filter-collector {
     float: left;
     margin-bottom: 20px;
@@ -41,14 +44,53 @@
   .k-treeview .k-in.k-state-selected,
   .k-treeview .k-in.k-state-focus {
     background-color: #fff;
-    border-style: none;
-    border-width: 0;
-    padding: 2px 4px 2px 3px;
+    margin: 1px 0 1px .16666em;;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
   }
   .container-buttons {
     margin-left: 40px;
   }
+
 }
+
+.learnIt {
+
+  h2 {
+    width: 200px !important;
+    border-bottom: 0;
+    margin-top: 0;
+  }
+  tbody {
+    tr, tr:nth-child(even) {
+      background: #fff;
+    }
+    th, td {
+      font-size: 16px;
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  thead {
+    th {
+      font-weight: bold !important;
+    }
+  }
+  .filters-on div:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
 
 .custom-treeviewnode a {
   margin-left: 5px;
@@ -57,12 +99,6 @@
 
 .learnItEdit {
 
-  h2 {
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    border-bottom: 1px #ccc solid;
-  }
   .small-text {
     font-size: 12px;
   }
@@ -76,6 +112,10 @@
     span {
       font-size: 17px;
     }
+  }
+  #data_BusinessGroupId,
+  #data_LearnTaxonomyId {
+    max-width: 60%; /* change requested by Diane -6/912 */
   }
 }
 
@@ -107,14 +147,39 @@
     margin-top: 5px;
   }
 
+  .k-autocomplete .k-input {
+    text-indent: .33em;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: white;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
 }
 
 .multy-select {
 
   label, select {
     margin-left: 5px;
-    max-width: 97%;
+    max-width: 97%; /* Kendo issue with select scrollbar on modal */
     box-sizing: border-box;
+  }
+
+  select[multiple] {
+    min-height: 160px;
   }
 
   .btn-default {
@@ -122,7 +187,41 @@
   }
 }
 
-.tree-footer {
-  padding-top: 20px;
-  border-top: 1px solid #eee;
+.results-data {
+  table {
+    thead {
+      tr {
+        th:first-child,
+        th:last-child {
+          border-radius: 0 !important;
+        }
+      }
+    }
+  }
+
+}
+
+#results-data-list {
+  .results-data {
+    margin-bottom: 20px;
+  }
+  #topPager {
+    height: 44px !important;
+    padding-top: 0;
+  }
+  .data-heading {
+    margin: 0;
+  }
+}
+
+/* dynamic kendo window delete taxonomy */
+[kendo-window="winDeleteLevel"] {
+  .buttons > div {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
 }
