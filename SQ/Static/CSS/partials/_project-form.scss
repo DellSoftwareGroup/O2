@@ -477,9 +477,9 @@ p.data {
 	background: none !important;
 }
 
-.prev-files {
+/*.prev-files {
 	margin-bottom: 10px;
-}
+}*/
 
 .k-button {
 	&.k-upload-button {
@@ -503,17 +503,21 @@ p.data {
 	}
 }
 
-.k-widget.k-upload.k-upload-empty .k-dropzone {
-	display: block !important;
-}
-
-.k-widget.k-upload .k-dropzone {
-	display: none !important;
-	padding: 0px 0px 0px 0px;
-}
-
-.k-widget.k-upload.k-header {
-	background-color: transparent !important;
+.k-widget {
+	&.k-upload {
+		&.k-upload-empty {
+			.k-dropzone {
+				display: block;
+			}
+		}
+		&.k-header {
+			background-color: transparent;
+		}
+		.k-dropzone {
+			display: none;
+			padding: 0;
+		}
+	}
 }
 
 .add-link-row {

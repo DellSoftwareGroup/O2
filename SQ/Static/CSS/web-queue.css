@@ -1246,3 +1246,5 @@ tbody tr:first-child .tooltip:hover:after {
     font-size: 14px; }
     .results-data .table-group-headings th:last-child {
       color: #00447c; }
+  .results-data .summary-start {
+    border-left: 1px solid #444 !important; }
