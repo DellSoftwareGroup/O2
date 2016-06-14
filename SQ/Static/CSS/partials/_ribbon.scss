@@ -867,8 +867,14 @@ input#searchById {
   }
 }
 
-#tabstrip-modal .modal-top-area {
-  padding-right: 4px;
+#tabstrip-modal {
+  display: none;
+}
+
+.k-window {
+  #tabstrip-modal {
+    display: block;
+  }
 }
 
 /* More filters popop */

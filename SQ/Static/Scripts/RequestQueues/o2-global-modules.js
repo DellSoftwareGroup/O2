@@ -121,7 +121,7 @@ var globalModules = function () {
 				$addReqModal.open();
 			});
 
-			$('#myTabs a').click(function (e) {
+			$('#myTabs').on('click', 'a', function (e) {
 				e.preventDefault();
 				$(this).tab('show');
 			});

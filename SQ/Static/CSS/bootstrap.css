@@ -5130,6 +5130,9 @@ iframe {
 .pl-15 {
   padding-left: 15px !important; }
 
+.pl-20 {
+  padding-left: 20px !important; }
+
 .pl-40 {
   padding-left: 40px !important; }
 
@@ -7239,7 +7242,7 @@ a:hover .has-overlay h4 {
   left: 0;
   z-index: 1060;
   display: none;
-  max-width: 276px;
+  max-width: 376px;
   padding: 1px;
   font-family: "Trebuchet MS", "Roboto", "Segoe UI", "Helvetica Neue", "Meiryo UI Reg", "メイリオ Reg", "MS UI Gothic Reg", "Hiragino Kaku Gothic Reg", "ヒラギノ角ゴ Pro W3 Reg", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", "Microsoft JhengHei", "微軟正黑體", "Malgun Gothic", Gulim, Tahoma, "Arial Unicode", sans-serif;
   font-size: 14px;
