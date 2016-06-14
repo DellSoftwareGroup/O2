@@ -1004,23 +1004,31 @@ var ribbonWidgets = function () {
 	function getUserPreferences() {
 		var obj = {};
 
-		if (UserPreferences.MyWorkList != null) {
-			if(UserPreferences.RQL_ViewPreference == 'All Team') {
-				obj.AllTeams = UserPreferences.MyWorkList;
-			}
-			else {
-				obj.MyWork = UserPreferences.MyWorkList;
-			}
+		if($.isEmptyObject(UserPreferences)) {
+			obj.MyWork = [1,2];
+			obj.RequestStatusIdea = true;
+			obj.RequestStatusBacklog = true;
+			obj.RequestStatusStarted = true;
 		}
+		else {
+			if (UserPreferences.MyWorkList != null) {
+				if(UserPreferences.RQL_ViewPreference == 'All Team') {
+					obj.AllTeams = UserPreferences.MyWorkList;
+				}
+				else {
+					obj.MyWork = UserPreferences.MyWorkList;
+				}
+			}
 
-		if (UserPreferences.DepartmentList != null) {
-			obj.Departments = UserPreferences.DepartmentList;
-		}
+			if (UserPreferences.DepartmentList != null) {
+				obj.Departments = UserPreferences.DepartmentList;
+			}
 
-		if (UserPreferences.RequestStatusList != null) {
-			$.each(UserPreferences.RequestStatusList, function(indx, val) {
-				obj['RequestStatus' + requestStatuses[val].charAt(0).toUpperCase() + requestStatuses[val].substr(1)] = true;
-			});
+			if (UserPreferences.RequestStatusList != null) {
+				$.each(UserPreferences.RequestStatusList, function(indx, val) {
+					obj['RequestStatus' + requestStatuses[val].charAt(0).toUpperCase() + requestStatuses[val].substr(1)] = true;
+				});
+			}
 		}
 
 		return obj;
@@ -1163,7 +1171,9 @@ $(function () {
 	moreFiltersElem = $('#sq-filters');
 
 	//Remove [All] option under sprint
-	$('#dp-sprint-dd').find('option:eq(0)').remove();
+	/*if($('#dp-sprint-dd').find('option:eq(0)').val() == '') {
+		$('#dp-sprint-dd').find('option:eq(0)').remove();
+	}*/
 
 	var ribbonItem = ribbonElem.find('> ul > li > ul > li');
 

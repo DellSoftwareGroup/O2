@@ -118,33 +118,33 @@ var globalScripts = (function($) {
 
 			/*empty comment box*/
 			function findEmptyBoxes(selectedOptions) {
-				$('.task-group').find('.box-alert').hide();
-
-				$('.task-group').find('.comment-box').each(function() {
-					if ($(this).find('> div').length > 0) {
-						if (selectedOptions == '1') {
-							if ($(this).find('> div.comment:visible').length == 0) {
-								showMessage($(this), 'no comments');
+				$('.task-group')
+					.find('.box-alert').hide().end()
+					.find('.comment-box').each(function() {
+						if ($(this).find('> div').length > 0) {
+							if (selectedOptions == '1') {
+								if ($(this).find('> div.comment:visible').length == 0) {
+									showMessage($(this), 'no comments');
+								}
 							}
-						}
-						else if (selectedOptions == '2') {
-							if ($(this).find('> div.status:visible').length == 0) {
-								showMessage($(this), 'no status changes');
+							else if (selectedOptions == '2') {
+								if ($(this).find('> div.status:visible').length == 0) {
+									showMessage($(this), 'no status changes');
+								}
+							}
+							else {
+								if ($(this).find('> div.status:visible').length == 0 && $(this).find('> div.comment:visible').length == 0) {
+									showMessage($(this), 'no records');
+								}
+								else {
+									$('.task-group').find('.box-alert').hide();
+								}
 							}
 						}
 						else {
-							if ($(this).find('> div.status:visible').length == 0 && $(this).find('> div.comment:visible').length == 0) {
-								showMessage($(this), 'no records');
-							}
-							else {
-								$('.task-group').find('.box-alert').hide();
-							}
+							showMessage($(this), 'no records');
 						}
-					}
-					else {
-						showMessage($(this), 'no records');
-					}
-				});
+					});
 			}
 
 			$('#groups .task-group > div:last-child').on('shown.bs.collapse', function() {
@@ -211,21 +211,23 @@ var globalScripts = (function($) {
 			/*popover*/
 			$('.toggle-popover').popover({
 				html: true,
-				trigger: "manual",
+				trigger: 'manual',
+				placement: 'top',
 				content: function() {
-					return $(".popover-content", this).html();
+					if($(this).find(".popover-content").length) {
+						return $(this).find(".popover-content").html();
+					}
 				}
 			}).on("mouseenter", function() {
 				var _this = this;
-				$(this).popover("show");
-				$(this).siblings(".popover").on("mouseleave", function() {
+				$(this).popover("show").siblings(".popover").on("mouseleave", function() {
 					$(_this).popover('hide');
 				});
 			}).on("mouseleave", function() {
 				var _this = this;
 				setTimeout(function() {
 					if (!$(".popover:hover").length) {
-						$(_this).popover("hide")
+						$(_this).popover("hide");
 					}
 				}, 100);
 			});
@@ -247,12 +249,13 @@ var globalScripts = (function($) {
 
 		// Init
 		function init() {
-
 			// messaging scripts by Elnaz
 			_HistoryTracking();
 
+			var taskTriggers = $('.task-triggers');
+
 			// Add task link interaction
-			$('.task-triggers').find('a.add-slide').on('click', function(e) {
+			taskTriggers.find('a.add-slide').on('click', function(e) {
 				e.preventDefault();
 				$(this).parent('div').slideToggle(400, function() {
 					$('.add-task-form').slideToggle(600);
@@ -267,7 +270,7 @@ var globalScripts = (function($) {
 			});
 
 			// Reject a task
-			$('.task-triggers').find('a.reject-slide').on('click', function(e) {
+			taskTriggers.find('a.reject-slide').on('click', function(e) {
 				e.preventDefault();
 				$(this).parent('div').slideToggle(400);
 				$('.reject-task').slideToggle(600);
@@ -291,7 +294,6 @@ var globalScripts = (function($) {
 			hideAddTaskSection: hideAddTaskSection,
 			hideRejectTaskSection: hideRejectTaskSection
 		}
-
 	}();
 
 	// This js module will only run at addRequest.cshtml
@@ -313,7 +315,6 @@ var globalScripts = (function($) {
 
 	// This js module will only run only on both addRequest.cshtml and editRequest.cshtml
 	var multiTmpl = function() {
-
 		var init = function() {
 			/*collapsibles*/
 			/*keep border bottom only when they are collapsed*/
@@ -354,14 +355,20 @@ $(function() {
 	// initialize addRequest scripts
 	!!$('#addRequestTmpl').length && globalScripts.addRequestTmpl.init();
 
-	var userInfo = {};
+	var userInfo = {}, popoverElem = null;
 
 	$('body')
-		.on('click', '.user-tooltip', function(e) {
+		.on('click', '.userinfo', function(e) {
 			e.preventDefault();
-		})
-		.on('hover', '.user-tooltip', function() {
+			e.stopPropagation();
+
+			if(popoverElem) {
+				popoverElem.popover('hide');
+			}
+
 			var userID = $(this).data('id'), target = $(this);
+
+			popoverElem = target;
 
 			if(!userInfo[userID]) {
 				$.ajax('/sq/common/GetUsersByIDs/?idsList=' + userID)
@@ -372,23 +379,36 @@ $(function() {
 							userInfo[userID].Title = '';
 						}
 
-						initTooltip(target, userInfo[userID]);
+						initPopover(target, userInfo[userID]);
 					});
 			}
-			else if(!target.data('bs.tooltip')) {
-				initTooltip(target, userInfo[userID]);
+			else if(target.data('bs.popover')) {
+				target.popover('show');
+				e.stopPropagation();
+			}
+			else {
+				initPopover(target, userInfo[userID]);
+				e.stopPropagation();
 			}
 
-			function initTooltip(target, obj) {
-				target.tooltip({
+			function initPopover(target, obj) {
+				target.popover({
 					html: true,
-					title: function() {
-						return obj.DisplayName + '<br>' + obj.Title + '<br><a href="mailto:' + obj.Email + '">' + obj.Email + '</a><br><strong>Department: </strong>' + obj.Department + '<br><strong>Phone: </strong>' + obj.Phone;
+					placement: 'top',
+					title: '',
+					content: function() {
+						return obj.DisplayName + '<br>' + obj.Title + '<br><a href="mailto:' + obj.Email + '">' + obj.Email + '</a><br><strong>Department: </strong>' + obj.Department + '<br><strong>Phone: </strong>' + obj.Phone + '<br><strong>Manager: </strong><a href="mailto:' + obj.Manager + '">' + obj.Manager + '</a><br><strong>Org Chart: </strong><a href="//iq.prod.quest.corp/mis/CorpDir/Corporate/CorpDir.asp?Action=OrgChart&OrgChartEmail=' + obj.Email + '" target="_blank"><i class="icon-small-network"></i></a>';
 					}
-				}).removeClass('user-tooltip');
-
-				target.tooltip('show');
+				}).popover('show');
 			}
-
+		})
+		.on('click', function() {
+			if(popoverElem) {
+				popoverElem.popover('hide');
+				popoverElem = null;
+			}
+		})
+		.on('click', '.prevent-default', function(e) {
+			e.preventDefault();
 		});
 });
