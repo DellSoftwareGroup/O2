@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.common-material.min.css"/>
+  <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.2.504/styles/kendo.material.min.css"/>
+  <link rel="stylesheet" href="../../../SQ/Static/CSS/bootstrap.min.css">
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/jquery.min.js"></script>
+  <script src="//kendo.cdn.telerik.com/2016.1.226/js/kendo.all.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="demo-section k-content wide">
+    <div class="container">
+      <div class="row mb-40">
+        <h1>Accepted Requests & Done Requests</h1>
+
+        <div class="chart-overall-opened-closed"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function createChart() {
+    $(".chart-overall-opened-closed").kendoChart({
+      title: {
+        /*text: "Number of Requests "*/
+      },
+      legend: {
+        visible: true,
+        background: "#eeeeee",
+        position: "right",
+        orientation: "vertical",
+        margin: {
+          left: 30,
+          top: -210
+        },
+        padding: {
+          top: 15,
+          bottom: 15,
+          left: 30,
+          right: 30
+        },
+        labels: {
+          font: "14px Arial,Helvetica,sans-serif",
+          padding: {
+            top: 8,
+            bottom: 8
+          }
+        }
+      },
+      seriesDefaults: {
+        type: "bar",
+        labels: {
+          visible: true,
+          background: "transparent",
+          position: "center",
+          color: "black",
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      series: [{
+        overlay: {
+          gradient: "none"
+        },
+        name: "Accepted Tasks",
+        stack: "Tasks",
+        data: [15, 13, 10, 15],
+        tooltipText:"Accepted Tasks"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "Done Tasks",
+        stack: "Tasks",
+        data: [10, 12, 8, 10],
+        tooltipText:"Accepted Tasks"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "-1",
+        stack: "SLA",
+        data: [7, 5, 7, 4],
+        tooltipText:"Done 1 day ahead of SLA"
+      }, {
+        overlay: {
+          gradient: "none"
+        },
+        name: "-2 to -3",
+        stack: "SLA",
+        data: [5, 5, 3 , 4],
+        tooltipText: "Done 2-3 days ahead of SLA"
+      },{
+        overlay: {
+          gradient: "none"
+        },
+        name: "+4 to +5",
+        stack: "SLA",
+        data: [3, 3, 3 , 3],
+        tooltipText: "Done 4-5 days after SLA"
+      }],
+      seriesColors: ["#579AD6","#78C466","#D2F3CA","#B7E0AE","#EDA48A"],
+      valueAxis: {
+        Max: 160,
+        majorUnit: 5,
+        line: {
+          visible: false
+        },
+        labels: {
+          step: 2,
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      categoryAxis: {
+        categories: ["Elnaz", "Edward", "Diana", "BJ"],
+        majorGridLines: {
+          visible: false
+        },
+        labels: {
+          font: "bold 12px Arial,Helvetica,sans-serif"
+        }
+      },
+      tooltip: {
+        visible: true,
+        template: "#= series.tooltipText # : #= value #"
+      },
+      legendItemClick: function (e) {
+        setTotalLabel(e.sender, e.seriesIndex);
+      },
+      dataBound: function (e) {
+        setTotalLabel(e.sender);
+      }
+    });
+  }
+  function setTotalLabel(chart, toggledSeriesIndex) {
+    var series = chart.options.series;
+    var lastSeries = {};
+    var fields = [];
+
+    for (var i = 0; i < series.length; i++) {
+      var visible = series[i].visible;
+
+      // We're about to toggle the visibility of the clicked series
+      if (i === toggledSeriesIndex) {
+        visible = !visible;
+      }
+
+      if (visible) {
+        fields.push("dataItem." + series[i].field);
+        lastSeries = series[i];
+      }
+
+      // Clean-up existing labels
+      series[i].labels = {};
+    }
+
+    lastSeries.labels = {
+      font: "bold 12px Arial,Helvetica,sans-serif",
+      visible: true,
+      template: "#=" + fields.join("+") + "#"
+    };
+  }
+  $(function () {
+    createChart();
+  });
+  $(document).bind("kendo:skinChange", createChart);
+</script>
+</body>
+</html>

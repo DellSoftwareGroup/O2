@@ -6,8 +6,116 @@
 }
 
 .k-editor-toolbar {
-
   .k-tool-text {
     display: none;
   }
+}
+
+.form-control {
+	&.date-picker {
+		box-sizing: border-box;
+		width: 100px;
+	}
+	&.k-multiselect {
+		min-height: 34px;
+		height: auto;
+	}
+	> .k-picker-wrap {
+		border: 0;
+	}
+}
+
+.k-list {
+	.k-item {
+		padding: 7px;
+		cursor: pointer;
+	}
+}
+
+.k-list-scroller {
+	max-height: 200px !important;
+	overflow-y: auto;
+}
+
+/*Kendo UI datepicker*/
+.date-picker {
+	width: 100%;
+	.k-picker-wrap {
+		height: 32px;
+		.k-input {
+			height: 32px;
+			position: absolute;
+			padding-bottom: 0;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			border-radius: 1px;
+		}
+		&.k-state-default {
+			background-image: none;
+			background-color: #fff;
+			border-radius: 1px;
+			border-color: #ccc;
+			> .k-select {
+				border: none;
+				border-radius: 0;
+				position: relative;
+				float: right;
+				width: auto;
+			}
+		}
+		&.k-state-hover {
+			background-color: #fff;
+			> * > .k-i-calendar {
+				background-position: -779px -75px;
+				width: 15px;
+				height: 12px;
+			}
+		}
+		&.k-state-focused {
+			background-color: #fff;
+			border-color: #66afe9;
+		}
+		.k-icon {
+			background-image: url('/sq/static/images/single-queue-sprite.png');
+			background-repeat: no-repeat;
+		}
+		.k-select {
+			line-height: 2.3em;
+		}
+		.k-i-calendar {
+			background-position: -779px -75px;
+			position: absolute;
+			top: 11px;
+			left: 6px;
+		}
+	}
+}
+
+.k-datepicker {
+	width: 110px !important;
+}
+
+.k-window {
+	/*Remove background color and bottom border on kendo window modals*/
+	>.k-header {
+		background: none;
+		border-bottom: 0;
+	}
+}
+
+/* Override for kendo.requestqueues.css */
+
+#results-data-fullcalendar-filter {
+	.k-multiselect-wrap {
+		width: auto;
+		box-shadow: none;
+	}
+
+	.k-multiselect {
+		&.k-header {
+			width: auto !important;
+			min-width: 200px;
+			padding: 5px;
+		}
+	}
 }

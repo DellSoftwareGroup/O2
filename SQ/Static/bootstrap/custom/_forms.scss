@@ -140,6 +140,10 @@ output {
   // Placeholder
   @include placeholder;
 
+	&.width-auto {
+		width: auto;
+	}
+
   // Disabled and read-only inputs
   //
   // HTML5 says that controls under a fieldset > legend:first-child won't be
@@ -267,7 +271,7 @@ input[type="search"] {
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
-  margin-left: 10px; // space out consecutive inline controls
+  margin-left: 15px; // space out consecutive inline controls
 }
 
 // Apply same disabled cursor tweak as for inputs
@@ -424,18 +428,32 @@ input[type="checkbox"] {
 }
 
 .form-control {
-  &.error {
+	&.error, &.input-validation-error:not([readonly]) {
     background-color: $state-danger-bg;
     border: 1px solid #ce1126;
-
-    //background-image: url("/images/shared/formError.png");
-    //background-position: 100% 50%;
-    //background-repeat: no-repeat;
 
     &:active, &:focus {
       background-color: $white;
     }
   }
+	&.input-validation-error[readonly] {
+		border: 1px solid #ce1126;
+	}
+	&.k-widget {
+		&.input-validation-error {
+			background-color: $state-danger-bg;
+			border: 1px solid #ce1126;
+
+			&:active, &:focus {
+				background-color: $white;
+			}
+
+			.input-validation-error {
+				background-color: $white;
+				border: 0;
+			}
+		}
+	}
 }
 
 select {

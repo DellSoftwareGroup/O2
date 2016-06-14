@@ -1,0 +1,931 @@
+[
+  {
+    "name": "-11 or less",
+    "standing": 1,
+    "range": 1,
+    "number": 15,
+    "category": "Development",
+    "color": "#69A85A",
+    "textColor": "white",
+    "tooltipText":"Done 11 days or less ahead of SLA"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 1,
+    "range": 2,
+    "number": 10,
+    "category": "Development",
+    "color": "#83BA76",
+    "textColor": "white",
+    "tooltipText":"Done 6-10 days ahead of SLA"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 1,
+    "range": 3,
+    "number": 20,
+    "category": "Development",
+    "color": "#9DCD92",
+    "textColor": "white",
+    "tooltipText":"Done 4-5 days ahead of SLA"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 1,
+    "range": 4,
+    "number": 20,
+    "category": "Development",
+    "color": "#B7E0AE",
+    "textColor": "white",
+    "tooltipText":"Done 2-3 days ahead of SLA"
+  },
+  {
+    "name": "-1",
+    "standing": 1,
+    "range": 5,
+    "number": 5,
+    "category": "Development",
+    "color": "#D2F3CA",
+    "textColor": "white",
+    "tooltipText":"Done 1 day ahead of SLA"
+  },
+  {
+    "name": "0",
+    "standing": 1,
+    "range": 6,
+    "number": 20,
+    "category": "Development",
+    "color": "#e1f3dc",
+    "textColor": "#e1f3dc",
+    "tooltipText":"Done on SLA"
+  },
+  {
+    "name": "+1",
+    "standing": 1,
+    "range": 7,
+    "number": 60,
+    "category": "Development",
+    "color": "#F5DFD7",
+    "textColor": "#444444",
+    "tooltipText":"Done 1 day after SLA"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 1,
+    "range": 8,
+    "number": 60,
+    "category": "Development",
+    "color": "#F1C1B0",
+    "textColor": "#444444",
+    "tooltipText":"Done 2-3 days after SLA"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 1,
+    "range": 9,
+    "number": 100,
+    "category": "Development",
+    "color": "#EDA48A",
+    "textColor": "#444444",
+    "tooltipText":"Done 4-5 days after SLA"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 1,
+    "range": 10,
+    "number": 25,
+    "category": "Development",
+    "color": "#E98664",
+    "textColor": "#444444",
+    "tooltipText":"Done 6-10 days after SLA"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 1,
+    "range": 11,
+    "number": 12,
+    "category": "Development",
+    "color": "#E6693E",
+    "textColor": "#444444",
+    "tooltipText":"Done 11 days or more after SLA"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 2,
+    "range": 4,
+    "number": 20,
+    "category": "Web page - HPG",
+    "color": "#B7E0AE",
+    "textColor":"white"
+  },
+  {
+    "name": "0",
+    "standing": 2,
+    "range": 6,
+    "number": 0,
+    "category": "Web page - HPG",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 2,
+    "range": 9,
+    "number": 10,
+    "category": "Web page - HPG",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 3,
+    "range": 1,
+    "number": 25,
+    "category": "Ad copy",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 3,
+    "range": 2,
+    "number": 10,
+    "category": "Ad copy",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 3,
+    "range": 3,
+    "number": 50,
+    "category": "Ad copy",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 3,
+    "range": 4,
+    "number": 20,
+    "category": "Ad copy",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 3,
+    "range": 5,
+    "number": 5,
+    "category": "Ad copy",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 3,
+    "range": 6,
+    "number": 20,
+    "category": "Ad copy",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 3,
+    "range": 7,
+    "number": 20,
+    "category": "Ad copy",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 3,
+    "range": 8,
+    "number": 60,
+    "category": "Ad copy",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 3,
+    "range": 9,
+    "number": 26,
+    "category": "Ad copy",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 3,
+    "range": 10,
+    "number": 25,
+    "category": "Ad copy",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 3,
+    "range": 11,
+    "number": 12,
+    "category": "Ad copy",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 4,
+    "range": 1,
+    "number": 25,
+    "category": "Analytics",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 4,
+    "range": 2,
+    "number": 10,
+    "category": "Analytics",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 4,
+    "range": 3,
+    "number": 50,
+    "category": "Analytics",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 4,
+    "range": 4,
+    "number": 20,
+    "category": "Analytics",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 4,
+    "range": 5,
+    "number": 5,
+    "category": "Analytics",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 4,
+    "range": 6,
+    "number": 20,
+    "category": "Analytics",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 4,
+    "range": 7,
+    "number": 0,
+    "category": "Analytics",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 4,
+    "range": 8,
+    "number": 60,
+    "category": "Analytics",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 4,
+    "range": 9,
+    "number": 26,
+    "category": "Analytics",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 4,
+    "range": 10,
+    "number": 25,
+    "category": "Analytics",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 4,
+    "range": 11,
+    "number": 15,
+    "category": "Analytics",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 5,
+    "range": 1,
+    "number": 25,
+    "category": "EBook - Support",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 5,
+    "range": 2,
+    "number": 10,
+    "category": "EBook - Support",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 5,
+    "range": 3,
+    "number": 50,
+    "category": "EBook - Support",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 5,
+    "range": 4,
+    "number": 20,
+    "category": "EBook - Support",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 5,
+    "range": 5,
+    "number": 5,
+    "category": "EBook - Support",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 5,
+    "range": 6,
+    "number": 20,
+    "category": "EBook - Support",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 5,
+    "range": 7,
+    "number": 0,
+    "category": "EBook - Support",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 5,
+    "range": 8,
+    "number": 60,
+    "category": "EBook - Support",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 5,
+    "range": 9,
+    "number": 26,
+    "category": "EBook - Support",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 5,
+    "range": 10,
+    "number": 25,
+    "category": "EBook - Support",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 5,
+    "range": 11,
+    "number": 15,
+    "category": "EBook - Support",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 6,
+    "range": 1,
+    "number": 25,
+    "category": "Edit Solution",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 6,
+    "range": 2,
+    "number": 10,
+    "category": "Edit Solution",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 6,
+    "range": 3,
+    "number": 50,
+    "category": "Edit Solution",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 6,
+    "range": 4,
+    "number": 20,
+    "category": "Edit Solution",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 6,
+    "range": 5,
+    "number": 5,
+    "category": "Edit Solution",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 6,
+    "range": 6,
+    "number": 20,
+    "category": "Edit Solution",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 6,
+    "range": 7,
+    "number": 0,
+    "category": "Edit Solution",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 6,
+    "range": 8,
+    "number": 60,
+    "category": "Edit Solution",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 6,
+    "range": 9,
+    "number": 26,
+    "category": "Edit Solution",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 6,
+    "range": 10,
+    "number": 25,
+    "category": "Edit Solution",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 6,
+    "range": 11,
+    "number": 15,
+    "category": "Edit Solution",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 7,
+    "range": 1,
+    "number": 25,
+    "category": "Infographic",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 7,
+    "range": 2,
+    "number": 10,
+    "category": "Infographic",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 7,
+    "range": 3,
+    "number": 50,
+    "category": "Infographic",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 7,
+    "range": 4,
+    "number": 20,
+    "category": "Infographic",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 7,
+    "range": 5,
+    "number": 5,
+    "category": "Infographic",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 7,
+    "range": 6,
+    "number": 20,
+    "category": "Infographic",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 7,
+    "range": 7,
+    "number": 0,
+    "category": "Infographic",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 7,
+    "range": 8,
+    "number": 60,
+    "category": "Infographic",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 7,
+    "range": 9,
+    "number": 26,
+    "category": "Infographic",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 7,
+    "range": 10,
+    "number": 25,
+    "category": "Infographic",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 7,
+    "range": 11,
+    "number": 15,
+    "category": "Infographic",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 8,
+    "range": 1,
+    "number": 25,
+    "category": "Home Page Banner",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 8,
+    "range": 2,
+    "number": 10,
+    "category": "Home Page Banner",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 8,
+    "range": 3,
+    "number": 50,
+    "category": "Home Page Banner",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 8,
+    "range": 4,
+    "number": 20,
+    "category": "Home Page Banner",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 8,
+    "range": 5,
+    "number": 5,
+    "category": "Home Page Banner",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 8,
+    "range": 6,
+    "number": 20,
+    "category": "Home Page Banner",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 8,
+    "range": 7,
+    "number": 0,
+    "category": "Home Page Banner",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 8,
+    "range": 8,
+    "number": 60,
+    "category": "Home Page Banner",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 8,
+    "range": 9,
+    "number": 26,
+    "category": "Home Page Banner",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 8,
+    "range": 10,
+    "number": 25,
+    "category": "Home Page Banner",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 8,
+    "range": 11,
+    "number": 15,
+    "category": "Home Page Banner",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 9,
+    "range": 1,
+    "number": 25,
+    "category": "New Product",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 9,
+    "range": 2,
+    "number": 10,
+    "category": "New Product",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 9,
+    "range": 3,
+    "number": 50,
+    "category": "New Product",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 9,
+    "range": 4,
+    "number": 20,
+    "category": "New Product",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 9,
+    "range": 5,
+    "number": 5,
+    "category": "New Product",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 9,
+    "range": 6,
+    "number": 20,
+    "category": "New Product",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 9,
+    "range": 7,
+    "number": 0,
+    "category": "New Product",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 9,
+    "range": 8,
+    "number": 60,
+    "category": "New Product",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 9,
+    "range": 9,
+    "number": 26,
+    "category": "New Product",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 9,
+    "range": 10,
+    "number": 25,
+    "category": "New Product",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 9,
+    "range": 11,
+    "number": 15,
+    "category": "New Product",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  },
+  {
+    "name": "-11 or less",
+    "standing": 10,
+    "range": 1,
+    "number": 25,
+    "category": "Onsite Search",
+    "color": "#69A85A",
+    "textColor": "white"
+  },
+  {
+    "name": "-6 to -10",
+    "standing": 10,
+    "range": 2,
+    "number": 10,
+    "category": "Onsite Search",
+    "color": "#83BA76",
+    "textColor": "white"
+  },
+  {
+    "name": "-4 to -5",
+    "standing": 10,
+    "range": 3,
+    "number": 50,
+    "category": "Onsite Search",
+    "color": "#9DCD92",
+    "textColor": "white"
+  },
+  {
+    "name": "-2 to -3",
+    "standing": 10,
+    "range": 4,
+    "number": 20,
+    "category": "Onsite Search",
+    "color": "#B7E0AE",
+    "textColor": "white"
+  },
+  {
+    "name": "-1",
+    "standing": 10,
+    "range": 5,
+    "number": 5,
+    "category": "Onsite Search",
+    "color": "#D2F3CA",
+    "textColor": "white"
+  },
+  {
+    "name": "0",
+    "standing": 10,
+    "range": 6,
+    "number": 20,
+    "category": "Onsite Search",
+    "color": "#e1f3dc",
+    "textColor": "white"
+  },
+  {
+    "name": "+1",
+    "standing": 10,
+    "range": 7,
+    "number": 0,
+    "category": "Onsite Search",
+    "color": "#F5DFD7",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+2 to +3",
+    "standing": 10,
+    "range": 8,
+    "number": 60,
+    "category": "Onsite Search",
+    "color": "#F1C1B0",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+4 to +5",
+    "standing": 10,
+    "range": 9,
+    "number": 26,
+    "category": "Onsite Search",
+    "color": "#EDA48A",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+6 to +10",
+    "standing": 10,
+    "range": 10,
+    "number": 25,
+    "category": "Onsite Search",
+    "color": "#E98664",
+    "textColor": "#444444"
+  },
+  {
+    "name": "+11 or more",
+    "standing": 10,
+    "range": 11,
+    "number": 15,
+    "category": "Onsite Search",
+    "color": "#E6693E",
+    "textColor": "#444444"
+  }
+]

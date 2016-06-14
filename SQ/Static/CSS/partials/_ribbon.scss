@@ -1,15 +1,19 @@
 /*ribbon*/
 .sq-top-ribbon {
-  float: left;
   width: 100%;
+	float: left;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
   margin-bottom: 20px;
+  display: none;
+  &.initialized {
+    display: block;
+  }
   > ul > li {
-    display: inline;
+	  list-style: none;
     float: left;
-    padding: 15px 13px 0 13px;
+	  padding: 5px 10px 0;
     border-right: 1px solid #ccc;
     .wide-blue-button {
       background-color: #007CB8;
@@ -24,10 +28,8 @@
         font-size: 13px;
         span {
           &:first-child {
-            font-size: 38px;
             display: block;
             float: left;
-            line-height: 8px;
             line-height: 55px;
             font-size: 2.5em;
           }
@@ -45,11 +47,11 @@
       }
     }
     > ul {
-      float: left;
+	    float: left;
       clear: both;
       position: relative;
       &:first-child {
-        margin-bottom: 15px;
+	      margin-bottom: 5px;
       }
       .grey-bg {
         background-color: #eee;
@@ -61,26 +63,6 @@
         padding: 6px;
         margin-right: 7px;
         font-size: 12.66px;
-        &.active-item-bg {
-          background-color: #eee;
-          border-radius: 3px;
-          margin-right: 7px;
-          &:hover a {
-            color: #444;
-          }
-          select {
-            background-color: #eee;
-            &#priority-dd, &#region-dd, &#route-to-market-dd {
-              background-color: #fff;
-            }
-          }
-          #my-work-icon, #requester-icon {
-            background-position: 4px 0;
-          }
-          .ms-choice {
-            background-color: #eee;
-          }
-        }
         &:hover {
           cursor: pointer;
           a {
@@ -112,7 +94,7 @@
           margin-right: 0;
         }
         .sq-btn-icon, .glyphicon-remove-sign {
-          margin-right: 5px;
+          //margin-right: 5px;
           float: left;
           &#jan-fy-icon {
             float: none;
@@ -134,17 +116,17 @@
           margin: 0 auto;
         }
         #backlog-icon {
-          background-position: -253px 1px;
-          width: 24px;
+          background-position: -256px 1px;
+          width: 16px;
         }
         #started-icon {
           background-position: -722px -2px;
-          width: 20px;
+          width: 16px;
           height: 20px;
         }
         #idea-icon {
-          background-position: -312px 0;
-          width: 20px;
+          background-position: -310px 0;
+          width: 16px;
         }
         #council-icon {
           background-position: -357px -1px;
@@ -152,12 +134,12 @@
         }
         #done-icon {
           background-position: -410px 0;
-          width: 20px;
+          width: 17px;
           height: 20px;
         }
         #cancelled-icon {
-          background-position: -466px 0;
-          width: 20px;
+          background-position: -468px 0;
+          width: 17px;
           height: 20px;
         }
         #filters-icon {
@@ -195,89 +177,36 @@
           background-position: -507px -80px;
           width: 16px;
         }
-        &:hover, &.active-item-bg {
-          #my-work-icon, #requester-icon {
-            background-position: 4px 0;
-          }
-          #dp-Team-icon {
-            background-position: -65px 2px;
-          }
-          #jan-fy-icon {
-            background-position: -164px -1px;
-          }
-          #backlog-icon {
-            background-position: -254px -34px;
-          }
-          #started-icon {
-            background-position: -722px -37px;
-          }
-          #idea-icon {
-            background-position: -314px -38px;
-          }
-          #council-icon {
-            background-position: -359px -38px;
-          }
-          #done-icon {
-            background-position: -412px -38px;
-          }
-          #cancelled-icon {
-            background-position: -468px -38px;
-          }
-          #filters-icon {
-            background-position: -549px -39px;
-          }
-          #department-icon {
-            background-position: -853px -34px;
-          }
-          #request-type-icon {
-            background-position: -257px -118px;
-          }
-          #task-type-icon {
-            background-position: -320px -80px;
-          }
-          #portfolio-icon {
-            background-position: -166px -121px;
-          }
-          #task-status-icon {
-            background-position: -444px -118px;
-          }
-          #owner-icon {
-            background-position: -507px -118px;
-          }
-          a {
-            color: #444;
-          }
-        }
         &#sq-filters-item {
-          width: 158px;
+          /*width: 158px;*/
           > div {
             #sq-filters {
+	            .arrow {
+		            position: absolute;
+		            top: -3px;
+		            right: -8px;
+		            width: 22px;
+		            height: 20px;
+		            background: url("/sq/static/images/multiple-select.png") left top no-repeat;
+	            }
               &:hover > span:last-child {
                 display: none;
               }
-              a:hover, .activate-bg, &.add-bg {
+              a:hover, .activate-bg {
                 #filters-icon {
                   background-position: -549px -39px;
                 }
               }
-              &.add-bg {
-                background-color: #eee;
-                border-radius: 5px;
-                height: 27px;
-                width: 39px;
-                box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
-                padding: 7px 10px 0 10px;
-                margin-left: -10px;
-                margin-top: -7px;
-              }
+	            &.open {
+		            .arrow {
+			            background-position: right top;
+		            }
+		            .sub-nav-wrapper {
+			            display: block;
+		            }
+	            }
               #more-filters {
-                position: absolute;
-                right: 55px;
-                top: 6px;
-                .arrow {
-                  left: 106px;
-                  top: 6px;
-                }
+                position: relative;
               }
             }
             > div {
@@ -364,12 +293,86 @@
         }
       }
     }
+	  &:not(.disabled) {
+		  li {
+			  &:hover, &.active-item-bg {
+				  #my-work-icon, #requester-icon {
+					  background-position: 4px 0;
+				  }
+				  #dp-Team-icon {
+					  background-position: -65px 2px;
+				  }
+				  #jan-fy-icon {
+					  background-position: -164px -1px;
+				  }
+				  #backlog-icon {
+					  background-position: -257px -34px;
+				  }
+				  #started-icon {
+					  background-position: -722px -37px;
+				  }
+				  #idea-icon {
+					  background-position: -312px -38px;
+				  }
+				  #council-icon {
+					  background-position: -359px -38px;
+				  }
+				  #done-icon {
+					  background-position: -412px -38px;
+				  }
+				  #cancelled-icon {
+					  background-position: -470px -38px;
+				  }
+				  #filters-icon {
+					  background-position: -549px -39px;
+				  }
+				  #department-icon {
+					  background-position: -853px -34px;
+				  }
+				  #request-type-icon {
+					  background-position: -257px -118px;
+				  }
+				  #task-type-icon {
+					  background-position: -320px -80px;
+				  }
+				  #portfolio-icon {
+					  background-position: -166px -121px;
+				  }
+				  #task-status-icon {
+					  background-position: -444px -118px;
+				  }
+				  #owner-icon {
+					  background-position: -507px -118px;
+				  }
+				  a {
+					  color: #444;
+				  }
+			  }
+		  }
+		  .active-item-bg {
+			  background-color: #E5F3FA;
+			  border-radius: 3px;
+			  select {
+				  background-color: transparent;
+				  &#priority-dd, &#region-dd, &#route-to-market-dd {
+					  background-color: #fff;
+				  }
+			  }
+			  #my-work-icon, #requester-icon {
+				  background-position: 4px 0;
+			  }
+			  .ms-choice {
+				  background-color: transparent;
+			  }
+		  }
+	  }
     &:first-child {
-      padding-left: 11px;
+      > span:last-child {
+	      margin-top: 13px;
+      }
     }
     &:last-child {
       > span:last-child {
-        width: 100%;
         padding-top: 0;
       }
       border-right: none;
@@ -406,16 +409,19 @@
           padding-top: 0;
         }
       }
+      > span:last-child {
+        padding-top: 12px;
+      }
     }
     &#filters-section {
-      > span {
-        width: 6%;
-      }
       > ul > li {
-        min-width: 158px;
+        min-width: 125px;
         > a > select, > div > div > a > select {
           border: none;
           width: 123px;
+        }
+        &:last-child {
+          min-width: 135px;
         }
       }
     }
@@ -431,19 +437,18 @@
     > span:last-child {
       padding-top: 10px;
       display: block;
-      width: 34%;
-      margin: 0px auto;
+      margin: 0 auto;
       font-size: 13px;
       color: #737373;
       clear: both;
     }
     .sub-nav-wrapper {
       width: 250px;
-      height: 0;
-      overflow: hidden;
+      height: 205px;
       margin-left: -11px;
       position: absolute;
       top: 24px;
+	    display: none;
     }
     .sub-nav {
       background-color: #eee;
@@ -452,10 +457,9 @@
       border-bottom-left-radius: 5px;
       padding: 15px 10px 10px 10px;
       width: 246px;
-      display: none;
       position: relative;
       z-index: 1;
-      box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
       select, .sq-ribbon-filter-text, .ms-parent {
         display: block;
         box-sizing: content-box;
@@ -525,9 +529,9 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    min-width: 153px;
   }
-  .sub-nav {
-
+  .sub-nav { /*More Filters*/
     .ms-drop {
       z-index: 999999;
     }
@@ -538,22 +542,66 @@
       width: 15% !important;
     }
   }
+  .sq-btn-icon + span {
+    margin-left: 5px;
+  }
+	.disabled {
+		a {
+			color: #ccc !important;
+		}
+		.ms-choice {
+			&.disabled {
+				background-color: transparent;
+				>span {
+					&.placeholder {
+						color: #ccc !important;
+					}
+				}
+			}
+		}
+		.active-item-bg {
+			background-color: rgba(204,204,204,0.5);
+		}
+		&:hover {
+			a {
+				color: #ccc;
+			}
+		}
+	}
+}
 
+@media(min-width: $screen-lg-min) {
+  .sq-top-ribbon {
+    > ul > li {
+      padding: 5px 23px;
+      > ul > li {
+        margin-right: 7px;
+      }
+    }
+    #agile-status {
+      ul > li {
+        width: 92px;
+      }
+    }
+  }
 }
 
 /*filters collector */
-.filter-collector {
+.filter-collector, .search-filter-collector {
   float: left;
   clear: both;
+  > span {
+    float: left;
+  }
   &:last-child {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   ul {
     display: inline;
     li {
       display: inline-block;
       float: left;
-      margin-right: 12px;
+      margin: 1px 12px 0 0;
       &:first-child {
         margin-left: 10px;
       }
@@ -570,7 +618,10 @@
       }
     }
   }
+}
 
+.search-filter-collector {
+	display: none;
 }
 
 /* ribbon modal */
@@ -614,6 +665,17 @@
     float: right !important;
     margin-left: 20px;
   }
+}
+
+.firstProjFilter > select, .secondProjFilter > select {
+  width: 160px !important;
+}
+
+.firstProjFilter div,
+.secondProjFilter div,
+input#ownerOrRequester,
+input#searchById {
+  width: 320px !important;
 }
 
 /* single deck ribbon (Admin areas)*/
@@ -675,13 +737,16 @@
 
 /* style for Add new request modal */
 .modal-nav {
+	h3 {
+		font-size: 23px;
+	}
   h3, li {
     margin: 0;
     padding: 0;
     line-height: 66px;
     font-weight: bold;
     border-bottom: 1px solid #aaaaaa;
-    width: 170px;
+    /*width: 170px;*/
   }
   li {
     line-height: 52px;
@@ -773,10 +838,11 @@
     margin-left: 4px;
   }
 }
+
 .tab-content {
   padding-top: 15px;
-  border-left: 1px solid #aaa;
-  padding-left: 20px;
+  /*border-left: 1px solid #aaa;*/
+  /*padding-left: 20px;*/
   min-height: 345px;
 
   .glyphicon {
@@ -801,14 +867,26 @@
   }
 }
 
-#tabstrip-modal .modal-top-area {
-  padding-right: 4px;
+#tabstrip-modal {
+  display: none;
 }
 
+.k-window {
+  #tabstrip-modal {
+    display: block;
+  }
+}
+
+/* More filters popop */
+#project-text,
+.sq-ribbon-filter-text.campaign-input {
+  background-color: #fff;
+}
 
 @media(min-width: 768px) {
   .modal-dialog {
     width: 535px;
   }
 }
+
 

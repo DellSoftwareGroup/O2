@@ -23,7 +23,6 @@ var singleQueueTables = (function ($) {
 
 		// TODO: temp function should be removed by Eder (Styles to match mocks)
 		function tempStyles() {
-
 			// urgent, new and legacy labels
 			var taggedCol = $('.title-col'),
 					label = ['<span class="icon urgent">Urgent</span>',
@@ -128,7 +127,7 @@ var singleQueueTables = (function ($) {
 	};
 
 	// Add icon to status
-	var statusIcon = function () {
+	/*var statusIcon = function () {
 		var icons = [
 			{status: 'In Progress', class: 'started-icon'},
 			{status: 'Complete', class: 'done-icon'},
@@ -138,7 +137,7 @@ var singleQueueTables = (function ($) {
 			var status = $(this).text(),
 					iconPlaceholder = $(this).find('i');
 
-			/*in edit mode remove icon*/
+			/!*in edit mode remove icon*!/
 			if ($(this).find('select').length > 0) {
 				$(this).find('i').hide();
 			} else if (status.indexOf('Pending') >= 0) {
@@ -157,7 +156,7 @@ var singleQueueTables = (function ($) {
 				}
 			});
 		});
-	};
+	};*/
 
 	//Edit mode
 	var editMode = function () {
@@ -185,7 +184,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '6/1/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/10/2015',
+				'actualEnd': '6/10/2015'
 			},
 			{
 				id: '27139',
@@ -196,7 +195,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '5/20/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/5/2015',
+				'actualEnd': '6/5/2015'
 			},
 			{
 				id: 'MRCM-47411',
@@ -207,7 +206,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '5/20/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/5/2015',
+				'actualEnd': '6/5/2015'
 			},
 			{
 				id: 'MRCM-47411',
@@ -218,7 +217,7 @@ var singleQueueTables = (function ($) {
 				'plannedStart': '5/20/2015',
 				'plannedEnd': '5/20/2015',
 				'actualStart': '6/1/2015',
-				'actualEnd': '6/5/2015',
+				'actualEnd': '6/5/2015'
 			}
 		];
 
@@ -246,14 +245,14 @@ var singleQueueTables = (function ($) {
 				// Iterate thru each task
 				filteredTasks.forEach(function (task) {
 					trTasks += String()
-							+ '<tr><td><div class="tsk-group">' + task.group + '</div></td>'
-							+ '<td><div class="tsk-task">' + task.task + '</div></td>'
-							+ '<td><div class="tsk-owner">' + task.owner + '</div></td>'
-							+ '<td><div class="tsk-owner">' + task.status + '</div></td>'
-							+ '<td><div class="pln-start">' + task.plannedStart + '</div></td>'
-							+ '<td><div class="pln-end">' + task.plannedEnd + '</div></td>'
-							+ '<td><div class="actual-start">' + task.actualStart + '</div></td>'
-							+ '<td><div class="actual-end">' + task.actualEnd + '</div></td></tr>';
+					+ '<tr><td><div class="tsk-group">' + task.group + '</div></td>'
+					+ '<td><div class="tsk-task">' + task.task + '</div></td>'
+					+ '<td><div class="tsk-owner">' + task.owner + '</div></td>'
+					+ '<td><div class="tsk-owner">' + task.status + '</div></td>'
+					+ '<td><div class="pln-start">' + task.plannedStart + '</div></td>'
+					+ '<td><div class="pln-end">' + task.plannedEnd + '</div></td>'
+					+ '<td><div class="actual-start">' + task.actualStart + '</div></td>'
+					+ '<td><div class="actual-end">' + task.actualEnd + '</div></td></tr>';
 				});
 
 
@@ -294,8 +293,7 @@ var singleQueueTables = (function ($) {
 			}
 
 		}
-
-
+		
 		/* Public Method */
 		var init = function () {
 
@@ -337,15 +335,15 @@ var singleQueueTables = (function ($) {
 			var summaryIndx = 11, summaryStartCol = ".group-col";
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles();
+			//commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			// modalTable.init(); --> Kendo window
 			ListingPopOver.init();
 		},
 		addTableHeadings: function () {
 			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('.table-group-headings').length) {
-				$('<thead class="table-group-headings"><tr><th colspan="12">Request Info</th><th colspan="5">Current Group Summary</th></tr></thead>').insertBefore('#GridRequest thead');
+			if (!$('#GridRequest').find('thead .table-group-headings').length) {
+				$('#GridRequest thead').prepend('<tr class="table-group-headings"><th colspan="12"><strong>Request Info</strong></th><th colspan="5"><strong>Current Group Summary</strong></th></tr>');
 			}
 		}
 	};
@@ -356,14 +354,14 @@ var singleQueueTables = (function ($) {
 			var summaryIndx = 9, summaryStartCol = ".sprint-col";
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
-			commonStyles.tempStyles();
+			//commonStyles.tempStyles();
 			commonStyles.GridRequest_DataBound();
 			ownerColorTag();
 		},
 		addTableHeadings: function () {
 			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('.table-group-headings').length) {
-				$('<thead class="table-group-headings"><tr><th colspan="10">Request Info</th><th colspan="7">Task Info</th></tr></thead>').insertBefore('#GridRequest thead');
+			if (!$('#GridRequest').find('thead .table-group-headings').length) {
+				$('#GridRequest thead').prepend('<tr class="table-group-headings"><th colspan="10"><strong>Request Info</strong></th><th colspan="7"><strong>Task Info</strong></th></tr>');
 			}
 		}
 	};
@@ -387,6 +385,3 @@ var singleQueueTables = (function ($) {
 	}
 
 }(jQuery));
-
-
-

@@ -1,13 +1,21 @@
-@import 'partials/_header';
-@import 'partials/_project-form';
-@import 'partials/_add-request';
-@import 'partials/_view-listings';
-@import 'partials/_web-queue';
-@import 'partials/_add-request';
-@import 'partials/_common';
-@import 'partials/_ribbon';
-@import 'partials/_edit-request';
-@import 'partials/_kendo-ui';
-@import 'partials/_browser-warning';
-@import 'partials/_form';
+@import "../bootstrap/custom/variables";
+@import "../bootstrap/partials/mixins";
 
+html, body {
+	width: 100% !important;
+}
+
+@import 'partials/header';
+@import 'partials/project-form';
+@import 'partials/add-request';
+@import 'partials/view-listings';
+@import 'partials/web-queue';
+@import 'partials/add-request';
+@import 'partials/common';
+@import 'partials/ribbon';
+@import 'partials/edit-request';
+@import 'partials/kendo-ui';
+@import 'partials/browser-warning';
+@import 'partials/form';
+@import 'partials/ie9';
+@import 'partials/taxonomyLearnIt';
