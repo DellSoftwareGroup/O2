@@ -1,21 +1,21 @@
-@import "../bootstrap/custom/variables";
-@import "../bootstrap/partials/mixins";
+@import "bootstrap-partials/custom/variables";
+@import "bootstrap-partials/partials/mixins";
 
 html, body {
 	width: 100% !important;
 }
 
-@import 'partials/header';
-@import 'partials/project-form';
-@import 'partials/add-request';
-@import 'partials/view-listings';
-@import 'partials/web-queue';
-@import 'partials/add-request';
-@import 'partials/common';
-@import 'partials/ribbon';
-@import 'partials/edit-request';
-@import 'partials/kendo-ui';
-@import 'partials/browser-warning';
-@import 'partials/form';
-@import 'partials/ie9';
-@import 'partials/taxonomyLearnIt';
+@import 'custom-ui-partials/header';
+@import 'custom-ui-partials/project-form';
+@import 'custom-ui-partials/add-request';
+@import 'custom-ui-partials/view-listings';
+@import 'custom-ui-partials/web-queue';
+@import 'custom-ui-partials/add-request';
+@import 'custom-ui-partials/common';
+@import 'custom-ui-partials/ribbon';
+@import 'custom-ui-partials/edit-request';
+@import 'custom-ui-partials/kendo-ui';
+@import 'custom-ui-partials/browser-warning';
+@import 'custom-ui-partials/form';
+@import 'custom-ui-partials/ie9';
+@import 'custom-ui-partials/taxonomyLearnIt';

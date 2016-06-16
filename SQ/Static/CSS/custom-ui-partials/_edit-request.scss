@@ -26,34 +26,6 @@
 	}
 }
 
-/*panel*/
-.panel-group-collapsible {
-	border-bottom: none;
-	> .panel {
-		border-top: none;
-		.panel-heading {
-			padding: 10px 0;
-			.panel-title > a {
-				font-size: 18px;
-				font-weight: bold;
-				&.collapsed:before {
-					content: "\e250";
-				}
-				&:before {
-					content: "\e252";
-				}
-			}
-		}
-		.table-responsive {
-			margin-bottom: 0;
-			overflow: hidden;
-			.panel-body {
-				padding: 0;
-			}
-		}
-	}
-}
-
 /*comments*/
 #comment-filters {
 	.ms-parent {

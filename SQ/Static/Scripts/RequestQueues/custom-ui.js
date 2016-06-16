@@ -316,6 +316,7 @@ var globalScripts = (function($) {
 	// This js module will only run only on both addRequest.cshtml and editRequest.cshtml
 	var multiTmpl = function() {
 		var init = function() {
+			return false;
 			/*collapsibles*/
 			/*keep border bottom only when they are collapsed*/
 			$('.panel-group-collapsible').each(function() {

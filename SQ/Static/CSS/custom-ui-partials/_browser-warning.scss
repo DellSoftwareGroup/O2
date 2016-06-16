@@ -1,0 +1,31 @@
+/* Browser warning */
+
+.browser-warning {
+	display: none;
+	padding: 10px 35px 10px 45px !important;
+	border-radius: 1px;
+
+	.message {
+		display: inline-block;
+		margin: 0 auto;
+
+		a {
+			font-weight: bold;
+		}
+	}
+	.close-msg {
+		position: absolute;
+		right: 20px;
+		display: block;
+		top: 12px;
+		cursor: pointer;
+	}
+	[data-icon]::before {
+		content: attr(data-icon);
+		font-family: "icon-ui";
+		font-variant: normal;
+		font-weight: normal;
+		line-height: 1;
+		text-transform: none;
+	}
+}

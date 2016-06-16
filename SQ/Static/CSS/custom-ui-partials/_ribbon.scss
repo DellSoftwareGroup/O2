@@ -1,7 +1,6 @@
 /*ribbon*/
 .sq-top-ribbon {
   width: 100%;
-	float: left;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
@@ -9,6 +8,9 @@
   display: none;
   &.initialized {
     display: block;
+  }
+  ul {
+    padding: 0;
   }
   > ul > li {
 	  list-style: none;
@@ -592,33 +594,71 @@
   clear: both;
   > span {
     float: left;
-  }
-  &:last-child {
-    margin-bottom: 10px;
+    margin-right: 10px;
   }
   ul {
     display: inline;
-    li {
-      display: inline-block;
-      float: left;
-      margin: 1px 12px 0 0;
-      &:first-child {
-        margin-left: 10px;
+    padding: 0;
+    ul {
+      margin-left: 10px;
+    }
+  }
+  li {
+    display: inline;
+    margin: 1px 10px 0 0;
+    a {
+      color: #39c;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
       }
-      a {
-        color: #3399CC;
-        font-weight: bold;
-        &:hover {
-          text-decoration: none;
-        }
-      }
-      span {
-        color: #999;
-        font-size: 14px;
-      }
+    }
+    span {
+      color: #999;
+      font-size: 14px;
     }
   }
 }
+
+/*.filter-collector, .search-filter-collector {
+  margin-bottom: 20px;
+  span {
+    white-space: nowrap;
+  }
+  > span {
+    margin-right: 10px;
+  }
+  ul {
+    display: inline;
+    padding: 0;
+    ul {
+      margin-left: 10px;
+    }
+  }
+  li {
+    list-style: none outside none;
+    display: inline;
+    margin: 1px 10px 0 0;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    a {
+      color: #39c;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    > div {
+      display: none;
+    }
+  }
+  .popover-content {
+    span {
+      display: block;
+    }
+  }
+}*/
 
 .search-filter-collector {
 	display: none;
@@ -680,58 +720,60 @@ input#searchById {
 
 /* single deck ribbon (Admin areas)*/
 
-.sq-top-ribbon.single-deck {
-  #filters-section {
-    > ul {
-      margin-bottom: 0;
+.sq-top-ribbon {
+  &.single-deck {
+    #filters-section {
+      > ul {
+        margin-bottom: 0;
+      }
     }
-  }
-  #sq-filters-item {
-    min-width: inherit;
-    width: inherit;
+    #sq-filters-item {
+      min-width: inherit;
+      width: inherit;
 
-    span {
-      margin: 0 auto;
+      span {
+        margin: 0 auto;
+      }
+      #filters {
+        padding-bottom: 10px;
+      }
     }
-    #filters {
-      padding-bottom: 10px;
-    }
-  }
-  #sq-ribbon-search-item {
-    box-sizing: border-box;
-    width: 338px;
+    #sq-ribbon-search-item {
+      box-sizing: border-box;
+      width: 338px;
 
-    span {
-      padding-top: 20px;
+      span {
+        padding-top: 20px;
+      }
     }
-  }
-  .sq-ribbon-search-text {
-    width: 310px !important;
-    position: relative;
-    z-index: 0;
-    padding-right: 21px;
-  }
-  #sq-ribbon-search-btn {
-    top: -18px;
-    right: 8px;
-    background-position: 0 -127px;
-    cursor: pointer;
-    clear: both;
-    position: relative;
-    width: 13px;
-    height: 13px;
-    float: right;
-  }
-  .sq-btn-icon {
-    background-image: url('../Content/Img/request-queue-sprite.png');
-    background-repeat: no-repeat;
-    border: medium none;
-    background-color: transparent;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 4px;
-    height: 22px;
+    .sq-ribbon-search-text {
+      width: 310px !important;
+      position: relative;
+      z-index: 0;
+      padding-right: 21px;
+    }
+    #sq-ribbon-search-btn {
+      top: -18px;
+      right: 8px;
+      background-position: 0 -127px;
+      cursor: pointer;
+      clear: both;
+      position: relative;
+      width: 13px;
+      height: 13px;
+      float: right;
+    }
+    .sq-btn-icon {
+      background-image: url('../Content/Img/request-queue-sprite.png');
+      background-repeat: no-repeat;
+      border: medium none;
+      background-color: transparent;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 4px;
+      height: 22px;
+    }
   }
 }
 
@@ -841,8 +883,6 @@ input#searchById {
 
 .tab-content {
   padding-top: 15px;
-  /*border-left: 1px solid #aaa;*/
-  /*padding-left: 20px;*/
   min-height: 345px;
 
   .glyphicon {
@@ -850,11 +890,10 @@ input#searchById {
   }
   ul {
     list-style: none;
-
+    padding: 0;
     ul > li {
       padding-left: 40px;
     }
-
   }
   .simple-list {
     padding-left: 24px;

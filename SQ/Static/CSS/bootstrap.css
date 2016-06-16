@@ -6830,9 +6830,9 @@ a:hover .has-overlay h4 {
     right: 0;
     width: 20px;
     height: 25px;
-    background: url("/sq/static/images/multiple-select.png") left top no-repeat; }
+    background: url("/SQ/Static/images/multiple-select.png") left top no-repeat; }
     .ms-choice > div.open {
-      background: url("/sq/static/images/multiple-select.png") right top no-repeat; }
+      background: url("/SQ/Static/images/multiple-select.png") right top no-repeat; }
 
 .ms-drop {
   min-width: 100%;
@@ -6889,13 +6889,13 @@ a:hover .has-overlay h4 {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    background: white url("/sq/static/images/multiple-select.png") no-repeat 100% -22px;
-    background: url("/sq/static/images/multiple-select.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-    background: url("/sq/static/images/multiple-select.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url("/sq/static/images/multiple-select.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-    background: url("/sq/static/images/multiple-select.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-    background: url("/sq/static/images/multiple-select.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
-    background: url("/sq/static/images/multiple-select.png") no-repeat 100% -22px, linear-gradient(top, white 85%, #eeeeee 99%);
+    background: white url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px;
+    background: url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+    background: url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background: url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background: url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+    background: url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+    background: url("/SQ/Static/images/multiple-select.png") no-repeat 100% -22px, linear-gradient(top, white 85%, #eeeeee 99%);
     -webkit-box-sizing: border-box;
     -khtml-box-sizing: border-box;
     -moz-box-sizing: border-box;

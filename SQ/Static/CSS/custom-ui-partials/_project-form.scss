@@ -257,13 +257,15 @@ p.data {
 }
 
 /* request section styles */
-#views-selector .views-select-link {
-	font-size: 14px;
-	display: inline-block;
-	vertical-align: top;
-	padding-top: 5px;
-	color: #007db8;
-	word-spacing: -1px;
+#views-selector {
+	.views-select-link {
+		font-size: 14px;
+		display: inline-block;
+		vertical-align: top;
+		padding-top: 5px;
+		color: #007db8;
+		word-spacing: -1px;
+	}
 }
 
 /* Comments section styles */

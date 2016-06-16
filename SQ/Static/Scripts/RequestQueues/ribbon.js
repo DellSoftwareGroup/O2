@@ -463,38 +463,7 @@ var ribbonListener = function () {
 
 			function run() {
 				if (typeof passedFunc !== "undefined" || typeof passedFunc !== 'function') {
-					var obj = getISobj(ribbonReqObj);
-
-					$.each(obj, function(n, v) {
-						if(n == 'Sprint') {
-							obj[n] = (function() {
-								var allSprintsSelected = false;
-								var newArr = obj[n].filter(function(value, index, arr) {
-									if(value == '') {
-										allSprintsSelected = true;
-									}
-									else if(allSprintsSelected && value != 'UNASSIGNED') {
-										return false;
-									}
-
-									return true;
-								});
-
-								if(allSprintsSelected) {
-									newArr[0] = null;
-								}
-
-								return newArr;
-							})();
-						}
-						else if(n == 'Departments') {
-							if(ribbonReqObj[n].length === v.length) {
-								obj[n] = [null];
-							}
-						}
-					});
-
-					passedFunc(obj);
+					passedFunc(getISobj(ribbonReqObj));
 				}
 			}
 
@@ -610,24 +579,37 @@ var ribbonListener = function () {
 				$.each(ISribbonObj, function(n, v) {
 					if(n == 'Sprint') {
 						ISribbonObj[n] = (function() {
-							var allSprintsSelected = false;
+							var allSprintSelected = false, unassignedSprintSelected = false;
+
 							var newArr = ISribbonObj[n].filter(function(value, index, arr) {
 								if(value == '') {
-									allSprintsSelected = true;
+									allSprintSelected = true;
 								}
-								else if(allSprintsSelected && value != 'UNASSIGNED') {
+								else if(value == 'UNASSIGNED') {
+									unassignedSprintSelected = true;
+								}
+								else if(allSprintSelected && value != 'UNASSIGNED') {
 									return false;
 								}
 
 								return true;
 							});
 
-							if(allSprintsSelected) {
-								newArr[0] = null;
+							if(allSprintSelected) {
+								if(unassignedSprintSelected) {
+									return null;
+								}
+								else {
+									newArr[0] = null;
+								}
 							}
 
 							return newArr;
 						})();
+
+						if(ISribbonObj[n] === null) {
+							delete ISribbonObj[n];
+						}
 					}
 					else if(n == 'Departments') {
 						if(ribbonReqObj[n].length === v.length) {
@@ -741,9 +723,6 @@ var ribbonWidgets = function () {
 	function filterCollectorModule() {
 		var filterObj = ribbonListener.passFilterStateObj(), filterCollectorElem = $('.filter-collector');
 
-		// Clear filter collector area
-		filterCollectorElem.html('');
-
 		function findActiveFilters() {
 			var activeFilters = {};
 
@@ -767,8 +746,10 @@ var ribbonWidgets = function () {
 		}
 
 		function buildTmpl(activeFilters) {
+			// Clear filter collector area
+			filterCollectorElem.html('');
+
 			// append filter tag:
-			//filterCollectorElem.append('<ul><li class="h3" style="font-weight: 700;">Filters:</li></ul>');
 			filterCollectorElem.append('<span class="h3">Filters:</span>');
 			filterCollectorElem.append('<ul><li>Clear All Filters <a href="#" data-action="clear-cookie"> X</a></li></ul>');
 			var filterHtml = '', activeArr = [];
@@ -778,7 +759,7 @@ var ribbonWidgets = function () {
 				// do not add cross and anchor to options
 				filterHtml = String()
 						+ '<ul>'
-						+ '<li>' + filter + '<a href="#"> X</a></li>';
+						+ '<li>' + filter + '<a href="#" data-title="' + filter + '"> X</a></li>';
 				if (Array.isArray(options)) {
 					options.forEach(function (option) {
 						filterHtml = filterHtml + '<li><span>' + option.text + '</span></li>';
@@ -789,6 +770,35 @@ var ribbonWidgets = function () {
 			});
 			var cleanFilters = activeArr.join(' ');
 			filterCollectorElem.append(cleanFilters);
+		}
+
+		function buildTmplNew(activeFilters) {
+			filterCollectorElem.find('> ul').empty();
+
+			// append filter tag:
+			filterCollectorElem.find('> ul').append('<li><span>Clear All Filters <a href="#" data-action="clear-cookie"> X</a></span><div>This will clear all filters and restore to your user preference.</div></li>');
+
+			var filterHtml = '';
+
+			$.each(activeFilters, function (filter, options) {
+				// if it is a multiselect from Filters area
+				// do not add cross and anchor to options
+				filterHtml = '<li><span>' + filter + '<a href="#" data-title="' + filter + '"> X</a></span>';
+
+				if (Array.isArray(options)) {
+					filterHtml += '<div>';
+
+					options.forEach(function (option) {
+						filterHtml += '<span>' + option.text + '</span>';
+					});
+
+					filterHtml += '</div>';
+				}
+
+				filterHtml += '</li>';
+
+				filterCollectorElem.find('> ul').append(filterHtml);
+			});
 		}
 
 		// Remove Filters
@@ -855,13 +865,6 @@ var ribbonWidgets = function () {
 						}
 					});*/
 				}
-			}
-
-			function findFilterTitle(clickedElm) {
-				var filterUl = $(clickedElm).closest('ul'),
-						filterTxt = filterUl.find('li').eq(0).text(),
-						filterTile = cleanFilterTxt(filterTxt);
-				return filterTile;
 			}
 
 			function findOptionTxt(clickedElm) {
@@ -951,7 +954,7 @@ var ribbonWidgets = function () {
 
 					// Prevent loop between ribbon and filter collection area
 
-					var filterType = findFilterTitle($(this)),
+					var filterType = $(this).data('title'),
 						$dataTitle = ribbonElem.find('[data-title="' + filterType + '"]'); // needed as there may be additional data-title with same value
 
 					// if clicked on grouping filter
@@ -965,6 +968,18 @@ var ribbonWidgets = function () {
 
 					ribbonListener.rebuildRibbonState(ribbonElem);
 				});
+
+				/*filterCollectorElem.popover({
+					html: true,
+					placement: 'bottom',
+					selector: 'li',
+					trigger: 'hover',
+					viewport: '.filter-collector',
+					title: '',
+					content: function() {
+						return $(this).find('> div').html();
+					}
+				});*/
 			}
 		}
 
@@ -1086,7 +1101,7 @@ function doSearch() {
 	filterStatus(false);
 
 	$('.filter-collector').hide();
-	searchFilterElem.find('span').text(query).end().show();
+	searchFilterElem.find('.search-query-display').text(query).end().show();
 	
 	if(!searchFilterElem.data('initialize')) {
 		searchFilterElem.on('click', 'a', function(e) {
@@ -1266,19 +1281,7 @@ $(function () {
 			else if (id == 'dp-sprint-dd') {
 				$.extend(obj, {
 					width: 60,
-					selectAll: true,
-					/*onCheckAll: function() {
-						console.log(this);
-						console.log(this.target);
-						this.target.next().find(':input').each(function() {
-							if($(this).val() == 'UNASSIGNED') {
-								$(this).prop('checked', false);
-							}
-						});
-					},*/
-					onClick: function() {
-						console.log('on click', this, arguments);
-					}
+					selectAll: true
 				});
 			}
 			else if ($.inArray(id, ['priority-dd', 'region-dd', 'route-to-market-dd']) > -1) {
