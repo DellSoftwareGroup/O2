@@ -3084,7 +3084,8 @@ input#searchById {
       left: 6px; }
 
 .k-datepicker {
-  width: 110px !important; }
+  width: 110px !important;
+  border: 1px solid #ccc; }
 
 .k-window {
   /*Remove background color and bottom border on kendo window modals*/ }
