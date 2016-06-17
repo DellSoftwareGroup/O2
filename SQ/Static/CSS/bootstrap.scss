@@ -4,7 +4,7 @@
 @import "bootstrap-partials/custom/font-face";
 // Reset and dependencies
 @import "bootstrap-partials/custom/normalize";
-@import "bootstrap-partials/partials/print";
+/*@import "bootstrap-partials/partials/print";*/
 @import "bootstrap-partials/custom/glyphicons";
 // Core CSS
 @import "bootstrap-partials/custom/scaffolding";
@@ -22,16 +22,16 @@
 @import "bootstrap-partials/partials/input-groups";
 @import "bootstrap-partials/partials/navs";
 @import "bootstrap-partials/partials/navbar";
-@import "bootstrap-partials/custom/breadcrumbs";
-@import "bootstrap-partials/partials/pagination";
-@import "bootstrap-partials/partials/pager";
+/*@import "bootstrap-partials/custom/breadcrumbs";*/
+/*@import "bootstrap-partials/partials/pagination";*/
+/*@import "bootstrap-partials/partials/pager";*/
 @import "bootstrap-partials/partials/labels";
 @import "bootstrap-partials/partials/badges";
 /*@import "bootstrap/jumbotron";*/
 @import "bootstrap-partials/partials/thumbnails";
 @import "bootstrap-partials/custom/alerts";
 /*@import "bootstrap/progress-bars";*/
-@import "bootstrap-partials/partials/media";
+/*@import "bootstrap-partials/partials/media";*/
 @import "bootstrap-partials/partials/list-group";
 @import "bootstrap-partials/partials/responsive-embed";
 /*@import "bootstrap/wells";*/
@@ -53,8 +53,8 @@
 /*@import "../bootstrap/widgets/hero-banner";*/
 /*@import "../bootstrap/widgets/screenshot-carousel";*/
 /*@import "../bootstrap/widgets/social-sharing";*/
-@import "bootstrap-partials/widgets/slide";
-@import "bootstrap-partials/widgets/events";
+/*@import "bootstrap-partials/widgets/slide";*/
+/*@import "bootstrap-partials/widgets/events";*/
 /*@import "../bootstrap/widgets/fat-tabs";*/
 /*@import "../bootstrap/widgets/4-column-non-carousel";*/
 @import "bootstrap-partials/widgets/content-teaser";
@@ -62,7 +62,7 @@
 @import "bootstrap-partials/widgets/introduction-with-grey-box";
 @import "bootstrap-partials/widgets/featured-products";
 /*@import "../bootstrap/widgets/listing-entries";*/
-@import "bootstrap-partials/widgets/filters";
+/*@import "bootstrap-partials/widgets/filters";*/
 @import "bootstrap-partials/widgets/multiple-select";
 /*@import "../bootstrap/widgets/button-flyout";*/
 /*@import "../bootstrap/widgets/simple-pagination";*/

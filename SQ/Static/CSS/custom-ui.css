@@ -2503,6 +2503,7 @@ a {
       margin-left: 10px; }
   .filter-collector li, .search-filter-collector li {
     display: inline;
+    float: left;
     margin: 1px 10px 0 0; }
     .filter-collector li a, .search-filter-collector li a {
       color: #39c;
