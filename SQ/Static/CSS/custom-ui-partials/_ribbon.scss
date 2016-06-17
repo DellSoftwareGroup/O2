@@ -621,7 +621,7 @@
   }
 }
 
-/*.filter-collector, .search-filter-collector {
+.filter-collector.new, .search-filter-collector.new {
   margin-bottom: 20px;
   span {
     white-space: nowrap;
@@ -659,7 +659,7 @@
       display: block;
     }
   }
-}*/
+}
 
 .search-filter-collector {
 	display: none;

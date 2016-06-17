@@ -773,6 +773,7 @@ var ribbonWidgets = function () {
 		}
 
 		function buildTmplNew(activeFilters) {
+			filterCollectorElem.addClass('new');
 			filterCollectorElem.find('> ul').empty();
 
 			// append filter tag:
@@ -969,21 +970,29 @@ var ribbonWidgets = function () {
 					ribbonListener.rebuildRibbonState(ribbonElem);
 				});
 
-				/*filterCollectorElem.popover({
-					html: true,
-					placement: 'bottom',
-					selector: 'li',
-					trigger: 'hover',
-					viewport: '.filter-collector',
-					title: '',
-					content: function() {
-						return $(this).find('> div').html();
-					}
-				});*/
+				if(location.search == '?v2') {
+					filterCollectorElem.popover({
+						html: true,
+						placement: 'bottom',
+						selector: 'li',
+						trigger: 'hover',
+						viewport: '.filter-collector',
+						title: '',
+						content: function() {
+							return $(this).find('> div').html();
+						}
+					});
+				}
 			}
 		}
 
-		buildTmpl(findActiveFilters());
+		if(location.search == '?v2') {
+			buildTmplNew(findActiveFilters());
+		}
+		else {
+			buildTmpl(findActiveFilters());
+		}
+
 		setXTrigger();
 	}
 
@@ -1308,4 +1317,5 @@ $(function () {
 	})();
 
 	ribbonElem.addClass('initialized');
+	$('#search-container').addClass('initialized');
 });
