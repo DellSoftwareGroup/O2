@@ -384,17 +384,10 @@
         width: 39%;
         padding-top: 18px;
       }
-      select {
-        width: 103px;
-        padding: 0;
-      }
     }
     &#views {
       > span {
         padding-top: 12px;
-      }
-      select {
-        width: 100px;
       }
       .ms-choice {
         > span {
@@ -418,10 +411,6 @@
     &#filters-section {
       > ul > li {
         min-width: 125px;
-        > a > select, > div > div > a > select {
-          border: none;
-          width: 123px;
-        }
         &:last-child {
           min-width: 135px;
         }
@@ -569,6 +558,30 @@
 				color: #ccc;
 			}
 		}
+	}
+}
+
+#views {
+	select {
+		width: 80px;
+	}
+}
+
+#sprints-section {
+	select {
+		width: 60px;
+	}
+}
+
+#filters-section {
+	select {
+		width: 100px;
+	}
+}
+
+#sq-filters {
+	select {
+		width: 223px;
 	}
 }
 

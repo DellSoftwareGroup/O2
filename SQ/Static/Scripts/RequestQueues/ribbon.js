@@ -35,8 +35,8 @@ var initRibbon = function () {
 	}
 
 	function getFilterInfo(filterType) {
-		var whichFilter = $(filterType).data('title');
-		whichFilter = $.trim(whichFilter);
+		var whichFilter = $.trim(filterType.data('title'));
+
 		return filtersMap[whichFilter];
 	}
 
@@ -116,39 +116,34 @@ var initRibbon = function () {
 
 		// determine each kind of filter and route to right set method
 		function typeOfFilter() {
-			$filters.forEach(function (filterType) {
-				var filterTypeElem = $(filterType), filterInfo = getFilterInfo(filterType);
+			ribbonElem.find('.active-item-bg').removeClass('active-item-bg');
 
-				if(filterTypeElem.parents('#sq-filters-item').length) {
-					$('#sq-filters-item').removeClass('active-item-bg');
-				}
-				else {
-					filterTypeElem.parents('li').removeClass('active-item-bg');
-				}
+			$filters.forEach(function (filterType) {
+				var filterInfo = getFilterInfo(filterType);
 
 				// If multiSelect filter typ
-				if (filterTypeElem.attr('multiple')) { // check for multiselect
+				if (filterType.attr('multiple')) { // check for multiselect
 					//setMultiSelects($(filterType), filterInfo.option);
-					$(filterType).multipleSelect('setSelects', filterInfo.option);
+					filterType.multipleSelect('setSelects', filterInfo.option);
 
 					if(filterInfo.option.length) {
-						if($(filterType).parents('#sq-filters-item').length) {
+						if(filterType.parents('#sq-filters-item').length) {
 							$('#sq-filters-item').addClass('active-item-bg');
 						}
 						else {
-							$(filterType).parents('li').addClass('active-item-bg');
+							filterType.parents('li').addClass('active-item-bg');
 						}
 					}
 				}
 
 				// If no dropdown or input text filter (e.g Request Status)
-				else if (filterTypeElem.data('title') == "Request Status") {
-					setSimpleNoSelectFilters($(filterType), filterInfo.option);
+				else if (filterType.data('title') == "Request Status") {
+					setSimpleNoSelectFilters(filterType, filterInfo.option);
 				}
 
 				// from popover "Dynamic"
-				else if (filterTypeElem.parent('a').attr('data-dynamic') === 'true') {
-					setDynamicFilters($(filterType), filterInfo.option);
+				else if (filterType.parent('a').attr('data-dynamic') === 'true') {
+					setDynamicFilters(filterType, filterInfo.option);
 				}
 			});
 		}
@@ -192,8 +187,6 @@ var initRibbon = function () {
 		function setSimpleNoSelectFilters(multiSelct, options) {
 			$(multiSelct).find('li').each(function () {
 				var $li = $(this);
-
-				//$li.removeClass('active-item-bg'); // there are some of this filters have class from source code;
 
 				options.forEach(function (option) {
 					if (!!$li.find('a[title="' + option + '"]').length) {
@@ -1170,8 +1163,6 @@ $(function () {
 		$('#dp-sprint-dd').find('option:eq(0)').remove();
 	}*/
 
-	var ribbonItem = ribbonElem.find('> ul > li > ul > li');
-
 	$('body').on('click', function (e) {
 		moreFiltersElem.removeClass('open');
 
@@ -1200,108 +1191,74 @@ $(function () {
 			}
 		});
 
+	ribbonElemMS = ribbonElem.find('select').filter('[multiple=multiple]');
+
 	//Initialize multiple select for ribbon area
-	ribbonElem.find('select').each(function() {
-		if ($(this).attr('multiple') == 'multiple') {
-			var id = $(this).attr('id'), title = $(this).data('title'), obj = {
-				placeholder: title,
-				minimumCountSelected: 0,
-				countSelected: title,
-				selectAllText: $(this).data('select-all-text'),
-				allSelected: title,
-				maxHeight: 240,
-				onClose: function () {
-					var currentValues = this.target.multipleSelect('getSelects');
-					//$target = this.title
-					//Check if the value has changed. If changed, call onCloseMultiFilter method.
-					if($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
-						//ribbonListener.onCloseMultiFilter($target);
-						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
-					}
-				},
-				onOpen: function (elem) {
-					this.target = $(elem).parent().prev();
-					this.previousValues = this.target.multipleSelect('getSelects');
+	ribbonElemMS.each(function() {
+		var title = $(this).data('title');
 
-					var nextElem = $(elem).next(), ul = nextElem.find('ul');
+		$(this).multipleSelect({
+			placeholder: title,
+			minimumCountSelected: 0,
+			countSelected: title,
+			selectAllText: $(this).data('select-all-text'),
+			allSelected: title,
+			maxHeight: 240,
+			onClose: function() {
+				var currentValues = this.target.multipleSelect('getSelects');
+				//$target = this.title
+				//Check if the value has changed. If changed, call onCloseMultiFilter method.
+				if ($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
+					//ribbonListener.onCloseMultiFilter($target);
+					ribbonListener.rebuildRibbonState('.sq-top-ribbon');
+				}
+			},
+			onOpen: function(elem) {
+				this.target = $(elem).parent().prev();
+				this.previousValues = this.target.multipleSelect('getSelects');
 
-					if(!nextElem.find('.btn').length) {
-						nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
+				var nextElem = $(elem).next(), ul = nextElem.find('ul');
 
-						nextElem.on('click', '.btn-default', function() {
-							$(elem).parents('.ms-parent').prev().multipleSelect('uncheckAll');
-						});
+				if (!nextElem.find('.btn').length) {
+					nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
 
-						nextElem.on('click', '.btn-primary', function() {
-							$(this).parents('.ms-parent').prev().multipleSelect('close');
-						});
-					}
+					nextElem.on('click', '.btn-default', function() {
+						$(elem).parents('.ms-parent').prev().multipleSelect('uncheckAll');
+					});
 
-					//fix for bg toggle issue when multiple select clicked
-					ribbonItem.off('click');
-
-					/*width/height fix imported from DSG*/
-					if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
-						ul.css('width', ul.outerWidth() + $.position.scrollbarWidth());
-						ul.data('width-fixed', true);
-					}
-
-					//Check if dropdown needs to be reversed.
-					nextElem.css('right', 'auto');
-
-					if (nextElem.offset().left + nextElem.find('ul').outerWidth(true) > $('body').width()) {
-						nextElem.css('right', 0);
-					}
-					else {
-						nextElem.css('right', 'auto');
-					}
-
-					/*check if dropdown needs to be on top*/
-					/*reset*/
-					nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
-
-					if ($('.table-responsive').length > 0) { // added if statement to prevent 'top' undefined error when .table-responsive is not being used
-						if ($(elem).parents('.table-responsive').offset().top + $(elem).parents('.table-responsive').outerHeight(true) < nextElem.offset().top + nextElem.find('ul').outerHeight(true)) {
-							nextElem.css({'top': ' -90px', 'box-shadow': '0 -4px 5px rgba(0,0,0,0.15)'});
-						}
-						else {
-							nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
-						}
-					} else {
-						nextElem.css({'top': ' 100%', 'box-shadow': '0 4px 5px rgba(0,0,0,0.15)'});
-					}
-
-					var selectTagElem = $(elem).parent().prev().get(0);
-
-					//Close all other multiselect dropdown
-					ribbonElem.find('select').each(function() {
-						if (selectTagElem != this && $(this).attr('multiple') == 'multiple') {
-							var elem = $(this).next();
-
-							elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
-						}
+					nextElem.on('click', '.btn-primary', function() {
+						$(this).parents('.ms-parent').prev().multipleSelect('close');
 					});
 				}
-			};
 
-			if ($.inArray(id, ['dp-team-dd', 'dp-mywork-dd']) > -1) {
-				obj.width = 80;
-			}
-			else if (id == 'dp-sprint-dd') {
-				$.extend(obj, {
-					width: 60,
-					selectAll: true
+				/*width/height fix imported from DSG*/
+				if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
+					ul.css('width', ul.outerWidth() + $.position.scrollbarWidth()).data('width-fixed', true);
+				}
+
+				//Check if dropdown needs to be reversed.
+				nextElem.css('right', 'auto');
+
+				if (nextElem.offset().left + nextElem.find('ul').outerWidth(true) > $('body').width()) {
+					nextElem.css('right', 0);
+				}
+
+				/*if(nextElem.outerHeight(true) + nextElem.offset().top > $('body').height()) {
+				 nextElem.css({'top': ' -90px'});
+				 }*/
+
+				var selectTagElem = $(elem).parent().prev().get(0);
+
+				//Close all other multiselect dropdown
+				ribbonElemMS.each(function() {
+					if (selectTagElem != this) {
+						var elem = $(this).next();
+
+						elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
+					}
 				});
 			}
-			else if ($.inArray(id, ['priority-dd', 'region-dd', 'route-to-market-dd']) > -1) {
-				obj.width = 223;
-			}
-			else if ($(this).parents('#filters-section').length) {
-				obj.width = 100;
-			}
-
-			$(this).multipleSelect(obj);
-		}
+		});
 	});
 
 	//Retrieve session cookie for filters.

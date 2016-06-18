@@ -1459,8 +1459,6 @@ var globalModules = function () {
 			usersPopoverInit: usersPopoverInit,
 			runUserPopover: runUserPopover // called manually by IS
 		}
-
-
 	}(); // */end of popupModule module
 
 	var followersGrid = function () {
@@ -1584,7 +1582,7 @@ $(function () {
 	if (typeof endPoints === 'object') {
 		globalModules.popupModule.usersPopoverInit();
 	}
-	globalModules.rightRailWidgets.init();
 
+	globalModules.rightRailWidgets.init();
 });
 

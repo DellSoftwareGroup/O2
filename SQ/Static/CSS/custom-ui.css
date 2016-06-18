@@ -2199,13 +2199,8 @@ a {
     .sq-top-ribbon > ul > li#sprints-section span:last-child {
       width: 39%;
       padding-top: 18px; }
-    .sq-top-ribbon > ul > li#sprints-section select {
-      width: 103px;
-      padding: 0; }
     .sq-top-ribbon > ul > li#views > span {
       padding-top: 12px; }
-    .sq-top-ribbon > ul > li#views select {
-      width: 100px; }
     .sq-top-ribbon > ul > li#views .ms-choice > span {
       top: 2px; }
     .sq-top-ribbon > ul > li#views .ms-choice > div {
@@ -2216,9 +2211,6 @@ a {
       padding-top: 12px; }
     .sq-top-ribbon > ul > li#filters-section > ul > li {
       min-width: 125px; }
-      .sq-top-ribbon > ul > li#filters-section > ul > li > a > select, .sq-top-ribbon > ul > li#filters-section > ul > li > div > div > a > select {
-        border: none;
-        width: 123px; }
       .sq-top-ribbon > ul > li#filters-section > ul > li:last-child {
         min-width: 135px; }
     .sq-top-ribbon > ul > li#excel li {
@@ -2319,6 +2311,18 @@ a {
     background-color: rgba(204, 204, 204, 0.5); }
   .sq-top-ribbon .disabled:hover a {
     color: #ccc; }
+
+#views select {
+  width: 80px; }
+
+#sprints-section select {
+  width: 60px; }
+
+#filters-section select {
+  width: 100px; }
+
+#sq-filters select {
+  width: 223px; }
 
 @media (min-width: 1570px) {
   .sq-top-ribbon > ul > li {
