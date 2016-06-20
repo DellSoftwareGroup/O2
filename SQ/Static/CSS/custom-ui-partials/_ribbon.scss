@@ -927,6 +927,9 @@ input#searchById {
 .k-window {
   #tabstrip-modal {
     display: block;
+    ul {
+      padding: 0;
+    }
   }
 }
 

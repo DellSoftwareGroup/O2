@@ -1822,7 +1822,8 @@ a {
   -moz-border-radius: 5px; }
   .smllWidgetTable td {
     border-top: 0 !important;
-    height: 34px; }
+    height: 34px;
+    word-break: break-all; }
   .smllWidgetTable th {
     /*border-bottom: 2px solid #eaeaea;*/
     border-bottom: 0;
@@ -2559,6 +2560,8 @@ input#searchById {
 
 .k-window #tabstrip-modal {
   display: block; }
+  .k-window #tabstrip-modal ul {
+    padding: 0; }
 
 /* More filters popop */
 #project-text,
