@@ -2260,7 +2260,12 @@ a {
         width: 200px;
         height: 21px;
         padding-left: 4px;
-        padding-right: 19px; }
+        padding-right: 19px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: #fff;
+      }
       .sq-top-ribbon > ul > li .sub-nav .ms-choice span {
         padding-top: 5px;
         padding-left: 2px; }
@@ -2562,11 +2567,6 @@ input#searchById {
   display: block; }
   .k-window #tabstrip-modal ul {
     padding: 0; }
-
-/* More filters popop */
-#project-text,
-.sq-ribbon-filter-text.campaign-input {
-  background-color: #fff; }
 
 @media (min-width: 768px) {
   .modal-dialog {

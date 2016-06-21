@@ -471,6 +471,10 @@
         height: 21px;
         padding-left: 4px;
         padding-right: 19px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: #fff;
       }
 
       /* multiselect fields */
@@ -931,12 +935,6 @@ input#searchById {
       padding: 0;
     }
   }
-}
-
-/* More filters popop */
-#project-text,
-.sq-ribbon-filter-text.campaign-input {
-  background-color: #fff;
 }
 
 @media(min-width: 768px) {
