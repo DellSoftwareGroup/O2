@@ -1,4 +1,4 @@
-
+/* Used at http://stage-o2/SQ/listing/mmdadminlearntaxonomy */
 .learnIt, .learnItEdit {
 
   h2 {
@@ -90,7 +90,6 @@
   }
 
 }
-
 
 .custom-treeviewnode a {
   margin-left: 5px;
@@ -211,6 +210,27 @@
   }
   .data-heading {
     margin: 0;
+  }
+}
+
+.learnit-nav {
+
+  > ul {
+    padding-left: 0 !important;
+
+    > li {
+      position: relative;
+
+      > ul {
+        padding-left: 0 !important;
+      }
+    }
+  }
+  #rq-filters-item > span:last-child {
+    width: 40%;
+    display: block;
+    bottom: -5px;
+    margin: 0 auto;
   }
 }
 
