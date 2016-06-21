@@ -1319,8 +1319,7 @@ var globalModules = function () {
 						placement: 'left',
 						content: buildHtml.content,
 						template: buildHtml.tmpl
-					});
-					$(this).popover("show");
+					}).popover("show");
 
 					initKendoMultiSelect();
 					addPrevSelectionsToPopover(this);
