@@ -1,0 +1,71 @@
+[
+  {
+    "Id": 1,
+    "Taxonomy": "Solutions",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "",
+    "Parent": null
+  },
+  {
+    "Id": 2,
+    "Taxonomy": "",
+    "PrimaryLevel": "DCCM",
+    "SecondaryLevel": "",
+    "BusinessGroup": "SIM",
+    "Parent": 1
+  },
+  {
+    "Id": 3,
+    "Taxonomy": "",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "Cloud Management",
+    "Parent": 2
+  },
+  {
+    "Id": 4,
+    "Taxonomy": "",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "",
+    "TertiaryLevel": "Centralized Cloud Management",
+    "Parent": 3
+  },
+  {
+    "Id": 5,
+    "Taxonomy": "",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "",
+    "TertiaryLevel": "Application Performance Monitoring",
+    "Parent": 3
+  },
+  {
+    "Id": 6,
+    "Taxonomy": "",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "",
+    "TertiaryLevel": "Automated Workload Delivery & Infrastructure Management",
+    "Parent": 3
+  },
+  {
+    "Id": 7,
+    "Taxonomy": "",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "",
+    "TertiaryLevel": "Identity & Access",
+    "Parent": 3
+  },
+  {
+    "Id": 8,
+    "Taxonomy": "",
+    "PrimaryLevel": "Data Protection",
+    "SecondaryLevel": "",
+    "BusinessGroup": "SIM",
+    "Parent": 1
+  },
+  {
+    "Id": 9,
+    "Taxonomy": "Platform",
+    "PrimaryLevel": "",
+    "SecondaryLevel": "",
+    "Parent": null
+  }
+]

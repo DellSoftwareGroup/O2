@@ -1,0 +1,72 @@
+<div class="wrapper">
+	<div id="treelist"></div>
+</div>
+
+<script id="primary-level-template" type="text/x-kendo-template">
+	# if (PrimaryLevel != "") { #
+	<div>#: PrimaryLevel # <a href="/">Edit</a></div>
+	# } #
+</script>
+
+<script id="secondary-level-template" type="text/x-kendo-template">
+	# if (SecondaryLevel != "") { #
+	<div>#: SecondaryLevel # <a href="/">View Products</a></div>
+	# } #
+</script>
+
+<script>
+	$(document).ready(function() {
+		$("#treelist").kendoTreeList({
+			dataSource: {
+				transport: {
+					read: {
+						url: "/SQ/singlequeue/pages/product-solution-mapping/sample-data.json",
+						dataType: "json"
+					}
+				},
+				schema: {
+					model: {
+						id: "ID",
+						parentId: "Parent",
+						fields: {
+							Parent: {field: "Parent", nullable: true},
+							ID: {field: "Id", type: "number"}
+						},
+						expanded: false
+					}
+				}
+			},
+			height: 540,
+			filterable: false,
+			sortable: true,
+			columns: [
+				{
+					field: "Taxonomy",
+					title: "Learn Taxonomy",
+					width: 150
+				},
+				{
+					field: "PrimaryLevel",
+					title: "Primary Level",
+					template: $("#primary-level-template").html(),
+					width: 200
+				},
+				{
+					field: "SecondaryLevel",
+					title: "Secondary Level",
+					template: $("#secondary-level-template").html(),
+					width: 250
+				},
+				{
+					field: "TertiaryLevel",
+					title: "Tertiary Level"
+				},
+				{
+					field: "BusinessGroup",
+					title: "Business Group",
+					width: 150
+				}
+			]
+		});
+	});
+</script>
