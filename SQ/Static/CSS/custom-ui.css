@@ -3126,6 +3126,7 @@ input#searchById {
   margin-right: 0px !important; }
 
 /* ie fixes */
+/* override bootstrap */
 .k-ie input[type='radio'] {
   position: relative !important;
   margin-left: -15px !important;
