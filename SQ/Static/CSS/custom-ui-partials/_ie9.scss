@@ -2,4 +2,11 @@
 	#add-link-form {
 		padding: 15px 0;
 	}
+	.sprint-metadata-form {
+		input[type='radio'] {
+			height: auto !important;
+			width: auto !important;
+			position: inherit !important;
+		}
+	}
 }

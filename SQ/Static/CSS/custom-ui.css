@@ -2954,6 +2954,18 @@ input#searchById {
 .ie9 #add-link-form {
   padding: 15px 0; }
 
+.ie9 .sprint-metadata-form input[type='radio'] {
+  height: auto !important;
+  width: auto !important;
+  position: inherit !important;
+}
+
+.ie10 .sprint-metadata-form input[type='radio'], .k-ie10 .sprint-metadata-form input[type='radio'] {
+  height: auto !important;
+  width: auto !important;
+  position: inherit !important;
+}
+
 /* Used at http://stage-o2/SQ/listing/mmdadminlearntaxonomy */
 .learnIt h2, .learnItEdit h2 {
   margin-bottom: 10px;
@@ -3122,12 +3134,17 @@ input#searchById {
   margin-bottom: 20px;
   margin-top: 20px; }
 [kendo-window="winDeleteLevel"] .row {
-  margin-left: 0px !important;
-  margin-right: 0px !important; }
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 
-/* ie fixes */
-/* override bootstrap */
-.k-ie input[type='radio'] {
+/*********** ie fixes ***********/
+/* override bootstrap for ie9 and ie11
+*  Issue is only known for this specific form
+*  find css changes for this fix for ie9 or ie10
+* on the their respective partials
+*/
+.k-ie .sprint-metadata-form input[type='radio'] {
   position: relative !important;
   margin-left: -15px !important;
 }
