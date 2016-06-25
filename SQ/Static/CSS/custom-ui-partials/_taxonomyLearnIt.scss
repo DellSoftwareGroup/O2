@@ -241,15 +241,15 @@
     margin-top: 20px;
   }
   .row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
-/* ie fixes */
+/*********** ie fixes ***********/
 
-/* override bootstrap */
-.k-ie input[type='radio'] {
-  position: relative !important;
-  margin-left: -15px !important;
-}
+/* override bootstrap for ie9 and ie11
+*  Issue is only known for this specific form
+*  find css changes for this fix for _ie.scss
+* on the their respective partials
+*/
