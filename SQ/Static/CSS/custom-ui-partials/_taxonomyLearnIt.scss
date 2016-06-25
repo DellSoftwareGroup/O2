@@ -241,15 +241,8 @@
     margin-top: 20px;
   }
   .row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
-/* ie fixes */
-
-/* override bootstrap */
-.k-ie input[type='radio'] {
-  position: relative !important;
-  margin-left: -15px !important;
-}
