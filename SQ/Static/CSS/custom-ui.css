@@ -3110,7 +3110,6 @@ input#searchById {
 .learnit-nav > ul > li > ul {
   padding-left: 0 !important;
 }
-
 .learnit-nav #rq-filters-item > span:last-child {
   width: 40%;
   display: block;
@@ -3125,5 +3124,11 @@ input#searchById {
 [kendo-window="winDeleteLevel"] .row {
   margin-left: 0px !important;
   margin-right: 0px !important; }
+
+/* ie fixes */
+.k-ie input[type='radio'] {
+  position: relative !important;
+  margin-left: -15px !important;
+}
 
 /*# sourceMappingURL=custom-ui.css.map */

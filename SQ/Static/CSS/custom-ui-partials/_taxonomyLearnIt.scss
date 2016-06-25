@@ -245,3 +245,9 @@
     margin-right: 0px !important;
   }
 }
+
+/* ie fixes */
+.k-ie input[type='radio'] {
+  position: relative !important;
+  margin-left: -15px !important;
+}
