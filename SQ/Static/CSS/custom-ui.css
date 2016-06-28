@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "IBM437";
 /*$headings-font-family:    inherit !default;*/
 html, body {
   width: 100% !important; }
@@ -329,13 +329,13 @@ p.data {
 
 .comments thead th {
   background: #e7e7e7;
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod├óΓé¼┬ªEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: -moz-linear-gradient(top, #e7e7e7 0%, #f5f5f5 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e7e7e7), color-stop(100%, #f5f5f5));
-  background: -webkit-linear-gradient(top, #e7e7e7 0%, #f5f5f5 100%);
-  background: -o-linear-gradient(top, #e7e7e7 0%, #f5f5f5 100%);
-  background: -ms-linear-gradient(top, #e7e7e7 0%, #f5f5f5 100%);
-  background: linear-gradient(to bottom, #e7e7e7 0%, #f5f5f5 100%);
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodâ€¦EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #e7e7e7 0%, whitesmoke 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e7e7e7), color-stop(100%, whitesmoke));
+  background: -webkit-linear-gradient(top, #e7e7e7 0%, whitesmoke 100%);
+  background: -o-linear-gradient(top, #e7e7e7 0%, whitesmoke 100%);
+  background: -ms-linear-gradient(top, #e7e7e7 0%, whitesmoke 100%);
+  background: linear-gradient(to bottom, #e7e7e7 0%, whitesmoke 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7e7e7', endColorstr='#f5f5f5', GradientType=0);
   color: #444 !important;
   font-weight: bold; }
@@ -1609,17 +1609,17 @@ a {
       /* Old browsers */
       /* IE9 SVG, needs conditional override of 'filter' to 'none' */
       background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-      background: -moz-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      background: -moz-linear-gradient(top, white 1%, #eeeeee 100%);
       /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #ffffff), color-stop(100%, #eeeeee));
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, white), color-stop(100%, #eeeeee));
       /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      background: -webkit-linear-gradient(top, white 1%, #eeeeee 100%);
       /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      background: -o-linear-gradient(top, white 1%, #eeeeee 100%);
       /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, #ffffff 1%, #eeeeee 100%);
+      background: -ms-linear-gradient(top, white 1%, #eeeeee 100%);
       /* IE10+ */
-      background: linear-gradient(to bottom, #ffffff 1%, #eeeeee 100%);
+      background: linear-gradient(to bottom, white 1%, #eeeeee 100%);
       /* W3C */
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
       /* IE6-8 */ }
@@ -2264,8 +2264,7 @@ a {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        background-color: #fff;
-      }
+        background-color: #fff; }
       .sq-top-ribbon > ul > li .sub-nav .ms-choice span {
         padding-top: 5px;
         padding-left: 2px; }
@@ -2693,37 +2692,37 @@ input#searchById {
 /*request info*/
 #request-info {
   /*.form-group {
-  	> label, > div {
-  		margin-bottom: 10px;
-  	}
+    > label, > div {
+      margin-bottom: 10px;
+    }
   }*/ }
   #request-info .panel-body {
     /*#GridQA {
-    	thead tr th {
-    		font-weight: bold;
-    		font-size: 14px;
-    	}
-    	tbody tr {
-    		td {
-    			border-bottom: 1px solid #aaa;
-    		}
-    		&:nth-child(even) {
-    			background-color: #fff;
-    		}
-    		&:last-child {
-    			td {
-    				border-bottom: none;
-    			}
-    		}
-    	}
+      thead tr th {
+        font-weight: bold;
+        font-size: 14px;
+      }
+      tbody tr {
+        td {
+          border-bottom: 1px solid #aaa;
+        }
+        &:nth-child(even) {
+          background-color: #fff;
+        }
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
     }*/ }
     #request-info .panel-body > div {
       margin-bottom: 10px;
       /*.icon-small-magnifying-glass {
-      	position: absolute;
-      	top: 9px;
-      	right: 25px;
-      	color: #666;
+        position: absolute;
+        top: 9px;
+        right: 25px;
+        color: #666;
       }*/ }
       #request-info .panel-body > div .icon-small-checkmark {
         position: absolute;
@@ -2738,10 +2737,10 @@ input#searchById {
 /*task listing*/
 #edit-task-listing {
   /*.task-col {
-  	width: 150px;
-  	text-overflow: ellipsis;
-  	white-space: nowrap;
-  	overflow: hidden;
+    width: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }*/ }
   #edit-task-listing th {
     font-size: 14px;
@@ -2826,6 +2825,13 @@ input#searchById {
   padding: 4px;
   font-size: 13px;
   font-weight: 700; }
+
+/*TFS #22314*/
+#data_Requester_UserID-div-content {
+  width: auto !important;
+  padding-right: 0 !important; }
+  #data_Requester_UserID-div-content > ul > li.k-item {
+    white-space: nowrap; }
 
 /* Use this file to override overall Kendo UI styles */
 .form-group .k-textbox, .form-group .k-autocomplete, .form-group .k-dropdown-wrap, .form-group .k-picker-wrap, .form-group .k-numeric-wrap {
@@ -2956,15 +2962,13 @@ input#searchById {
 
 .k-ie .sprint-metadata-form input[type='radio'] {
   position: relative !important;
-  margin-left: -15px !important;
-}
+  margin-left: -15px !important; }
 
 /* k-ie10 class is generated by Kendo and it may not be
 present and all pages, it targets ie 10 */
 .ie9 .sprint-metadata-form input[type='radio'], .k-ie10 .sprint-metadata-form input[type='radio'] {
   height: auto !important;
-  width: auto !important;
-}
+  width: auto !important; }
 
 /* Used at http://stage-o2/SQ/listing/mmdadminlearntaxonomy */
 .learnIt h2, .learnItEdit h2 {
@@ -3112,22 +3116,16 @@ present and all pages, it targets ie 10 */
   margin: 0; }
 
 .learnit-nav > ul {
-  padding-left: 0 !important;
-}
-
-.learnit-nav > ul > li {
-  position: relative;
-}
-
-.learnit-nav > ul > li > ul {
-  padding-left: 0 !important;
-}
+  padding-left: 0 !important; }
+  .learnit-nav > ul > li {
+    position: relative; }
+    .learnit-nav > ul > li > ul {
+      padding-left: 0 !important; }
 .learnit-nav #rq-filters-item > span:last-child {
   width: 40%;
   display: block;
   bottom: -5px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 /* dynamic kendo window delete taxonomy */
 [kendo-window="winDeleteLevel"] .buttons > div {
@@ -3135,7 +3133,4 @@ present and all pages, it targets ie 10 */
   margin-top: 20px; }
 [kendo-window="winDeleteLevel"] .row {
   margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/*# sourceMappingURL=custom-ui.css.map */
+  margin-right: 0 !important; }
