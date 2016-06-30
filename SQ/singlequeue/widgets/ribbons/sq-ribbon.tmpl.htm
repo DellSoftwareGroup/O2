@@ -1,0 +1,594 @@
+<div class="sq-top-ribbon clearfix">
+	<ul>
+		<li>
+			<div class="wide-blue-button">
+				<a href="/SQ/SingleQueue/Edit/" id="add-request">
+					<span>+</span>
+					<span>Add New Request</span>
+				</a>
+			</div>
+			<span class="text-center">New</span>
+		</li>
+		<li id="views">
+			<ul>
+				<li>
+					<span id="my-work-icon" class="sq-btn-icon"></span>
+					<select data-isfilter="true" data-select-all-text="All&#32;My&#32;Work" data-title="My&#32;Work"
+					        id="dp-mywork-dd" multiple="multiple" name="dp-mywork-dd">
+						<option value="1">Owner</option>
+						<option value="2">Requester</option>
+						<option value="3">Follower</option>
+					</select>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<!--
+											<a href="#//" onclick="reloadDataGlobal(19190)">Test </a>
+													-->
+					<span id="dp-Team-icon" class="sq-btn-icon"></span>
+					<select data-isfilter="true" data-select-all-text="All&#32;Teams" data-title="All&#32;Teams" id="dp-team-dd"
+					        multiple="multiple" name="dp-team-dd">
+						<option value="b31e05f2-6e96-42d9-95ed-28efab9f7c6f">Data Protection</option>
+						<option value="a1ef5bc4-4a1f-4681-a54d-cc1b0f2d3bb8">Databases</option>
+						<option value="df7210fc-248c-4ca9-91e8-9eba4c9a534b">Endpoints</option>
+						<option value="c7bd3b0a-f285-434e-a309-3116acaef4a9">MPM</option>
+						<option value="5a9a6515-cb15-4623-a845-b219e97b5662">None</option>
+						<option value="2e77f9b5-f967-4f4a-a625-3e087400eb84">Platforms</option>
+						<option value="88ded15d-3ee8-4512-bc1e-5b55156501b6">Security</option>
+						<option value="301d7307-a521-4de0-b6b4-ea13f83c2c12">SIM</option>
+					</select>
+				</li>
+			</ul>
+			<span class="text-center">Views</span>
+		</li>
+		<li id="sprints-section">
+			<ul>
+				<li class="active-item-bg">
+					<span id="jan-fy-icon" class="sq-btn-icon"></span>
+					<select data-isfilter="true" data-select="default" data-select-all-text="Select&#32;All" data-title="Sprint"
+					        id="dp-sprint-dd" multiple="multiple" name="dp-sprint-dd">
+						<option value="">[All Sprints]</option>
+						<option value="UNASSIGNED">Unassigned</option>
+						<option value="071fd884-e855-4926-914d-4bcb417b204d">Feb FY17</option>
+						<option value="7f78ec0d-e945-4e5b-8701-a7f2f253eb77">Mar FY17</option>
+						<option value="44e7ef54-e085-4ae2-b54e-1215b966f524">Apr FY17</option>
+						<option value="9efa593f-e722-4b01-bed8-341691e09019">May FY17</option>
+						<option value="e203e85f-4f05-4a5e-ac2f-e1c7913236e3">Jun FY17</option>
+						<option value="eee0996c-d89d-4515-88b4-4b36568f3183">Jul FY17</option>
+						<option value="fc079bd6-ac93-4620-9e55-4c6ec7b3502a">Aug FY17</option>
+						<option value="719a3c87-2d58-43cb-8767-6cb385b28405">Sep FY17</option>
+						<option value="a45218cf-6231-4262-89eb-1b69276fdb97">Oct FY17</option>
+						<option value="efc8613a-795b-4a38-ad86-bb7cdf9f63d7">Nov FY17</option>
+						<option value="471d5424-0f42-4df4-8b57-12f96eeb44a7">Dec FY17</option>
+						<option value="4fbf8ba7-fd7d-4d6c-a79b-8a4c7e36f360">Jan FY17</option>
+					</select>
+				</li>
+			</ul>
+			<span class="text-center">Sprint</span>
+		</li>
+		<li id="agile-status" data-title="Request Status">
+			<ul>
+				<li data-isfilter="true">
+					<a href="#" title="Idea">
+						<span id="idea-icon" class="sq-btn-icon"></span>
+						<span>Idea</span>
+					</a>
+				</li>
+				<li data-isfilter="true">
+					<a href="#" title="Backlog">
+						<span id="backlog-icon" class="sq-btn-icon"></span>
+						<span>Backlog</span>
+					</a>
+				</li>
+				<li data-isfilter="true">
+					<a href="#" title="Started">
+						<span id="started-icon" class="sq-btn-icon"></span>
+						<span>Started</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li data-isfilter="true">
+					<a href="#" title="Done">
+						<span id="done-icon" class="sq-btn-icon"></span>
+						<span>Done</span>
+					</a>
+				</li>
+
+				<li data-isfilter="true">
+					<a href="#" title="Cancelled">
+						<span id="cancelled-icon" class="sq-btn-icon"></span>
+						<span>Cancelled</span>
+					</a>
+				</li>
+			</ul>
+			<span class="text-center">Request Status</span>
+		</li>
+		<li id="filters-section">
+			<ul>
+				<li>
+					<a href="#">
+						<span id="department-icon" class="sq-btn-icon"></span>
+						<select data-isfilter="true" data-select-all-text="All&#32;Departments" data-title="Departments"
+						        id="department-dd" multiple="multiple" name="department-dd">
+							<option value="b3e250cd-f6b8-4a06-8334-8960f16c343d">ADVT</option>
+							<option value="cc0c804b-1be0-48ce-b73d-bbc0b44f624d">ANLT</option>
+							<option value="3608b5e7-2e59-432b-9e9b-2a9c78897009">CPGN</option>
+							<option value="99c54b93-5d01-40a3-920f-a8dea134cb0e">CS</option>
+							<option value="5dbef077-d019-479b-9157-07f033cb6ae7">ECOM</option>
+							<option value="a699360f-1186-413a-84d8-8e9cbf469621">Email</option>
+							<option value="ac796229-27c2-4965-9041-c97332ebaec8">EVENT</option>
+							<option value="a93d526a-96c4-4f9d-a85b-ec268248e4d1">MKTG</option>
+							<option value="8b7bc1b5-3df4-4e45-9824-7386e8c53016">MRCM</option>
+							<option value="b8af3536-927d-4189-a099-9f227109c18d">None</option>
+							<option value="775880e3-def7-408e-a338-eb837503cdcb">OPS</option>
+							<option value="5a6b7057-f023-43da-8048-825e55e9ebb0">PMM</option>
+							<option value="f6b386d8-3f50-4c80-9cc3-683c53d41406">SOME</option>
+							<option value="8a17960f-215f-4560-990b-8f3a10f5aaeb">SRCH</option>
+							<option value="a8e2b178-53c5-4132-b7c5-c30a5fbaafef">WEB</option>
+						</select>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span id="request-type-icon" class="sq-btn-icon"></span>
+						<select data-isfilter="true" data-select-all-text="All&#32;Request&#32;Type" data-title="Request&#32;Type"
+						        id="request-type-dd" multiple="multiple" name="request-type-dd">
+							<option value="955b4bb7-7908-4914-b746-8dbcdf743bc2">Advertising</option>
+							<option value="793da5b4-b4b5-4d16-bbb1-1bae56eff595">All Dynamic Question Types</option>
+							<option value="3ac8324a-52f6-4e62-9684-db059e0c1d9f">Amplification</option>
+							<option value="21ab41bb-bb86-4a92-8d34-a4b989ad60a2">Analysis</option>
+							<option value="cd34baef-9177-4412-ad15-17859e7f43b7">Analytics</option>
+							<option value="8facac13-2a72-4dc9-a793-6c59082684f8">Animated Video</option>
+							<option value="e0a73e25-09e6-4f74-b0c4-4a7bd2d85b51">Application Access / New Hire</option>
+							<option value="cef82656-9cea-4ed6-b7b6-a372f9f3de16">Application Enhancement</option>
+							<option value="71766866-20a9-4986-a980-4353bae1ab72">Asset Translation</option>
+							<option value="bdad5adc-ba3c-48af-9587-eaedcc142c6b">Backlink Research</option>
+							<option value="c7577ddc-31b3-4d99-b262-52ea8a595fee">Bio</option>
+							<option value="3dd940c6-b9e6-41c1-ab37-2caa0ee6b178">Blog</option>
+							<option value="0a044e4c-e74a-4349-8514-4d0eefa7b8d0">Blog Post</option>
+							<option value="8d13dbdb-8339-464f-80c8-606a6b00c1d3">Booth Panel</option>
+							<option value="1bc7a594-daff-4fb7-ba8f-cb51cf047c5a">Brochure</option>
+							<option value="778cd118-defa-4e25-a086-0da457ba2d7e">Channel Media Banner</option>
+							<option value="51b5fe66-83ed-4104-a507-e8bb364f6172">Channel Print Ad</option>
+							<option value="a7dc7101-df6a-4c75-a4d8-f17a58b61bd6">Community Change Request</option>
+							<option value="c0b6366a-8800-4194-9822-7464ae02671a">Community Content</option>
+							<option value="12acfc22-1d54-4784-ba20-04936c686fa6">Community Support</option>
+							<option value="17dc2b51-971e-43bc-b552-4fa3c3b5e030">Conductor Research</option>
+							<option value="b3dc09cf-6782-4bd4-94d9-3df25e4a3ca6">Creative Services Support</option>
+							<option value="0506f78f-f8ca-4b3d-92d8-aa13e1aecbdd">Customer Story</option>
+							<option value="b33a5cf8-1d27-4b07-8cdf-e0c53cbb7bba">Datasheet</option>
+							<option value="806054ba-6d73-4432-ae4c-3f92d838b3c5">DemandGen Asset - Authoring - New</option>
+							<option value="ef9c5d35-e167-40d5-963d-db3665ceda77">DemandGen Asset - Update</option>
+							<option value="697aa1cb-7c58-4b25-8c55-ccbabf29634e">DemandGen Asset - Editing - New</option>
+							<option value="e82f88bf-ba82-40b4-a2c8-a1d5ce5d8acc">Ebook - Update</option>
+							<option value="18806a34-2545-4c92-97e0-462935d3394d">EBook</option>
+							<option value="90d082eb-3054-4edb-9ba4-25e135627e26">EBook - Support</option>
+							<option value="c749e6c5-4cc0-48d3-9743-2a4cca033ede">eBook - New/Edit</option>
+							<option value="0cbdcd8d-c9ba-4de0-90fd-4c0a8f58c3ae">eCommerce Support</option>
+							<option value="c202934f-bb0e-4ffb-943d-1b0d09529697">Email Copy Approved</option>
+							<option value="7cdd5f92-3e03-4085-8fc2-aa22f45c77b8">Email Header Graphic</option>
+							<option value="64ac2a40-6ac3-4daa-a27b-3e30393f09dc">Email HTML Only</option>
+							<option value="1a9101dc-1666-40ae-81ac-b82da33d3004">Email Signature Banner</option>
+							<option value="d472a961-a97c-4ea2-a761-1c1493d465e4">Email Team Support</option>
+							<option value="e8424d88-2faf-407e-a8b1-7b0886179a5d">Event Signage</option>
+							<option value="f19b85ea-836a-427d-a1b6-82bfe3da850a">Generic</option>
+							<option value="e4b8710b-3fb7-4416-b44f-89fc38629336">Generic Video</option>
+							<option value="f432b5dc-6845-469f-a2ce-521702fce92a">Generic Web Page</option>
+							<option value="379d72c7-f240-4b91-a8a8-450d80e695ff">Handout/Bag Insert</option>
+							<option value="408226ac-4e46-4feb-a362-13e968af4265">Home Page Banner</option>
+							<option value="9c706edd-6e37-4c33-8f56-5e12dc0a21c3">Infographic</option>
+							<option value="f578ff30-2dd1-4ce7-b199-c9128857e653">InPerson Event Email</option>
+							<option value="a0455390-0fe4-4926-aabe-642c2bcfe2c0">Keyword/Competitive Research</option>
+							<option value="883ef442-a765-401f-a2b5-72c0661c8abc">Landing Page for Campaign</option>
+							<option value="49e6c768-bc23-403f-9f77-d919db725e9f">Lead Issues</option>
+							<option value="c43540ad-65fa-4877-806e-6880ed6dd99e">Lead List Import</option>
+							<option value="9e8fa121-cc2c-4259-aaa4-f6e05bc75db7">List Pull</option>
+							<option value="ede4434a-c8e4-4f52-8403-eb484b2a7bc9">Marcom Support</option>
+							<option value="1510664f-bbdd-49b8-8488-83f2d347147d">Marketing Request Support</option>
+							<option value="0980b6f1-683c-41a5-8337-24976716c05b">Media Banner</option>
+							<option value="f9b381e5-e831-4122-8363-7e49f8094707">Media Banners</option>
+							<option value="24ce4daa-2280-4785-bea9-98a98648dff1">Media Content Syndication</option>
+							<option value="69bd359d-d59c-4e83-8596-0ffc60dc6c89">Media Custom Content</option>
+							<option value="62e240ef-20e3-4f73-bef6-b91e3c80e9d7">Media Newsletter</option>
+							<option value="969ef50b-5a41-4df4-bce4-ed4656437497">Media Plan</option>
+							<option value="07f48c2c-5eb1-46b3-878a-36b5ba787452">Media Print Ad</option>
+							<option value="5f25169f-a94a-4f83-9b46-ef68351520bf">Media Third Party Email</option>
+							<option value="530e61a5-1a95-4d15-857e-8783e56e3577">Media Webcast</option>
+							<option value="961754af-1961-4c2b-b801-f5e16d953093">New Community</option>
+							<option value="bdefcb19-b3d7-4d48-b716-8f39b2e2cc5d">New License or Maintenance Product</option>
+							<option value="58204793-d4a6-4528-9906-9feb6595b7dd">New Product</option>
+							<option value="356eff52-f903-431c-8ae3-614d81d7b7f7">New SharePoint Site</option>
+							<option value="37580825-b07c-48b6-afca-10440218624f">New Solution</option>
+							<option value="9ee6eca7-6e38-4a35-8d68-f3b7947c82dc">New Training Product</option>
+							<option value="d7a343e9-db09-4195-87b6-d46b13e7a920">New Trial</option>
+							<option value="16d97351-19af-48d7-8dc2-0c3479a1f26e">Newsletter Email</option>
+							<option value="2da59a92-f906-49b1-96b4-f1e1a1884794">Nurture Email</option>
+							<option value="56494975-79cc-4c1b-8d8e-dc269c5822c8">On-Site Production</option>
+							<option value="0cc231e0-f79f-427c-835a-15124b061b40">Onsite Search</option>
+							<option value="95baf309-114e-45e8-b8ab-d7388a7f3f6f">Paid Search</option>
+							<option value="c2bcd9ef-c62d-4a7a-8913-d039cf3c23a8">Paid Social</option>
+							<option value="a544c8a2-709e-43b4-b03f-ee8047de8da9">Partner Attach Handout</option>
+							<option value="090b6c97-0ec2-4d4b-b66f-c37baffc65f6">Partner Sales Aid</option>
+							<option value="6e8c38d1-e042-460b-a9fe-4e368a2276df">Partner Spiff Handout</option>
+							<option value="0fe951ce-2936-46db-996a-0a558060c89c">PowerPoint Graphic</option>
+							<option value="b46b7a57-74fb-47d0-a829-15ebe1df6e86">Product Demo Video</option>
+							<option value="ab8deb03-0966-4ac3-a637-2a560c7e137f">Reporting and Analysis</option>
+							<option value="30a89e15-435c-4e92-ad4d-7a49e3539a74">Reporting Support</option>
+							<option value="d238f190-a94a-426b-9fec-cce6cad1a9fd">Repurpose Email</option>
+							<option value="9c03d545-9a12-4579-9263-962bcd2c5afa">Sales Aid</option>
+							<option value="ffaba90b-2411-4b9f-826f-3b32d54ae594">Search Support</option>
+							<option value="66c28ee9-a929-407b-9135-ff6f3d53fa24">Segmented Customer List</option>
+							<option value="e8608212-e602-44d3-866a-87b9923705c3">SharePoint Support</option>
+							<option value="9b6be85a-cdc9-43d5-aab9-f9f540cca501">Site Tracking</option>
+							<option value="85082845-71cb-4912-95e2-e9fbc23a1245">Social Media Account Support</option>
+							<option value="34583b40-edaf-4f81-be44-68815e14059d">Social Media Event Support</option>
+							<option value="fd2bfd06-5e51-46ba-878a-e107e16d056d">Social Media Reporting</option>
+							<option value="4c208fd1-d3e6-45ff-89a9-ed93efcc1c88">Social Media Research</option>
+							<option value="02ef0b57-4594-4b8f-8983-392070e2265d">Social Media Training</option>
+							<option value="a9a8a642-563b-4810-8294-428d9f0eb47a">Special eBlast</option>
+							<option value="4ec2586b-8a97-497f-932f-608efef7d02b">Support Email</option>
+							<option value="e191ef74-7647-4ceb-81a3-5caaccc2f907">Tabletop Sign</option>
+							<option value="5f931fdf-b932-4ed2-99fe-520c5eceef83">Tags</option>
+							<option value="cbcffd05-b0b5-4a9d-9b18-cf03dc43582d">Technical Brief - New/Edit</option>
+							<option value="4548636f-ad1e-4393-bbe8-3db45ed34bf4">Technical Brief - Update</option>
+							<option value="beacf175-458e-4696-8db5-881e0f12431c">Technical Brief - Authoring - New</option>
+							<option value="25ad435e-eea0-4e3b-af85-572ad5e0b550">TEST BL 01 - edit - New/Edit</option>
+							<option value="a0fec2a2-ab9b-4cb3-9768-705f928d37e6">Test Dynamic Questions</option>
+							<option value="00be671c-0316-41f3-bfb2-784efe019269">TEST Versioning</option>
+							<option value="8a6de799-d459-4856-9b6c-a28e72ae0c61">Test WP</option>
+							<option value="2e0b86b6-e149-4822-bb42-5396ccadb827">TESTCS Customer Story</option>
+							<option value="11a48284-1fb6-443a-a069-3ca72309f1e1">TESTTB nosubtype</option>
+							<option value="f6b301df-e5fd-4a95-aae0-4a77ac40c558">TSTEB onesubtype - Authoring - New</option>
+							<option value="f0be0508-8386-4e9e-8c8d-71274c662124">TSTWP ManySubType - New/Edit</option>
+							<option value="4cb67834-f9f3-4c4f-b356-8e6c8a88e00e">TSTWP ManySubType - Authoring - New</option>
+							<option value="769f9a49-bb20-4010-941d-c1b57eb4c6f0">TSTWP ManySubType - Update</option>
+							<option value="e445805e-a796-4798-a1c4-2e9c99f14da9">Update Existing Product</option>
+							<option value="3425ab2a-b381-4595-b692-4bb07652e6c0">Update Navigation</option>
+							<option value="c181a537-312e-470c-9c20-d4cc3887ab35">Update Product Page</option>
+							<option value="33e829b3-0457-4997-9b4e-376961f99473">Update Solution Page</option>
+							<option value="ec55fb61-f224-4393-a556-b60b065bf061">Update to Existing Product - Updated - Update
+							</option>
+							<option value="3ba1dfd1-9109-489f-b5c9-7bb4b4fefea7">Update Trial</option>
+							<option value="0214b834-855f-4b4d-b8ed-3acf79abe495">Upload Webcast</option>
+							<option value="25e5072a-daa2-4aeb-b7ff-5ec70b9c2ed3">Video Localization</option>
+							<option value="e9f1941e-e953-4282-8dae-f235a6240172">Video Upload</option>
+							<option value="1a1e3a6a-0514-4bbe-bdea-796baea3eb3b">Web Development</option>
+							<option value="30633502-66c6-4f0c-8974-5585117ae304">Web Page Analysis</option>
+							<option value="96a72cf9-940d-4777-b064-9313c665b56f">Web Page Optimization</option>
+							<option value="5dbb8595-aeec-4054-b3d7-4194bb532662">Web Page Translation</option>
+							<option value="e3aea618-955b-41f6-ad91-4cce652805e2">Web Requirements</option>
+							<option value="47350721-afbc-4da1-a61d-8df43659b5f4">Web Support</option>
+							<option value="a333ef00-87c2-4912-a305-1e459434f605">Webcast Email and LP</option>
+							<option value="163901da-5ff8-4af9-9fb8-f6521577d0ac">Website Banner</option>
+							<option value="8ff4f608-5da7-4a63-9f38-b67ddd0dcb92">White Paper - Update</option>
+							<option value="bc2c11a7-e638-4112-b52e-e60a5b1715a0">White Paper - New/Edit</option>
+							<option value="3e845ce6-85b8-4a97-bb43-964e9471cf88">White Paper - Authoring - New</option>
+						</select>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span id="task-type-icon" class="sq-btn-icon"></span>
+						<select data-isfilter="true" data-select-all-text="All&#32;Task&#32;Type" data-title="Task&#32;Type"
+						        id="task-type-dd" multiple="multiple" name="task-type-dd">
+							<option value="938828a7-613c-4e88-85a6-7eee6042719a">Ad Copy</option>
+							<option value="d77494b8-ba35-4ffb-a886-e64d3483c48e">Add Tags</option>
+							<option value="dfb7cc4f-725c-4531-8bf2-0a078dadd328">Amplify</option>
+							<option value="27ea0515-8db2-47dd-8504-d21deef84234">Animated Video</option>
+							<option value="954e5a0e-97ca-490d-a35e-1250ced1e87d">Animation Script</option>
+							<option value="d67ab81f-86cf-4649-88cf-7644f5419b95">Application access</option>
+							<option value="f3270e74-e7d2-4fb9-a947-7713eb88192c">Application Enhancements</option>
+							<option value="ee4feadf-bd69-405f-9080-d0a28c79839d">Asset Layout</option>
+							<option value="f264210e-e483-4dd7-8786-116e9fc8fac3">Asset Outline</option>
+							<option value="e0c2c7dc-0441-4709-9e1b-b0b10f60bd59">Authoring Asset</option>
+							<option value="e8662391-8f8e-4ff8-8c6c-e0e5fc7aae6e">Back link Research</option>
+							<option value="69c17f31-7c2c-4fc1-8277-b4eb9747c01c">Banner Layout</option>
+							<option value="282c1a9e-5433-4ff3-a5a0-21565f2153ab">Banner Messaging</option>
+							<option value="f8b07275-fd09-4116-9f01-3cb0447b81fc">Booth Content</option>
+							<option value="f349935e-1667-41fe-94bb-513474e01daf">Booth Creative</option>
+							<option value="adfb4738-fd21-462d-9b5e-83322fc635fa">Box Shots</option>
+							<option value="af819c2e-94eb-4b7f-bd84-762905121a52">Brochure Copy</option>
+							<option value="9f6c5505-d9d0-4f53-a139-11c14961a513">Brochure Layout</option>
+							<option value="a2db4d55-6304-4433-832d-20dc54747e8f">Build Banner</option>
+							<option value="3ff149ed-ee9a-4d37-98d6-892c008743d0">Build Community</option>
+							<option value="04ccbf4d-1c16-40a8-bcfe-34e527d3a312">Build Page</option>
+							<option value="3e9b761e-4d14-4748-b5fb-d8d82d875b2d">Build Product Page</option>
+							<option value="97ab4fe2-d65b-4a2e-8c48-27ac870e703b">Build Trial Page</option>
+							<option value="05e141a6-5ee6-4233-9cd8-8eebae71a91a">Change Copy</option>
+							<option value="7f3a57c1-1f51-4f9c-8b6d-4486c8a99b3f">Conductor Search</option>
+							<option value="fdfb6bb1-7293-4c7d-9ed2-dda07cf4d447">Create and Review Mockup</option>
+							<option value="0983a88b-adc5-4b5e-8d5b-944a059db9bd">Create Asset</option>
+							<option value="5734f5a6-bff1-4ea1-8a30-c4bd37b4eee7">Create Draft Copy</option>
+							<option value="2b97c3f0-2e4d-4f03-9178-1c3a5c77f5dc">Create Email</option>
+							<option value="9071b5dc-3137-4859-a3a7-ca001939812e">Create Logo</option>
+							<option value="3b2271e3-1c39-41a8-a146-0bcdd458d0cc">Create Nurture Email</option>
+							<option value="e8b3fbf3-9d86-4b81-8a97-e3a459989d6c">Create Outline</option>
+							<option value="dc89e593-482f-48ae-80b7-5cec4b48856f">Create Support Email</option>
+							<option value="6bd01608-ea38-434d-a528-16d37928422b">Create Video</option>
+							<option value="1bee45aa-a789-4eaf-9675-8686638249f9">Create Webcast Email</option>
+							<option value="a466bed0-2516-429b-ae63-1e157db8e4e7">Create Wireframe</option>
+							<option value="93b4e788-d6f3-4118-9749-d59fe1dbded8">CS Support</option>
+							<option value="cc98348f-9dee-47fb-8afe-950c7d0e76c4">Customer Engagement Support</option>
+							<option value="e682ea4e-97d5-4808-8703-89ede6189203">Customer Segment</option>
+							<option value="753a664e-5552-4b0e-8581-c878d25be73d">Customer Story Content</option>
+							<option value="96b30926-b3d9-4156-b088-cf100f8c1c8e">Datasheet Copy</option>
+							<option value="9317d7c9-312a-4787-be9e-bd671e2a8544">eCommerce Support</option>
+							<option value="63c4c79e-e2af-45b4-9750-c045e01a4967">Edit Copy</option>
+							<option value="4662257c-e724-4e37-92a2-4c0ea10d23f1">Email Copy</option>
+							<option value="2fab6c0c-db1a-4f08-b2b8-8f6b86a9b6d1">Email Header Graphic</option>
+							<option value="ac1c7529-d2e2-4d07-a44c-c696ab6d677e">Email HTML</option>
+							<option value="06b353ef-1c45-486f-9318-5065502196c2">Email Signature Banner</option>
+							<option value="91bd0d98-bbdb-484e-8523-b1cbe9001c49">Email Team Support</option>
+							<option value="69097593-30d1-4d40-a524-534da297d4a8">Event Copy</option>
+							<option value="216cec9f-7fbe-414f-8f03-9561d10e2ba2">Event Signage Layout</option>
+							<option value="3d1b8bc6-4623-4525-96e0-46f4544faf6b">Gather Requirements</option>
+							<option value="4d838514-1b75-4ae5-b9e9-97ab7d810a6d">Generic Task</option>
+							<option value="3e57c339-a959-46b3-a62c-801bfe482881">Handout Copy</option>
+							<option value="34eb8a35-2b59-45ab-b924-0174e0a68472">Handout Layout</option>
+							<option value="c40f0bfa-86e1-4d4a-b578-802dddf0042f">HPG Copy</option>
+							<option value="2aa44914-d291-48fc-b4aa-ea71d9e79d9b">HPG Layout</option>
+							<option value="7c469688-6544-4a28-b43a-1e95e977fed0">HPG Scheduling</option>
+							<option value="d0527af7-b340-4333-98f1-081f2fc874e9">HPG Tactic Code</option>
+							<option value="2c188674-da3f-433d-83ea-739fe4942e47">Infographic Copy</option>
+							<option value="521d737d-7430-4c0e-a33b-feff90e5760b">Infographic Creative</option>
+							<option value="314009fe-2f2f-45d4-8ad5-0a171439a797">Keyword Competitive Research</option>
+							<option value="09d54af5-879a-4ea8-86af-9fb1c78714af">Lead List Import</option>
+							<option value="53069b1a-3219-4175-a864-91f2261fb3cb">Lead Research</option>
+							<option value="d3ad9f72-9fff-4027-92fe-87312c9e617f">List Pull</option>
+							<option value="3fe9a531-b71e-4106-9e53-bba23426eba4">LP Content</option>
+							<option value="56868815-adb3-43e3-a808-09cd9b54bea1">Marcom Support</option>
+							<option value="3afa6f7f-7708-4f54-9f21-3d7092ae929f">Mark up PDF</option>
+							<option value="bdb12988-2342-48fd-b68c-21c044320382">Media Layout</option>
+							<option value="cf57bf91-7a01-4bd6-b665-fdcbc47a85a7">Media Plan</option>
+							<option value="262d3ee2-0296-4cb0-8539-0d9d57ae1b83">Media Research</option>
+							<option value="a321e9b0-837a-4da1-bc89-2d73d61ba6d7">Navigation</option>
+							<option value="60cdaff3-e014-42a5-94dc-985681bc7ab6">New License &amp; Maintenance</option>
+							<option value="55f7bec1-95a9-4600-ac83-68d7569f6dff">New Training</option>
+							<option value="c0b8d5b9-c93c-4f12-8961-d8892af6adb7">Onsite Search</option>
+							<option value="4235120e-f27d-49ef-8dab-61b0fd3e8ef5">Optimization Reporting</option>
+							<option value="008838c5-fa13-4259-93ea-2b570349d48c">Optimize Page</option>
+							<option value="60030601-03ef-474b-adfe-6913fb0ba724">Outline / Source Content</option>
+							<option value="29f77a0f-a0cc-47d1-8c8d-36fe94cee1e4">Outline and positioning doc</option>
+							<option value="f5a19b41-cea4-4022-b2b8-6f9bde21cb6e">Page Analysis</option>
+							<option value="b86fb23f-43fd-4fdb-88f7-e9d343adfd04">Page Optimization</option>
+							<option value="0212c835-e169-41a0-a781-93387681ce3d">Paid Search</option>
+							<option value="0b2789c8-ab99-417a-b13b-2b93696db905">Paid Social</option>
+							<option value="8a082a21-7124-4d21-9d5a-ea5f09c15944">Partner Content</option>
+							<option value="a4e744b0-8670-4eb9-82e2-45074a038931">Partner Layout</option>
+							<option value="04c6c884-2fed-4aab-8fac-074c399b0992">Plan Outline</option>
+							<option value="d81765d2-0c7a-4253-91bb-fc30332daa0a">Positioning doc</option>
+							<option value="1da7a9c3-fd21-48d8-bc22-029eb46163b6">PowerPoint Graphics</option>
+							<option value="03bbcc93-1a92-4175-a223-7987fc22850b">Print Ad Copy</option>
+							<option value="af6bf388-e78b-4e42-84b8-dd95b94286c5">Product Demo Video</option>
+							<option value="cecb822a-498a-48a4-8b55-2b0d33b69d14">Publish Blog</option>
+							<option value="71794086-ce53-41d8-9c6a-822871dfb16d">Publish Document</option>
+							<option value="d5f5fd2d-f6a2-4968-95ff-669075bbdb3a">Reporting and Analysis</option>
+							<option value="a0bb68a3-104f-4b93-92d3-5bf9650cfc45">Reporting Support</option>
+							<option value="b281ce59-bbb3-4a00-b094-9a3fc76ed7fa">Review Requirements</option>
+							<option value="b875c223-2875-4f13-b109-6aa33d1963ee">Sales Aid Content</option>
+							<option value="4726ce01-bdde-465a-8813-6b07af2effd7">Sales Aid Layout</option>
+							<option value="74d8bff3-539b-41fd-a743-5e8c5769dafa">Schematic/Diagram</option>
+							<option value="bacab1e3-fff6-467a-ba06-24bc9144728a">Screenshot Tour</option>
+							<option value="b1c97ebf-2b9b-4783-8d25-df1e95bef2df">Search Support</option>
+							<option value="3eb87c70-f97e-4dae-b1ca-e0083b3adc5e">SEO</option>
+							<option value="e6746cbe-138f-41ff-8073-09fa3e104d01">SharePoint site</option>
+							<option value="8f132650-55ed-4a47-a5de-f9b9aeffc0cd">SharePoint Support</option>
+							<option value="e0ad1eae-bc00-4116-b8d4-b07bf1104405">Site Tracking</option>
+							<option value="7c8f19e8-74a2-467c-b214-ba806675e004">Social Event Support</option>
+							<option value="50dfe368-6a82-420c-9fda-680dd4818ac7">Social Media Reporting</option>
+							<option value="02d91bf7-b11c-41d6-97a1-34c23e404297">Social Media Research</option>
+							<option value="b8a80674-301f-4cc1-8409-c10e1f0c4b83">Social Training</option>
+							<option value="cc2b9018-c7e1-4c28-8cac-43d9c6730da9">Source File Transfer</option>
+							<option value="e1e21af9-6b08-442f-bffa-a56686607beb">Submit Translation</option>
+							<option value="23f2d75c-b2f5-437f-acff-d111d5bf6857">Tabletop Sign</option>
+							<option value="85a3e3a1-06f7-401b-ae05-e7cfdfc50091">Title and description copy</option>
+							<option value="9b94db5b-9558-4bfe-a389-76e6666148b6">Traffic</option>
+							<option value="d3270938-6f90-4b9a-80e6-ef6eeb75e7ed">Transcript of interview</option>
+							<option value="b247b4af-ea8a-4e88-8dfb-cbf06620b2f7">Translate Content</option>
+							<option value="6e101046-7af6-45d1-8646-4a0b092e00fa">Trial Copy</option>
+							<option value="f7fd3d43-59a3-4669-b582-54841501aad7">Update Community</option>
+							<option value="176d2ce4-5267-45cb-802e-084cab3e8ec4">Update Product</option>
+							<option value="ce3eb164-c5cd-4ee8-bc53-faf342c44e61">Validate Outline</option>
+							<option value="41c9cf45-dba8-4396-b1b0-f327e8c32659">Validate Requirements</option>
+							<option value="ece16c37-c60b-4dda-9eb5-bf2337faf40b">Video Input Form</option>
+							<option value="45fbf0dd-9233-42e7-a3b9-4c53a3ffbe9a">Video localization</option>
+							<option value="5d882979-69f1-420a-af16-4423d65654f7">Video Script</option>
+							<option value="2f4296da-d764-4dbc-a62a-563197fc0449">Video upload</option>
+							<option value="fae2883c-ab1f-4b89-abad-735b8044689e">Web Copy</option>
+							<option value="72b235f0-80f1-470b-9800-f066472fd98a">Web Development</option>
+							<option value="05ef10cd-f18d-47a6-8c69-27d80bd48542">Web Page Image</option>
+							<option value="e516937e-cb1b-40fe-a18e-05e1b6092147">Web Support</option>
+							<option value="ae301bea-e247-4a7e-a654-36387059730c">Webcast Abstract Copy</option>
+							<option value="0363293f-6f18-4449-95dc-76e01c6408e3">Write Bio</option>
+							<option value="e94b0cc5-a492-4681-9479-fbdd7dab4fe9">Write Blog</option>
+							<option value="2e95027c-dbea-455b-90b5-eec590ec47bd">Write Requirements</option>
+						</select>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="popoverMS" data-isfilter="true" data-dynamic="true" data-title="Requester">
+						<span id="requester-icon" class="sq-btn-icon"></span>
+						<span data-title="Requester">Requester</span>
+						<span class="arrow chrome"></span>
+					</a>
+					<select class="dynamic-select" style="display: none"></select>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="#">
+						<span id="portfolio-icon" class="sq-btn-icon"></span>
+
+						<select data-isfilter="true" data-select-all-text="All&#32;Portfolio" data-title="Portfolio"
+						        id="portfolio-dd" multiple="multiple" name="portfolio-dd">
+							<option value="46df07af-c792-4497-a943-7f1cbb1cc0d6">AR/PR</option>
+							<option value="8f2aee01-80f2-44c1-bea8-c78a4838d89a">Boomi</option>
+							<option value="e29b42ca-f8cd-4545-9ae7-dafd2570c457">Cloud/Enstratius</option>
+							<option value="2cf416e9-b91e-46fc-a817-c3702fd57e86">Data Protection</option>
+							<option value="3873a93a-2d8a-4f16-8e11-236e72143599">Database Management &amp; BI</option>
+							<option value="cc82bdaf-e2c5-4347-9dd1-4b12293bfeb3">Dell Main</option>
+							<option value="08207f8e-f7f1-46d8-9e93-5069d48c7502">DSG Corp</option>
+							<option value="7f97c0ba-00b3-4f49-a95e-2fb038c5c992">Endpoint Systems Management</option>
+							<option value="88cfddbb-cf2a-420c-9d3b-ce762f7052ec">Enterprise Mobility Management</option>
+							<option value="a2f0a455-1869-47e5-89cf-7e9ca2bf08fe">Field Marketing</option>
+							<option value="8275b893-b5aa-4ebd-a774-8386c177be3b">HR</option>
+							<option value="6c6701e1-b633-4033-8420-c32d135bb1dd">Identity &amp; Access Management</option>
+							<option value="d750c7be-7f46-4582-b958-513308e2fc4c">Legal</option>
+							<option value="f631275d-1b37-43a5-a408-1a5fee0edeea">Misc. Software</option>
+							<option value="39fbf022-dbbb-4526-b7a6-8a9929d0165a">Network Security</option>
+							<option value="38fa7bc9-079e-4fc6-9176-d9fad980b636">Partners</option>
+							<option value="1f8da3ff-a866-414d-87d4-e26da4dcb45c">Performance Monitoring</option>
+							<option value="3bc60291-7d18-436a-b4b3-68fa4a30e1e3">Public Sector</option>
+							<option value="b6ad325e-807e-491f-bbe8-9ab32f764ee9">Sales Enablement</option>
+							<option value="12926e89-dcdc-4544-87c6-6ebb3f5ea4a7">Statsoft</option>
+							<option value="556ba19b-82cf-41dc-a2c9-ac9645a0dd8d">Support &amp; Services</option>
+							<option value="3d045e10-cf9e-47f4-9f77-db233aee0782">Windows Server</option>
+						</select>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span id="task-status-icon" class="sq-btn-icon"></span>
+						<select data-isfilter="true" data-select-all-text="All&#32;Task&#32;Status" data-title="Task&#32;Status"
+						        id="task-status-dd" multiple="multiple" name="task-status-dd">
+							<option value="89260c68-cae4-47f1-ba68-77e097128fc3">1st Draft</option>
+							<option value="b30a6a8c-3c97-4a0b-b250-0d2f47413d58">2nd Draft</option>
+							<option value="a21b2cc6-e0eb-48b6-895e-9116503ee647">3rd Draft</option>
+							<option value="360072ea-56b1-4f7a-a164-09a8449f86fc">4th Draft</option>
+							<option value="8dee41d9-6bf1-461a-b2d7-3b5759aa18aa">5th Draft</option>
+							<option value="20d90173-61f3-4e22-81fc-5bc28a8ee43d">Ads are live</option>
+							<option value="724a99a3-352b-4eac-ab55-22399c8ab274">Approved</option>
+							<option value="c10aedc9-16ae-4a86-8ad2-84be0b7e269a">Assigned to Designer</option>
+							<option value="71451b8a-64e3-4cf5-a93b-f2aca19ff660">Backlog</option>
+							<option value="93f45e34-42ed-4fd2-9ba7-f5647d92d8b4">Cancelled</option>
+							<option value="824bccb1-f211-4fee-ad87-40fd255d9884">Confirm with vendor</option>
+							<option value="2276c315-2aa0-4f34-9898-e368513253af">Done</option>
+							<option value="099d795a-c524-438f-9876-d3ae62866f71">Final Draft</option>
+							<option value="d8816568-1539-4a1f-85c2-1950234dcc0c">Gathering Requirements</option>
+							<option value="c0a8c9f5-684d-44d6-9667-211f938c16eb">In Production</option>
+							<option value="c7c579f3-daa7-43ce-9d3c-8182946e6b05">In Progress</option>
+							<option value="040949c2-af5c-447f-b8c6-a289a44d6f98">KOC Scheduled</option>
+							<option value="f079a049-dc14-44d3-b3d5-8795a8790e22">Lead Delivery</option>
+							<option value="53bd6f8e-47d2-48d2-83c9-51e5e34bd43a">More Info Needed</option>
+							<option value="e7f01855-030c-4277-9f68-d502dd252a26">Not Started</option>
+							<option value="ffdba252-ea1a-4480-bbb4-16af06badc0d">Pending</option>
+							<option value="b3f0e7b4-c274-4a78-9b7f-30db19dd1580">Planning</option>
+							<option value="dddd85b2-b065-455c-aff2-fccf64c1e537">Ready for review</option>
+							<option value="d7e36bfc-8254-4112-b330-d9495f400489">Ready on Staging</option>
+							<option value="c6e1d61f-1b3d-4375-924e-ffe32f8022f3">Ready to Blast</option>
+							<option value="a51c7f25-c8d3-470b-ac67-389cff5bbd48">Ready to Post Live</option>
+							<option value="fc647015-7d9e-47df-b3bc-93506ba88bac">Req.Cancel</option>
+							<option value="a67c88a0-96f6-4c11-973e-cb1822660810">Requirements being reviewed</option>
+							<option value="553ad774-2957-4973-8ddc-274af0c1606a">Revisions in Progress</option>
+							<option value="402f4563-2093-47d0-bead-986139545298">Scheduled</option>
+							<option value="6bc74eff-8279-499d-9e23-4d015a119ce2">Sent out for Print Proof</option>
+							<option value="07bd059e-7d87-4a42-ab82-c4a02f0a5df4">Waiting for Approval</option>
+							<option value="bf45a7be-2dd6-494c-94c4-6ef943641006">Waiting for Content</option>
+							<option value="a9c86433-da59-4ed6-80bb-e91b58455752">Waiting for Feedback</option>
+							<option value="67c9e330-fb32-473f-ad73-86eb06ea7f53">Waiting for Legal Approval</option>
+							<option value="289afc9c-fdd5-404c-9571-b0ed49f2af79">Waiting for Requirements</option>
+							<option value="f733dded-f5e9-4988-baf5-c1183c1b07c2">Waiting for Schematics</option>
+							<option value="ac6890ff-5461-477e-b3bd-876b94207f41">Waiting for Source Files</option>
+							<option value="db8a8c66-4707-409d-bc7a-eb9954179e90">Waiting on Dell Migration</option>
+							<option value="2cd34879-5709-42c0-91cf-34c9abf8be63">Waiting on Dev</option>
+						</select>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="popoverMS" data-isfilter="true" data-dynamic="true" data-title="Owner">
+						<span id="owner-icon" class="sq-btn-icon"></span>
+						<span data-title="Owner">Owner</span>
+						<span class="arrow chrome"></span>
+					</a>
+					<select class="dynamic-select" style="display: none"></select>
+				</li>
+				<li id="sq-filters-item">
+					<div id="filters">
+						<div id="sq-filters">
+							<a href="#" id="more-filters">
+								<span id="filters-icon" class="sq-btn-icon"></span> More Filters <span class="arrow"></span>
+							</a>
+
+							<div class="sub-nav-wrapper">
+								<!--this is to get rid of top box shadow-->
+								<div class="sub-nav" style="min-height: 205px">
+									<div id="filter-title">
+										<span>Filters</span>
+									</div>
+									<select data-isfilter="true" data-select-all-text="All" data-title="Priority" id="priority-dd"
+									        multiple="multiple" name="priority-dd">
+										<option value="ab21f877-b9ee-4857-ae20-f31bf7284c31">Critical</option>
+										<option value="08b38029-8429-4bf5-8cd5-88667f0eb2b8">High</option>
+										<option value="f58f92dc-17b8-4a6d-b583-aa77ebfc0ee7">Low</option>
+										<option value="96e2ff06-faef-432f-8659-b17898274cb8">Medium</option>
+									</select>
+
+									<select data-isfilter="true" data-select-all-text="All" data-title="Regions" id="region-dd"
+									        multiple="multiple" name="region-dd">
+										<option value="b304a1ad-b50b-40b3-bca7-31299b08c903">All</option>
+										<option value="66d97431-d2a2-4b13-a551-9a5350b8ef2e">APACJ</option>
+										<option value="47a8ed5b-c631-4c13-926a-f1d3c219356c">EMEA</option>
+										<option value="18ebc7f0-06ce-4c16-853f-4c6cd828629b">LATAM</option>
+										<option value="b613b2e8-6ea0-443d-989e-7aa806303423">NAM</option>
+									</select>
+
+									<select data-isfilter="true" data-select-all-text="All" data-title="Route&#32;To&#32;Market"
+									        id="route-to-market-dd" multiple="multiple" name="route-to-market-dd">
+										<option value="f1e3dd10-1194-4794-bc85-6d3f13d91627">All</option>
+										<option value="6235245c-f4dc-4bb3-8682-668501ee760c">Channel</option>
+										<option value="0578bf88-a9cc-4f4e-9654-20090097a316">CSES</option>
+										<option value="3b0351ba-531f-4bc2-82ee-64bc9c9500cc">Direct</option>
+										<option value="7f9da903-173f-4975-91e1-ebfbfd9c5e7d">eCommerce</option>
+									</select>
+
+									<div id="filter-campaign" data-isfilter="true" data-title="Parent Campaign"
+									     filter-type="from-modal">
+										<div class="sq-ribbon-filter-text campaign-input" data-modal-target="campaign">
+											<span>Parent Campaign</span>
+										</div>
+										<input type="hidden" value="">
+										<input type="button" id="campaign-btn" class="sq-btn-icon" data-custom-modal="campaign">
+										<span class="glyphicon glyphicon-remove-sign hidden clear-btn"></span>
+									</div>
+
+									<div id="filter-project" data-isfilter="true" data-title="Project" filter-type="from-modal">
+										<div id="project-text" class="sq-ribbon-filter-text project-input" data-modal-target="project">
+											<span>Project</span></div>
+										<input type="hidden" value="" id="project-hidden">
+										<input type="button" id="project-btn" class="sq-btn-icon" data-custom-modal="project"/>
+										<span class="glyphicon glyphicon-remove-sign hidden clear-btn"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<span class="text-center">Filters</span>
+		</li>
+		<li id="excel">
+			<ul>
+				<li class="deactive">
+					<a href="#">
+						<span id="excel-icon" class="sq-btn-icon"></span>
+						<span id="excel-icon-text">Excel</span>
+					</a>
+				</li>
+			</ul>
+			<span class="text-center">Export</span>
+		</li>
+	</ul>
+</div>
+<div class="filter-collector">
+	<span class="h3">Filters:</span>
+	<ul></ul>
+</div>
+<div class="search-filter-collector">
+	<span class="h3">Filters:</span>
+	<ul>
+		<li>Search Query<a href="#"> X</a></li>
+		<li><span class="search-query-display"></span></li>
+	</ul>
+</div>
