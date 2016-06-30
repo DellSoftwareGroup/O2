@@ -9,8 +9,7 @@ String.prototype.capitalize = function () {
 	}
 };
 
-var ribbonElem = null;
-var moreFiltersElem = null;
+var ribbonElem = null, moreFiltersElem = null;
 
 var initRibbon = function () {
 	/* utility functions */
@@ -990,6 +989,10 @@ var ribbonWidgets = function () {
 	}
 
 	function getUserPreferences() {
+		if (typeof UserPreferences == 'undefined') {
+			return false;
+		}
+
 		var obj = {};
 
 		if($.isEmptyObject(UserPreferences)) {
@@ -1156,123 +1159,126 @@ function doSearch() {
 
 $(function () {
 	ribbonElem = $('.sq-top-ribbon');
-	moreFiltersElem = $('#sq-filters');
 
-	//Remove [All] option under sprint
-	/*if($('#dp-sprint-dd').find('option:eq(0)').val() == '') {
-		$('#dp-sprint-dd').find('option:eq(0)').remove();
-	}*/
+	if (ribbonElem.length) {
+		moreFiltersElem = $('#sq-filters');
 
-	$('body').on('click', function (e) {
-		moreFiltersElem.removeClass('open');
+		//Remove [All] option under sprint
+		/*if($('#dp-sprint-dd').find('option:eq(0)').val() == '') {
+		 $('#dp-sprint-dd').find('option:eq(0)').remove();
+		 }*/
 
-		/*close any open popover when click elsewhere*/
-		if ($(e.target).parent().find('.toggle-popover').length > 0) {
-			$('.toggle-popover').popover('hide');
-		}
-	});
+		$('body').on('click', function (e) {
+			moreFiltersElem.removeClass('open');
 
-	// prevent propagation on multi-select under sub nav
-	moreFiltersElem
-		.on('click', '.ms-drop input, .ms-drop label', function(e) {
-			e.stopPropagation();
-		})
-		.on('click', function(e) {
-			e.stopPropagation();
-			e.preventDefault();
-
-			if(!$(this).parents('.disabled').length) {
-				//Do not toggle if clicking anywhere in the dropdown.
-				if ($(e.target).parents('.sub-nav-wrapper').length) {
-					return false;
-				}
-
-				$(this).toggleClass('open');
+			/*close any open popover when click elsewhere*/
+			if ($(e.target).parent().find('.toggle-popover').length > 0) {
+				$('.toggle-popover').popover('hide');
 			}
 		});
 
-	ribbonElemMS = ribbonElem.find('select').filter('[multiple=multiple]');
+		// prevent propagation on multi-select under sub nav
+		moreFiltersElem
+			.on('click', '.ms-drop input, .ms-drop label', function (e) {
+				e.stopPropagation();
+			})
+			.on('click', function (e) {
+				e.stopPropagation();
+				e.preventDefault();
 
-	//Initialize multiple select for ribbon area
-	ribbonElemMS.each(function() {
-		var title = $(this).data('title');
-
-		$(this).multipleSelect({
-			placeholder: title,
-			minimumCountSelected: 0,
-			countSelected: title,
-			selectAllText: $(this).data('select-all-text'),
-			allSelected: title,
-			maxHeight: 240,
-			onClose: function() {
-				var currentValues = this.target.multipleSelect('getSelects');
-				//$target = this.title
-				//Check if the value has changed. If changed, call onCloseMultiFilter method.
-				if ($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
-					//ribbonListener.onCloseMultiFilter($target);
-					ribbonListener.rebuildRibbonState('.sq-top-ribbon');
-				}
-			},
-			onOpen: function(elem) {
-				this.target = $(elem).parent().prev();
-				this.previousValues = this.target.multipleSelect('getSelects');
-
-				var nextElem = $(elem).next(), ul = nextElem.find('ul');
-
-				if (!nextElem.find('.btn').length) {
-					nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
-
-					nextElem.on('click', '.btn-default', function() {
-						$(elem).parents('.ms-parent').prev().multipleSelect('uncheckAll');
-					});
-
-					nextElem.on('click', '.btn-primary', function() {
-						$(this).parents('.ms-parent').prev().multipleSelect('close');
-					});
-				}
-
-				/*width/height fix imported from DSG*/
-				if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
-					ul.css('width', ul.outerWidth() + $.position.scrollbarWidth()).data('width-fixed', true);
-				}
-
-				//Check if dropdown needs to be reversed.
-				nextElem.css('right', 'auto');
-
-				if (nextElem.offset().left + nextElem.find('ul').outerWidth(true) > $('body').width()) {
-					nextElem.css('right', 0);
-				}
-
-				/*if(nextElem.outerHeight(true) + nextElem.offset().top > $('body').height()) {
-				 nextElem.css({'top': ' -90px'});
-				 }*/
-
-				var selectTagElem = $(elem).parent().prev().get(0);
-
-				//Close all other multiselect dropdown
-				ribbonElemMS.each(function() {
-					if (selectTagElem != this) {
-						var elem = $(this).next();
-
-						elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
+				if (!$(this).parents('.disabled').length) {
+					//Do not toggle if clicking anywhere in the dropdown.
+					if ($(e.target).parents('.sub-nav-wrapper').length) {
+						return false;
 					}
-				});
-			}
+
+					$(this).toggleClass('open');
+				}
+			});
+
+		ribbonElemMS = ribbonElem.find('select').filter('[multiple=multiple]');
+
+		//Initialize multiple select for ribbon area
+		ribbonElemMS.each(function () {
+			var title = $(this).data('title');
+
+			$(this).multipleSelect({
+				placeholder: title,
+				minimumCountSelected: 0,
+				countSelected: title,
+				selectAllText: $(this).data('select-all-text'),
+				allSelected: title,
+				maxHeight: 240,
+				onClose: function () {
+					var currentValues = this.target.multipleSelect('getSelects');
+					//$target = this.title
+					//Check if the value has changed. If changed, call onCloseMultiFilter method.
+					if ($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
+						//ribbonListener.onCloseMultiFilter($target);
+						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
+					}
+				},
+				onOpen: function (elem) {
+					this.target = $(elem).parent().prev();
+					this.previousValues = this.target.multipleSelect('getSelects');
+
+					var nextElem = $(elem).next(), ul = nextElem.find('ul');
+
+					if (!nextElem.find('.btn').length) {
+						nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
+
+						nextElem.on('click', '.btn-default', function () {
+							$(elem).parents('.ms-parent').prev().multipleSelect('uncheckAll');
+						});
+
+						nextElem.on('click', '.btn-primary', function () {
+							$(this).parents('.ms-parent').prev().multipleSelect('close');
+						});
+					}
+
+					/*width/height fix imported from DSG*/
+					if (ul.outerHeight() < ul.prop('scrollHeight') && !ul.data('width-fixed')) {
+						ul.css('width', ul.outerWidth() + $.position.scrollbarWidth()).data('width-fixed', true);
+					}
+
+					//Check if dropdown needs to be reversed.
+					nextElem.css('right', 'auto');
+
+					if (nextElem.offset().left + nextElem.find('ul').outerWidth(true) > $('body').width()) {
+						nextElem.css('right', 0);
+					}
+
+					/*if(nextElem.outerHeight(true) + nextElem.offset().top > $('body').height()) {
+					 nextElem.css({'top': ' -90px'});
+					 }*/
+
+					var selectTagElem = $(elem).parent().prev().get(0);
+
+					//Close all other multiselect dropdown
+					ribbonElemMS.each(function () {
+						if (selectTagElem != this) {
+							var elem = $(this).next();
+
+							elem.find('.ms-choice').find('> div').removeClass('open').end().next().hide();
+						}
+					});
+				}
+			});
 		});
-	});
 
-	//Retrieve session cookie for filters.
-	(function() {
-		var sessionFilterSettings = $.cookie("SQFilterSettings");
+		//Retrieve session cookie for filters.
+		(function () {
+			var sessionFilterSettings = $.cookie("SQFilterSettings");
 
-		if(sessionFilterSettings) {
-			initRibbon.findActiveFilters($.parseJSON(sessionFilterSettings));
-		}
-		else {
-			initRibbon.findActiveFilters(ribbonWidgets.userPreferences());
-		}
-	})();
+			if (sessionFilterSettings) {
+				initRibbon.findActiveFilters($.parseJSON(sessionFilterSettings));
+			}
+			else {
+				initRibbon.findActiveFilters(ribbonWidgets.userPreferences());
+			}
+		})();
 
-	ribbonElem.addClass('initialized');
-	$('#search-container').addClass('initialized');
+		ribbonElem.addClass('initialized');
+		$('#search-container').addClass('initialized');
+	}
 });
