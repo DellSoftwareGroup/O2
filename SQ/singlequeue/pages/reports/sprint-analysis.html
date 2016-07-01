@@ -3,6 +3,278 @@
 <div class="container">
 	<h1 class="h2">Sprint Analysis Report <span
 		class="text-sm">- choose a maximum of 3 agile sprints for comparison</span></h1>
-
-
 </div>
+
+<div class="container">
+	<div class="panel-group-collapsible">
+		<div class="panel border-b-grey">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="" data-toggle="collapse" data-parent="#accordion" href="#createddone" aria-expanded="true">
+						Created and Done Requests by Agile Team
+					</a>
+				</h4>
+			</div>
+			<div id="createddone" class="collapse in" aria-expanded="false">
+				<div class="panel-body bg-grey">
+					<h5>Agile Team: Data Protection - Created and Done Requests</h5>
+					<div id="planned-closed" class="bg-white"></div>
+
+					<h5>Agile Team: Data Protection - Created Requests Not Done</h5>
+					<div id="planned-opened" class="bg-white"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function createChart() {
+		var drawing = kendo.drawing;
+
+		$("#planned-closed").kendoChart({
+			legend: {
+				visible: true,
+				background: "#eeeeee",
+				position: "right",
+				orientation: "vertical",
+				margin: {
+					left: 30,
+					top: -150
+				},
+				padding: {
+					top: 20,
+					bottom: 10,
+					left: 30,
+					right: 30
+				},
+				labels: {
+					font: "14px Arial,Helvetica,sans-serif"
+				},
+				item: {
+					visual: function (e) {
+						var color = e.options.markers.background;
+						var labelColor = e.options.labels.color;
+						var rect = new kendo.geometry.Rect([0, 0], [190, 32]);
+						var layout = new kendo.drawing.Layout(rect, {
+							spacing: 10,
+							alignItems: "center"
+						});
+
+						var market = null;
+
+						if (e.series.name.indexOf('Done') > 0) {
+							marker = new kendo.drawing.Path({
+								fill: {
+									color: '#eeeeee'
+								},
+								stroke: {
+									color: color,
+									width: 2
+								}
+							}).moveTo(10, 0).lineTo(20, 0).lineTo(20, 10).lineTo(10, 10).close();
+						}
+						else {
+							marker = new kendo.drawing.Path({
+								fill: {
+									color: '#eeeeee'
+								},
+								stroke: {
+									color: color,
+									width: 2
+								}
+							}).moveTo(10, 0).lineTo(15, 10).lineTo(5, 10).close();
+						}
+
+						var label = new kendo.drawing.Text(e.series.name, [0, 0], {
+							fill: {
+								color: labelColor
+							},
+							font: "14px Arial,Helvetica,sans-serif"
+						});
+
+						var overlay = drawing.Path.fromRect(rect, {
+							fill: {
+								color: "#fff",
+								opacity: 0
+							},
+							stroke: {
+								color: "none"
+							},
+							cursor: "pointer"
+						});
+
+						layout.append(marker, label);
+						layout.reflow();
+
+						return new drawing.Group().append(layout, overlay);
+					}
+				}
+			},
+			chartArea: {
+				background: ""
+			},
+			seriesDefaults: {
+				type: "line",
+				style: "smooth"
+			},
+			series: [
+				{
+					name: "13 - FEB FY17 - Created",
+					data: [5, 7, 9, 15, 25, 10, 5, 3, 1],
+					dashType: "longdash",
+					markers: {
+						type: "triangle"
+					}
+				},
+				{
+					name: "13 - FEB FY17 - Done",
+					data: [null, null, null, null, 10, 20, 25, 13, 20],
+					dashType: "solid",
+					markers: {
+						type: "square"
+					}
+				},
+				{
+					name: "14 - MAR FY17 - Created",
+					data: [14, 16, 8, 10, 35, 25, 12, 8, 3],
+					dashType: "longdash",
+					markers: {
+						type: "triangle"
+					}
+				},
+				{
+					name: "14 - MAR FY17 - Done",
+					data: [null, null, null, null, 20, 28, 30, 13, 20],
+					dashType: "solid",
+					markers: {
+						type: "square"
+					}
+				},
+				{
+					name: "15 - APR FY17 - Created",
+					data: [28, 30, 35, 40, 41, 35, 10, 5, 1],
+					dashType: "longdash",
+					markers: {
+						type: "triangle"
+					}
+				},
+				{
+					name: "15 - APR FY17 - Done",
+					data: [null, null, null, null, 23, 38, 27, 10, 21],
+					dashType: "solid",
+					markers: {
+						type: "square"
+					}
+				}
+			],
+			seriesColors: ["#006495", "#006495", "#FF9900", "#FF9900", "#732C7B", "#732C7B"],
+			valueAxis: {
+				Max: 50,
+				majorUnit: 5,
+				line: {
+					visible: true
+				},
+				labels: {
+					font: "bold 12px Arial,Helvetica,sans-serif"
+				}
+			},
+			categoryAxis: {
+				categories: ["4< Weeks", "3< Weeks", "2< Weeks", "1< Week", "Week 0", "1> Week", "2> Weeks", "3> Weeks", "4> Weeks"],
+				majorGridLines: {
+					visible: true
+				},
+				justified: true,
+				axisCrossingValue: 4,
+				labels: {
+					font: "bold 12px Arial,Helvetica,sans-serif"
+				}
+			},
+			tooltip: {
+				visible: true,
+				template: "#= series.name #: #= value #"
+			}
+		});
+
+		$("#planned-opened").kendoChart({
+			legend: {
+				visible: true,
+				background: "#eeeeee",
+				position: "right",
+				/*orientation: "vertical",*/
+				margin: {
+					left: 50
+					/*top: -273*/
+				},
+				padding: {
+					top: 15,
+					bottom: 15,
+					left: 30,
+					right: 30
+				},
+				labels: {
+					font: "14px Arial,Helvetica,sans-serif",
+					padding: {
+						top: 8,
+						bottom: 8
+					}
+				}
+			},
+			seriesDefaults: {
+				overlay: {
+					gradient: "none"
+				},
+				type: "column",
+				labels: {
+					visible: true,
+					font: "bold 14px Arial,Helvetica,sans-serif",
+					background: "transparent",
+					position: "center",
+					color: "black"
+				}
+			},
+			series: [
+				{
+					name: "Created Before Sprint",
+					stack: "open tickets",
+					data: [25, 18, 20],
+					color: "#ffbd5c"
+				},
+				{
+					name: "Created In Sprint",
+					stack: "open tickets",
+					data: [7, 12, 13],
+					color: "#e0450f"
+				}
+			],
+			valueAxis: {
+				Max: 200,
+				Min: 10,
+				step: 10,
+				line: {
+					visible: false
+				},
+				labels: {
+					font: "bold 12px Arial,Helvetica,sans-serif"
+				}
+			},
+			categoryAxis: {
+				categories: ["Sprint 23", "Sprint 24", "Sprint 25"],
+				majorGridLines: {
+					visible: false
+				},
+				labels: {
+					font: "bold 12px Arial,Helvetica,sans-serif"
+				}
+			},
+			tooltip: {
+				visible: true,
+				template: "#= series.name #: #= value #"
+			}
+		});
+	}
+
+	$(function () {
+		createChart();
+	});
+</script>

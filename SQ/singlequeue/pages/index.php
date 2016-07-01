@@ -46,8 +46,9 @@
 	<script type="text/javascript" src="/SQ/Static/Scripts/RequestQueues/web-queue-plugins.min.js"></script>
 	<script type="text/javascript" src="/SQ/Static/Scripts/RequestQueues/qtip/jquery.qtip.min.js"></script>
 	<script type="text/javascript" src="http://stage-o2.prod.quest.corp/SQ/Static/Scripts/TimeZone.min.js"></script>
-	<script type="text/javascript"
-	        src="//software.dell.com/hidden/scripts/kendo/kendo.custom.singlequeuelisting.min.js"></script>
+	<!--<script type="text/javascript"
+	        src="//software.dell.com/hidden/scripts/kendo/kendo.custom.singlequeuelisting.min.js"></script>-->
+	<script src="http://stage-o2.prod.quest.corp/sq/static/scripts/kendo/2015.1.429/kendo.all.min.js"></script>
 	<script>
 		var endPoints = {
 			users: RootPath + "Common/GetSearchMKUserNames",
