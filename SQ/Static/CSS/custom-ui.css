@@ -46,87 +46,6 @@ html, body {
   margin-right: 0;
 }
 
-/* Tabs */
-#tabs {
-  padding-top: 0;
-  border: 0;
-  height: 100%;
-  z-index: 1;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  position: relative;
-}
-
-#tabs > ul {
-    border: 1px solid #aaaaaa;
-    behavior: url(/images/PIE/PIE.htc);
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    background: #efefef;
-    margin-bottom: 10px;
-    position: absolute;
-    top: 72px;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
-#tabs > ul > li {
-  background: url("images/vertical-pipe.png") 100% 0 repeat-y;
-  margin-bottom: 3px;
-  border: 1px solid transparent;
-}
-
-#tabs > ul > li.ui-tabs-active {
-  margin-bottom: -1px;
-  border: 1px solid #ccc;
-  border-bottom: 0;
-  background: #fff;
-}
-
-#tabs > ul > li.ui-tabs-active a {
-  padding-bottom: 9px !important;
-  color: #666;
-}
-
-#tabs > ul > li.ui-tabs-active > a:hover {
-  text-decoration: none;
-}
-
-#tabs > ul > li > a {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 12px;
-  padding-top: 8px;
-  padding-bottom: 5px;
-  color: #0085C3;
-}
-
-#tabs > ul > li > a:hover {
-  text-decoration: underline;
-}
-
-#tabs ul li.hide-pipe {
-  background: none;
-}
-
-#tabs section {
-  overflow: hidden;
-}
-
-#tabs .ui-tabs-panel {
-    height: 100%;
-    padding: 42px 0 0 0;
-    overflow: auto;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-
 /* dropdown */
 .k-multiselect.k-header.k-state-hover {
   border-color: #bcb4b0;
@@ -2030,7 +1949,7 @@ a {
 }
 
 /*tabs*/
-#tabs {
+#tabs, #fake-tabs {
   padding-top: 0;
   position: relative;
   float: left;
@@ -2042,7 +1961,7 @@ a {
   border: none;
 }
 
-#tabs > ul {
+#tabs > ul, #fake-tabs > ul {
     top: 0;
     width: 100%;
     background-image: none;
@@ -2058,7 +1977,7 @@ a {
   margin-bottom: 0;
 }
 
-#tabs > ul > li {
+#tabs > ul > li, #fake-tabs > ul > li {
   border-top: 1px solid #e4e4e4;
   border-right: 1px solid #e4e4e4;
   border-left: none;
@@ -2091,7 +2010,7 @@ a {
   /* IE6-8 */
 }
 
-#tabs > ul > li > a {
+#tabs > ul > li > a, #fake-tabs > ul > li > a {
   display: block;
   padding: 17px 25px;
   font-size: 15px;
@@ -2101,7 +2020,7 @@ a {
   font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
 }
 
-#tabs > ul > li.ui-tabs-active {
+#tabs > ul > li.ui-tabs-active, #fake-tabs > ul > li.ui-tabs-active {
   border: none;
   border-right: 1px solid #e4e4e4;
   border-top: 1px solid #e4e4e4;
@@ -2110,7 +2029,7 @@ a {
   margin-bottom: -1px;
 }
 
-#tabs > ul > li.ui-tabs-active a {
+#tabs > ul > li.ui-tabs-active a, #fake-tabs > ul > li.ui-tabs-active a {
   border-top: 4px solid #0085c3;
   padding: 13px 25px 19px 25px !important;
   background-color: #fff;
@@ -2121,7 +2040,7 @@ a {
   cursor: pointer;
 }
 
-#tabs > ul > li > a:hover {
+#tabs > ul > li > a:hover, #fake-tabs > ul > li > a:hover {
   text-decoration: none;
 }
 
@@ -2533,7 +2452,6 @@ a {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
-  margin-bottom: 20px;
   display: none;
 }
 
@@ -3185,15 +3103,20 @@ a {
     .sq-top-ribbon > ul > li > ul > li {
       margin-right: 7px;
     }
-
   .sq-top-ribbon #agile-status ul > li {
     width: 92px;
   }
 }
 /*filters collector */
 .filter-collector, .search-filter-collector {
-  float: left;
   clear: both;
+  overflow: hidden;
+  padding: .6em;
+  margin-top: .6em;
+}
+
+.filter-collector .h3, .search-filter-collector .h3 {
+  margin: 0;
 }
 
 .filter-collector > span, .search-filter-collector > span {
@@ -3214,6 +3137,7 @@ a {
     display: inline;
     float: left;
   margin: 1px 10px 0 0;
+  padding: 0;
 }
 
 .filter-collector li a, .search-filter-collector li a {

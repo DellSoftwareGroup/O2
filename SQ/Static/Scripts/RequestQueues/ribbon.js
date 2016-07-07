@@ -238,7 +238,7 @@ var initRibbon = function () {
 
 var ribbonListener = function () {
 	/* Private Variables */
-	var ribbonReqObj = {}, isDoneLoading = false; // it gets set by kendo Grid on Databound
+	var ribbonReqObj = {}, isDoneLoading = false, initISfunc = {}; // isDoneLoading : it gets set by kendo Grid on Databound
 
 	/* -----> Private Methods <-----*/
 	function rebuildRibbonState($rbWrapper) {
@@ -445,8 +445,6 @@ var ribbonListener = function () {
 	}*/
 
 	/* -----> IS Interactions <-----*/
-
-	var initISfunc = {};
 
 	// gets function passed in the init and saves it for later use in an obj
 	function getISfunction(funcPassed) {
@@ -658,10 +656,16 @@ var ribbonListener = function () {
 		ribbonWidgets.filterCollectorModule();
 
 		//Save filter preference
-		$.cookie("SQFilterSettings", JSON.stringify(ribbonListener.getISobj(undefined, true)), {path:'/'});
+		var cookieName = ribbonElem.data('cookie');
+
+		if (cookieName) {
+			$.cookie(cookieName, JSON.stringify(ribbonListener.getISobj(undefined, true)), {path: '/'});
+		}
 
 		// Will trigger IS function passed as argument in the init
-		initISfunc.run();
+		if (ribbonElem.data('auto-update')) {
+			initISfunc.run();
+		}
 
 		return ribbonReqObj;
 	}
@@ -669,18 +673,26 @@ var ribbonListener = function () {
 	// add listener to filters, triggers IS function
 	function filterListener($rbWrapper) {
 		// on click event for li with now select
-		$('#agile-status').on('click', 'a', function(e) {
-			e.preventDefault();
+		$rbWrapper
+			.on('click', '.toggle-switch a', function (e) {
+				e.preventDefault();
 
-			if(!$('#agile-status').hasClass('disabled')) {
-				toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
-				// rebuild ribbonReqObj   filters state
+				if (!$('#agile-status').hasClass('disabled')) {
+					toggleActiveItem($(this).parent('li')); // function comes from single-queue.js
+					// rebuild ribbonReqObj   filters state
+					rebuildRibbonState($rbWrapper);
+				}
+			})
+			.on('click', '.reset-filter', function () {
+				$rbWrapper.find('select').filter('[multiple=multiple]').each(function () {
+					$(this).multipleSelect('uncheckAll').parents('li').removeClass('active-item-bg');
+				});
+
 				rebuildRibbonState($rbWrapper);
-			}
-		});
-
-		// manual change of sprints IS returns only "[ALL]" so we manually maintain it.
-		$('#dp-sprint-dd').find('option:first-child').text('All Sprints');
+			})
+			.on('click', '.execute-filter', function () {
+				initISfunc.run();
+			});
 	}
 
 	// get object used to pase object to external widgets
@@ -703,7 +715,6 @@ var ribbonListener = function () {
 		isDoneLoading: isDoneLoading,
 		init: init,
 		rebuildRibbonState: rebuildRibbonState,
-		//onCloseMultiFilter: onCloseMultiSelectFilter,
 		passFilterStateObj: passFilterStateObj,
 		isFilterSecMultSelect: isFilterSecMultSelect,
 		getISobj: getISobj
@@ -739,10 +750,9 @@ var ribbonWidgets = function () {
 
 		function buildTmpl(activeFilters) {
 			// Clear filter collector area
-			filterCollectorElem.html('');
+			filterCollectorElem.find('ul').remove();
 
 			// append filter tag:
-			filterCollectorElem.append('<span class="h3">Filters:</span>');
 			filterCollectorElem.append('<ul><li>Clear All Filters <a href="#" data-action="clear-cookie"> X</a></li></ul>');
 			var filterHtml = '', activeArr = [];
 
@@ -1068,7 +1078,6 @@ var ribbonWidgets = function () {
 		moreFiltersPopover: moreFiltersPopover,
 		userPreferences: getUserPreferences
 	}
-
 }();
 
 function toggleActiveItem(elem) {
@@ -1163,13 +1172,10 @@ $(function () {
 	if (ribbonElem.length) {
 		moreFiltersElem = $('#sq-filters');
 
-		//Remove [All] option under sprint
-		/*if($('#dp-sprint-dd').find('option:eq(0)').val() == '') {
-		 $('#dp-sprint-dd').find('option:eq(0)').remove();
-		 }*/
-
 		$('body').on('click', function (e) {
-			moreFiltersElem.removeClass('open');
+			if (moreFiltersElem.length) {
+				moreFiltersElem.removeClass('open');
+			}
 
 			/*close any open popover when click elsewhere*/
 			if ($(e.target).parent().find('.toggle-popover').length > 0) {
@@ -1178,23 +1184,25 @@ $(function () {
 		});
 
 		// prevent propagation on multi-select under sub nav
-		moreFiltersElem
-			.on('click', '.ms-drop input, .ms-drop label', function (e) {
-				e.stopPropagation();
-			})
-			.on('click', function (e) {
-				e.stopPropagation();
-				e.preventDefault();
+		if (moreFiltersElem.length) {
+			moreFiltersElem
+				.on('click', '.ms-drop input, .ms-drop label', function (e) {
+					e.stopPropagation();
+				})
+				.on('click', function (e) {
+					e.stopPropagation();
+					e.preventDefault();
 
-				if (!$(this).parents('.disabled').length) {
-					//Do not toggle if clicking anywhere in the dropdown.
-					if ($(e.target).parents('.sub-nav-wrapper').length) {
-						return false;
+					if (!$(this).parents('.disabled').length) {
+						//Do not toggle if clicking anywhere in the dropdown.
+						if ($(e.target).parents('.sub-nav-wrapper').length) {
+							return false;
+						}
+
+						$(this).toggleClass('open');
 					}
-
-					$(this).toggleClass('open');
-				}
-			});
+				});
+		}
 
 		ribbonElemMS = ribbonElem.find('select').filter('[multiple=multiple]');
 
@@ -1211,10 +1219,8 @@ $(function () {
 				maxHeight: 240,
 				onClose: function () {
 					var currentValues = this.target.multipleSelect('getSelects');
-					//$target = this.title
-					//Check if the value has changed. If changed, call onCloseMultiFilter method.
+
 					if ($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
-						//ribbonListener.onCloseMultiFilter($target);
 						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
 					}
 				},
@@ -1268,17 +1274,24 @@ $(function () {
 
 		//Retrieve session cookie for filters.
 		(function () {
-			var sessionFilterSettings = $.cookie("SQFilterSettings");
+			var cookieName = ribbonElem.data('cookie');
 
-			if (sessionFilterSettings) {
-				initRibbon.findActiveFilters($.parseJSON(sessionFilterSettings));
-			}
-			else {
-				initRibbon.findActiveFilters(ribbonWidgets.userPreferences());
+			if (cookieName) {
+				var sessionFilterSettings = $.cookie(cookieName);
+
+				if (sessionFilterSettings) {
+					initRibbon.findActiveFilters($.parseJSON(sessionFilterSettings));
+				}
+				else {
+					initRibbon.findActiveFilters(ribbonWidgets.userPreferences());
+				}
 			}
 		})();
 
 		ribbonElem.addClass('initialized');
-		$('#search-container').addClass('initialized');
+
+		if (ribbonElem.data('search')) {
+			$('#search-container').addClass('initialized');
+		}
 	}
 });

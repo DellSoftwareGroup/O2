@@ -4,7 +4,6 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
-  margin-bottom: 20px;
   display: none;
   &.initialized {
     display: block;
@@ -606,8 +605,13 @@
 
 /*filters collector */
 .filter-collector, .search-filter-collector {
-  float: left;
   clear: both;
+	overflow: hidden;
+	padding: .6em;
+	margin-top: .6em;
+	.h3 {
+		margin: 0;
+	}
   > span {
     float: left;
     margin-right: 10px;
@@ -623,6 +627,7 @@
     display: inline;
     float: left;
     margin: 1px 10px 0 0;
+		padding: 0;
     a {
       color: #39c;
       font-weight: bold;
