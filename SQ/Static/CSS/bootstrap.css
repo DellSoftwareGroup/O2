@@ -4295,7 +4295,7 @@ a.thumbnail.active {
   border-color: #007db8; }
 
 .alert {
-  padding: 10px 35px 0 40px;
+	padding: 10px 35px 10px 40px;
   margin-bottom: 20px;
   border-radius: 1px;
   color: #444;
@@ -5434,6 +5434,10 @@ iframe {
 
 .icon-small-magnifying-glass:before {
   content: "\e64d"; }
+
+.icon-small-alertinfo:before {
+	content: "\e604";
+}
 
 /*@import "../bootstrap/custom/custom-header-footer";*/
 /*@import "../bootstrap/custom/demandbase";*/
@@ -6927,17 +6931,18 @@ a:hover .has-overlay h4 {
     .tooltip.bottom .tooltip-arrow:after {
       top: 2px;
       margin-left: -10px;
-      border-top-width: 0px;
+	    border-top-width: 0;
       border-bottom-color: #ffffff; }
 
-[data-toggle=tooltip] {
+/*[data-toggle=tooltip] {
   color: inherit;
-  border-bottom: 1px dashed #aaaaaa; }
+  border-bottom: 1px dashed #aaaaaa;
 
-[data-toggle=tooltip]:hover {
-  text-decoration: none;
-  color: inherit; }
-
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}*/
 .popover {
   position: absolute;
   top: 0;

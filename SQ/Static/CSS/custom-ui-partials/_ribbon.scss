@@ -148,12 +148,6 @@
           float: left;
           width: 30px;
         }
-        #excel-icon {
-          background-position: -653px 0;
-          width: 30px;
-          height: 23px;
-          float: none;
-        }
         #department-icon {
           background-position: -853px 5px;
           width: 11px;
@@ -316,15 +310,6 @@
         }
       }
     }
-    &#excel {
-      li {
-        padding: 15px 0 0 0;
-      }
-      #excel-icon-text {
-        float: left;
-        margin-top: 15px;
-      }
-    }
     > span:last-child {
       padding-top: 10px;
       display: block;
@@ -440,6 +425,12 @@
     -moz-border-radius: 0;
     border-radius: 0;
     min-width: 153px;
+		input[type="radio"] {
+			margin-top: 0;
+		}
+		.selected {
+			background-color: #e5f3fa;
+		}
   }
   .sub-nav { /*More Filters*/
     .ms-drop {
@@ -477,6 +468,33 @@
 				color: #ccc;
 			}
 		}
+	}
+
+	/* Icons */
+	.sq-icon-text-inline {
+		.sq-btn-icon {
+
+		}
+		.sq-btn-icon-text {
+			margin-top: 5px;
+			display: inline-block;
+		}
+	}
+	.sq-icon-text-stack {
+
+	}
+
+	.pdf-icon {
+		background-position: -653px -37px;
+		width: 30px;
+		height: 24px;
+		float: none;
+	}
+	.excel-icon {
+		background-position: -653px 0;
+		width: 30px;
+		height: 23px;
+		float: none;
 	}
 }
 

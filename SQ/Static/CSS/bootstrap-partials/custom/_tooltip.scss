@@ -161,18 +161,18 @@
     &:after {
       top: 2px;
       margin-left: -10px;
-      border-top-width: 0px;
+			border-top-width: 0;
       border-bottom-color: #ffffff;
     }
   }
 }
 
-[data-toggle=tooltip] {
+/*[data-toggle=tooltip] {
   color: inherit;
   border-bottom: 1px dashed #aaaaaa;
-}
 
-[data-toggle=tooltip]:hover {
-  text-decoration: none;
-  color: inherit;
-}
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}*/

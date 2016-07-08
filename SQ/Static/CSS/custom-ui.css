@@ -2453,6 +2453,7 @@ a {
   border-radius: 5px;
   padding: 10px 0;
 	display: none;
+	/* Icons */
 }
 
 .sq-top-ribbon.initialized {
@@ -2628,13 +2629,6 @@ a {
 	background-position: -549px -2px;
 	float: left;
 	width: 30px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #excel-icon {
-	background-position: -653px 0;
-	width: 30px;
-	height: 23px;
-	float: none;
 }
 
 .sq-top-ribbon > ul > li > ul > li #department-icon {
@@ -2819,15 +2813,6 @@ a {
 	min-width: 135px;
 }
 
-.sq-top-ribbon > ul > li#excel li {
-	padding: 15px 0 0 0;
-}
-
-.sq-top-ribbon > ul > li#excel #excel-icon-text {
-	float: left;
-	margin-top: 15px;
-}
-
 .sq-top-ribbon > ul > li > span:last-child {
 	padding-top: 10px;
 	display: block;
@@ -2953,6 +2938,14 @@ a {
 	min-width: 153px;
 }
 
+.sq-top-ribbon .ms-drop input[type="radio"] {
+	margin-top: 0;
+}
+
+.sq-top-ribbon .ms-drop .selected {
+	background-color: #e5f3fa;
+}
+
 .sq-top-ribbon .sub-nav {
 	/*More Filters*/
 }
@@ -2988,6 +2981,25 @@ a {
 
 .sq-top-ribbon .disabled:hover a {
 	color: #ccc;
+}
+
+.sq-top-ribbon .sq-icon-text-inline .sq-btn-icon-text {
+	margin-top: 5px;
+	display: inline-block;
+}
+
+.sq-top-ribbon .pdf-icon {
+	background-position: -653px -37px;
+	width: 30px;
+	height: 24px;
+	float: none;
+}
+
+.sq-top-ribbon .excel-icon {
+	background-position: -653px 0;
+	width: 30px;
+	height: 23px;
+	float: none;
 }
 
 #views select {

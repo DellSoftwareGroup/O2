@@ -644,7 +644,9 @@ var ribbonListener = function () {
 				rebuildRibbonState($rbWrapper);
 			})
 			.on('click', '.execute-filter', function () {
-				initISfunc.run();
+				setTimeout(function () {
+					initISfunc.run();
+				});
 			});
 	}
 
@@ -1147,8 +1149,10 @@ $(function () {
 			}
 
 			ribbonElem.find('.ms-parent').each(function () {
-				$(this).find('.open').removeClass('open').end()
-					.find('.ms-drop').hide();
+				if ($(this).find('.open').length) {
+					$(this).prev().data('multipleSelect').options.onClose();
+					$(this).find('.open').removeClass('open').end().find('.ms-drop').hide();
+				}
 			});
 		});
 
@@ -1202,7 +1206,7 @@ $(function () {
 
 					var nextElem = $(elem).next(), ul = nextElem.find('ul');
 
-					if (!nextElem.find('.btn').length) {
+					if (!nextElem.find('.btn').length && ribbonElem.data('auto-update')) {
 						nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
 
 						nextElem.on('click', '.btn-default', function () {
