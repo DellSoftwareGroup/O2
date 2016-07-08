@@ -54,10 +54,6 @@
       &:first-child {
 	      margin-bottom: 5px;
       }
-      .grey-bg {
-        background-color: #eee;
-        border-radius: 3px;
-      }
       > li {
         display: inline-block;
         float: left;
@@ -94,8 +90,13 @@
           margin-right: 0;
         }
         .sq-btn-icon, .glyphicon-remove-sign {
-          //margin-right: 5px;
-          float: left;
+					border: 0;
+					cursor: pointer;
+					clear: both;
+					float: left;
+					position: relative;
+					margin-top: 2px;
+
           &#jan-fy-icon {
             float: none;
             margin-bottom: 10px;
@@ -177,120 +178,18 @@
           background-position: -507px -80px;
           width: 16px;
         }
-        &#sq-filters-item {
-          /*width: 158px;*/
-          > div {
-            #sq-filters {
-	            .arrow {
-		            position: absolute;
-		            top: -3px;
-		            right: -8px;
-		            width: 22px;
-		            height: 20px;
-		            background: url("/sq/static/images/multiple-select.png") left top no-repeat;
-	            }
-              &:hover > span:last-child {
-                display: none;
-              }
-              a:hover, .activate-bg {
-                #filters-icon {
-                  background-position: -549px -39px;
-                }
-              }
-	            &.open {
-		            .arrow {
-			            background-position: right top;
-		            }
-		            .sub-nav-wrapper {
-			            display: block;
-		            }
-	            }
-              #more-filters {
-                position: relative;
-              }
-            }
-            > div {
-              padding: 0;
-            }
-          }
-          > span:last-child {
-            width: 66%;
-            display: block;
-            padding-top: 23px;
-          }
-          #request-type-btn, #campaign-btn, #project-btn, .clear-btn {
-            background-position: -17px -127px;
-            width: 14px;
-            height: 13px;
-            margin: -26px 4px 0 0;
-          }
-          #requester-btn, #owner-btn {
-            background-position: -35px -127px;
-            width: 16px;
-            height: 15px;
-            margin: -27px 4px 0 0;
-          }
-          .sub-nav {
-            #filter-title > a {
-              color: #3399CC;
-              text-decoration: none;
-            }
-            #search {
-              background-color: #007CB8;
-              color: #fff;
-              border: none;
-              padding: 7px 0;
-              margin-right: 7px;
-              width: 107px;
-              &:hover {
-                background-color: #00447B;
-                cursor: pointer;
-              }
-            }
-            #reset {
-              background-color: #007CB8;
-              color: #fff;
-              border: none;
-              padding: 7px 0;
-              width: 107px;
-              color: #007db8;
-              background-color: #eeeeee;
-              border: 1px solid #cccccc;
-              &:hover {
-                cursor: pointer;
-              }
-            }
-            #filter-title {
-              margin-bottom: 10px;
-              display: block;
-              float: left;
-              width: 100%;
-              > {
-                span {
-                  float: left;
-                  font-weight: bold;
-                }
-                a {
-                  float: right;
-                  text-decoration: none;
-                }
-              }
-            }
-            > div {
-              display: block;
-              float: left;
-            }
-            .sq-btn-icon, .glyphicon-remove-sign {
-              border: none;
-              cursor: pointer;
-              clear: both;
-              float: right;
-              position: relative;
-              z-index: 99999;
-              /*fix for ie9*/
-            }
-          }
-        }
+				#request-type-btn, #campaign-btn, #project-btn, .clear-btn {
+					background-position: -17px -127px;
+					width: 14px;
+					height: 13px;
+					margin: -26px 4px 0 0;
+				}
+				#requester-btn, #owner-btn {
+					background-position: -35px -127px;
+					width: 16px;
+					height: 15px;
+					margin: -27px 4px 0 0;
+				}
       }
     }
 	  &:not(.disabled) {
@@ -407,6 +306,9 @@
       }
     }
     &#filters-section {
+			select {
+				width: 100px;
+			}
       > ul > li {
         min-width: 125px;
         &:last-child {
@@ -431,73 +333,88 @@
       color: #737373;
       clear: both;
     }
-    .sub-nav-wrapper {
-      width: 250px;
-      height: 205px;
-      margin-left: -11px;
-      position: absolute;
-      top: 24px;
-	    display: none;
-    }
-    .sub-nav {
-      background-color: #eee;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      padding: 15px 10px 10px 10px;
-      width: 246px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
-      select, .sq-ribbon-filter-text, .ms-parent {
-        display: block;
-        box-sizing: content-box;
-        margin-bottom: 7px;
-        border: 1px solid #ccc;
-      }
-      select, .ms-parent {
-        &:last-child {
-          margin-bottom: 0;
-        }
-        width: 223px;
-        height: 23px;
-        clear: both;
-        background-color: #fff;
-      }
-      .sq-ribbon-filter-text {
-        width: 200px;
-        height: 21px;
-        padding-left: 4px;
-        padding-right: 19px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        background-color: #fff;
-      }
+		.has-dropdown {
+			select {
+				width: 223px !important;
+			}
+			.arrow {
+				position: absolute;
+				top: 2px;
+				right: 0;
+				width: 22px;
+				height: 20px;
+				background: url("/sq/static/images/multiple-select.png") left top no-repeat;
+			}
+			&.open {
+				> div {
+					display: block;
+				}
+				.arrow {
+					background-position: right top;
+				}
+			}
+			> div {
+				width: 250px;
+				min-height: 205px;
+				height: 205px;
+				margin-left: -11px;
+				position: absolute;
+				top: 24px;
+				display: none;
 
-      /* multiselect fields */
-      .ms-choice {
+				background-color: #eee;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+				border-bottom-left-radius: 5px;
+				padding: 15px 10px 10px 10px;
+				z-index: 1;
+				box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.25);
+				.sq-btn-icon, .glyphicon-remove-sign {
+					float: right;
+					margin-right: 9px !important;
+					margin-top: -25px !important;
+				}
+				.sq-ribbon-filter-text, .ms-parent {
+					display: block;
+					box-sizing: content-box;
+					margin-bottom: 7px;
+					border: 1px solid #ccc;
+				}
+				.ms-parent {
+					width: 223px;
+					height: 23px;
+					clear: both;
+					background-color: #fff;
+				}
+				.sq-ribbon-filter-text {
+					width: 200px;
+					height: 21px;
+					padding-left: 4px;
+					padding-right: 19px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					background-color: #fff;
+				}
 
-        span {
-          padding-top: 5px;
-          padding-left: 2px;
-        }
-        div {
-          top: 0px;
-        }
-
-      }
-
-    }
+				/* multiselect fields */
+				.ms-choice {
+					span {
+						padding-top: 5px;
+						padding-left: 2px;
+					}
+					div {
+						top: 0;
+					}
+				}
+			}
+		}
     select, input {
       font-size: 12.6667px;
     }
   }
-  .ms-parent {
-    margin-top: 0;
-  }
   .ms-choice {
-    height: 20px;
+		height: 17px;
     padding: inherit;
     line-height: inherit;
     border: none;
@@ -575,12 +492,6 @@
 	}
 }
 
-#filters-section {
-	select {
-		width: 100px;
-	}
-}
-
 #sq-filters {
 	select {
 		width: 223px;
@@ -610,7 +521,7 @@
 	padding: .6em;
 	margin-top: .6em;
 	.h3 {
-		margin: 0;
+		margin: 0 10px 0 0;
 	}
   > span {
     float: left;
@@ -640,6 +551,16 @@
       font-size: 14px;
     }
   }
+	&[data-interactive="false"] {
+		span:not(.h3) {
+			&::before {
+				content: "[";
+			}
+			&::after {
+				content: "]";
+			}
+		}
+	}
 }
 
 .filter-collector.new, .search-filter-collector.new {

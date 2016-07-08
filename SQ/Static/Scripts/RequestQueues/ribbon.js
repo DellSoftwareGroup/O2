@@ -147,42 +147,6 @@ var initRibbon = function () {
 			});
 		}
 
-		/*function setMultiSelects(multiSelct, option) {
-			var options = multiSelct.find('option'), optionValues = [], updatedValues = [];
-
-			$(options).each(function () {
-				var val = $(this).val();
-				optionValues.push(val);
-			});
-
-			console.log('target', multiSelct);
-			console.log('optionValues', optionValues);
-
-			optionValues.forEach(function (optionTxt, index) {
-				if ($.isArray(option)) {
-					console.log(option);
-					option.filter(function (val) {
-						if (val == optionTxt) {
-							updatedValues.push(index);
-						}
-					})
-				}
-				else {
-					if (option == optionTxt) {
-						updatedValues.push(index);
-					}
-				}
-			});
-
-			$(multiSelct).data('trigger', 'dynamic');
-
-			updatedValues.forEach(function (i, index) {
-				i = i + 1; // "all" option is not accounted as option;
-				// $(multiSelct).off('change').multipleSelect('setSelects', [i]);
-				addSelectedClass(multiSelct, i); //!important - class is not added when select is triggered programatically
-			});
-		}*/
-
 		function setSimpleNoSelectFilters(multiSelct, options) {
 			$(multiSelct).find('li').each(function () {
 				var $li = $(this);
@@ -206,17 +170,6 @@ var initRibbon = function () {
 				$li.addClass('active-item-bg');
 			}
 		}
-
-		/*function addSelectedClass(multiSelect, index) {
-			var parentTag = multiSelect.closest('li');
-			var $li = multiSelect.next().find('.ms-drop li');
-			var $liSelected = $li.eq(index);
-			$liSelected.addClass('selected');
-			$liSelected.find('input').prop('checked', true);
-			if ($liSelected.parents('.sub-nav').length == 0) { // prevent "More Filter" issue with bg.
-				parentTag.addClass('active-item-bg');
-			}
-		}*/
 
 		return {
 			typeOfFilter: typeOfFilter
@@ -724,24 +677,30 @@ var ribbonListener = function () {
 
 var ribbonWidgets = function () {
 	function filterCollectorModule() {
-		var filterObj = ribbonListener.passFilterStateObj(), filterCollectorElem = $('.filter-collector');
+		var filterObj = ribbonListener.passFilterStateObj(), filterCollectorElem = $('.filter-collector'), interactiveFilter = filterCollectorElem.data('interactive') === undefined || filterCollectorElem.data('interactive');
 
 		function findActiveFilters() {
 			var activeFilters = {};
 
 			$.each(filterObj, function (filter, options) {
 				if (Array.isArray(options)) {
+					var tmpData = {
+						allSelected: true,
+						data: []
+					};
+
 					options.forEach(function (option) {
 						if (option.isSelected) {
-							if (filter in activeFilters) {
-								activeFilters[filter].push(option);
-							}
-							else {
-								activeFilters[filter] = [];
-								activeFilters[filter].push(option);
-							}
+							tmpData.data.push(option);
+						}
+						else {
+							tmpData.allSelected = false;
 						}
 					});
+
+					if (tmpData.data.length) {
+						activeFilters[filter] = tmpData;
+					}
 				}
 			});
 
@@ -750,28 +709,34 @@ var ribbonWidgets = function () {
 
 		function buildTmpl(activeFilters) {
 			// Clear filter collector area
-			filterCollectorElem.find('ul').remove();
+			filterCollectorElem.find('ul.dynamic').remove();
 
-			// append filter tag:
-			filterCollectorElem.append('<ul><li>Clear All Filters <a href="#" data-action="clear-cookie"> X</a></li></ul>');
+			// append filter tag
 			var filterHtml = '', activeArr = [];
 
-			$.each(activeFilters, function (filter, options) {
-				// if it is a multiselect from Filters area
-				// do not add cross and anchor to options
-				filterHtml = String()
-						+ '<ul>'
-						+ '<li>' + filter + '<a href="#" data-title="' + filter + '"> X</a></li>';
-				if (Array.isArray(options)) {
-					options.forEach(function (option) {
-						filterHtml = filterHtml + '<li><span>' + option.text + '</span></li>';
+			$.each(activeFilters, function (filterName, filterObj) {
+				filterHtml = '<ul class="dynamic"><li>' + filterName;
+
+				if (interactiveFilter) {
+					filterHtml += '<a href="#" data-title="' + filterName + '"> X</a>';
+				}
+
+				filterHtml += '</li>';
+
+				if (filterObj.allSelected) {
+					filterHtml += '<li><span>All</span></li>';
+				}
+				else {
+					filterObj.data.forEach(function (option) {
+						filterHtml += '<li><span>' + option.text + '</span></li>';
 					});
 				}
-				filterHtml = filterHtml + '</ul>';
+
+				filterHtml += '</ul>';
 				activeArr.push(filterHtml);
 			});
-			var cleanFilters = activeArr.join(' ');
-			filterCollectorElem.append(cleanFilters);
+
+			filterCollectorElem.append(activeArr.join(' '));
 		}
 
 		function buildTmplNew(activeFilters) {
@@ -1043,7 +1008,6 @@ var ribbonWidgets = function () {
 								.addClass('hidden').end()
 								.find('> span').removeClass('hidden');
 					},
-
 					callRibbonListener = function () {
 						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
 					};
@@ -1053,8 +1017,9 @@ var ribbonWidgets = function () {
 
 		function init() {
 			// Clear campaign or project fields when icon is clicked
-			$('.sub-nav').on('click', '.clear-btn', function () {
+			ribbonElem.on('click', '.clear-btn', function () {
 				var thisParent = $(this).parent('div');
+
 				$(this).siblings('div')
 						.attr('filterid', '')
 						.html('<span>' + thisParent.data('title') + '</span>').end()
@@ -1063,14 +1028,13 @@ var ribbonWidgets = function () {
 
 				// call ribbonListener to track changes
 				ribbonListener.rebuildRibbonState('.sq-top-ribbon');
-			})
+			});
 		}
 
 		return {
 			init: init,
 			onModalInputchange: onModalInputchange
 		}
-
 	}();
 
 	return {
@@ -1170,9 +1134,9 @@ $(function () {
 	ribbonElem = $('.sq-top-ribbon');
 
 	if (ribbonElem.length) {
-		moreFiltersElem = $('#sq-filters');
+		moreFiltersElem = ribbonElem.find('.has-dropdown');
 
-		$('body').on('click', function (e) {
+		$('html, body').on('click', function (e) {
 			if (moreFiltersElem.length) {
 				moreFiltersElem.removeClass('open');
 			}
@@ -1181,25 +1145,32 @@ $(function () {
 			if ($(e.target).parent().find('.toggle-popover').length > 0) {
 				$('.toggle-popover').popover('hide');
 			}
+
+			ribbonElem.find('.ms-parent').each(function () {
+				$(this).find('.open').removeClass('open').end()
+					.find('.ms-drop').hide();
+			});
+		});
+
+		ribbonElem.on('click', '.ms-parent', function (e) {
+			e.stopPropagation();
 		});
 
 		// prevent propagation on multi-select under sub nav
 		if (moreFiltersElem.length) {
+			// prevent propagation on multi-select under sub nav
 			moreFiltersElem
-				.on('click', '.ms-drop input, .ms-drop label', function (e) {
-					e.stopPropagation();
-				})
-				.on('click', function (e) {
-					e.stopPropagation();
+				.on('click', '> a', function (e) {
 					e.preventDefault();
+					e.stopPropagation();
 
 					if (!$(this).parents('.disabled').length) {
-						//Do not toggle if clicking anywhere in the dropdown.
-						if ($(e.target).parents('.sub-nav-wrapper').length) {
-							return false;
-						}
-
-						$(this).toggleClass('open');
+						$(this).parent().toggleClass('open');
+					}
+				})
+				.on('click', '> div', function (e) {
+					if (!$(e.target).hasClass('clear-btn')) {
+						e.stopPropagation();
 					}
 				});
 		}
@@ -1220,6 +1191,7 @@ $(function () {
 				onClose: function () {
 					var currentValues = this.target.multipleSelect('getSelects');
 
+					//If the previous selected values is the same as the current selected values, no need to rebuild ribbon.
 					if ($(this.previousValues).not(currentValues).length !== 0 || $(currentValues).not(this.previousValues).length !== 0) {
 						ribbonListener.rebuildRibbonState('.sq-top-ribbon');
 					}
