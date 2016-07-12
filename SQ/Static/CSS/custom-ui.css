@@ -2454,6 +2454,7 @@ a {
   padding: 10px 0;
 	display: none;
 	/* Icons */
+	/* Customize Ribbon */
 }
 
 .sq-top-ribbon.initialized {
@@ -2467,42 +2468,9 @@ a {
 .sq-top-ribbon > ul > li {
     list-style: none;
     float: left;
-    padding: 5px 10px 0;
+	padding: 5px 10px 20px;
 	border-right: 1px solid #ccc;
-}
-
-.sq-top-ribbon > ul > li .wide-blue-button {
-	background-color: #007CB8;
-	height: 55px;
-	border-radius: 3px;
-	vertical-align: middle;
-}
-
-.sq-top-ribbon > ul > li .wide-blue-button a {
-	padding: 0 10px;
-	display: block;
-	color: #fff;
-	float: left;
-	font-size: 13px;
-}
-
-.sq-top-ribbon > ul > li .wide-blue-button a span:first-child {
-	display: block;
-	float: left;
-	line-height: 55px;
-	font-size: 2.5em;
-}
-
-.sq-top-ribbon > ul > li .wide-blue-button a span:last-child {
-	display: block;
-	float: left;
-	margin-left: 6px;
-	line-height: 55px;
-	font-size: 1.2em;
-}
-
-.sq-top-ribbon > ul > li .wide-blue-button a:hover {
-	text-decoration: none;
+	position: relative;
 }
 
 .sq-top-ribbon > ul > li > ul {
@@ -2764,62 +2732,17 @@ a {
 	background-color: transparent;
 }
 
-.sq-top-ribbon > ul > li:first-child > span:last-child {
-	margin-top: 13px;
-}
-
 .sq-top-ribbon > ul > li:last-child {
 	border-right: none;
 }
 
-.sq-top-ribbon > ul > li:last-child > span:last-child {
-	padding-top: 0;
-}
-
-.sq-top-ribbon > ul > li#sprints-section span:last-child {
-	width: 39%;
-	padding-top: 18px;
-}
-
-.sq-top-ribbon > ul > li#views > span {
-	padding-top: 12px;
-}
-
-.sq-top-ribbon > ul > li#views .ms-choice > span {
-	top: 2px;
-}
-
-.sq-top-ribbon > ul > li#views .ms-choice > div {
-	top: -2px;
-}
-
-.sq-top-ribbon > ul > li#agile-status > ul > li > a {
-	padding-top: 0;
-}
-
-.sq-top-ribbon > ul > li#agile-status > span:last-child {
-	padding-top: 12px;
-}
-
-.sq-top-ribbon > ul > li#filters-section select {
-	width: 100px;
-}
-
-.sq-top-ribbon > ul > li#filters-section > ul > li {
-	min-width: 125px;
-}
-
-.sq-top-ribbon > ul > li#filters-section > ul > li:last-child {
-	min-width: 135px;
-}
-
 .sq-top-ribbon > ul > li > span:last-child {
-	padding-top: 10px;
-	display: block;
-	margin: 0 auto;
 	font-size: 13px;
 	color: #737373;
-	clear: both;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }
 
 .sq-top-ribbon > ul > li .has-dropdown select {
@@ -2901,10 +2824,6 @@ a {
 	top: 0;
 }
 
-.sq-top-ribbon > ul > li select, .sq-top-ribbon > ul > li input {
-	font-size: 12.6667px;
-}
-
 .sq-top-ribbon .ms-choice {
 	height: 17px;
     padding: inherit;
@@ -2940,10 +2859,8 @@ a {
 
 .sq-top-ribbon .ms-drop input[type="radio"] {
 	margin-top: 0;
-}
-
-.sq-top-ribbon .ms-drop .selected {
-	background-color: #e5f3fa;
+	vertical-align: middle;
+	visibility: visible;
 }
 
 .sq-top-ribbon .sub-nav {
@@ -2959,8 +2876,38 @@ a {
 	width: 15% !important;
 }
 
-.sq-top-ribbon .sq-btn-icon + span {
-	margin-left: 5px;
+.sq-top-ribbon .wide-blue-button {
+	background-color: #007CB8;
+	height: 55px;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.sq-top-ribbon .wide-blue-button a {
+	padding: 0 10px;
+	display: block;
+	color: #fff;
+	float: left;
+	font-size: 13px;
+}
+
+.sq-top-ribbon .wide-blue-button a span:first-child {
+	display: block;
+	float: left;
+	line-height: 55px;
+	font-size: 2.5em;
+}
+
+.sq-top-ribbon .wide-blue-button a span:last-child {
+	display: block;
+	float: left;
+	margin-left: 6px;
+	line-height: 55px;
+	font-size: 1.2em;
+}
+
+.sq-top-ribbon .wide-blue-button a:hover {
+	text-decoration: none;
 }
 
 .sq-top-ribbon .disabled a {
@@ -2983,9 +2930,26 @@ a {
 	color: #ccc;
 }
 
+.sq-top-ribbon .date-picker {
+	border: 0;
+}
+
+.sq-top-ribbon .date-picker .k-picker-wrap {
+	height: 34px;
+}
+
 .sq-top-ribbon .sq-icon-text-inline .sq-btn-icon-text {
-	margin-top: 5px;
+	margin: 5px 0 0 5px;
 	display: inline-block;
+}
+
+.sq-top-ribbon .sq-icon-text-stack .sq-btn-icon {
+	float: none;
+}
+
+.sq-top-ribbon .sq-icon-text-stack .sq-btn-icon-text {
+	margin: 5px 0 0 0;
+	display: block;
 }
 
 .sq-top-ribbon .pdf-icon {
@@ -3002,6 +2966,34 @@ a {
 	float: none;
 }
 
+.sq-top-ribbon #views .ms-choice > span {
+	top: 2px;
+}
+
+.sq-top-ribbon #views .ms-choice > div {
+	top: -2px;
+}
+
+.sq-top-ribbon #agile-status > ul > li > a {
+	padding-top: 0;
+}
+
+.sq-top-ribbon #filters-section select {
+	width: 100px;
+}
+
+.sq-top-ribbon #filters-section > ul > li {
+	min-width: 125px;
+}
+
+.sq-top-ribbon #filters-section > ul > li:last-child {
+	min-width: 135px;
+}
+
+.sq-top-ribbon[data-ribbon=sprint-analysis] #filters-section select {
+	width: 110px;
+}
+
 #views select {
 	width: 80px;
 }
@@ -3016,7 +3008,7 @@ a {
 
 @media (min-width: 1570px) {
   .sq-top-ribbon > ul > li {
-	  padding: 5px 23px;
+	  padding: 5px 23px 20px;
   }
     .sq-top-ribbon > ul > li > ul > li {
 	    margin-right: 7px;

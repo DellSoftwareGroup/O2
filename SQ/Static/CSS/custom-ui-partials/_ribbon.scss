@@ -14,39 +14,9 @@
   > ul > li {
 	  list-style: none;
     float: left;
-	  padding: 5px 10px 0;
+		padding: 5px 10px 20px;
     border-right: 1px solid #ccc;
-    .wide-blue-button {
-      background-color: #007CB8;
-      height: 55px;
-      border-radius: 3px;
-      vertical-align: middle;
-      a {
-        padding: 0 10px;
-        display: block;
-        color: #fff;
-        float: left;
-        font-size: 13px;
-        span {
-          &:first-child {
-            display: block;
-            float: left;
-            line-height: 55px;
-            font-size: 2.5em;
-          }
-          &:last-child {
-            display: block;
-            float: left;
-            margin-left: 6px;
-            line-height: 55px;
-            font-size: 1.2em;
-          }
-        }
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
+		position: relative;
     > ul {
 	    float: left;
       clear: both;
@@ -259,64 +229,16 @@
 			  }
 		  }
 	  }
-    &:first-child {
-      > span:last-child {
-	      margin-top: 13px;
-      }
-    }
     &:last-child {
-      > span:last-child {
-        padding-top: 0;
-      }
       border-right: none;
     }
-    &#sprints-section {
-      span:last-child {
-        width: 39%;
-        padding-top: 18px;
-      }
-    }
-    &#views {
-      > span {
-        padding-top: 12px;
-      }
-      .ms-choice {
-        > span {
-          top: 2px;
-        }
-        > div {
-          top: -2px;
-        }
-      }
-    }
-    &#agile-status {
-      > ul {
-        > li > a {
-          padding-top: 0;
-        }
-      }
-      > span:last-child {
-        padding-top: 12px;
-      }
-    }
-    &#filters-section {
-			select {
-				width: 100px;
-			}
-      > ul > li {
-        min-width: 125px;
-        &:last-child {
-          min-width: 135px;
-        }
-      }
-    }
     > span:last-child {
-      padding-top: 10px;
-      display: block;
-      margin: 0 auto;
       font-size: 13px;
       color: #737373;
-      clear: both;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
     }
 		.has-dropdown {
 			select {
@@ -394,9 +316,6 @@
 				}
 			}
 		}
-    select, input {
-      font-size: 12.6667px;
-    }
   }
   .ms-choice {
 		height: 17px;
@@ -427,9 +346,8 @@
     min-width: 153px;
 		input[type="radio"] {
 			margin-top: 0;
-		}
-		.selected {
-			background-color: #e5f3fa;
+			vertical-align: middle;
+			visibility: visible;
 		}
   }
   .sub-nav { /*More Filters*/
@@ -443,9 +361,37 @@
       width: 15% !important;
     }
   }
-  .sq-btn-icon + span {
-    margin-left: 5px;
-  }
+	.wide-blue-button {
+		background-color: #007CB8;
+		height: 55px;
+		border-radius: 3px;
+		vertical-align: middle;
+		a {
+			padding: 0 10px;
+			display: block;
+			color: #fff;
+			float: left;
+			font-size: 13px;
+			span {
+				&:first-child {
+					display: block;
+					float: left;
+					line-height: 55px;
+					font-size: 2.5em;
+				}
+				&:last-child {
+					display: block;
+					float: left;
+					margin-left: 6px;
+					line-height: 55px;
+					font-size: 1.2em;
+				}
+			}
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
 	.disabled {
 		a {
 			color: #ccc !important;
@@ -470,18 +416,28 @@
 		}
 	}
 
+	.date-picker {
+		border: 0;
+		.k-picker-wrap {
+			height: 34px;
+		}
+	}
+
 	/* Icons */
 	.sq-icon-text-inline {
-		.sq-btn-icon {
-
-		}
 		.sq-btn-icon-text {
-			margin-top: 5px;
+			margin: 5px 0 0 5px;
 			display: inline-block;
 		}
 	}
 	.sq-icon-text-stack {
-
+		.sq-btn-icon {
+			float: none;
+		}
+		.sq-btn-icon-text {
+			margin: 5px 0 0 0;
+			display: block;
+		}
 	}
 
 	.pdf-icon {
@@ -495,6 +451,44 @@
 		width: 30px;
 		height: 23px;
 		float: none;
+	}
+
+	#views {
+		.ms-choice {
+			> span {
+				top: 2px;
+			}
+			> div {
+				top: -2px;
+			}
+		}
+	}
+	#agile-status {
+		> ul {
+			> li > a {
+				padding-top: 0;
+			}
+		}
+	}
+	#filters-section {
+		select {
+			width: 100px;
+		}
+		> ul > li {
+			min-width: 125px;
+			&:last-child {
+				min-width: 135px;
+			}
+		}
+	}
+
+	/* Customize Ribbon */
+	&[data-ribbon=sprint-analysis] {
+		#filters-section {
+			select {
+				width: 110px;
+			}
+		}
 	}
 }
 
@@ -519,7 +513,7 @@
 @media(min-width: $screen-lg-min) {
   .sq-top-ribbon {
     > ul > li {
-      padding: 5px 23px;
+			padding: 5px 23px 20px;
       > ul > li {
         margin-right: 7px;
       }
