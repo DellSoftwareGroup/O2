@@ -1,7 +1,3 @@
-/*function ribbon_change(obj) {
- console.log('from IS form: ', obj);
- }*/
-
 // Extend String - Capitalize method
 String.prototype.capitalize = function () {
 	if (this.length > 0) {
@@ -490,12 +486,8 @@ var ribbonListener = function () {
 			return false;
 		}
 		else {
-			console.log('obj', obj);
-
 			// Call to build object
 			buildObj(obj);
-
-			console.log('ISribbonObj', ISribbonObj);
 
 			if(!raw) {
 				$.each(ISribbonObj, function(n, v) {
@@ -635,6 +627,15 @@ var ribbonListener = function () {
 					$(this).multipleSelect('uncheckAll').parents('li').removeClass('active-item-bg');
 				});
 
+				$.each(filters, function (indx, elem) {
+					if ($(elem).attr('multiple')) {
+						$(elem).multipleSelect('uncheckAll').parents('li').removeClass('active-item-bg');
+					}
+					else {
+						$(elem).val('');
+					}
+				});
+
 				rebuildRibbonState();
 			})
 			.on('click', '.execute-filter', function () {
@@ -669,12 +670,20 @@ var ribbonListener = function () {
 }();
 
 var ribbonWidgets = function () {
+	var plugins = {};
+
+	function addPlugin(pluginName, fn) {
+		plugins[pluginName] = fn;
+	}
+
 	function filterCollectorModule() {
-		var filterObj = ribbonListener.passFilterStateObj(), filterCollectorElem = $('.filter-collector'), interactiveFilter = filterCollectorElem.data('interactive') === undefined || filterCollectorElem.data('interactive');
+		var filterObj = ribbonListener.passFilterStateObj(),
+			filterCollectorElem = $('.filter-collector'),
+			interactiveFilter = filterCollectorElem.data('interactive') === undefined || filterCollectorElem.data('interactive');
 
 		function findActiveFilters() {
 			var activeFilters = {};
-			console.log('filterObj', filterObj);
+
 			$.each(filterObj, function (filter, options) {
 				if (Array.isArray(options)) {
 					var tmpData = {
@@ -705,7 +714,9 @@ var ribbonWidgets = function () {
 		}
 
 		function buildTmpl(activeFilters) {
-			console.log('activeFilters', activeFilters);
+			if (plugins['buildTmplBefore']) {
+				activeFilters = plugins['buildTmplBefore'].call(this, activeFilters);
+			}
 
 			// Clear filter collector area
 			filterCollectorElem.find('ul.dynamic').remove();
@@ -722,13 +733,18 @@ var ribbonWidgets = function () {
 
 				filterHtml += '</li>';
 
-				if (filterObj.allSelected) {
-					filterHtml += '<li><span>All</span></li>';
+				if (typeof filterObj == 'string') {
+					filterHtml += '<li><span>' + filterObj + '</span></li>';
 				}
 				else {
-					filterObj.data.forEach(function (option) {
-						filterHtml += '<li><span>' + option.text + '</span></li>';
-					});
+					if (filterObj.allSelected) {
+						filterHtml += '<li><span>All</span></li>';
+					}
+					else {
+						filterObj.data.forEach(function (option) {
+							filterHtml += '<li><span>' + option.text + '</span></li>';
+						});
+					}
 				}
 
 				filterHtml += '</ul>';
@@ -1036,7 +1052,8 @@ var ribbonWidgets = function () {
 	return {
 		filterCollectorModule: filterCollectorModule,
 		moreFiltersPopover: moreFiltersPopover,
-		userPreferences: getUserPreferences
+		userPreferences: getUserPreferences,
+		addPlugin: addPlugin
 	}
 }();
 
