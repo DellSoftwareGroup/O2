@@ -2454,6 +2454,7 @@ a {
   padding: 10px 0;
 	display: none;
 	/* Icons */
+	/* Date Range*/
 	/* Customize Ribbon */
 }
 
@@ -2988,6 +2989,12 @@ a {
 
 .sq-top-ribbon #filters-section > ul > li:last-child {
 	min-width: 135px;
+}
+
+.sq-top-ribbon .date-range-wrapper span.title {
+	display: inline-block;
+	text-align: right;
+	width: 60px;
 }
 
 .sq-top-ribbon[data-ribbon=sprint-analysis] #filters-section select {

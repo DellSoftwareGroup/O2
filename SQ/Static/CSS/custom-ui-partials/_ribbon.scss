@@ -482,6 +482,15 @@
 		}
 	}
 
+	/* Date Range*/
+	.date-range-wrapper {
+		span.title {
+			display: inline-block;
+			text-align: right;
+			width: 60px;
+		}
+	}
+
 	/* Customize Ribbon */
 	&[data-ribbon=sprint-analysis] {
 		#filters-section {
