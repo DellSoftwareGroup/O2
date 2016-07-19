@@ -2453,6 +2453,7 @@ a {
   border-radius: 5px;
   padding: 10px 0;
 	display: none;
+	/* Request Status Icons */
 	/* Icons */
 	/* Date Range*/
 	/* Customize Ribbon */
@@ -2490,6 +2491,9 @@ a {
 	padding: 6px;
 	margin-right: 7px;
 	font-size: 12.66px;
+	/*&:last-child {
+		margin-right: 0;
+	}*/
 	/*icons*/
 }
 
@@ -2527,17 +2531,12 @@ a {
 	line-height: 20px;
 }
 
-.sq-top-ribbon > ul > li > ul > li:last-child {
-	margin-right: 0;
-}
-
 .sq-top-ribbon > ul > li > ul > li .sq-btn-icon, .sq-top-ribbon > ul > li > ul > li .glyphicon-remove-sign {
 	border: 0;
 	cursor: pointer;
 	clear: both;
 	float: left;
 	position: relative;
-	margin-top: 2px;
 }
 
 .sq-top-ribbon > ul > li > ul > li .sq-btn-icon#jan-fy-icon, .sq-top-ribbon > ul > li > ul > li .glyphicon-remove-sign#jan-fy-icon {
@@ -2561,37 +2560,9 @@ a {
 	margin: 0 auto;
 }
 
-.sq-top-ribbon > ul > li > ul > li #backlog-icon {
-	background-position: -256px 1px;
-	width: 16px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #started-icon {
-	background-position: -722px -2px;
-	width: 16px;
-	height: 20px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #idea-icon {
-	background-position: -310px 0;
-	width: 16px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #council-icon {
+.sq-top-ribbon > ul > li > ul > li #council-icon, .sq-top-ribbon > ul > li > ul > li .council-icon {
 	background-position: -357px -1px;
 	width: 20px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #done-icon {
-	background-position: -410px 0;
-	width: 17px;
-	height: 20px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #cancelled-icon {
-	background-position: -468px 0;
-	width: 17px;
-	height: 20px;
 }
 
 .sq-top-ribbon > ul > li > ul > li #filters-icon {
@@ -2656,27 +2627,27 @@ a {
 	background-position: -164px -1px;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) li:hover #backlog-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #backlog-icon {
-	background-position: -257px -34px;
+.sq-top-ribbon > ul > li:not(.disabled) li:hover #backlog-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .backlog-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #backlog-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .backlog-icon {
+	background-position: -257px -35px;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) li:hover #started-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #started-icon {
-	background-position: -722px -37px;
+.sq-top-ribbon > ul > li:not(.disabled) li:hover #started-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .started-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #started-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .started-icon {
+	background-position: -722px -39px;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) li:hover #idea-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #idea-icon {
+.sq-top-ribbon > ul > li:not(.disabled) li:hover #idea-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .idea-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #idea-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .idea-icon {
 	background-position: -312px -38px;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) li:hover #council-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #council-icon {
+.sq-top-ribbon > ul > li:not(.disabled) li:hover #council-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .council-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #council-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .council-icon {
 	background-position: -359px -38px;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) li:hover #done-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #done-icon {
+.sq-top-ribbon > ul > li:not(.disabled) li:hover #done-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .done-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #done-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .done-icon {
 	background-position: -412px -38px;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) li:hover #cancelled-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #cancelled-icon {
+.sq-top-ribbon > ul > li:not(.disabled) li:hover #cancelled-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .cancelled-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #cancelled-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .cancelled-icon {
 	background-position: -470px -38px;
 }
 
@@ -2931,12 +2902,50 @@ a {
 	color: #ccc;
 }
 
+.sq-top-ribbon .popoverMS .chrome {
+	top: 8px;
+	right: 2px;
+}
+
 .sq-top-ribbon .date-picker {
 	border: 0;
 }
 
 .sq-top-ribbon .date-picker .k-picker-wrap {
 	height: 34px;
+}
+
+.sq-top-ribbon .toggle-switch .title {
+	padding-left: 5px;
+}
+
+.sq-top-ribbon #backlog-icon, .sq-top-ribbon .backlog-icon {
+	background-position: -256px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.sq-top-ribbon #started-icon, .sq-top-ribbon .started-icon {
+	background-position: -722px -4px;
+	width: 16px;
+	height: 20px;
+}
+
+.sq-top-ribbon #idea-icon, .sq-top-ribbon .idea-icon {
+	background-position: -310px 0;
+	width: 16px;
+}
+
+.sq-top-ribbon #done-icon, .sq-top-ribbon .done-icon {
+	background-position: -410px 0;
+	width: 17px;
+	height: 20px;
+}
+
+.sq-top-ribbon #cancelled-icon, .sq-top-ribbon .cancelled-icon {
+	background-position: -468px 0;
+	width: 17px;
+	height: 20px;
 }
 
 .sq-top-ribbon .sq-icon-text-inline .sq-btn-icon-text {
@@ -2987,10 +2996,6 @@ a {
 	min-width: 125px;
 }
 
-.sq-top-ribbon #filters-section > ul > li:last-child {
-	min-width: 135px;
-}
-
 .sq-top-ribbon .date-range-wrapper span.title {
 	display: inline-block;
 	text-align: right;
@@ -2999,6 +3004,10 @@ a {
 
 .sq-top-ribbon[data-ribbon=sprint-analysis] #filters-section select {
 	width: 110px;
+}
+
+.sq-top-ribbon[data-ribbon=sprint-analysis] #filters-section > ul > li {
+	min-width: 135px;
 }
 
 #views select {

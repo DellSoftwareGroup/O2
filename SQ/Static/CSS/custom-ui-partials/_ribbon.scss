@@ -56,16 +56,15 @@
             line-height: 20px;
           }
         }
-        &:last-child {
-          margin-right: 0;
-        }
+				/*&:last-child {
+					margin-right: 0;
+				}*/
         .sq-btn-icon, .glyphicon-remove-sign {
 					border: 0;
 					cursor: pointer;
 					clear: both;
 					float: left;
 					position: relative;
-					margin-top: 2px;
 
           &#jan-fy-icon {
             float: none;
@@ -86,32 +85,9 @@
           width: 30%;
           margin: 0 auto;
         }
-        #backlog-icon {
-          background-position: -256px 1px;
-          width: 16px;
-        }
-        #started-icon {
-          background-position: -722px -2px;
-          width: 16px;
-          height: 20px;
-        }
-        #idea-icon {
-          background-position: -310px 0;
-          width: 16px;
-        }
-        #council-icon {
+				#council-icon, .council-icon {
           background-position: -357px -1px;
           width: 20px;
-        }
-        #done-icon {
-          background-position: -410px 0;
-          width: 17px;
-          height: 20px;
-        }
-        #cancelled-icon {
-          background-position: -468px 0;
-          width: 17px;
-          height: 20px;
         }
         #filters-icon {
           background-position: -549px -2px;
@@ -168,22 +144,22 @@
 				  #jan-fy-icon {
 					  background-position: -164px -1px;
 				  }
-				  #backlog-icon {
-					  background-position: -257px -34px;
+					#backlog-icon, .backlog-icon {
+						background-position: -257px -35px;
 				  }
-				  #started-icon {
-					  background-position: -722px -37px;
+					#started-icon, .started-icon {
+						background-position: -722px -39px;
 				  }
-				  #idea-icon {
+					#idea-icon, .idea-icon {
 					  background-position: -312px -38px;
 				  }
-				  #council-icon {
+					#council-icon, .council-icon {
 					  background-position: -359px -38px;
 				  }
-				  #done-icon {
+					#done-icon, .done-icon {
 					  background-position: -412px -38px;
 				  }
-				  #cancelled-icon {
+					#cancelled-icon, .cancelled-icon {
 					  background-position: -470px -38px;
 				  }
 				  #filters-icon {
@@ -416,11 +392,50 @@
 		}
 	}
 
+	.popoverMS {
+		.chrome {
+			top: 8px;
+			right: 2px;
+		}
+	}
+
 	.date-picker {
 		border: 0;
 		.k-picker-wrap {
 			height: 34px;
 		}
+	}
+
+	.toggle-switch {
+		.title {
+			padding-left: 5px;
+		}
+	}
+
+	/* Request Status Icons */
+	#backlog-icon, .backlog-icon {
+		background-position: -256px 0;
+		width: 16px;
+		height: 16px;
+	}
+	#started-icon, .started-icon {
+		background-position: -722px -4px;
+		width: 16px;
+		height: 20px;
+	}
+	#idea-icon, .idea-icon {
+		background-position: -310px 0;
+		width: 16px;
+	}
+	#done-icon, .done-icon {
+		background-position: -410px 0;
+		width: 17px;
+		height: 20px;
+	}
+	#cancelled-icon, .cancelled-icon {
+		background-position: -468px 0;
+		width: 17px;
+		height: 20px;
 	}
 
 	/* Icons */
@@ -476,9 +491,6 @@
 		}
 		> ul > li {
 			min-width: 125px;
-			&:last-child {
-				min-width: 135px;
-			}
 		}
 	}
 
@@ -496,6 +508,9 @@
 		#filters-section {
 			select {
 				width: 110px;
+			}
+			> ul > li {
+				min-width: 135px;
 			}
 		}
 	}

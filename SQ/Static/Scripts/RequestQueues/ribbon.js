@@ -172,11 +172,38 @@ var initRibbon = function () {
 		activeFilters.typeOfFilter();
 	} // end of init
 
+	function filterStatus(enable) {
+		var ribbonLis = ribbonElem.find('> ul').find('> li');
+
+		ribbonLis.each(function (i) {
+			if (i) {
+				if (enable) {
+					$(this).removeClass('disabled');
+				}
+				else {
+					$(this).addClass('disabled');
+				}
+			}
+		});
+
+		ribbonElem.find('select').each(function () {
+			if ($(this).attr('multiple') == 'multiple') {
+				if (enable) {
+					$(this).multipleSelect('enable');
+				}
+				else {
+					$(this).multipleSelect('disable');
+				}
+			}
+		});
+	}
+
 	// call ribbonListener
 
 	return {
 		init: init,
-		findActiveFilters: findActiveFilters
+		findActiveFilters: findActiveFilters,
+		enable: filterStatus
 	}
 }();
 
@@ -1083,9 +1110,7 @@ function doSearch() {
 		ReloadLegacyRequestsGrid();
 	}
 
-	var ribbonLis = ribbonElem.find('> ul').find('> li');
-
-	filterStatus(false);
+	initRibbon.enable(false);
 
 	$('.filter-collector').hide();
 	searchFilterElem.find('.search-query-display').text(query).end().show();
@@ -1095,7 +1120,7 @@ function doSearch() {
 			e.preventDefault();
 
 			query = '';
-			filterStatus(true);
+			initRibbon.enable(true);
 
 			$('.filter-collector').show();
 			searchFilterElem.hide();
@@ -1112,30 +1137,6 @@ function doSearch() {
 		});
 
 		searchFilterElem.data('initialize', true);
-	}
-
-	function filterStatus(enable) {
-		ribbonLis.each(function(i) {
-			if(i) {
-				if(enable) {
-					$(this).removeClass('disabled');
-				}
-				else {
-					$(this).addClass('disabled');
-				}
-			}
-		});
-
-		ribbonElem.find('select').each(function() {
-			if($(this).attr('multiple') == 'multiple') {
-				if(enable) {
-					$(this).multipleSelect('enable');
-				}
-				else {
-					$(this).multipleSelect('disable');
-				}
-			}
-		});
 	}
 }
 
