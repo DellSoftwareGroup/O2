@@ -2452,10 +2452,10 @@ a {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 0;
-	display: none;
-	/* Request Status Icons */
-	/* Icons */
-	/* Date Range*/
+  display: none;
+  /* Request Status Icons */
+  /* Icons */
+  /* Date Range*/
 	/* Customize Ribbon */
 }
 
@@ -4167,4 +4167,8 @@ present and all pages, it targets ie 10 */
 [kendo-window="winDeleteLevel"] .row {
   margin-left: 0 !important;
 	margin-right: 0 !important;
+}
+
+.reporting-home .blurb {
+	margin-left: 90px;
 }

@@ -5,14 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<link href="http://stage-o2.prod.quest.corp/SQ/Static/Content/kendo/2015.1.318/kendo.requestqueues.min.css"
-	      rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css"/>
-	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/SQ/Static/CSS/web-queue-plugins-style.min.css"/>
+	      rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+	<link rel="stylesheet" href="/SQ/Static/CSS/web-queue-plugins-style.min.css" />
 	<link rel="stylesheet"
-	      href="http://stage-o2.prod.quest.corp/SQ/Static/Scripts/RequestQueues/qtip/jquery.qtip-custom.min.css"/>
-	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/SQ/Static/CSS/bootstrap.min.css" type="text/css"/>
-	<link rel="stylesheet" href="/SQ/Static/CSS/custom-ui.css"/>
-	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/SQ/Static/CSS/custom-ui-is.min.css"/>
+	      href="http://stage-o2.prod.quest.corp/SQ/Static/Scripts/RequestQueues/qtip/jquery.qtip-custom.min.css" />
+	<link rel="stylesheet" href="/SQ/Static/CSS/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="/SQ/Static/CSS/custom-ui.css" />
+	<link rel="stylesheet" href="http://stage-o2.prod.quest.corp/SQ/Static/CSS/custom-ui-is.min.css" />
 
 	<script type="text/javascript">
 		var RootPath = "http://stage-o2.prod.quest.corp/SQ/",
