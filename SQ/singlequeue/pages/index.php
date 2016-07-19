@@ -45,6 +45,7 @@
 	        src="http://stage-o2.prod.quest.corp/SQ/Static/Scripts/jquery.cookie.min.js"></script>
 	<script type="text/javascript" src="/SQ/Static/Scripts/RequestQueues/web-queue-plugins.min.js"></script>
 	<script type="text/javascript" src="/SQ/Static/Scripts/RequestQueues/qtip/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="/SQ/Static/Scripts/RequestQueues/jquery.matchheight.min.js"></script>
 	<script type="text/javascript" src="http://stage-o2.prod.quest.corp/SQ/Static/Scripts/TimeZone.min.js"></script>
 	<!--<script type="text/javascript"
 	        src="//software.dell.com/hidden/scripts/kendo/kendo.custom.singlequeuelisting.min.js"></script>-->
