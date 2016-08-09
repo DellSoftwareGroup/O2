@@ -762,17 +762,17 @@ p.data {
 	background: transparent;
 }
 
-.results-data th a {
+.results-data th {
     color: #444 !important;
     font-weight: bold !important;
-    font-size: 13px !important;
+	font-size: 13px !important;
+}
+
+.results-data th a {
 	text-decoration: none;
 }
 
 .results-data th a:hover, .results-data th a:visited {
-	color: #444 !important;
-	font-weight: bold !important;
-	font-size: 13px !important;
 	text-decoration: none;
 }
 
@@ -2444,6 +2444,23 @@ a {
   content: "*";
   display: inline;
 	vertical-align: super;
+}
+
+.vertical-text {
+	/*position: absolute;
+	top: 300px;
+	float: left;*/
+	-ms-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+	white-space: nowrap;
+}
+
+.transparent-bg {
+	background-color: transparent !important;
 }
 
 /*ribbon*/
