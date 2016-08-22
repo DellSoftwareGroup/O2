@@ -15,11 +15,11 @@ var singleQueueTables = (function ($) {
 					$(this).addClass('summary-th');
 				}
 			})
-		};
+		}
 
 		function summaryBorder(colClass) {
 			$(colClass).parent('td').addClass('summary-start');
-		};
+		}
 
 		// TODO: temp function should be removed by Eder (Styles to match mocks)
 		function tempStyles() {
@@ -40,12 +40,12 @@ var singleQueueTables = (function ($) {
 				var temp = $(element)[0];
 				$(temp).append('<span class="icon past-due"></span>');
 			});
-		};
+		}
 
 		// pagination
 		function GridRequest_DataBound() {
 			var PagerConfig = {
-				dataSource: $("#GridRequest").data("kendoGrid").dataSource,
+				dataSource: $(this).data("kendoGrid").dataSource,
 				pageSize: 10,
 				autoBind: true,
 				selectTemplate: '<li class="active"><a class="data-pager-link" data-page="#=text#">#=text#</a></li>',
@@ -160,7 +160,7 @@ var singleQueueTables = (function ($) {
 
 	//Edit mode
 	var editMode = function () {
-		$('#edit-task-listing tr').each(function () {
+		$('#edit-task-listing').find('tr').each(function () {
 			if ($(this).find('select').length > 0) {
 				$(this).find('.edit-col a').text('OK').after('<a href="#" class="btn btn-default ml-10">Cancel</a>').end().find('i').hide();
 			}
@@ -313,9 +313,7 @@ var singleQueueTables = (function ($) {
 			}, function () {
 				$(this).popover('destroy')
 			});
-
-
-		}
+		};
 
 
 		/* public  API */
@@ -336,14 +334,14 @@ var singleQueueTables = (function ($) {
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
 			//commonStyles.tempStyles();
-			commonStyles.GridRequest_DataBound();
+			commonStyles.GridRequest_DataBound.call(this);
 			// modalTable.init(); --> Kendo window
 			ListingPopOver.init();
 		},
 		addTableHeadings: function () {
 			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('thead .table-group-headings').length) {
-				$('#GridRequest thead').prepend('<tr class="table-group-headings"><th colspan="12"><strong>Request Info</strong></th><th colspan="5"><strong>Current Group Summary</strong></th></tr>');
+			if (!$(this).find('thead .table-group-headings').length) {
+				$(this).find('thead').prepend('<tr class="table-group-headings"><th colspan="12"><strong>Request Info</strong></th><th colspan="5"><strong>Current Group Summary</strong></th></tr>');
 			}
 		}
 	};
@@ -355,13 +353,13 @@ var singleQueueTables = (function ($) {
 			commonStyles.summarySecStyles(summaryIndx);
 			commonStyles.summaryBorder(summaryStartCol);
 			//commonStyles.tempStyles();
-			commonStyles.GridRequest_DataBound();
+			commonStyles.GridRequest_DataBound.call(this);
 			ownerColorTag();
 		},
 		addTableHeadings: function () {
 			//Only allow 1 table group heading.
-			if (!$('#GridRequest').find('thead .table-group-headings').length) {
-				$('#GridRequest thead').prepend('<tr class="table-group-headings"><th colspan="10"><strong>Request Info</strong></th><th colspan="7"><strong>Task Info</strong></th></tr>');
+			if (!$(this).find('thead .table-group-headings').length) {
+				$(this).find('thead').prepend('<tr class="table-group-headings"><th colspan="10"><strong>Request Info</strong></th><th colspan="7"><strong>Task Info</strong></th></tr>');
 			}
 		}
 	};

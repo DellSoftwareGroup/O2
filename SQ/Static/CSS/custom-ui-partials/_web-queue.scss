@@ -130,9 +130,9 @@
     background: transparent;
   }
 	th {
-		color: #444 !important;
-		font-weight: bold !important;
-		font-size: 13px !important;
+		color: #444;
+		font-weight: bold;
+		font-size: 13px;
 
 		a {
 			text-decoration: none;
@@ -371,14 +371,16 @@
   }
   .k-pager-nav {
     padding: 0 10px;
-    &:hover {
-      .k-i-arrow-w {
-        background-position: -5px -23px;
-      }
-      .k-i-arrow-e {
-        background-position: -105px -23px;
-      }
-    }
+		&:not(.k-state-disabled) {
+			&:hover {
+				.k-i-arrow-w {
+					background-position: -5px -23px;
+				}
+				.k-i-arrow-e {
+					background-position: -105px -23px;
+				}
+			}
+		}
   }
   .k-icon {
     width: 9px;
@@ -394,6 +396,14 @@
   .k-i-arrow-e {
     background-position: -85px -23px;
   }
+	.k-state-disabled {
+		.k-i-arrow-w {
+			background-position: -45px -23px;
+		}
+		.k-i-arrow-e {
+			background-position: -65px -23px;
+		}
+	}
   .inactive {
     a.prev {
       background-position: -45px -23px;

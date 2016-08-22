@@ -1,5 +1,4 @@
 var globalScripts = (function($) {
-
 	// This js module will only run at editRequest.cshtml
 	var editRequestTmpl = function() {
 

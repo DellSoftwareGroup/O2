@@ -56,20 +56,12 @@
             line-height: 20px;
           }
         }
-				/*&:last-child {
-					margin-right: 0;
-				}*/
         .sq-btn-icon, .glyphicon-remove-sign {
 					border: 0;
 					cursor: pointer;
 					clear: both;
 					float: left;
 					position: relative;
-
-          &#jan-fy-icon {
-            float: none;
-            margin-bottom: 10px;
-          }
         }
         /*icons*/
         #my-work-icon, #requester-icon {
@@ -79,11 +71,6 @@
         #dp-Team-icon {
           background-position: -66px -36px;
           width: 25px;
-        }
-        #jan-fy-icon {
-          background-position: -163px -38px;
-          width: 30%;
-          margin: 0 auto;
         }
 				#council-icon, .council-icon {
           background-position: -357px -1px;
@@ -98,17 +85,9 @@
           background-position: -853px 5px;
           width: 11px;
         }
-        #request-type-icon {
-          background-position: -257px -80px;
-          width: 13px;
-        }
         #task-type-icon {
           background-position: -320px -118px;
           width: 17px;
-        }
-        #portfolio-icon, .portfolio-icon {
-          background-position: -166px -85px;
-          width: 13px;
         }
         #task-status-icon {
           background-position: -444px -80px;
@@ -141,9 +120,6 @@
 				  #dp-Team-icon {
 					  background-position: -65px 2px;
 				  }
-				  #jan-fy-icon {
-					  background-position: -164px -1px;
-				  }
 					#backlog-icon, .backlog-icon {
 						background-position: -257px -35px;
 				  }
@@ -168,14 +144,8 @@
 				  #department-icon {
 					  background-position: -853px -34px;
 				  }
-				  #request-type-icon {
-					  background-position: -257px -118px;
-				  }
 				  #task-type-icon {
 					  background-position: -320px -80px;
-				  }
-          #portfolio-icon, .portfolio-icon {
-					  background-position: -166px -121px;
 				  }
 				  #task-status-icon {
 					  background-position: -444px -118px;
@@ -437,6 +407,66 @@
 		width: 17px;
 		height: 20px;
 	}
+	#portfolio-icon, .portfolio-icon {
+		background-position: -165px -83px;
+		width: 16px;
+		height: 16px;
+	}
+	#request-type-icon, .request-type-icon {
+		background-position: -256px -80px;
+		width: 16px;
+		height: 16px;
+	}
+	#jan-fy-icon, .sprint-icon {
+		background-position: -163px -38px;
+		width: 30%;
+		margin: 0 auto 10px;
+		float: none !important;
+	}
+	.buyer-journey-icon {
+		background-position: -106px -38px;
+		width: 16px;
+		height: 16px;
+	}
+	.agile-team-icon {
+		background-position: -31px -38px;
+		width: 16px;
+		height: 16px;
+	}
+	.region-icon {
+		background-position: -136px -38px;
+		width: 16px;
+		height: 16px;
+	}
+	.rtm-icon {
+		background-position: -199px -38px;
+		width: 16px;
+		height: 16px;
+	}
+
+	/* Request Status Icons (Hover) */
+	> ul > li {
+		&:not(.disabled) {
+			li {
+				&:hover, &.active-item-bg {
+					#jan-fy-icon, .sprint-icon {
+						background-position: -164px -1px;
+					}
+					.buyer-journey-icon {
+
+					}
+					#portfolio-icon, .portfolio-icon {
+						//background-position: -166px -121px;
+						background-position: -165px -119px;
+					}
+					#request-type-icon, .request-type-icon {
+						//background-position: -257px -118px;
+						background-position: -256px -118px;
+					}
+				}
+			}
+		}
+	}
 
 	/* Icons */
 	.sq-icon-text-inline {
@@ -496,6 +526,10 @@
 
 	/* Date Range*/
 	.date-range-wrapper {
+		li {
+			display: block;
+			clear: both;
+		}
 		span.title {
 			display: inline-block;
 			text-align: right;
