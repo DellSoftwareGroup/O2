@@ -1038,7 +1038,7 @@ p.data {
     width: 9px;
     height: 14px;
     display: inline-block;
-    background: url("//software.dell.com/images/shared/sprites.png") 0 0 no-repeat;
+	background: url("/sq/static/images/sprites.png") 0 0 no-repeat;
     vertical-align: top;
 	margin-top: 1px;
 }
@@ -3053,11 +3053,19 @@ a {
 }
 
 .sq-top-ribbon[data-ribbon=sprint-analysis] #filters-section select {
-	width: 110px;
+	width: 120px;
 }
 
 .sq-top-ribbon[data-ribbon=sprint-analysis] #filters-section > ul > li {
-	min-width: 135px;
+	min-width: 145px;
+}
+
+.sq-top-ribbon[data-ribbon=task-by-owner-analysis] #filters-section select {
+	width: 120px;
+}
+
+.sq-top-ribbon[data-ribbon=task-by-owner-analysis] #filters-section > ul > li {
+	min-width: 145px;
 }
 
 #views select {

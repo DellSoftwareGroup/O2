@@ -541,10 +541,21 @@
 	&[data-ribbon=sprint-analysis] {
 		#filters-section {
 			select {
-				width: 110px;
+				width: 120px;
 			}
 			> ul > li {
-				min-width: 135px;
+				min-width: 145px;
+			}
+		}
+	}
+
+	&[data-ribbon=task-by-owner-analysis] {
+		#filters-section {
+			select {
+				width: 120px;
+			}
+			> ul > li {
+				min-width: 145px;
 			}
 		}
 	}
