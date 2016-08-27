@@ -44,7 +44,6 @@ var globalModules = function () {
 					});
 		};
 
-
 		returnData = function () {
 			return content;
 		};
@@ -155,7 +154,12 @@ var globalModules = function () {
 					+ '</div></div></div></div>';
 
 			this.initModal = function () {
-				$('body').append(this.modal);
+				var modalElem = $(this.modal);
+
+				modalElem.appendTo('body');
+				modalElem.data('target', modalInfo.target);
+
+				/*$('body').append(this.modal);*/
 			};
 
 			this.show = function () {
@@ -254,14 +258,23 @@ var globalModules = function () {
 
 			// attach values
 			if ($modalTarget.is('div')) {
-				$modalTarget
-						.html(option.name)
-						.attr('filterId', option.val)
-			} else if ($modalTarget.is('input')) {
+				if ($modalTarget.data('replace-text') === false) {
+					$modalTarget.data('text', option.name);
+				}
+				else {
+					$modalTarget.html(option.name);
+				}
+
+				$modalTarget.attr('filterId', option.val);
+			}
+			else if ($modalTarget.is('input')) {
 				$modalTarget
 						.val(option.name)
 						.attr('filterId', option.val)
 						.triggerHandler('change');
+			}
+			else {
+				$modalTarget.attr('filterId', option.val);
 			}
 
 			// When project id is required to be passed as an input value
@@ -272,7 +285,7 @@ var globalModules = function () {
 			}
 
 			if (typeof callback == 'function') {
-				callback($modalName);
+				callback.call($('.custom-modal').data('target'), $modalName);
 			}
 
 			$('#myModal').modal('hide')
@@ -283,7 +296,7 @@ var globalModules = function () {
 			var campaignCreatorNames = [];
 
 			function runCampaignModal() {
-				var promise = $.Deferred();
+				var promise = $.Deferred(), target = this;
 
 				if (!campaignCreatorNames.length) {
 					promise = getCampaignCreatorNames();
@@ -293,12 +306,15 @@ var globalModules = function () {
 				}
 
 				promise.done(function() {
-					initCampaignModel();
+					initCampaignModel(target);
 				});
 			}
 
-			function initCampaignModel() {
-				var campaignInfo = {};
+			function initCampaignModel(target) {
+				var campaignInfo = {
+					target: target,
+					title: 'Search Campaign'
+				};
 
 				campaignInfo.content = String()
 						+ '<div>'
@@ -318,8 +334,7 @@ var globalModules = function () {
 						+ '<p></p>'
 						+ '<select class="campFilterResults form-control" size="12" style="width:490px;"></select>'
 						+ '<i>Click on campaign and hit select button</i>'
-						+ '</form><div class="camp-no-result text-red mt-10 hide">0 Camapigns found!</div></div>';
-				campaignInfo.title = 'Search Campaign';
+					+ '</form><div class="camp-no-result text-red mt-10 hide">0 Campaigns found!</div></div>';
 
 				var buildModal = new ModalHtmlBuilder(campaignInfo);
 
@@ -356,15 +371,15 @@ var globalModules = function () {
 						// return
 						// clear previous searches
 					});
-					// clear previous option
-					$('#campaignFilter').on('focus', function () {
+
+					$('#campaignFilter')
+						.on('focus', function () {
 						subFilter.key = '';
-					});
-					// prevent the enter key to refresh page. (kendo bug)
-					$('#campaignFilter').keypress(function (event) {
+						}) // clear previous option
+						.keypress(function (event) {
 						if (event.keyCode === 10 || event.keyCode === 13)
 							event.preventDefault();
-					});
+						}); // prevent the enter key to refresh page. (kendo bug)
 
 					// add selected attr
 					$('#campaignCreator').on('change', function (e) {
@@ -375,7 +390,6 @@ var globalModules = function () {
 				});
 				buildModal.show();
 				buildModal.preventEventPropagation();
-
 				buildModal.destroyListener();
 
 				initCampaignAutoComplete('#campaignFilter');
@@ -518,7 +532,7 @@ var globalModules = function () {
 
 			// Project Modal
 			function runProjectModal(zIndex, modalName) {
-				var projectInfo = {zIndex: zIndex}, projFiltersPreData = {}, ownerOrRequester = 'clean';
+				var projectInfo = {zIndex: zIndex, title: 'Search project', target: this}, projFiltersPreData = {}, ownerOrRequester = 'clean';
 				subFilter.refresh = true; // unload refresh
 
 				// Internal methods
@@ -646,7 +660,6 @@ var globalModules = function () {
 						+ '<span class="k-icon k-loading" style="display: none"></span>'
 						+ '</div>'
 						+ '</form><div class="pro-no-result text-red mt-10 hide">0 Projects found!</div></div>';
-				projectInfo.title = 'Search project';
 
 				var buildModal = new ModalHtmlBuilder(projectInfo);
 
@@ -730,7 +743,6 @@ var globalModules = function () {
 				});
 				buildModal.show();
 				buildModal.preventEventPropagation();
-				
 				buildModal.destroyListener();
 
 				initProjectAutoComplete('#nameOrID');
@@ -974,12 +986,12 @@ var globalModules = function () {
 
 		function init() {
 			// Events
-			$('[data-custom-modal=campaign]').on('click', function (e) {
+			$('body').on('click', '[data-custom-modal=campaign]', function (e) {
 				e.preventDefault();
-				campaignModal.runCampaignModal();
+				campaignModal.runCampaignModal.call(this);
 			});
 
-			$('[data-custom-modal=project]').on('click', function (e) {
+			$('body').on('click', '[data-custom-modal=project]', function (e) {
 				e.preventDefault();
 				var modalName = $(this).data('custom-modal-name');
 
@@ -987,7 +999,7 @@ var globalModules = function () {
 				var kWindow = $(this).parents('.k-window');
 
 				if (kWindow.length && kWindow.css('zIndex')) {
-					projectModal.runProjectModal(parseInt(kWindow.css('zIndex')) + 1, modalName);
+					projectModal.runProjectModal.call(this, parseInt(kWindow.css('zIndex')) + 1, modalName);
 				}
 				else {
 					projectModal.runProjectModal();
@@ -1052,7 +1064,7 @@ var globalModules = function () {
 			this.afterLoad = function (fx) {
 				$('.popoverMS').on('shown.bs.popover', function () {
 					fx();
-				})
+				});
 			};
 
 			return {
@@ -1381,41 +1393,39 @@ var globalModules = function () {
 				initKendoMultiSelect();
 			});
 
+			$('body')
 			// trigger add results to sourceData
-			$('body').on('click', '.addSelected', function (e) {
-				e.preventDefault();
-				closePopup('.user-popover');
-				followersGrid.getFollowers(selectedAFollowers);
-				selectedAFollowers = {};
-			});
+				.on('click', '.addSelected', function (e) {
+					e.preventDefault();
+					closePopup('.user-popover');
+					followersGrid.getFollowers(selectedAFollowers);
+					selectedAFollowers = {};
+				})
+				//Need to collect values every time as kendo dataSource refresh every time
+				.on('change', targetInput, function (e) {
+					buildNewSelect = new BuildDynamicSelect();
+					if ($(targetInput).find('option[selected]').length > 0) {
 
-			//Need to collect values every time as kendo dataSource refresh every time
-			$('body').on('change', targetInput, function (e) {
-				buildNewSelect = new BuildDynamicSelect();
-				if ($(targetInput).find('option[selected]').length > 0) {
+						// iterate each option and attach to new selection
+						$(targetInput).find('option:selected').each(function () {
+							var option = buildNewSelect.createOption(this, true);
+							option.date = moment().unix();
 
-					// iterate each option and attach to new selection
-					$(targetInput).find('option:selected').each(function () {
-						var option = buildNewSelect.createOption(this, true);
-						option.date = moment().unix();
+							if (selectedAFollowers[option.elias] == undefined) {
+								selectedAFollowers[option.elias] = (option);
+							}
 
-						if (selectedAFollowers[option.elias] == undefined) {
-							selectedAFollowers[option.elias] = (option);
-						}
+						});// end of each
 
-					});// end of each
-
-				} // end of if
-			});
-
-			// Cancel
-			$('body').on('click', '.closePopover', function () {
-				selectedAFollowers = [];
-				closePopup('.user-popover');
-			});
+					} // end of if
+				})
+				// Cancel
+				.on('click', '.closePopover', function () {
+					selectedAFollowers = [];
+					closePopup('.user-popover');
+				});
 
 			onCloseBtn();
-
 		}
 
 		// Needs to be explicitly triggered (Functionality requested by IS)

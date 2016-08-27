@@ -269,10 +269,11 @@ var ribbonListener = function () {
 	}
 
 	function handleValueFromModal(whichModal, filterType) {
-		var arr = [], option = {
-			value: whichModal.find('div:first-child').attr('filterid'),
-			text: whichModal.find('div:first-child').text(),
-			type: filterType
+		var arr = [], firstDivElem = whichModal.find('.sq-ribbon-filter-text'), option = {
+			value: firstDivElem.attr('filterid'),
+			text: firstDivElem.data('replace-text') === false ? firstDivElem.data('text') : firstDivElem.text(),
+			type: filterType,
+			sourceType: 'modal'
 		};
 
 		option.isSelected = function () {
@@ -509,14 +510,13 @@ var ribbonListener = function () {
 
 		// check object is not empty
 		if ($.isEmptyObject(obj)) {  // IS may call the function with and empty object
-			console.error('empty object');
+			//console.error('empty object');
 			return false;
 		}
 		else {
 			// Call to build object
 			buildObj(obj);
-			console.log(obj);
-			console.log(ISribbonObj);
+
 			if (!raw) {
 				$.each(ISribbonObj, function (n, v) {
 					if (n == 'Sprint') {
@@ -659,6 +659,9 @@ var ribbonListener = function () {
 					if ($(elem).attr('multiple')) {
 						$(elem).multipleSelect('uncheckAll').parents('li').removeClass('active-item-bg');
 					}
+					else if ($(elem).hasClass('popoverMS')) {
+						$(elem).next().empty();
+					}
 					else {
 						$(elem).val('');
 					}
@@ -727,7 +730,7 @@ var ribbonWidgets = function () {
 							tmpData.allSelected = false;
 						}
 
-						if (option.type == 'date') {
+						if (option.type == 'date' || (option.sourceType && option.sourceType == 'modal')) {
 							tmpData.allSelected = false;
 						}
 					});
@@ -741,6 +744,10 @@ var ribbonWidgets = function () {
 			return activeFilters;
 		}
 
+		/**
+		 * Build filter area
+		 * @param activeFilters
+		 */
 		function buildTmpl(activeFilters) {
 			if (plugins['buildTmplBefore']) {
 				activeFilters = plugins['buildTmplBefore'].call(this, activeFilters);
@@ -766,7 +773,14 @@ var ribbonWidgets = function () {
 				}
 				else {
 					if (filterObj.allSelected) {
-						filterHtml += '<li><span>All</span></li>';
+						if (filterObj.multiple) {
+							filterHtml += '<li><span>All</span></li>';
+						}
+						else {
+							filterObj.data.forEach(function (option) {
+								filterHtml += '<li><span>' + option.text + '</span></li>';
+							});
+						}
 					}
 					else {
 						filterObj.data.forEach(function (option) {
@@ -859,8 +873,18 @@ var ribbonWidgets = function () {
 
 			function updateOptionFromModal(filterType) {
 				var $thisModal = $(filterType);
-				$thisModal.find('div:first-child').attr('filterid', '');
-				$thisModal.find('div:first-child').html('<span>' + $thisModal.data('title') + '</span>');
+
+				if ($thisModal.is('LI')) {
+					$thisModal.find('.sq-ribbon-filter-text').attr('filterid', '').data('text', '');
+
+					if ($thisModal.find('.sq-ribbon-filter-text').data('replace-text') !== false) {
+						$thisModal.find('div:first-child').html('<span>' + $thisModal.data('title') + '</span>');
+					}
+				}
+				else {
+					$thisModal.find('div:first-child').attr('filterid', '');
+					$thisModal.find('div:first-child').html('<span>' + $thisModal.data('title') + '</span>');
+				}
 			}
 
 			function updateNoSelectFilters(filterType, option) {
@@ -921,7 +945,10 @@ var ribbonWidgets = function () {
 			}
 
 			function whichFilterType(filterType, option) {
-				if (filterType.parents('li').length) {
+				if (filterType.is('LI')) {
+					filterType.removeClass('active-item-bg');
+				}
+				else if (filterType.parents('li').length) {
 					filterType.parents('li').removeClass('active-item-bg');
 				}
 				else {
@@ -1043,28 +1070,30 @@ var ribbonWidgets = function () {
 	var moreFiltersPopover = function () {
 		// when campaign or project field change
 		function onModalInputchange($modalName) {
-			var changeIcon = function () {
-					$('#filter-' + $modalName).find('#' + $modalName + '-btn')
-						.addClass('hidden').end()
-						.find('> span').removeClass('hidden');
-				},
-				callRibbonListener = function () {
-					ribbonListener.rebuildRibbonState();
-				};
+			if ($(this).get(0).tagName == 'LI') {
+				$(this).addClass('active-item-bg');
+			}
+			else {
+				/*$(this)
+				 .find('.select-btn').addClass('hidden').end()
+				 .find('.clear-btn').removeClass('hidden');*/
+			}
 
-			$.when(changeIcon()).done(callRibbonListener());
+			ribbonListener.rebuildRibbonState();
 		}
 
 		function init() {
 			// Clear campaign or project fields when icon is clicked
-			ribbonElem.on('click', '.clear-btn', function () {
-				var thisParent = $(this).parent('div');
+			ribbonElem.on('click', '.clear-btn', function (e) {
+				e.stopPropagation();
+
+				var title = $(this).parent().data('title');
 
 				$(this).siblings('div')
 					.attr('filterid', '')
-					.html('<span>' + thisParent.data('title') + '</span>').end()
+					.html('<span>' + title + '</span>').end()
 					.addClass('hidden')
-					.siblings('input[type=button]').removeClass('hidden');
+					.siblings('.select-btn').removeClass('hidden');
 
 				// call ribbonListener to track changes
 				ribbonListener.rebuildRibbonState();
@@ -1161,11 +1190,6 @@ $(function () {
 
 					if (!$(this).parents('.disabled').length) {
 						$(this).parent().toggleClass('open');
-					}
-				})
-				.on('click', '> div', function (e) {
-					if (!$(e.target).hasClass('clear-btn')) {
-						e.stopPropagation();
 					}
 				});
 		}

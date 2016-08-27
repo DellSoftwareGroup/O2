@@ -2344,7 +2344,7 @@ a {
 }
 
 .panel-group-collapsible > .panel .panel-body {
-	padding: 0 0 0 21px;
+	padding: 0 21px;
 }
 
 /* Scrollable Table Body */
@@ -2483,6 +2483,7 @@ a {
   /* Icons */
   /* Date Range*/
 	/* Customize Ribbon */
+	/* http://stage-o2/sq/RequestQueues/Projects */
 }
 
 .sq-top-ribbon.initialized {
@@ -2515,7 +2516,7 @@ a {
 	display: inline-block;
 	float: left;
 	padding: 6px;
-	margin-right: 7px;
+	margin: 0 3px;
 	font-size: 12.66px;
 	/*icons*/
 }
@@ -2562,11 +2563,6 @@ a {
 	position: relative;
 }
 
-.sq-top-ribbon > ul > li > ul > li #my-work-icon, .sq-top-ribbon > ul > li > ul > li #requester-icon {
-	background-position: 4px -38px;
-	width: 25px;
-}
-
 .sq-top-ribbon > ul > li > ul > li #dp-Team-icon {
 	background-position: -66px -36px;
 	width: 25px;
@@ -2583,11 +2579,6 @@ a {
 	width: 30px;
 }
 
-.sq-top-ribbon > ul > li > ul > li #department-icon {
-	background-position: -853px 5px;
-	width: 11px;
-}
-
 .sq-top-ribbon > ul > li > ul > li #task-type-icon {
 	background-position: -320px -118px;
 	width: 17px;
@@ -2598,18 +2589,6 @@ a {
 	width: 13px;
 }
 
-.sq-top-ribbon > ul > li > ul > li #owner-icon {
-	background-position: -507px -80px;
-	width: 16px;
-}
-
-.sq-top-ribbon > ul > li > ul > li #request-type-btn, .sq-top-ribbon > ul > li > ul > li #campaign-btn, .sq-top-ribbon > ul > li > ul > li #project-btn, .sq-top-ribbon > ul > li > ul > li .clear-btn {
-	background-position: -17px -127px;
-	width: 14px;
-	height: 13px;
-	margin: -26px 4px 0 0;
-}
-
 .sq-top-ribbon > ul > li > ul > li #requester-btn, .sq-top-ribbon > ul > li > ul > li #owner-btn {
 	background-position: -35px -127px;
 	width: 16px;
@@ -2617,8 +2596,23 @@ a {
 	margin: -27px 4px 0 0;
 }
 
+.sq-top-ribbon > ul > li > ul > li #campaign-btn {
+	background-position: -17px -127px;
+	width: 14px;
+	height: 13px;
+	padding-right: 12px;
+	margin: 0;
+}
+
+.sq-top-ribbon > ul > li > ul > li.has-dropdown #request-type-btn, .sq-top-ribbon > ul > li > ul > li.has-dropdown #campaign-btn, .sq-top-ribbon > ul > li > ul > li.has-dropdown #project-btn, .sq-top-ribbon > ul > li > ul > li.has-dropdown .clear-btn {
+	background-position: -17px -127px;
+	width: 14px;
+	height: 13px;
+	margin: -26px 4px 0 0;
+}
+
 .sq-top-ribbon > ul > li:not(.disabled) li:hover #my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover #requester-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #requester-icon {
-	background-position: 4px 0;
+	background-position: 0 0;
 }
 
 .sq-top-ribbon > ul > li:not(.disabled) li:hover #dp-Team-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #dp-Team-icon {
@@ -2686,10 +2680,6 @@ a {
 	background-color: #fff;
 }
 
-.sq-top-ribbon > ul > li:not(.disabled) .active-item-bg #my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg #requester-icon {
-	background-position: 4px 0;
-}
-
 .sq-top-ribbon > ul > li:not(.disabled) .active-item-bg .ms-choice {
 	background-color: transparent;
 }
@@ -2749,7 +2739,7 @@ a {
 .sq-top-ribbon > ul > li .has-dropdown > div .sq-btn-icon, .sq-top-ribbon > ul > li .has-dropdown > div .glyphicon-remove-sign {
 	float: right;
 	margin-right: 9px !important;
-	margin-top: -25px !important;
+	margin-top: -27px !important;
 }
 
 .sq-top-ribbon > ul > li .has-dropdown > div .sq-ribbon-filter-text, .sq-top-ribbon > ul > li .has-dropdown > div .ms-parent {
@@ -2909,10 +2899,14 @@ a {
 	padding-left: 5px;
 }
 
+.sq-top-ribbon .sq-btn-icon {
+	width: 16px;
+	height: 18px;
+	background-position: -256px -80px;
+}
+
 .sq-top-ribbon #backlog-icon, .sq-top-ribbon .backlog-icon {
 	background-position: -256px 0;
-	width: 16px;
-	height: 16px;
 }
 
 .sq-top-ribbon #started-icon, .sq-top-ribbon .started-icon {
@@ -2923,7 +2917,6 @@ a {
 
 .sq-top-ribbon #idea-icon, .sq-top-ribbon .idea-icon {
 	background-position: -310px 0;
-	width: 16px;
 }
 
 .sq-top-ribbon #done-icon, .sq-top-ribbon .done-icon {
@@ -2940,14 +2933,21 @@ a {
 
 .sq-top-ribbon #portfolio-icon, .sq-top-ribbon .portfolio-icon {
 	background-position: -165px -83px;
-	width: 16px;
-	height: 16px;
 }
 
 .sq-top-ribbon #request-type-icon, .sq-top-ribbon .request-type-icon {
 	background-position: -256px -80px;
-	width: 16px;
+}
+
+.sq-top-ribbon #requester-icon, .sq-top-ribbon .requester-icon {
+	background-position: 0 -38px;
+	width: 18px;
 	height: 16px;
+}
+
+.sq-top-ribbon .my-work-icon {
+	background-position: 4px -38px;
+	width: 25px;
 }
 
 .sq-top-ribbon #jan-fy-icon, .sq-top-ribbon .sprint-icon {
@@ -2957,28 +2957,33 @@ a {
 	float: none !important;
 }
 
+.sq-top-ribbon #department-icon, .sq-top-ribbon .department-icon {
+	background-position: -853px 5px;
+	width: 11px;
+}
+
+.sq-top-ribbon #owner-icon, .sq-top-ribbon .owner-icon {
+	background-position: -507px -80px;
+}
+
 .sq-top-ribbon .buyer-journey-icon {
 	background-position: -106px -38px;
-	width: 16px;
-	height: 16px;
 }
 
 .sq-top-ribbon .agile-team-icon {
 	background-position: -31px -38px;
-	width: 16px;
-	height: 16px;
 }
 
 .sq-top-ribbon .region-icon {
 	background-position: -136px -38px;
-	width: 16px;
-	height: 16px;
 }
 
 .sq-top-ribbon .rtm-icon {
 	background-position: -199px -38px;
-	width: 16px;
-	height: 16px;
+}
+
+.sq-top-ribbon .hamburger-icon {
+	background-position: -17px -125px;
 }
 
 .sq-top-ribbon > ul > li:not(.disabled) li:hover #jan-fy-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .sprint-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #jan-fy-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .sprint-icon {
@@ -2991,6 +2996,10 @@ a {
 
 .sq-top-ribbon > ul > li:not(.disabled) li:hover #request-type-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover .request-type-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #request-type-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .request-type-icon {
 	background-position: -256px -118px;
+}
+
+.sq-top-ribbon > ul > li:not(.disabled) li:hover .my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) li:hover #requester-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg .my-work-icon, .sq-top-ribbon > ul > li:not(.disabled) li.active-item-bg #requester-icon {
+	background-position: 4px 0;
 }
 
 .sq-top-ribbon .sq-icon-text-inline .sq-btn-icon-text {
@@ -3068,6 +3077,29 @@ a {
 	min-width: 145px;
 }
 
+.sq-top-ribbon[data-ribbon=projects] > ul > li {
+	padding: 5px 5px 20px;
+}
+
+.sq-top-ribbon[data-ribbon=projects] > ul > li > ul > li {
+	margin: 0 2px;
+}
+
+.sq-top-ribbon[data-ribbon=projects] #filters-section select {
+	width: 120px;
+}
+
+.sq-top-ribbon[data-ribbon=projects] #filters-section > ul > li {
+	width: 148px;
+}
+
+.sq-top-ribbon[data-ribbon=projects] #filters-section > ul > li .sq-ribbon-filter-text {
+	width: 120px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 #views select {
 	width: 80px;
 }
@@ -3084,12 +3116,13 @@ a {
   .sq-top-ribbon > ul > li {
 	  padding: 5px 23px 20px;
   }
-    .sq-top-ribbon > ul > li > ul > li {
-	    margin-right: 7px;
-    }
   .sq-top-ribbon #agile-status ul > li {
 	  width: 92px;
   }
+
+	.sq-top-ribbon[data-ribbon=projects] > ul > li {
+		padding: 5px 10px 20px;
+	}
 }
 /*filters collector */
 .filter-collector, .search-filter-collector {

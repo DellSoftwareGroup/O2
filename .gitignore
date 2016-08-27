@@ -2,3 +2,10 @@
 .idea/*
 SQ/singlequeue/pages/index.html
 
+/SQ/Static/Scripts/*.min.js
+
+/SQ/Static/CSS/*.css
+/SQ/Static/CSS/*.min.css
+
+/SQ/Static/Scripts/RequestQueues/*.min.js
+!/SQ/Static/Scripts/RequestQueues/bootstrap-3.3.4.min.js
