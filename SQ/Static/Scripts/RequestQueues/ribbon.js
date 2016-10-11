@@ -653,6 +653,11 @@ var ribbonListener = function () {
 			.on('click', '.reset-filter', function () {
 				$rbWrapper.find('select').filter('[multiple=multiple]').each(function () {
 					$(this).multipleSelect('uncheckAll').parents('li').removeClass('active-item-bg');
+
+					$(this).next().find('label').filter('.disabled').each(function () {
+						$(this).removeClass('disabled');
+						$(this).find(':input').prop('disabled', false);
+					});
 				});
 
 				$.each(filters, function (indx, elem) {
