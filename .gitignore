@@ -8,4 +8,12 @@ SQ/singlequeue/pages/index.html
 /SQ/Static/CSS/*.map
 
 /SQ/Static/Scripts/RequestQueues/*.min.js
+/SQ/Static/Scripts/RequestQueues/*.map
 !/SQ/Static/Scripts/RequestQueues/bootstrap-3.3.4.min.js
+
+/SQ/Static/Scripts/RequestQueues/qtip/*.min.css
+
+/SQ/Static/Scripts/RequestQueues/qtip/*.min.js
+!/SQ/Static/Scripts/RequestQueues/qtip/imagesloaded.pkg.min.js
+
+!/SQ/Static/Scripts/RequestQueues/qtip/jquery.qtip-custom.min.css
