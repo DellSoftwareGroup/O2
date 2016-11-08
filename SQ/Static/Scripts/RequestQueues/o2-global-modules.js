@@ -65,13 +65,20 @@ var globalModules = function () {
 				minWidth: 400,
 				title: false,
 				scrollable: false,
+				activate: function () {
+					//Enable tooltip
+					//Find all tooltip elements in the modal.
+					var allTooltipElem = $("#addReqModal").find('[data-toggle="tooltip"]');
+
+					//Check the first tooltip element to see if tooltip has already been enabled. If enabled, do not re-initialize tooltip.
+					if (allTooltipElem.filter(':eq(0)').data()['bs.tooltip'] === undefined) {
+						allTooltipElem.tooltip();
+					}
+				},
 				open: function () {
 					var content = globalModules.addNewRequesModal.returnData();
 
-					// var modalContent = $.parseHTML(content.FieldDesc_1);
-					//$('#tabstrip-modal').find('.editable-content').append(modalContent[0].data);
 					$('#tabstrip-modal').find('.editable-content').append(content.FieldDesc_1);
-					
 				}
 			});
 		};
@@ -93,8 +100,9 @@ var globalModules = function () {
 
 			// expand all functionality gets initialized
 			// Off was needed to fix issue of double triggering click event
-			$('body').off('click', '#expandable-control').on('click', '#expandable-control', function () {
-				//console.log('hit');
+			$('body')
+				.off('click', '#expandable-control')
+				.on('click', '#expandable-control', function () {
 				if ($(this).data('expandables-state') == 'closed') {
 					$('.collapsed').trigger('click');
 					$(this).data('expandables-state', 'open')
