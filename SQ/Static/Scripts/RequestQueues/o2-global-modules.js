@@ -71,8 +71,12 @@ var globalModules = function () {
 					var allTooltipElem = $("#addReqModal").find('[data-toggle="tooltip"]');
 
 					//Check the first tooltip element to see if tooltip has already been enabled. If enabled, do not re-initialize tooltip.
-					if (allTooltipElem.filter(':eq(0)').data()['bs.tooltip'] === undefined) {
-						allTooltipElem.tooltip();
+					try {
+						if (allTooltipElem.filter(':eq(0)').data()['bs.tooltip'] === undefined) {
+							allTooltipElem.tooltip();
+						}
+					}
+					catch (e) {
 					}
 				},
 				open: function () {
