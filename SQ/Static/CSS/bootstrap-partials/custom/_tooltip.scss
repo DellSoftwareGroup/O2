@@ -31,7 +31,7 @@
     padding: $tooltip-arrow-width $tooltip-arrow-height;
   }
   &.right {
-    margin-left: 12px;
+    margin-left: 15px;
     padding: $tooltip-arrow-width $tooltip-arrow-height;
   }
   &.bottom {
@@ -47,6 +47,7 @@
 // Wrapper for the tooltip content
 .tooltip-inner {
   max-width: $tooltip-max-width;
+  min-width: $tooltip-min-width;
   padding: 3px 8px;
   color: $tooltip-color;
   text-align: left;
@@ -119,7 +120,7 @@
   }
   &.right .tooltip-arrow {
     top: 50%;
-    left: -10px;
+    left: -23px;
     margin-top: -10px;
     border-left-width: 1;
     border-right-color: #444;
@@ -137,7 +138,7 @@
   }
   &.left .tooltip-arrow {
     top: 50%;
-    right: -10px;
+    right: -23px;
     margin-top: -10px;
     border-right-width: 1;
     border-left-color: #444;
