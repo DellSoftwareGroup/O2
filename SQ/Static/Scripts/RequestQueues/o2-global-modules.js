@@ -32,7 +32,8 @@ var globalModules = function () {
 		endPointMap = {
 			listing: '/sq/genericcontent/getcontent/?id=1',
 			request: '/sq/genericcontent/getcontent/?id=5', // not in use currently!
-			project: '/sq/genericcontent/getcontent/?id=22',
+			//project: '/sq/genericcontent/getcontent/?id=22',
+			project: '/sq/genericcontent/getcontent/?id=1',
 			active: ''
 		};
 
