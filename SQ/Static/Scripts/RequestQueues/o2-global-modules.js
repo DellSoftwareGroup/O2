@@ -74,9 +74,7 @@ var globalModules = function () {
 					//Check the first tooltip element to see if tooltip has already been enabled. If enabled, do not re-initialize tooltip.
 					try {
 						if (allTooltipElem.filter(':eq(0)').data()['bs.tooltip'] === undefined) {
-							allTooltipElem.tooltip({
-								trigger: 'hover'
-							});
+							allTooltipElem.tooltip();
 						}
 					}
 					catch (e) {

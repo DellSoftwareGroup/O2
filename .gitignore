@@ -9,7 +9,6 @@ SQ/singlequeue/pages/index.html
 
 /SQ/Static/Scripts/RequestQueues/*.min.js
 /SQ/Static/Scripts/RequestQueues/*.map
-!/SQ/Static/Scripts/RequestQueues/bootstrap-3.3.4.min.js
 
 /SQ/Static/Scripts/RequestQueues/qtip/*.min.css
 
