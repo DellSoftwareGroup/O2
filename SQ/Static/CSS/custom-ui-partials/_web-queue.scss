@@ -266,48 +266,6 @@
 	overflow: hidden;
 }
 
-/* tooltip styles */
-
-/*.tooltip {
-  display: inline;
-  position: relative;
-  &:hover {
-    &:after {
-      background: #fff;
-      !* background: rgba(256,256,256,.8); *!
-      border-radius: 5px;
-      bottom: 26px;
-      color: #444;
-      content: attr(data-tooltip);
-      left: 20%;
-      padding: 10px;
-      position: absolute;
-      z-index: 9998;
-      width: 180px;
-      border: 1px #ccc solid;
-      box-shadow: 1px 1px 5px #ccc;
-    }
-    &:before {
-      !* arrow at the bottom *!
-      border: solid;
-      border-color: #aaa transparent;
-      border-width: 8px 8px 0px 8px;
-      bottom: 19px;
-      content: "";
-      left: 80%;
-      position: absolute;
-      z-index: 9999;
-    }
-  }
-}*/
-
-/* special positioning for first alert */
-
-/*tbody tr:first-child .tooltip:hover:after {
-  top: -50px;
-  padding: 5px;
-}*/
-
 /* pagination styles */
 
 .pagination {
