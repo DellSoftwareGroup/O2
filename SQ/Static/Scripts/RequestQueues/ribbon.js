@@ -208,6 +208,12 @@ var initRibbon = function () {
 }();
 
 var ribbonListener = function () {
+	var plugins = {};
+
+	function addPlugin(pluginName, fn) {
+		plugins[pluginName] = fn;
+	}
+
 	/* Private Variables */
 	var ribbonReqObj = {}, filtersMap = {}, isDoneLoading = false, initISfunc = {}, filters = null; // isDoneLoading : it gets set by kendo Grid on Databound
 
@@ -566,6 +572,10 @@ var ribbonListener = function () {
 				});
 			}
 
+			if (plugins['getISobjAfter']) {
+				ISribbonObj = plugins['getISobjAfter'].call(this, ISribbonObj);
+			}
+
 			return ISribbonObj;
 		}
 	}
@@ -700,7 +710,8 @@ var ribbonListener = function () {
 		init: init,
 		rebuildRibbonState: rebuildRibbonState,
 		passFilterStateObj: passFilterStateObj,
-		getISobj: getISobj
+		getISobj: getISobj,
+		addPlugin: addPlugin
 	}
 
 }();
@@ -1230,11 +1241,11 @@ $(function () {
 						nextElem.append('<div class="mt-10 mb-10 text-right"><button class="btn btn-default mr-10">Reset</button><button class="btn btn-primary mr-10">Apply</button></div>');
 
 						nextElem.on('click', '.btn-default', function () {
-							$(elem).parents('.ms-parent').prev().multipleSelect('uncheckAll');
+							$(elem).parents('.ms-parent').prev().multipleSelect('uncheckAll').trigger('reset');
 						});
 
 						nextElem.on('click', '.btn-primary', function () {
-							$(this).parents('.ms-parent').prev().multipleSelect('close');
+							$(this).parents('.ms-parent').prev().multipleSelect('close').trigger('apply');
 						});
 					}
 
