@@ -112,7 +112,6 @@ var initRibbon = function () {
 			ribbonElem.find('.active-item-bg').removeClass('active-item-bg');
 
 			$filters.forEach(function (filterType) {
-				console.log(filterType);
 				var filterInfo = getFilterInfo(filterType);
 
 				// If multiSelect filter typ
