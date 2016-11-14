@@ -68,9 +68,7 @@ var initRibbon = function () {
 						val = arr;
 					}
 					else {
-						arr = [];
-						arr.push(info.option);
-						val = arr;
+						val = [info.option];
 						title = info.title;
 					}
 				}
@@ -93,7 +91,7 @@ var initRibbon = function () {
 				filtersMap[title] = {
 					option: val,
 					original: prop
-				}
+				};
 			});
 
 			return filterTitles;
@@ -114,11 +112,21 @@ var initRibbon = function () {
 			ribbonElem.find('.active-item-bg').removeClass('active-item-bg');
 
 			$filters.forEach(function (filterType) {
+				console.log(filterType);
 				var filterInfo = getFilterInfo(filterType);
 
 				// If multiSelect filter typ
 				if (filterType.attr('multiple')) { // check for multiselect
 					//setMultiSelects($(filterType), filterInfo.option);
+					// If option is null, select all options.
+					if (filterInfo.option === null) {
+						filterInfo.option = [];
+
+						filterType.find('option').each(function () {
+							filterInfo.option.push($(this).val());
+						});
+					}
+
 					filterType.multipleSelect('setSelects', filterInfo.option);
 
 					if (filterInfo.option.length) {
